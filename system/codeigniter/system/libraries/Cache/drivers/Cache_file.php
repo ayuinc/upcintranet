@@ -155,12 +155,8 @@ class CI_Cache_file extends CI_Driver {
 
 			if (delete_files($path, TRUE))
 			{
-				// Try to remove the namespace directory; it may not be
-				// removeable on some high traffic sites where the cache fills
-				// back up quickly
-				@rmdir($path);
-
-				return TRUE;
+				// Remove the namespace directory
+				return rmdir($path);
 			}
 
 			return FALSE;

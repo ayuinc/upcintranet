@@ -404,7 +404,7 @@ class Channel_form_lib
 			//custom field pair parsing with replace_tag
 			elseif (isset($this->custom_fields[$tag_name]))
 			{
-				if (preg_match_all('/'.LD.preg_quote($tag_pair_open).RD.'(.*?)'.LD.'\/'.$tag_name.RD.'/s', ee()->TMPL->tagdata, $matches))
+				if (preg_match_all('/'.LD.preg_quote($tag_pair_open).RD.'(.*)'.LD.'\/'.$tag_name.RD.'/s', ee()->TMPL->tagdata, $matches))
 				{
 					foreach ($matches[1] as $match_index => $var_pair_tagdata)
 					{
@@ -578,7 +578,9 @@ class Channel_form_lib
 		{
 			$this->parse_variables['title']		= $this->channel('default_entry_title');
 			$this->parse_variables['url_title'] = $this->channel('url_title_prefix');
+
 			$this->parse_variables['allow_comments'] = ($this->channel('deft_comments') == 'n' OR $this->channel('comment_system_enabled') != 'y') ? '' : "checked='checked'";
+
 
 			if ($this->datepicker)
 			{
@@ -611,12 +613,6 @@ class Channel_form_lib
 
 					$this->parse_variables['comment_expiration_date'] = $comment_expiration_date;
 				}
-			}
-			else
-			{
-				$this->parse_variables['entry_date'] = ee()->localize->human_time();
-				$this->parse_variables['expiration_date'] = '';
-				$this->parse_variables['comment_expiration_date'] = '';
 			}
 
 			foreach ($this->custom_fields as $field)
@@ -1288,8 +1284,9 @@ GRID_FALLBACK;
 			{
 				$conditional_errors['error:' . $error['field']] = $error['error'];
 			}
-		}
 
+			unset($conditional_errors['field_errors']);
+		}
 
 		return $conditional_errors;
 	}
@@ -1493,6 +1490,12 @@ GRID_FALLBACK;
 
 		foreach ($this->custom_fields as $i => $field)
 		{
+			$isset = (
+				isset($_POST['field_id_'.$field['field_id']]) ||
+				isset($_POST[$field['field_name']]) ||
+				isset($_POST[$field['field_name'].'_hidden_file']) // always call the fieldtype if a file field was on the page
+			);
+
 			if (in_array($field['field_type'], $this->file_fields))
 			{
 				// trick validation into calling the file fieldtype
@@ -1501,13 +1504,6 @@ GRID_FALLBACK;
 					$_POST[$field['field_name']] = $_FILES[$field['field_name']]['name'];
 				}
 			}
-
-			$isset = (
-				isset($_POST['field_id_'.$field['field_id']]) ||
-				isset($_POST[$field['field_name']]) ||
-				// always call the fieldtype if a file field was on the page
-				isset($_POST[$field['field_name'].'_hidden_file'])
-			);
 
 			$this->custom_fields[$i]['isset'] = $isset;
 
@@ -2768,7 +2764,7 @@ GRID_FALLBACK;
 				{
 					$row = trim($row);
 
-					if ($row == '')
+					if ( ! $row)
 					{
 						continue;
 					}

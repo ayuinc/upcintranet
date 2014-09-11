@@ -3,8 +3,7 @@
 <?=form_open($form_action)?>
 
 <?php
-if (isset($components['fieldtype']) && $components['fieldtype']['installed'])
-{
+if (isset($components['fieldtype'])){
 	echo '<p class="notice">'.lang('fieldtype_data_will_be_lost').'</p>';
 }
 

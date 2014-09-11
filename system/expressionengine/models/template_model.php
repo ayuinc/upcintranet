@@ -86,7 +86,9 @@ class Template_model extends CI_Model {
 	 */
 	protected function _load_template_file(Template_Entity $template, $only_load_last_edit=FALSE)
 	{
-		// Fetch the site config if we need it
+		// FIXME  Why on EARTH was this done in the Template parser and not
+		// originally written right into EE_Config?  Why is EE_Config not
+		// itself capable of caching preferences when used with MSM
 		$site_switch = FALSE;
 		if ($this->config->item('site_id') != $template->site_id)
 		{
@@ -106,7 +108,7 @@ class Template_model extends CI_Model {
 		// Get the filepath to the template's saved file.
 		$this->load->library('api');
 		$this->api->instantiate('template_structure');
-		$basepath = $this->config->slash_item('tmpl_file_basepath');
+		$basepath = rtrim($this->config->item('tmpl_file_basepath'), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
 
 		$filepath = $basepath . $this->config->item('site_short_name') . DIRECTORY_SEPARATOR
 			. $template->get_group()->group_name . '.group' . DIRECTORY_SEPARATOR . $template->template_name
@@ -426,8 +428,7 @@ class Template_model extends CI_Model {
 			'enable_http_auth' => $entity->enable_http_auth,
 			'allow_php' => $entity->allow_php,
 			'php_parse_location' => $entity->php_parse_location,
-			'hits' => $entity->hits,
-			'protect_javascript' => $entity->protect_javascript
+			'hits' => $entity->hits
 		);
 		return $data;
 	}
@@ -1243,8 +1244,6 @@ class Template_Entity {
 	 *
 	 */
 	protected $hits;
-
-	protected $protect_javascript;
 
 
 	// ----------------------------------------------------

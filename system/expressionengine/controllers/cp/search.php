@@ -31,8 +31,8 @@ class Search extends CP_Controller {
 	{
 		parent::__construct();
 
-		ee()->lang->loadfile('admin');
-		ee()->load->library('Cp_search');
+		$this->lang->loadfile('admin');
+		$this->load->library('Cp_search');
 	}
 
 	// --------------------------------------------------------------------
@@ -45,23 +45,23 @@ class Search extends CP_Controller {
 	 */
 	function index()
 	{
-		ee()->load->helper('html');
-		ee()->load->helper('search');
+		$this->load->helper('html');
+		$this->load->helper('search');
 
 		$vars['cp_page_title'] = lang('search_results');
-		ee()->view->cp_page_title = $vars['cp_page_title'];
+		$this->view->cp_page_title = $vars['cp_page_title'];
 
 		// Saved search
-		if ($search = ee()->input->get('saved'))
+		if ($search = $this->input->get('saved'))
 		{
 			$search = base64_decode(rawurldecode($search));
 		}
 		else
 		{
-			$search = ee()->input->get_post('cp_search_keywords', TRUE);
+			$search = $this->input->get_post('cp_search_keywords', TRUE);
 		}
 
-		if ( ! ee()->cp_search->_check_index())
+		if ( ! $this->cp_search->_check_index())
 		{
 			// Save the search
 			$search = rawurlencode(base64_encode($search));
@@ -69,33 +69,28 @@ class Search extends CP_Controller {
 			if (AJAX_REQUEST)
 			{
 				// Force a js redirect
-				$url = cp_url('search/build_index', array(
-					'saved' => $search
-				));
-				$url = str_replace('&amp;', '&', $url);
+				$url = str_replace('&amp;', '&', BASE).'&C=search&M=build_index&saved='.$search;
 				echo '<script type="text/javascript">window.location="'.$url.'";</script>';
 				exit;
 			}
 
 			// Degrade 'nicely'
-			ee()->functions->redirect(cp_url('search/build_index', array(
-					'saved' => $search
-				)));
+			$this->functions->redirect(BASE.AMP.'C=search'.AMP.'M=build_index'.AMP.'saved='.$search);
 		}
 
 
 		$vars['keywords'] = sanitize_search_terms($search);
-		$vars['can_rebuild'] = ee()->cp->allowed_group('can_access_utilities');
-		$vars['search_data'] = ee()->cp_search->generate_results($search);
+		$vars['can_rebuild'] = $this->cp->allowed_group('can_access_utilities');
+		$vars['search_data'] = $this->cp_search->generate_results($search);
 		$vars['num_rows'] = count($vars['search_data']);
 
 		if (AJAX_REQUEST)
 		{
-			echo ee()->load->view('search/sidebar', $vars, TRUE);
+			echo $this->load->view('search/sidebar', $vars, TRUE);
 			exit;
 		}
 
-		ee()->cp->render('search/results', $vars);
+		$this->cp->render('search/results', $vars);
 	}
 
 	// --------------------------------------------------------------------
@@ -111,52 +106,41 @@ class Search extends CP_Controller {
 	function build_index()
 	{
 		// Did they specify a language
-		$language = ee()->input->get('language') ?: ee()->config->item('deft_lang');
+		$language = $this->input->get('language');
+		$language = $language ? $language : $this->config->item('language');
 
 		// Show an intermediate page so they don't refresh and make sure we keep any saved searches
-		$working = ee()->input->get('working');
-		$saved   = ee()->input->get('saved') ?: '';
+		$flag = $this->input->get('working');
+		$saved = $this->input->get('saved') ? AMP.'saved='.$this->input->get('saved') : '';
 
-		if ( ! $working)
+		if ( ! $flag)
 		{
 			$vars['cp_page_title'] = 'Rebuilding Index';
-			ee()->view->cp_page_title = $vars['cp_page_title'];
+			$this->view->cp_page_title = $vars['cp_page_title'];
 
 			// Meta refresh to start the process
-			$refresh_url = cp_url('search/build_index', array(
-				'language' => $language,
-				'working'  => 'y',
-				'saved'    => $saved
-			));
-			$meta = '<meta http-equiv="refresh" content="3;url='.$refresh_url.'" />';
-			ee()->cp->add_to_head($meta);
-			ee()->cp->render('search/rebuild', $vars);
+			$meta = '<meta http-equiv="refresh" content="1;url='.BASE.AMP.'C=search'.AMP.'M=build_index'.AMP.'language='.$language.AMP.'working=y'.$saved.'" />';
+			$this->cp->add_to_head($meta);
+			$this->cp->render('search/rebuild', $vars);
 		}
-		elseif ($working == 'y')
+		elseif ($flag == 'y')
 		{
 			// Clear all keywords for this language
-			ee()->db->where('language', $language);
-			ee()->db->delete('cp_search_index');
+			$this->db->where('language', $language);
+			$this->db->delete('cp_search_index');
 
 			// And we're on our way
-			ee()->cp_search->_build_index($language);
-			ee()->functions->redirect(
-				cp_url('search/build_index', array(
-					'working' => 'n',
-					'saved'   => $saved
-				))
-			);
+			$this->cp_search->_build_index($language);
+			$this->functions->redirect(BASE.AMP.'C=search'.AMP.'M=build_index'.AMP.'working=n'.$saved);
 		}
 		else
 		{
-			if ( ! empty($saved))
+			if ($saved)
 			{
-				ee()->functions->redirect(cp_url('search', array(
-					'saved' => $saved
-				)));
+				$this->functions->redirect(BASE.AMP.'C=search'.$saved);
 			}
 
-			ee()->functions->redirect(cp_url('homepage'));
+			$this->functions->redirect(BASE.AMP.'C=homepage');
 		}
 	}
 

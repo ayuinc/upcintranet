@@ -94,11 +94,6 @@
 				}
 			}
 
-			if (empty($category_name))
-			{
-				return '';
-			}
-
 			ee()->load->model('category_model');
 			return ee()->category_model->get_category_id($category_name);
 		}

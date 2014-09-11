@@ -344,13 +344,11 @@ class EE_Config Extends CI_Config {
 		// Loop through each site and decode Pages information
 		foreach ($sites as $site)
 		{
-			$data = (isset($site['site_pages'])) ? base64_decode($site['site_pages']) : '';
+			$data = base64_decode($site['site_pages']);
 
-			// No Pages data
 			if ( ! is_string($data) OR substr($data, 0, 2) != 'a:')
 			{
 				$site_pages[$site['site_id']] = array('uris' => array(), 'templates' => array());
-				continue;
 			}
 
 			$data = unserialize($data);
@@ -916,7 +914,7 @@ class EE_Config Extends CI_Config {
 		// Is the config file writable?
 		if ( ! is_really_writable($this->config_path))
 		{
-			show_error(lang('unwritable_config_file'), 503);
+			show_error('Your config.php file does not appear to have the proper file permissions.  Please set the file permissions to 666 on the following file: expressionengine/config/config.php', 503);
 		}
 
 		// Read the config file as PHP
@@ -961,6 +959,8 @@ class EE_Config Extends CI_Config {
 					$val = str_replace('\\', '\\\\', $val);
 					$val = str_replace("'", "\\'", $val);
 					$val = str_replace("\"", "\\\"", $val);
+
+					$val = '"'.$val.'"';
 				}
 
 				// Are we adding a brand new item to the config file?
@@ -970,28 +970,20 @@ class EE_Config Extends CI_Config {
 				}
 				else
 				{
-					$base_regex = '#(\$config\[(\042|\047)'.$key.'\\2\]\s*=\s*)';
-
-					// Here we need to determine which regex to use for matching
-					// the config varable's value; if we're replacing an array,
-					// use regex that spans multiple lines until hitting a
-					// semicolon
+					// Here we need to determine which regex to use for matching the config
+					// varable's value; if we're replacing an array, use regex that spans
+					// multiple lines until hitting a semicolon
 					if (is_array($new_values[$key]))
 					{
-						$config_file = preg_replace(
-							$base_regex.'(.*?;)#s',
-							"\${1}{$val};",
-							$config_file
-						);
+						$regex_string = '(.*?;)#s';
 					}
 					else // Otherwise, use the one-liner match
 					{
-						$config_file = preg_replace(
-							$base_regex.'((\042|\047)[^\\4]*?\\4);#',
-							"\${1}\${4}{$val}\${4};",
-							$config_file
-						);
+						$regex_string = "((['\"])[^\\4]*?\\4);#";
 					}
+
+					// Update the value
+					$config_file = preg_replace('#(\$'."config\[(['\"])".$key."\\2\]\s*=\s*)".$regex_string, "\\1$val;", $config_file);
 				}
 			}
 		}
@@ -1006,7 +998,7 @@ class EE_Config Extends CI_Config {
 			$new_data = '';
 			foreach ($to_be_added as $key => $val)
 			{
-				$new_data .= "\$config['".$key."'] = '".$val."';".$newline;
+				$new_data .= "\$config['".$key."'] = ".$val.";".$newline;
 			}
 
 			// First we look for our comment marker in the config file. If found, we'll swap
@@ -1219,6 +1211,7 @@ class EE_Config Extends CI_Config {
 				'multiple_sites_enabled'	=> array('r', array('y' => 'yes', 'n' => 'no')),
 				'is_system_on'				=> array('r', array('y' => 'yes', 'n' => 'no')),
 				'is_site_on'				=> array('r', array('y' => 'yes', 'n' => 'no')),
+				'license_number'			=> array('i', ''),
 				'site_name'					=> array('i', '', 'required'),
 				'site_index'				=> array('i', ''),
 				'site_url'					=> array('i', '', 'required'),
@@ -1285,11 +1278,6 @@ class EE_Config Extends CI_Config {
 				'name_of_dictionary_file'	=> array('i', ''),
 				'un_min_len'				=> array('i', ''),
 				'pw_min_len'				=> array('i', '')
-			),
-
-			'software_registration'	=> array(
-				'license_contact'			=> array('i', '', 'required'),
-				'license_number'			=> array('i', '', 'callback__valid_license_pattern')
 			),
 
 			'throttling_cfg'	=>	array(
@@ -1653,8 +1641,6 @@ class EE_Config Extends CI_Config {
 			'require_ip_for_login'		=> array('require_ip_explanation'),
 			'allow_multi_logins'		=> array('allow_multi_logins_explanation'),
 			'name_of_dictionary_file'	=> array('dictionary_explanation'),
-			'license_contact'			=> array('license_contact_explanation'),
-			'license_number'			=> array('license_number_explanation'),
 			'force_query_string'		=> array('force_query_string_explanation'),
 			'image_resize_protocol'		=> array('image_resize_protocol_exp'),
 			'image_library_path'		=> array('image_library_path_exp'),
