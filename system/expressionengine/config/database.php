@@ -5,8 +5,8 @@ $active_record = TRUE;
 
 $db['expressionengine']['hostname'] = 'localhost';
 $db['expressionengine']['username'] = 'root';
-$db['expressionengine']['password'] = 'root';
-$db['expressionengine']['database'] = 'upcintranet';
+$db['expressionengine']['password'] = 'pD9scFcKaN';
+$db['expressionengine']['database'] = 'UPC-Intranet';
 $db['expressionengine']['dbdriver'] = 'mysql';
 $db['expressionengine']['pconnect'] = FALSE;
 $db['expressionengine']['dbprefix'] = 'exp_';
@@ -16,7 +16,7 @@ $db['expressionengine']['cache_on'] = FALSE;
 $db['expressionengine']['autoinit'] = FALSE;
 $db['expressionengine']['char_set'] = 'utf8';
 $db['expressionengine']['dbcollat'] = 'utf8_general_ci';
-$db['expressionengine']['cachedir'] = '/Applications/MAMP/htdocs/upcintranet/system/expressionengine/cache/db_cache/';
+$db['expressionengine']['cachedir'] = '/var/www/html/system/expressionengine/cache/db_cache/';
 
 /* End of file database.php */
 /* Location: ./system/expressionengine/config/database.php */

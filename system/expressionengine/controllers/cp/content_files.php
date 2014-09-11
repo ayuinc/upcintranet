@@ -367,7 +367,7 @@ class Content_files extends CP_Controller {
 					$is_image = $this->filemanager->is_editable_image($file_path, $file['mime_type']);
 
 					$r['file_name'] = anchor(
-						$file_location.'?v='.$file['modified_date'], // Cache-bust
+						$file_location,
 						$file['file_name'],
 						array(
 							'class'	=> 'less_important_link overlay',
@@ -845,15 +845,10 @@ class Content_files extends CP_Controller {
 			)
 		);
 
-		// This is needed for editing/adding categories
-		$this->load->library('file_field');
-		$this->file_field->browser();
-
 		// Droppable is in here because of publish_tabs
 		$this->cp->add_js_script(array(
 			'ui'		=> array('droppable'),
-			'file'		=> array('cp/publish_tabs', 'cp/category_editor'),
-			'plugin' 	=> array('ee_url_title')
+			'file'		=> array('cp/publish_tabs')
 		));
 
 		$this->cp->render('content/files/edit_file', $data);

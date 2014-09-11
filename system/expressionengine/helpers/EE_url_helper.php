@@ -54,9 +54,7 @@ function cp_url($path, $qs = '')
 
 	$path = rtrim('?/cp/'.$path, '/');
 
-	$base = (REQ == 'CP') ? SELF : ee()->config->item('cp_url');
-
-	return $base.$path.rtrim('&'.$qs, '&');
+	return SELF.$path.rtrim('?'.$qs, '?');
 }
 
 // ------------------------------------------------------------------------
