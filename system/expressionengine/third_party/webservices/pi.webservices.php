@@ -63,31 +63,7 @@ class Webservices
     // END
 
     public function token_alumno_soap(){
-        include_once 'nusoap/lib/nusoap.php';
-        $username= ee()->TMPL->fetch_param('username');
-        //$username= "pellanoire";
-        $id_curse= ee()->TMPL->fetch_param('id_curse');
-        //instantiate the NuSOAP class and define the web service URL:
-        $client = new nusoap_client('http://miscursosucb.belcorp.biz/auth/belcorpws/belcorpws_server.php?wsdl', 'WSDL');
-        //check if there were any instantiation errors, and if so stop execution with an error message:
-        $error = $client->getError();
-        if ($error) {
-          die("client construction error: {$error}\n");
-        }
-        $param = array('username' => $username);
-        //perform a function call without parameters:
-        $answer = $client->call('login_usuario', $param);
-        //check if there were any call errors, and if so stop execution with some error messages:
-        $error = $client->getError();
-        if ($error) {
-          print_r($client->response);
-          print_r($client->getDebug());
-          die();
-        }
-        $url='http://miscursosucb.belcorp.biz/auth/belcorpws/client/client.php?usuario='.$username.'&token='.$answer.'&curso='.$id_curse;
-        //output the response (in the form of a multidimensional array) from the function call:
-        return '{exp:redirecturl url="'.$url.'"}';
-
+        return "";
     }
 
     public function token_alumno_curl(){
