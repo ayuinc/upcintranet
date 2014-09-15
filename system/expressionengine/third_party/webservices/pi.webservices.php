@@ -60,15 +60,12 @@ class Webservices
         ob_end_clean();
         return $buffer;
     }
-    // END
 
-    public function token_alumno_soap(){
-        return "";
-    }
-
-    public function token_alumno_curl(){
-        $form = '';
-        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo=u201421481&Contrasena=u201421481&Plataforma=C';
+    public function consultar_alumno(){
+        $codigo = ee()->TMPL->fetch_param('codigo');
+        $contrasena = ee()->TMPL->fetch_param('contrasena');
+        $plataforma = ee()->TMPL->fetch_param('plataforma');
+        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma.'';
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
