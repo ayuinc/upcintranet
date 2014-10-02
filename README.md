@@ -1,87 +1,23 @@
-# Ayu Consulting S.A.C.
+NSM Morphine theme addon for EE 2.0
+===================================
 
-Ayu Consulting Expression Engine Boilerplate
+This addon is intended to extended the default ExpressionEngine 2.0 theme with new styles specifically for addon development. It's still in heavy development and likely to change.
 
-Descarga el boilerplate con el siguiente comando: 
+Note: Activating the accessory won't add a new tab to the control panel footer.
 
-	git clone https://github.com/ayuinc/bp_exp_ayu.git nombre_del_nuevo_proyecto
+Installation & Activation
+-------------------------
 
-## Etapa de Desarrollo
+1. Download the master branch and extract the zip to your desktop. 
+2. Rename the folder to `nsm_morphine_theme` and drop it in the `/system/expressionengine/thirdparty/` directory of your ExpressionEngine install
+4. Move, copy or symlink `/themes/third_party/nsm_morphine` into `/themes/third_party/`
+5. Activate the accessory for all pages and all member groups
 
-### Frontend
+For developers
+==============
 
-Desde la consola navega hasta el directorio "stylesheets" y ejecuta: 
+If you want to display the CP module page and custom field tests update the following class values in `upd.nsm_morphine_theme.php` before installing:
 
-  	sass --watch main.scss:main.css
-
-__RECUERDA__: El nombre de tus vistas, branches, clases y id's deberán contener la siguiente nomenclatura: 
-
-###### Vistas
-
-Las vistas son los templates principales. Generalmente representan una vista para el modelo MVC (index, show, new, edit).
-
-	tipoDeUsuario_vista_index/show/new/edit.html
-
-###### Includes
-
-Los _includes_ son aquellos elementos que se repiten a lo largo de vistas principales
-
-	include_nombre.html
-
-Un nuevo proyecto ya incluye dos _include files_ principales dentro de `templates/default_site/includes.group/` que son el `footer.html` y el `header.html`. 
-
-En el `footer.html` únicamente deberás descomentar los JavaScripts que el proyecto requiera y añade nuevos debajo de `<!-- APP CUSTOM JavaScripts -->`. 
-
-###### GIT Branches
-
-	fe_vista_funcionalidad
-
-###### CSS Classes y ID's
-
-Determina si el `selector` que estás por crear pertenece a una vista o a un include. Si el selector __pertenece a una vista__, crea un archivo `_*.scss` dentro de `/stylesheets/app/` que sea igual al nombre de la vista `.html`.
-
-Por el contrario, si el selector pertenece a un include, crea un archivo `_*.scss` que tenga el mismo nombre que el include al que está relacionado dentro de `/stylesheets/app/includes`
-
-### Backend
-
-__IMPORTANTE__: Por ningún motivo deberás de sobreescribir los `config/` files que contiene una instalación vacía de Expression Engine.
-
-Para evitar sobreescribir este repositorio ejecuta el siguiente comando: 
-
-	git remote rm origin
-
-Después ejecuta lo siguiente: 
-
-	git remote add origin *URL al nuevo repositorio del proyecto
-
-#### Nomenclatura backend
-
-###### GIT Branches
-
-	be_vista_funcionalidad
-
-## Etapa de Producción
-
-### Frontend
-
-Desde la consola navega hasta el directorio "stylesheets" y ejecuta: 
-
-  	sass --watch main.min.scss:main.min.css -t compressed
-
-## Consideraciones
-
-Optimiza tu editor de texto así: 
-
-		{
-			"caret_style": "phase",
-			"font_size": 14,
-			"highlight_line": true,
-			"line_padding_bottom": 1,
-			"line_padding_top": 1,
-			"margin": 2,
-			"tab_size": 2
-		}
-
-__Al nombrar tus clases y id's piensa:__
-
-> Si alguien más tomara este proyecto, sabría a qué me refiero?
+	static $has_cp_backend = TRUE;
+	static $has_publish_fields = TRUE;
+	static $has_tabs = TRUE;
