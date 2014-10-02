@@ -1,0 +1,62 @@
+{embed="%prefix%inc/index" page_title="Update My Account"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>User</h2>
+			
+			<h3>Update My Account</h3>
+
+			<p></p>
+
+{if logged_out}
+
+{embed="%prefix%inc/login"}
+
+{if:else}
+		
+{embed="%prefix%inc/control_column"}
+
+			<div id="middlecolumn">
+
+				{if segment_3 == "success"}
+				<div class="user_success">You've successfully updated your account!</div>
+				{/if}
+
+				<h5>Fill in or edit the fields below to update your profile:</h5>
+				<hr />
+
+				{exp:user:edit return="%prefix%main/update_account/success" error_page="%prefix%inc/error_template"}
+				<p><label for="email">Email:</label><input type="text" name="email" id="email" value="{email}" style="width: 450px;" /></p>
+				<p><label for="username">Username:</label><input type="text" name="username" id="username" value="{username}" style="width: 450px;" /></p>
+				<p><label for="password">New Password:</label><input type="password" name="password" id="password" style="width: 450px;" /></p>
+				<p><label for="password_confirm">Confirm New Password:</label><input type="password" name="password_confirm" id="password_confirm" style="width: 450px;" /></p>
+
+				<hr />
+				<p>In order to update this page, you'll have to submit the current password:</p>
+				<p><label for="current_password">Current Password:</label><input type="password" name="current_password" id="current_password" style="width: 450px;" /></p>
+
+				<p><input type="submit" name="submit" value="Update" />
+				{/exp:user:edit}  
+			</div>
+		
+{/if}
+
+		</div>
+		
+		<div id="sidecolumn">
+		
+			<h3>About This Page</h3>
+			
+			<p>The "Update Account" page allows the currently logged in user to edit sensitive account information.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_edit/">User:Edit</a> to edit profile information.</li>
+			</ul>
+		
+		</div>
+{embed="%prefix%inc/footer"}

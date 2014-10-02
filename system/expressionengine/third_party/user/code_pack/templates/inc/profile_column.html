@@ -1,0 +1,22 @@
+			<div id="leftcolumn">
+				{exp:user:stats member_id="{segment_3}" dynamic="off" limit="1" log_views="off"}
+					<a href="{path=%prefix%main/profile}/{member_id}/"><img src="{if avatar_filename}{avatar_url}{avatar_filename}{if:else}{exp:user:theme_folder_url}code_pack/images/icon_profile.gif{/if}" width="150" alt="{screen_name}'s photo" /></a><br /><br />
+				<ul>
+<!-- START - if viewing page other than Profile -->
+					{if segment_2 != "profile"}<li style="margin-bottom: 5px; border-bottom: 1px solid #d5d5d5"><a href="{path=%prefix%main/profile}/{member_id}/">Back to Profile</a></li>{/if}
+<!-- END - if viewing page other than Profile -->
+
+					<li{if segment_2 == "user_entries"} class="selected"{/if}><a href="{path=%prefix%main/user_entries}/{member_id}/">View {if segment_3 == logged_in_member_id}My{if:else}{screen_name}'s{/if} Entries</a></li>
+					<li{if segment_2 == "user_comments"} class="selected"{/if}><a href="{path=%prefix%main/user_comments}/{member_id}/">View {if segment_3 == logged_in_member_id}My{if:else}{screen_name}'s{/if} Comments</a></li>
+					{if segment_3 != logged_in_member_id}
+					<li><a href="{path=member/messages/pm}/{member_id}/">Send {screen_name} a Message</a></li>
+					{/if}
+
+<!-- START - if Current User -->
+					{if segment_3 == logged_in_member_id}
+					<li style="margin-top: 10px; border-top: 1px solid #d5d5d5"><a href="{path=%prefix%main/update_profile}/{member_id}/"><small>Update My Profile</small></a></li>
+					{/if}
+<!-- END - if Current User -->
+				</ul>
+				{/exp:user:stats}
+			</div>

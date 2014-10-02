@@ -1,0 +1,41 @@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+
+	var obj = jQuery.parseJSON( '{exp:webservices:alumno_horario}' );
+	for (i = 0; i < obj.HorarioDia.length; i++) { 
+	    $('#horarios').append(
+	    '<li>'
+	    	+obj.HorarioDia[i].Clases['0'].CursoNombreCorto+
+	    '<br>Hora de Inicio:'
+	    	+obj.HorarioDia[i].Clases['0'].HoraInicio+
+	    '<br>Hora de Fin:'
+	    	+obj.HorarioDia[i].Clases['0'].HoraFin+
+	    '<br>Sede:'
+	    +obj.HorarioDia[i].Clases['0'].Sede+
+	    '<br>Seccion:'
+	    +obj.HorarioDia[i].Clases['0'].Seccion+
+	    '</li>');
+	}		
+	var obj = jQuery.parseJSON( '{exp:webservices:alumno_inasistencias}' );
+	for (i = 0; i < obj.Inasistencias.length; i++) { 
+	    $('#inasistencias').append(
+	    '<li>'
+	    	+obj.Inasistencias[i].CursoNombre+
+	    	'<br>Maximo:'
+	    	+obj.Inasistencias[i].Maximo+
+	    	'<br>Total:'
+	    	+obj.Inasistencias[i].Total+
+	    '</li>');
+	}		
+	
+	var obj = jQuery.parseJSON( '{exp:webservices:alumno_cursos_que_lleva}' );
+	for (i = 0; i < obj.Cursos.length; i++) { 
+	    $('#cursos_que_lleva').append(
+	    '<li>'
+	    	+obj.Cursos[i].CursoNombre+
+	    '</li>');
+	}		
+
+</script>	
+

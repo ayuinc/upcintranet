@@ -1,0 +1,77 @@
+{embed="%prefix%inc/index" page_title="Dashboard"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>User</h2>
+			
+			<h3>Dashboard</h3>
+			
+			<p></p>
+			
+{if logged_out}
+
+{embed="%prefix%inc/login"}
+
+{if:else}
+
+{embed="%prefix%inc/control_column"}
+
+			<div id="middlecolumn">
+
+				<h4>{logged_in_screen_name}</h4>
+
+				<hr />
+
+				<h5>Profile Snapshot: (<a href="{path="%prefix%main/update_profile"}/">edit?</a>)</h5>
+				{exp:user:stats member_id="{segment_3}" limit="1"}
+
+				<ul>
+				<li><label>Birthday:</label> {if bday_m}
+{if bday_m == "01"}January{if:elseif bday_m == "02"}February{if:elseif bday_m == "03"}March{if:elseif bday_m == "04"}April{if:elseif bday_m == "05"}May{if:elseif bday_m == "06"}June{if:elseif bday_m == "07"}July{if:elseif bday_m == "08"}August{if:elseif bday_m == "09"}September{if:elseif bday_m == "10"}October{if:elseif bday_m == "11"}November{if:elseif bday_m == "12"}December{if:else}{/if}{/if} {if bday_d}{bday_d}{/if}{if bday_y AND bday_d}, {/if}{if bday_y}{bday_y}{/if}</li>
+				<li><label>Email:</label> {encode="{email}"}</li>
+				{if url}<li><label>Website:</label> <a href="{url}">{url}</a></li>{/if}
+				<li><label>Location:</label> {location}</li>
+				<li><label>Occupation:</label> {occupation}</li>
+				<li><label>Interests:</label> {interests}</li>
+				<li><label>Bio:</label><br /> {bio}</li>
+				</ul>
+
+				{/exp:user:stats}
+
+				<hr />
+
+				<h5>Profile Stats</a></h5>
+				{exp:user:stats member_id="{segment_3}" limit="1"}
+
+				<ul>
+				<li><label>Join Date:</label> {join_date format="%F %j, %Y"}</li>
+				<li><label>Last Activity:</label> {last_activity format="%F %j, %Y"}</li>
+				<li><label>Last Comment:</label> {if last_comment_date == 0}No Comments Yet!{/if}{if last_comment_date != 0}{last_comment_date format="%F %j, %Y"}{/if}</li>
+				<li><label>Last Entry:</label> {last_entry_date format="%F %j, %Y"}</li>
+				</ul>
+
+				{/exp:user:stats}
+
+			</div>
+			
+{/if}
+		
+		</div>
+		
+		<div id="sidecolumn">
+		
+			<h3>About This Page</h3>
+		
+			<p>The "Dashboard" page (or "Home" page) in this case shows the currently logged in user a snapshot of their profile.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_stats/">User:Stats</a> to show profile information.</li>
+			</ul>
+		
+		</div>
+{embed="%prefix%inc/footer"}

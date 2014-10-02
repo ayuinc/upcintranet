@@ -1,0 +1,62 @@
+{embed="%prefix%inc/index" page_title="Update My Avatar &amp; Photo"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>User</h2>
+			
+			<h3>Update My Avatar &amp; Photo</h3>
+
+			<p></p>
+
+{if logged_out}
+
+{embed="%prefix%inc/login"}
+
+{if:else}
+		
+{embed="%prefix%inc/control_column"}
+
+			<div id="middlecolumn">
+
+				{if segment_3 == "success"}
+				<div class="user_success">You've successfully updated your Avatar or Profile Photo!</div>
+				{/if}
+
+				<h5>Your Avatar</h5>
+				{exp:user:edit return="%prefix%main/update_avatar_photo/success" override_return="%prefix%main/update_avatar_photo/success" error_page="%prefix%inc/error_template"}
+				<p>{if avatar_filename}<label>Current Avatar: </label><img src="{avatar_url}{avatar_filename}" width="{avatar_width}" height="{avatar_height}" />{if:else}You currently do not have an avatar uploaded.{/if}</p>
+				<p><label for="avatar_filename">Upload a New Avatar: </label><input type="file" name="avatar_filename" id="avatar_filename" /></p>
+				<p><input type="submit" value="Update" /> <input type="submit" name="remove_avatar" value="Remove Current Avatar?" /></p>
+				{/exp:user:edit}
+
+				<hr />
+
+				<h5>Your Profile Photo</h5>
+				{exp:user:edit return="%prefix%main/update_avatar_photo/success" override_return="%prefix%main/update_avatar_photo/success" error_page="%prefix%inc/error_template"}
+				<p>{if photo_filename}<label>Current Profile Photo: </label><img src="{photo_url}{photo_filename}" width="{photo_width}" height="{photo_height}" />{if:else}You currently do not have a profile photo uploaded.{/if}</p>
+				<p><label for="photo_filename">Upload a New Profile Photo: </label><input type="file" name="photo_filename" id="photo_filename" /></p>
+				<p><input type="submit" value="Update" /> <input type="submit" name="remove_photo" value="Remove Current Photo?" /></p>
+				{/exp:user:edit}
+			</div>
+		
+{/if}
+
+		</div>
+		
+		<div id="sidecolumn">
+		
+			<h3>About This Page</h3>
+			
+			<p>The "Update Avatar/Photo" page allows the currently logged in user to add/change/remove their avatar or profile photo.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_edit/">User:Edit</a> to edit profile information.</li>
+			</ul>
+		
+		</div>
+{embed="%prefix%inc/footer"}

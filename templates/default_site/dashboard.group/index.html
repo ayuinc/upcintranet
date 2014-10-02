@@ -1,0 +1,22 @@
+<h2>Todas</h2>
+<ul>
+	{exp:channel:entries channel="noticias" limit="10" dynamic="off"}
+		{category_name}
+		<li>{title}</li>
+	{/exp:channel:entries}
+</ul>	
+
+<h2>Viernes Culturales</h2>
+<ul>
+	{exp:channel:entries channel="noticias" limit="10" dynamic="off" category="1"}
+	<li>{title}</li>
+	{/exp:channel:entries}
+</ul>	
+
+
+<h2>Fin de Semestre</h2>
+<ul>
+	{exp:channel:entries channel="noticias" limit="10" dynamic="off" category="2"}
+	<li>{title}</li>
+	{/exp:channel:entries}
+</ul>	

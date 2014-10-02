@@ -1,0 +1,93 @@
+{embed="%prefix%inc/index" page_title="Update My Settings"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+
+			<h2>User</h2>
+
+			<h3>Update My Settings</h3>
+
+			<p></p>
+
+{if logged_out}
+
+{embed="%prefix%inc/login"}
+
+{if:else}
+
+{embed="%prefix%inc/control_column"}
+
+			<div id="middlecolumn">
+
+				{if segment_3 == "success"}
+				<div class="user_success">You've successfully updated your settings!</div>
+				{/if}
+
+				{exp:user:edit return="%prefix%main/update_settings/success" error_page="%prefix%inc/error_template"}
+
+				<h5>Email Notifications:</h5>
+				<p><input type="checkbox" name="accept_admin_email" id="accept_admin_email" value="y" {if accept_admin_email == "y"}checked="checked"{/if} /> <label for="accept_admin_email">Accept email from site administrators</label></p>
+				<p><input type="checkbox" name="accept_user_email" id="accept_user_email" value="y" {if accept_user_email == "y"}checked="checked"{/if} /> <label for="accept_user_email">Accept email from other members of this site</label></p>
+				<p><input type="checkbox" name="notify_by_default" id="notify_by_default" value="y" {if notify_by_default == "y"}checked="checked"{/if} /> <label for="notify_by_default">Enable email notifications by default when you post messages</label></p>
+				<p><input type="checkbox" name="notify_of_pm" id="notify_of_pm" value="y" {if notify_of_pm == "y"}checked="checked"{/if} /> <label for="notify_of_pm">Notify me via email when someone sends me a private message</label></p>
+				<p><input type="checkbox" name="smart_notifications" id="smart_notifications" value="y" {if smart_notifications == "y"}checked="checked"{/if} /> <label for="smart_notifications">Enable Smart Notification</label></p>
+
+				<hr />
+
+				<h5>Localization Settings:</h5>
+				<p><label for="timezone">Time Zone</label>
+				{if version < 2.6.0}
+				<select name="timezone" id="timezone" style="width:450px;">
+					{timezones}
+					<option value="{zone_name}" {selected}>{zone_label}</option>
+					{/timezones}
+				</select>
+				{/if}
+
+				{if version >= 2.6.0}
+					{user:timezone_menu
+						id="timezone_select_wrapper"
+						timezone:id="timezone_id"
+						country:id="country_id"}
+				{/if}
+				</p>
+				{if version < 2.6.0}
+				<p><input type="checkbox" name="daylight_savings" id="daylight_savings" value="y" {if daylight_savings == "y"}checked="checked"{/if} /> <label for="daylight_savings">Daylight Saving Time</label></p>
+				{/if}
+				<p><label for="time_format">Time Formatting</label> <select name="time_format" id="time_format" style="width:200px;">
+					{time_formats}
+					<option value="{time_format_name}" {selected}>{time_format_label}</option>
+					{/time_formats}
+				   </select></p>
+				<p><label for="language">Language</label> <select name="language" id="language" style="width:200px;">
+					{languages}
+					<option value="{language_name}" {selected}>{language_label}</option>
+					{/languages}
+				   </select></p>
+
+				<hr />
+
+				<p><input type="submit" name="submit" value="Update" /></p>
+				{/exp:user:edit}
+			</div>
+
+{/if}
+
+		</div>
+
+		<div id="sidecolumn">
+
+			<h3>About This Page</h3>
+
+			<p>The "Update Settings" page allows the currently logged in user to adjust account settings like notifications and localization.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_edit/">User:Edit</a> to edit profile information.</li>
+			</ul>
+
+		</div>
+{embed="%prefix%inc/footer"}

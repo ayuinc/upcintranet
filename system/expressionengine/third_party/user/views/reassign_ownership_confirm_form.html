@@ -1,0 +1,20 @@
+
+<?php $this->view('header.html');?>
+
+<div class="clear_left"></div>
+
+
+<form action="<?=$caller->output($base_uri.'&method=process_reassign_ownership')?>" method="post" id="reassign_ownership_confirm_form">
+    <input type="hidden" name="<?=$csrf_hidden_name?>" value="<?=$CSRF_TOKEN?>" />
+	<input type="hidden" name="member_id" value="<?=$hidden['member_id']?>"/>
+
+	<?php foreach($hidden['entry_ids'] as $entry_id) : ?>
+		<input type="hidden" name="entry_ids[]" value="<?=$entry_id?>"/>
+	<?php endforeach;?>
+
+	<p class="shun"><?=$reassign_question?></p>
+
+	<p><input type="submit" name="submit" value="<?=lang('reassign')?>" class="submit"  /></p>
+</form>
+
+<?php $this->view('footer.html');?>

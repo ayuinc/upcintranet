@@ -1,0 +1,79 @@
+{embed="%prefix%inc/index" page_title="Send Invite (Admins Only)"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>User</h2>
+			
+			<h3>Send Invite <span>(Admins Only)</span></h3>
+
+			<p></p>
+
+{if logged_out}
+
+{embed="%prefix%inc/login"}
+
+{if:else}
+
+{if logged_in_group_id == "1"}
+		
+{embed="%prefix%inc/control_column"}
+
+			<div id="middlecolumn">
+
+				{if segment_3 == "success"}
+				<div class="user_success">Invitation Key successfully sent!</div>
+				{/if}
+
+				<h5>This form allows admins to invite others to join this site. Recipients will receive an email notification with instructions on how to register on this site. They will be taken to a special registration form to handle this feature.</h5>
+				<hr />
+
+				{exp:user:key return="%prefix%main/invite/success" error_page="%prefix%inc/error_template" template="%prefix%notifications/key_invite" html="no" parse="none" word_wrap="no"}
+				<p><label for="recipient_email"><b>Recipient Email:</b></label><br /><input type="text" name="recipient_email" id="recipient_email" style="width: 450px;" /></p>
+				<p><label for="group_id"><b>Member Group:</b></label> 
+				<select name="group_id" id="group_id" style="width: 150px;">
+				{member_groups}
+				<option value="{group_id}">{group_title}</option>
+				{/member_groups}
+				</select></p>
+				<hr />
+				<p><label for="sender_name">From Name:</label><br /><input type="text" name="sender_name" id="sender_name" value="{site_name}" style="width: 450px;" /></p>
+				<p><label for="sender_email">From Email:</label><br /><input type="text" name="sender_email" id="sender_email" value="{webmaster_email}" style="width: 450px;" /></p>
+				<p><label for="subject">Subject:</label><br /><input type="text" name="subject" id="subject" value="Invitation to join {site_name}!" style="width: 450px;" /></p>
+<!--
+				<p>Message:<br /><textarea name="message" rows="10" cols="50" style="width: 450px; height: 200px;"></textarea></p>
+-->
+				<hr />
+				<p><input type="submit" name="submit" value="Send Invite!" /></p>
+				{/exp:user:key}
+			</div>
+
+{if:else}
+
+			<div id="middlecolumn">
+				<h5>Error!</h5>
+				<p>You must be a site administrator to view this page.</p>
+			</div>
+
+{/if}
+
+{/if}
+		
+		</div>
+		
+		<div id="sidecolumn">
+		
+			<h3>About This Page</h3>
+			
+			<p>The "Send Invite" page allows site admins to send an email notification to people they'd like to invite to join the site. A member group can be pre-designated as well, so upon signup from the recipient, they'll automatically be assigned to that member group.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_key/">User:Key Invite</a> to allow admins to send site invitations.</li>
+			</ul>
+		
+		</div>
+{embed="%prefix%inc/footer"}

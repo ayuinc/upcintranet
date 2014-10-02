@@ -1,0 +1,45 @@
+{embed="%prefix%inc/index" page_title="{exp:user:stats member_id="{segment_3}" limit="1"}{screen_name}'s Comments ({total_comments}){/exp:user:stats}"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>User</h2>
+			
+			<h3>{exp:user:stats member_id="{segment_3}" limit="1"}{screen_name}'s Comments ({total_comments}){/exp:user:stats}</h3>
+			
+			<p></p>
+
+{embed="%prefix%inc/profile_column"}
+
+			<div id="middlecolumn">
+
+				<h5>The following are comments posted by this user:</h5>
+				<ul>
+				{exp:query limit="10" paginate="bottom" sql="SELECT author_id, comment_date, comment, name, entry_id FROM exp_comments WHERE author_id = '{segment_3}' AND author_id !='0' ORDER BY comment_date DESC "}
+				<li><i>"{comment}"</i><br style="margin-bottom: 3px;" /><small>Posted in {embed="%prefix%inc/comments_search_titles" entry_id="{entry_id}"} on {comment_date format="%F %j, %Y at %g:%i %a"}</small></li>
+				{if no_results}<li>This user has not posted any comments.</li>{/if}
+				{paginate}<li>Page {current_page} of {total_pages} page{if total_pages > "1"}s{/if} &nbsp; &nbsp; &nbsp; {pagination_links}</li>{/paginate}
+				{/exp:query}
+				</ul> 
+
+			</div>
+		
+		</div>
+		
+		<div id="sidecolumn">
+		
+			<h3>About This Page</h3>
+			
+			<p>The "Comments" page displays a list of comments authored by the given user.</p>
+
+			<p>It makes use of the following functions:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_stats/">User:Stats</a> to display profile information.</li>
+				<li><a href="http://expressionengine.com/user_guide/modules/query/index.html">Query Module</a> to create and display a list of comments authored by the given user.</li>
+			</ul>
+		
+		</div>
+{embed="%prefix%inc/footer"}

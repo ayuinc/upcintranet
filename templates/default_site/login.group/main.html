@@ -1,0 +1,37 @@
+{if logged_in}
+	
+	{!--if member_group==5--}
+	<p>Es un estudiante</p>
+	{!--/if--}
+	
+	{exp:user:stats}
+		{exp:webservices:generar_token codigo="u201121382" contrasena="julito1615" plataforma="C" }
+	{/exp:user:stats}
+	
+	<!--<a href="{path='logout'}">Log Out</a>	
+	
+	<h4>Usuario</h4>
+	<p>{screen_name}</p>
+	
+	<h4>Horarios de Estudio</h4>
+	<ul id="horarios">
+	</ul>
+	
+	<h4>Inasistencias del Alumno</h4>
+	<ul id="inasistencias">
+	</ul>
+	
+	<h4>Cursos que actualmente lleva el Alumno</h4>
+	<ul id="cursos_que_lleva">
+	</ul>	-->
+	
+	
+	{!--embed="includes/servicios"--}
+	
+{/if}
+
+{if logged_out}
+	<a href="{site_url}">Home</a>
+{/if}
+
+

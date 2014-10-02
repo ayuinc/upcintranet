@@ -1,0 +1,53 @@
+{embed="%prefix%inc/index" page_title="Search Results"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+
+			<h2>User</h2>
+
+			<h3>Search Results</h3>
+
+			<p></p>
+
+{if logged_out}
+
+{embed="%prefix%inc/guest_column"}
+
+{if:else}
+
+{embed="%prefix%inc/control_column"}
+
+{/if}
+
+			<div id="middlecolumn">
+
+				<h5><span>{total_results}</span> results for <span>"{keywords}"</span></h5>
+				<hr />
+				<ul>
+					{exp:user:results orderby="screen_name" sort="asc" limit="10" paginate="bottom"}
+					<li class="forced-height"><small style="float: right;">Joined {join_date format="%F %j, %Y"}</small><img src="{if avatar_filename}{avatar_url}{avatar_filename}{if:else}{exp:user:theme_folder_url}code_pack/images/icon_profile.gif{/if}" height="35" width="35" alt="{screen_name}'s photo" style="float: left; margin-right: 10px;" /><a href="{path=%prefix%main/profile}/{member_id}/"><b>{screen_name}</b></a><br />{location}</li>
+					{if user_no_results}<li>No results found.</li>{/if}
+					{paginate}<li>Page {current_page} of {total_pages} page{if total_pages > "1"}s{/if} &nbsp; &nbsp; &nbsp; {pagination_links}</li>{/paginate}
+					{/exp:user:results}
+				</ul>
+
+			</div>
+
+		</div>
+
+		<div id="sidecolumn">
+
+			<h3>About This Page</h3>
+
+			<p>The "Search Results" page displays a list of results of members that matched the keyword and/or field search terms provided by the user.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_results/">User:Results</a> to display a list of site members that match search terms provided.</li>
+			</ul>
+
+		</div>
+{embed="%prefix%inc/footer"}

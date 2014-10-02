@@ -1,0 +1,28 @@
+http://expressionengine.com/archived_forums/viewthread/105003/
+http://wordpress.org/extend/plugins/wp-security-scan/screenshots/
+http://expressionengine.com/user_guide/installation/best_practices.html
+http://expressionengine.com/files/dictionary.zip
+
+Admin IP Lockdown?
+File Monitor?
+Exploit Scanner?
+Security Scan?
+
+Scan Requirements:
+Rename "system"
+Search for .svn folders and .git
+Move system above webroot
+Require encryption_key and validate length (32 characters)
+Allow Dictionary Words as Passwords "Admin > System Preferences > Security and Session Preferences > Allow Dictionary Words as Passwords"
+Always log into the CP via HTTPS... use .htaccess to enforce this.
+CHMOD config.php to 644 or 444 to prevent EE from overwriting it
+Check member usage and recommend changing member access template paramaters
+Check EE version
+Check add-on version(s)
+Check for update.php 
+Check EE security and log level
+
+Check PHP for:
+allow_url_fopen = Off ; Disable URLs for file handling functions
+register_globals = Off ; Make sure this hellish fiend is dead
+open_basedir = /var/www/htdocs/files ; Restrict file handling functions to a subdirectory????

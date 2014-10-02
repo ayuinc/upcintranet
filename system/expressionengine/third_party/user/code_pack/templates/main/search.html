@@ -1,0 +1,57 @@
+{embed="%prefix%inc/index" page_title="Member Search"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>User</h2>
+			
+			<h3>Member Search</h3>
+
+			<p></p>
+
+{if logged_out}
+
+{embed="%prefix%inc/login"}
+
+{if:else}
+		
+{embed="%prefix%inc/control_column"}
+
+			<div id="middlecolumn">
+
+				<h5>Use the following fields below to perform a search on the member list. Each field searched on generates an inclusive filter.</h5>
+				<hr />
+
+				{exp:user:search return="%prefix%main/search_results" error_page="%prefix%inc/error_template"}
+				<p><label for="keywords"><b>Keywords (all fields):</b></label><input type="text" name="keywords" id="keywords" style="width: 450px; font-size: 25px; font-weight: bold;" /></p>
+
+				<hr />
+
+				<p><label for="screen_name">Screen Name:</label><input type="text" name="screen_name" id="screen_name" style="width: 450px;" /></p>
+				<p><label for="location">Location:</label><input type="text" name="location" id="location" style="width: 450px;" /></p>
+				<p><label for="occupation">Occupation:</label><input type="text" name="occupation" id="occupation" style="width: 450px;" /></p>
+				<p><label for="interests">Interests:</label><input type="text" name="interests" id="interests" style="width: 450px;" /></p>
+				<p><input type="submit" name="submit" value="Search" />
+				{/exp:user:search}  
+			</div>
+		
+{/if}
+
+		</div>
+		
+		<div id="sidecolumn">
+		
+			<h3>About This Page</h3>
+			
+			<p>The "Member Search" page allows users to perform keyword and/or field specific searches to find members.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_search/">User:Search</a> to perform a search on site members.</li>
+			</ul>
+		
+		</div>
+{embed="%prefix%inc/footer"}

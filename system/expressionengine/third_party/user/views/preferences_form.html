@@ -1,0 +1,248 @@
+<?php $this->view('header.html');?>
+
+<form  action="<?=$caller->output($base_uri.'&method=update_preferences')?>" method="post">
+	<input type="hidden" name="<?=$csrf_hidden_name?>" value="<?=$CSRF_TOKEN?>" />
+
+	<table class="mainTable padTable" border="0" cellspacing="0" cellpadding="0">
+		<caption><?=$lang_general_preferences?></caption>
+		<tbody>
+
+			<!-- email is username -->
+			<tr class="odd" style="width: 35%;">
+				<td valign="top">
+					<label for="email_is_username">
+						<?=$lang_email_is_username?>
+					</label>
+					<div class="subtext">
+						<?=$lang_email_is_username_subtext?>
+					</div>
+				</td>
+				<td valign="top" style="width: 65%;">
+					<label 	for="email_is_username_yes">Yes</label>
+					<input 	type="radio" name="email_is_username"
+							value="y" id="email_is_username_yes"
+							<?php if ($emiun) echo 'checked="checked"'; ?> style="width:20px;" /> &nbsp;
+
+					<label 	for="email_is_username_no">No</label>
+					<input 	type="radio" name="email_is_username"
+							value="n" id="email_is_username_no"
+							<?php if ( ! $emiun) echo 'checked="checked"'; ?> style="width:20px;" />
+
+				</td>
+			</tr>
+
+			<!-- screen name override -->
+			<tr class="even">
+				<td valign="top">
+					<label for="screen_name_override">
+						<?=$lang_screen_name_override?>
+					</label>
+					<div class="subtext">
+						<?=$lang_screen_name_override_subtext?>
+					</div>
+				</td>
+				<td valign="top">
+					<input type="text" dir="ltr" style="width:90%"
+						   name="screen_name_override" value="<?=$pref_screen_name_override?>"
+						   size="35" class="input" />
+				</td>
+			</tr>
+
+			<!-- category groups -->
+			<tr class="odd">
+				<td valign="top">
+					<label for="category_groups">
+						<?=$lang_category_groups?>
+					</label>
+					<div class="subtext">
+						<?=$lang_category_groups_subtext?>
+					</div>
+				</td>
+				<td valign="top">
+					<select class="select" name="category_groups[]"
+							multiple="multiple" size="5" style="width:50%; padding:5px;">
+
+						<?php if (ee()->config->item('multiple_sites_enabled') == 'y') :?>
+							<?php foreach($sites as $site_id => $site_label) :?>
+
+								<optgroup label="<?=$this->output($site_label)?>">
+									<?php foreach ($category_groups AS $group_data): ?>
+										<?php if ($group_data['site_id'] != $site_id) continue;?>
+
+										<option value="<?=$group_data['group_id']?>" <?php
+											if ($group_data['selected']) echo 'selected="selected"';?> >
+											<?=$group_data['group_name']?>
+										</option>
+									<?php endforeach;?>
+								</optgroup>
+
+							<?php endforeach;?>
+
+
+
+						<?php else : ?>
+							<?php foreach ($category_groups AS $group_data): ?>
+								<option value="<?=$group_data['group_id']?>" <?php
+									if ($group_data['selected']) echo 'selected="selected"';?> >
+									<?=$group_data['group_name']?>
+								</option>
+							<?php endforeach;?>
+						<?php endif;?>
+					</select>
+				</td>
+			</tr>
+
+
+			<tr class="odd">
+				<td valign="top">
+					<label for="key_expiration">
+						<?=$lang_key_expiration?>
+					</label>
+					<div class="subtext">
+						<?=$lang_key_expiration_subtext?>
+					</div>
+				</td>
+				<td valign="top">
+					<input type="text" dir="ltr" style="width:90%"
+						   name="key_expiration" value="<?=$pref_key_expiration?>"
+						   size="35" class="input">
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+
+	<div class="clear shun"></div>
+
+	<table class="mainTable padTable" border="0" cellspacing="0" cellpadding="0">
+		<caption><?=$lang_email_notifications?></caption>
+		<tbody>
+			<tr class="even">
+				<td valign="top" style="width: 35%;">
+					<label for="welcome_email_subject"><?=$lang_welcome_email_subject?></label>
+				</td>
+				<td valign="top" style="width: 65%;">
+					<input 	type="text" dir="ltr"
+							style="width:90%" name="welcome_email_subject"
+							value="<?=$pref_welcome_email_subject?>" size="35" class="input" />
+				</td>
+			</tr>
+
+			<tr class="odd">
+				<td valign="top">
+					<label for="welcome_email_content">
+						<?=$lang_welcome_email_content?>
+					</label>
+					<div class="subtext">
+						<?=$lang_welcome_email_content_subtext?>
+					</div>
+				</td>
+				<td valign="top">
+					<textarea dir="ltr" style="width:100%"
+							  cols="90" rows="15"
+							  name="welcome_email_content" id="welcome_email_content"
+							  class="textarea"><?=$pref_welcome_email_content?></textarea>
+				</td>
+			</tr>
+
+			<tr class="even">
+				<td valign="top">
+					<label for="member_update_admin_notification_emails">
+						<?=$lang_member_update_admin_notification_emails?>
+					</label>
+				</td>
+				<td valign="top">
+					<textarea 	dir="ltr" style="width:100%"
+								cols="90" rows="2"
+								name="member_update_admin_notification_emails"
+								id="member_update_admin_notification_emails"
+								class="textarea"><?=$pref_member_update_admin_notification_emails?></textarea>
+				</td>
+			</tr>
+
+			<tr class="odd">
+				<td valign="top">
+					<label for="member_update_admin_notification_template">
+						<?=$lang_member_update_admin_notification_template?>
+					</label>
+					<div class="subtext">
+						<?=$lang_member_update_admin_notification_template_subtext?>
+					</div>
+				</td>
+				<td valign="top">
+					<textarea 	dir="ltr" style="width:100%"
+								cols="90" rows="15"
+								name="member_update_admin_notification_template"
+								id="member_update_admin_notification_template"
+								class="textarea"><?=$pref_member_update_admin_notification_template?></textarea>
+				</td>
+			</tr>
+
+			<tr class="even">
+				<td valign="top">
+					<label for="user_forgot_username_message">
+						<?=$lang_user_forgot_username_message?>
+					</label>
+					<div class="subtext">
+						<?=$lang_user_forgot_username_message_subtext?>
+					</div>
+				</td>
+				<td valign="top">
+					<textarea 	dir="ltr" style="width:100%"
+								cols="90" rows="15"
+								name="user_forgot_username_message"
+								id="user_forgot_username_message"
+								class="textarea"><?=$pref_user_forgot_username_message?></textarea>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="clear shun"></div>
+
+	<!-- multiple authors accordion -->
+	<input type="hidden" name="name" value="user_authors" />
+
+	<table class="mainTable padTable"
+		   border='0'
+		   cellspacing='0'
+		   cellpadding='0'>
+		<caption><?=$lang_multiple_authors?></caption>
+		<thead>
+			<tr>
+				<td colspan="2">
+					<span class="notice">
+						<?=lang('user_authors_instructions')?>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th style="width:35%"><?=lang('channels')?></th>
+				<th style="width:65%"><?=lang('user_authors_publish_tab_label')?></th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($channels as $channel_id => $channel_data) : ?>
+				<?php $style = $caller->cycle('odd', 'even');?>
+				<tr  class='<?=$style?>' >
+					<td>
+						<div class='default' ><?=$channel_data['site_label']?> :: <?=$channel_data['channel_title']?></div>
+						</td>
+					<td>
+						<input dir='ltr' style='width:30%' type='text'
+							   name='channel_id[<?=$channel_id?>]'
+							   id='channel_id<?=$channel_id?>'
+							   value='<?=$caller->output($channel_data['tab_label'])?>'
+							   size='' maxlength='' class=''  />
+					</td>
+				</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+
+	<p>
+		<input type="submit" name="submit" value="<?=lang('update')?>" class="submit"  />
+	</p>
+
+</form>
+
+<?php $this->view('footer.html');?>

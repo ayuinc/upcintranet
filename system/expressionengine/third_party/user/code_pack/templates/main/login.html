@@ -1,0 +1,49 @@
+{embed="%prefix%inc/index" page_title="Login"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+
+			<h2>User</h2>
+
+			<h3>Login</h3>
+
+			<p></p>
+
+			<div id="fullcolumn">
+
+				{if segment_3 == "reset"}
+				<div class="user_success">Your password has been successfully reset.</div>
+				{/if}
+
+				<h5>Please login!</h5>
+				<p>To view these pages, please sign in with your username and password below:</p>
+				<p>Don't have an Account? <a href="{path=%prefix%main/register}/">Sign up here!</a> | <a href="{path=%prefix%main/forgot_password}/">Forgot Your Username or Password?</a></p>
+				{exp:member:login_form return="%prefix%main/index"}
+				<div class="label_padding">
+				<p><label for="username">Your Username:</label> <input type="text" id="username" name="username" style="width: 300px;" /></p>
+				<p><label for="password">Your Password:</label> <input type="password" name="password" id="password" style="width: 300px" /></p>
+				</div>
+				<p><input type="checkbox" name="auto_login" id="auto_login" value="1" /> <label for="auto_login">Auto-login on future visits?</label></p>
+				<p><input type="submit" name="submit" value="Login" /></p>
+				{/exp:member:login_form}
+
+			</div>
+
+		</div>
+
+		<div id="sidecolumn">
+
+			<h3>About This Page</h3>
+
+			<p>The "Login" page allows site visitors to login to the website.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li>Native EE <a href="http://expressionengine.com/docs/modules/member/login_form.html">Member:Login_Form</a> to display a form for visitors to login.</li>
+			</ul>
+
+		</div>
+{embed="%prefix%inc/footer"}
