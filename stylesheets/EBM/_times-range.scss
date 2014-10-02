@@ -1,0 +1,15 @@
+// Check if $times is a number between 1 and 9
+@function times-range($times) {
+  @if unit($times) != "" {
+    @warn "The $times variable needs to be an integer without units";
+    @return false;
+  } @else if $times < 1 {
+    @warn "The $times variable needs to be a number between 1 and 9";
+    @return false;
+  } @else if $times > 9 {
+    @warn "The $times variable needs to be a number between 1 and 9";
+    @return false;
+  } @else {
+    @return $times;
+  }
+}

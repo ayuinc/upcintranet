@@ -1,0 +1,9 @@
+// Rounded borders
+@mixin rounded-borders($border-radius) {
+	@if $rounded-borders == true {
+		.rounded-borders {
+			border-radius: $border-radius;
+		}
+	}
+}
+@include rounded-borders($border-radius);

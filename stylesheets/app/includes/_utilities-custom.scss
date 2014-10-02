@@ -1,0 +1,103 @@
+// Min-Heights
+@for $i from 1 to 13 {
+  .mh-#{($i*7)*10} {
+    min-height: em(($i*7)*10)!important;
+  }
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+// Backgrounds
+.bg-white {background: white !important;}
+// Brand colors
+.bg-primary {background: $brand-primary!important;}
+.bg-primary-dark {background: darken($brand-primary, 7%)!important;}
+.bg-info {background: $brand-info!important;}
+.bg-info-dark {background: darken($brand-info, 7%)!important;}
+.bg-success {background: $brand-success!important;}
+.bg-success-dark {background: darken($brand-success, 7%)!important;}
+.bg-danger {background: $brand-danger!important;}
+.bg-danger-dark {background: darken($brand-danger, 7%)!important;}
+.bg-warning {background: $brand-warning!important;}
+.bg-warning-dark {background: darken($brand-warning, 7%)!important;}
+// Grayscale
+.bg-gray-lighter {background: $gray-lighter!important;}
+.bg-gray-light {background: $gray-light!important;}
+.bg-gray {background: $gray!important;}
+.bg-gray-dark {background: $gray-dark!important;}
+.bg-inverse {background: $gray-darker!important;}
+
+// Borders
+.border-rounded {
+  border-radius: $border-radius-base;
+}
+
+.border-rounded-1 {
+  border-radius: 1px;
+}
+
+.border-color-primary {
+  border: 1px solid $brand-primary;
+}
+
+.border-color-gray {
+  border: 2px solid $gray-lighter;
+}
+
+.border-color-info {
+  border: 1px solid $brand-info;
+}
+
+.border-color-success {
+  border: 2px solid $brand-success;
+}
+
+.borderless {
+  border: none!important;
+}
+
+// Box Shadows
+.box-shadow {
+  @include box-shadow(0 3px 3px 0 rgba(0,0,0,0.15));
+}
+
+// Z-Index
+@for $i from 1 to 4 {
+  .z-index#{($i)*10} {
+    z-index: ($i)*10!important;
+  }
+}
+
+// Positions
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+// Displays
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+// Form overrides 
+.select-override {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  text-indent: 1px;
+  text-overflow: "";
+  &.input-lg {
+    line-height: 28px;
+    background: white url(/img/arrow-down.svg) no-repeat 98%;
+  }
+}

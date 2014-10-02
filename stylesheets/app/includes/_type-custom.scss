@@ -1,0 +1,264 @@
+// PROJECT ESPECIFIC FONTS
+
+$font-types: (
+  // SANS SERIFS
+  "thin": false,
+  "extra-light": false,
+  "light": false,
+  "light-italic": false,
+  "book": false,
+  "book-italic": false,
+  "medium": false,
+  "medium-italic": false,
+  "bold": false,
+  "bold-italic": false,
+  // SERIFS
+  "serif-light": false,
+  "serif-light-italic": false,
+  "serif-book": false,
+  "serif-book-italic": false,
+  "serif-medium": false,
+  "serif-medium-italic": false,
+  "serif-bold": false,
+  "serif-bold-italic": false,
+  // ALT FONTS
+  "alt-light": false,
+  "alt-book": false,
+  "alt-medium": false,
+  "alt-bold": false
+);
+
+// @mixin project-fonts {
+//   @each $font-type in $font-types {
+//     @if $font-type == true {
+//       @if map-keys($font-type) == "thin" {
+//         @mixin thin { font-family: $font-family-base !important; font-weight: 100; font-style: normal;}
+//         .thin {@include thin;}
+//       }
+//     }
+//   }
+// }
+
+
+// SANS-SERIFS
+// @mixin thin { font-family: $font-family-base !important; font-weight: 100; font-style: normal;}
+// .thin {@include thin;}
+// @mixin extra-light { font-family: $font-family-base !important; font-weight: 200; font-style: normal;}
+// .extra-light {@include extra-light;}
+// @mixin light { font-family: $font-family-base !important; font-weight: 300; font-style: normal;}
+// .light {@include light;}
+// @mixin light-italic { font-family: $font-family-base !important; font-weight: 300; font-style: italic;}
+// .light-italic {@include light-italic;}
+// @mixin book { font-family: $font-family-base !important; font-weight: 400; font-style: normal;}
+// .book {@include book;}
+// @mixin book-italic { font-family: $font-family-base !important; font-weight: 400; font-style: italic;}
+// .book-italic {@include book-italic;}
+// @mixin medium { font-family: $font-family-base !important; font-weight: 500; font-style: normal;}
+// .medium {@include medium;}
+// @mixin medium-italic { font-family: $font-family-base !important; font-weight: 500; font-style: italic;}
+// .medium-italic {@include medium-italic;}
+// @mixin bold { font-family: $font-family-base !important; font-weight: 700; font-style: normal;}
+// .bold {@include bold;}
+// @mixin bold-italic { font-family: $font-family-base !important; font-weight: 700; font-style: italic;}
+// .bold-italic {@include bold-italic;}
+
+// SERIFS
+// @mixin serif-light { font-family: $font-family-serif !important; font-weight: 300; font-style: normal;}
+// .serif-light {@include serif-light;}
+// @mixin serif-light-italic { font-family: $font-family-serif !important; font-weight: 300; font-style: italic;}
+// .serif-light-italic {@include serif-light-italic;}
+// @mixin serif-book { font-family: $font-family-serif !important; font-weight: 400; font-style: normal;}
+// .serif-book {@include serif-book;}
+// @mixin serif-book-italic { font-family: $font-family-serif !important; font-weight: 400; font-style: italic;}
+// .serif-book-italic {@include serif-book-italic;}
+// @mixin serif-medium { font-family: $font-family-serif !important; font-weight: 500; font-style: normal;}
+// .serif-medium {@include serif-medium;}
+// @mixin serif-medium-italic { font-family: $font-family-serif !important; font-weight: 500; font-style: italic;}
+// .serif-medium-italic {@include serif-medium-italic;}
+// @mixin serif-bold { font-family: $font-family-serif !important; font-weight: 900; font-style: normal;}
+// .serif-bold {@include serif-bold;}
+// @mixin serif-bold-italic { font-family: $font-family-serif !important; font-weight: 700; font-style: italic;}
+// .serif-bold-italic {@include serif-bold-italic;}
+
+// ALTERNATIVE FONTS
+// @mixin alt-light { font-family: $font-family-alt !important; font-weight: 400; font-style: normal;}
+// .alt-light {@include alt-light;}
+// @mixin alt-book { font-family: $font-family-alt !important; font-weight: 500; font-style: normal;}
+// .alt-book {@include alt-book;}
+// @mixin alt-medium { font-family: $font-family-alt !important; font-weight: 600; font-style: normal;}
+// .alt-medium {@include alt-medium;}
+// @mixin alt-bold { font-family: $font-family-alt !important; font-weight: 700; font-style: normal;}
+// .alt-bold {@include alt-bold;}
+
+
+// Contextual emphasis
+.text-muted {
+  a {
+    color: $text-muted!important;
+    &:hover {
+      color: darken($text-muted, 21%);
+    }
+  }
+  color: $text-muted!important;
+}
+
+// GRAYSCALE
+.text-gray-lighter {
+  a {
+    color: $gray-lighter!important;
+    &:hover {
+      color: darken($gray-lighter, 21%);
+    }
+  }
+  color: $gray-lighter!important;
+}
+.text-gray-light {
+  a {
+    color: $gray-light!important;
+    &:hover {
+      color: darken($gray-light, 21%);
+    }
+  }
+  color: $gray-light!important;
+}
+.text-gray {
+  a {
+    color: $gray!important;
+    &:hover {
+      color: darken($gray, 21%);
+    }
+  }
+  color: $gray!important;
+}
+.text-gray-dark {
+  a {
+    color: $gray-dark!important;
+    &:hover {
+      color: darken($gray-dark, 21%);
+    }
+  }
+  color: $gray-dark!important;
+}
+.text-gray-darker {
+  a {
+    color: $gray-darker!important;
+    &:hover {
+      color: darken($gray-darker, 21%);
+    }
+  }
+  color: $gray-darker!important;
+}
+
+// BRAND COLORS
+.text-primary {
+  a {
+    color: $brand-primary!important;
+    &:hover {
+      color: darken($brand-primary, 21%);
+    }
+  }
+  color: $brand-primary!important;
+}
+.text-warning {
+  a {
+    color: $state-warning-text!important;
+    &:hover {
+      color: darken($state-warning-text, 21%);
+    }
+  }
+  color: $state-warning-text!important;
+}
+.text-danger {
+  a {
+    color: $state-danger-text!important;
+    &:hover {
+      color: darken($state-danger-text, 21%);
+    }
+  }
+  color: $state-danger-text!important;
+}
+.text-success {
+  a {
+    color: $state-success-text!important;
+    &:hover {
+      color: darken($state-success-text, 21%);
+    }
+  }
+  color: $state-success-text!important;
+}
+.text-info {
+  a {
+    color: $state-info-text!important;
+    &:hover {
+      color: darken($state-info-text, 21%);
+    }
+  }
+  color: $state-info-text!important;
+}
+
+// Alignment
+.text-left {
+  text-align: left!important; 
+}
+.text-right {
+  text-align: right!important; 
+}
+// Center on mobile
+.text-left-mob {
+  text-align: left!important; 
+  @media only screen and (max-width: $screen-phone) and (max-width: $screen-tablet) {
+    text-align: center!important;
+  }
+}
+.text-right-mob {
+  text-align: right!important; 
+  @media only screen and (max-width: $screen-phone) and (max-width: $screen-tablet) {
+    text-align: center!important;
+  }
+}
+
+
+// Text transforms
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: none !important;
+}
+
+.underline {
+  text-decoration: underline!important;
+}
+
+a.not-underline {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// TEXT GRADIENTS
+@mixin text-fill-color($color) {
+  @include prefixer(text-fill-color, $color, webkit moz spec);
+}
+
+@mixin background-clip($clip) {
+  @include prefixer(background-clip, $clip, webkit moz spec);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .text-gradient {
+    @include background(linear-gradient(left, $brand-primary, $brand-info, $brand-success) repeat);
+    @include background-clip(text);
+    @include text-fill-color(transparent);
+  }
+}
+// END:TEXT GRADIENTS
+
+// REM Sizes with fallbacks
+// h1, .h1 { font-size: rem($font-size-h1); }
+// h2, .h2 { font-size: rem($font-size-h2); }
+// h3, .h3 { font-size: rem($font-size-h3); }
+// h4, .h4 { font-size: rem($font-size-h4); }
+// h5, .h5 { font-size: rem($font-size-h5); }
+// h6, .h6 { font-size: rem($font-size-h6); }
