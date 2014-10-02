@@ -1,0 +1,73 @@
+/* 
+
+  Description: EBM or Easy Box Model allows you to easily edit your UI box model margins and paddings 
+  through the browser inspector "elements" tab and make your elements fit on their parent container without
+  recurring to your CSS too often.
+  
+  Author: @MadeByGus
+  Version: 0.1
+  GitHub: https://github.com/netpoe/EBM.git
+
+*/
+
+// Set the global measure (range: 1 - 9)
+$times: 7; 
+
+// Include EBM in "%" units?
+$percentage: true;
+
+// Include EBM Min-Heights?
+
+$min-heights: true;
+
+// Include and determine box shadows:
+$box-shadows: true;
+
+$x-axis: 0px;
+$y-axis: 3px;
+$blur: 3px;
+$size: 0px;
+$color: #313233;
+$alpha: 0.15;
+
+// Include and determine border radius:
+$rounded-borders: true;
+
+$border-radius: 3px;
+
+// Define the em-base for rems to px conversion
+$px-to-rems: true;    // True if you want them on rems 
+$em-base: 16px;
+
+// Box Background Colors
+// Are you using Twitter Bootstrap in your project?
+// $b3-enabled: true;
+
+// Grayscale:
+$gray-base: #313233;
+
+$gray-darker:            lighten($gray-base, 0%); 
+$gray-dark:              lighten($gray-base, 21%);   
+$gray:                   lighten($gray-base, 35%); 
+$gray-light:             lighten($gray-base, 63%);   
+$gray-lighter:           lighten($gray-base, 84%); 
+// Brand colors (format taken from Twitter Bootstrap):
+$brand-primary:         #428bca;
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+
+@import 
+  "times-range",
+  "strip-units",
+  "px-to-rems",
+  "prefixer",
+  "ebm-loops",
+  "ebm-loops-small",
+  "min-heights",
+  "box-shadow",
+  "rounded-borders",
+  "backgrounds",
+  "ebm-loops-percentage";
