@@ -1,0 +1,24 @@
+// Backgrounds
+.bg-white {background: white !important;}
+// Brand colors
+@mixin bg-colors {
+	@if $b3-enabled == false {
+		.bg-primary {background: $brand-primary!important;}
+		.bg-primary-dark {background: darken($brand-primary, 7%)!important;}
+		.bg-info {background: $brand-info!important;}
+		.bg-info-dark {background: darken($brand-info, 7%)!important;}
+		.bg-success {background: $brand-success!important;}
+		.bg-success-dark {background: darken($brand-success, 7%)!important;}
+		.bg-danger {background: $brand-danger!important;}
+		.bg-danger-dark {background: darken($brand-danger, 7%)!important;}
+		.bg-warning {background: $brand-warning!important;}
+		.bg-warning-dark {background: darken($brand-warning, 7%)!important;}
+		// Grayscale
+		.bg-gray-lighter {background: $gray-lighter!important;}
+		.bg-gray-light {background: $gray-light!important;}
+		.bg-gray {background: $gray!important;}
+		.bg-gray-dark {background: $gray-dark!important;}
+		.bg-gray-darker {background: $gray-darker!important;}
+	}
+}
+@include bg-colors;

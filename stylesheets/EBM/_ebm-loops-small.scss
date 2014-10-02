@@ -1,0 +1,40 @@
+// // Margin & Padding Small and Extra Small
+@mixin box-small($times) {
+	@if $times > 4 and $times < 10 {
+		$small: 5;
+		$xs: 3;
+		@for $i from 1 through length($box-model-sides) {
+		  .#{nth($box-model-abbr, $i)}-sm {
+		  	#{nth($box-model-sides, $i)}: $small + px !important;
+		  	@if $px-to-rems == true {
+		    	#{nth($box-model-sides, $i)}: rem($small) !important;
+		 		}
+		  }
+		  .#{nth($box-model-abbr, $i)}-xs {
+		  	#{nth($box-model-sides, $i)}: $xs + px !important;
+		  	@if $px-to-rems == true {
+		    	#{nth($box-model-sides, $i)}: rem($xs) !important;
+		    }
+		  }
+		}
+	} @else {
+		$small: 1;
+		$xs: 1;
+		@for $i from 1 through length($box-model-sides) {
+		  .#{nth($box-model-abbr, $i)}-sm {
+		  	#{nth($box-model-sides, $i)}: $small + px !important;
+		  	@if $px-to-rems == true {
+		    	#{nth($box-model-sides, $i)}: rem($small) !important;
+		    }
+		  }
+		  .#{nth($box-model-abbr, $i)}-xs {
+		  	#{nth($box-model-sides, $i)}: $xs + px !important;
+		  	@if $px-to-rems == true {
+		    	#{nth($box-model-sides, $i)}: rem($xs) !important;
+		    }
+		  }
+		}
+	}
+}
+
+@include box-small($times);

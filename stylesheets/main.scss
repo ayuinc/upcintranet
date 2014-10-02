@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/*
+
+  Ayu Consulting Frontend Boilerplate
+  ultima actualizacion: 17 de junio 2014
+  Author: @MadeByGus - G. Andres Ibarra yo@soygus.com
+  Desde la consola navega hasta el directorio "stylesheets" y ejecuta: 
+
+  sass --watch main.scss:main.css 
+
+*/
+
+/*========================================
+=          Twitter Bootstrap 3.1.0      =
+========================================*/
+
+
+@import "b3/b3";
+
+
+/*========================================
+=                FOUNDATION             =
+========================================*/
+
+
+// @import "foundation/foundation";
+
+
+/*========================================
+=                  BOURBON               =
+========================================*/
+/* Bourbon (uncomment if you want it in your project.
+    Run
+      gem install bourbon
+    Go into your stylesheets directory and run
+      bourbon install
+*/
+
+// Bourbon sass tools
+// http://bourbon.io/docs/
+
+@import "bourbon/bourbon";
+
+/*========================================
+=                EASY BOX MODEL         =
+========================================*/
+// EBM - EasyBoxModel by @MadeByGus
+
+$b3-enabled: true;
+@import "EBM/ebm";
+
+
+/*========================================
+=            CSS3 ANIMATIONS             =
+========================================*/
+// Animations
+// http://daneden.github.io/animate.css/
+
+@import "animate/animate-init";
+
+
+/*========================================
+=             APP CUSTOM                 =
+========================================*/
+
+
+@import "app/app";
