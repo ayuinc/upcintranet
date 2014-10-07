@@ -1,0 +1,55 @@
+{embed="%prefix%inc/index" page_title="Member List"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+
+			<h2>User</h2>
+
+			<h3>Member List</h3>
+
+			<p></p>
+
+{if logged_out}
+
+{embed="%prefix%inc/guest_column"}
+
+{if:else}
+
+{embed="%prefix%inc/control_column"}
+
+{/if}
+
+			<div id="middlecolumn">
+
+				<h5>Click on a member below to view their profile. Click on the letters below to filter the list by Screen Names that begin with that letter:</h5>
+				<hr />
+				<p><a href="/%prefix%main/members/screen_name/a/">A</a> <a href="/%prefix%main/members/screen_name/b/">B</a> <a href="/%prefix%main/members/screen_name/c/">C</a> <a href="/%prefix%main/members/screen_name/d/">D</a> <a href="/%prefix%main/members/screen_name/e/">E</a> <a href="/%prefix%main/members/screen_name/f/">F</a> <a href="/%prefix%main/members/screen_name/g/">G</a> <a href="/%prefix%main/members/screen_name/h/">H</a> <a href="/%prefix%main/members/screen_name/i/">I</a> <a href="/%prefix%main/members/screen_name/j/">J</a> <a href="/%prefix%main/members/screen_name/k/">K</a> <a href="/%prefix%main/members/screen_name/l/">L</a> <a href="/%prefix%main/members/screen_name/m/">M</a> <a href="/%prefix%main/members/screen_name/n/">N</a> <a href="/%prefix%main/members/screen_name/o/">O</a> <a href="/%prefix%main/members/screen_name/p/">P</a> <a href="/%prefix%main/members/screen_name/q/">Q</a> <a href="/%prefix%main/members/screen_name/r/">R</a> <a href="/%prefix%main/members/screen_name/s/">S</a> <a href="/%prefix%main/members/screen_name/t/">T</a> <a href="/%prefix%main/members/screen_name/u/">U</a> <a href="/%prefix%main/members/screen_name/v/">V</a> <a href="/%prefix%main/members/screen_name/w/">W</a> <a href="/%prefix%main/members/screen_name/x/">X</a> <a href="/%prefix%main/members/screen_name/y/">Y</a> <a href="/%prefix%main/members/screen_name/z/">Z</a> &nbsp; <a href="/%prefix%main/members/screen_name/0/">0</a> <a href="/%prefix%main/members/screen_name/1/">1</a> <a href="/%prefix%main/members/screen_name/2/">2</a> <a href="/%prefix%main/members/screen_name/3/">3</a> <a href="/%prefix%main/members/screen_name/4/">4</a> <a href="/%prefix%main/members/screen_name/5/">5</a> <a href="/%prefix%main/members/screen_name/6/">6</a> <a href="/%prefix%main/members/screen_name/7/">7</a> <a href="/%prefix%main/members/screen_name/8/">8</a> <a href="/%prefix%main/members/screen_name/9/">9</a>
+				<hr />
+				<ul>
+					{exp:user:users orderby="screen_name" sort="asc" limit="10" paginate="bottom" {if segment_3 == "screen_name"}search:screen_name="{segment_4}%"{/if}}
+					<li class="forced-height"><small style="float: right;">Joined {join_date format="%F %j, %Y"}</small><img src="{if avatar_filename}{avatar_url}{avatar_filename}{if:else}{exp:user:theme_folder_url}code_pack/images/icon_profile.gif{/if}" height="35" width="35" alt="{screen_name}'s photo" style="float: left; margin-right: 10px;" /><a href="{path=%prefix%main/profile}/{member_id}/"><b>{screen_name}</b></a><br />{location}</li>
+					{if user_no_results}<li>No members found.</li>{/if}
+					{paginate}<li>Page {current_page} of {total_pages} page{if total_pages > "1"}s{/if} &nbsp; &nbsp; &nbsp; {pagination_links}</li>{/paginate}
+					{/exp:user:users}
+				</ul>
+
+			</div>
+
+		</div>
+
+		<div id="sidecolumn">
+
+			<h3>About This Page</h3>
+
+			<p>The "Members" page shows all members of the site. You can further filter this list of members by member group ID, etc.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_users/">User:Users</a> to display a list of all site members.</li>
+			</ul>
+
+		</div>
+{embed="%prefix%inc/footer"}

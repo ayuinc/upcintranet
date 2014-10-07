@@ -1,0 +1,87 @@
+		<div class="rule  ui-widget-content ui-corner-all ui-widget <?=($first === TRUE) ? 'first' : '';?>">
+			<div class="inner">
+				<div class="rule_number ui-state-default ui-corner-br ui-corner-tl">
+					<span><?=$rule_number;?></span>
+				</div>
+
+				<div class="rule_close ui-state-default  ui-corner-bl ui-corner-tr">
+					<span class="ui-icon ui-icon-close"></span>
+				</div>
+				<div class="group first type line">
+					<div class="leader">
+						<label><?=lang('type');?></label>
+						<select name="type">
+							<option value="+"><?=lang('include');?></option>
+							<option value="-" selected="selected"><?=lang('exclude');?></option>
+						</select>
+					</div>
+					<br  class="clear" />
+				</div>
+
+				<div class="group date_range inactive <?=($first === TRUE) ? 'first' : ''; ?>">
+					<div class="all_day line inactive"><input type="checkbox" id="all_day_<?=$rule_number;?>" name="all_day" <?=($all_day == 'y') ? 'checked="checked"' : ''; ?> /> <label for="all_day_<?=$rule_number;?>"><?=lang('all_day_event');?></label></div>
+					<div class="from line inactive">
+						<div class="date leader">
+							<label><?=lang('from');?></label>
+							<input type="text" name="start_date" class="picker" value="<?=($start_date > 0) ? $start_date : '';?>" />
+						</div>
+						<div class="time inactive">
+							<input type="text" name="start_time" value="<?=$start_time;?>" />
+<?php if ($time_format == '24') : ?>
+							<input type="hidden" name="ampm" value="am" />
+<?php else : ?>
+							<select name="ampm">
+								<option value="am" <?=($start_ampm == 'am') ? 'selected="selected"' : '';?>>AM</option>
+								<option value="pm" <?=($start_ampm == 'pm') ? 'selected="selected"' : '';?>>PM</option>
+							</select>
+<?php endif; ?>
+						</div>
+						<br class="clear" />
+					</div>
+
+					<div class="to line inactive">
+						<div class="date leader">
+							<label><?=lang('to');?></label>
+							<input type="text" name="end_date" class="picker" value="<?=($end_date > 0) ? $end_date : '';?>" />
+						</div>
+						<div class="time inactive">
+							<input type="text" name="end_time" value="<?=$end_time;?>" />
+<?php if ($time_format == '24') : ?>
+							<input type="hidden" name="ampm" value="am" />
+<?php else : ?>
+							<select name="ampm">
+								<option value="am" <?=($end_ampm == 'am') ? 'selected="selected"' : '';?>>AM</option>
+								<option value="pm" <?=($end_ampm == 'pm') ? 'selected="selected"' : '';?>>PM</option>
+							</select>
+<?php endif; ?>
+						</div>
+						<br class="clear" />
+					</div>
+					<br class="clear" />
+				</div>
+
+				<div class="group repeat line">
+					<div class="repeat_select leader">
+						<label><?=lang('repeat');?></label>
+						<select name="interval">
+							<option value="none"><?=lang('none');?></option>
+							<option value="daily"><?=lang('daily');?></option>
+							<option value="weekly"><?=lang('weekly');?></option>
+							<option value="monthly"><?=lang('monthly');?></option>
+							<option value="yearly"><?=lang('yearly');?></option>
+							<?php if ($first !== TRUE) :?><option value="select_dates" selected="selected"><?=lang('select_dates');?></option><?php endif; ?>
+						</select>
+					</div>
+
+					<div class="options">
+						<div class="picker_three">
+<?php foreach ($dates as $date) : ?>
+							<span class="date"><?=$date;?></span>
+<?php endforeach; ?>
+						</div>
+					</div>
+					<br class="clear" />
+				</div>
+				<br class="clear" />
+			</div>
+		</div> <!-- end rule -->

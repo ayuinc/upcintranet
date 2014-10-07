@@ -1,0 +1,16 @@
+<div id="calendar_fields">
+	<?php if ($event_edit_has_occurrences):?>
+		<br class="clearfix"/>
+		<fieldset class="ui-corner-all">
+			<legend><?=$lang_remove_edited_occurrences?></legend>
+			<input type="checkbox" class="checkbox" name="remove_edited_occurrences" checked="checked" value="y"/>
+			<input type="hidden" name="has_edited_occurrences" value="y"/>
+			<span class="notice"><?=$lang_remove_edited_occurrences_desc?></span>
+		</fieldset>
+		<br class="clearfix"/>
+	<?php endif;?>
+	<div id="calendar_wrapper">
+		<?=$output?>
+	</div>
+	<br class="clear" />
+</div>

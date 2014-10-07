@@ -1,0 +1,331 @@
+<style type="text/css">
+	#calendar_permissions_holder h4 {
+		 margin-bottom:			10px;
+	}
+
+	/* IE needs this? WHY?
+	Defaults in everything else but all version of IE.
+	Even freaking ie9 is centering by default.*/
+	#calendar_permissions_holder table th {
+		 text-align:			left;
+	}
+
+	#calendar_permissions_holder .group_name {
+		font-weight:	normal;
+	}
+
+	#calendar_permissions_holder .group_box {
+		 border-top: 	1px solid #D0D7DF;
+		 padding-top:	3px;
+		 margin-top:	7px;
+	}
+
+	#calendar_permissions_holder .group_section,
+	#calendar_permissions_holder .group_all_section,
+	#calendar_permissions_holder .group_deny_all_section {
+		float:			left;
+		width:			135px;
+		margin:			5px 5px 0 0;
+
+	}
+
+	#calendar_permissions_holder .hidden
+	{
+		display:		none;
+	}
+
+	#calendar_permissions_holder label.subtext
+	{
+		font-weight:	normal;
+		font-size:		12px;
+	}
+
+	#calendar_permissions_holder .header_subtext {
+		margin: 		0 0 0 10px;
+		font-size: 		94%;
+		font-weight: 	normal;
+		display: 		block;
+		float: 			right;
+	}
+
+	table#allow_all_table.mainTable {
+		width:		49.5%;
+		float:		left;
+	}
+
+
+	table#deny_all_table.mainTable {
+		width:		49.5%;
+		float:		right;
+	}
+
+	table#deny_all_table.mainTable td,
+	table#allow_all_table.mainTable td {
+		padding-top: 3px;
+	}
+
+	#disallowed_behavior {
+		width:			100%;
+		text-align:		right;
+	}
+
+	#permissions_instructions {
+		border:				1px solid #D0D7DF;
+		background-color: 	#F4F6F6;
+		padding:			5px 10px;
+		-webkit-border-radius:	3px;
+		-moz-border-radius: 	3px;
+		border-radius: 			3px;
+	}
+</style>
+
+<!--[if IE 7]><div class="ie7"  id="calendar_permissions_holder"><![endif]-->
+<!--[if IE 8]><div class="ie8"  id="calendar_permissions_holder"><![endif]-->
+<!--[if IE 9]><div class="ie9"  id="calendar_permissions_holder"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<div id="calendar_permissions_holder">
+<!--<![endif]-->
+
+<form method="post" action="<?=$form_url?>" autocomplete="off" id="calendar_permissions_form">
+	<input type="hidden" name="permissions_enabled" value="n" />
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+	<p>
+		<input type="checkbox" value="y" name="permissions_enabled" id="permissions_enabled"<?php
+			if ($permissions_enabled):?> checked="checked"<?php endif;?>/>&nbsp;
+	 	<label for="permissions_enabled"><?=$lang_permissions_enabled?></label>
+	</p>
+	<div id="permissions_content" <?php
+			if ( ! $permissions_enabled):?>class="hidden"<?php endif;?>>
+		<h4 id="permissions_instructions"><?=$lang_calendar_permissions_desc?></h4>
+		<p id="disallowed_behavior">
+			<label><?=$lang_disallowed_behavior_for_edit_page?>:</label>&nbsp;&nbsp;
+			<input type="radio" value="none" name="filter_on" id="filter_on_none"<?php
+				if ($filter_on == 'none'):?> checked="checked"<?php endif;?>/>&nbsp;
+		 	<label class="subtext" for="filter_on_none"><?=$lang_none?></label>&nbsp;&nbsp;
+		<?php if ($show_search_filter): ?>
+		 	<input type="radio" value="search_filter" name="filter_on" id="filter_on_search_filter"<?php
+				if ($filter_on == 'search_filter'):?> checked="checked"<?php endif;?>/>&nbsp;
+		 	<label class="subtext" for="filter_on_search_filter"><?=$lang_search_filter?></label>&nbsp;&nbsp;
+		<?php endif;?>
+		 	<input type="radio" value="disable_link" name="filter_on" id="filter_on_disable_link"<?php
+				if ($filter_on == 'disable_link'):?> checked="checked"<?php endif;?>/>&nbsp;
+		 	<label class="subtext" for="filter_on_disable_link"><?=$lang_disable_link?></label>&nbsp;&nbsp;
+		</p>
+		<table id="allow_all_table" class="mainTable padTable" cellspacing="0" cellpadding="0" border="0">
+			<thead>
+				<tr>
+					<th><?=$lang_allow_full_access?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="odd">
+					<td>
+					<?php foreach($member_groups as $group_id => $group_name): ?>
+						<div class="group_all_section<?php if (in_array($group_id, $groups_denied_all)):?>
+								hidden
+							<?php endif;?>" data-group-id="<?=$group_id?>">
+							<input
+								type="hidden"
+								name="allowed_all_group_<?=$group_id?>"
+								value="n"
+								/>
+							<input
+								type="checkbox"
+								id="allowed_all_group_<?=$group_id?>"
+								name="allowed_all_group_<?=$group_id?>"
+								value="y"
+							<?php if (in_array($group_id, $groups_allowed_all)):?>
+								checked="checked"
+							<?php endif;?>
+								/>
+							<label
+								for="allowed_all_group_<?=$group_id?>"
+								class="group_name"><?=$group_name?></label>
+						</div>
+					<?php endforeach;?>
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table id="deny_all_table" class="mainTable padTable" cellspacing="0" cellpadding="0" border="0">
+			<thead>
+				<tr>
+					<th>
+						<span class="header_subtext">
+							(<?=$lang_deny_takes_precedence?>)
+						</span>
+						<?=$lang_deny_all_access?>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="odd">
+					<td>
+					<?php foreach($member_groups as $group_id => $group_name): ?>
+						<div class="group_deny_all_section<?php if (in_array($group_id, $groups_allowed_all)):?>
+								hidden
+							<?php endif;?>" data-group-id="<?=$group_id?>">
+							<input
+								type="hidden"
+								name="denied_all_group_<?=$group_id?>"
+								value="n"
+								/>
+							<input
+								type="checkbox"
+								id="denied_all_group_<?=$group_id?>"
+								name="denied_all_group_<?=$group_id?>"
+								value="y"
+							<?php if (in_array($group_id, $groups_denied_all)):?>
+								checked="checked"
+							<?php endif;?>
+								/>
+							<label
+								for="denied_all_group_<?=$group_id?>"
+								class="group_name"><?=$group_name?></label>
+
+						</div>
+					<?php endforeach;?>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="clear"></div>
+
+		<table class="mainTable padTable" cellspacing="0" cellpadding="0" border="0">
+			<thead>
+				<tr>
+					<th style="width:30%;"><?=$lang_calendar_name?></th>
+					<th><?=$lang_allowed_groups?></th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php foreach($calendar_permission_data as $calendar_id => $permission_data):?>
+				<tr class="<?=$this->cycle('odd', 'even')?>">
+					<td><label><?=$permission_data['title']?></label></td>
+					<td>
+						<input
+							type="hidden"
+							name="cal_<?=$calendar_id?>_allow_all"
+							value="n"
+							/>
+						<input
+							class="calendar_allow_all"
+							type="checkbox"
+							id="cal_<?=$calendar_id?>_allow_all"
+							name="cal_<?=$calendar_id?>_allow_all"
+							value="y"
+						<?php if ($permission_data['permissions']['allow_all']):?>
+							checked="checked"
+						<?php endif;?>
+							/>
+						<label
+							for="cal_<?=$calendar_id?>_allow_all"
+							class="group_name"><?=$lang_allow_all?></label>
+
+						<div class="group_box<?php if ($permission_data['permissions']['allow_all']):?>
+							hidden
+						<?php endif;?>">
+						<?php foreach($member_groups as $group_id => $group_name):?>
+							<div class="group_section<?php
+								if (in_array($group_id, array_merge($groups_allowed_all, $groups_denied_all))):
+									?> hidden<?php
+								endif;?>" data-group-id="<?=$group_id?>">
+								<input
+									type="hidden"
+									name="cal_<?=$calendar_id?>_group_<?=$group_id?>"
+									value="n"
+									/>
+								<input
+									type="checkbox"
+									id="cal_<?=$calendar_id?>_group_<?=$group_id?>"
+									name="cal_<?=$calendar_id?>_group_<?=$group_id?>"
+									value="y"
+								<?php if ($permission_data['permissions'][$group_id]):?>
+									checked="checked"
+								<?php endif;?>
+									/>
+								<label
+									for="cal_<?=$calendar_id?>_group_<?=$group_id?>"
+									class="group_name"><?=$group_name?></label>
+							</div>
+						<?php endforeach;?>
+						</div>
+					</td>
+				</tr>
+			<?php endforeach;?>
+			</tbody>
+		</table>
+	</div>
+	<p>
+		<input type="submit" value="<?=$lang_save_permissions?>" class="submit" />
+	</p>
+</form>
+
+</div>
+<script type="text/javascript">
+	(function(global, $){
+		$(function(){
+			//auto hide and unhide groups if Allow All Full Access is shown
+			$('.group_all_section input[type="checkbox"], ' +
+			  '.group_deny_all_section input[type="checkbox"]').each(function(){
+				var $that 		= $(this),
+					$parent 	= $that.parent(),
+					group_id	= $parent.attr('data-group-id'),
+					is_allow  	= $parent.hasClass('group_all_section'),
+					$target		= $(
+						'.group_section[data-group-id="' + group_id + '"], ' +
+						'.group_' + (is_allow ? 'deny_' : '') +
+							'all_section[data-group-id="' + group_id + '"]'
+					);
+
+				$that.click(function(){
+					if ($that.is(':checked'))
+					{
+						$target.addClass('hidden');
+					}
+					else
+					{
+						$target.removeClass('hidden');
+					}
+				});
+			});
+			//end $('.group_all_section input[type="checkbox"]
+
+			//hide checkboxes if a calendar
+			$('.calendar_allow_all').each(function(){
+				var $that 		= $(this),
+			 		$target 	= $that.parent().find('.group_box');
+
+				$that.click(function(){
+					if ($that.is(':checked'))
+					{
+						$target.slideUp('fast');
+					}
+					else
+					{
+						$target.slideDown('fast');
+					}
+				});
+			});
+			//end $('.calendar_allow_all').each(function(){
+
+			//hide everthing if permissions is off
+			$('#permissions_enabled').click(function(){
+				if ($(this).is(':checked'))
+				{
+					$('#permissions_content').slideDown('fast');
+				}
+				else
+				{
+					$('#permissions_content').slideUp('fast');
+				}
+			});
+			//end $('#permissions_enabled').click(function(){
+		});
+		//end document ready
+	}(window, jQuery));
+	//end closure
+</script>

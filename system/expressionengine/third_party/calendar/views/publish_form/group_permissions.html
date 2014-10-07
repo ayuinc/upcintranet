@@ -1,0 +1,140 @@
+<div id="calendar_permissions">
+	<style type="text/css">
+		#calendar_permissions h4 {
+			 margin-bottom:	10px;
+		}
+
+		#calendar_permissions .group_name {
+			font-weight:	normal;
+			display: 		inline;
+		}
+
+		#calendar_permissions .group_box {
+			 border-top: 	1px solid #D0D7DF;
+			 padding-top:	3px;
+			 margin-top:	7px;
+			 padding-right:	30%;
+		}
+
+		#calendar_permissions .group_section{
+			float:			left;
+			width:			125px; 
+			margin:			5px 5px 0 0;
+		}
+
+		#calendar_permissions .hidden
+		{
+			display:		none;
+		}
+
+				#calendar_permissions .hidden
+		{
+			display:		none;
+		}
+
+		#calendar_permissions_holder {
+			margin-top:		10px;
+		}
+
+		#calendar_permissions_name_label {
+			font-weight: 	bold;
+		}
+
+	</style>
+	
+	<label id="calendar_permissions_name_label" class="hide_field"1>
+		<span><?=$lang_group_permissions?></span>
+	</label>
+	<div class="instruction_text">
+		<p><strong><?=$lang_instructions?></strong>&nbsp;<?=$lang_permissions_instructions?></p>				
+	</div>
+	<div id="calendar_permissions_holder">
+		<fieldset class="holder">
+			<input 
+				type="hidden" 
+				name="calendar_allow_all" 
+				value="n"
+				/>
+			<input 
+				class="calendar_allow_all"
+				type="checkbox"
+				id="calendar_allow_all" 
+				name="calendar_allow_all" 
+				value="y"
+			<?php if ($permission_data['allow_all']):?>
+				checked="checked"
+			<?php endif;?>
+				/>
+			<label
+				for="calendar_allow_all" 
+				class="group_name"><?=$lang_allow_all?></label>
+
+			<div class="group_box<?php if ($permission_data['allow_all']):?>
+				hidden
+			<?php endif;?>">
+			<?php foreach($member_groups as $group_id => $group_name):?>
+				<div class="group_section<?php 
+					if (in_array($group_id, array_merge($groups_allowed_all, $groups_denied_all))):
+						?> hidden<?php 
+					endif;?>">
+					<input 
+						type="hidden" 
+						name="calendar_group_<?=$group_id?>" 
+						value="n"
+						/>
+					<input 
+						type="checkbox" 
+						id="calendar_group_<?=$group_id?>" 
+						name="calendar_group_<?=$group_id?>" 
+						value="y"
+					<?php if ($permission_data[$group_id]):?>
+						checked="checked"
+					<?php endif;?>
+						/>
+					<label 
+						for="calendar_group_<?=$group_id?>" 
+						class="group_name"><?=$group_name?></label>
+				</div>	
+			<?php endforeach;?>
+			</div> <!-- end <div class="group_box -->
+		</fieldset>
+	</div>
+</div>
+<script type="text/javascript">
+	(function(global, $){
+		$(function(){
+			var $target 		= $('#calendar_permissions'),
+				$targetParent	= $target.parent(), 
+				$publishParent	= $target.closest('.publish_field');
+			
+			//move this after the publish parent and add class
+			//$publish_parent.after($target);
+			//MUST add class here and not in the html
+			//the EE publish JS removes it for some reason probably
+			//related to custom publish layouts. Tut tut.
+			$target.css({
+				'borderTopWidth' : $publishParent.css('borderTopWidth'),
+				'borderTopStyle' : $publishParent.css('borderTopStyle'),
+				'borderTopColor' : $publishParent.css('borderTopColor'),
+				'marginLeft' 	 : '-' + $targetParent.css('paddingLeft'),
+				'marginRight' 	 : '-' + $targetParent.css('paddingRight'),
+				'marginTop' 	 : '20px'
+			});
+
+			//hides groups if all is checked
+			var $allowAll	= $('#calendar_allow_all'),
+				$groups 	= $allowAll.parent().find('.group_box');
+
+			$allowAll.click(function(){
+				if ($allowAll.is(':checked'))
+				{
+					$groups.slideUp('fast');
+				}
+				else
+				{
+					$groups.slideDown('fast');
+				}
+			});
+		});
+	}(window, jQuery));
+</script>

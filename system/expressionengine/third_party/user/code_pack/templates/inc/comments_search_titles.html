@@ -1,0 +1,8 @@
+%ee2%
+{exp:query sql="SELECT title, url_title FROM exp_channel_titles WHERE entry_id = '{embed:entry_id}'"}
+%/ee2%
+%ee1%
+{exp:query sql="SELECT title, url_title FROM exp_weblog_titles WHERE entry_id = '{embed:entry_id}'"}
+%/ee1%
+<a href="{path=site/comments}/{url_title}/">{title}</a>
+{/exp:query}

@@ -1,0 +1,5 @@
+
+#reassign_ownership_form img.loading { opacity: 0; vertical-align:middle; line-height: 20px;}
+#reassign_ownership_form img.loading.active { opacity : 1;}
+
+#reassign_ownership_form table td select { width: auto;}

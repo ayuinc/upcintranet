@@ -1,0 +1,123 @@
+body {
+  text-align: center;
+}
+#fc_calendar {
+  text-align: left;
+  margin: 0 auto;
+  background: #d5dde5;
+  width: 991px;
+  padding-left: 3px;
+  padding-bottom: 3px;
+  font-size: 12px;
+  font-family: helvetica, "lucida sans", arial, verdana;
+}
+#fc_calendar table {
+  border-collapse: collapse;
+  font-size: 12px;
+}
+#fc_calendar #fc_inner td {
+  border: 1px solid #000;
+  vertical-align: top;
+  background: #fff;
+  color: #000;
+}
+#fc_outer {
+  width: 980px;
+  margin: 0;
+  padding: 0;
+}
+#fc_inner {
+  width: 980px;
+}
+#fc_calendar .event {
+  font-size: 11px;
+  font-family: helvetica, "lucida sans", arial, verdana;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 129px;
+  color: #009966;
+}
+#fc_celander table table .event a {
+  color: #009966;
+  text-decoration: underline;
+}
+
+#fc_calendar .out_of_range { background-color: transparent; }
+#fc_calendar .black {background-color: #000; }
+#fc_calendar .has_events {background-color: yellow; color: #f00;}
+#fc_calendar .day_cell .all_day, 
+#fc_calendar .day_cell .multi_day {
+  background-color: #009966;
+  margin: 0 0 1px; 
+  padding: 0 4px; 
+  line-height: 20px;
+  color: #fff;
+  font-size: 11px;
+/*      font-weight: bold;*/
+}
+#fc_calendar .day_cell .all_day a,
+#fc_calendar .fc_inner .day_cell .multi-day a {
+  color: #fff;
+  text-decoration: none;
+}
+#fc_calendar .day_cell .all_day a:hover,
+#fc_calendar .day_cell .multi-day a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+#fc_calendar .first_day { 
+  margin-left: 0; 
+}
+#fc_calendar .last_day { 
+  margin-right: 0; 
+}
+#fc_calendar .day_cell .index_difference_1 { margin-top: 21px; }
+#fc_calendar .day_cell .index_difference_2 { margin-top: 45px; }
+
+#fc_calendar .day_cell .date {
+    width: 137px;
+    text-align: right;
+    background: #dbe4ea;
+    height: 20px;
+    line-height: 20px;
+    margin: -30px 0 0 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: absolute;
+  }
+#fc_calendar .day_cell .date a {
+  font-weight: bold;
+  color: #49616A;
+  text-decoration: none;
+}
+#fc_calendar .day_cell .date .num {
+  margin-right: 5px;
+}
+#fc_calendar .day_cell .date a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+#fc_calendar .out_of_range .date {
+    background: transparent url(/themes/third_party/calendar/img/pad_date.png) repeat-x;
+    color: #999;
+  }
+#fc_calendar .day_cell {
+    width: 137px;
+    height: 131px;
+    padding-top: 30px;
+    overflow: auto;
+  }
+#days_of_week th {
+  padding: 5px 0;
+  color: #fff;
+}
+#month_year th {
+  padding: 5px 0;
+  color: #000;
+}
+.wrap {
+  background: black;
+  padding: 0 3px 3px;
+}

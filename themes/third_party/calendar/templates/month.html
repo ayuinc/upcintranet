@@ -1,0 +1,43 @@
+{display_each_month}
+<table id="fc_outer">
+	<thead>
+		<tr id="month_year">
+			<th colspan="2">&laquo; <a href="/calendar/month/{prev_month format="%Y-%m"}/">{prev_month format="%F"}</a></th>
+			<th colspan="3">{month format="%F %Y"}</th>
+			<th colspan="2"><a href="/calendar/month/{next_month format="%Y-%m"}/">{next_month format="%F"}</a> &raquo;</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="7">
+				<div class="wrap">
+					<table id="fc_inner">
+						<thead>
+							<tr id="days_of_week">
+								{display_each_day_of_week}
+								<th class="day_of_week {day_of_week}">{day_of_week}</th>
+								{/display_each_day_of_week}
+							</tr>
+						</thead>
+						<tbody>
+							{display_each_week}
+							<tr>
+								{display_each_day}
+								{if day_in_current_month}
+								<td class="day_cell"><div class="date"><a class="num" href="/calendar/day/{day format="%Y-%m-%d"}/">{day format="%j"}</a></div>
+								{if:else}
+								<td class="day_cell out_of_range"><div class="date"><span class="num">{day format="%j"}</span></div>
+								{/if}
+									{events}EVENTS_PLACEHOLDER{/events}
+								</td>
+						{/display_each_day}
+							</tr>
+				{/display_each_week}
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+{/display_each_month}

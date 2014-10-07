@@ -1,0 +1,323 @@
+.clear { clear: both; }
+br.clear { height: 1px; }
+
+/*----------------------
+	that damned add rule button
+-----------------------*/
+#calendar_new_date button {
+	/* background not added here as it's fubar with IE :/. Stupid IE */
+		background-color: 		#ffffff;
+		background-image: 		-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ededed)); /* Saf4+, Chrome */
+		background-image: 		-webkit-linear-gradient(top, #ffffff, #ededed); /* Chrome 10+, Saf5.1+ */
+		background-image: 		   -moz-linear-gradient(top, #ffffff, #ededed); /* FF3.6 */
+		background-image: 		    -ms-linear-gradient(top, #ffffff, #ededed); /* IE10 */
+		background-image: 		     -o-linear-gradient(top, #ffffff, #ededed); /* Opera 11.10+ */
+		background-image: 		        linear-gradient(top, #ffffff, #ededed);
+		-moz-border-radius: 	5px;
+		-webkit-border-radius: 	5px;
+		border-radius: 			5px;
+		border: 				1px solid #a4a4a4;
+		padding: 				3px 8px 4px;
+		cursor:					pointer;
+		font-weight:			bold;
+
+}
+	#calendar_new_date.ie7 button,
+	#calendar_new_date.ie8 button {
+		filter: 				progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#ededed'); /* IE6–IE9 */
+	}
+
+	/*ie9 is so coool! i needs its own special fix because it doesnt support css3
+	 gradients, and it doesn't round filter effects when corners are rounded ;D!!!!
+	 stupid stupid ie >:|*/
+	#calendar_new_date.ie9 button {
+		background-image: 		url(../img/stupid_ie9.svg);
+		background-size: 		100% 100%;
+		background-repeat: 		repeat-x;
+		background-position:	0 0;
+	}
+
+#calendar_calendars {
+	margin: 5px 0 10px;
+}
+#calendar_select, #calendar_new_date, #calendar_help {
+	float: left;
+}
+#calendar_select, #calendar_help {
+	margin-top: 4px;
+}
+#calendar_help {
+	margin-left: 20px;
+	text-decoration: underline;
+}
+#calendar_new_date {
+	margin-left:10px;
+}
+
+#calendar_fields div.line {
+	margin-top: 5px;
+}
+#calendar_fields div.rule {
+	position: relative;
+	margin-right: 15px;
+	padding: 15px 30px;
+	/*float: left;*/
+	width: 454px;
+	border: 1px solid #B2BFCC;
+	margin-bottom: 15px;
+	background: #eff3f6;
+}
+/* --- */
+
+#calendar_fields div.rule div.repeat {
+  margin-top: 10px;
+  background: none;
+  padding-left: 0;
+}
+#calendar_fields div.rule div.date input {
+	width: 100px;
+}
+
+#calendar_fields div.rule div.date input.hasDatepicker {
+	background-image: url(../img/calendar_icon.png);
+	background-position: 95% 50%;
+	background-repeat: no-repeat;
+	min-width: 110px;
+}
+
+#calendar_fields div.rule div.time input {
+	width: 65px;
+	/*background-image: url(../img/time_icon.png);*/
+	background-position: 92% 50%;
+	background-repeat: no-repeat;
+}
+
+#calendar_fields label {
+  display: inline;
+line-height:100%;
+}
+
+#calendar_fields div.rule div.time select {
+  margin-left: 5px;
+}
+#calendar_fields div.rule div.repeat_select select,
+#calendar_fields div.rule div.end select {
+	width: 106px;
+	margin-top:2px;
+}
+#calendar_fields div.rule div.options input {
+	width: 40px;
+}
+#calendar_fields div.rule div.options .by_date,
+#calendar_fields div.rule div.options .by_relative {
+	float: left;
+}
+#calendar_fields div.rule div.leader label {
+	padding-top: 5px;
+}
+#calendar_fields div.rule div.group {
+	border-top: 1px solid #B2BFCC;
+	padding-top: 5px;
+	margin-top: 5px;
+}
+#calendar_fields div.rule div.first {
+	border: none;
+}
+#calendar_fields div.rule div.options .clear {
+	font-size: 1em;
+	/*padding-left: 10px;*/
+	padding-top: 10px;
+}
+#calendar_fields div.rule div.end input {
+	margin-left: 10px;
+}
+#calendar_fields div.rule div.end .hasDatepicker {
+	width: 106px;
+}
+/* --- */
+
+#calendar_fields div.rule .inactive {
+	display: none;
+}
+
+#calendar_fields div.rule div.rule_number {
+	position: absolute;
+	top: -1px;
+	width: 10px;
+	height: 10px;
+	padding: 5px 7px 10px 9px;
+	background-color: #B3C1CD;
+	color: #fff;
+	left: -1px;
+	border-bottom: 1px solid #fff;
+	border-right: 1px solid #fff;
+}
+
+#calendar_fields div.rule div.rule_close {
+	position: absolute;
+	top: -1px;
+	width: 10px;
+	height: 10px;
+	padding: 4px 10px 12px 6px;
+	background-color: #B3C1CD;
+	color: #fff;
+	right: 0;
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #fff;
+	cursor:pointer;
+}
+
+#calendar_fields div.rule div.rule_close a {
+	display: block;
+	height: 100%;
+	width: 100%;
+	color: #fff;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#calendar_fields div.rule div.rule_close a:hover {text-decoration:none;}
+
+#calendar_fields div.rule div.all_day {
+	padding-left: 58px;
+	margin-top: 0;
+}
+#calendar_fields div.rule div.leader,
+#calendar_fields div.rule div.time {
+	float: left;
+}
+
+
+#calendar_fields div.rule div.leader label {
+	display: block;
+	float: left;
+	width: 50px;
+	padding-right: 10px;
+	text-align: right;
+}
+#calendar_fields div.rule div.options {
+	/*float: left;*/
+	text-align: left;
+}
+#calendar_fields div.rule div.repeat div.options div.picker_three {
+	padding-top: 0;
+	padding-left: 10px;
+}
+
+/* select date overrides */
+
+#calendar_fields div.rule div.repeat div.options div.picker_three.ss_select_dates {
+	padding-top: 	0;
+	padding-left: 	0;
+	margin-top:		30px;
+}
+
+#calendar_fields div.rule div.repeat div.options div.picker_three.ss_select_dates .ui-datepicker-header {
+	padding-top:3px;
+	height: 21px;
+}
+
+#calendar_fields div.rule div.repeat div.options div.picker_three.ss_select_dates a {
+	text-decoration:none;
+}
+
+#calendar_fields div.rule div.repeat div.options div.picker_three.ss_select_dates .ui-widget-content .ui-datepicker-selected-day a,
+#calendar_fields div.rule div.repeat div.options div.picker_three.ss_select_dates .ui-widget-content a:hover {
+	border:1px solid #dfd67a;
+	color:#fff;
+}
+
+/* end select date overrides */
+
+#calendar_fields div.rule div.time label,
+#calendar_fields div.rule div.options label {
+	width: auto;
+	padding: 0 10px;
+	text-align: left;
+}
+#calendar_fields div.rule div.selector {
+	float: left;
+	min-height: 30px;
+	line-height: 30px;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	margin-left: 9px;
+	margin-bottom: 5px;
+}
+#calendar_fields div.rule div.selector div.item {
+	float: left;
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	border-left: none;
+	border-top: none;
+	padding-top: 0;
+	margin-top: 0;
+	margin-right:5px;
+	margin-bottom: 15px;
+	width: 41px;
+	height: 30px;
+	display:block;
+}
+
+#calendar_fields.under_220 div.rule div.selector div.item {
+	margin-bottom: 5px;
+}
+
+#calendar_fields div.rule div.selector div.item a.ui-corner-all span {
+	margin: 7px 5px;
+}
+
+#calendar_fields div.rule div.selector div.newline {
+	clear: left;
+}
+#calendar_fields div.rule div.selector div.close {
+	border-right: 1px solid #fff;
+}
+#calendar_fields div.rule div.selector a {
+	display: block;
+	float: left;
+	text-align: center;
+	min-width: 25px;
+	padding: 5px 8px;
+	color: #fff;
+	background-color: #B2BFCC;
+	text-decoration:none;
+}
+#calendar_fields div.rule div.selector a.selected,
+#calendar_fields div.rule div.selector a:hover,
+#calendar_fields div.rule div.selector div.close a:hover {
+	background-color: #8A98A4;
+	color: #fff;
+}
+#calendar_fields div.rule div.selector div.close a {
+	background-color: #d1d7de;
+	color: #7d8691;
+}
+#calendar_fields div.rule div.picker_three {
+	clear: both;
+	background: none;
+	padding-left: 0;
+	padding-top: 10px;
+}
+
+#calendar_fields .group.end.line {
+	min-height: 15px;
+}
+
+.ui-widget-content .ui-datepicker-selected-day { background: #ffffff url(ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x; font-weight: bold; outline: none; }
+.ui-widget-content .ui-datepicker-selected-day .ui-icon {background-image: url(ui-lightness/images/ui-icons_ef8c08_256x240.png); }
+.ui-widget-content .ui-datepicker-selected-day a { background-color: #8D98A3; background-image: none; color: #fff; outline: none; text-decoration: none; border: 1px #8D98A3 solid;}
+
+#ui-datepicker-div  {
+	border-color:#B6C0C2;
+	z-index:10000;
+	zoom:1;
+}
+
+#calendar_fields .ui-datepicker-calendar .ui-state-active,
+#calendar_fields .ui-datepicker-calendar .ui-widget-content .ui-state-active,
+#calendar_fields .ui-datepicker-calendar .ui-widget-header .ui-state-active {
+	background:	#8D98A3 !important;
+	color:		#fff;
+}
+

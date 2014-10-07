@@ -1,0 +1,48 @@
+.dataTables_filter, .dataTables_length, .detour_form
+{
+	margin-bottom: 8px;	
+}
+
+
+table.mainTable th.sorting_desc {
+	background:			transparent url('../images/table_sort_desc.gif') bottom right no-repeat;
+	border-left:		1px solid #C60047;
+
+}
+
+table.mainTable th.sorting_asc {
+	background:			transparent url('../images/table_sort_asc.gif') bottom right no-repeat;
+	border-left:		1px solid #C60047;
+}
+
+
+table.mainTable th.sorting {
+	background:		#2a3940 url('../images/backgrounds_sprite.png') repeat-x 0 -540px !important;
+	color:				#fff;
+	padding:			9px 8px 10px 8px;
+	border-left:		1px solid #45555f;
+	cursor:				pointer;
+}
+
+table.mainTable th {
+	background:		#2a3940 url('../images/backgrounds_sprite.png') repeat-x 0 -540px;
+	color:				#fff;
+	padding:			9px 8px 10px 8px;
+	border-left:		1px solid #45555f;
+	cursor:				pointer;
+}
+
+
+table.mainTable thead {
+	background:			#C60047 url('../images/table_column_heading_active_bg.jpg') bottom left repeat-x !important;
+}
+
+
+
+table.addDetour th {
+	background:		#2a3940 url('../images/backgrounds_sprite.png') repeat-x 0 -540px !important;
+	color:				#fff;
+	padding:			9px 8px 10px 8px;
+	border-left:		1px solid #45555f;
+	cursor:				pointer;
+}

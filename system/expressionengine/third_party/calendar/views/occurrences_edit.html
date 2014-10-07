@@ -1,0 +1,107 @@
+<form id="filter" method="post" name="filter" action="<?=$form_url?>">
+	<input type="hidden" name="event_id"	value="<?=$event_id?>" />
+	<input type="hidden" name="status"		value="<?=$status?>" />
+	<input type="hidden" name="date"		value="<?=$date?>" />
+	<input type="hidden" name="direction" 	value="<?=$direction?>" />
+	<input type="hidden" name="orderby"		value="<?=$orderby?>" />
+	<input type="hidden" name="sort"		value="<?=$sort?>" />
+	<input type="hidden" name="offset"		value="<?=$offset?>" />
+	<input type="hidden" name="limit"		value="<?=$limit?>" />
+	<input type="hidden" name="event_id" 	value="<?=$event_id?>" />
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+	<fieldset>
+		<legend><strong><?=lang('filter');?></strong></legend>
+		<select name="status">
+			<option value=""><?=lang('filter_by_status');?></option>
+	<?php foreach ($statuses as $v) : ?>
+			<option value="<?=$v['status'];?>" <?=($status == $v['status']) ? 'selected="selected"' : '';?>><?=ucfirst($v['status']);?></option>
+	<?php endforeach; ?>
+		</select>
+		&nbsp;
+		<label><?=lang('order_by');?></label>
+		<select name="orderby">
+	<?php foreach ($orderbys as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($orderby == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+	<?php endforeach; ?>
+		</select>
+		<select name="sort">
+	<?php foreach ($sorts as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($sort == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+	<?php endforeach; ?>
+		</select>
+		&nbsp;
+		<label><?=lang('page_limit');?></label>
+		<select name="limit">
+	<?php foreach ($limits as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($limit == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+	<?php endforeach; ?>
+		</select>
+
+
+	<div class="clearfix">&nbsp;</div>
+		<label><?=lang('occurrences_limit');?></label>
+		<select name="occurrences_limit">
+	<?php foreach ($limits as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($occurrences_limit == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+	<?php endforeach; ?>
+		</select>
+		&nbsp;
+		<label><?=lang('first_date_is');?></label>
+		<input type="text" name="date" id="datepicker" class="picker" value="<?=$date?>" style="width:100px;" />
+		<select name="date_direction">
+	<?php foreach ($directions as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($direction == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+	<?php endforeach; ?>
+		</select>
+		&nbsp;
+		<input type="submit" class="submit" value="<?php echo lang('filter_events');?>" />
+
+	</fieldset>
+
+	<div class="clearfix">&nbsp;</div>
+
+		<table class="mainTable padTable"  style="width:100%;"  cellspacing="0"  cellpadding="0"  border="0">
+		    <thead>
+    			<tr>
+    				<th style="width:3%;"></th>
+    				<th style="width:45%;"><?=lang('event_name'); ?></th>
+    				<th style="width:20%;"><?=lang('date'); ?></th>
+    				<th style="width:20%;"><?=lang('time'); ?></th>
+    				<th style="width:12%;"><?=lang('status'); ?></th>
+    			</tr>
+    		</thead>
+    		<tbody>
+<?php if (empty($event_views)): ?>
+    			<tr class="odd">
+    				<td colspan="5"><?=lang('no_results'); ?></td>
+    			</tr>
+<?php else :?>
+	<?php foreach ($event_views as $event_data) : ?>
+    			<tr class="<?=$this->cycle('odd', 'even');?>">
+    				<td><?=$event_data['count']?></td>
+					<td><a href="<?=$event_data['edit_link']?>"><?=$event_data['title'];?></a></td>
+    				<td><?=$event_data['time']?></td>
+    				<td><?=$event_data['time_range']?></td>
+    				<td><?=$event_data['ostatus']?></td>
+    			</tr>
+	<?php endforeach;?>
+
+	<?php if (! empty($paginate)) : ?>
+				<tr class="<?=$this->cycle('odd', 'even');?>">
+					<td colspan="5"><?=$paginate?></td>
+				</tr>
+	<?php endif;?>
+
+<?php endif;?>
+
+            </tbody>
+		</table>
+
+</form>
+
+
+<script type="text/javascript">
+	jQuery(function($){
+		$('#datepicker').datepicker({dateFormat	: "<?=$this->data->preference('date_format')?>"});
+	});
+</script>

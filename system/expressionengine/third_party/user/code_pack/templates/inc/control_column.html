@@ -1,0 +1,39 @@
+			<div id="leftcolumn">
+
+				<h4>Account</h4>
+
+				<ul class="bottom-border">
+					<li{if segment_1 == "%prefix%main" AND segment_2 == ""} class="selected"{/if}><a href="{path=%prefix%main}/">Dashboard</a></li>
+					<li{if segment_2 == "profile"} class="selected"{/if}><a href="{path=%prefix%main/profile}/{logged_in_member_id}/">My Profile</a></li>
+					<li{if segment_2 == "update_profile"} class="selected"{/if}><a href="{path=%prefix%main/update_profile}/">Update My Profile</a></li>
+					<li{if segment_2 == "update_avatar_photo"} class="selected"{/if}><a href="{path=%prefix%main/update_avatar_photo}/">Update Avatar/Photo</a></li>
+					<li{if segment_2 == "update_settings"} class="selected"{/if}><a href="{path=%prefix%main/update_settings}/">Update Settings</a></li>
+					<li{if segment_2 == "update_account"} class="selected"{/if}><a href="{path=%prefix%main/update_account}/">Update My Account</a></li>
+					<li{if segment_2 == "delete_account"} class="selected"{/if}><a href="{path=%prefix%main/delete_account}/">Delete Account</a></li>
+				</ul>
+
+				<h4>Messages</h4>
+
+				<ul class="bottom-border">
+					<li><a href="{path=member/messages/compose}/">Compose New</a></li>
+					<li>
+						<ul>
+							<li>- <a href="{path=member/messages/view_folder}/1/"><b>Inbox</b> ({private_messages} new)</a></li>
+							<li>- <a href="{path=member/messages/view_folder}/2/">Sent</a></li>
+							<li>- <a href="{path=member/messages/view_folder}/deleted/">Trash</a></li>
+						</ul>
+					</li>
+				</ul>
+
+
+				<h4>Members</h4>
+
+				<ul>
+					<li{if segment_2 == "members"} class="selected"{/if}><a href="{path=%prefix%main/members}/">Member List</a></li>
+					<li{if segment_2 == "search"} class="selected"{/if}><a href="{path=%prefix%main/search}/">Member Search</a></li>
+{if logged_in_group_id == "1"}
+					<li{if segment_2 == "invite"} class="selected"{/if}><a href="{path=%prefix%main/invite}/">Invite (Admins Only)</a></li>
+{/if}
+				</ul>
+
+			</div>

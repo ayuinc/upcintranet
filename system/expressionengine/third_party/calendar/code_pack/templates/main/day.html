@@ -1,0 +1,101 @@
+{embed="%prefix%inc/index" page_title="Day View"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>Calendar</h2>
+			
+			<h3>Day View</h3>
+			
+			<p></p>
+
+			<div id="leftcolumn">
+
+				{if segment_3 == "by_calendar"}
+					{exp:calendar:calendars calendar_name="{segment_4}" dynamic="off"}
+					<div class="calendar">
+						<h3>Events for <span>{calendar_title}</span> Calendar</h3>
+					</div>
+					{/exp:calendar:calendars}
+				<hr />
+				{/if}
+
+<div id="dc_calendar">
+
+{exp:calendar:cal pad_short_weeks="n"
+   {if segment_3 == "by_calendar"}
+      {if segment_5 == ''}calendar_name="{segment_4}" date_range_start="today" date_range_end="today"{/if}
+      {if segment_5 != ''}calendar_name="{segment_4}" date_range_start="{segment_5}-{segment_6}-{segment_7}" date_range_end="{segment_5}-{segment_6}-{segment_7}"{/if}
+   {/if}
+   {if segment_3 != "by_calendar"}
+      {if segment_3 == ''}date_range_start="today" date_range_end="today"{/if}
+      {if segment_3 != ""}date_range_start="{segment_3}-{segment_4}-{segment_5}" date_range_end="{segment_3}-{segment_4}-{segment_5}"{/if}
+   {/if}
+   dynamic="off"
+}
+
+   {display_each_day}
+   <div class="header">
+      <div class="left">
+         <a href="{path='%prefix%main/day'}/{if segment_3 == "by_calendar"}by_calendar/{segment_4}/{/if}{prev_day format="%Y/%m/%d"}/">Yesterday</a>
+      </div>
+      <div class="center">
+         <h2>{day format="%l, %F %d, %Y"} <span>({day_event_total} events)</span></h2>
+      </div>
+      <div class="right">
+         <a href="{path='%prefix%main/day'}/{if segment_3 == "by_calendar"}by_calendar/{segment_4}/{/if}{next_day format="%Y/%m/%d"}/">Tomorrow</a>
+      </div>
+      <hr />
+   </div>
+   {display_each_hour}
+   <h4 {if time == "00:00"}class="thickline"{/if}>{time format="%g %a"} <span>({if hour_event_total == "0"}no events{if:else}{hour_event_total} event{if hour_event_total > "1"}s{/if}{/if})</span></h4>
+   {events}
+{if event_multi_day == FALSE && event_all_day == FALSE}
+   <div class="event">
+         <h2><a href="{path='%prefix%main/event'}/{event_id}/">{event_title}</a> <span>({event_start_date format="%g:%i %a"}{if event_end_date}{if "{event_start_date format='%g:%i %a'}" != "{event_end_date format='%g:%i%a'}"} - {event_end_date format="%g:%i%a"}{/if}{/if})</span></h2>
+         <p><b>From Calendar:</b> <a href="{path='%prefix%main/calendars'}/{event_calendar_url_title}/">{event_calendar_title}</a></p>
+         <p><b>Location:</b> {event_location}</p>
+         <p><b>Details:</b> {event_summary}<p>
+   </div>
+{if:else}
+   <div class="event_top">
+         <h2><a href="{path='%prefix%main/event'}/{event_id}/">{event_title}</a> <span>({if event_multi_day == FALSE && event_all_day == TRUE}all day{if:else}{event_start_date format="%F %j, %Y at %g:%i%a"}{if event_end_date}{if "{event_start_date format='%g:%i%a'}" != "{event_end_date format='%g:%i%a'}"} - {event_end_date format="%F %j, %Y at %g:%i%a"}{/if}{/if}{/if})</span></h2>
+         <p><b>From Calendar:</b> <a href="{path='%prefix%main/calendars'}/{event_calendar_url_title}/">{event_calendar_title}</a> &nbsp; &nbsp; <b>Location:</b> {event_location} &nbsp; &nbsp; <a href="{path='%prefix%main/event'}/{event_id}/">View Details</a></p>
+   </div>
+{/if}
+   {/events}
+   {/display_each_hour}
+   {/display_each_day}
+{/exp:calendar:cal}
+
+</div> 
+
+			</div>
+
+			<div id="rightcolumn">
+
+{embed="%prefix%inc/side_column"}
+
+				<div id="aboutcolumn">
+		
+					<h3>About This Page</h3>
+			
+					<p>The "Day" page is meant to show events that are happening within the selected date. Additionally, this can be filtered down to a selected calendar (if you came to this page from the Calendars page).</p>
+
+					<p>It makes use of the following function:</p>
+
+					<ul>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_day/">Calendar:Cal in Day mode</a> to display events that are happening within the selected date.</li>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_mini/">Calendar:Cal in Mini mode</a> to display a Mini Calendar that links to days that have events.</li>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_calendars/">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+					</ul>
+		
+				</div>
+
+			</div>
+	
+		</div>
+		
+{embed="%prefix%inc/footer"}

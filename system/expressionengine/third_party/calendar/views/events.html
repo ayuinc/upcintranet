@@ -1,0 +1,125 @@
+<form id="filter" method="post" name="filter" action="<?=$form_url; ?>">
+	<input type="hidden" name="C" value="modules" />
+	<input type="hidden" name="M" value="calendar" />
+	<input type="hidden" name="method" value="view_events" />
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+	<fieldset>
+		<legend><strong><?=lang('filter');?></strong></legend>
+		<select name="calendar">
+			<option value=""><?=lang('filter_by_calendar');?></option>
+		<?php foreach ($calendars as $id => $cdata) : ?>
+			<option value="<?=$id;?>" <?=($calendar == $id) ? 'selected="selected"' : '';?>><?=$cdata['title'];?></option>
+		<?php endforeach; ?>
+		</select>
+
+		<select name="status">
+			<option value=""><?=lang('filter_by_status');?></option>
+		<?php foreach ($statuses as $v) : ?>
+			<option value="<?=$v['status'];?>" <?=($status == $v['status']) ? 'selected="selected"' : '';?>><?=ucfirst($v['status']);?></option>
+		<?php endforeach; ?>
+		</select>
+
+		<select name="recurs">
+			<option value=""><?=lang('filter_by_recurs');?></option>
+		<?php foreach ($recurses as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($recurs == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+		<?php endforeach; ?>
+		</select>
+
+		<label for="orderby"><?=lang('order_by')?></label>
+		<select name="orderby">
+		<?php foreach ($orderbys as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($orderby == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+		<?php endforeach; ?>
+		</select>
+
+		<select name="sort">
+		<?php foreach ($sorts as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($sort == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+		<?php endforeach; ?>
+		</select>
+
+		<label for="limit"><?=lang('limit');?></label>
+		<select name="limit">
+		<?php foreach ($limits as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($limit == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+		<?php endforeach; ?>
+		</select>
+
+		<div class="clearfix">&nbsp;</div>
+
+		<label for="date"><?=lang('date_is')?></label></td>
+		<input type="text" name="date" id="datepicker" value="<?=$date?>" style="width:100px" /></td>
+				&nbsp;
+
+		<select name="date_direction">
+			<?php foreach ($directions as $k => $v) : ?>
+			<option value="<?=$k;?>" <?=($direction == $k) ? 'selected="selected"' : '';?>><?=$v;?></option>
+			<?php endforeach; ?>
+		</select>
+
+		&nbsp;<input type="submit" class="submit" value="<?php echo lang('filter_events');?>" />
+	</fieldset>
+
+	<div class="clearfix">&nbsp;</div>
+
+	<table class="mainTable padTable magic_checkbox_table"  style="width:100%;"  cellspacing="0"  cellpadding="0"  border="0">
+		<thead>
+			<tr>
+				<th style="width:10%;">
+					<input id="top_delete" class="checkbox" type="checkbox" name="toggle_all_checkboxes" />
+					<label for="top_delete"><?=lang('delete'); ?></label>
+				</th>
+				<th style="width:10%;"><?=lang('event_id'); ?></th>
+				<th style="width:25%;"><?=lang('event_name'); ?></th>
+				<th style="width:20%;"><?=lang('calendar_name'); ?></th>
+				<th style="width:5%;"><?=lang('status'); ?></th>
+				<th style="width:10%;"><?=lang('occurrences'); ?></th>
+				<th style="width:10%;"><?=lang('first_date'); ?></th>
+				<th style="width:10%;"><?=lang('last_date'); ?></th>
+			</tr>
+		</thead>
+		<tbody>
+<?php if (empty($data)):?>
+			<tr class="odd">
+				<td colspan="8"><span class="notice"><?=lang('no_results'); ?></span></td>
+			</tr>
+<?php else:?>
+	<?php foreach ($data as $row): ?>
+			<tr class="<?=$this->cycle('odd', 'even');?>">
+				<td><input type="checkbox" name="toggle[]" value="<?=$row['event_id'];?>" /></td>
+				<td><?=$row['event_id']; ?></td>
+				<td><a href="<?=BASE.'&C=content_publish&M=entry_form&channel_id='.$row['channel_id'].'&entry_id='.$row['event_id'];?>"><?=$row['event_name']; ?></a></td>
+				<td><a href="<?=BASE.'&C=content_publish&M=entry_form&channel_id='.$row['calendar_channel_id'].'&entry_id='.$row['calendar_id'];?>"><?=$row['calendar_name']; ?></a></td>
+				<td><?=$row['status']; ?></td>
+				<td><?php if ($row['recurs'] == 'y'): ?>
+						<a href="<?=$this->output( $this->base . '&method=edit_occurrences&event_id=' . $row['event_id'])?>"><?=lang('edit')?></a>
+					<?php else: ?>
+						--
+					<?php endif;?>
+				</td>
+				<td><?=$row['first_date']; ?></td>
+				<td><?=$row['last_date']; ?></td>
+			</tr>
+	<?php endforeach;?>
+<?php endif;?>
+
+			<tr>
+				<td><input id="bottom_delete" class="checkbox" type="checkbox" name="toggle_all_checkboxes" />
+					<label for="bottom_delete"><?=lang('delete')?></label>
+				</td>
+				<td colspan="7"></td>
+			</tr>
+		</tbody>
+	</table>
+	<?php if (! empty($paginate)) : ?>
+		<p><?=$paginate?></p>
+	<?php endif;?>
+	<p><input type="submit" class="submit" name="delete_confirm" value="<?=$delete?>" /></p>
+</form>
+
+<script type="text/javascript">
+	jQuery(function($){
+		$('#datepicker').datepicker({dateFormat	: "<?=$this->data->preference('date_format')?>"});
+	});
+</script>

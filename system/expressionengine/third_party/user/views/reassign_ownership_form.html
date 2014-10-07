@@ -1,0 +1,217 @@
+<?php $this->view('header.html');?>
+
+<script type="text/javascript">
+
+
+;(function($, global){
+
+	$(function ()
+	{
+		$('input[name=member_keywords],input[name=entry_title_keywords]').keydown(function(e)
+		{
+			if (e.keyCode == 13)
+			{
+				e.preventDefault();
+				e.stopPropgation();
+			}
+		});
+
+		$('input[name=member_keywords]').keyup(function(e)
+		{
+			authorSearch();
+			return false;
+		});
+
+		$('input[name=entry_title_keywords]').keyup(function(e)
+		{
+			performEntryTitleSearch();
+			return false;
+		});
+
+		$('select[name=channel_id],select[name=member_id]').change(function(event)
+		{
+			performEntryTitleSearch();
+		});
+	});
+	//END document ready
+
+
+	// AUTHOR SEARCH
+
+	var authorSearchInProgress = undefined;
+
+	function authorSearch()
+	{
+		if ( authorSearchInProgress != undefined )
+		{
+			clearTimeout(authorSearchInProgress);
+		}
+
+		authorSearchInProgress = setTimeout(function()
+		{
+			authorSearchInProgress = undefined;
+			performAuthorSearch()
+		},
+		250);
+	}
+
+	function performAuthorSearch()
+	{
+		$('#author_search_loader.loading').addClass('active');
+
+		$.ajax(
+		{
+			type: "POST",
+			datatype: "html",
+			url: "<?=$ajax_find_member?>",
+			data: $('#reassign_ownership_form').find('input[name=<?=$csrf_hidden_name?>],input[name=member_keywords]'),
+			error: function(XMLHttpRequest, textStatus, errorThrown)
+			{
+				alert('Error! ' + errorThrown + ' ' + textStatus);
+				$('#reassign_ownership_form .loading').removeClass('active');
+				return false;
+			},
+			success: function(msg)
+			{
+				//alert(msg);
+				$('select[name=member_id]').html(msg);
+
+				// Only one result?  Select it, yo!
+				if ($('select[name=member_id] option').length == 2)
+				{
+					$('select[name=member_id]').val($($('select[name=member_id] option')[1]).val());
+					performEntryTitleSearch();
+				}
+
+				$('#reassign_ownership_form .loading').removeClass('active');
+			}
+		});
+	}
+
+
+	// ENTRY TITLE SEARCH
+
+	var entrySearchInProgress = undefined;
+
+	function entryTitleSearch()
+	{
+		if ( entrySearchInProgress != undefined )
+		{
+			clearTimeout(entrySearchInProgress);
+		}
+
+		entrySearchInProgress = setTimeout(function()
+		{
+			entrySearchInProgress = undefined;
+			performEntryTitleSearch()
+		},
+		250);
+	}
+
+	function performEntryTitleSearch()
+	{
+		$('#channel_entries_loader.loading').addClass('active');
+
+		$.ajax(
+		{
+			type: "POST",
+			datatype: "html",
+			url: "<?=$ajax_find_entries?>",
+			data: $('#reassign_ownership_form').find('input[name=<?=$csrf_hidden_name?>],select[name=member_id],input[name=entry_title_keywords],select[name=channel_id]'),
+			error: function(XMLHttpRequest, textStatus, errorThrown)
+			{
+				//alert('Error! ' + errorThrown + ' ' + textStatus);
+				$('#reassign_ownership_form .loading').removeClass('active');
+			},
+			success: function(msg)
+			{
+				//alert(msg);
+				$('#entries_result').html(msg);
+				$('#reassign_ownership_form .loading').removeClass('active');
+			}
+		});
+	}
+
+}(jQuery, window));
+
+</script>
+
+<form action="<?=$caller->output($base_uri.'&method=reassign_ownership_confirm')?>" method="post" id="reassign_ownership_form">
+    <input type="hidden" name="<?=$csrf_hidden_name?>" value="<?=$CSRF_TOKEN?>" />
+
+
+	<table class="mainTable padTable" border="0" cellspacing="0" cellpadding="0">
+		<caption><?=lang('find_members_text')?></caption>
+		<tbody>
+			<tr>
+				<td style="width: 30%;">
+					<label for="member_keywords"><?=lang('member_search')?>: </label>
+				</td>
+				<td>
+					<input type="text" dir="ltr" style="width:70%" name="member_keywords" size="35" maxlength="40" class="input" autocomplete="off"/>
+				</td>
+			</tr>
+
+			<tr class="odd">
+				<td style="width: 30%;">
+					<label for="member_keywords"><?=lang('choose_member')?>: </label>
+				</td>
+				<td>
+					<select name="member_id" id="member_id" class="select">
+						<option value="0"><?=lang('choose_member')?></option>
+					</select>
+
+					<img class="loading" id="author_search_loader" src="<?=$addon_theme_url?>images/loading.gif"/>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="clear shun"></div>
+
+	<table class="mainTable padTable" border="0" cellspacing="0" cellpadding="0">
+		<caption><?=lang('find_entries_text_channel')?></caption>
+
+		<tbody>
+			<tr>
+				<td style="width: 30%;">
+					<label for="entry_title_keywords"><?=lang('entry_title_keywords')?>: </label>
+				</td>
+				<td>
+					<input type="text" dir="ltr" style="width:70%" name="entry_title_keywords" value="" size="35" maxlength="40" class="input">
+					<img class="loading" id="channel_entries_loader" src="<?=$addon_theme_url?>images/loading.gif"/>
+				</td>
+			</tr>
+			<tr class="odd">
+				<td style="width: 30%;">
+					<label for="channels"><?=lang('channel')?>: </label>
+				</td>
+				<td>
+					<select name="channel_id" class="select">
+						<?php foreach( $channels as $key => $val ) : ?>
+							<option value="<?=$key?>"><?=$val?></option>
+						<?php endforeach; ?>
+					</select>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+		<div class="clear shun"></div>
+	<table class="mainTable padTable" border="0" cellspacing="0" cellpadding="0">
+		<caption><?=lang('choose_entries')?></caption>
+
+		<tbody id="entries_result">
+			<tr>
+				<td colspan="2"><?=lang('no_results_channel')?></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		<input type="submit" id="form_submit_button" value="<?=lang('assign_to_member')?>" class="submit"  />
+	</p>
+
+</form>
+
+<?php $this->view('footer.html');?>

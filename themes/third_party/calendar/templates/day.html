@@ -1,0 +1,22 @@
+{display_each_day}
+<div class="day">
+	<div class="header">
+		<div class="previous" style="float: left; width: 20%;">
+			<a href="/calendar/day/{prev_day format="%Y-%m-%d"}/">Yesterday</a>
+		</div>
+		<div class="current" style="float: left; width: 60%; text-align: center;">
+			<h1>{day format="%l, %F %d, %Y"}</h1>
+		</div>
+		<div class="next" style="float: right; text-align: right; width: 20%;">
+			<a href="/calendar/day/{next_day format="%Y-%m-%d"}/">Tomorrow</a>
+		</div>
+		<br style="clear: both;" />
+	</div>
+{display_each_hour}
+	<div class="hour">
+		<h2>{time}</h2>
+{events}EVENTS_PLACEHOLDER{/events}
+	</div>
+{/display_each_hour}
+</div>
+{/display_each_day}

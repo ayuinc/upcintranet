@@ -1,0 +1,11 @@
+<form action='<?php echo $form_url;?>' method='post'>
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+
+	<input type="hidden" name="run_update" value="y" />
+
+
+	<p><strong><?php echo lang('calendar_update_message'); ?></strong></p>
+
+	<p><input  type='submit' class='submit' value='<?php echo lang('update');?>'  /></p>
+
+</form>

@@ -1,0 +1,218 @@
+{embed="%prefix%inc/index" page_title="Update My Profile"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>User</h2>
+			
+			<h3>Update My Profile</h3>
+
+			<p></p>
+
+{if logged_out}
+
+{embed="%prefix%inc/login"}
+
+{if:else}
+		
+{embed="%prefix%inc/control_column"}
+
+			<div id="middlecolumn">
+
+				{if segment_3 == "success"}
+				<div class="user_success">You've successfully updated your profile!</div>
+				{/if}
+
+				<h5>Fill in or edit the fields below to update your profile:</h5>
+				<hr />
+
+				{exp:user:edit return="%prefix%main/update_profile/success" screen_name_password_required="no" error_page="%prefix%inc/error_template"}
+				<p><label for="screen_name">Screen Name:</label><input type="text" name="screen_name" id="screen_name" value="{screen_name}" style="width: 450px; font-weight: bold;" /></p>
+				<p><label for="bday_d">Birthday:</label></p>
+
+<select name="bday_m" id="bday_m" style="width: 125px;">
+<option value="">--</option>
+<option value="01" {if bday_m == "01"}selected="selected"{/if}>January</option>
+<option value="02" {if bday_m == "02"}selected="selected"{/if}>February</option>
+<option value="03" {if bday_m == "03"}selected="selected"{/if}>March</option>
+<option value="04" {if bday_m == "04"}selected="selected"{/if}>April</option>
+<option value="05" {if bday_m == "05"}selected="selected"{/if}>May</option>
+<option value="06" {if bday_m == "06"}selected="selected"{/if}>June</option>
+<option value="07" {if bday_m == "07"}selected="selected"{/if}>July</option>
+<option value="08" {if bday_m == "08"}selected="selected"{/if}>August</option>
+<option value="09" {if bday_m == "09"}selected="selected"{/if}>September</option>
+<option value="10" {if bday_m == "10"}selected="selected"{/if}>October</option>
+<option value="11" {if bday_m == "11"}selected="selected"{/if}>November</option>
+<option value="12" {if bday_m == "12"}selected="selected"{/if}>December</option>
+</select>
+
+<select name="bday_d" id="bday_d" style="width: 75px;">
+<option value="">--</option>
+<option value="31" {if bday_d == "31"}selected="selected"{/if}>31</option>
+<option value="30" {if bday_d == "30"}selected="selected"{/if}>30</option>
+<option value="29" {if bday_d == "29"}selected="selected"{/if}>29</option>
+<option value="28" {if bday_d == "28"}selected="selected"{/if}>28</option>
+<option value="27" {if bday_d == "27"}selected="selected"{/if}>27</option>
+<option value="26" {if bday_d == "26"}selected="selected"{/if}>26</option>
+<option value="25" {if bday_d == "25"}selected="selected"{/if}>25</option>
+<option value="24" {if bday_d == "24"}selected="selected"{/if}>24</option>
+<option value="23" {if bday_d == "23"}selected="selected"{/if}>23</option>
+<option value="22" {if bday_d == "22"}selected="selected"{/if}>22</option>
+<option value="21" {if bday_d == "21"}selected="selected"{/if}>21</option>
+<option value="20" {if bday_d == "20"}selected="selected"{/if}>20</option>
+<option value="19" {if bday_d == "19"}selected="selected"{/if}>19</option>
+<option value="18" {if bday_d == "18"}selected="selected"{/if}>18</option>
+<option value="17" {if bday_d == "17"}selected="selected"{/if}>17</option>
+<option value="16" {if bday_d == "16"}selected="selected"{/if}>16</option>
+<option value="15" {if bday_d == "15"}selected="selected"{/if}>15</option>
+<option value="14" {if bday_d == "14"}selected="selected"{/if}>14</option>
+<option value="13" {if bday_d == "13"}selected="selected"{/if}>13</option>
+<option value="12" {if bday_d == "12"}selected="selected"{/if}>12</option>
+<option value="11" {if bday_d == "11"}selected="selected"{/if}>11</option>
+<option value="10" {if bday_d == "10"}selected="selected"{/if}>10</option>
+<option value="9" {if bday_d == "9"}selected="selected"{/if}>9</option>
+<option value="8" {if bday_d == "8"}selected="selected"{/if}>8</option>
+<option value="7" {if bday_d == "7"}selected="selected"{/if}>7</option>
+<option value="6" {if bday_d == "6"}selected="selected"{/if}>6</option>
+<option value="5" {if bday_d == "5"}selected="selected"{/if}>5</option>
+<option value="4" {if bday_d == "4"}selected="selected"{/if}>4</option>
+<option value="3" {if bday_d == "3"}selected="selected"{/if}>3</option>
+<option value="2" {if bday_d == "2"}selected="selected"{/if}>2</option>
+<option value="1" {if bday_d == "1"}selected="selected"{/if}>1</option>
+</select>
+
+<select name="bday_y" id="bday_y" style="width: 100px;">
+<option value="">--</option>
+<option value="2006" {if bday_y == "2006"}selected="selected"{/if}>2006</option>
+<option value="2005" {if bday_y == "2005"}selected="selected"{/if}>2005</option>
+<option value="2004" {if bday_y == "2004"}selected="selected"{/if}>2004</option>
+<option value="2003" {if bday_y == "2003"}selected="selected"{/if}>2003</option>
+<option value="2002" {if bday_y == "2002"}selected="selected"{/if}>2002</option>
+<option value="2001" {if bday_y == "2001"}selected="selected"{/if}>2001</option>
+<option value="2000" {if bday_y == "2000"}selected="selected"{/if}>2000</option>
+<option value="1999" {if bday_y == "1999"}selected="selected"{/if}>1999</option>
+<option value="1998" {if bday_y == "1998"}selected="selected"{/if}>1998</option>
+<option value="1997" {if bday_y == "1997"}selected="selected"{/if}>1997</option>
+<option value="1996" {if bday_y == "1996"}selected="selected"{/if}>1996</option>
+<option value="1995" {if bday_y == "1995"}selected="selected"{/if}>1995</option>
+<option value="1994" {if bday_y == "1994"}selected="selected"{/if}>1994</option>
+<option value="1993" {if bday_y == "1993"}selected="selected"{/if}>1993</option>
+<option value="1992" {if bday_y == "1992"}selected="selected"{/if}>1992</option>
+<option value="1991" {if bday_y == "1991"}selected="selected"{/if}>1991</option>
+<option value="1990" {if bday_y == "1990"}selected="selected"{/if}>1990</option>
+<option value="1989" {if bday_y == "1989"}selected="selected"{/if}>1989</option>
+<option value="1988" {if bday_y == "1988"}selected="selected"{/if}>1988</option>
+<option value="1987" {if bday_y == "1987"}selected="selected"{/if}>1987</option>
+<option value="1986" {if bday_y == "1986"}selected="selected"{/if}>1986</option>
+<option value="1985" {if bday_y == "1985"}selected="selected"{/if}>1985</option>
+<option value="1984" {if bday_y == "1984"}selected="selected"{/if}>1984</option>
+<option value="1983" {if bday_y == "1983"}selected="selected"{/if}>1983</option>
+<option value="1982" {if bday_y == "1982"}selected="selected"{/if}>1982</option>
+<option value="1981" {if bday_y == "1981"}selected="selected"{/if}>1981</option>
+<option value="1980" {if bday_y == "1980"}selected="selected"{/if}>1980</option>
+<option value="1979" {if bday_y == "1979"}selected="selected"{/if}>1979</option>
+<option value="1978" {if bday_y == "1978"}selected="selected"{/if}>1978</option>
+<option value="1977" {if bday_y == "1977"}selected="selected"{/if}>1977</option>
+<option value="1976" {if bday_y == "1976"}selected="selected"{/if}>1976</option>
+<option value="1975" {if bday_y == "1975"}selected="selected"{/if}>1975</option>
+<option value="1974" {if bday_y == "1974"}selected="selected"{/if}>1974</option>
+<option value="1973" {if bday_y == "1973"}selected="selected"{/if}>1973</option>
+<option value="1972" {if bday_y == "1972"}selected="selected"{/if}>1972</option>
+<option value="1971" {if bday_y == "1971"}selected="selected"{/if}>1971</option>
+<option value="1970" {if bday_y == "1970"}selected="selected"{/if}>1970</option>
+<option value="1969" {if bday_y == "1969"}selected="selected"{/if}>1969</option>
+<option value="1968" {if bday_y == "1968"}selected="selected"{/if}>1968</option>
+<option value="1967" {if bday_y == "1967"}selected="selected"{/if}>1967</option>
+<option value="1966" {if bday_y == "1966"}selected="selected"{/if}>1966</option>
+<option value="1965" {if bday_y == "1965"}selected="selected"{/if}>1965</option>
+<option value="1964" {if bday_y == "1964"}selected="selected"{/if}>1964</option>
+<option value="1963" {if bday_y == "1963"}selected="selected"{/if}>1963</option>
+<option value="1962" {if bday_y == "1962"}selected="selected"{/if}>1962</option>
+<option value="1961" {if bday_y == "1961"}selected="selected"{/if}>1961</option>
+<option value="1960" {if bday_y == "1960"}selected="selected"{/if}>1960</option>
+<option value="1959" {if bday_y == "1959"}selected="selected"{/if}>1959</option>
+<option value="1958" {if bday_y == "1958"}selected="selected"{/if}>1958</option>
+<option value="1957" {if bday_y == "1957"}selected="selected"{/if}>1957</option>
+<option value="1956" {if bday_y == "1956"}selected="selected"{/if}>1956</option>
+<option value="1955" {if bday_y == "1955"}selected="selected"{/if}>1955</option>
+<option value="1954" {if bday_y == "1954"}selected="selected"{/if}>1954</option>
+<option value="1953" {if bday_y == "1953"}selected="selected"{/if}>1953</option>
+<option value="1952" {if bday_y == "1952"}selected="selected"{/if}>1952</option>
+<option value="1951" {if bday_y == "1951"}selected="selected"{/if}>1951</option>
+<option value="1950" {if bday_y == "1950"}selected="selected"{/if}>1950</option>
+<option value="1949" {if bday_y == "1949"}selected="selected"{/if}>1949</option>
+<option value="1948" {if bday_y == "1948"}selected="selected"{/if}>1948</option>
+<option value="1947" {if bday_y == "1947"}selected="selected"{/if}>1947</option>
+<option value="1946" {if bday_y == "1946"}selected="selected"{/if}>1946</option>
+<option value="1945" {if bday_y == "1945"}selected="selected"{/if}>1945</option>
+<option value="1944" {if bday_y == "1944"}selected="selected"{/if}>1944</option>
+<option value="1943" {if bday_y == "1943"}selected="selected"{/if}>1943</option>
+<option value="1942" {if bday_y == "1942"}selected="selected"{/if}>1942</option>
+<option value="1941" {if bday_y == "1941"}selected="selected"{/if}>1941</option>
+<option value="1940" {if bday_y == "1940"}selected="selected"{/if}>1940</option>
+<option value="1939" {if bday_y == "1939"}selected="selected"{/if}>1939</option>
+<option value="1938" {if bday_y == "1938"}selected="selected"{/if}>1938</option>
+<option value="1937" {if bday_y == "1937"}selected="selected"{/if}>1937</option>
+<option value="1936" {if bday_y == "1936"}selected="selected"{/if}>1936</option>
+<option value="1935" {if bday_y == "1935"}selected="selected"{/if}>1935</option>
+<option value="1934" {if bday_y == "1934"}selected="selected"{/if}>1934</option>
+<option value="1933" {if bday_y == "1933"}selected="selected"{/if}>1933</option>
+<option value="1932" {if bday_y == "1932"}selected="selected"{/if}>1932</option>
+<option value="1931" {if bday_y == "1931"}selected="selected"{/if}>1931</option>
+<option value="1930" {if bday_y == "1930"}selected="selected"{/if}>1930</option>
+<option value="1929" {if bday_y == "1929"}selected="selected"{/if}>1929</option>
+<option value="1928" {if bday_y == "1928"}selected="selected"{/if}>1928</option>
+<option value="1927" {if bday_y == "1927"}selected="selected"{/if}>1927</option>
+<option value="1926" {if bday_y == "1926"}selected="selected"{/if}>1926</option>
+<option value="1925" {if bday_y == "1925"}selected="selected"{/if}>1925</option>
+<option value="1924" {if bday_y == "1924"}selected="selected"{/if}>1924</option>
+<option value="1923" {if bday_y == "1923"}selected="selected"{/if}>1923</option>
+<option value="1922" {if bday_y == "1922"}selected="selected"{/if}>1922</option>
+<option value="1921" {if bday_y == "1921"}selected="selected"{/if}>1921</option>
+<option value="1920" {if bday_y == "1920"}selected="selected"{/if}>1920</option>
+<option value="1919" {if bday_y == "1919"}selected="selected"{/if}>1919</option>
+<option value="1918" {if bday_y == "1918"}selected="selected"{/if}>1918</option>
+<option value="1917" {if bday_y == "1917"}selected="selected"{/if}>1917</option>
+<option value="1916" {if bday_y == "1916"}selected="selected"{/if}>1916</option>
+<option value="1915" {if bday_y == "1915"}selected="selected"{/if}>1915</option>
+<option value="1914" {if bday_y == "1914"}selected="selected"{/if}>1914</option>
+<option value="1913" {if bday_y == "1913"}selected="selected"{/if}>1913</option>
+<option value="1912" {if bday_y == "1912"}selected="selected"{/if}>1912</option>
+<option value="1911" {if bday_y == "1911"}selected="selected"{/if}>1911</option>
+<option value="1910" {if bday_y == "1910"}selected="selected"{/if}>1910</option>
+<option value="1909" {if bday_y == "1909"}selected="selected"{/if}>1909</option>
+<option value="1908" {if bday_y == "1908"}selected="selected"{/if}>1908</option>
+<option value="1907" {if bday_y == "1907"}selected="selected"{/if}>1907</option>
+<option value="1906" {if bday_y == "1906"}selected="selected"{/if}>1906</option>
+<option value="1905" {if bday_y == "1905"}selected="selected"{/if}>1905</option>
+</select>
+
+				<p><label for="url">URL:</label><input type="text" name="url" id="url" value="{url}" style="width: 450px;" /></p>
+				<p><label for="location">Location:</label><input type="text" name="location" id="location" value="{location}" style="width: 450px;" /></p>
+				<p><label for="occupation">Occupation:</label><input type="text" name="occupation" id="occupation" value="{occupation}" style="width: 450px;" /></p>
+				<p><label for="interests">Interests:</label><input type="text" name="interests" id="interests" value="{interests}" style="width: 450px;" /></p>
+				<p><label for="bio">Bio:</label><textarea name="bio" id="bio" rows="10" cols="50" style="width: 450px; height: 200px;">{bio}</textarea></p>
+				<p><input type="submit" name="submit" value="Update" />
+				{/exp:user:edit}  
+			</div>
+		
+{/if}
+
+		</div>
+		
+		<div id="sidecolumn">
+		
+			<h3>About This Page</h3>
+			
+			<p>The "Update Profile" page allows the currently logged in user to edit their basic profile information.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_edit/">User:Edit</a> to edit profile information.</li>
+			</ul>
+		
+		</div>
+{embed="%prefix%inc/footer"}

@@ -1,0 +1,11 @@
+.pageContents td.locked {
+	background-image: 		url('../img/lock.png');
+	background-position: 	7px 50%;
+	background-repeat:		no-repeat;
+	padding-left: 			25px;
+	vertical-align:			middle;
+}
+
+.pageContents td.locked a{
+	color:grey;
+}

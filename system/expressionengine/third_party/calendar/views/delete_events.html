@@ -1,0 +1,10 @@
+
+    <form id="delete_entries" method="post" name="delete_entries" action="<?=$form_url?>">
+		<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
+    <?php foreach ($items as $item) : ?>
+    	<input type="hidden" name="delete[]" value="<?=$item;?>" />
+    <?php endforeach; ?>
+		<p class="notice"><?=$question;?></p>
+
+		<p><input type="submit" class="submit" name="delete_events" value="<?=$delete?>" /></p>
+    </form>

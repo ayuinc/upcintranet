@@ -1,0 +1,117 @@
+{embed="%prefix%inc/index" page_title="Event View"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+
+			<h2>Calendar</h2>
+
+			<h3>Event View</h3>
+
+			<p></p>
+
+			<div id="leftcolumn">
+
+{if logged_in_group_id == "1"}
+				{if segment_4 == "success"}<div class="calendar_success">Event has been successfully created!</div>{/if}
+				{if segment_4 == "updated"}<div class="calendar_success">Event has been successfully updated!</div>{/if}
+<p><b>Admin:</b> <a href="{path='%prefix%main/edit'}/{segment_3}/">Update this Event</a></p>
+				<hr />
+{/if}
+
+<div id="events_calendar">
+
+{exp:calendar:events
+	orderby="title"
+	sort="asc"
+	event_id="{segment_3}"
+	date_range_start="99 months ago"
+	show_months="999"
+	dynamic="off"}
+
+	{if no_results}No Results{/if}
+	<div class="event">
+		<small style="float:right;"><a href="{path='%prefix%main/export/event'}/{segment_3}/">Export this Event to another Application</a></small>
+		<h2 style="font-size:25px;font-weight:bold;">{event_title}</h2>
+		<p><b>From Calendar:</b> <a href="{path='%prefix%main/calendars'}/{event_calendar_url_title}/">{event_calendar_title}</a></p>
+		<p><b>Location:</b> {event_location}</p>
+		<p>
+			<b>From:</b> {event_first_date format="%F %j, %Y"}
+			{if event_all_day}
+				(all day)
+			{if:else}
+				at {event_first_date format="%g:%i%a"}
+				{if event_never_ends}
+					(never ends)
+				{if:else}
+					{if "{event_first_date format='%Y%m%d%g%i%a'}" != "{event_last_date format='%Y%m%d%g%i%a'}"}
+						<b>to:</b>
+						{if "{event_first_date format='%Y%m%d'}" != "{event_last_date format='%Y%m%d'}"}
+							{event_last_date format="%l, %F %j, %Y at %g:%i%a"}
+						{if:else}
+							{event_last_date format="%g:%i%a"}
+						{/if}
+					{/if}
+				{/if}
+			{/if}
+		</p>
+		<p><b>Details:</b> {event_summary}</p>
+	</div>
+{/exp:calendar:events}
+
+	<hr />
+
+	<h3 class="occurrences">Upcoming Occurrences:</h3>
+	<ul>
+		{exp:calendar:occurrences event_id="{segment_3}" date_range_start="today" date_range_end="3 months" upcoming_occurrences_limit="5" prior_occurrences_limit="0" dynamic="off"}
+		<li>{occurrence_start_date format="%l, %F %j, %Y at %g:%i%a"}{if "{occurrence_start_date format='%Y%m%d%g%i%a'}" != "{occurrence_end_date format='%Y%m%d%g%i%a'}"} - {if "{occurrence_start_date format='%Y%m%d'}" != "{occurrence_end_date format='%Y%m%d'}"}{occurrence_end_date format="%l, %F %j, %Y at %g:%i%a"}{if:else}{occurrence_end_date format="%g:%i%a"}{/if}{/if} &nbsp; <small><a href="{path='%prefix%main/day'}/{occurrence_start_date format="%Y/%m/%d"}/">View other events on this day</a></small></li>
+		{if no_results}
+		<li>No upcoming occurrences in the timeframe specified for this event.</li>
+		{/if}
+		{/exp:calendar:occurrences}
+	</ul>
+
+	<h3 class="occurrences">Past Occurrences:</h3>
+	<ul>
+		{exp:calendar:occurrences event_id="{segment_3}" date_range_start="3 months ago" date_range_end="today" upcoming_occurrences_limit="0" prior_occurrences_limit="3" dynamic="off"}
+		<li>{occurrence_start_date format="%l, %F %j, %Y at %g:%i%a"}{if "{occurrence_start_date format='%Y%m%d%g%i%a'}" != "{occurrence_end_date format='%Y%m%d%g%i%a'}"} - {if "{occurrence_start_date format='%Y%m%d'}" != "{occurrence_end_date format='%Y%m%d'}"}{occurrence_end_date format="%l, %F %j, %Y at %g:%i%a"}{if:else}{occurrence_end_date format="%g:%i%a"}{/if}{/if} &nbsp; <small><a href="{path='%prefix%main/day'}/{occurrence_start_date format="%Y/%m/%d"}/">View other events on this day</a></small></li>
+		{if no_results}
+		<li>No prior occurrences in the timeframe specified for this event.</li>
+		{/if}
+		{/exp:calendar:occurrences}
+	</ul>
+
+	<hr />
+
+</div>
+
+			</div>
+
+			<div id="rightcolumn">
+
+{embed="%prefix%inc/side_column"}
+
+				<div id="aboutcolumn">
+
+					<h3>About This Page</h3>
+
+					<p>The "Event Detail" page is meant to display more detailed information about the event. All event occurrences that show up throughout these templates point back to this page to display the events details.</p>
+
+					<p>It makes use of the following functions:</p>
+
+					<ul>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_events/">Calendar:Events</a> to display detailed information about the event.</li>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_occurrences/">Calendar:Occurrences</a> to display a list for both Upcoming and Past occurrences of this event (if it repeats).</li>
+						<li>a link to a page with <a href="http://www.solspace.com/docs/detail/calendar_icalendar/">Calendar:iCalendar</a> tag to allow users to export the selected event.</li>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_mini/">Calendar:Cal in Mini mode</a> to display a Mini Calendar that links to days that have events.</li>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_calendars/">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+
+{embed="%prefix%inc/footer"}

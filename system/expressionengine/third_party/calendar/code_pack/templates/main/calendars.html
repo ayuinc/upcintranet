@@ -1,0 +1,68 @@
+{embed="%prefix%inc/index" page_title="Calendars"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>Calendar</h2>
+			
+			<h3>Calendars</h3>
+			
+			<p></p>
+
+			<div id="leftcolumn">
+
+<div id="wc_calendar">
+
+{exp:calendar:calendars {if segment_3 != ""}calendar_name="{segment_3}"{/if}}
+<div class="calendars">
+    <h4><small>View events in this Calendar by: <b><a href="{path='%prefix%main/month/by_calendar'}/{calendar_url_title}/">Month</a></b> | <b><a href="{path='%prefix%main/week/by_calendar'}/{calendar_url_title}/">Week</a></b> | <b><a href="{path='%prefix%main/day/by_calendar'}/{calendar_url_title}/">Day</a></b><br /><a href="{path='%prefix%main/export/calendar'}/{calendar_id}/">Export this Calendar's Events to another Application</a></small>{calendar_title}</h4>
+    <p><b>Description:</b> {calendar_summary}</p>
+    <p><b>Upcoming Events:</b>
+       <ul>
+{embed="%prefix%inc/calendar_events" calendar_id="{calendar_id}" {if segment_3 == ""}event_limit="5"{/if}{if segment_3 != ""}event_limit="10"{/if}}
+       </ul></p>
+</div>
+{if no_results}<p>No Calendars found for this site.</p>{/if}
+{/exp:calendar:calendars}
+
+{if segment_3}
+<h3 class="other_cal">Other Calendars</h3>
+<ul>
+{exp:calendar:calendars calendar_name="not {segment_3}" dynamic="off"}
+    <li class="title"><small>View events in this Calendar by: <b><a href="{path='%prefix%main/month/by_calendar'}/{calendar_url_title}/">Month</a></b> | <b><a href="{path='%prefix%main/week/by_calendar'}/{calendar_url_title}/">Week</a></b> | <b><a href="{path='%prefix%main/day/by_calendar'}/{calendar_url_title}/">Day</a></b></small>{calendar_title}</li>
+{/exp:calendar:calendars}
+{if no_results}<li>No other Calendars found for this site.</li>{/if}
+</ul>
+{/if}
+
+</div>
+			</div>
+
+			<div id="rightcolumn">
+
+{embed="%prefix%inc/side_column"}
+
+				<div id="aboutcolumn">
+		
+					<h3>About This Page</h3>
+			
+					<p>The "Calendars" page is meant to show all available Calendars for your site, along with detailed information about them and filtering options for other pages of the site.</p>
+
+					<p>It makes use of the following function:</p>
+
+					<ul>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_calendars/">Calendar:Calendars</a> to display a list of all available Calendars as well as detailed information about them.</li>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_cal/">Calendar:Cal</a> to display a list of most recent upcoming event occurrences for each Calendar.</li>
+						<li>a link to a page with <a href="http://www.solspace.com/docs/detail/calendar_icalendar/">Calendar:iCalendar</a> tag to allow users to export event data for a particular Calendar.</li>
+						<li><a href="http://www.solspace.com/docs/detail/calendar_mini/">Calendar:Cal in Mini mode</a> to display a Mini Calendar that links to days that have events.</li>
+					</ul>
+		
+				</div>
+
+			</div>
+	
+		</div>
+		
+{embed="%prefix%inc/footer"}

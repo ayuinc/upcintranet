@@ -1,0 +1,4 @@
+	<option value="0"><?=lang('choose_member')?></option>
+<?php foreach($members as $member_id => $screen_name) : ?>
+	<option value="<?=$member_id?>"><?=$screen_name?></option>
+<?php endforeach;?>

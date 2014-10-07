@@ -1,0 +1,217 @@
+		<div class="rule ui-widget-content ui-corner-all ui-widget <?=($first === TRUE) ? 'first' : '';?>">
+			<div class="inner">
+				<div class="rule_number ui-state-default ui-corner-br ui-corner-tl">
+					<span><?=$rule_number;?></span>
+					<input type="hidden" name="rule_id" value="<?=$rule['rule_id'];?>" />
+				</div>
+
+				<div class="rule_close ui-state-default ui-corner-bl ui-corner-tr">
+					<span class="ui-icon ui-icon-close"></span>
+				</div>
+				<div class="group first type line">
+					<div class="leader">
+						<label><?=lang('type');?></label>
+						<select name="type">
+							<option value="+" <?=($rule['rule_type'] == '+') ? 'selected="selected"' : ''; ?>><?=lang('include');?></option>
+							<option value="-" <?=($rule['rule_type'] == '-') ? 'selected="selected"' : ''; ?>><?=lang('exclude');?></option>
+						</select>
+					</div>
+					<br  class="clear" />
+				</div>
+
+				<div class="group date_range <?=($first === TRUE) ? 'first' : ''; ?>">
+					<div class="all_day line <?=($rule['rule_type'] == '-') ? 'inactive' : ''; ?>"><input type="checkbox" name="all_day" id="all_day_<?=$rule_number;?>" <?=($rule['all_day'] == 'y' OR $rule['rule_type'] == '-') ? 'checked="checked"' : ''; ?> /> <label for="all_day_<?=$rule_number;?>"><?=lang('all_day_event');?></label></div>
+					<div class="from line">
+						<div class="date leader">
+							<label><?=lang('from');?></label>
+							<input type="text" name="start_date" class="picker" value="<?=($rule['start_date'] > 0) ? $rule['start_date'] : '';?>" />
+						</div>
+						<div class="time">
+							<label><?=lang('at');?></label>
+							<input type="text" name="start_time" value="<?=$start_time;?>" />
+<?php if ($time_format == '24') : ?>
+							<input type="hidden" name="ampm" value="am" />
+<?php else : ?>
+							<select name="ampm">
+								<option value="am" <?=($start_ampm == 'am') ? 'selected="selected"' : '';?>><?=lang('AM');?></option>
+								<option value="pm" <?=($start_ampm == 'pm') ? 'selected="selected"' : '';?>><?=lang('PM');?></option>
+							</select>
+<?php endif; ?>
+						</div>
+						<br class="clear" />
+					</div>
+
+					<div class="to line">
+						<div class="date leader">
+							<label><?=lang('to');?></label>
+							<input type="text" name="end_date" class="picker" value="<?=($rule['end_date'] > 0) ? $rule['end_date'] : '';?>" />
+						</div>
+						<div class="time">
+							<label><?=lang('at');?></label>
+							<input type="text" name="end_time" value="<?=$end_time;?>" />
+<?php if ($time_format == '24') : ?>
+							<input type="hidden" name="ampm" value="am" />
+<?php else : ?>
+							<select name="ampm">
+								<option value="am" <?=($end_ampm == 'am') ? 'selected="selected"' : '';?>><?=lang('AM');?></option>
+								<option value="pm" <?=($end_ampm == 'pm') ? 'selected="selected"' : '';?>><?=lang('PM');?></option>
+							</select>
+<?php endif; ?>
+						</div>
+						<br class="clear" />
+					</div>
+				</div>
+
+				<div class="group repeat line">
+					<div class="repeat_select leader">
+						<label><?=lang('repeat');?></label>
+						<select name="interval">
+							<option value="none" <?=($repeat_type == '') ? 'selected="selected"' : '' ?>><?=lang('none');?></option>
+							<option value="daily" <?=($repeat_type == 'daily') ? 'selected="selected"' : '' ?>><?=lang('daily');?></option>
+							<option value="weekly" <?=($repeat_type == 'weekly') ? 'selected="selected"' : '' ?>><?=lang('weekly');?></option>
+							<option value="monthly" <?=($repeat_type == 'monthly') ? 'selected="selected"' : '' ?>><?=lang('monthly');?></option>
+							<option value="yearly" <?=($repeat_type == 'yearly') ? 'selected="selected"' : '' ?>><?=lang('yearly');?></option>
+							<option value="select_dates" <?=($repeat_type == 'select_dates') ? 'selected="selected"' : '' ?>><?=lang('select_dates');?></option>
+						</select>
+					</div>
+<?php switch($repeat_type) :
+	case 'daily' : ?>
+					<div class="options">
+						<label><?=lang('every');?></label>
+						<input type="text" name="every" value="<?=$rule['repeat_days'];?>" /> <?=lang('day_s');?>.
+					</div>
+	<?php break;
+	case 'weekly' : ?>
+					<div class="options">
+						<label><?=lang('every');?></label>
+						<input type="text" name="every" value="<?=$rule['repeat_weeks'];?>" /> <?=lang('week_s_on');?>:
+						<div class="extended line dows">
+							<select class="selector" multiple="multiple">
+								<option value="U" <?=(strpos($rule['days_of_week'], 'U') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_0_3');?></option>
+								<option value="M" <?=(strpos($rule['days_of_week'], 'M') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_1_3');?></option>
+								<option value="T" <?=(strpos($rule['days_of_week'], 'T') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_2_3');?></option>
+								<option value="W" <?=(strpos($rule['days_of_week'], 'W') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_3_3');?></option>
+								<option value="R" <?=(strpos($rule['days_of_week'], 'R') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_4_3');?></option>
+								<option value="F" <?=(strpos($rule['days_of_week'], 'F') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_5_3');?></option>
+								<option value="S" <?=(strpos($rule['days_of_week'], 'S') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_6_3');?></option>
+							</select>
+							<br class="clear" />
+						</div>
+					</div>
+	<?php break;
+	case 'monthly' : ?>
+					<div class="options">
+						<div class="every">
+							<label><?=lang('every');?></label>
+							<input type="text" name="every" value="<?=$rule['repeat_months'];?>" />
+							<label><?=lang('month_s_by_day_of');?></label>
+							<select name="by">
+								<option value="by_date" <?=($rule['days_of_month'] > '') ? 'selected="selected"' : ''?>><?=lang('month');?></option>
+								<option value="by_relative" <?=($rule['relative_dow'] > '') ? 'selected="selected"' : ''?>><?=lang('week');?></option>
+							</select>
+						</div>
+						<div class="extended by_relative">
+							<select class="selector" multiple="multiple">
+								<option value="1" <?=(strpos($rule['relative_dow'], '1') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('1st');?></option>
+								<option value="2" <?=(strpos($rule['relative_dow'], '2') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('2nd');?></option>
+								<option value="3" <?=(strpos($rule['relative_dow'], '3') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('3rd');?></option>
+								<option value="4" <?=(strpos($rule['relative_dow'], '4') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('4th');?></option>
+								<option value="5" <?=(strpos($rule['relative_dow'], '5') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('5th');?></option>
+								<option value="6" <?=(strpos($rule['relative_dow'], '6') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('last');?></option>
+							</select>
+							<br class="clear" />
+						</div>
+						<div class="extended by_date">
+							<select class="selector" multiple="multiple">
+								<option value="1" <?=(strpos($rule['days_of_month'], '1') !== FALSE) ? 'selected="selected"' : ''?>>1</option>
+								<option value="2" <?=(strpos($rule['days_of_month'], '2') !== FALSE) ? 'selected="selected"' : ''?>>2</option>
+								<option value="3" <?=(strpos($rule['days_of_month'], '3') !== FALSE) ? 'selected="selected"' : ''?>>3</option>
+								<option value="4" <?=(strpos($rule['days_of_month'], '4') !== FALSE) ? 'selected="selected"' : ''?>>4</option>
+								<option value="5" <?=(strpos($rule['days_of_month'], '5') !== FALSE) ? 'selected="selected"' : ''?>>5</option>
+								<option value="6" <?=(strpos($rule['days_of_month'], '6') !== FALSE) ? 'selected="selected"' : ''?>>6</option>
+								<option value="7" <?=(strpos($rule['days_of_month'], '7') !== FALSE) ? 'selected="selected"' : ''?>>7</option>
+								<option value="8" <?=(strpos($rule['days_of_month'], '8') !== FALSE) ? 'selected="selected"' : ''?>>8</option>
+								<option value="9" <?=(strpos($rule['days_of_month'], '9') !== FALSE) ? 'selected="selected"' : ''?>>9</option>
+								<option value="A" <?=(strpos($rule['days_of_month'], 'A') !== FALSE) ? 'selected="selected"' : ''?>>10</option>
+								<option value="B" <?=(strpos($rule['days_of_month'], 'B') !== FALSE) ? 'selected="selected"' : ''?>>11</option>
+								<option value="C" <?=(strpos($rule['days_of_month'], 'C') !== FALSE) ? 'selected="selected"' : ''?>>12</option>
+								<option value="D" <?=(strpos($rule['days_of_month'], 'D') !== FALSE) ? 'selected="selected"' : ''?>>13</option>
+								<option value="E" <?=(strpos($rule['days_of_month'], 'E') !== FALSE) ? 'selected="selected"' : ''?>>14</option>
+								<option value="F" <?=(strpos($rule['days_of_month'], 'F') !== FALSE) ? 'selected="selected"' : ''?>>15</option>
+								<option value="G" <?=(strpos($rule['days_of_month'], 'G') !== FALSE) ? 'selected="selected"' : ''?>>16</option>
+								<option value="H" <?=(strpos($rule['days_of_month'], 'H') !== FALSE) ? 'selected="selected"' : ''?>>17</option>
+								<option value="I" <?=(strpos($rule['days_of_month'], 'I') !== FALSE) ? 'selected="selected"' : ''?>>18</option>
+								<option value="J" <?=(strpos($rule['days_of_month'], 'J') !== FALSE) ? 'selected="selected"' : ''?>>19</option>
+								<option value="K" <?=(strpos($rule['days_of_month'], 'K') !== FALSE) ? 'selected="selected"' : ''?>>20</option>
+								<option value="L" <?=(strpos($rule['days_of_month'], 'L') !== FALSE) ? 'selected="selected"' : ''?>>21</option>
+								<option value="M" <?=(strpos($rule['days_of_month'], 'M') !== FALSE) ? 'selected="selected"' : ''?>>22</option>
+								<option value="N" <?=(strpos($rule['days_of_month'], 'N') !== FALSE) ? 'selected="selected"' : ''?>>23</option>
+								<option value="O" <?=(strpos($rule['days_of_month'], 'O') !== FALSE) ? 'selected="selected"' : ''?>>24</option>
+								<option value="P" <?=(strpos($rule['days_of_month'], 'P') !== FALSE) ? 'selected="selected"' : ''?>>25</option>
+								<option value="Q" <?=(strpos($rule['days_of_month'], 'Q') !== FALSE) ? 'selected="selected"' : ''?>>26</option>
+								<option value="R" <?=(strpos($rule['days_of_month'], 'R') !== FALSE) ? 'selected="selected"' : ''?>>27</option>
+								<option value="S" <?=(strpos($rule['days_of_month'], 'S') !== FALSE) ? 'selected="selected"' : ''?>>28</option>
+								<option value="T" <?=(strpos($rule['days_of_month'], 'T') !== FALSE) ? 'selected="selected"' : ''?>>29</option>
+								<option value="U" <?=(strpos($rule['days_of_month'], 'U') !== FALSE) ? 'selected="selected"' : ''?>>30</option>
+								<option value="V" <?=(strpos($rule['days_of_month'], 'V') !== FALSE) ? 'selected="selected"' : ''?>>31</option>
+							</select>
+							<p class="clear"><?=lang('only_on');?></p>
+						</div>
+						<div class="extended line dows">
+							<select class="selector" multiple="multiple">
+								<option value="U" <?=(strpos($rule['days_of_week'], 'U') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_0_3');?></option>
+								<option value="M" <?=(strpos($rule['days_of_week'], 'M') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_1_3');?></option>
+								<option value="T" <?=(strpos($rule['days_of_week'], 'T') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_2_3');?></option>
+								<option value="W" <?=(strpos($rule['days_of_week'], 'W') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_3_3');?></option>
+								<option value="R" <?=(strpos($rule['days_of_week'], 'R') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_4_3');?></option>
+								<option value="F" <?=(strpos($rule['days_of_week'], 'F') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_5_3');?></option>
+								<option value="S" <?=(strpos($rule['days_of_week'], 'S') !== FALSE) ? 'selected="selected"' : ''?>><?=lang('day_6_3');?></option>
+							</select>
+							<br class="clear" />
+						</div>
+					</div>
+	<?php break;
+	case 'yearly' : ?>
+					<div class="options">
+						<label><?=lang('every');?></label>
+						<input type="text" name="every" value="<?=$rule['repeat_years'];?>" /> <?=lang('year_s');?>.
+					</div>
+	<?php break;
+	case 'select_dates' : ?>
+	<?php if ($first !== TRUE) :?>
+					<div class="options">
+						<div class="picker_three"></div>
+					</div>
+	<?php endif; ?>
+	<?php break;
+	case 'default' :
+		break;
+	endswitch;
+?>
+					<div class="options"></div>
+					<br class="clear" />
+				</div>
+
+<?php if ($repeat_type != '' AND $repeat_type != 'select_dates') :?>
+				<div class="group end line">
+					<div class="leader">
+						<label><?=lang('end');?></label>
+						<select name="end">
+							<option value="never"><?=lang('never');?></option>
+							<option value="by_date" <?=($rule['stop_by'] > 0) ? 'selected="selected"' : ''; ?>><?=lang('by_date');?></option>
+							<option value="after" <?=($rule['stop_after'] > 0) ? 'selected="selected"' : ''; ?>><?=lang('after');?></option>
+						</select>
+					</div>
+<?php if ($rule['stop_by'] > 0) :?>
+					<div class="options">
+						<input type="text" name="end_by_date" class="picker" value="<?=$rule['stop_by'];?>" />
+					</div>
+<?php elseif ($rule['stop_after'] > 0) :?>
+					<div class="options">
+						<input type="text" name="end_after" value="<?=$rule['stop_after'];?>" /> <?=lang('time_s');?>
+					</div>
+<?php endif; ?>
+				</div>
+<?php endif; ?>
+			</div>
+		</div> <!-- end rule -->

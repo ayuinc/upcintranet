@@ -1,0 +1,21 @@
+		<div id="calendar_occurrence">
+<?php if ($is_new === TRUE) : ?>
+			<input type="hidden" name="entry_id" value="" />
+<?php endif; ?>
+			<input type="hidden" name="calendar_parent_entry_id" 	value="<?=$event_id;?>" />
+			<input type="hidden" name="calendar_occurrence_id" 		value="<?=$occurrence_id;?>" />
+			<input type="hidden" name="event_id" 					value="<?=$event_id;?>" />
+			<input type="hidden" name="calendar_id" 				value="<?=$calendar_id;?>" />
+			<input type="hidden" name="site_id" 					value="<?=$site_id;?>" />
+			<input type="hidden" name="start_date" 					value="<?=$ymd;?>" />
+			<input type="hidden" name="end_date" 					value="<?=$end_date;?>" />
+			<input type="hidden" name="start_time" 					value="<?=$start_time;?>" />
+			<input type="hidden" name="end_time" 					value="<?=$end_time;?>" />
+			<input type="hidden" name="all_day" 					value="<?=$all_day?>" />
+			<?=str_replace(
+				array('%date%', '%title%'),
+				array($date, $entry_data['title']),
+				lang('editing_occurrence')
+			);?>.
+			<br class="clear" />
+		</div>

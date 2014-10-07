@@ -1,0 +1,33 @@
+<div id="header">
+
+	<div id="logo"></div>
+
+	<div id="smallmenu">
+		<ul>
+{if logged_out}
+			<li class="first"><a href="{path='%prefix%main/login'}/">Login</a></li>
+			<li class=""><a href="{path='%prefix%main/register'}/">Register</a></li>
+{/if}
+{if logged_in}
+			<li class=""><a href="{path='%prefix%main'}/">My Account</a></li>
+			<li class=""><a href="{path='LOGOUT'}">Log out</a></li>
+{/if}
+		</ul>
+	</div>
+</div>
+
+<div class="spacer"></div>
+
+<div id="wrapper">
+
+	<div id="mainmenu">
+		<ul>
+			<li><a href="{path='%prefix%main/index'}/">Dashboard</a></li>
+			<li><a href="{path='%prefix%main/profile'}/{logged_in_member_id}/">My Profile</a></li>
+			<li><a href="{path='%prefix%main/update_profile'}/{logged_in_member_id}/">Update Profile</a></li>
+			<li><a href="{path='%prefix%main/members'}/">Member List</a></li>
+		</ul>
+	</div>
+	
+	<div id="content">
+	

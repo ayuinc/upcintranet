@@ -1,0 +1,40 @@
+{display_each_month}
+<table>
+	<thead>
+		<tr>
+			<th colspan="1"><a id="mc_prev_month" class="icon left" href="/calendar/mini/{prev_month format="%Y-%m"}/">&laquo;</a></th>
+			<th colspan="5"><a href="/calendar/mini/{month format="%Y-%m"}/">{month format="%F %Y"}</a></th>
+			<th colspan="1"><a id="mc_next_month" class="icon right" href="/calendar/mini/{next_month format="%Y-%m"}/"> &raquo;</a></th>
+		</tr>
+		<tr id="mc_days">
+			{display_each_day_of_week}
+			<th class="{if day_of_week_is_weekend}weekend{/if} {if day_of_week_is_current}current{/if}">{day_of_week_one}</th>
+{/display_each_day_of_week}
+		</tr>
+	</thead>
+	<tbody>
+		{display_each_week}
+		<tr>
+			{display_each_day}
+			<td cellpadding="0" cellspacing="0" class="
+				{if day_in_current_month == FALSE}mc_pad{/if}
+				{if day_event_total > 0}has_events{/if}
+				{if count == 7}selected{/if}
+	{if day_is_today}today{/if}
+	{if day_is_weekend}weekend{/if}
+	{if day_is_weekday}weekday{/if}
+			"><div class="mc_date">{if day_in_current_month}
+	
+			{if day_event_total}<a href="/calendar/day/{day format="%Y-%m-%d"}/">{/if}
+			{day}
+			{if day_event_total}</a>{/if}
+			{events}EVENTS_PLACEHOLDER{/events}
+			{if:else}
+				<strong class="middot">&middot;</strong>
+			{/if}</div></td>
+			{/display_each_day}
+		</tr>
+		{/display_each_week}
+	</tbody>
+</table>
+{/display_each_month}

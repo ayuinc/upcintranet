@@ -1,0 +1,142 @@
+<style type="text/css">
+	a.submit:hover
+	{
+		text-decoration: none;
+	}
+	#mainContent .pageContents {
+		overflow: visible;
+	}
+</style>
+<?php if ( ! $logging_enabled):?>
+	<div class="sub_box"><p><?=$disabled_message?></p></div>
+<?php else:?>
+	<div class="sub_box"><p><?=$enabled_message?></p></div>
+<?php endif;?>
+
+<?php if (empty($email_logs)):?>
+
+	<p><?=lang('no_emails_logged')?></p>
+
+<?php else:?>
+
+	<p><a class="submit" href="<?=$clear_link?>"><?=lang('clear_email_log')?></a></p>
+	<?php if ($paginate):?>
+		<p class="pagination"><?=$paginate?></p>
+	<?php endif;?>
+<div id="email_log_wrapper">
+	<table id="email_log_table" class="mainTable padTable freeform_table" style="width:100%;"
+				cellspacing='0' cellpadding='0' border='0'>
+		<thead>
+			<tr>
+				<th><?=lang('site')?></th>
+				<th><?=lang('date')?></th>
+				<th><?=lang('type')?></th>
+				<th><?=lang('success_reported')?></th>
+				<th><?=lang('from')?></th>
+				<th><?=lang('from_name')?></th>
+				<th><?=lang('to')?></th>
+				<th><?=lang('subject')?></th>
+				<th><?=lang('message')?></th>
+				<th><?=lang('debug_info')?>&nbsp;&nbsp;<?=lang('debug_info_note')?></th>
+			</tr>
+		</thead>
+		<tbody>
+	<?php foreach($email_logs as $log_data):?>
+		<tr class="<?=$this->cycle('odd', 'even')?>">
+			<td><?=$log_data['site_label']?></td>
+			<td><?=$log_data['date']?></td>
+			<td><?=$log_data['type']?></td>
+			<td>
+			<?php if (strtolower($log_data['success']) == 'no'):?>
+				<strong class="notice">
+					<?=$log_data['success']?>
+				</strong>
+			<?php else:?>
+				<strong>
+					<?=$log_data['success']?>
+				</strong>
+			<?php endif;?>
+			</td>
+			<td><?=$log_data['from']?></td>
+			<td><?=$log_data['from_name']?></td>
+			<td><?=$log_data['to']?></td>
+			<td><?=$log_data['subject']?></td>
+			<td>
+				<div style="max-height:200px; overflow-x:hidden; overflow-y:auto;">
+					<?=$log_data['message']?>
+				</div>
+			</td>
+			<td>
+				<div style="max-height:200px; overflow-x:hidden; overflow-y:auto;">
+					<?=$log_data['debug_info']?>
+				</div>
+			</td>
+		</tr>
+	<?php endforeach;?>
+		</tbody>
+	</table>
+</div>
+	<?php if ($paginate):?>
+		<p class="pagination"><?=$paginate?></p>
+	<?php endif;?>
+
+<?php endif;?>
+
+<script type="text/javascript">
+(function(){
+	jQuery(function($){
+		var timeout = 0;
+		var $body = $('body');
+		var $wrapper = $('#email_log_wrapper');
+		var $wrapperTable = $('#email_log_table');
+
+		function adjustBodySize ()
+		{
+			var bodyWidth	= $body.outerWidth();
+			var formWidth	= $wrapper.outerWidth();
+			var entryWidth	= $wrapperTable.outerWidth();
+
+			//console.log('bodyWidth: ' + bodyWidth);
+			//console.log('formWidth: ' + formWidth);
+			//console.log('entryWidth: ' + entryWidth);
+
+			if (entryWidth > formWidth)
+			{
+				$body.width(entryWidth + (bodyWidth - formWidth));
+			}
+			//we don't want this to trigger if we've already resized
+			//but resized smaller. So auto should trigger only when the
+			//window is wider than the body padding + entries width
+			else if ((entryWidth + (bodyWidth - formWidth)) < $(window).outerWidth())
+			{
+				$body.css('width', 'auto');
+			}
+
+			clearTimeout(timeout);
+		}
+
+		//ie 7 and 8 are pieces of dog crap and the window
+		//resize events are so screwed up there i just dont
+		//even care to find a work around, so it gets overflow
+		//and every other browser gets the resize fix
+		if ( ! $('.solspace_ui_wrapper').hasClass('ie8') &&
+			 ! $('.solspace_ui_wrapper').hasClass('ie7'))
+		{
+			$(window).resize(function(){
+				clearTimeout(timeout);
+
+				timeout = setTimeout(function(){
+					adjustBodySize();
+				}, 300);
+			});
+
+			adjustBodySize();
+		}
+		else
+		{
+			$wrapper.css('overflow', 'auto');
+		}
+	});
+	//END jQuery(function)
+}());
+</script>

@@ -1,0 +1,64 @@
+{embed="%prefix%inc/index" page_title="{if logged_in_member_id == "{segment_3}"}My {/if}Profile"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>User</h2>
+			
+			<h3>{if logged_in_member_id == "{segment_3}"}My {/if}Profile</h3>
+			
+			<p></p>
+
+			{if segment_3}
+
+{embed="%prefix%inc/profile_column"}
+
+			<div id="middlecolumn">
+
+				{exp:user:stats member_id="{segment_3}" limit="1"}
+				<h4>{screen_name}</h4>
+
+				<hr />
+
+				<h5>Profile:</h5>
+				<ul>
+
+				<li><label>Birthday:</label> {if bday_m}
+{if bday_m == "01"}January{if:elseif bday_m == "02"}February{if:elseif bday_m == "03"}March{if:elseif bday_m == "04"}April{if:elseif bday_m == "05"}May{if:elseif bday_m == "06"}June{if:elseif bday_m == "07"}July{if:elseif bday_m == "08"}August{if:elseif bday_m == "09"}September{if:elseif bday_m == "10"}October{if:elseif bday_m == "11"}November{if:elseif bday_m == "12"}December{if:else}{/if}{/if} {if bday_d}{bday_d}{/if}{if bday_y AND bday_d}, {/if}{if bday_y}{bday_y}{/if}</li>
+				<li><label>Email:</label> {encode="{email}"}</li>
+				{if url}<li><label>Website:</label> <a href="{url}">{url}</a></li>{/if}
+				<li><label>Join Date:</label> {join_date format="%F %j, %Y"}</li>
+				<li><label>Last Activity:</label> {last_activity format="%F %j, %Y"}</li>
+				<li><label>Location:</label> {location}</li>
+				<li><label>Occupation:</label> {occupation}</li>
+				<li><label>Interests:</label> {interests}</li>
+				<li><label>Bio:</label><br /> {bio}</li>
+
+				</ul>
+
+				{/exp:user:stats}
+
+			</div>
+
+			{if:else}
+			<h4>Error!</h4><p>You must specify a member ID to view a profile.</p>
+			{/if}
+		
+		</div>
+		
+		<div id="sidecolumn">
+		
+			<h3>About This Page</h3>
+			
+			<p>The "Profile" page shows the profile of a given member. Additionally, a special "Profile" menu on the left is called, which creates a shortcut for sending a private message, and links to view that users' comments and entries.</p>
+
+			<p>It makes use of the following functions:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_stats/">User:Stats</a> to show profile information.</li>
+			</ul>
+		
+		</div>
+{embed="%prefix%inc/footer"}

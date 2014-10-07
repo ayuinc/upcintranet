@@ -1,0 +1,85 @@
+				<div id="sidecolumn">
+
+					<h4>Mini Calendar</h4>
+
+<div id="mc_wrap">
+   {exp:calendar:cal
+      {if segment_2 == "calendars"}
+         date_range_start="year-month-01" date_range_end="year-month-last"
+      {/if}
+      {if segment_2 == "edit"}
+         date_range_start="year-month-01" date_range_end="year-month-last"
+      {/if}
+      {if segment_2 == "create"}
+         date_range_start="year-month-01" date_range_end="year-month-last"
+      {/if}
+      {if segment_2 == "event"}
+         date_range_start="year-month-01" date_range_end="year-month-last"
+      {/if}
+      {if segment_2 == ""}
+         date_range_start="year-month-01" date_range_end="year-month-last"
+      {/if}
+      {if segment_2 == "month"}
+         {if segment_3 == ''}date_range_start="year-month-01" date_range_end="year-month-last"{/if}
+         {if segment_3 != ''}date_range_start="{segment_3}-{segment_4}-01" date_range_end="{segment_3}-{segment_4}-last"{/if}
+      {/if}
+      {if segment_2 == "week"}
+         {if segment_3 == ''}date_range_start="year-month-01" date_range_end="year-month-last"{/if}
+         {if segment_3 != ''}date_range_start="{segment_3}-{segment_4}-01" date_range_end="{segment_3}-{segment_4}-last"{/if}
+      {/if}
+      {if segment_2 == "day"}
+         {if segment_3 == ''}date_range_start="year-month-01" date_range_end="year-month-last"{/if}
+         {if segment_3 != ''}date_range_start="{segment_3}-{segment_4}-01" date_range_end="{segment_3}-{segment_4}-last"{/if}
+      {/if}
+   dynamic="off"
+   }
+      <div id="mc_calendar">
+         {display_each_month}
+         <table>
+            <thead>
+               <tr>
+                  <th colspan="1">{if segment_2 != "calendars"}<a id="mc_prev_month" class="icon left" href="{path='%prefix%main'}/month/{prev_month format="%Y/%m"}/">&laquo;</a>{/if}</th>
+                  <th colspan="5"><a href="{path='%prefix%main/month'}/{month format="%Y/%m"}/">{month format="%F %Y"}</a></th>
+                  <th colspan="1">{if segment_2 != "calendars"}<a id="mc_next_month" class="icon right" href="{path='%prefix%main'}/month/{next_month format="%Y/%m"}/"> &raquo;</a>{/if}</th>
+               </tr>
+               <tr id="mc_days">
+                  {display_each_day_of_week}
+                  <th class="{if day_of_week_is_weekend}weekend{/if} {if day_of_week_is_current}current{/if}">{day_of_week_one}</th>
+                  {/display_each_day_of_week}
+               </tr>
+            </thead>
+            <tbody>
+               {display_each_week}
+               <tr>
+                  {display_each_day}
+                  <td cellpadding="0" cellspacing="0" class="
+                     {if day_in_current_month == FALSE}mc_pad{/if}
+                     {if day_event_total > 0}has_events{/if}
+                     {if count == 7}selected{/if}
+                     {if day_is_today}today{/if}
+                  "><div class="mc_date">{if day_in_current_month}
+                     {if day_event_total}<a href="{path='%prefix%main/day'}/{day format="%Y/%m/%d"}/">{/if}
+                     {day}
+                     {if day_event_total}</a>{/if}
+                     {if:else}
+                        <strong class="middot">&middot;</strong>
+                     {/if}</div></td>
+                  {/display_each_day}
+               </tr>
+               {/display_each_week}
+            </tbody>
+         </table>
+         {/display_each_month}
+      </div>
+   {/exp:calendar:cal}
+</div>
+
+					<h4>Calendars</h4>
+
+					<ul>
+						{exp:calendar:calendars dynamic="off"}
+						<li><a href="{path=%prefix%main/calendars}/{calendar_url_title}/">{calendar_title}</a></li>
+						{/exp:calendar:calendars}
+					</ul>
+
+				</div>

@@ -1,0 +1,34 @@
+<table class="mainTable padTable"  style="width:100%;"  cellspacing="0"  cellpadding="0"  border="0">
+	<thead>
+	 	<tr>
+			<th style="width:10%;"><?=lang('calendar_id')?></th>
+			<th style="width:60%;"><?=lang('calendar_name')?></th>
+			<th style="width:10%;"><?=lang('status')?></th>
+			<th style="width:20%;"><?=lang('total_events')?></th>
+		</tr>
+	</thead>
+	<tbody>
+<?php if (empty($calendars)): ?>
+		<tr class="odd">
+			<td colspan="4"><?=lang('no_results')?></td>
+		</tr>
+<?php else:?>
+
+	<?php foreach ($calendars as $row) :?>
+		<tr class="<?php echo $this->cycle('odd', 'even'); ?>">
+			<td><?=$row['calendar_id']?></td>
+			<td><a href="<?=BASE."&C=content_publish&M=entry_form&channel_id={$row['weblog_id']}&entry_id={$row['calendar_id']}";?>"><?=$row['calendar_name']?></a></td>
+			<td><?=$row['status']?></td>
+			<td><?=$row['total_events']?></td>
+		</tr>
+	<?php endforeach;?>
+
+	<?php if (! empty($paginate)) : ?>
+		<tr class="<?=$this->cycle('odd', 'even');?>">
+			<td colspan="4"><?=$paginate?></td>
+		</tr>
+	<?php endif;?>
+
+<?php endif;?>
+     </tbody>
+</table>

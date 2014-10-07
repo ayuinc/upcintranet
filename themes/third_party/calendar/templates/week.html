@@ -1,0 +1,25 @@
+{display_each_week}
+<div class="week">
+	<div class="header">
+		<div class="prev" style="float: left; width: 20%;">
+			<a href="/calendar/week/{prev_week format="%Y-%m-%d"}/">Last Week</a>
+		</div>
+		<div class="current" style="float: left; width: 60%; text-align: center;">
+			<h1>Week of {week format="%l, %F %d, %Y"}</h1>
+		</div>
+		<div class="next" style="float: right; text-align: right; width: 20%;">
+			<a href="/calendar/week/{next_week format="%Y-%m-%d"}/">Next Week</a>
+		</div>
+		<br style="clear: both;" />
+	</div>
+{display_each_day}
+	<div class="day">
+		<h2><a href="/calendar/day/{day format="%Y-%m-%d"}/">{day format="%l, %F %j, %Y"}</a></h2>
+		{if day_event_total == 0}<p>No events today.</p>{/if}
+{display_each_hour}
+{events}EVENTS_PLACEHOLDER{/events}
+{/display_each_hour}
+	</div>
+{/display_each_day}
+</div>
+{/display_each_week}

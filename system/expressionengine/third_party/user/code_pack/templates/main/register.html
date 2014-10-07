@@ -1,0 +1,60 @@
+{embed="%prefix%inc/index" page_title="Register"}
+</head>
+<body id="home">
+{embed="%prefix%inc/header"}
+
+		<div id="maincolumn">
+		
+			<h2>User</h2>
+			
+			<h3>Register</h3>
+
+			<p></p>
+		
+			<div id="fullcolumn">
+
+				<h5>To create a new account, just fill in the form below:</h5>
+				{exp:user:register return="%prefix%main/register_success" error_page="%prefix%inc/error_template"}
+
+				<div class="label_padding">
+				<p><label for="username">Username:</label> <input type="text" name="username" id="username" style="width: 300px;" /></p>
+				<p><label for="screen_name">Screen Name:</label> <input type="text" name="screen_name" id="screen_name" style="width: 300px;" /></p>
+				<p><label for="email">Email Address:</label> <input type="text" name="email" id="email" style="width: 300px;" /></p>
+ 
+				<p><label for="password">Password:</label> <input type="password" name="password" id="password" style="width: 300px;" /></p>
+				<p><label for="password_confirm">Confirm Password:</label> <input type="password" name="password_confirm" id="password_confirm" style="width: 300px;" /></p>
+				</div> 
+
+				{if captcha}
+				<p><label for="captcha">Please enter in the word you see below:</label> <input type="text" name="captcha" id="captcha" style="width: 150px;" /></p>
+				<p>{captcha}</p>
+				{/if}
+ 
+				<p><input type="checkbox" name="accept_terms" id="accept_terms" value="y" /> <label for="accept_terms">Accept Terms?</a></p>
+ 
+				<p><input type="submit" name="submit" value="Register" /></p>
+
+				{if user_no_results}
+				<p>You're currently logged in, and must be logged out to register a new account.</p>
+				{/if}
+
+				{/exp:user:register}
+
+			</div>
+		
+		</div>
+		
+		<div id="sidecolumn">
+		
+			<h3>About This Page</h3>
+			
+			<p>The "Register" page allows users to sign up for a member account. This form respects native EE Member registration preferences.</p>
+
+			<p>It makes use of the following function:</p>
+
+			<ul>
+				<li><a href="http://www.solspace.com/docs/detail/user_register/">User:Register</a> to allow users to register for member accounts.</li>
+			</ul>
+		
+		</div>
+{embed="%prefix%inc/footer"}
