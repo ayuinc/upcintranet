@@ -1,0 +1,37 @@
+/* 
+
+  Description: EBM or Easy Box Model allows you to easily edit your UI box model margins and paddings 
+  through the browser inspector "elements" tab and make your elements fit on their parent container without
+  recurring to your CSS too often.
+  
+  Author: @MadeByGus
+  Version: 0.5
+  GitHub: https://github.com/netpoe/EBM.git
+
+  sass --watch ebm-loops.scss:ebm-loops.css -t compressed
+
+*/
+
+/*========================================
+=                  BOURBON               =
+========================================*/
+/* Bourbon (uncomment if you want it in your project.
+    Run
+      gem install bourbon
+    Go into your stylesheets directory and run
+      bourbon install
+*/
+
+// Bourbon sass tools
+// http://bourbon.io/docs/
+
+@import "bourbon/bourbon"; 
+
+/*========================================
+=                EASY BOX MODEL         =
+========================================*/
+// EBM - EasyBoxModel by @MadeByGus
+
+@import 
+	"b3/_variables",
+	"EBM/ebm-loops";

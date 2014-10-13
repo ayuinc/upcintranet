@@ -1,16 +1,66 @@
-// Box Model abbreviations list
-$box-model-abbr: p, pt, pr, pb, pl, m, mt, mr, mb, ml;
-$box-model-sides: padding, padding-top, padding-right, padding-bottom, padding-left, margin, margin-top, margin-right, margin-bottom, margin-left;
+/* 
 
-@for $i from 1 to 11 {
-  @for $j from 1 to length($box-model-sides) {
-    .#{nth($box-model-abbr, $j)}-#{$i*$times} {
-      // For <IE8
-      #{nth($box-model-sides, $j)}: ($i*$times) + px !important;
-      // REMs for modern browsers
-      @if $px-to-rems == true {
-        #{nth($box-model-sides, $j)}: rem($i*$times) !important;
-      }
-    }
-  }
-}
+  Description: EBM or Easy Box Model allows you to easily edit your UI box model margins and paddings 
+  through the browser inspector "elements" tab and make your elements fit on their parent container without
+  recurring to your CSS too often.
+  
+  Author: @MadeByGus
+  Version: 0.5
+  GitHub: https://github.com/netpoe/EBM.git
+
+*/
+
+// Set the global measure (range: 1 - 9)
+$times: 7; 
+
+// Include EBM in "%" units?
+$percentage: true;
+
+// Include EBM Min-Heights?
+$min-heights: true;
+
+// Include and determine box shadows:
+$box-shadows: true;
+
+$x-axis: 0px;
+$y-axis: 3px;
+$blur: 3px;
+$size: 0px;
+$color: #313233;
+$alpha: 0.15;
+
+// Include and determine border radius:
+$rounded-borders: true;  // If no bootstrap
+
+// Define the em-base for rems to px conversion
+$px-to-rems: true;    // True if you want them on rems 
+$em-base: 14px;
+
+// Horizontal Rules Custom
+$include-hr: true;
+
+$hr-width: 2px;
+$hr-style: solid;
+
+@import 
+  "times-range",
+  "strip-units",
+  "px-to-rems",
+  "prefixer",
+  "clearfix",
+  "list-unstyled",
+  "media-queries",
+  "easy-box-model",
+  "ebm-loops-small",
+  "min-heights",
+  "box-shadow",
+  "horizontal-rules",
+  "borders",
+  "backgrounds",
+  "z-index",
+  "positions",
+  "displays",
+  "gbo",
+  "grid-blocks",
+  "grid-lists",
+  "vertical-align";

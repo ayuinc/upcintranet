@@ -1,0 +1,38 @@
+// Rounded borders when no bootstrap
+@mixin rounded-borders($rounded-borders) {
+	@if $rounded-borders == true {
+		.rounded-borders {
+			border-radius: $border-radius-base;
+		}
+	}
+}
+@include rounded-borders($rounded-borders);
+
+// Border Radius
+.border-radius {
+  border-radius: $border-radius-base;
+}
+
+.border-radius-sm {
+	border-radius: $border-radius-small;
+}
+
+.border-radius-lg {
+	border-radius: $border-radius-large;
+}
+
+// No border colors
+.borderless {
+  border: none!important;
+}
+
+// // Border colors
+// $border-width: 1px;
+// $border-style: solid;
+
+// @for $i from 1 to length($grayscale-sufix-list) {
+// 	.border-color-#{nth($grayscale-sufix-list)} {
+// 		border: $border-width $border-style #{nth($grayscale-list, $i)};
+// 	}
+// }
+

@@ -1,12 +1,13 @@
 @charset "UTF-8";
 /*
 
-  Ayu Consulting Frontend Boilerplate
-  ultima actualizacion: 17 de junio 2014
+  Ayu Consulting Frontend Boilerplate - @MadeByGus
+  ultima actualizacion: 26 de Septiembre 2014
   Author: @MadeByGus - G. Andres Ibarra yo@soygus.com
   Desde la consola navega hasta el directorio "stylesheets" y ejecuta: 
 
-  sass --watch main.scss:main.css 
+  sass --watch main.scss:main.css
+  sass --watch main.scss:main.css -t compressed
 
 */
 
@@ -16,14 +17,6 @@
 
 
 @import "b3/b3";
-
-
-/*========================================
-=                FOUNDATION             =
-========================================*/
-
-
-// @import "foundation/foundation";
 
 
 /*========================================
@@ -39,16 +32,15 @@
 // Bourbon sass tools
 // http://bourbon.io/docs/
 
-@import "bourbon/bourbon";
+@import "bourbon/bourbon"; 
 
 /*========================================
 =                EASY BOX MODEL         =
 ========================================*/
 // EBM - EasyBoxModel by @MadeByGus
 
-$b3-enabled: true;
+// @import "EBM/ebm-loops";
 @import "EBM/ebm";
-
 
 /*========================================
 =            CSS3 ANIMATIONS             =

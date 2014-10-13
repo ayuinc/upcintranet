@@ -1,24 +1,11 @@
 // Backgrounds
-.bg-white {background: white !important;}
 // Brand colors
-@mixin bg-colors {
-	@if $b3-enabled == false {
-		.bg-primary {background: $brand-primary!important;}
-		.bg-primary-dark {background: darken($brand-primary, 7%)!important;}
-		.bg-info {background: $brand-info!important;}
-		.bg-info-dark {background: darken($brand-info, 7%)!important;}
-		.bg-success {background: $brand-success!important;}
-		.bg-success-dark {background: darken($brand-success, 7%)!important;}
-		.bg-danger {background: $brand-danger!important;}
-		.bg-danger-dark {background: darken($brand-danger, 7%)!important;}
-		.bg-warning {background: $brand-warning!important;}
-		.bg-warning-dark {background: darken($brand-warning, 7%)!important;}
-		// Grayscale
-		.bg-gray-lighter {background: $gray-lighter!important;}
-		.bg-gray-light {background: $gray-light!important;}
-		.bg-gray {background: $gray!important;}
-		.bg-gray-dark {background: $gray-dark!important;}
-		.bg-gray-darker {background: $gray-darker!important;}
-	}
+@for $i from 1 through length($brand-colors-list) {
+	.bg-#{nth($brand-colors-sufix-list, $i)} {background: #{nth($brand-colors-list, $i)} !important};
+	.bg-#{nth($brand-colors-sufix-list, $i)}-shade {background: #{darken(nth($brand-colors-list, $i), 21%)} !important;}
 }
-@include bg-colors;
+// Grayscale
+@for $i from 1 through length($grayscale-list) {
+	.bg-#{nth($grayscale-sufix-list, $i)} {background: #{nth($grayscale-list, $i)} !important};
+	.bg-#{nth($grayscale-sufix-list, $i)}-shade {background: #{darken(nth($grayscale-list, $i), 21%)} !important;}
+}

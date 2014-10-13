@@ -2,6 +2,18 @@
 // defaults to true if twbs-font-path function is present (no function => twbs-font-path('') parsed as string == right side)
 // in Sass 3.3 this can be improved with: function-exists(twbs-font-path)
 $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
+
+//
+// CUSTOM MIXINS
+// --------------------------------------------------
+
+// LIST UNSTYLED
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
 //
 // Variables
 // --------------------------------------------------
@@ -11,17 +23,27 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 //
 //## Gray and brand colors for use across Bootstrap.
 
-$gray-darker:            lighten(#313233, 0%) !default; // #222
-$gray-dark:              lighten(#313233, 21%) !default;   // #333
-$gray:                   lighten(#313233, 35%) !default; // #555
-$gray-light:             lighten(#313233, 63%) !default;   // #999
-$gray-lighter:           lighten(#313233, 84%) !default; // #eee
+$gray-base: #262624;
+
+$gray-darker:            lighten($gray-base, 0%) !default; // #222
+$gray-dark:              lighten($gray-base, 21%) !default;   // #333
+$gray:                   lighten($gray-base, 35%) !default; // #555
+$gray-light:             lighten($gray-base, 63%) !default;   // #999
+$gray-lighter:           lighten($gray-base, 77%) !default; // #eee
 
 $brand-primary:         #428bca !default;
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
+
+$brand-inverse: 				#081A26 !default;
+
+$grayscale-list: $gray-darker, $gray-dark, $gray, $gray-light, $gray-lighter, #fff;
+$brand-colors-list: $brand-primary, $brand-success, $brand-info, $brand-warning, $brand-danger;
+
+$grayscale-sufix-list: gray-darker, gray-dark, gray, gray-light, gray-lighter, white;
+$brand-colors-sufix-list: primary, success, info, warning, danger;
 
 
 //== Scaffolding
@@ -50,7 +72,7 @@ $font-family-alt:         "alt-name", $font-family-sans-serif;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          16px !default;
+$font-size-base:          14px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
@@ -104,9 +126,9 @@ $padding-xs-horizontal:     5px !default;
 $line-height-large:         1.33 !default;
 $line-height-small:         1.5 !default;
 
-$border-radius-base:        4px !default;
-$border-radius-large:       6px !default;
-$border-radius-small:       3px !default;
+$border-radius-base:        3px !default;
+$border-radius-large:       5px !default;
+$border-radius-small:       1px !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
@@ -124,7 +146,7 @@ $caret-width-large:         5px !default;
 //## Customizes the `.table` component with basic values, each used across all table variations.
 
 //** Padding for `<th>`s and `<td>`s.
-$table-cell-padding:            8px !default;
+$table-cell-padding:            7px !default;
 //** Padding for cells in `.table-condensed`.
 $table-condensed-cell-padding:  5px !default;
 
@@ -241,7 +263,7 @@ $dropdown-link-disabled-color:   $gray-light !default;
 //** Text color for headers within dropdown menus.
 $dropdown-header-color:          $gray-light !default;
 
-// Note: Deprecated $dropdown-caret-color as of v3.1.0
+//** Deprecated `$dropdown-caret-color` as of v3.1.0
 $dropdown-caret-color:           #000 !default;
 
 
@@ -265,29 +287,35 @@ $zindex-modal:             1050 !default;
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
 
+$breakpoints-sufix-list:  xs, sm, md, lg;
+
 // Extra small screen / phone
-// Note: Deprecated $screen-xs and $screen-phone as of v3.0.1
-// Note: Deprecated $screen-xs-min as of v3.2.0
+//** Deprecated `$screen-xs` as of v3.0.1
 $screen-xs:                  480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
 $screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
 $screen-phone:               $screen-xs-min !default;
 
 // Small screen / tablet
-// Note: Deprecated $screen-sm and $screen-tablet as of v3.0.1
+//** Deprecated `$screen-sm` as of v3.0.1
 $screen-sm:                  768px !default;
 $screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
 $screen-tablet:              $screen-sm-min !default;
 
 // Medium screen / desktop
-// Note: Deprecated $screen-md and $screen-desktop as of v3.0.1
+//** Deprecated `$screen-md` as of v3.0.1
 $screen-md:                  992px !default;
 $screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
 $screen-desktop:             $screen-md-min !default;
 
 // Large screen / wide desktop
-// Note: Deprecated $screen-lg and $screen-lg-desktop as of v3.0.1
+//** Deprecated `$screen-lg` as of v3.0.1
 $screen-lg:                  1200px !default;
 $screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
 $screen-lg-desktop:          $screen-lg-min !default;
 
 // So media queries don't overlap when required, provide a maximum
@@ -303,7 +331,7 @@ $screen-md-max:              ($screen-lg-min - 1) !default;
 //** Number of columns in the grid.
 $grid-columns:              12 !default;
 //** Padding between columns. Gets divided in half for the left and right.
-$grid-gutter-width:         30px !default;
+$grid-gutter-width:         28px !default;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 $grid-float-breakpoint:     $screen-sm-min !default;
@@ -330,13 +358,16 @@ $container-large-desktop:      ((1140px + $grid-gutter-width)) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
 
+// CUSTOM CONTAINER VARIABLE
+
+$container-fluid: 						 $grid-gutter-width / 2; 
 
 //== Navbar
 //
 //##
 
 // Basics of a navbar
-$navbar-height:                    50px !default;
+$navbar-height:                    56px !default;
 $navbar-margin-bottom:             $line-height-computed !default;
 $navbar-border-radius:             $border-radius-base !default;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
@@ -535,7 +566,7 @@ $popover-arrow-color:                 #fff !default;
 //** Popover outer arrow width
 $popover-arrow-outer-width:           ($popover-arrow-width + 1) !default;
 //** Popover outer arrow color
-$popover-arrow-outer-color:           rgba($popover-border-color, 0.05) !default;
+$popover-arrow-outer-color:           fade_in($popover-border-color, 0.05) !default;
 //** Popover outer arrow fallback color
 $popover-arrow-outer-fallback-color:  darken($popover-fallback-border-color, 20%) !default;
 
@@ -600,7 +631,7 @@ $modal-sm:                    300px !default;
 //
 //## Define alert colors, border radius, and padding.
 
-$alert-padding:               15px !default;
+$alert-padding:               14px !default;
 $alert-border-radius:         $border-radius-base !default;
 $alert-link-font-weight:      bold !default;
 
@@ -681,8 +712,8 @@ $list-group-link-heading-color: #333 !default;
 //##
 
 $panel-bg:                    #fff !default;
-$panel-body-padding:          15px !default;
-$panel-heading-padding:       10px 15px !default;
+$panel-body-padding:          14px !default;
+$panel-heading-padding:       10px 14px !default;
 $panel-footer-padding:        $panel-heading-padding !default;
 $panel-border-radius:         $border-radius-base !default;
 
@@ -765,8 +796,8 @@ $badge-border-radius:         10px !default;
 //
 //##
 
-$breadcrumb-padding-vertical:   8px !default;
-$breadcrumb-padding-horizontal: 15px !default;
+$breadcrumb-padding-vertical:   7px !default;
+$breadcrumb-padding-horizontal: 14px !default;
 //** Breadcrumb background color
 $breadcrumb-bg:                 #f5f5f5 !default;
 //** Breadcrumb text color
@@ -823,8 +854,10 @@ $pre-scrollable-max-height:   340px !default;
 //
 //##
 
+//** Horizontal offset for forms and lists.
+$component-offset-horizontal: 180px !default;
 //** Text muted color
-$text-muted:                  $gray-lighter !default;
+$text-muted:                  $gray-light !default;
 //** Abbreviations and acronyms border color
 $abbr-border-color:           $gray-light !default;
 //** Headings small color
@@ -837,14 +870,9 @@ $blockquote-font-size:        ($font-size-base * 1.25) !default;
 $blockquote-border-color:     $gray-lighter !default;
 //** Page header border color
 $page-header-border-color:    $gray-lighter !default;
-
-
-//== Miscellaneous
-//
-//##
-
+//** Width of horizontal description list titles
+$dl-horizontal-offset:        $component-offset-horizontal !default;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter !default;
 
-//** Horizontal offset for forms and lists.
-$component-offset-horizontal: 180px !default;
+

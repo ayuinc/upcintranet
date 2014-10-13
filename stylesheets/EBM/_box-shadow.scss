@@ -9,4 +9,10 @@
 .box-shadow {
   @include box-shadow($x-axis $y-axis $blur $size rgba($color, $alpha));
 }
+
+@mixin box-shadow-default {
+	@if $box-shadows == true {
+	  @include box-shadow($x-axis $y-axis $blur $size rgba($color, $alpha));
+	}
+}
 // END:BOX-SHADOW

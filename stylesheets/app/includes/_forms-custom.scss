@@ -1,0 +1,88 @@
+// Bootstrap 3 Custom Forms
+.custom-form-wrapper {
+	background: white;
+	@include box-shadow($x-axis $y-axis $blur $size rgba($color, $alpha));
+	padding: 14px;
+	margin-bottom: 21px;
+	min-height: 210px;
+	width: 50%;
+	h4 {
+		margin-bottom: 3px;
+	}
+	hr {
+		margin: 7px 0;
+	}
+	form {
+		margin: 35px 0;
+	}
+}
+
+form {
+	&.left-border-input {
+		.form-group {
+			.form-control {
+				border-radius: 0px;
+				@include box-shadow(inset 3px 0px 0px 0px lighten($gray-light, 7%));
+				@include transition(box-shadow 0.3s ease-in);
+				&:focus {
+					@include box-shadow(inset 4px 0px 0px 0px lighten($brand-primary, 7%));
+					@include transition(box-shadow 0.3s ease-in);
+				}
+			}
+			&.has-success {
+				.form-control {
+					border-radius: 0px;
+					@include box-shadow(inset 3px 0px 0px 0px lighten($brand-success, 28%));
+					@include transition(box-shadow 0.3s ease-in);
+					&:focus {
+						@include box-shadow(inset 4px 0px 0px 0px lighten($brand-success, 7%));
+						@include transition(box-shadow 0.3s ease-in);
+					}
+				}
+			}
+			&.has-warning {
+				.form-control {
+					border-radius: 0px;
+					@include box-shadow(inset 3px 0px 0px 0px lighten($brand-warning, 28%));
+					@include transition(box-shadow 0.3s ease-in);
+					&:focus {
+						@include box-shadow(inset 4px 0px 0px 0px lighten($brand-warning, 7%));
+						@include transition(box-shadow 0.3s ease-in);
+					}
+				}
+			}
+			&.has-error {
+				.form-control {
+					border-radius: 0px;
+					@include box-shadow(inset 3px 0px 0px 0px lighten($brand-danger, 28%));
+					@include transition(box-shadow 0.3s ease-in);
+					&:focus {
+						@include box-shadow(inset 4px 0px 0px 0px lighten($brand-danger, 7%));
+						@include transition(box-shadow 0.3s ease-in);
+					}
+				}
+			}
+			input[type="submit"],
+			button {
+				@include box-shadow(none);
+				&.btn-lg,
+				&.input-lg {
+					height: $input-height-large;
+					@include box-shadow(none);
+				}
+			}
+		}
+	}
+}
+
+// Form overrides 
+.select-override {
+  @include user-select(none);
+  position: relative;
+  text-indent: 1px;
+  text-overflow: "";
+  &.input-lg {
+    line-height: 28px;
+    // background: white url(/img/arrow-down.svg) no-repeat 98%;
+  }
+}

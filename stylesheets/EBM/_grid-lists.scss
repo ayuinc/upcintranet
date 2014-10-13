@@ -1,0 +1,39 @@
+// GRID LISTS
+ul.grid-list {
+	@include clearfix;
+	// margin-left: -($grid-gutter-width / 2);
+	// margin-right: -($grid-gutter-width / 2);
+	padding: 0;
+	margin: 0;
+	@include list-unstyled;
+	> li {
+		float: left;
+		padding: $grid-gutter-width / 2;
+		padding: rem($grid-gutter-width / 2);
+	}
+	@for $i from 1 through 12 {
+		&.grid-list-#{$i} {
+			> li {
+				width: percentage(1/$i) - 0.30;
+				@media #{$xs-only} {
+					$mobile-width: percentage(1/$i);
+					width: $mobile-width * 2;
+				}
+			}
+		}
+	}
+	&.grid-list-centered {
+		text-align: center;
+		> li {
+			float: none;
+			display: inline-block;
+		}
+	}
+	&.grid-list-right {
+		text-align: right;
+		> li {
+			float: none;
+			display: inline-block;
+		}
+	}
+}

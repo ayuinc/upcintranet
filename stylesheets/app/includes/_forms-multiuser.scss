@@ -1,0 +1,47 @@
+#multiuser-form {
+	input[type="radio"] {
+		display: none;
+		margin: 0;
+		&:checked {
+			~ label {
+				background: white;
+				@include box-shadow(none);
+			}
+		}
+	}
+	.tabs {		
+		label {
+			background: darken($gray-lighter, 7%);
+			border-top-left-radius: $border-radius-base;
+			border-top-right-radius: $border-radius-base;
+			min-height: 56px;
+			text-align: center;
+			text-transform: uppercase;
+			padding: 14px 7px 7px 7px;
+			display: block;
+			cursor: pointer;
+			margin: 0;
+			&[for="student"] {
+				border-top: 2px solid $brand-primary;
+				@include box-shadow(inset 0px -1px 3px 0px rgba($gray-darker, 0.1));
+			}
+			&[for="teacher"] {
+				border-top: 2px solid $brand-success;
+				@include box-shadow(inset 0px -1px 3px 0px rgba($gray-darker, 0.1));
+			}
+			&[for="admin"] {
+				border-top: 2px solid $brand-info;
+				@include box-shadow(inset 0px -1px 3px 0px rgba($gray-darker, 0.1));
+			}
+		}
+	}
+	.btn-login {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 70px;
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		text-transform: uppercase;
+	}
+}

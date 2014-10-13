@@ -1,0 +1,33 @@
+// EBM MEDIA QUERIES B3 - FOUNDATION:
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$xs-only: "#{$screen} and (max-width: #{$screen-phone})" !default;
+
+$sm-only: "#{$screen} and (min-width: #{$screen-phone}) and (max-width: #{$screen-tablet})" !default;
+
+$md-only: "#{$screen} and (min-width: #{$screen-tablet}) and (max-width: #{$screen-desktop})" !default;
+
+$lg-only: "#{$screen} and (min-width: #{$screen-desktop}) and (max-width: #{$screen-lg-desktop})" !default;
+
+$sm-down: "#{$screen} and (max-width: #{$screen-tablet})" !default;
+
+$md-down: "#{$screen} and (max-width: #{$screen-desktop})" !default;
+
+$lg-down: "#{$screen} and (max-width: #{$screen-lg-desktop})" !default;
+
+$xs-up: "#{$screen} and (min-width: #{$screen-phone})" !default;
+
+$sm-up: "#{$screen} and (min-width: #{$screen-tablet})" !default;
+
+$md-up: "#{$screen} and (min-width: #{$screen-desktop})" !default;
+
+$lg-up: "#{$screen} and (min-width: #{$screen-lg-desktop})" !default;
+
+// VARIABLES LIST FOR EBM 
+
+$media-only-list: $xs-only, $sm-only, $md-only, $lg-only;
+$media-down-list: $sm-down, $md-down, $lg-down;
+$media-up-list: 	$xs-up, $sm-up, $md-up, $lg-up;

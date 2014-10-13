@@ -1,0 +1,44 @@
+// Bootstrap 3 Custom Buttons
+a.btn,
+button.btn,
+input[type="submit"].btn {
+	// FORM CONTROL
+	&.form-control {
+		height: auto;
+	}
+	&.borderless {
+		border-radius: 0 !important;
+	}
+}
+a.btn,
+button.btn,
+input[type="submit"].btn {
+	@for $i from 1 through length($brand-colors-sufix-list) {
+		&.btn-#{nth($brand-colors-sufix-list, $i)}.btn-outline {
+			background: none;
+			border: 2px solid #{lighten(nth($brand-colors-list, $i), 21%)};
+			border-radius: 0;
+			color: #{lighten(nth($brand-colors-list, $i), 21%)};
+			&:hover {
+				background: none;
+				border-radius: 0;
+				border: 2px solid #{nth($brand-colors-list, $i)};
+				color: #{nth($brand-colors-list, $i)};
+			}
+		}
+	}
+	@for $i from 1 through length($grayscale-sufix-list) {
+		&.btn-#{nth($grayscale-sufix-list, $i)}.btn-custom {
+			background: none;
+			border: 2px solid #{lighten(nth($grayscale-list, $i), 21%)};
+			border-radius: 0;
+			color: #{lighten(nth($grayscale-list, $i), 21%)};
+			&:hover {
+				background: none;
+				border-radius: 0;
+				border: 2px solid #{nth($grayscale-list, $i)};
+				color: #{nth($grayscale-list, $i)};
+			}
+		}
+	}
+}

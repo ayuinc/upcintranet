@@ -4,13 +4,24 @@
 
 // APP Includes
 @import 
-  "includes/utilities-custom",
+  // TYPE
+  "includes/fonts-custom",
   "includes/type-custom",
   "includes/icons",
-  "includes/fonts",
-  "includes/header",
-  "includes/footer";
+  // LAYOUT
+  "includes/layout-global",
+  "includes/layout-header",
+  "includes/layout-footer",
+  // BUTTONS & LINKS
+  "includes/panel-custom",
+  "includes/buttons-custom";
+  // FORMS
+  // "includes/forms-custom",
+  // "includes/forms-multiuser",
+  // NAVS
+  // "includes/nav-off-canvas",
 
 // APP Views
-// @import 
-//   "";
+@import 
+  // VIEW NAME
+  "views/dashboard";

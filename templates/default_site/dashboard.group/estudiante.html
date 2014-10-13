@@ -1,3 +1,75 @@
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+{embed="includes/header"}
+{embed="includes/sidebar"} 
+ 
+    <div class="site-content">
+      <div class="mhp-70">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-8"><h1 class="text-muted">Hola {exp:webservices:nombre_alumno}</h1></div>
+            <div class="col-sm-4">
+              <div class="row">
+                <div class="col-sm-12">
+	                <h3 class="mb-0 text-right">{current_time format="%g:%i %a"}</h3>
+	                <h4  class="mt-0 text-right">{current_time format="%l, %d de %F"}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+             <div class="panel">
+              <div class="panel-head">
+                <div class="panel-head-left">
+                  <div class="panel-title">
+                    <h1 class="text">Mi horario</h1>
+                  </div>
+                </div>
+                <div class="panel-head-right pt-14">
+                  <div class="panel-display"><a href="#" id="horas-libres">ojo</a></div>
+                  <div class="panel-scroll"><a href="#">^</a><a href="#">d</a></div>
+                </div>
+              </div>
+              {embed="includes/dashboard-horario"}
+             </div>
+            </div>
+  <div class="col-xs-8">
+      <div class="row">
+          <div class="col-sm-6">
+          	{embed="includes/dashboard-miscursos"}
+          </div>
+          <div class="col-sm-6">
+            {embed="includes/dashboard-mispagos"}
+            <div class="row">
+              <div class="col-sm-12">
+                {embed="includes/dashboard-misreservas"}
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+        	{embed="includes/dashboard-boletin"}
+        </div>
+      </div>
+      <div class="row">
+	      {embed="includes/dashboard-noticias"}
+	      {embed="includes/dashboard-bolsatrabajo"}
+      </div>
+  </div>
+  </div>  
+        </div>
+      </div>
+     
+  
+      </div> <!-- section ends  -->
+        
+{embed="includes/footer"}        
+
+<!--
+{exp:webservices:iniciar_session}
+
 <small>ESTUDIANTE</small>
 <h1>Bienvenido {exp:webservices:nombre_alumno}</h1>
 
@@ -10,4 +82,87 @@
 <h3>Curos que lleva un Alumno</h3>
 <p>{exp:webservices:curos_que_lleva_un_alumno}</p>
 
-<a href="/login/salir">Logout</a>
+<h3>Notas de un alumno por curso HE01</h3>
+<p>{exp:webservices:notas_alumno_por_curso codcurso="HE01"}</p>
+
+<h3>Trámites realizados por el alumno</h3>
+<p>{exp:webservices:tramites_realizados_por_alumno}</p>
+
+<h3>Listado de compañeros de clase por curso HE01</h3>
+<p>{exp:webservices:companeros_clase_por_curso codcurso="HE01"}</p>
+
+<h3>Poblar espacios deportivos</h3>
+<p>{exp:webservices:poblar_espacios_deportivos}</p>
+
+<h3>Disponibilidad de espacios deportivos</h3>
+<form action="{site_url}index.php/reservas/disponibilidad-espacios-deportivos" method="post" name="disponibilidad_form">
+  <input type="hidden" name="XID" value="{XID_HASH}"> 
+	<p>
+		<label>Código de la Cede</label><br />
+		<input type="text" name="codsede" value="L" maxlength="32" size="25" />
+	</p>
+	<p>
+		<label>Código del Espacio deportivo</label><br />
+		<input type="text" name="coded" value="101" maxlength="32" size="25" />
+	</p>
+	<p>
+		<label>Número de horas a reservar</label><br />
+		<input type="text" name="numhoras" value="20" maxlength="32" size="25" />
+	</p>
+	<p>
+		<label>Fecha de Inicio</label><br />
+		<input type="text" name="fechaini" value="20141025" maxlength="32" size="25" />
+	</p>
+	<p>
+		<label>Fecha de Fin</label><br />
+		<input type="text" name="fechafin" value="20141027" maxlength="32" size="25" />
+	</p>			
+	<p>
+  <input type="submit" value="Enviar">
+  </p>
+</form>
+
+<h3>Reserva de espacios deportivos</h3>
+<form action="{site_url}index.php/reservas/reserva-espacios-deportivos" method="post" name="reserva_form">
+  <input type="hidden" name="XID" value="{XID_HASH}"> 
+	<p>
+		<label>Código de la Cede</label><br />
+		<input type="text" name="codsede" value="L" maxlength="32" size="25" />
+	</p>
+	<p>
+		<label>Código del Espacio deportivo</label><br />
+		<input type="text" name="coded" value="101" maxlength="32" size="25" />
+	</p>
+	<p>
+		<label>Código de la Actividad</label><br />
+		<input type="text" name="codactiv" value="101" maxlength="32" size="25" />
+	</p>
+	<p>
+		<label>Número de horas a reservar</label><br />
+		<input type="text" name="numhoras" value="1" maxlength="32" size="25" />
+	</p>
+	<p>
+		<label>Fecha</label><br />
+		<input type="text" name="fecha" value="20141025" maxlength="32" size="25" />
+	</p>
+	<p>
+		<label>Hora Inicio</label><br />
+		<input type="text" name="horaini" value="140000" maxlength="32" size="25" />
+	</p>	
+	<p>
+		<label>Hora Fin</label><br />
+		<input type="text" name="horafin" value="150000" maxlength="32" size="25" />
+	</p>		
+	<p>
+		<label>Detalles</label><br />
+		<input type="text" name="detalles" value="BOLSA" maxlength="32" size="25" />
+	</p>				
+	<p>
+  <input type="submit" value="Enviar">
+  </p>
+</form>
+
+
+<p><a href="/login/salir">Logout</a></p>
+
+-->

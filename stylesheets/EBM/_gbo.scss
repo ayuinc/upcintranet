@@ -1,0 +1,84 @@
+// Grid Outlines
+$grid-o-border-color: $gray-light;
+$grid-o-border-width: 1px;
+$grid-o-border-style: solid;
+
+$grid-o-sizes: xs, sm, md, lg;
+
+// gbo == "Grid Border Outline"
+@mixin gbo($side) {
+	border-#{$side}: $grid-o-border-width $grid-o-border-style $grid-o-border-color;
+}
+
+.container.gbo,
+.container-fluid.gbo {
+	> .row,
+	> .clearfix {
+		@include gbo(bottom);
+		&:last-child {
+			border-bottom: none;
+		}
+		@for $i from 1 to 12 {
+			@for $j from 1 to length($grid-o-sizes)+1 {
+				> [class*="#{nth($grid-o-sizes, $j)}-#{$i}"]	{
+					@include gbo(left);
+					@include gbo(right);
+					margin-left: -1px;
+					&:first-child {					
+						border-left: none;
+					}
+					&:last-child {
+						border-right: none;
+					}
+					@media only screen and (max-width: $screen-sm) {
+						border-right: 0;
+						border-left: 0;
+					}
+					@media only screen and (max-width: $screen-xs) {
+						border-right: 0;
+						border-left: 0;
+					}
+				}
+				&:last-child {
+					> [class*="#{nth($grid-o-sizes, $j)}-#{$i}"] {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+		@for $i from 1 to length($grid-o-sizes)+1 {
+			> .col-#{nth($grid-o-sizes, $i)}-#{$grid-columns} {
+				border-right: none !important;
+				border-left: none !important;
+			}
+		}
+	}
+	&.gbo-with-block-links {
+		> .row,
+		> .clearfix {
+			@for $i from 1 to 13 {
+				@for $j from 1 to length($grid-o-sizes)+1 {
+					> [class*="#{nth($grid-o-sizes, $j)}-#{$i}"]	{
+						padding: 0 !important
+					}
+				}
+			}
+			a.block-link {
+				display: block;
+				padding: 14px;
+				padding: rem(14);
+				text-decoration: none;
+				color: $gray;
+				min-height: 280px;
+				// @include transition(all 0.3s ease);
+				&:hover {
+					text-decoration: none;
+					background: rgba($brand-primary, 0.3);
+					cursor: pointer;
+					color: darken($gray, 14%);
+					// @include transition(all 0.3s ease);
+				}
+			}
+		}
+	}
+}

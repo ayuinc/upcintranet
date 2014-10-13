@@ -1,0 +1,17 @@
+// GRID BLOCKS
+.grid-block {
+	padding: $container-fluid 0;
+	padding: rem(($container-fluid)) 0;
+}
+.grid-block-sm {
+	padding: ($container-fluid / 2) 0;
+	padding: rem(($container-fluid / 2)) 0;
+}
+.grid-block-md {
+	padding: ($container-fluid * 2) 0;
+	padding: rem(($container-fluid * 2)) 0;
+}
+.grid-block-lg {
+	padding: ($container-fluid * 3) 0;
+	padding: rem(($container-fluid * 3)) 0;
+}

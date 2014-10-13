@@ -1,0 +1,6 @@
+// Z-Index
+@for $i from 1 through 4 {
+  .z-index#{($i)*10} {
+    z-index: ($i)*10!important;
+  }
+}
