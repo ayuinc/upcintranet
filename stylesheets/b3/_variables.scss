@@ -25,17 +25,19 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 
 $gray-base: #262624;
 
-$gray-darker:            lighten($gray-base, 0%) !default; // #222
-$gray-dark:              lighten($gray-base, 21%) !default;   // #333
-$gray:                   lighten($gray-base, 35%) !default; // #555
-$gray-light:             lighten($gray-base, 63%) !default;   // #999
-$gray-lighter:           lighten($gray-base, 77%) !default; // #eee
+$gray-darker:           lighten($gray-base, 0%) !default; // #222
+$gray-dark:             lighten($gray-base, 21%) !default;   // #333
+$gray:                  lighten($gray-base, 35%) !default; // #555
+$gray-light:            #858688 !default;   // #999
+$gray-lighter:          #E3E3E3 !default; // #eee
+
+$gray-main: 						#565658 !default;
 
 $brand-primary:         #428bca !default;
 $brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
+$brand-info:            #3298FF !default;
 $brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$brand-danger:          #E42322 !default;
 
 $brand-inverse: 				#081A26 !default;
 
@@ -65,9 +67,9 @@ $link-hover-color:      darken($link-color, 15%) !default;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
-$font-family-alt:         "alt-name", $font-family-sans-serif;
+$font-family-sans-serif:  "Solano Gothic MVB", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       "Zizou Slab", "Times New Roman", Times, serif !default;
+$font-family-alt:         "Helvetica", $font-family-sans-serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;

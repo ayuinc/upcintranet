@@ -1,2 +1,4 @@
+          {exp:channel:entries channel="boletines" limit="1"}
           <h3>Boletín Informativo</h3>
-          <div class="well">Aviso: El jueves 17 y viernes 18 de Diciembre no habrá atención en mesa de partes. [MAS INFORMACION]</div>
+          <div class="well">{title}: {mensaje-boletines}. [<a href="{site_url/boletines/{url_title}">MAS INFORMACION</a>]</div>
+          {/exp:channel:entries}

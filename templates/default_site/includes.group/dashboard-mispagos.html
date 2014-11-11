@@ -1,59 +1,42 @@
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="panel">
-                  <div class="panel-head">
-                    <div class="panel-head-left">
-                      <div class="panel-title-x2">
-                        <h1>Mis Pagos</h1>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel-body">
-                    <div class="panel-body-head">
-                      <h5>Próxima boleta</h5>
-                    </div>
-                    <div class="panel-table">
-                      <ul class="tr">
-                        <li class="col-xs-12">
-                          <div class="text-center">
-                            <div class="ocultar text-muted"><h1>X</h1></div>
-                            <h1>3333.00</h1>
-                            <h3>17 días - 25/12/14</h3>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="panel">
-                  <div class="panel-head">
-                    <div class="panel-head-left">
-                      <div class="panel-title">
-                      </div>
-                    </div>
-                    <div class="panel-head-right pt-14 pb-7">
-                      <div class="panel-scroll"><a href="#">up</a><a href="#">down</a></div>
-                      <div class="panel-display"><a href="#">ojo</a></div>
-                    </div>
-                  </div>
-                  <div class="panel-body pago-b">
-                    <div class="panel-body-head">
-                      <h5>Próxima boleta</h5>
-                    </div>
-                    <div class="panel-table">
-                      <ul class="tr">
-                        <li class="col-xs-12">
-                          <div class="text-center">
-                            <div class="ocultar text-muted"><h1>X</h1></div>
-                            <h1>3333.00</h1>
-                            <h3>17 días - 25/12/14</h3>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-head-left">
+            <div class="panel-title">
+              <h2>Mis Pagos</h2>
             </div>
+          </div>
+          <div class="panel-head-right pt-14">
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="panel-body-head-table">
+            <ul class="tr">
+              <li class="col-xs-12">
+                <div><span>Próxima boleta</span></div>
+              </li>
+              <!--<li class="col-xs-4">
+                <div><span>Boleta vencida</span></div>
+              </li>-->
+            </ul>
+          </div>
+          <div class="panel-table pagos">
+            <ul class="tr">
+              <li class="text-center class-sm-12" id="pagos-placeholder">
+                <img src="/assets/img/ojo.png">
+                <span>Da clic para ver</span>
+              </li>
+            </ul>
+            <ul class="tr" id="pagos-pdtes">
+              <li class="col-sm-12 text-center">
+                <img src="/assets/img/pago_grey.png" class="inline-block">
+                {exp:webservices:proxima_boleta_alumno}
+              </li>
+              <!--<li class="col-sm-4 text-center">
+                <img src="/assets/img/pago_red.png" class="inline-block">
+                <span class="monto-1">S/.1958.20</span>
+                <span class="vcto-1">Desde el 24/02/2015</span>
+              </li>-->
+            </ul>
+          </div>
+        </div>
+      </div>

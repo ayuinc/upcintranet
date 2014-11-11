@@ -1,3 +1,31 @@
-       <div class="col-sm-6">
-        	<div class="well">Bolsa de Trabajo</div>
-       </div>
+<div class="panel pt-21">
+  <div class="panel-head">
+    <div class="panel-head-left">
+      <div class="panel-title">
+        <h2>Bolsa de Trabajo</h2>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="panel-body-head-table">
+      <ul class="tr">
+        <li class="col-xs-12">
+          <div><span>Comunicación y Marketing</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="panel-table bolsa-content">
+      <ul class="tr">
+        <li class="col-xs-12">
+          <div>
+            {exp:channel:entries channel="bolsa_trabajo" limit="1" dynamic="off"}
+            <p class="noticia-heading zizou-20">{title}</p>
+            <p class="noticia-body helvetica-12">{intro-bolsa}</p>
+            <p class="keep-reading zizou-18"><img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Seguir Leyendo</p>
+            {/exp:channel:entries}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

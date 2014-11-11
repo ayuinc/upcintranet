@@ -1,58 +1,80 @@
-      <div class="site-header hidden-xs">
-        <div class="container-fluid">
-          <div class="header-global row">
-            <div class="col-sm-1 text-center">
-              <h4 class="text-muted bg-danger">IC</h4>
-            </div>
-            <div class="col-sm-10"><p class="text-center">(HEADER GLOBAL UPC)</p></div>
-            <div class="col-sm-1 text-center">
-              <h4 class="text-muted bg-danger">IC</h4>
-            </div>
-          </div>
-          <div class="header-alumno row">
-            <div class="col-sm-1">
-              <h4 class="bg-primary text-muted">AL1</h4>
-            </div>
-            <div class="col-sm-5">
-               <div class="row">
-                 <div class="col-sm-3">
-                  <a href="#">
-                    <h4 class="bg-primary text-muted">IAL1</h4>
-                    <span>Mi Correo</span>
-                  </a>
-                 </div>
-                 <div class="col-sm-3">
-                  <a href="#">
-                    <h4 class="bg-primary text-muted">IAL2</h4>
-                    <span>Aula Virtual</span>
-                  </a>
-                 </div>
-                 <div class="col-sm-3">
-                  <a href="#">
-                    <h4 class="bg-primary text-muted">IAL3</h4>
-                    <span>Impresiones</span>
-                  </a>
-                 </div>
-                 <div class="col-sm-3">
-                  <a href="#">
-                    <h4 class="bg-primary text-muted">IAL4</h4>
-                    <span>Rol de Exámenes</span>
-                  </a>
-                 </div>
-               </div>
-            </div>
-            <div class="col-sm-5">
-              <form class="navbar-form navbar-left" role="search">
-               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Buscar">
-               </div>
-              </form>
-            </div>
-            <div class="col-sm-1">
-              <h4 class="bg-warning">CS</h4>
-              <span>Cerrar sesión</span>
-            </div>
-          </div>
-          
+<div class="site-header hidden-xs">
+  <div class="container-fluid">
+    <div class="header-global pl-7 row pb-7 pr-21">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-1 text-center pt-14">
+        <span>Intranet</h4>
+      </div>
+      <div class="col-sm-7"></div>
+      <div class="col-sm-1 text-center pt-14">
+        <span class="solano-15">Portal</span>
+      </div>
+      <div class="col-sm-1 text-center pt-14">
+        <span class="solano-15">Servicios</span>
+      </div>
+      <div class="col-sm-1 text-center pt-14">
+        <span class="solano-15">Blogs</span>
+      </div>
+    </div>
+    <div class="header-no-global alumno pl-7 row pr-21">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-5 pt-21 pb-21">
+         <div class="row">
+           <div class="col-sm-3">
+            <a href="#">
+              <div class="mi-correo"></div>
+              <span>Mi Correo</span>
+            </a>
+           </div>
+           <div class="col-sm-3">
+            <a href="#">
+              <div class="mi-aula"></div>
+              <span>Aula Virtual</span>
+            </a>
+           </div>
+           <div class="col-sm-3">
+            <a href="#">
+              <div class="print"></div>
+              <span>Impresiones</span>
+            </a>
+           </div>
+           <div class="col-sm-3">
+            <a href="#">
+              <div class="search"></div>
+              <span>Buscar</span>
+            </a>
+           </div>
+         </div>
+      </div>
+      <div class="col-sm-3 pt-28 pb-21 busqueda">
+        <div class="right-inner-addon">
+          <img src="/assets/img/search_arrow.png">
+          <input type="search" class="zizou-light-12 form-control" placeholder="Introduce tu búsqueda" />
         </div>
       </div>
+      <div class="col-sm-3 right-upper-corner pt-0 pb-0">
+        <div class="row">
+          <div class="col-sm-8 pt-28"><span class="hola">Hola {exp:webservices:nombre_alumno}</span></div>
+          <div class="col-sm-4">
+            <div class="dropdown">
+              <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                <img class="img-circle img-responsive" src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png">
+              </div>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil">Mi perfil</a></li>
+                <li role="presentation" class="divider"></li>
+                <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Cambiar a docente</a></li>
+                <li  role="presentation" class="divider"></li>
+                <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Ver tutorial</a></li>
+                <li role="presentation" class="divider"></li>
+                <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

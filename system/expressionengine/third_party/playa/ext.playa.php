@@ -8,8 +8,8 @@ require_once PATH_THIRD.'playa/config.php';
  * Playa Extension Class for ExpressionEngine 2
  *
  * @package   Playa
- * @author    Brandon Kelly <brandon@pixelandtonic.com>
- * @copyright Copyright (c) 2011 Pixel & Tonic, Inc
+ * @author    Pixel & Tonic, Inc <support@pixelandtonic.com>
+ * @copyright Copyright (c) 2014 Pixel & Tonic, Inc
  */
 class Playa_ext {
 
@@ -139,6 +139,13 @@ class Playa_ext {
 			$tagdata = $this->EE->extensions->last_call;
 		}
 
+		$disable = explode('|', $this->EE->TMPL->fetch_param('disable'));
+
+		if (in_array('playa', $disable))
+		{
+			return $tagdata;
+		}
+
 		// cache the row data
 		if (! isset($this->cache['entry_rows'][$row['entry_id']]))
 		{
@@ -158,8 +165,6 @@ class Playa_ext {
 		// -------------------------------------------
 
 		// ignore if disable="custom_fields" set
-		$disable = explode('|', $this->EE->TMPL->fetch_param('disable'));
-
 		if (! in_array('custom_fields', $disable))
 		{
 			$site_id = isset($row['entry_site_id']) ? $row['entry_site_id'] : 0;
@@ -240,7 +245,7 @@ class Playa_ext {
 				$inner_tagdata = substr($tagdata, $otag_endpos, $ctag_pos-$otag_endpos);
 
 				// make sure that the closing tag doesn't belong to another opening tag
-				if (strpos($inner_tagdata, $match[0][0]) !== FALSE)
+				if (strpos($inner_tagdata, $match[0][0].'}') !== FALSE || strpos($inner_tagdata, $match[0][0].' ') !== FALSE)
 				{
 					$ctag_pos = FALSE;
 				}

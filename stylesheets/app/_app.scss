@@ -5,6 +5,7 @@
 // APP Includes
 @import 
   // TYPE
+  "includes/fonts",
   "includes/fonts-custom",
   "includes/type-custom",
   "includes/icons",
@@ -13,6 +14,8 @@
   "includes/layout-header",
   "includes/layout-footer",
   // BUTTONS & LINKS
+  "includes/fonts-utilities",
+  "includes/layout-utilities",
   "includes/panel-custom",
   "includes/buttons-custom";
   // FORMS
@@ -24,4 +27,5 @@
 // APP Views
 @import 
   // VIEW NAME
-  "views/dashboard";
+  "views/dashboard",
+  "views/mis-estudios";

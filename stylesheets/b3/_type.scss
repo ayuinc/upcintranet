@@ -105,7 +105,7 @@ mark,
 
 // Contextual colors
 .text-muted {
-  color: $text-muted;
+  color: white;
 }
 
 @include text-emphasis-variant('.text-primary', $brand-primary);

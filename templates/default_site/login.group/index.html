@@ -1,16 +1,48 @@
+{embed="includes/head"}
+    {embed="includes/header_a"} 
+    <div class="site-content login">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10"><img class="logo" src="{site_url}assets/img/logo_upc_black.png" alt=""></div>
+        <div class="col-sm-1"></div>
+      </div>
+      <div class="row pt-14">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 bg-muted">
+          <div class="row">
+            <div class="col-sm-7 pt-7 pb-14">
+              <img src="{site_url}assets/img/login_image.jpg" class="img-responsive" alt="">
+            </div>
+            <div class="col-sm-5">
+              <div class="row pt-14">
+                <p class="col-sm-12">Iniciar sesión</p>
+              </div>
+              <form action="{site_url}index.php/login/usuario" method="post" name="login_form">
+								<input type="hidden" name="XID" value="{XID_HASH}"> 
+								<input type="hidden" name="plataforma" value="C">
+	              <div class="row pt-7">
+	                <div class="col-sm-5 pt-7"><label for="">Nombre de usuario:</label></div>
+	                <div class="col-sm-7"><input class="form-control" type="text" name="codigo" value="" maxlength="32" class="input" size="25"  placeholder=""></div>
+	              </div>
+	              <div class="row pt-14">
+	                <div class="col-sm-5"><label for="">Contraseña:</label></div>
+	                <div class="col-sm-7"><input type="password" name="contrasena" value="" maxlength="32" class="input form-control" size="25" class="form-control" placeholder=""></div>
+	              </div>
+	              <button type="submit" value="Send" class="mt-14 btn btn-primary">Iniciar Sesión</button>
+              </form>
+              <div class="row mt-70 ml-0">
+                <a href=""><img src="{site_url}assets/img/black_arrow.png" alt="">No puedo acceder a mi cuenta</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+      <div class="row footer pt-28">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2"><img src="{site_url}assets/img/laureate.png" alt="" class="img-responsive"></div>
+        <div class="col-sm-8 copyright"><span>COPYRIGHT UPC 2014. Prolongación Primavera 2390, Monterrico. Lima - Perú. Teléfonos: 313-333 | Fax: 313-3344</span></div>
+      </div>
+    </div>
+ 
 
- <form action="{site_url}index.php/login/usuario" method="post" name="login_form">
-    <input type="hidden" name="XID" value="{XID_HASH}"> 
-    <input type="hidden" name="plataforma" value="C"> 
-		<p>
-			<label>Username</label><br />
-			<input type="text" name="codigo" value="" maxlength="32" class="input" size="25" />
-		</p>
-		<p>
-			<label>Password</label><br />
-			<input type="password" name="contrasena" value="" maxlength="32" class="input" size="25" />
-		</p>
-		<p>
-    <input type="submit" value="Send">
-    </p>
- </form>

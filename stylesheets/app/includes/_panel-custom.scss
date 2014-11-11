@@ -1,9 +1,36 @@
+// panels
 .panel {
 	position: relative;
+	&.curso-detalle {
+		padding-top: 14px;
+		.panel-body .observaciones {
+			.tr {
+				border-top: 1px $gray-main solid;
+			}
+		}
+	}
 	.panel-head {
 		@include clearfix;
+		&.muted-head-underlined {
+			border-bottom: 2px solid white;
+			margin: 14px auto;
+			h2 {
+				font-size: rem($custom-h2);
+				font-size: $custom-h2;
+				color: white;
+			}
+		}
+		&.muted-head {
+			margin: 14px auto;
+			h2 {
+				font-size: rem($custom-h2);
+				font-size: $custom-h2;
+				color: white;
+			}
+		}
 		.panel-head-left {
 			float: left;
+			@include serif-book;
 		}
 		.panel-head-right {
 			float: right;
@@ -11,15 +38,17 @@
 			div {
 				float: right;
 			}
+			.reservas-btn {
+			padding: 1px 5px;
+			border-radius: 0px;	
+			}
 		}
-		.panel-title, .panel-title-x2 {
+		.panel-title {
 			h1, h2, h3, h4, h5, h6 {
 				margin: 0;
 				padding-bottom: 7px;
 			}
-		}
-		.panel-title-x2 {
-			width: 200px;
+			@include serif-book;
 		}
 		.panel-display {
 			
@@ -32,44 +61,99 @@
 		}
 	}
 	.panel-body {
-		&.pago-b {
-			padding-top: 2px;
+		.panel-table {
+			background-color: white !important;
+			&.no-bg {
+				background: none !important;
+				.tr {
+					background-color: white !important;
+				}
+			}
+			&.otras-acciones {
+				background: none !important;
+				.tr a {
+					li span {
+						&:hover {
+							text-decoration: underline;
+						}						
+					}
+					&.sb-link {
+						color: $brand-info !important;
+						li span {
+								color: $brand-info !important;
+						}
+					}
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
 		}
 		.panel-body-head {
 			text-transform: uppercase;
-			background: $brand-primary;
+			background: black;
 			color: white;
 			text-align: center;
-			padding: ($container-fluid / 2) $container-fluid;
+			&.left {
+				text-align: left;
+				padding-left: 7px;
+			}
+			&.tall {
+				// background: black;
+				min-height: 63px;
+				padding: 7px;
+			}
+			&.gray {
+				background: $gray-main;
+				font-size: 15px;
+				padding-top: 4px !important;
+				padding-bottom: 4px !important;
+			}
 			h1, h2, h3, h4, h5, h6 {
 				margin: 0;
 			}
+			@include bold;
+			ul {
+				padding: 7px !important;
+				margin: 0 !important;
+				span {
+					font-size: 20px;
+				}
+			}
 		}
 		.panel-body-head-table {
-			background: $brand-primary;
+			background: $gray-main;
 			.tr {
 				@include list-unstyled;
 				@include clearfix;
-				li {
-					padding: 6px 0;
-					&.col-xs-2, &.col-xs-1, &.col-xs-6 {
+				li + li {
+					&.col-sm-2, &.col-sm-1, &.col-sm-4, &.col-sm-5, &.col-sm-6 {
 						div {
-						border-left: 2px solid $gray-light;
-						&.fecha {
-						border: none;
-						}
+							border-left: 2px solid $gray-light;
+							&.fecha {
+								border: none;
+							}
 						}
 					}
+				}
+				li {
+					padding: 6px 0;
 					div {
 						@include display(flex);
 						@include flex-direction(column);
 						@include justify-content(center);
 						span {
 							@include flex-grow(0);
-							// font-size: rem($font-size-base) * 1.3;
+							@include book;
+							font-size: rem(15px);
+							font-size: 15px;
 							color: white;
 							text-transform: uppercase;
 							text-align: center;
+						&.head-left {
+							text-align: left !important;
+							padding-left: 7px;
+						}	
 						&.curso {
 							text-align: left;
 							padding-left: ($container-fluid / 2);
@@ -85,82 +169,163 @@
 		}
 
 		.panel-body-content {
-			background: $gray-lighter;
-			@include box-shadow-default;
+			background-color: white;
+			text-align: center;
+			padding-top: 7px;
 		}
 		.panel-table {
-			background: white;
-			// @include box-shadow-default;
+			&.mis-reservas-content {
+				ul.tr {
+					li.col-sm-2 div span {
+						@include alt-bold;
+						font-size: 12px;
+					}
+					li.col-sm-6 div span {
+						@include alt-book;
+						font-size: 12px;
+					}
+				}
+			}
+			&.white-cells {
+				ul {
+					border: none;
+					li {
+						background: white;
+						margin-bottom: 7px;
+					}
+				}
+			}
+			&.mis-cursos-content {
+				ul + ul {
+					margin-top: 5px;
+				}
+				ul {
+					border: none;
+					li {
+						padding-bottom: 7px !important;
+						background: white;
+						&.col-sm-2 {
+							display: none;
+						}	
+						&.curso-promedio {
+							div {
+								border-right: none;
+							}
+						}
+					}
+				}
+			}
+			&.pagos {
+				padding: 7px;
+				background: white;
+				ul {
+					&.tr {
+						border: none !important;
+						li {
+							&#pagos-placeholder {
+								min-height: 70px;
+								span {
+									display: block;
+									@include serif-book;
+									font-size: 14px;
+									color:$brand-danger;
+									}
+							}
+							cursor: pointer;
+							h3 {
+								margin: 0;
+							}
+							h4 {
+								margin-top: 7px;
+								margin-bottom: 0px;
+							}
+						}
+					}
+					&#pagos-pdtes {
+						cursor: pointer;
+						display: none;
+						li {
+							&.col-sm-4 {
+								border-left: 2px $gray-lighter solid;
+							}
+							&.col-sm-8, &.col-sm-4 {
+								span {
+									display: block;
+								}
+							}
+						}
+					} 
+				}
+			}
+			&.detalle-nota-final {
+				background-color: transparent !important;
+			}
+			&.striped {
+					.tr:nth-child(even) {background: white};
+					.tr:nth-child(odd) {background: $gray-lighter}
+			}
 			.tr {
 				&.row-libre {
-					background-color: white;
+					padding-left: 7px;
 				}
-				&.mis-cursos-row {
-					border: none;
-				}
-				background: $gray-lighter;
+				a {
+					color: black;
+				}	
 				@include list-unstyled;
 				@include clearfix;
-				border-bottom: 1px solid $gray-dark;
-				// &:hover {
-				// 	background: $gray-lighter;
-				// }
+				border-bottom: 1px solid $gray-lighter;
 				li {
 					padding: 7px 0;
-					&.col-xs-2, &.col-xs-6 {
-					background-color: $gray-lighter;
+					&.pdte-tr {
+						background-color: lighten($brand-danger, 28%);
+						color: $brand-danger;
+						text-transform: uppercase;
 					}
-					&.col-xs-12 {
-						.libre-row-content {
-							background-color: white;
-						}
+					&.apr-tr {
+						background-color: lighten($brand-info, 28%);
+						color: $brand-info;
+						text-transform: uppercase;
 					}
 					&.whole-cell-height {
 						border-right: 1px solid $gray-light;
-						border-bottom: 7px solid $gray-light;
+						border-bottom: 1px solid $gray-light;
+						background: white;
 						@include display(flex);
 						@include flex-direction(column);
 						@include justify-content(center);
 						min-height: 42px;						
 						padding: 0 6px;
-						&.col-xs-2 {
-							text-align: center;
-						}
-						&.col-xs-8 {
-							text-align: left;
-							padding-left: ($container-fluid / 2);
-						}
 					}
 					div {
 						h1, h2, h3, h4, h5, h6 {
 						margin: 7px;
 						}
-						.ocultar {
-							height: 30px;
-							width: 30px;
-							background-color: blue;
-							z-index: 2000;
-							display: table;
-							margin: 5px auto;
+						.keep-reading {
+							color: $brand-info;
+							@include serif-book;
 						}
 					}
 					span {
 						@include flex-grow(0);
-						font-size: rem($font-size-base) * 1.3;
 					}
-					div {
+					>div {
 						@include display(flex);
 						@include flex-direction(column);
 						@include justify-content(center);
 						min-height: 28px;
+						border-right: 1px solid $gray-lighter;
+						padding: 0 6px;
+						&.nrb {
+						border: none;	
+						}
 						@media #{$md-only} {
 							min-height: 49px;
 						}						
-						border-right: 1px solid $gray-light;
-						padding: 0 6px;
 						span {
 							@include flex-grow(0);
-							font-size: rem($font-size-base) * 1.3;
+						}
+						.borderless {
+							border: none;
 						}
 					}
 					&:last-child {
@@ -174,5 +339,33 @@
 	}
 	.panel-footer {
 
+	}
+}
+
+// other widgets
+.nota-final {
+	.detalle-nota-final {
+		ul {
+			li {
+				.my-inner {
+					padding-right: 10px !important;
+					padding-left: 0px !important;
+					border: none !important;
+					.row, span {
+					background-color: white;
+					}
+					.row {
+						margin: 0;
+						padding: 7px 14px !important;
+					}
+					.row div .etiqueta {
+						text-transform: uppercase;
+					}
+					&.adobe {
+					padding-right: 0px !important;
+					}
+				}
+			}			
+		}
 	}
 }

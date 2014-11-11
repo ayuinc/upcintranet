@@ -1,6 +1,10 @@
 <input type="hidden" name="<?=$field_name?>[selections][]" value=""/>
 
-<div id="<?=$field_id?>" class="playa playa-dp" style="margin: <?=$margin?>">
+<?php
+	$namespace = !empty($field_options) ? uniqid('CE_') : '';
+?>
+
+<div id="<?=$field_id?>" class="playa playa-dp" style="margin: <?=$margin?>" ce_namespace="<?= $namespace ?>">
 	<table cellspacing="0" cellpadding="0" border="0">
 		<tr>
 			<td class="playa-dp-pane playa-dp-left">
@@ -59,3 +63,8 @@
 		</tr>
 	</table>
 </div>
+<?php if ($namespace) : ?>
+<script>
+	$('[ce_namespace="<?= $namespace ?>"]').data('ce_options', <?=$field_options?>);
+</script>
+<?php endif; ?>

@@ -9,8 +9,8 @@ require_once PATH_THIRD.'playa/config.php';
  * Playa Update Class
  *
  * @package   Playa
- * @author    Brandon Kelly <brandon@pixelandtonic.com>
- * @copyright Copyright (c) 2011 Pixel & Tonic, Inc
+ * @author    Pixel & Tonic, Inc <support@pixelandtonic.com>
+ * @copyright Copyright (c) 2014 Pixel & Tonic, Inc
  */
 class Playa_upd {
 

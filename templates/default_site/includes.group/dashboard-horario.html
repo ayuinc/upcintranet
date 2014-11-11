@@ -1,124 +1,19 @@
 <div class="panel-body">
-                <div class="panel-body-head"></div>
-                <div class="panel-table">
-                  <ul class="tr">
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>7AM</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>[MO]</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-6">
-                      <div>
-                        <span>Procesos de manufactura y tecnología de materiales 2</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>M-20</span>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul class="tr">
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>8AM</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>[MO]</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-6">
-                      <div>
-                        <span>Procesos de manufactura y tecnología de materiales 2</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>M-20</span>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul class="tr">
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>9AM</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>[MO]</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-6">
-                      <div>
-                        <span>Procesos de manufactura y tecnología de materiales 2</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>M-20</span>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul class="tr row-libre">
-                    <li class="col-xs-12">
-                      <div class="libre-row-content">
-                        <span>10AM</span>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul class="tr row-libre">
-                    <li class="col-xs-12">
-                      <div class="libre-row-content">
-                        <span>11AM</span>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul class="tr">
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>12M</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>[MO]</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-6">
-                      <div>
-                        <span>Bioquímica Avanzada N-06 Contemporánea 2</span>
-                      </div>
-                    </li>
-                    <li class="col-xs-2">
-                      <div class="text-center">
-                        <span>M-20</span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              
-
-
-<script>
-var json = '{exp:webservices:horario_alumno}';
-var DiaSemana = '{current_time format="%w"}';
-
-obj = JSON.parse(json);
-
-if (DiaSemana == 1) {
-	$('.panel-body-head').append('<h5>Lunes</h5>');
-}		
-
-
-//alert(DiaSemana);
-//alert(obj.HorarioDia[0].CodDia);              
-</script>
+	<div class="panel-body-head-table">
+    <ul class="tr">
+      <li class="col-sm-2">
+        <div class="fecha"><span>Hora</span></div>
+      </li>
+      <li class="col-sm-2">
+        <div class=""><span>Campus</span></div>
+      </li>
+      <li class="col-sm-6">
+        <div class=""><span>Curso</span></div>
+      </li>
+      <li class="col-sm-2">
+        <div class=""><span>Salón</span></div>
+      </li>
+    </ul>
+  </div>
+	{exp:webservices:horario_alumno}
+</div>    

@@ -451,7 +451,8 @@ PlayaDropPanes = function($field, opts) {
 	};
 
 	var redrawContainerIfSafari = function() {
-		if ($.browser.safari) obj.dom.$field.css('opacity', (obj.dom.$field.css('opacity') == 1 ? .999 : 1));
+        var isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
+        if (isSafari) obj.dom.$field.css('opacity', (obj.dom.$field.css('opacity') == 1 ? .999 : 1));
 	};
 
 	var getMouseDist = function(event) {

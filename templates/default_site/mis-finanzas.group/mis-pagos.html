@@ -1,0 +1,104 @@
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+{embed="includes/header"}
+{embed="includes/sidebar"}
+
+		{exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination"  category="{segment_1_category_id}" entry_id="44"}
+    <div class="site-content notas-detalladas">
+      <div class="internal-header">
+          <div class="row first-line">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4"><span>Mis Finanzas</span></div>
+          </div>
+          <div class="row second-line pb-14">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4"><span id="top">{title}</span></div>
+          </div>
+      </div>  
+      <div class="section-content pb-70">
+        <div class="row">
+          <div class="col-sm-1"></div>       
+          <div class="col-sm-3">
+	          	{if introduccion-seccion}
+	          		<span class="section-desc">{introduccion-seccion}</span>
+	          	{/if}	
+	          	
+              <div class="panel">
+                <div class="panel-head">
+                  <div class="panel-head-left">
+                    <div class="panel-title">
+                      <h2>Calendario 2015-1</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-body">
+				          <div class="panel-body-head-table">
+				            <ul class="tr">
+				              <li class="col-sm-4">
+				                <div class="fecha"><span>Cuota</span></div>
+				              </li>
+				              <li class="col-sm-4">
+				                <div class=""><span>Emitida el</span></div>
+				              </li>
+				              <li class="col-sm-4">
+				                <div class=""><span>Vence el</span></div>
+				              </li>
+				            </ul>
+				          </div>
+				          <div class="panel-table">
+				            {exp:webservices:calendario_cuotas_tipo_usuario}
+				          </div>
+                </div>
+              </div>        	
+              <div class="panel pt-14">
+                <div class="panel-head">
+                  <div class="panel-head-left">
+                    <div class="panel-title serif-light">
+                      <h2>Otras Acciones</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="panel-table otras-acciones ">
+                    <ul class="tr">
+                      <a href="">
+                        <li class="bg-muted p-7 mb-7">
+                          <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Imprimir detalles</span>
+                        </li>
+                      </a>
+                      <a href="">
+                        <li class="bg-muted p-7 mb-7">
+                          <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Descargar en PDF</span>
+                        </li>
+                      </a>
+                      <a href="">
+                        <li class="bg-muted p-7 mb-7">
+                          <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Enviar a mi Correo UPC</span>
+                        </li>
+                      </a>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+    {/exp:channel:entries} 
+          <div class="col-sm-8">
+            <div class="panel curso-detalle pt-0">
+              <div class="panel-head">
+                <div class="panel-head-left">
+                  <div class="panel-title">
+                    <h2>Pagos Pendientes</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+              	{exp:webservices:boletas_pendientes_alumno} 
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{embed="includes/footer"}   

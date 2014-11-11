@@ -1,0 +1,90 @@
+.col-md-2-4{
+  @include make-md-column(2.4)
+}
+.col-sm-2-4{
+  @include make-sm-column(2.4)
+}
+.col-xs-2-4{
+  @include make-xs-column(2.4)
+}
+
+.col-sm-0-8{
+  @include make-sm-column(0.8)
+}
+
+.col-sm-0-5{
+  @include make-sm-column(0.5)
+}
+
+.col-sm-1-5{
+  @include make-sm-column(1.5)
+}
+
+.col-sm-7-5{
+  @include make-sm-column(7.5)
+}
+
+.section-desc {
+	@include serif-light;
+	font-size: 14px;
+	line-height: 1em !important;
+}
+
+.mi-malla {
+	margin-top: -14px;
+}
+
+.talleres {
+	.talleres-disp-head {
+		margin-top: -15px;
+	}
+}
+
+.site-content {
+	&.ciclo-actual, &.notas-detalladas {
+		margin-top: 77px;
+		.section-content .row {
+			.col-sm-3 {
+				.keep-reading {
+					color: $brand-info;
+					@include serif-book;
+				}
+			}
+		}
+	}
+	&.mi-perfil {
+		margin-top: 91px !important;
+		.section-content .row {
+			.col-sm-8 {
+				.panel-table {
+					.tag {
+						@include bold;
+						float: left;
+						font-size: rem(12px) !important;
+						font-size: 12px !important;
+					}
+					.data {
+						@include alt-book;
+						font-size: rem(12px) !important;
+						font-size: 12px !important;
+					}
+				}
+			}
+		}
+	}
+	&.multi-perfil {
+		min-height: 100%;
+		padding-right: 0;
+		margin-top: 49px;
+		.pic {
+			margin: 0 auto;
+			max-width: 105px !important;
+			img.img-circle {
+				border: 7px white solid;
+			}
+		}
+		.panel .panel-body .panel-table .tr {
+			border: none;
+		}
+	}
+}

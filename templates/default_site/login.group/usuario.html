@@ -1,6 +1,31 @@
+{embed="includes/head"}
 {exp:webservices:iniciar_session}
-{exp:webservices:consultar_alumno 
-	codigo="{post:codigo}" 
-	contrasena="{post:contrasena}" 
-	plataforma="{post:plataforma}"
-}
+{exp:webservices:generador_token codigo="{post:codigo}" contrasena="{post:contrasena}" plataforma="{post:plataforma}"}
+{embed="includes/header_a"}
+
+<div class="site-content multi-perfil">
+  <div class="section-content pb-70">
+	  <div class="row">
+	    <div class="col-sm-4"></div>
+	    <div class="col-sm-4">
+	      <div class="pic block text-center">
+	        <img src="{site_url}assets/img/profile.jpg" alt="" class="img-circle img-responsive">
+	      </div>
+	      <div class="text-center">
+	        <span class="zizou-26">Hola {exp:webservices:nombre_alumno}</span>
+	      </div>
+	      <div class="text-center pt-14 pb-7">
+	        <span class="solano-bold-16 uppercase">BIENVENIDA, ELIGE EL PERFIL QUE DESEAS UTILIZAR</span>
+	      </div>
+	      <div class="panel">
+	        <div class="panel-body">
+	          <div class="panel-table">
+		          {exp:webservices:consultar_alumno}
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="col-sm-4"></div>
+	  </div>
+  </div>
+</div>

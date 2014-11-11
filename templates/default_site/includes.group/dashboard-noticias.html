@@ -1,41 +1,32 @@
-        <div class="col-sm-6 bg-muted">
-          <div class="row">
-            <div class="col-sm-3"><h3>Noticias</h3></div>
-            <div class="col-sm-6"></div>
-            <div class="col-sm-3">
-              <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span></a>
-              <a class="right carousel-control" href="#carousel-example" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              </a>
-            </div>
+<div class="panel pt-21">
+  <div class="panel-head">
+    <div class="panel-head-left">
+      <div class="panel-title">
+        <h2>Noticias</h2>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="panel-body-head-table">
+      <ul class="tr">
+        <li class="col-xs-12">
+          <div><span>Lunes 14 de Octubre de 2014</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="panel-table noticias-content">
+      <ul class="tr">
+        <li class="col-xs-12">
+          <div>
+            {exp:channel:entries channel="noticias" limit="1"}
+            <p class="noticia-heading zizou-20">{title}</p>
+            <p class="noticia-body helvetica-12">{intro-noticia}</p>
+            <p class="keep-reading zizou-18"><img class="pr-7" src="/assets/img/skyblue_arrow.png">Seguir Leyendo</p>
+            {/exp:channel:entries}
           </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div id="carousel-example" class="carousel slide" data-ride="carousel">
-                 <div class="carousel-inner">
-                  <div class="item active">
-                      <div class="carousel-content">
-                          <div class="row">
-                            <div class="col-sm-4"><h1>foto-a</h1></div>
-                            <div class="col-sm-8">
-                              <p>This is a twitter bootstrap carousel that only uses text. There are no images in the carousel slides.</p>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="item">
-                      <div class="carousel-content">
-                          <div class="row">
-                            <div class="col-sm-4"><h1>foto-b</h1></div>
-                            <div class="col-sm-8">
-                              <p>This is a twitter bootstrap carousel that only uses text. There are no images in the carousel slides.</p>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>                    
+

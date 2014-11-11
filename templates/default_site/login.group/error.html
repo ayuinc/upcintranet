@@ -1,3 +1,25 @@
-<h1>Error:</h1>
-<p>{exp:webservices:mensaje_error}</p>
-<p><a href="{site_url}">Regresar Inicio</a></p>
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+{embed="includes/header_a"}
+
+<div class="site-content multi-perfil">
+  <div class="section-content pb-70">
+	  <div class="row">
+	    <div class="col-sm-4"></div>
+	    <div class="col-sm-4">
+	      <div class="text-center pt-14 pb-7">
+	        <span class="solano-bold-24 uppercase">ERROR</span>
+	      </div>
+	      <div class="panel">
+	        <div class="panel-body">
+	          <div class="panel-table">
+		          <p class="text-center">{exp:webservices:mensaje_error}</p>
+		          <p class="text-center"><a href="{site_url}">Regresar al inicio</a></p>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="col-sm-4"></div>
+	  </div>
+  </div>
+</div>

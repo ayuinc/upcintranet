@@ -1,0 +1,16 @@
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+{exp:channel:entries 
+	channel="referencias" 
+	limit="1" 
+	disable="member_data|pagination" 
+	dynamic="off"
+}
+{embed="includes/header-socrates" ruta="{ruta_referencia}"}
+    <div class="site-content iframe">
+	    {if tipo-referencia=='Socrates'}
+      <iframe src="{link-referencia}" width="100%" height="500px" scrolling="no" frameborder="0" />
+      {/if}
+    </div>
+{/exp:channel:entries}
+{embed="includes/footer"}   

@@ -93,11 +93,20 @@ p, .p, ul { font-size: rem($font-size-base); }
   text-decoration: underline!important;
 }
 
-a.not-underline {
-  &:hover {
-    text-decoration: none;
+a {
+  &.not-underline {
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+  &.sb {
+    color: $brand-info;
+  }
+  &.black {
+    color: black;
   }
 }
+
 
 // TEXT GRADIENTS
 @mixin text-fill-color($color) {
@@ -116,3 +125,23 @@ a.not-underline {
   }
 }
 // END:TEXT GRADIENTS
+
+// custom links
+.sb-text {
+  color: $brand-info;
+}
+
+//  Negative Margins
+@for $h from -10 to -1 {
+  .mt-#{$h} {
+    margin-top: ($h) + px!important;
+    margin-top: rem($h)!important;
+  }
+}
+
+@for $h from -10 to 20 {
+  .mb-#{$h} {
+    margin-top: ($h) + px!important;
+    margin-top: rem($h)!important;
+  }
+}

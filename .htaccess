@@ -55,7 +55,7 @@ RewriteCond %{QUERY_STRING} !^(ACT=.*)$ [NC]
 RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5})$
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} ^/(includes|login|dashboard|mis_estudios|mis_tramites|mis_finanzas|ci|ayuda|reservas|members|P[0-9]{2,8}) [NC]
+RewriteCond %{REQUEST_URI} ^/(includes|login|dashboard|mis-estudios|mis-tramites|mis-finanzas|ci|ayuda|reservas|perfil|socrates|centro-de-informacion|members|P[0-9]{2,8}) [NC]
 RewriteRule (.*) /index.php/$1 [L]
 
 # -- NSM .htaccess Generator End --
