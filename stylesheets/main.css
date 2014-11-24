@@ -4187,6 +4187,42 @@ body {
   padding: 0; }
 .section-content .row .col-sm-7 {
   margin-top: -3px; }
+.section-content .row .col-sm-3 button {
+  float: right;
+  margin-top: 7px;
+  background-color: #565658;
+  border-radius: 0px;
+  color: white;
+  font-family: "SolanoGothicMVBProBd" !important;
+  font-style: normal;
+  font-size: 22px;
+  padding: 3px 49px !important; }
+.section-content .row .col-sm-8.resultados {
+  padding-left: 0px;
+  padding-right: 42px; }
+  .section-content .row .col-sm-8.resultados .num-resultados {
+    font-family: "Zizou Slab-Regular" !important;
+    font-style: normal;
+    font-size: 26px;
+    margin-top: 0;
+    padding: 0; }
+  .section-content .row .col-sm-8.resultados ul li {
+    padding-bottom: 14px; }
+    .section-content .row .col-sm-8.resultados ul li .resultado-heading {
+      color: black;
+      font-family: "SolanoGothicMVBProBd" !important;
+      font-style: normal;
+      text-transform: uppercase;
+      font-size: 20px; }
+      .section-content .row .col-sm-8.resultados ul li .resultado-heading img {
+        width: 16px;
+        padding-bottom: 5px;
+        margin-right: 5px; }
+    .section-content .row .col-sm-8.resultados ul li .resultado-content {
+      font-family: "Helvetica" !important;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 14px; }
 
 .nav-main {
   top: 20px; }
@@ -4207,6 +4243,10 @@ body {
         color: #E42322; }
       .nav-main > li.active-menu.mis-estudios a div {
         background-image: url(../assets/img/mis_estudios_red.png); }
+      .nav-main > li.active-menu.mi-docencia a div {
+        background-image: url(../assets/img/mi_docencia_red.png); }
+      .nav-main > li.active-menu.mis-alumnos a div {
+        background-image: url(../assets/img/mis_alumnos_red.png); }
       .nav-main > li.active-menu.mis-tramites a div {
         background-image: url(../assets/img/mis_tramites_red.png); }
       .nav-main > li.active-menu.mis-finanzas a div {
@@ -4216,6 +4256,26 @@ body {
       .nav-main > li.active-menu.ci a div {
         background-image: url(../assets/img/ci_red.png); }
       .nav-main > li.active-menu.ayuda a div {
+        background-image: url(../assets/img/ayuda_red.png); }
+    .nav-main > li.current-menu {
+      background-color: white; }
+      .nav-main > li.current-menu a span {
+        color: #E42322; }
+      .nav-main > li.current-menu.mis-estudios a div {
+        background-image: url(../assets/img/mis_estudios_red.png); }
+      .nav-main > li.current-menu.mi-docencia a div {
+        background-image: url(../assets/img/mi_docencia_red.png); }
+      .nav-main > li.current-menu.mis-alumnos a div {
+        background-image: url(../assets/img/mis_alumnos_red.png); }
+      .nav-main > li.current-menu.mis-tramites a div {
+        background-image: url(../assets/img/mis_tramites_red.png); }
+      .nav-main > li.current-menu.mis-finanzas a div {
+        background-image: url(../assets/img/mis_finanzas_red.png); }
+      .nav-main > li.current-menu.mis-reservas a div {
+        background-image: url(../assets/img/mis_reservas_red.png); }
+      .nav-main > li.current-menu.ci a div {
+        background-image: url(../assets/img/ci_red.png); }
+      .nav-main > li.current-menu.ayuda a div {
         background-image: url(../assets/img/ayuda_red.png); }
     .nav-main > li.inicio {
       padding-bottom: 14px;
@@ -4227,6 +4287,14 @@ body {
         background-position: center; }
     .nav-main > li.mis-estudios a div {
       background-image: url(../assets/img/mis_estudios_grey.png);
+      background-repeat: no-repeat;
+      background-position: center; }
+    .nav-main > li.mi-docencia a div {
+      background-image: url(../assets/img/mi_docencia_grey.png);
+      background-repeat: no-repeat;
+      background-position: center; }
+    .nav-main > li.mis-alumnos a div {
+      background-image: url(../assets/img/mis_alumnos_grey.png);
       background-repeat: no-repeat;
       background-position: center; }
     .nav-main > li.mis-tramites a div {
@@ -4291,150 +4359,100 @@ body {
             background: white;
             color: #E42322; }
 
-.site-header .container-fluid .header-global {
-  font-family: "SolanoGothicMVBProBd" !important;
-  font-style: normal;
-  font-size: 18px;
-  color: #858688;
-  text-transform: uppercase;
-  margin-left: -28px;
-  border-bottom: 1px solid #5d5d58;
-  background-color: white; }
-.site-header .container-fluid .header-iframe {
-  background-image: url("../assets/img/trama.png");
-  background-position: 7% 80%;
-  padding-left: 28px;
-  border-bottom: 1px solid #565658; }
-.site-header .container-fluid .header-no-global {
-  border-bottom: 2px solid #d3d3d3 !important;
-  background-image: url("../assets/img/trama.png");
-  background-position: 7% 80%;
-  margin-left: -28px;
-  font-family: "SolanoGothicMVBProBd" !important;
-  font-style: normal;
-  text-transform: uppercase;
-  text-align: center; }
-  .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div {
-    height: 28px; }
-    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.mi-correo {
-      background-image: url("../assets/img/correo_grey.png");
-      background-repeat: no-repeat;
-      background-position: center; }
-    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.mi-aula {
-      background-image: url("../assets/img/aula_virtual_grey.png");
-      background-repeat: no-repeat;
-      background-position: center; }
-    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.print {
-      background-image: url("../assets/img/print_grey.png");
-      background-repeat: no-repeat;
-      background-position: center; }
-    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.search {
-      background-image: url("../assets/img/search_grey.png");
-      background-repeat: no-repeat;
-      background-position: center; }
-  .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a span {
-    color: #565658 !important; }
-  .site-header .container-fluid .header-no-global.padre .col-sm-5 {
-    padding-top: 21px;
-    padding-bottom: 12px; }
-    .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 a {
-      text-decoration: none;
-      color: #565658; }
-      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 a div.search {
-        height: 35px;
+.site-header .container-fluid {
+  padding-right: 0; }
+  .site-header .container-fluid .header-global {
+    font-family: "SolanoGothicMVBProBd" !important;
+    font-style: normal;
+    font-size: 18px;
+    color: #858688;
+    text-transform: uppercase;
+    margin-left: -28px;
+    border-bottom: 1px solid #5d5d58;
+    background-color: white; }
+  .site-header .container-fluid .header-iframe {
+    background-image: url("../assets/img/trama.png");
+    background-position: 7% 80%;
+    padding-left: 28px;
+    border-bottom: 1px solid #565658; }
+  .site-header .container-fluid .header-no-global {
+    padding-left: 98px !important;
+    padding-right: 35px !important;
+    background-image: url("../assets/img/trama.png");
+    background-position: 7% 80%;
+    font-family: "SolanoGothicMVBProBd" !important;
+    font-style: normal;
+    text-transform: uppercase;
+    text-align: center; }
+    .site-header .container-fluid .header-no-global .inner {
+      border-bottom: 2px solid #d3d3d3 !important; }
+    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div {
+      height: 28px !important; }
+      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.mi-correo, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.mi-correo {
+        background-image: url("../assets/img/correo_grey.png");
+        background-repeat: no-repeat;
+        background-position: center; }
+      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.mi-aula, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.mi-aula {
+        background-image: url("../assets/img/aula_virtual_grey.png");
+        background-repeat: no-repeat;
+        background-position: center; }
+      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.print, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.print {
+        background-image: url("../assets/img/print_grey.png");
+        background-repeat: no-repeat;
+        background-position: center; }
+      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.asistencia, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.asistencia {
+        background-image: url("../assets/img/asistencia_grey.png");
+        background-repeat: no-repeat;
+        background-position: center; }
+      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.search, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.search {
         background-image: url("../assets/img/search_grey.png");
         background-repeat: no-repeat;
         background-position: center; }
-    .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle {
-      height: 49px !important; }
-      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle img {
-        height: 36px !important;
-        display: block;
-        margin-left: auto;
-        margin-right: auto; }
-    .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu {
-      left: -70px !important;
-      top: 70px;
-      border: none;
-      margin: 0;
-      padding: 0;
-      font-family: "SolanoGothicMVBProBd" !important;
-      font-style: normal; }
-      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu.first-child {
-        left: -28px !important;
-        top: 70px; }
-        .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu.first-child:after {
-          bottom: 100%;
-          left: 49%;
-          border: solid transparent;
-          content: " ";
-          height: 0;
-          width: 0;
-          position: absolute;
-          pointer-events: none;
-          border-color: rgba(255, 255, 255, 0);
-          border-bottom-color: #ffffff;
-          border-width: 15px;
-          margin-left: -15px; }
-      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu:after {
-        bottom: 100%;
-        left: 77%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-        border-color: rgba(255, 255, 255, 0);
-        border-bottom-color: #ffffff;
-        border-width: 15px;
-        margin-left: -15px; }
-      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li {
-        font-size: 16px;
-        text-transform: uppercase; }
-        .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem {
-          padding-top: 3px;
-          padding-bottom: 3px; }
-          .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover {
-            background-color: #565658; }
-            .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover a {
-              color: white; }
-  .site-header .container-fluid .header-no-global .col-sm-3.busqueda .right-inner-addon {
-    position: relative; }
-    .site-header .container-fluid .header-no-global .col-sm-3.busqueda .right-inner-addon input {
-      padding-right: 30px; }
-    .site-header .container-fluid .header-no-global .col-sm-3.busqueda .right-inner-addon img {
-      background-color: #565658;
-      position: absolute;
-      right: 0px;
-      padding: 9px 10px;
-      pointer-events: none; }
-  .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner {
-    font-family: "Zizou Slab-Regular" !important;
-    font-style: normal;
-    text-transform: none !important; }
-    .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-8 span.hola {
-      margin: 0;
-      text-transform: capitalize;
-      font-size: 22px; }
-    .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 {
-      padding-top: 3px;
-      padding-bottom: 3px; }
-      .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown #dropdownMenu1 {
-        border-radius: 50px;
-        border: 4px white solid;
-        padding: 7px; }
-        .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown #dropdownMenu1 img {
-          margin: 0; }
-      .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu {
-        left: -84px !important;
-        top: 100px;
+    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a span, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a span {
+      color: #565658 !important; }
+    .site-header .container-fluid .header-no-global.padre .col-sm-5, .site-header .container-fluid .header-no-global.docente .col-sm-5 {
+      padding-top: 21px;
+      padding-bottom: 12px; }
+      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 a, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a {
+        text-decoration: none;
+        color: #565658; }
+        .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 a div.search, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a div.search {
+          height: 35px;
+          background-image: url("../assets/img/search_grey.png");
+          background-repeat: no-repeat;
+          background-position: center; }
+      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle {
+        height: 49px !important; }
+        .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle img, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle img {
+          height: 36px !important;
+          display: block;
+          margin-left: auto;
+          margin-right: auto; }
+      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu {
+        left: -70px !important;
+        top: 70px;
         border: none;
         margin: 0;
         padding: 0;
         font-family: "SolanoGothicMVBProBd" !important;
         font-style: normal; }
-        .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu:after {
+        .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu.first-child, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu.first-child {
+          left: -28px !important;
+          top: 70px; }
+          .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu.first-child:after, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu.first-child:after {
+            bottom: 100%;
+            left: 49%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-color: rgba(255, 255, 255, 0);
+            border-bottom-color: #ffffff;
+            border-width: 15px;
+            margin-left: -15px; }
+        .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu:after, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu:after {
           bottom: 100%;
           left: 77%;
           border: solid transparent;
@@ -4447,18 +4465,80 @@ body {
           border-bottom-color: #ffffff;
           border-width: 15px;
           margin-left: -15px; }
-        .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li {
+        .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li {
           font-size: 16px;
           text-transform: uppercase; }
-          .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.dditem {
+          .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem {
             padding-top: 3px;
             padding-bottom: 3px; }
-            .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.dditem:hover {
+            .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover {
               background-color: #565658; }
-              .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.dditem:hover a {
+              .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover a, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover a {
                 color: white; }
-          .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.divider {
-            margin: 0; }
+    .site-header .container-fluid .header-no-global .col-sm-4.busqueda {
+      padding-bottom: 14px; }
+      .site-header .container-fluid .header-no-global .col-sm-4.busqueda .right-inner-addon {
+        position: relative; }
+        .site-header .container-fluid .header-no-global .col-sm-4.busqueda .right-inner-addon input {
+          padding-right: 30px; }
+        .site-header .container-fluid .header-no-global .col-sm-4.busqueda .right-inner-addon img {
+          background-color: #565658;
+          position: absolute;
+          right: 0px;
+          padding: 9px 10px;
+          cursor: pointer !important; }
+    .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner {
+      font-family: "Zizou Slab-Regular" !important;
+      font-style: normal;
+      text-transform: none !important; }
+      .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-8 span.hola {
+        margin: 0;
+        text-transform: capitalize;
+        font-size: 22px; }
+      .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 {
+        padding-top: 3px;
+        padding-bottom: 3px; }
+        .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown {
+          width: 70px; }
+          .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown #dropdownMenu1 {
+            border-radius: 50px;
+            border: 4px white solid;
+            padding: 3px; }
+            .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown #dropdownMenu1 img {
+              margin: 0; }
+          .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu {
+            left: -84px !important;
+            top: 100px;
+            border: none;
+            margin: 0;
+            padding: 0;
+            font-family: "SolanoGothicMVBProBd" !important;
+            font-style: normal; }
+            .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu:after {
+              bottom: 100%;
+              left: 77%;
+              border: solid transparent;
+              content: " ";
+              height: 0;
+              width: 0;
+              position: absolute;
+              pointer-events: none;
+              border-color: rgba(255, 255, 255, 0);
+              border-bottom-color: #ffffff;
+              border-width: 15px;
+              margin-left: -15px; }
+            .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li {
+              font-size: 16px;
+              text-transform: uppercase; }
+              .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.dditem {
+                padding-top: 3px;
+                padding-bottom: 3px; }
+                .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.dditem:hover {
+                  background-color: #565658; }
+                  .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.dditem:hover a {
+                    color: white; }
+              .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.divider {
+                margin: 0; }
 
 .solano-bold-9 {
   font-family: "SolanoGothicMVBProBd" !important;
@@ -5531,8 +5611,44 @@ body {
   font-size: 1.8125rem !important;
   font-size: 29px !important; }
 
+.form-control {
+  font-size: 18px !important; }
+
+.black {
+  color: black !important; }
+
+.gray-main {
+  color: #565658 !important; }
+
 .m-auto {
   margin: auto !important; }
+
+.ml--7 {
+  margin-left: -7px !important; }
+
+.ml--14 {
+  margin-left: -14px !important; }
+
+.ml--21 {
+  margin-left: -21px !important; }
+
+.ml--28 {
+  margin-left: -28px !important; }
+
+.ml--35 {
+  margin-left: -35px !important; }
+
+.ml--42 {
+  margin-left: -42px !important; }
+
+.ml--49 {
+  margin-left: -49px !important; }
+
+.ml--56 {
+  margin-left: -56px !important; }
+
+.ml--63 {
+  margin-left: -63px !important; }
 
 .panel {
   position: relative; }
@@ -5592,8 +5708,21 @@ body {
       background: none !important; }
       .panel .panel-body .panel-table.no-bg .tr {
         background-color: white !important; }
+    .panel .panel-body .panel-table .tr a.sb-link {
+      color: #3298FF !important; }
     .panel .panel-body .panel-table.otras-acciones {
       background: none !important; }
+      .panel .panel-body .panel-table.otras-acciones .tr li .oa-icon {
+        display: inline-block !important;
+        border: none !important; }
+      .panel .panel-body .panel-table.otras-acciones .tr li a div.oa-label {
+        display: inline-block !important;
+        color: black;
+        width: 260px; }
+        .panel .panel-body .panel-table.otras-acciones .tr li a div.oa-label:hover {
+          text-decoration: underline; }
+      .panel .panel-body .panel-table.otras-acciones .tr a li .oa-icon {
+        display: inline-block !important; }
       .panel .panel-body .panel-table.otras-acciones .tr a li span:hover {
         text-decoration: underline; }
       .panel .panel-body .panel-table.otras-acciones .tr a.sb-link {
@@ -5689,6 +5818,8 @@ body {
               padding-left: 7px; }
             .panel .panel-body .panel-body-head-table .tr li div span.fecha {
               border: none; }
+    .panel .panel-body .panel-body-head-table .lista-alumnos .tr .col-sm-6 {
+      text-align: left; }
   .panel .panel-body .panel-body-content {
     background-color: white;
     text-align: center;
@@ -5708,6 +5839,8 @@ body {
     .panel .panel-body .panel-table.white-cells ul li {
       background: white;
       margin-bottom: 7px; }
+  .panel .panel-body .panel-table.cursos-detallados ul + ul {
+    margin-top: 5px; }
   .panel .panel-body .panel-table.mis-cursos-content ul + ul {
     margin-top: 5px; }
   .panel .panel-body .panel-table.mis-cursos-content ul {
@@ -6036,6 +6169,21 @@ input[type="submit"].btn.btn-white.btn-custom {
     border: 2px solid #fff;
     color: #fff; }
 
+.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background: url(../assets/img/select.png) no-repeat right;
+  background-color: #E3E3E3;
+  font-family: "Zizou Slab-Thin" !important;
+  font-weight: 100;
+  font-style: normal;
+  margin-bottom: 7px;
+  border: none !important;
+  font-size: 22px !important;
+  height: 42px !important;
+  border-radius: 0px !important; }
+
 .col-md-2-4 {
   position: relative;
   min-height: 1px;
@@ -6146,6 +6294,23 @@ input[type="submit"].btn.btn-white.btn-custom {
     max-width: 105px !important; }
     .site-content.multi-perfil .pic img.img-circle {
       border: 7px white solid; }
+  .site-content.multi-perfil .row .pick-child {
+    display: inline-block !important;
+    padding-left: 14px;
+    padding-right: 14px; }
+    .site-content.multi-perfil .row .pick-child .child-pic {
+      border-radius: 50px;
+      border: 4px white solid;
+      padding: 3px; }
+      .site-content.multi-perfil .row .pick-child .child-pic.active {
+        border: 4px #E42322 solid; }
+    .site-content.multi-perfil .row .pick-child img {
+      max-height: 56px; }
+    .site-content.multi-perfil .row .pick-child span {
+      font-family: "SolanoGothicMVBProBd" !important;
+      font-style: normal;
+      font-size: 21px;
+      text-transform: uppercase; }
   .site-content.multi-perfil .panel .panel-body .panel-table .tr {
     border: none; }
 

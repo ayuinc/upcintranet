@@ -1,5 +1,7 @@
 {embed="includes/head"}
 {exp:webservices:iniciar_session}
+{exp:webservices:verificar_usuario}
+{embed="includes/verificacion"}
 {embed="includes/header"}
 {embed="includes/sidebar"}
 
@@ -46,16 +48,15 @@
                         {fecha-referencia}, de {hora-referencia}, Aula {aula-referencia}
                         </p>
                         {/if}                 
-                        <p class="sb-link pl-7 zizou-14">
 													{if archivo-referencia}
-	                        <a class="col-xs-11 p-7" href="{archivo-referencia}">
+	                        <a class="sb-link pl-7 zizou-14" href="{archivo-referencia}">
 		                      {/if}  
 													{if link-referencia}
 														{if tipo-referencia=='Socrates'}
-														<a class="col-xs-11 p-7" href="{site_url}socrates/{url_title}">
+														<a class="sb-link pl-7 zizou-14" href="{site_url}socrates/{url_title}">
 														{/if}	
 														{if tipo-referencia=='Externa'}
-														<a class="col-xs-11 p-7" href="{link-referencia}">
+														<a class="sb-link pl-7 zizou-14" href="{link-referencia}">
 														{/if}		
 		                      {/if}  		                       	                        
 	                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
@@ -77,129 +78,4 @@
         </div>
       </div>
   </div>
-
- <!--   <div class="site-content">
-	  {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories"}
-      <div class="internal-header">
-	      <div class="container-fluid">
-	        <div class="row first-line bold uppercase">
-	          <div class="col-xs-1"></div>
-	          <div class="col-xs-4"><h3>Mis Estudios</h3></div>
-	        </div>
-	        <div class="row second-line pb-14 serif-light">
-	          <div class="col-xs-1"></div>
-	          <div class="col-xs-4">
-	          	<h1>{title}</h1>
-	          </div>
-	        </div>
-	      </div>
-      </div>  
-      <div class="section-content pb-70">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-1"></div>
-            <div class="col-xs-3 text-muted">
-              <span class="section-desc">{introduccion-seccion}</span>
-              {if otras-actividades-seccion == 'Activar'}     
-              <div class="panel">
-	              <div class="panel-head muted-head-underlined">
-		              <div class="panel-head-left">
-			              <div class="panel-title">
-			              	<h2>Otras Acciones</h2>
-			              </div>
-		              </div>
-	              </div>
-	              <div class="panel-body canales">
-		              {acciones-seccion}
-		             	<div class="panel-table">
-			              <ul class="tr ejecutar-accion">
-				              {if acciones-seccion:tipo-accion == 'Imprimir'}
-				              <li>
-					              <div class="col-xs-1 text-center p-7 zizou-bold-12">
-					              	<span>S2</span>
-					              </div>
-					              <div>{exp:printfriendly:button button="pf-button.gif" title="Imprimir Detalles"}</div>
-				              </li>
-				              {/if}
-				              {if acciones-seccion:tipo-accion == 'Descargar PDF'}
-				              <li>
-					              <div class="col-xs-1 text-center p-7 zizou-bold-12">
-					              	<span>S2</span>
-					              </div>
-					              <a class="col-xs-11 p-7 zizou-12" href="{acciones-seccion:archivo-seccion}" target="_blank">
-					              	<div>{acciones-seccion:title}</div>
-					              </a>
-				              </li>
-				              {/if}
-				              {if acciones-seccion:tipo-accion == 'Enviar Correo'}
-				              <li>
-					              <div class="col-xs-1 text-center p-7 zizou-bold-12">
-					              	<span>S2</span>
-					              </div>
-					              <a class="col-xs-11 p-7 zizou-12" href="mailto:correo@usuario.net">
-					              	<div>{acciones-seccion:title}</div>
-					              </a>
-				              </li>
-				              {/if}			              			              				              
-			              </ul>
-		              </div>
-		              {/acciones-seccion}
-	              </div>
-              </div>
-              {/if}
-            </div> 
-      {/exp:channel:entries} 
-           <div class="col-xs-8 mi-malla">
-            <div class="panel">
-              <div class="panel-head muted-head-underlined">
-                <div class="panel-head-left">
-                  <div class="panel-title">
-                    <h2>Mi Malla Curricular</h2>
-                  </div>
-                </div>
-                <div class="panel-head-right pt-14">
-                  <div class="panel-scroll">dsfds</div>
-                  <div class="panel-display">sdfds</div>
-                </div>
-              </div>
-            </div>
-             <div class="row">
-              <div class="col-xs-6">
-                <div class="panel">
-	                {exp:channel:entries channel="referencias" limit="10" disable="member_data|pagination" category="{segment_2_category_id}" dynamic="off"}
-                  <div class="panel-body canales">
-                    <div class="panel-body-head">
-                      <h3>{title}</h3>
-                    </div>  
-                    <div class="panel-table">
-                      <ul class="tr zizou-light-13">
-                        <p class="p-7">{intrudccion-referencia}</p>
-                      </ul>
-                      <ul class="tr ejecutar-accion">
-		                    <li>
-	                        <div class="col-xs-1 text-center p-7 zizou-bold-12">
-	                          <span>S2</span>
-	                        </div>
-													{if archivo-referencia}
-	                        <a class="col-xs-11 p-7" href="{archivo-referencia}">
-		                      {/if}  
-													{if link-referencia}
-	                        <a class="col-xs-11 p-7" href="{link-referencia}">
-		                      {/if}  		                      
-	                          <div>{nombre-referencia}</div>
-	                        </a>
-		                    </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/exp:channel:entries}
-                </div>
-              </div>
-            </div>
-					 </div>
-        </div>
-      </div>
-    </div>
-  </div>-->
-
 {embed="includes/footer"}   

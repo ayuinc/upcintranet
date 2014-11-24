@@ -1,5 +1,6 @@
 {embed="includes/head"}
 {exp:webservices:iniciar_session}
+{exp:webservices:verificar_usuario}
 {embed="includes/header"}
 {embed="includes/sidebar"}
 
@@ -32,14 +33,13 @@
               <div class="panel-body">
                 <div class="panel-table otras-acciones">
                   <ul class="tr">
-	                  
-                    <a href="#">
+                    <a href="{site_url}mis-estudios/mis-talleres/">
                       <li class="pl-7 mb-7 bg-muted col-sm-12">
                         <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/red_arrow_tiny.png">Ver todos</span>
                       </li>
                     </a>
                     {exp:channel:categories category_group="5" style="linear"}
-                    <a href="#">
+                    <a href="{site_url}mis-estudios/mis-talleres/{category_url_title}">
                       <li class="pl-7 mb-7 bg-muted col-sm-12">
                         <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">{category_name}</span>
                       </li>
@@ -53,7 +53,7 @@
           <div class="col-sm-8 pt-0">
             <span class="title-no-panel">Talleres Disponibles</span>
             <div class="row">
-	            {exp:channel:entries channel="talleres" limit="10" disable="member_data|pagination" dynamic="off"}
+	            {exp:channel:entries channel="talleres" limit="10" disable="member_data" dynamic="off" category="{last_segment_category_id}"}
               <div class="col-sm-6">
                 <div class="panel">
                   <div class="panel-body canales">

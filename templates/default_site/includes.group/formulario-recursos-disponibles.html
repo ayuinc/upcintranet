@@ -1,0 +1,38 @@
+						        <form action="{site_url}index.php/mis-reservas/resultados-disponibilidad-recursos" method="post">
+							        <input type="hidden" name="XID" value="{XID_HASH}" /> 
+							        <div class="row">
+								        <div class="col-sm-12">
+									        <label>Tipo de Recurso</label>
+									        <select name="TipoRecurso">
+										        <option value="CO">Computadora</option>
+										        <option value="CU">Cubiculo</option>
+									        </select>	
+								        </div>
+								        <div class="col-sm-12">
+									        <label>Fecha Inicio</label>
+													<input type="text" name="FecIni" value="" placeholder="ddmmyyyy">	
+								        </div>
+								        <div class="col-sm-12">
+									        <label>Fecha Fin</label>
+													<input type="text" name="FechaFin" value="" placeholder="ddmmyyyy">	
+								        </div>								        
+								        <div class="col-sm-12">
+									        <label>Número de Horas</label>
+									        <select name="CanHoras">
+										        <option value="1">1</option>
+										        <option value="2">2</option>
+										        <option value="3">3</option>
+										        <option value="4">4</option>
+										        <option value="5">5</option>
+										        <option value="6">6</option>
+										        <option value="7">7</option>
+										        <option value="8">8</option>
+										        <option value="9">9</option>
+										        <option value="10">10</option>
+									        </select>	
+								        </div>
+								        <div class="col-sm-12">
+									        <input type="submit" name="submit" value="Ver Disponibilidad">
+								        </div>
+							        </div>				        							        							        
+						        </form>

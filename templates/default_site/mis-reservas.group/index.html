@@ -1,0 +1,164 @@
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+{exp:webservices:verificar_usuario}
+{embed="includes/header"}
+{embed="includes/sidebar"}
+
+    <div class="site-content mis-reservas-reservar">
+      {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
+      <div class="internal-header">
+        <div class="row first-line">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-4"><span>Mis Estudios</span></div>
+        </div>
+        <div class="row second-line pb-14">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-4"><span>{title}</span></div>
+        </div>
+      </div>  
+      <div class="section-content pb-70">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-3">
+            <span class="section-desc">{introduccion-seccion}</span>
+          </div>
+      {/exp:channel:entries}
+          <div class="col-sm-8">
+            <div class="panel curso-detalle pt-0">
+              <div class="panel-head">
+                <div class="panel-head-left">
+                  <div class="panel-title">
+                    {if segment_2=='reservar-un-recurso'}
+                      <h2>Reserva de Recursos</h2>
+                    {/if}                   
+                    {if segment_2=='disponibilidad-recurso'}
+                      <h2>Disponibilidad de Recursos</h2>
+                    {/if}
+                    {if segment_2=='reservar-espacios-deportivos'}
+                      <h2>Reserva de Espacios</h2>
+                    {/if}
+                    {if segment_2=='disponibilidad-espacios-deportivos'}
+                      <h2>Disponibilidad de Espacios</h2>
+                    {/if}
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body" id="curso-1">
+                <div class="panel-body-head left">
+                  <ul class="tr">
+                    <span>CUBÍCULOS, COMPUTADORAS Y ESPACIOS DEPORTIVOS</span>
+                  </ul>
+                </div>
+                <div class="panel-body-content">
+                  <div class="row ml-7">
+                    <div class="col-sm-6 reservas-select-group">
+                      <select id="campus-select" class="reservas-select form-control">
+                        <option selected="selected">Selecciona un Campus</option>
+                        <option value="campus1">Campus_1</option>
+                        <option value="campus2">Campus_2</option>
+                      </select>
+                      <select id="recurso-select" class="reservas-select form-control">
+                        <option selected="selected">Elige un recurso</option>
+                        <option value="campus1">Recurso_1</option>
+                        <option value="campus2">Recurso_2</option>
+                      </select>
+                      <div class="row ml--14">
+                        <div class="col-sm-6">
+                          <select id="recurso-select" class="reservas-select form-control">
+                            <option selected="selected">Elige un recurso</option>
+                            <option value="campus1">Recurso_1</option>
+                            <option value="campus2">Recurso_2</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-6">
+                          <select id="length-select" class="reservas-select form-control">
+                            <option selected="selected">Duración</option>
+                            <option value="campus1">Duración_1</option>
+                            <option value="campus2">Duración_2</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+            </div>
+            <div class="panel">
+              <div class="panel-head">
+                <div class="panel-head-left">
+                </div>
+              </div>
+			        <div class="panel">
+				        <div class="row">
+					        <div class="col-sm-6">
+						        {if segment_2=='reservar-un-recurso'}
+											{embed="includes/formulario-reserva-recursos"}
+										{/if}
+										{if segment_2=='disponibilidad-recurso'}
+											{embed="includes/formulario-recursos-disponibles"}
+										{/if}
+										{if segment_2=='reservar-espacios-deportivos'}
+											{embed="includes/formulario-reservas"}
+										{/if}
+										{if segment_2=='disponibilidad-espacios-deportivos'}
+											{embed="includes/formulario-disponibilidad"}
+										{/if}
+					        </div>
+					        <div class="col-sm-6"></div>					        
+				        </div>
+			        </div>
+            </div>	          
+            <span class="title-no-panel">¿Qué deseas hacer?</span>
+            <div class="row">
+	            {exp:channel:entries 
+	            	channel="referencias" 
+	            	limit="10" 
+	            	disable="member_data|pagination" 
+	            	category="{segment_2_category_id}" 
+	            	dynamic="off"
+	            }
+              <div class="col-sm-6">
+                <div class="panel">
+                  <div class="panel-body canales">
+                    <div class="panel-body-head left tall">
+                      <h3>{title}</h3>
+                    </div>  
+                    <div class="panel-table">
+                      <ul class="tr zizou-light-13">
+                        <p class="p-7 helvetica-14">{intrudccion-referencia}</p>
+                        {if fecha-referencia}
+                        <p class="helvetica-bold-14 pl-7">
+                        {fecha-referencia}, de {hora-referencia}, Aula {aula-referencia}
+                        </p>
+                        {/if}                 
+													{if archivo-referencia}
+	                        <a class="sb-link pl-7 zizou-14" href="{archivo-referencia}">
+		                      {/if}  
+													{if link-referencia}
+														{if tipo-referencia=='Socrates'}
+														<a class="sb-link pl-7 zizou-14" href="{site_url}socrates/{url_title}">
+														{/if}	
+														{if tipo-referencia=='Externa'}
+														<a class="sb-link pl-7 zizou-14" href="{link-referencia}">
+														{/if}		
+		                      {/if}  		                       	                        
+	                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
+	                      	{if archivo-referencia}
+	                        </a>
+		                      {/if}  
+													{if link-referencia}
+	                        </a>
+		                      {/if} 
+	                      </p>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/exp:channel:entries}
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>  
+{embed="includes/footer"}   

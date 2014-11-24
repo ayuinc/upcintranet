@@ -9,7 +9,7 @@
             <span>Inicio</span>
           </a>
         </li>
-        <li class="mis-estudios menu {if segment_1=='mis-estudios'}active-menu{/if}">
+        <li class="mis-estudios menu {if segment_1=='mis-estudios'}current-menu{/if}">
           <a href="{site_url}mis-estudios/ciclo-actual">
             <div></div>
             <span>Mis Estudios</span>
@@ -20,7 +20,7 @@
             {/exp:channel:entries}
           </ul>
         </li>
-        <li class="mis-tramites menu {if segment_1=='mis-tramites'}active-menu{/if}">
+        <li class="mis-tramites menu {if segment_1=='mis-tramites'}current-menu{/if}">
           <a href="#">
             <div></div>
             <span>Mis Trámites</span>
@@ -31,7 +31,7 @@
             {/exp:channel:entries}	          
           </ul>
         </li>
-        <li class="mis-finanzas menu">
+        <li class="mis-finanzas menu {if segment_1=='mis-finanzas'}current-menu{/if}">
           <a href="#">
             <div></div>
             <span>Mis Finanzas</span>
@@ -42,14 +42,14 @@
             {/exp:channel:entries}	          
           </ul>          
         </li>
-        <li class="mis-reservas menu">
+        <li class="mis-reservas menu {if segment_1=='mis-reservas'}current-menu{/if}">
           <a href="#">
             <div></div>
             <span>Mis Reservas</span>
           </a>
           <ul class="list-unstyled">
           {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="23"}
-          	<li><a href="{site_url}mis-finanzas/{url_title}">{title}</a></li>
+          	<li><a href="{site_url}mis-reservas/{url_title}">{title}</a></li>
           {/exp:channel:entries}	
           </ul>             
         </li>
@@ -65,7 +65,7 @@
           </ul>	          
         </li>
         <li class="ayuda menu">
-          <a href="#">
+          <a href="{site_url}ayuda">
             <div></div>
             <span>Ayuda</span>
           </a>

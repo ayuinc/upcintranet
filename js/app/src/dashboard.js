@@ -26,4 +26,10 @@ $(document).ready(function(){
 		$(this).parent().find(".col-sm-4").toggle();
 		$(this).parent().find(".col-sm-2").toggle();
 	});
+	$('#search-phr').click(function(){
+		$('#search-submit').click();
+	});
+	$('#buscar-phr').click(function(){
+		$('#search-nh-submit').click();
+	});
 });

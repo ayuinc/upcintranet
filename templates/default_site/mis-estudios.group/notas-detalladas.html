@@ -1,5 +1,6 @@
 {embed="includes/head"}
 {exp:webservices:iniciar_session}
+{exp:webservices:verificar_usuario}
 {embed="includes/header"}
 {embed="includes/sidebar"}
 
@@ -34,36 +35,7 @@
                   </div>
                 </div>
               </div>
-              <div class="panel pt-14">
-                <div class="panel-head">
-                  <div class="panel-head-left">
-                    <div class="panel-title serif-light">
-                      <h2>Otras Acciones</h2>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <div class="panel-table otras-acciones ">
-                    <ul class="tr">
-                      <a href="">
-                        <li class="bg-muted p-7 mb-7">
-                          <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Imprimir detalles</span>
-                        </li>
-                      </a>
-                      <a href="">
-                        <li class="bg-muted p-7 mb-7">
-                          <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Descargar en PDF</span>
-                        </li>
-                      </a>
-                      <a href="">
-                        <li class="bg-muted p-7 mb-7">
-                          <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Enviar a mi Correo UPC</span>
-                        </li>
-                      </a>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+							{embed="includes/otras-acciones"}
           </div>
          {/exp:channel:entries} 
           <div class="col-sm-8">

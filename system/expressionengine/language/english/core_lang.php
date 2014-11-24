@@ -317,25 +317,25 @@ Confirm the fieldtype file is located in the expressionengine/third_party/ direc
 'S',
 
 'Sunday' =>
-'Sunday',
+'Domingo',
 
 'Monday' =>
-'Monday',
+'Lunes',
 
 'Tuesday' =>
-'Tuesday',
+'Martes',
 
 'Wednesday' =>
-'Wednesday',
+'Miércoles',
 
 'Thursday' =>
-'Thursday',
+'Jueves',
 
 'Friday' =>
-'Friday',
+'Viernes',
 
 'Saturday' =>
-'Saturday',
+'Sábado',
 
 
 'Jan' =>
