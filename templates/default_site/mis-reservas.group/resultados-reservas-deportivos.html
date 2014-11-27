@@ -4,12 +4,12 @@
 {embed="includes/header"}
 {embed="includes/sidebar"}
 
-    <div class="site-content">
+    <div class="site-content mis-reservas-reservar">
       {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
       <div class="internal-header">
         <div class="row first-line">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span>Mis Estudios</span></div>
+          <div class="col-sm-4"><span>Resultados disponibilidad espacios deportivos</span></div>
         </div>
         <div class="row second-line pb-14">
           <div class="col-sm-1"></div>
@@ -28,45 +28,57 @@
               <div class="panel-head">
                 <div class="panel-head-left">
                   <div class="panel-title">
-                    <h2>Disponibilidad de Recursos</h2>
+                    <h2>Reservar ahora: Disponibilidad de Espacios</h2>
+                    {if post:Flag!=1}
+                    	{embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
+                    {/if}	
                   </div>
                 </div>
               </div>
-			        <div class="panel">
-				        <div class="row">
-					        <div class="col-sm-6">
-						        {embed="includes/formulario-recursos-disponibles"}
-					        </div>
-					        <div class="col-sm-6">
-				              <div class="panel-body">
-				                <div class="panel-body-head-table">
-				                  <ul class="tr">
-				                    <li class="col-sm-3">
-				                      <div class=""><span>Código Curso</span></div>
-				                    </li>
-				                    <li class="col-sm-6">
-				                      <div class=""><span>Nombre Curso</span></div>
-				                    </li>
-				                    <li class="col-sm-3">
-				                      <div class=""><span>Recursos</span></div>
-				                    </li>
-				                  </ul>
-				                </div>  
-				                <div class="panel-table mis-cursos-content no-bg" >
-					                {exp:webservices:listado_recursos_disponibles 
-														TipoRecurso='{post:TipoRecurso}'
-											      FecIni='{post:FecIni}'
-											      FechaFin='{post:FechaFin}'
-											      CanHoras='{post:CanHoras}'
-					                }
-				                </div>
-				              </div>
-					        </div>					        
-				        </div>
-			        </div>
+              <div class="panel-body">
+  			        <div class="panel-body-content">
+  				        <div class="row ml-7">
+  					        {embed="includes/formulario-disponibilidad"}
+                    <div class="col-sm-6">
+                      <div class="panel">
+                        <div class="panel-body-head">
+                          <span class="solano-20">RESULTADO DE LA BÚSQUEDA</span>              
+                        </div>
+                        
+                        {if post:Flag!=1}
+                        
+	      									{exp:webservices:disponibilidad_espacios_deportivos 
+	      										codsede="{post:CodSede}" 
+	      										coded="{post:CodED}" 
+	      										codactiv="{post:CodActiv}"
+	      										numhoras="{post:NumHoras}" 
+	      										fechaini="{post:FechaIni}" 
+	      										fechafin="{post:FechaFin}"
+	      									}
+      									
+      									{if:else}
+      										<div class="mt-70">
+	      										{embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
+      										</div>
+	      									{exp:webservices:reserva_espacios_deportivos 
+	      										codsede="{post:CodSede}" 
+	      										coded="{post:CodED}" 
+	      										codactiv="{post:CodActiv}"
+	      										numhoras="{post:NumHoras}" 
+	      										fecha="{post:Fecha}" 
+	      										horaini="{post:HoraIni}"
+	      										horafin="{post:HoraFin}"
+	      										detalles="{post:Detalles}"
+	      									}
+      									{/if}
+                      </div>
+                    </div>
+  				        </div>
+  			        </div>
+              </div>
             </div>	          
-            <span class="title-no-panel">¿Qué deseas hacer?</span>
-            <div class="row">
+            <div class="ml-7"><span class="title-no-panel">¿Qué deseas hacer?</span></div>
+            <div class="row ml--14">
 	            {exp:channel:entries 
 	            	channel="referencias" 
 	            	limit="10" 

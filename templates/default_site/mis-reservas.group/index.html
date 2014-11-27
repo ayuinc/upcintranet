@@ -9,7 +9,7 @@
       <div class="internal-header">
         <div class="row first-line">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span>Mis Estudios</span></div>
+          <div class="col-sm-4"><span>Mis Reservas</span></div>
         </div>
         <div class="row second-line pb-14">
           <div class="col-sm-1"></div>
@@ -28,88 +28,39 @@
               <div class="panel-head">
                 <div class="panel-head-left">
                   <div class="panel-title">
-                    {if segment_2=='reservar-un-recurso'}
+                    {if segment_2=='reserva-recurso'}
                       <h2>Reserva de Recursos</h2>
                     {/if}                   
-                    {if segment_2=='disponibilidad-recurso'}
-                      <h2>Disponibilidad de Recursos</h2>
-                    {/if}
                     {if segment_2=='reservar-espacios-deportivos'}
                       <h2>Reserva de Espacios</h2>
-                    {/if}
-                    {if segment_2=='disponibilidad-espacios-deportivos'}
-                      <h2>Disponibilidad de Espacios</h2>
                     {/if}
                   </div>
                 </div>
               </div>
-              <div class="panel-body" id="curso-1">
+              <div class="panel-body">
                 <div class="panel-body-head left">
                   <ul class="tr">
                     <span>CUBÍCULOS, COMPUTADORAS Y ESPACIOS DEPORTIVOS</span>
                   </ul>
                 </div>
                 <div class="panel-body-content">
-                  <div class="row ml-7">
-                    <div class="col-sm-6 reservas-select-group">
-                      <select id="campus-select" class="reservas-select form-control">
-                        <option selected="selected">Selecciona un Campus</option>
-                        <option value="campus1">Campus_1</option>
-                        <option value="campus2">Campus_2</option>
-                      </select>
-                      <select id="recurso-select" class="reservas-select form-control">
-                        <option selected="selected">Elige un recurso</option>
-                        <option value="campus1">Recurso_1</option>
-                        <option value="campus2">Recurso_2</option>
-                      </select>
-                      <div class="row ml--14">
-                        <div class="col-sm-6">
-                          <select id="recurso-select" class="reservas-select form-control">
-                            <option selected="selected">Elige un recurso</option>
-                            <option value="campus1">Recurso_1</option>
-                            <option value="campus2">Recurso_2</option>
-                          </select>
-                        </div>
-                        <div class="col-sm-6">
-                          <select id="length-select" class="reservas-select form-control">
-                            <option selected="selected">Duración</option>
-                            <option value="campus1">Duración_1</option>
-                            <option value="campus2">Duración_2</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-               </div>
-            </div>
-            <div class="panel">
-              <div class="panel-head">
-                <div class="panel-head-left">
+    			        <div class="row ml-7">
+    				        
+    					        {if segment_2=='reserva-recurso'}
+    										{embed="includes/formulario-recursos-disponibles"}
+    									{/if}
+    									{if segment_2=='reserva-espacios-deportivos'}
+    										{embed="includes/formulario-disponibilidad"}
+    									{/if}
+    				        </div>
+				        
+    			        </div>
                 </div>
               </div>
-			        <div class="panel">
-				        <div class="row">
-					        <div class="col-sm-6">
-						        {if segment_2=='reservar-un-recurso'}
-											{embed="includes/formulario-reserva-recursos"}
-										{/if}
-										{if segment_2=='disponibilidad-recurso'}
-											{embed="includes/formulario-recursos-disponibles"}
-										{/if}
-										{if segment_2=='reservar-espacios-deportivos'}
-											{embed="includes/formulario-reservas"}
-										{/if}
-										{if segment_2=='disponibilidad-espacios-deportivos'}
-											{embed="includes/formulario-disponibilidad"}
-										{/if}
-					        </div>
-					        <div class="col-sm-6"></div>					        
-				        </div>
-			        </div>
-            </div>	          
-            <span class="title-no-panel">¿Qué deseas hacer?</span>
-            <div class="row">
+            <div class="ml-7">
+              <span class="title-no-panel">¿Qué deseas hacer?</span>
+            </div>
+            <div class="row ml--14">
 	            {exp:channel:entries 
 	            	channel="referencias" 
 	            	limit="10" 

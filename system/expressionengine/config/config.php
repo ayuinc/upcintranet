@@ -18,7 +18,7 @@ $config['cp_url'] = 'http://104.131.41.84/admin.php';
 $config['doc_url'] = 'http://ellislab.com/expressionengine/user-guide/';
 $config['is_system_on'] = 'y';
 $config['allow_extensions'] = 'y';
-$config['cookie_prefix'] = '';
+$config['cookie_prefix'] = 'im_';
 $config['cookie_httponly'] = 'y';
 
 
