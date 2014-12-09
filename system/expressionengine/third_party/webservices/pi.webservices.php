@@ -1887,31 +1887,38 @@ class Webservices
 				
 				for ($a=0; $a<$tamano_int; $a++) {
 					$result .= '<div class="panel-table">';
-		      $result .= '<ul class="tr mis-cursos-row">';
-	    		$result .= '<li class="col-xs-2 whole-cell-height">';
-	  			$result .= '<span class=" text-center">';
-	  			$result .= '<img src="'.$json['Cursos'][$i]['alumnos'][$a]['url_foto'].'" width="55" class="pt-7 pb-7">';
-	  			$result .= '</span>';
-	    		$result .= '</li>';
-	     		$result .= '<li class="col-xs-6 whole-cell-height">';
-	  			$result .= '<span class="mt-35 mb-35">';
-	  			$result .= $json['Cursos'][$i]['alumnos'][$a]['nombre_completo']; 			
-	  			$result .= '</span>';	  			  			
-	    		$result .= '</li>';
-	     		$result .= '<li class="col-xs-2 whole-cell-height">';
-	  			$result .= '<span class="mt-35 mb-35">';	    		
-	    		$result .= '<form method="post" action="{site_url}index.php/mi-docencia/cursos-detallados" id="form-alumno'.$a.'">';
-	    		$result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
-	  			$result .= '<input type="hidden" name="codalumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['codigo'].'">';
-	  			$result .= '<input type="hidden" name="cursoid" value="'.$json['Cursos'][$i]['cursoId'].'">';
-	  			$result .= '<input type="hidden" name="nombrealumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['nombre_completo'].'">';
-	  			$result .= '<input type="hidden" name="Flag" value="notas">';
-	  			$result .= '<input type="submit" name="submit" value="Ver Notas">';
-	  			$result .= '</form>';	
-	  			$result .= '</span>';	  			  			
-	    		$result .= '</li>';	  			
-	    		$result .= '<li class="col-xs-2 whole-cell-height">';
-	  			$result .= '<span class="mt-35 mb-35 text-center">';
+		      $result .= '<ul class="tr">';
+          $result .= '<li class="col-sm-2 helvetica-14">';
+          $result .= '<div class="text-center">';
+          $result .= '<span class=" text-center">';
+          $result .= '<img src="'.$json['Cursos'][$i]['alumnos'][$a]['url_foto'].'" width="55" class="pt-7 pb-7">';
+          $result .= '</span>';
+          $result .= '</div>';
+          $result .= '</li>';
+          $result .= '<li class="col-sm-6 helvetica-14">';
+          $result .= '<div class="text-center">';
+          $result .= '<span class="pt-35 pb-35">';
+          $result .= $json['Cursos'][$i]['alumnos'][$a]['nombre_completo'];       
+          $result .= '</span>';                 
+          $result .= '</div>';
+          $result .= '</li>';
+          $result .= '<li class="col-sm-2 helvetica-14">';
+          $result .= '<div class="text-center">';
+          $result .= '<span class="pt-35 pb-35">';          
+          $result .= '<form method="post" action="{site_url}index.php/mi-docencia/cursos-detallados" id="form-alumno'.$a.'">';
+          $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
+          $result .= '<input type="hidden" name="codalumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['codigo'].'">';
+          $result .= '<input type="hidden" name="cursoid" value="'.$json['Cursos'][$i]['cursoId'].'">';
+          $result .= '<input type="hidden" name="nombrealumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['nombre_completo'].'">';
+          $result .= '<input type="hidden" name="Flag" value="notas">';
+          $result .= '<input type="submit" name="submit" value="Ver Notas">';
+          $result .= '</form>'; 
+          $result .= '</span>';                 
+          $result .= '</div>';
+          $result .= '</li>';         
+          $result .= '<li class="col-sm-2 helvetica-14">';
+          $result .= '<div class="text-center">';
+	  			$result .= '<span class="pt-35 pb-35">';
 	  			
 		      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$json['Cursos'][$i]['alumnos'][$a]['codigo'].'&Token='.$token;
 		      $ch = curl_init($url);
@@ -1929,14 +1936,15 @@ class Webservices
 	  			
 	  			for ($b=0; $b<$tamano_inas; $b++) {
 		  			if ($json['Cursos'][$i]['cursoId'] == $json_b['Inasistencias'][$b]['CodCurso']) {
-			  			$result .= 'total: '.$json_b['Inasistencias'][$b]['Total'].' Máximo: '.$json_b['Inasistencias'][$b]['Maximo'];
+			  			$result .= 'Total: '.$json_b['Inasistencias'][$b]['Total'].' Máximo: '.$json_b['Inasistencias'][$b]['Maximo'];
 		  			}	
 		  		}	
 	  			
 	  			$result .= '</span>';
-	    		$result .= '</li>';	    		     
-	    		$result .= '</ul>'; 	
 	    		$result .= '</div>';	  		
+          $result .= '</li>';              
+          $result .= '</ul>';   
+          $result .= '</div>';        
 	      }
 	      
 	      
