@@ -20,7 +20,7 @@ $config['is_system_on'] = 'y';
 $config['allow_extensions'] = 'y';
 $config['cookie_prefix'] = 'im_';
 $config['cookie_httponly'] = 'y';
-
+$config['disable_csrf_protection'] = 'y';
 
 /*
 |--------------------------------------------------------------------------

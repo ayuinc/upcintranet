@@ -158,7 +158,7 @@ class Webservices
         $result .= '</a>';
         $result .= '<ul> ';
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
-          $result .= '<li>'.$json["hijos"][$i]["codigo"].'</li>';
+          $result .= '<li><a href="http://104.131.41.84/dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
         }
         $result .= '</ul> ';
         $result .= '</span>';
