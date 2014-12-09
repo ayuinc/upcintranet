@@ -157,7 +157,7 @@ class Webservices
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Padre';
         $result .= '</a>';
         $result .= '<ul> ';
-        for ($i=0; $i=count($json["hijos"]) < ; $i++) { 
+        for ($i=0; $i < count($json["hijos"])  ; $i++) { 
           $result .= '<li>'.$json["hijos"]["codigo"]'</li>';
         }
         $result .= '</ul> ';
