@@ -5,7 +5,7 @@
  *
  * @package     ExpressionEngine
  * @category    Plugin
- * @author      Gianfranco Montoya 
+ * @author      Gianfranco Montoya
  * @copyright   Copyright (c) 2014, Gianfranco Montoya 
  * @link        http://www.ayuinc.com/
  */
@@ -13,7 +13,7 @@
 $plugin_info = array(
     'pi_name'         => 'Webservices',
     'pi_version'      => '1.0',
-    'pi_author'       => 'Herman Marin',
+    'pi_author'       => 'Gianfranco Montoya',
     'pi_author_url'   => 'http://www.ayuinc.com/',
     'pi_description'  => 'Permite consumir los servicios generados por UPC',
     'pi_usage'        => Webservices::usage()
@@ -96,10 +96,11 @@ class Webservices
                     
     }
 
-    //CONSTRUCTOR DE SESIONES DE ACURDO AL USUARIO
+    //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
     public function consultar_alumno(){
       $codigo = $_SESSION["Codigo"];
       $TipoUser = $_SESSION["TipoUser"];
+      $token = $_SESSION["Token"];
       
       $result = '';
       
@@ -138,6 +139,15 @@ class Webservices
       }
       
       if (strval($TipoUser)=='PADRE') {
+
+        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL,$url);
+        $result=curl_exec($ch);
+        $json = json_decode($result, true);
+
         $result .= '<ul class="tr pb-7">';
         $result .= '<li class="col-sm-2"></li>';
         $result .= '<li class="col-sm-8 bg-muted">';
@@ -146,6 +156,11 @@ class Webservices
         $result .= '<a href="/dashboard/padre">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Padre';
         $result .= '</a>';
+        $result .= '<ul> ';
+        for ($i=0; $i=count($json["hijos"]) < ; $i++) { 
+          $result .= '<li>'.$json["hijos"]["codigo"]'</li>';
+        }
+        $result .= '</ul> ';
         $result .= '</span>';
         $result .= '</div>';
         $result .= '</li>';
