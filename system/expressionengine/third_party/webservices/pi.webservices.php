@@ -145,8 +145,8 @@ class Webservices
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_URL,$url);
-        $result=curl_exec($ch);
-        $json = json_decode($result, true);
+        $hijosWebService=curl_exec($ch);
+        $json = json_decode($hijosWebService, true);
 
         $result .= '<ul class="tr pb-7">';
         $result .= '<li class="col-sm-2"></li>';
