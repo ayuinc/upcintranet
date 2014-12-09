@@ -1,13 +1,15 @@
 $(document).ready(function(){
-	$('#init-date').datepicker({
-		 format: "yyyymmdd"
+	$( "#datepicker-end" ).datepicker({
+		dateFormat: 'yyddmm',
+	});
+	$( "#datepicker-start" ).datepicker({
+		dateFormat: 'yyddmm',
+	});
+	$( "#start-date-rec" ).datepicker({
+		dateFormat: 'yyddmm',
+	});
+	$( "#end-date-rec" ).datepicker({
+		dateFormat: 'yyddmm',
 	});
 
-	$('#end-date').datepicker({
-		 format: "yyyymmdd"
-	});
-
-	$('#init-date-formulario').datepicker({
-		 format: "yyyymmdd"
-	});
 });

@@ -49,3 +49,17 @@ $alt: "helvetica";
 		font-size: $fs + px !important;	
 	}
 }
+
+//
+
+.form-control {
+	font-size: 18px !important; 
+}
+
+.black {
+	color: black !important;
+}
+
+.gray-main {
+	color: $gray-main !important;
+}

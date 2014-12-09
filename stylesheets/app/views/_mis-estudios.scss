@@ -83,6 +83,29 @@
 				border: 7px white solid;
 			}
 		}
+		.row {
+			.pick-child {
+				display: inline-block !important;
+				padding-left: 14px;
+				padding-right: 14px;
+				.child-pic {
+					border-radius: 50px;
+					border: 4px white solid;
+					padding: 3px;
+					&.active {
+					border: 4px $brand-danger solid;
+					}
+				}
+				img {
+				max-height: 56px;
+				}
+				span {
+					@include book;
+					font-size: 21px;
+					text-transform: uppercase;
+				}
+			}
+		}
 		.panel .panel-body .panel-table .tr {
 			border: none;
 		}

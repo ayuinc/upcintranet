@@ -1,6 +1,6 @@
     <div class="site-menu">
       <div class="text-center pt-7 sidebar-top">
-        <img src="/assets/img/isotipo_upc.png" class="inline-block">
+        <img src="{site_url}assets/img/isotipo_upc.png" class="inline-block">
       </div>
       <ul class="list-unstyled nav-main">
         <li class="inicio">
@@ -15,8 +15,9 @@
             <span>Mi Docencia</span>
           </a>
           <ul class="list-unstyled">
-            <li><a href="#">Ciclo Actual</a></li>
-            <li><a href="#">Cursos Detallados</a></li>
+          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="32"}
+          	<li><a href="{site_url}mi-docencia/{url_title}">{title}</a></li>
+          {/exp:channel:entries}	
           </ul>
         </li>
         <li class="mis-tramites menu">
@@ -25,33 +26,46 @@
             <span>Mis Trámites</span>
           </a>
           <ul class="list-unstyled">
-            <li><a href="#">aaaa</a></li>
-            <li><a href="#">bbb</a></li>
-            <li><a href="#">ccc</a></li>
-            <li><a href="#">ddd</a></li>
-            <li><a href="#">fff</a></li>
+          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="31"}
+          	<li><a href="{site_url}mis-tramites-docentes/{url_title}">{title}</a></li>
+          {/exp:channel:entries}	
           </ul>
         </li>
-        <li class="mis-alumnos menu">
+        <li class="mis-alumnos menu {if segment_1=='mis-reservas'}current-menu{/if}">
           <a href="#">
             <div></div>
             <span>Alumnos</span>
           </a>
+          <ul class="list-unstyled">
+          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="39"}
+          	<li><a href="{site_url}alumnos/{url_title}">{title}</a></li>
+          {/exp:channel:entries}	
+          </ul>          
         </li>
-        <li class="mis-reservas menu">
+        <li class="mis-reservas menu {if segment_1=='mis-reservas'}current-menu{/if}">
           <a href="#">
             <div></div>
             <span>Mis Reservas</span>
           </a>
+          <ul class="list-unstyled">
+          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="23"}
+          	<li><a href="{site_url}mis-reservas-docentes/{url_title}">{title}</a></li>
+          {/exp:channel:entries}	
+          </ul>             
         </li>
         <li class="ci menu">
           <a href="#">
             <div></div>
             <span>CI</span>
           </a>
+          <ul class="list-unstyled">
+          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="46"}
+          	<li><a href="{site_url}centro-de-informacion-docentes/{url_title}">{title}</a></li>
+          {/exp:channel:entries}
+          </ul>	          
         </li>
         <li class="ayuda menu">
-          <a href="#">
+          <a href="{site_url}ayuda-docentes">
             <div></div>
             <span>Ayuda</span>
           </a>

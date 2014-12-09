@@ -1,3 +1,9 @@
 .m-auto {
 	margin: auto !important;
 }
+
+@for $nm from 1 to 10 {
+	.ml--#{$nm*7} {
+		margin-left: $nm * -1 * 7 + px !important;
+	}		
+}

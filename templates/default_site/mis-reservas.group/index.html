@@ -40,7 +40,12 @@
               <div class="panel-body">
                 <div class="panel-body-head left">
                   <ul class="tr">
-                    <span>CUBÍCULOS, COMPUTADORAS Y ESPACIOS DEPORTIVOS</span>
+                    {if segment_2=='reserva-recurso'}
+                      <span>Reserva de Recursos</span>
+                    {/if}                   
+                    {if segment_2=='reserva-espacios-deportivos'}
+                      <span>Reserva de Espacios Espacios Deportivos</span>
+                    {/if}
                   </ul>
                 </div>
                 <div class="panel-body-content">

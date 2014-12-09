@@ -1,5 +1,5 @@
 									<div class="col-sm-6 reservas-select-group">
-						        <form action="{site_url}index.php/mis-reservas/resultados-reservas-deportivos" method="post">
+						        <form action="{site_url}index.php/{segment_1}/resultados-reservas-deportivos" method="post">
 							        <input type="hidden" name="XID" value="{XID_HASH}" /> 
 								        {exp:webservices:poblar_espacios_deportivos_sede}	
 								        {exp:webservices:poblar_espacios_deportivos_espacios}	
@@ -24,19 +24,19 @@
 								        	</div>
 								        </div>
 								        <div class="row datepicker-container">
-								        	<div class="col-sm-6 mt-7">
-									        	<span class="zizou-light-20">Fecha Inicio:</span>
+								        	<div class="col-sm-6">
+									        	<span class="zizou-light-22">Fecha Inicio:</span>
 								        	</div>
 								        	<div class="col-sm-6">
-														<input type="text" name="FechaIni" value="" placeholder="Selecciona una fecha" id="init-date">	
+														<input type="text" name="FechaIni" id="datepicker-start" value="" placeholder="Selecciona">	
 								        	</div>
 								        </div>
 								        <div class="row datepicker-container">
-								        	<div class="col-sm-6 mt-7">
-									        	<span class="zizou-light-20">Fecha Fin:</span>
+								        	<div class="col-sm-6">
+									        	<span class="zizou-light-22">Fecha Fin:</span>
 								        	</div>
 								        	<div class="col-sm-6">
-														<input type="text" name="FechaFin" value="" id="end-date" placeholder="Selecciona una fecha">
+														<input type="text" id="datepicker-end" name="FechaFin" value=""  placeholder="Selecciona">
 								        	</div>
 								        </div>
 								        <div>

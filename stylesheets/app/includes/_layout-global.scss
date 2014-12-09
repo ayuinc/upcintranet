@@ -228,6 +228,49 @@ body {
 		.col-sm-7 {
 			margin-top: -3px;
 		}
+		.col-sm-3 {
+			button {
+				float: right;
+				margin-top: 7px;
+				background-color: $gray-main;
+				border-radius: 0px;
+				color: white;
+				@include book;
+				font-size: 22px;
+				padding: 3px 49px !important;
+			}
+		}
+		.col-sm-8.resultados {
+			padding-left: 0px;
+			padding-right: 42px;
+			.num-resultados {
+				@include serif-book;
+				font-size: 26px;
+				margin-top: 0;
+				padding: 0;
+			}
+			ul {
+				li {
+					padding-bottom: 14px;
+					.resultado-heading {
+						color: black;
+						@include book;
+						text-transform: uppercase;
+						font-size: 20px;
+						img {
+							width: 16px;
+							padding-bottom: 5px;
+							margin-right: 5px;
+						}
+					}
+					.resultado-content {
+						@include alt-book;
+						font-size: 14px;
+					}
+				}
+			}
+
+		}
 	}
 }
 
@@ -253,6 +296,42 @@ body {
 			}
 			&.mis-estudios a div {
 			background-image: url(../assets/img/mis_estudios_red.png);
+			}
+			&.mi-docencia a div {
+			background-image: url(../assets/img/mi_docencia_red.png);
+			}
+			&.mis-alumnos a div {
+			background-image: url(../assets/img/mis_alumnos_red.png);
+			}
+			&.mis-tramites a div {
+			background-image: url(../assets/img/mis_tramites_red.png);
+			}
+			&.mis-finanzas a div {
+			background-image: url(../assets/img/mis_finanzas_red.png);
+			}
+			&.mis-reservas a div {
+			background-image: url(../assets/img/mis_reservas_red.png);
+			}
+			&.ci a div {
+			background-image: url(../assets/img/ci_red.png);
+			}
+			&.ayuda a div {
+			background-image: url(../assets/img/ayuda_red.png);
+			}
+		}
+		&.current-menu {
+			background-color: white;
+			a span {
+			color: $brand-danger;
+			}
+			&.mis-estudios a div {
+			background-image: url(../assets/img/mis_estudios_red.png);
+			}
+			&.mi-docencia a div {
+			background-image: url(../assets/img/mi_docencia_red.png);
+			}
+			&.mis-alumnos a div {
+			background-image: url(../assets/img/mis_alumnos_red.png);
 			}
 			&.mis-tramites a div {
 			background-image: url(../assets/img/mis_tramites_red.png);
@@ -282,6 +361,16 @@ body {
 		}			
 		&.mis-estudios a div {
 			background-image: url(../assets/img/mis_estudios_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.mi-docencia a div {
+			background-image: url(../assets/img/mi_docencia_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.mis-alumnos a div {
+			background-image: url(../assets/img/mis_alumnos_grey.png);
 			background-repeat: no-repeat;
 			background-position: center; 
 		}
@@ -361,6 +450,7 @@ body {
 
 .site-header {
 	.container-fluid {
+		padding-right: 0;
 		.header-global {
 			@include book;
 			font-size: 18px;
@@ -377,20 +467,23 @@ body {
 			border-bottom: 1px solid $gray-main;
 		}
 		.header-no-global {
-			border-bottom: 2px solid #d3d3d3 !important;
+			padding-left: 98px !important;
+			padding-right: 35px !important;
+			.inner {
+				border-bottom: 2px solid #d3d3d3 !important;
+			}
 			background-image:url("../assets/img/trama.png");
 			background-position: 7% 80%;
-			margin-left: -28px;
 			@include book;
 			text-transform: uppercase;
 			text-align: center;
-			&.alumno {
+			&.alumno, &.docente {
 				.col-sm-5 {
 					.row {
 						div[class^='col-sm'] {
 							a {
 							>div {
-								height: 28px;
+								height: 28px !important;
 								&.mi-correo {
 									background-image: url("../assets/img/correo_grey.png");
 									background-repeat: no-repeat;
@@ -403,6 +496,11 @@ body {
 								}
 								&.print {
 									background-image: url("../assets/img/print_grey.png");
+									background-repeat: no-repeat;
+									background-position: center; 
+								}
+								&.asistencia {
+									background-image: url("../assets/img/asistencia_grey.png");
 									background-repeat: no-repeat;
 									background-position: center; 
 								}
@@ -420,7 +518,7 @@ body {
 				  }	
 				}
 			}
-			&.padre {
+			&.padre, &.docente {
 				.col-sm-5 {
 					padding-top: 21px;
 					padding-bottom: 12px;
@@ -467,8 +565,6 @@ body {
 										margin-left: -15px;
 									} 	
 								}
-								// -webkit-box-shadow: none !important;
-								// box-shadow: none !important;
 								border: none;
 								margin: 0;
 								padding: 0;
@@ -507,7 +603,8 @@ body {
 					}
 				}
 			}
-			.col-sm-3.busqueda {
+			.col-sm-4.busqueda {
+				padding-bottom: 14px;
 				.right-inner-addon {
 			    position: relative;
 					input {
@@ -518,7 +615,7 @@ body {
 			    position: absolute;
 			    right: 0px;
 			    padding: 9px 10px;
-			    pointer-events: none;
+			    cursor: pointer !important;
 					}
 				}
 			}
@@ -537,10 +634,11 @@ body {
 						padding-top: 3px;
 						padding-bottom: 3px;
 						.dropdown {
+							width: 70px;
 							#dropdownMenu1 {
 								border-radius: 50px;
 								border: 4px white solid;
-								padding: 7px;
+								padding: 3px;
 								img {
 									margin: 0;
 								}

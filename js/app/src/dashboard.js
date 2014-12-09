@@ -29,7 +29,4 @@ $(document).ready(function(){
 	$('#search-phr').click(function(){
 		$('#search-submit').click();
 	});
-	$('#buscar-phr').click(function(){
-		$('#search-nh-submit').click();
-	});
 });

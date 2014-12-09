@@ -3,11 +3,8 @@
 {exp:webservices:verificar_usuario}
 {embed="includes/header-docentes"}
 {embed="includes/sidebar_docente"} 
-
     <div class="site-content">
-      <div class="row mensaje pl-28 pb-21">
-
-      </div>
+     <div class="row mensaje pb-21"></div>
      <div class="row">
       <div class="col-sm-1"></div>
       <div class="col-sm-4">
@@ -19,148 +16,17 @@
             </div>
           </div>
         </div>
-        <div class="panel-body">
-          <div class="panel-body-head-table">
-            <ul class="tr">
-              <li class="col-sm-2">
-                <div class="fecha"><span>Hora</span></div>
-              </li>
-              <li class="col-sm-2">
-                <div class=""><span>Campus</span></div>
-              </li>
-              <li class="col-sm-6">
-                <div class=""><span>Curso</span></div>
-              </li>
-              <li class="col-sm-2">
-                <div class=""><span>Salón</span></div>
-              </li>
-            </ul>
-          </div>
-              {embed="includes/dashboard-horario-docente"}
-        </div>
+        {embed="includes/dashboard-horario-docente"}
        </div>
       </div>
       <div class="col-sm-4">
         {embed="includes/dashboard-miscursos-docente"}
-        <div class="panel">
-          <div class="panel-head pt-14">
-            <div class="panel-head-left">
-              <div class="panel-title">
-                <h2>Mis Reservas</h2>
-              </div>
-            </div>
-            <div class="panel-head-right pt-7">
-            </div>
-          </div>
-          <div class="panel-body">
-            <div class="panel-body-head-table">
-              <ul class="tr">
-                <li class="col-sm-2">
-                  <div class="fecha"><span>Fecha</span></div>
-                </li>
-                <li class="col-sm-2">
-                  <div><span>Hora</span></div>
-                </li>
-                <li class="col-sm-6">
-                  <div><span>Recurso</span></div>
-                </li>
-                <li class="col-sm-2">
-                  <div><span>Campus</span></div>
-                </li>
-              </ul>
-            </div> 
-            <div class="panel-table no-bg">
-              <ul class="tr">
-                <li class="col-sm-2 helvetica-bold-14">
-                  <div class="text-center">
-                    <span>24/03</span>
-                  </div>
-                </li>
-                <li class="col-sm-2 helvetica-bold-14">
-                  <div class="text-center">
-                    <span>4/4</span>
-                  </div>
-                </li>
-                <li class="col-sm-6 helvetica-14">
-                  <div class="text-center">
-                    <span>15.35</span>
-                  </div>
-                </li>
-                <li class="col-sm-2 helvetica-bold-14">
-                  <div class="text-center">
-                    <span>[MO]</span>
-                  </div>
-                </li>
-              </ul>
-              <ul class="tr mb-5">
-                <li class="col-sm-2 helvetica-bold-14">
-                  <div class="text-center">
-                    <span>24/03</span>
-                  </div>
-                </li>
-                <li class="col-sm-2 helvetica-bold-14">
-                  <div class="text-center">
-                    <span>4/4</span>
-                  </div>
-                </li>
-                <li class="col-sm-6 helvetica-14">
-                  <div class="text-center">
-                    <span>15.35</span>
-                  </div>
-                </li>
-                <li class="col-sm-2 helvetica-bold-14">
-                  <div class="text-center">
-                    <span>[MO]</span>
-                  </div>
-                </li>
-              </ul>
-
-            </div>
-          </div>
-        </div> 
+        {embed="includes/dashboard-misreservas"} 
       </div>
       <div class="col-sm-3">
-        <div class="panel">
-          <div class="panel-head">
-            <div class="panel-head-left">
-              <div class="panel-title">
-                <h2>Noticias</h2>
-              </div>
-            </div>
-          </div>
-          <div class="panel-body">
-            <div class="panel-body-head-table">
-              <ul class="tr">
-                <li class="col-sm-12">
-                  <div><span>Lunes 14 de Octubre de 2014</span></div>
-                </li>
-              </ul>
-            </div>
-            <div class="panel-table">
-              <ul class="tr">
-                <li class="col-sm-12">
-                  <div>
-                    <p class="zizou-16">Gran concierto de aniversario por nuestros 20 años.</p>
-                    <p class="helvetica-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget sapien vel massa. consectetur adipiscing elit. Proin eget sapien vel massa...</p>
-                    <p class="keep-reading"><img class="pr-7" src="assets/img/skyblue_arrow.png">Seguir Leyendo</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="panel-table">
-              <ul class="tr">
-                <li class="col-sm-12">
-                  <div>
-                    <p class="zizou-16">Gran concierto de aniversario por nuestros 20 años.</p>
-                    <p class="helvetica-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget sapien vel massa. consectetur adipiscing elit. Proin eget sapien vel massa...</p>
-                    <p class="keep-reading"><img class="pr-7" src="assets/img/skyblue_arrow.png">Seguir Leyendo</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        {embed="includes/dashboard-noticias-docentes"}
       </div>
       </div>
     </div>
+    
 {embed="includes/footer"}

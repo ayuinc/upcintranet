@@ -61,6 +61,15 @@
 		}
 	}
 	.panel-body {
+		&.canales {
+			padding-bottom: 28px;
+			.panel-table {
+				min-height: 160px !important;
+				.tr {
+					border: none !important;
+				}
+			}
+		}
 		.panel-table {
 			background-color: white !important;
 			&.no-bg {
@@ -69,13 +78,39 @@
 					background-color: white !important;
 				}
 			}
+			.tr {
+				a.sb-link {
+					color: $brand-info !important;
+				}
+			}
 			&.otras-acciones {
 				background: none !important;
+				.tr li {
+					.oa-icon {
+						display: inline-block !important;
+						border: none !important;
+					}
+					a {
+						div.oa-label {
+							display: inline-block !important;
+							color: black;
+							width: 260px;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
 				.tr a {
-					li span {
-						&:hover {
-							text-decoration: underline;
-						}						
+					li {
+						.oa-icon {
+							display: inline-block !important;
+						}
+						span {
+							&:hover {
+								text-decoration: underline;
+							}						
+						}
 					}
 					&.sb-link {
 						color: $brand-info !important;
@@ -165,6 +200,13 @@
 					}
 				}
 			}
+			.lista-alumnos {
+				.tr {
+					.col-sm-6 {
+						text-align: left;
+					}
+				}	
+			}
 			
 		}
 
@@ -193,6 +235,16 @@
 						background: white;
 						margin-bottom: 7px;
 					}
+				}
+			}
+			&.cursos-detallados {
+				// ul {
+				// 	li {
+				// 		&.col-sm-6
+				// 	}
+				// }
+				ul + ul {
+					margin-top: 5px;
 				}
 			}
 			&.mis-cursos-content {

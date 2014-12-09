@@ -275,43 +275,43 @@ Confirm the fieldtype file is located in the expressionengine/third_party/ direc
 'PM',
 
 'Sun' =>
-'Sun',
+'Dom',
 
 'Mon' =>
-'Mon',
+'Lun',
 
 'Tue' =>
-'Tue',
+'Mar',
 
 'Wed' =>
-'Wed',
+'Mie',
 
 'Thu' =>
-'Thu',
+'Jue',
 
 'Fri' =>
-'Fri',
+'Vie',
 
 'Sat' =>
-'Sat',
+'Sab',
 
 'Su' =>
 'S',
 
 'Mo' =>
-'M',
+'L',
 
 'Tu' =>
-'T',
+'M',
 
 'We' =>
-'W',
+'M',
 
 'Th' =>
-'T',
+'J',
 
 'Fr' =>
-'F',
+'V',
 
 'Sa' =>
 'S',
@@ -339,7 +339,7 @@ Confirm the fieldtype file is located in the expressionengine/third_party/ direc
 
 
 'Jan' =>
-'Jan',
+'Ene',
 
 'Feb' =>
 'Feb',
@@ -348,7 +348,7 @@ Confirm the fieldtype file is located in the expressionengine/third_party/ direc
 'Mar',
 
 'Apr' =>
-'Apr',
+'Abr',
 
 'May' =>
 'May',
@@ -360,7 +360,7 @@ Confirm the fieldtype file is located in the expressionengine/third_party/ direc
 'Jul',
 
 'Aug' =>
-'Aug',
+'Ago',
 
 'Sep' =>
 'Sep',
@@ -372,43 +372,43 @@ Confirm the fieldtype file is located in the expressionengine/third_party/ direc
 'Nov',
 
 'Dec' =>
-'Dec',
+'Dic',
 
 'January' =>
-'January',
+'Enero',
 
 'February' =>
-'February',
+'Febrero',
 
 'March' =>
-'March',
+'Marzo',
 
 'April' =>
-'April',
+'Abril',
 
 'May_l' =>
-'May',
+'Mayo',
 
 'June' =>
-'June',
+'Junio',
 
 'July' =>
-'July',
+'Julio',
 
 'August' =>
-'August',
+'Agosto',
 
 'September' =>
-'September',
+'Septiembre',
 
 'October' =>
-'October',
+'Octubre',
 
 'November' =>
-'November',
+'Noviembre',
 
 'December' =>
-'December',
+'Deciembre',
 
 
 'UM12'		=>	'(UTC -12:00) Baker/Howland Island',

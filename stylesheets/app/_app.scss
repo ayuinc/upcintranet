@@ -3,6 +3,10 @@
 ========================================*/
 
 // APP Includes
+@import
+
+  "plugins/datepicker";
+
 @import 
   // TYPE
   "includes/fonts",
@@ -28,4 +32,5 @@
 @import 
   // VIEW NAME
   "views/dashboard",
+  "views/mis-reservas",
   "views/mis-estudios";

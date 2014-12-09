@@ -4,7 +4,7 @@
 {embed="includes/header"}
 {embed="includes/sidebar"}
 
-    <div class="site-content">
+    <div class="site-content mis-reservas-reservar">
       {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
       <div class="internal-header">
         <div class="row first-line">
@@ -24,7 +24,7 @@
           </div>
       {/exp:channel:entries}      
           <div class="col-sm-8 pt-0">
-            <div class="panel">
+            <div class="panel curso-detalle pt-0">
               <div class="panel-head">
                 <div class="panel-head-left">
                   <div class="panel-title">
@@ -32,46 +32,52 @@
                   </div>
                 </div>
               </div>
-			        <div class="panel">
-				        <div class="row">
-					        <div class="col-sm-4">
+			        <div class="panel-body">
+				        <div class="panel-body-head left">
+				          <ul class="tr">
+				            <span>CUBÍCULOS Y COMPUTADORAS</span>
+				          </ul>
+				        </div>
+				        <div class="panel-body-content">
+					        <div class="row ml-7">
 						        {embed="includes/formulario-recursos-disponibles"}
+						        <div class="col-sm-6">
+					              <div class="panel-body">
+					                <div class="panel-body-head-table">
+					                  <ul class="tr">
+					                    <li class="col-sm-4">
+					                      <div class=""><span>Recurso</span></div>
+					                    </li>
+					                    <li class="col-sm-4">
+					                      <div class=""><span>Sede</span></div>
+					                    </li>
+					                    <li class="col-sm-4"></li>	
+					                  </ul>
+					                </div>  
+					                <div class="panel-table mis-cursos-content no-bg" >
+						                {if post:Flag!='1'}
+						                	{exp:webservices:listado_recursos_disponibles 
+																TipoRecurso='{post:TipoRecurso}'
+													      FecIni='{post:FecIni}'
+													      FechaFin='{post:FechaFin}'
+													      CanHoras='{post:CanHoras}'
+													      segmento='{segment_1}'
+							                }	
+						                {if:else}
+							                <!--{exp:webservices:reserva_recursos 
+																CodRecurso='{post:CodRecurso}'
+													      NomRecurso='{post:NomRecurso}'
+													      FecIni='{post:FecIni}'
+													      HoraIni='{post:HoraIni}'
+													      FechaFin='{post:FechaFin}'
+													      HoraFin='{post:HoraFin}'
+													      CanHoras='{post:CanHoras}'
+							                }-->                
+						                {/if}					                
+					                </div>
+					              </div>
+						        </div>	
 					        </div>
-					        <div class="col-sm-8">
-				              <div class="panel-body">
-				                <div class="panel-body-head-table">
-				                  <ul class="tr">
-				                    <li class="col-sm-4">
-				                      <div class=""><span>Recurso</span></div>
-				                    </li>
-				                    <li class="col-sm-4">
-				                      <div class=""><span>Sede</span></div>
-				                    </li>
-				                    <li class="col-sm-4"></li>	
-				                  </ul>
-				                </div>  
-				                <div class="panel-table mis-cursos-content no-bg" >
-					                {if post:Flag!='1'}
-					                	{exp:webservices:listado_recursos_disponibles 
-															TipoRecurso='{post:TipoRecurso}'
-												      FecIni='{post:FecIni}'
-												      FechaFin='{post:FechaFin}'
-												      CanHoras='{post:CanHoras}'
-						                }	
-					                {if:else}
-						                <!--{exp:webservices:reserva_recursos 
-															CodRecurso='{post:CodRecurso}'
-												      NomRecurso='{post:NomRecurso}'
-												      FecIni='{post:FecIni}'
-												      HoraIni='{post:HoraIni}'
-												      FechaFin='{post:FechaFin}'
-												      HoraFin='{post:HoraFin}'
-												      CanHoras='{post:CanHoras}'
-						                }-->                
-					                {/if}					                
-				                </div>
-				              </div>
-					        </div>					        
 				        </div>
 			        </div>
             </div>	          
