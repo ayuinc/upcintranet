@@ -1,0 +1,31 @@
+<div class="panel">
+  <div class="panel-head">
+    <div class="panel-head-left">
+      <div class="panel-title">
+        <h2>Noticias</h2>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="panel-body-head-table">
+      <ul class="tr">
+        <li class="col-sm-12">
+          <div><span>{current_time format="%d de %F del %Y"}</span></div>
+        </li>
+      </ul>
+    </div>
+    {exp:channel:entries channel="noticias" limit="2"}
+    <div class="panel-table">
+      <ul class="tr">
+        <li class="col-sm-12">
+          <div>     
+            <p class="noticia-heading zizou-20">{title}</p>
+            <p class="noticia-body helvetica-12">{intro-noticia}</p>
+            <p class="keep-reading zizou-18"><img class="pr-7" src="/assets/img/skyblue_arrow.png">Seguir Leyendo</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    {/exp:channel:entries}
+  </div>
+</div>

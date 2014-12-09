@@ -1,0 +1,19 @@
+.mis-reservas-reservar {
+	.section-content {
+		.col-sm-6.reservas-select-group {
+			.reservas-select {
+				-webkit-appearance: none !important;
+				-moz-appearance: none !important;
+				appearance: none !important;
+				background: url(../assets/img/select.png) no-repeat right;
+				background-color: $gray-lighter;
+				@include serif-thin;
+				margin-bottom: 7px;
+				border: none !important;
+				font-size: 22px !important;
+				height: 42px !important;
+				border-radius: 0px !important;
+			}
+		}
+	}
+}
