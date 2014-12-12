@@ -162,7 +162,7 @@
 				@include list-unstyled;
 				@include clearfix;
 				li + li {
-					&.col-sm-2, &.col-sm-1, &.col-sm-4, &.col-sm-5, &.col-sm-6 {
+					&.col-sm-2, &.col-sm-1, &.col-sm-4, &.col-sm-5, &.col-sm-6, &.col-sm-7 {
 						div {
 							border-left: 2px solid $gray-light;
 							&.fecha {

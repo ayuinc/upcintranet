@@ -16,7 +16,11 @@ $alt: "helvetica";
 	.#{$sans-serif}-#{$fs} {
 		@include book;	
 		font-size: rem($fs) !important;	
-		font-size: $fs + px !important;	
+		font-size: $fs + px !important;
+		@media #{$md-down} {
+			font-size: rem(($fs) - 4) !important;	
+			font-size: ($fs - 4) + px !important;
+		}	
 	}
 	.#{$sans-serif}-light-#{$fs} {
 		@include light;	
@@ -36,7 +40,11 @@ $alt: "helvetica";
 	.#{$serif}-#{$fs} {
 		@include serif-book;	
 		font-size: rem($fs) !important;	
-		font-size: $fs + px !important;	
+		font-size: $fs + px !important;
+		@media #{$md-down} {
+			font-size: rem(($fs) - 4) !important;	
+			font-size: ($fs - 4) + px !important;
+		}	
 	}
 	.#{$alt}-#{$fs} {
 		@include alt-book;	
