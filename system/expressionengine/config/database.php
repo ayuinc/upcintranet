@@ -5,7 +5,7 @@ $active_record = TRUE;
 
 $db['expressionengine']['hostname'] = 'localhost';
 $db['expressionengine']['username'] = 'root';
-$db['expressionengine']['password'] = '';
+$db['expressionengine']['password'] = 'JKPQiUAb8f';
 $db['expressionengine']['database'] = 'UPCIntranet';
 $db['expressionengine']['dbdriver'] = 'mysql';
 $db['expressionengine']['pconnect'] = FALSE;
