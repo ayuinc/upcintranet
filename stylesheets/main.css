@@ -6320,36 +6320,24 @@ body {
 .ml--63 {
   margin-left: -63px !important; }
 
-.btn-custom-gray {
-  background-color: #565658 !important;
+.btn-custom {
+  padding: 7px !important;
   border-radius: 0px;
   border: none !important;
   font-family: "SolanoGothicMVBProBd" !important;
   font-style: normal;
   text-transform: uppercase;
   color: white; }
-  .btn-custom-gray:hover {
+  .btn-custom.gray {
+    background-color: #565658 !important; }
+  .btn-custom.info {
+    background-color: #3298FF !important; }
+  .btn-custom:hover {
     color: white; }
-  .btn-custom-gray.lg {
+  .btn-custom.lg {
     font-size: 22px !important; }
     @media only screen and (max-width: 992px) {
-      .btn-custom-gray.lg {
-        font-size: 18px !important; } }
-
-.btn-custom-info {
-  background-color: #3298FF !important;
-  border-radius: 0px;
-  border: none !important;
-  font-family: "SolanoGothicMVBProBd" !important;
-  font-style: normal;
-  text-transform: uppercase;
-  color: white; }
-  .btn-custom-info:hover {
-    color: white; }
-  .btn-custom-info.lg {
-    font-size: 22px !important; }
-    @media only screen and (max-width: 992px) {
-      .btn-custom-info.lg {
+      .btn-custom.lg {
         font-size: 18px !important; } }
 
 a {
