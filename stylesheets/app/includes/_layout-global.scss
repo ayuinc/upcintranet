@@ -67,8 +67,9 @@ body {
 		padding-left: 28px !important;
 	}
 	&.login {
-		margin-top: 50px;
-		padding-top: 63px;
+		margin-top: 0px;
+		padding-top: 7px;
+		padding-bottom: 0px;
 		.row {
 			margin-left: -14px;
 			.col-sm-10 {
@@ -78,6 +79,18 @@ body {
 				.row {
 					.col-sm-5 {
 						.row {
+							&.login-row {
+								.col-sm-8 {
+									@media #{$md-down} {
+										margin-top: 14px !important;
+									}
+									a img {
+										@media #{$md-down} {
+											width: 14px !important;
+										}
+									}
+								}
+							}
 							.col-sm-5 {
 								@media #{$md-down} {
 									padding-left: 0px;
@@ -94,14 +107,14 @@ body {
 								font-size: 16px;
 								color: $gray-darker;
 							}
-							label {
-								@include book;
-								font-size: 20px !important;
-								@media #{$md-down} {
-								font-size: 16px !important;
-								}
-								text-transform: uppercase;
-							}
+							// label {
+							// 	@include book;
+							// 	font-size: 20px !important;
+							// 	@media #{$md-down} {
+							// 	font-size: 16px !important;
+							// 	}
+							// 	text-transform: uppercase;
+							// }
 							input {
 								background-color: $gray-lighter;
 								border-radius: 0px;
@@ -110,18 +123,13 @@ body {
 									font-size: 20px;
 								}
 							}
-							&.recover {
-								padding-top: 175px
-							}
+							// &.recover {
+							// 	padding-top: 175px
+							// }
 						}
+
 						button {
 							float: right;
-							background-color: #3D3C3E !important;
-							border-radius: 0px;
-							border: none !important;
-							@include book;
-							font-size: 22px !important;
-							text-transform: uppercase !important;
 						}
 					}
 
@@ -226,7 +234,7 @@ body {
 			padding: 0;
 		}
 		.col-sm-7 {
-			margin-top: -3px;
+			// margin-top: -3px;
 		}
 		.col-sm-3 {
 			button {

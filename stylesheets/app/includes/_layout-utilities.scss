@@ -7,3 +7,43 @@
 		margin-left: $nm * -1 * 7 + px !important;
 	}		
 }
+
+.btn-custom-gray {
+	background-color: $gray-main !important;
+	border-radius: 0px;
+	border: none !important;
+	@include book;
+	text-transform: uppercase;
+	color: white;
+	&:hover {
+		color: white;
+	}
+	&.lg {
+		font-size: 22px !important;
+		@media #{$md-down} {
+			font-size: 18px !important;	
+		}	
+	}
+}
+
+.btn-custom-info {
+	background-color: $brand-info !important;
+	border-radius: 0px;
+	border: none !important;
+	@include book;
+	text-transform: uppercase;
+	color: white;
+	&:hover {
+		color: white;
+	}
+	&.lg {
+		font-size: 22px !important;
+		@media #{$md-down} {
+			font-size: 18px !important;	
+		}	
+	}
+}
+
+a {
+	color: $gray-light !important;
+}
