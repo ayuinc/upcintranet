@@ -158,6 +158,23 @@
 		}
 		.panel-body-head-table {
 			background: $gray-main;
+			&.red {
+				background: $brand-danger;
+				.tr {
+					@include list-unstyled;
+					@include clearfix;
+					li + li {
+						&.col-sm-2, &.col-sm-1, &.col-sm-4, &.col-sm-5, &.col-sm-6, &.col-sm-7 {
+							div {
+								border-left: 1px solid white;
+								&.fecha {
+									border: none;
+								}
+							}
+						}
+					}
+				}
+			}
 			.tr {
 				@include list-unstyled;
 				@include clearfix;
@@ -179,7 +196,7 @@
 						@include justify-content(center);
 						span {
 							@include flex-grow(0);
-							@include book;
+							@include extra-light;
 							font-size: rem(15px);
 							font-size: 15px;
 							color: white;

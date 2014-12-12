@@ -6452,6 +6452,21 @@ a {
         font-size: 20px; }
   .panel .panel-body .panel-body-head-table {
     background: #565658; }
+    .panel .panel-body .panel-body-head-table.red {
+      background: #E42322; }
+      .panel .panel-body .panel-body-head-table.red .tr {
+        padding-left: 0;
+        list-style: none;
+        margin: 0; }
+        .panel .panel-body .panel-body-head-table.red .tr:before, .panel .panel-body .panel-body-head-table.red .tr:after {
+          content: " ";
+          display: table; }
+        .panel .panel-body .panel-body-head-table.red .tr:after {
+          clear: both; }
+        .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-2 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-1 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-4 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-5 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-6 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-7 div {
+          border-left: 1px solid white; }
+          .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-2 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-1 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-4 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-5 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-6 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-7 div.fecha {
+            border: none; }
     .panel .panel-body .panel-body-head-table .tr {
       padding-left: 0;
       list-style: none;
@@ -6496,7 +6511,8 @@ a {
             -moz-flex-grow: 0;
             flex-grow: 0;
             -ms-flex-positive: 0;
-            font-family: "SolanoGothicMVBProBd" !important;
+            font-family: "Solano Gothic MVB", Helvetica, Arial, sans-serif !important;
+            font-weight: 200;
             font-style: normal;
             font-size: 0.9375rem;
             font-size: 15px;
