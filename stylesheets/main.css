@@ -6379,8 +6379,8 @@ body {
     .site-content {
       padding-left: 28px !important; } }
   .site-content.login {
-    margin-top: 50px;
-    padding-top: 63px; }
+    margin-top: 0px;
+    padding-top: 7px; }
     .site-content.login .row {
       margin-left: -14px; }
       .site-content.login .row .col-sm-10 img.logo {
@@ -7961,6 +7961,9 @@ body {
     color: white; }
   .btn-custom-gray.lg {
     font-size: 22px !important; }
+
+a {
+  color: #858688 !important; }
 
 .panel {
   position: relative; }
