@@ -9,7 +9,7 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-10 bg-muted">
           <div class="row">
-            <div class="col-sm-7 pt-7 pb-14">
+            <div class="col-sm-7 p-28">
               <img src="{site_url}assets/img/login_image.jpg" class="img-responsive" alt="">
             </div>
             <div class="col-sm-5">
@@ -20,18 +20,23 @@
 								<input type="hidden" name="XID" value="{XID_HASH}"> 
 								<input type="hidden" name="plataforma" value="C">
 	              <div class="row pt-7">
-	                <div class="col-sm-5 pt-7"><label for="">Nombre de usuario:</label></div>
-	                <div class="col-sm-7"><input class="form-control" type="text" name="codigo" value="" maxlength="32" class="input" size="25"  placeholder=""></div>
+	                <div class="col-sm-6 pt-7"><span class="solano-22 uppercase">Nombre de usuario:</span></div>
+	                <div class="col-sm-6"><input class="form-control" type="text" name="codigo" value="" maxlength="32" class="input" size="25"  placeholder=""></div>
 	              </div>
 	              <div class="row pt-14">
-	                <div class="col-sm-5"><label for="">Contraseña:</label></div>
-	                <div class="col-sm-7"><input type="password" name="contrasena" value="" maxlength="32" class="input form-control" size="25" class="form-control" placeholder=""></div>
+	                <div class="col-sm-6"><span class="solano-22 uppercase">Contraseña:</span></div>
+	                <div class="col-sm-6"><input type="password" name="contrasena" value="" maxlength="32" class="input form-control" size="25" class="form-control" placeholder=""></div>
 	              </div>
-	              <button type="submit" value="Send" class="mt-14 btn btn-custom-gray lg">Iniciar Sesión</button>
+                <div class="row login-row">
+                  <div class="col-sm-8">
+                    <a href=""><img src="{site_url}assets/img/skyblue_arrow.png" alt=""></a> 
+                    <a href="" class="zizou-16">No puedo acceder a mi cuenta</a> 
+                  </div>
+                  <div class="col-sm-4">
+  	               <button type="submit" value="Send" class="mt-21 btn btn-custom-info lg">Iniciar Sesión</button>
+                  </div>
+                </div>
               </form>
-              <div class="row mt-70 ml-0">
-                <a href=""><img src="{site_url}assets/img/black_arrow.png" alt="">No puedo acceder a mi cuenta</a>
-              </div>
             </div>
           </div>
         </div>
