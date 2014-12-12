@@ -3549,8 +3549,8 @@ input[type="button"].btn-block {
   border-radius: 4px;
   direction: ltr;
   /*.dow {
-		border-top: 1px solid #ddd !important;
-	}*/ }
+    border-top: 1px solid #ddd !important;
+  }*/ }
 
 .datepicker-inline {
   width: 220px; }
@@ -4586,12 +4586,8 @@ body {
       padding-left: 28px !important; } }
   .site-content.login {
     margin-top: 0px;
-<<<<<<< HEAD
-    padding-top: 7px; }
-=======
     padding-top: 7px;
     padding-bottom: 0px; }
->>>>>>> cd53be5a8257a6347f9c881ddc3cbf10208261bd
     .site-content.login .row {
       margin-left: -14px; }
       .site-content.login .row .col-sm-10 img.logo {
@@ -6355,9 +6351,6 @@ body {
     @media only screen and (max-width: 992px) {
       .btn-custom-info.lg {
         font-size: 18px !important; } }
-
-a {
-  color: #858688 !important; }
 
 a {
   color: #858688 !important; }
