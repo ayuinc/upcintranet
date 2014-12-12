@@ -17,7 +17,7 @@ $alt: "helvetica";
 		@include book;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;
-		@media #{$md-down} {
+		@media #{$lg-down} {
 			font-size: rem(($fs) - 4) !important;	
 			font-size: ($fs - 4) + px !important;
 		}	
@@ -41,7 +41,7 @@ $alt: "helvetica";
 		@include serif-book;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;
-		@media #{$md-down} {
+		@media #{$lg-down} {
 			font-size: rem(($fs) - 4) !important;	
 			font-size: ($fs - 4) + px !important;
 		}	

@@ -81,11 +81,11 @@ body {
 						.row {
 							&.login-row {
 								.col-sm-8 {
-									@media #{$md-down} {
+									@media #{$lg-down} {
 										margin-top: 14px !important;
 									}
 									a img {
-										@media #{$md-down} {
+										@media #{$lg-down} {
 											width: 14px !important;
 										}
 									}
