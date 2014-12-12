@@ -118,7 +118,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul> ';*/
-        $result .= '{redirect="{site_url}dashboard/estudiante" status_code="301"}';
+        $result .= '{redirect="dashboard/estudiante" status_code="301"}';
         return $result;     
       }
       
