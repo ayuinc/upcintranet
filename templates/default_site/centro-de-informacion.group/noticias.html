@@ -32,13 +32,11 @@
           <div class="col-sm-8 pt-0">
             <span class="title-no-panel mb-21">Últimas Noticias de la UPC</span>
             <div class="row">
-	            {exp:channel:entries 
-	            	channel="noticias" 
-	            	limit="10" 
-	            	disable="member_data|pagination" 
-	            	dynamic="off"
-category="47"
-	            }
+	            {exp:ajw_feedparser 
+						    url="http://betablogs.upc.edu.pe/blog/feed/8"
+						    cache_refresh="30"
+						    limit="10"
+							} 
               <div class="col-sm-6">
                 <div class="panel">
                   <div class="panel-body canales">
@@ -47,12 +45,10 @@ category="47"
                     </div>  
                     <div class="panel-table">
                       <ul class="tr zizou-light-13">
-                        <p class="p-7 helvetica-14">{intro-noticia}</p>
-                        <p class="helvetica-bold-14 pl-7">
-                        {entry_date format="%d/%m/%Y"}
-                        </p>                
+                        <p class="p-7 helvetica-14">{description}</p>
+                        <p class="helvetica-bold-14 pl-7">{pubDate}</p>                
                         <p class="sb-link pl-7 zizou-14">
-													<a class="col-xs-11 p-7" href="{site_url}noticias/{url_title}">                        
+													<a class="col-xs-11 p-7" href="{link}" target="_blank">                        
 	                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Leer Nota Completa
 	                        </a>
 	                      </p>
@@ -61,7 +57,7 @@ category="47"
                   </div>
                 </div>
               </div>
-              {/exp:channel:entries}
+              {/exp:ajw_feedparser}
             </div>
           </div>
         </div>

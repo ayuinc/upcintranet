@@ -707,7 +707,7 @@ class Webservices
       $codigo = $_SESSION["Codigo"];
       $token = $_SESSION["Token"];
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token=1'.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2481,17 +2481,17 @@ class Webservices
       if (strval($TipoUser)=='ALUMNO') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-4 text-center helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
@@ -2504,17 +2504,17 @@ class Webservices
       if (strval($TipoUser)=='PROFESOR') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="19" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-4 text-center helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
@@ -2527,17 +2527,17 @@ class Webservices
       if (strval($TipoUser)=='PADRE') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="21" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-4 text-center helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
