@@ -707,7 +707,7 @@ class Webservices
       $codigo = $_SESSION["Codigo"];
       $token = $_SESSION["Token"];
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token=1'.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1903,31 +1903,38 @@ class Webservices
 				
 				for ($a=0; $a<$tamano_int; $a++) {
 					$result .= '<div class="panel-table">';
-		      $result .= '<ul class="tr mis-cursos-row">';
-	    		$result .= '<li class="col-xs-2 whole-cell-height">';
-	  			$result .= '<span class=" text-center">';
-	  			$result .= '<img src="'.$json['Cursos'][$i]['alumnos'][$a]['url_foto'].'" width="55" class="pt-7 pb-7">';
-	  			$result .= '</span>';
-	    		$result .= '</li>';
-	     		$result .= '<li class="col-xs-6 whole-cell-height">';
-	  			$result .= '<span class="mt-35 mb-35">';
-	  			$result .= $json['Cursos'][$i]['alumnos'][$a]['nombre_completo']; 			
-	  			$result .= '</span>';	  			  			
-	    		$result .= '</li>';
-	     		$result .= '<li class="col-xs-2 whole-cell-height">';
-	  			$result .= '<span class="mt-35 mb-35">';	    		
-	    		$result .= '<form method="post" action="{site_url}index.php/mi-docencia/cursos-detallados" id="form-alumno'.$a.'">';
-	    		$result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
-	  			$result .= '<input type="hidden" name="codalumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['codigo'].'">';
-	  			$result .= '<input type="hidden" name="cursoid" value="'.$json['Cursos'][$i]['cursoId'].'">';
-	  			$result .= '<input type="hidden" name="nombrealumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['nombre_completo'].'">';
-	  			$result .= '<input type="hidden" name="Flag" value="notas">';
-	  			$result .= '<input type="submit" name="submit" value="Ver Notas">';
-	  			$result .= '</form>';	
-	  			$result .= '</span>';	  			  			
-	    		$result .= '</li>';	  			
-	    		$result .= '<li class="col-xs-2 whole-cell-height">';
-	  			$result .= '<span class="mt-35 mb-35 text-center">';
+		      $result .= '<ul class="tr">';
+          $result .= '<li class="col-sm-2 helvetica-14">';
+          $result .= '<div class="text-center">';
+          $result .= '<span class=" text-center">';
+          $result .= '<img src="'.$json['Cursos'][$i]['alumnos'][$a]['url_foto'].'" width="55" class="pt-7 pb-7">';
+          $result .= '</span>';
+          $result .= '</div>';
+          $result .= '</li>';
+          $result .= '<li class="col-sm-6 helvetica-14">';
+          $result .= '<div class="text-center">';
+          $result .= '<span class="pt-35 pb-35">';
+          $result .= $json['Cursos'][$i]['alumnos'][$a]['nombre_completo'];       
+          $result .= '</span>';                 
+          $result .= '</div>';
+          $result .= '</li>';
+          $result .= '<li class="col-sm-2 helvetica-14">';
+          $result .= '<div class="text-center">';
+          $result .= '<span class="pt-35 pb-35">';          
+          $result .= '<form method="post" action="{site_url}index.php/mi-docencia/cursos-detallados" id="form-alumno'.$a.'">';
+          $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
+          $result .= '<input type="hidden" name="codalumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['codigo'].'">';
+          $result .= '<input type="hidden" name="cursoid" value="'.$json['Cursos'][$i]['cursoId'].'">';
+          $result .= '<input type="hidden" name="nombrealumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['nombre_completo'].'">';
+          $result .= '<input type="hidden" name="Flag" value="notas">';
+          $result .= '<input type="submit" name="submit" value="Ver Notas">';
+          $result .= '</form>'; 
+          $result .= '</span>';                 
+          $result .= '</div>';
+          $result .= '</li>';         
+          $result .= '<li class="col-sm-2 helvetica-14">';
+          $result .= '<div class="text-center">';
+	  			$result .= '<span class="pt-35 pb-35">';
 	  			
 		      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$json['Cursos'][$i]['alumnos'][$a]['codigo'].'&Token='.$token;
 		      $ch = curl_init($url);
@@ -1945,14 +1952,15 @@ class Webservices
 	  			
 	  			for ($b=0; $b<$tamano_inas; $b++) {
 		  			if ($json['Cursos'][$i]['cursoId'] == $json_b['Inasistencias'][$b]['CodCurso']) {
-			  			$result .= 'total: '.$json_b['Inasistencias'][$b]['Total'].' Máximo: '.$json_b['Inasistencias'][$b]['Maximo'];
+			  			$result .= 'Total: '.$json_b['Inasistencias'][$b]['Total'].' Máximo: '.$json_b['Inasistencias'][$b]['Maximo'];
 		  			}	
 		  		}	
 	  			
 	  			$result .= '</span>';
-	    		$result .= '</li>';	    		     
-	    		$result .= '</ul>'; 	
 	    		$result .= '</div>';	  		
+          $result .= '</li>';              
+          $result .= '</ul>';   
+          $result .= '</div>';        
 	      }
 	      
 	      
@@ -2473,17 +2481,17 @@ class Webservices
       if (strval($TipoUser)=='ALUMNO') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-4 text-center helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
@@ -2496,17 +2504,17 @@ class Webservices
       if (strval($TipoUser)=='PROFESOR') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="19" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-4 text-center helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
@@ -2519,17 +2527,17 @@ class Webservices
       if (strval($TipoUser)=='PADRE') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="21" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-4 text-center helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-14">';
+        $result .= '<li class="col-sm-4 helvetica-bold-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
