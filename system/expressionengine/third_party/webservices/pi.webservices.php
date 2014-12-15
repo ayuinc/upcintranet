@@ -2478,7 +2478,7 @@ class Webservices
       $result = '';
       
       if (strval($TipoUser)=='ALUMNO') {
-        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
+        /*$result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
         $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
@@ -2497,7 +2497,8 @@ class Webservices
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '{/exp:channel:entries}';  
-        return $result;     
+        return $result; */
+        redirect('/dashboard/estudiante');    
       }
       
       if (strval($TipoUser)=='PROFESOR') {
