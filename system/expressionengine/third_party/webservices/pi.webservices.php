@@ -2585,6 +2585,7 @@ class Webservices
     
     //DESTRUYE LA SESSION
     public function destruir_session () {
+      $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
       unset($_SESSION["Nombres"]);
@@ -2597,7 +2598,6 @@ class Webservices
       unset($_SESSION["CodError"]);
       unset($_SESSION["MsgError"]);
       unset($_SESSION["Redireccion"]);     
-      $_SESSION = [];
       var_dump($_SESSION);
       session_destroy();
       //redirect('/');
