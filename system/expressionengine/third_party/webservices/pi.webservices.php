@@ -2585,6 +2585,7 @@ class Webservices
     
     //DESTRUYE LA SESSION
     public function destruir_session () {
+      session_start();
       $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
