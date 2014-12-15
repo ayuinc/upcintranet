@@ -2601,7 +2601,7 @@ class Webservices
       unset($_SESSION["Redireccion"]);     
       var_dump($_SESSION);
       session_destroy();
-      //redirect('/');
+      redirect('/');
     }
     
         
