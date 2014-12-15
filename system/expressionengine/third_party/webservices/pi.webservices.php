@@ -76,7 +76,6 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      session_start();
       //INICIAR SESSON
       $_SESSION["Codigo"] = $json['Codigo'];
       $_SESSION["TipoUser"] = $json['TipoUser'];
