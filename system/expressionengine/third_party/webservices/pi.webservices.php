@@ -2597,6 +2597,7 @@ class Webservices
       unset($_SESSION["CodError"]);
       unset($_SESSION["MsgError"]);
       unset($_SESSION["Redireccion"]);     
+      $_SESSION = array();
       session_destroy();
       redirect('/');
     }
