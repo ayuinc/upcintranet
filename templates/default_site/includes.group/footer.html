@@ -11,8 +11,9 @@
   <script src="{site_url}js/app/vendor/velocity.min.js"></script>
   <script src="{site_url}js/app/src/notas-detalladas.js"></script>
   <script src="{site_url}js/app/src/reservas.js"></script>
+  {if segment_1 == 'dashboard'}
   <script src="{site_url}js/app/src/session_expired.js"></script>
-
+  {/if}
 	<script>
 		$( document ).ready(function() {
 		    $('#sede-L').hide();
