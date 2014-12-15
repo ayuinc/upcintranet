@@ -4672,7 +4672,8 @@ body {
     font-size: 14px !important;
     color: #858688; }
   .site-content .internal-header .second-line {
-    margin-left: -30px !important; }
+    margin-left: -30px !important;
+    margin-top: 7px !important; }
     .site-content .internal-header .second-line span {
       font-family: "SolanoGothicMVBProBd" !important;
       font-style: normal;
@@ -6559,6 +6560,8 @@ a {
       background: white; }
       .panel .panel-body .panel-table.mis-cursos-content ul li.col-sm-2 {
         display: none; }
+      .panel .panel-body .panel-table.mis-cursos-content ul li.show-curso-detail {
+        cursor: pointer !important; }
       .panel .panel-body .panel-table.mis-cursos-content ul li.curso-promedio div {
         border-right: none; }
   .panel .panel-body .panel-table.pagos {
