@@ -1425,7 +1425,6 @@ class Webservices
       //Control de errores
       if ($error!='00000') {
         $result = '';
-        $result.= $url;
         $result .= $error_mensaje;   
       }     	   
        
