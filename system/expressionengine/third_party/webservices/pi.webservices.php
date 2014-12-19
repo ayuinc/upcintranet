@@ -1530,6 +1530,7 @@ class Webservices
       //Control de errores
       if ($error!='00000') {
         $result = '';
+        $result .= $url;
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
