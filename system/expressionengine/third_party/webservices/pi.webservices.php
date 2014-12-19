@@ -105,7 +105,7 @@ class Webservices
       
       if (strval($TipoUser)=='ALUMNO') {
         //header('Location: '.'{site_url}/dashboard/estudiante');
-        /*$result .= '<ul class="tr pb-7">';
+        $result .= '<ul class="tr pb-7">';
         $result .= '<li class="col-sm-2"></li>';
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
@@ -116,8 +116,8 @@ class Webservices
         $result .= '</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '</ul> ';*/
-        $result .= '{redirect="dashboard/estudiante" status_code="301"}';
+        $result .= '</ul> ';
+        //$result .= '{redirect="dashboard/estudiante" status_code="301"}';
         return $result;     
       }
       
