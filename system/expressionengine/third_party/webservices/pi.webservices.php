@@ -1341,7 +1341,9 @@ class Webservices
       $codactiv = ee()->TMPL->fetch_param('codactiv');
       $numhoras = ee()->TMPL->fetch_param('numhoras');
       $fechaini = ee()->TMPL->fetch_param('fechaini');
+      $fechaini = substr($fechaini, 9,10).substr($fechaini, 6,7).substr($fechaini, 0,4);
       $fechafin = ee()->TMPL->fetch_param('fechafin');
+      $fechafin = substr($fechafin, 9,10).substr($fechafin, 6,7).substr($fechafin, 0,4);
       $segmento = ee()->TMPL->fetch_param('segmento');
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
@@ -1438,6 +1440,7 @@ class Webservices
       $codactiv = ee()->TMPL->fetch_param('codactiv');
       $numhoras = ee()->TMPL->fetch_param('numhoras');
       $fecha = ee()->TMPL->fetch_param('fecha');
+      $fecha = substr($fecha, 0,1)substr($fecha, 3,4).substr($fecha, 6,9);
       $horaini = ee()->TMPL->fetch_param('horaini');
       $horafin = ee()->TMPL->fetch_param('horafin');
       $detalles = ee()->TMPL->fetch_param('detalles');
@@ -1471,9 +1474,9 @@ class Webservices
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
       
       $fecini = ee()->TMPL->fetch_param('FecIni');
-      $fecini = substr($fecini, 7,8).substr($fecini, 5,6).substr($fecini, 0,4);
+      $fecini = substr($fecini, 0,1).substr($fecini, 3,4).substr($fecini, 6,9);
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
-      $fechafin = substr($fechafin, 7,8).substr($fechafin, 5,6).substr($fechafin, 0,4);
+      $fechafin = substr($fechafin, 0,1).substr($fechafin, 3,4).substr($fechafin, 6,9);
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
 			$segmento= ee()->TMPL->fetch_param('segmento');
       
@@ -1527,7 +1530,6 @@ class Webservices
       //Control de errores
       if ($error!='00000') {
         $result = '';
-        $result .= $errores;
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
@@ -1545,8 +1547,10 @@ class Webservices
       $codrecurso = ee()->TMPL->fetch_param('CodRecurso');
       $nomrecurso = ee()->TMPL->fetch_param('NomRecurso');
       $fecini = ee()->TMPL->fetch_param('FecIni');
+      $fecini = substr($fecini, 9,10).substr($fecini, 6,7).substr($fecini, 0,4);
       $horaini = ee()->TMPL->fetch_param('HoraIni');
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
+      $fechafin = substr($fechafin, 9,10).substr($fechafin, 6,7).substr($fechafin, 0,4);
       $horafin = ee()->TMPL->fetch_param('HoraFin');
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       
