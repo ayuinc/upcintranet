@@ -1469,8 +1469,11 @@ class Webservices
       $codigo = $_SESSION["Codigo"];
       $token = $_SESSION["Token"];
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
+      
       $fecini = ee()->TMPL->fetch_param('FecIni');
+      $fecini = substr($fecini, 7,8).substr($fecini, 5,6).substr($fecini, 0,4);
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
+      $fechafin = substr($fechafin, 7,8).substr($fechafin, 5,6).substr($fechafin, 0,4);
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
 			$segmento= ee()->TMPL->fetch_param('segmento');
       
@@ -1524,7 +1527,7 @@ class Webservices
       //Control de errores
       if ($error!='00000') {
         $result = '';
-        $result .= $error;
+        $result .= $errores;
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
