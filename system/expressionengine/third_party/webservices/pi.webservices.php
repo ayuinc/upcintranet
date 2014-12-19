@@ -1440,7 +1440,7 @@ class Webservices
       $codactiv = ee()->TMPL->fetch_param('codactiv');
       $numhoras = ee()->TMPL->fetch_param('numhoras');
       $fecha = ee()->TMPL->fetch_param('fecha');
-      $fecha = substr($fecha, 0,1).substr($fecha, 3,4).substr($fecha, 6,9);
+      $fecha = substr($fecha, 0,2).substr($fecha, 3,2).substr($fecha, 6,4);
       $horaini = ee()->TMPL->fetch_param('horaini');
       $horafin = ee()->TMPL->fetch_param('horafin');
       $detalles = ee()->TMPL->fetch_param('detalles');
@@ -1474,9 +1474,9 @@ class Webservices
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
       
       $fecini = ee()->TMPL->fetch_param('FecIni');
-      $fecini = substr($fecini, 0,1).substr($fecini, 3,4).substr($fecini, 6,9);
+      $fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
-      $fechafin = substr($fechafin, 0,1).substr($fechafin, 3,4).substr($fechafin, 6,9);
+      $fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
 			$segmento= ee()->TMPL->fetch_param('segmento');
       
@@ -1548,10 +1548,10 @@ class Webservices
       $codrecurso = ee()->TMPL->fetch_param('CodRecurso');
       $nomrecurso = ee()->TMPL->fetch_param('NomRecurso');
       $fecini = ee()->TMPL->fetch_param('FecIni');
-      $fecini = substr($fecini, 9,10).substr($fecini, 6,7).substr($fecini, 0,4);
+      $fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $horaini = ee()->TMPL->fetch_param('HoraIni');
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
-      $fechafin = substr($fechafin, 9,10).substr($fechafin, 6,7).substr($fechafin, 0,4);
+      $fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
       $horafin = ee()->TMPL->fetch_param('HoraFin');
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       
