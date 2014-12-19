@@ -1341,9 +1341,9 @@ class Webservices
       $codactiv = ee()->TMPL->fetch_param('codactiv');
       $numhoras = ee()->TMPL->fetch_param('numhoras');
       $fechaini = ee()->TMPL->fetch_param('fechaini');
-      $fechaini = substr($fechaini, 9,10).substr($fechaini, 6,7).substr($fechaini, 0,4);
+      $fechaini = substr($fechaini, 0,2).substr($fechaini, 3,2).substr($fechaini, 6,4);
       $fechafin = ee()->TMPL->fetch_param('fechafin');
-      $fechafin = substr($fechafin, 9,10).substr($fechafin, 6,7).substr($fechafin, 0,4);
+      $fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
       $segmento = ee()->TMPL->fetch_param('segmento');
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
