@@ -1489,40 +1489,42 @@ class Webservices
       
       $tamano = count($json['Recursos']); 
       
-      $result .= '<div class="panel-table no-bg">';
-			for ($i=0; $i<$tamano; $i++) { 
-	      $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
-	      $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';	
-	      $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['CodRecurso'].'" value="CodRecurso" />';
-	      $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['NomRecurso'].'" value="NomRecurso" />';
-	      $result .= '<input type="hidden" name="'.$canhoras.'" value="CanHoras" />';
-	      $result .= '<input type="hidden" name="'.$fecini.'" value="fecIni" />';
-	      $result .= '<input type="hidden" name="'.$fechafin.'" value="fecFin" />';
-	      $result .= '<input type="hidden" name="1" value="Flag" />';				
-	      $result .= '<ul class="tr">';
-	      $result .= '<li class="col-sm-4 helvetica-12">';
-	      $result .= '<div class="text-center">';    
-	      $result .= '<span>'.$json['Recursos'][$i]['NomRecurso'].'</span>';
-	      $result .= '</div>';
-	      $result .= '</li>';
-	      $result .= '<li class="col-sm-4 helvetica-10">';
-	      $result .= '<div class="text-center">';
-	      $result .= '<span>'.$json['Recursos'][$i]['Local'].'</span>';
-	      $result .= '</div>';
-	      $result .= '</li>';
-	      $result .= '<li class="col-sm-4 helvetica-12">';
-	      $result .= '<div class="text-center">';	      
-	      $result .= '<input type="submit" value="Reservar" name="submit">';
-	      $result .= '</div>';
-	      $result .= '</li>';	      
-	      $result .= '</ul>';
-	      $result .= '</form>';
+      if($error=='00000'){
+        $result .= '<div class="panel-table no-bg">';
+  			for ($i=0; $i<$tamano; $i++) { 
+  	      $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
+  	      $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';	
+  	      $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['CodRecurso'].'" value="CodRecurso" />';
+  	      $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['NomRecurso'].'" value="NomRecurso" />';
+  	      $result .= '<input type="hidden" name="'.$canhoras.'" value="CanHoras" />';
+  	      $result .= '<input type="hidden" name="'.$fecini.'" value="fecIni" />';
+  	      $result .= '<input type="hidden" name="'.$fechafin.'" value="fecFin" />';
+  	      $result .= '<input type="hidden" name="1" value="Flag" />';				
+  	      $result .= '<ul class="tr">';
+  	      $result .= '<li class="col-sm-4 helvetica-12">';
+  	      $result .= '<div class="text-center">';    
+  	      $result .= '<span>'.$json['Recursos'][$i]['NomRecurso'].'</span>';
+  	      $result .= '</div>';
+  	      $result .= '</li>';
+  	      $result .= '<li class="col-sm-4 helvetica-10">';
+  	      $result .= '<div class="text-center">';
+  	      $result .= '<span>'.$json['Recursos'][$i]['Local'].'</span>';
+  	      $result .= '</div>';
+  	      $result .= '</li>';
+  	      $result .= '<li class="col-sm-4 helvetica-12">';
+  	      $result .= '<div class="text-center">';	      
+  	      $result .= '<input type="submit" value="Reservar" name="submit">';
+  	      $result .= '</div>';
+  	      $result .= '</li>';	      
+  	      $result .= '</ul>';
+  	      $result .= '</form>';
+        }
+        $result .= "</div>";
       }
-      $result .= "</div>";
-       
       //Control de errores
       if ($error!='00000') {
         $result = '';
+        $result .= $error;
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
