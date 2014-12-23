@@ -724,7 +724,7 @@ class Webservices
     public function padre_inasistencias_alumno(){
       $codigo = $_SESSION["Codigo"];
       $token = $_SESSION["Token"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codalumno');  
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
