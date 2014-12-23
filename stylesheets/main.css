@@ -211,7 +211,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Solano Gothic MVB", Helvetica, Arial, sans-serif;
+  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #5d5d58;
@@ -3549,8 +3549,8 @@ input[type="button"].btn-block {
   border-radius: 4px;
   direction: ltr;
   /*.dow {
-    border-top: 1px solid #ddd !important;
-  }*/ }
+		border-top: 1px solid #ddd !important;
+	}*/ }
 
 .datepicker-inline {
   width: 220px; }
@@ -4082,12 +4082,12 @@ input[type="button"].btn-block {
   src: url("../stylesheets/fonts/Helvetica.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fonts/Helvetica.woff") format("woff"), url("../stylesheets/fonts/Helvetica.ttf") format("truetype"), url("../stylesheets/fonts/Helvetica.svg") format("svg"); }
 /* PROJECT ESPECIFIC FONTS */
 .thin {
-  font-family: "Solano Gothic MVB", Helvetica, Arial, sans-serif !important;
+  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
   font-weight: 100;
   font-style: normal; }
 
 .extra-light {
-  font-family: "Solano Gothic MVB", Helvetica, Arial, sans-serif !important;
+  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
   font-weight: 200;
   font-style: normal; }
 
@@ -4096,7 +4096,7 @@ input[type="button"].btn-block {
   font-style: normal; }
 
 .light-italic {
-  font-family: "Solano Gothic MVB", Helvetica, Arial, sans-serif !important;
+  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
   font-weight: 300;
   font-style: italic; }
 
@@ -4105,17 +4105,17 @@ input[type="button"].btn-block {
   font-style: normal; }
 
 .book-italic {
-  font-family: "Solano Gothic MVB", Helvetica, Arial, sans-serif !important;
+  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
   font-weight: 400;
   font-style: italic; }
 
 .medium {
-  font-family: "Solano Gothic MVB", Helvetica, Arial, sans-serif !important;
+  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
   font-weight: 500;
   font-style: normal; }
 
 .medium-italic {
-  font-family: "Solano Gothic MVB", Helvetica, Arial, sans-serif !important;
+  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
   font-weight: 500;
   font-style: italic; }
 
@@ -4590,36 +4590,30 @@ body {
     padding-bottom: 0px; }
     .site-content.login .row {
       margin-left: -14px; }
-      .site-content.login .row .col-sm-10 img.logo {
-        float: right !important; }
-      @media only screen and (max-width: 1200px) {
-        .site-content.login .row .col-sm-10 .row .col-sm-5 .row.login-row .col-sm-8 {
-          margin-top: 14px !important; } }
-      @media only screen and (max-width: 1200px) {
-        .site-content.login .row .col-sm-10 .row .col-sm-5 .row.login-row .col-sm-8 a img {
-          width: 14px !important; } }
       @media only screen and (max-width: 992px) {
-        .site-content.login .row .col-sm-10 .row .col-sm-5 .row .col-sm-5 {
+        .site-content.login .row .col-sm-8 .row .col-sm-5 .row .col-sm-5 {
           padding-left: 0px;
           padding-right: 0px; } }
-      .site-content.login .row .col-sm-10 .row .col-sm-5 .row p {
+      .site-content.login .row .col-sm-8 .row .col-sm-5 .row p {
         color: #858688 !important;
         font-family: "Zizou Slab-Regular" !important;
         font-style: normal;
         font-size: 28px; }
-      .site-content.login .row .col-sm-10 .row .col-sm-5 .row a {
+      .site-content.login .row .col-sm-8 .row .col-sm-5 .row a {
         font-family: "Zizou Slab-Regular" !important;
         font-style: normal;
         font-size: 16px;
         color: #262624; }
-      .site-content.login .row .col-sm-10 .row .col-sm-5 .row input {
+      .site-content.login .row .col-sm-8 .row .col-sm-5 .row input {
         background-color: #E3E3E3;
         border-radius: 0px;
         border: none !important; }
-        .site-content.login .row .col-sm-10 .row .col-sm-5 .row input .form-control {
+        .site-content.login .row .col-sm-8 .row .col-sm-5 .row input .form-control {
           font-size: 20px; }
-      .site-content.login .row .col-sm-10 .row .col-sm-5 button {
+      .site-content.login .row .col-sm-8 .row .col-sm-5 button {
         float: right; }
+      .site-content.login .row .col-sm-8 .row .col-sm-7 form .row .inicia div {
+        margin-left: 125px !important; }
       .site-content.login .row .col-sm-8 {
         padding-top: 28px; }
         @media only screen and (max-width: 1200px) {
@@ -6282,6 +6276,183 @@ body {
   font-size: 1.8125rem !important;
   font-size: 29px !important; }
 
+.solano-bold-30 {
+  font-family: "SolanoGothicMVBProBd" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.solano-30 {
+  font-family: "SolanoGothicMVBProBd" !important;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-30 {
+      font-size: 1.625rem !important;
+      font-size: 26px !important; } }
+
+.solano-light-30 {
+  font-family: "SolanoGothicMVB-Lt" !important;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.zizou-bold-30 {
+  font-family: "Zizou Slab-Bold" !important;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.zizou-light-30 {
+  font-family: "Zizou Slab-Light" !important;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.zizou-30 {
+  font-family: "Zizou Slab-Regular" !important;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-30 {
+      font-size: 1.625rem !important;
+      font-size: 26px !important; } }
+
+.helvetica-30 {
+  font-family: "Helvetica" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.helvetica-bold-30 {
+  font-family: "Helvetica" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.solano-bold-31 {
+  font-family: "SolanoGothicMVBProBd" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.solano-31 {
+  font-family: "SolanoGothicMVBProBd" !important;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-31 {
+      font-size: 1.6875rem !important;
+      font-size: 27px !important; } }
+
+.solano-light-31 {
+  font-family: "SolanoGothicMVB-Lt" !important;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.zizou-bold-31 {
+  font-family: "Zizou Slab-Bold" !important;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.zizou-light-31 {
+  font-family: "Zizou Slab-Light" !important;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.zizou-31 {
+  font-family: "Zizou Slab-Regular" !important;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-31 {
+      font-size: 1.6875rem !important;
+      font-size: 27px !important; } }
+
+.helvetica-31 {
+  font-family: "Helvetica" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.helvetica-bold-31 {
+  font-family: "Helvetica" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.solano-bold-32 {
+  font-family: "SolanoGothicMVBProBd" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.solano-32 {
+  font-family: "SolanoGothicMVBProBd" !important;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-32 {
+      font-size: 1.75rem !important;
+      font-size: 28px !important; } }
+
+.solano-light-32 {
+  font-family: "SolanoGothicMVB-Lt" !important;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.zizou-bold-32 {
+  font-family: "Zizou Slab-Bold" !important;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.zizou-light-32 {
+  font-family: "Zizou Slab-Light" !important;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.zizou-32 {
+  font-family: "Zizou Slab-Regular" !important;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-32 {
+      font-size: 1.75rem !important;
+      font-size: 28px !important; } }
+
+.helvetica-32 {
+  font-family: "Helvetica" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.helvetica-bold-32 {
+  font-family: "Helvetica" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
 .form-control {
   font-size: 18px !important; }
 
@@ -6331,10 +6502,15 @@ body {
   color: white; }
   .btn-custom.gray {
     background-color: #565658 !important; }
+  .btn-custom.black-btn {
+    background-color: black !important; }
   .btn-custom.info {
     background-color: #3298FF !important; }
   .btn-custom:hover {
     color: white; }
+  .btn-custom.wide {
+    min-width: 189px !important;
+    padding: 3px !important; }
   .btn-custom.lg {
     font-size: 22px !important; }
     @media only screen and (max-width: 992px) {
@@ -6512,7 +6688,7 @@ a {
             -moz-flex-grow: 0;
             flex-grow: 0;
             -ms-flex-positive: 0;
-            font-family: "Solano Gothic MVB", Helvetica, Arial, sans-serif !important;
+            font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
             font-weight: 200;
             font-style: normal;
             font-size: 0.9375rem;

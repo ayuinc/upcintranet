@@ -1,40 +1,40 @@
 {embed="includes/head"}
     <div class="site-content login">
-      <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10"><img class="logo" src="{site_url}assets/img/logo_upc_red.png" alt=""></div>
-        <div class="col-sm-1"></div>
-      </div>
       <div class="row pt-14">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10 bg-muted">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
           <div class="row">
-            <div class="col-sm-7 p-28">
-              <img src="{site_url}assets/img/login_image.jpg" class="img-responsive" alt="">
+            <div class="col-sm-5">
+              <img src="{site_url}assets/img/login-04.png" class="img-responsive" alt="">
             </div>
-            <div class="col-sm-5 pr-35">
-              <div class="row pt-14">
-                <div class="col-sm-12 mt-7"><span class="zizou-28 black">Iniciar sesión</span></div>
+            <div class="col-sm-7 bg-muted pr-35">
+              <div class="row mt-14">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4 mt-49"><span class="uppercase solano-32 black">Intranet</span></div>
+                <div class="col-sm-4 ml-56"><img class="logo" src="{site_url}assets/img/logo_upc_red.png" alt=""></div>
+                <div class="col-sm-2"></div>
               </div>
               <form action="{site_url}index.php/login/usuario" method="post" name="login_form">
 								<input type="hidden" name="XID" value="{XID_HASH}"> 
 								<input type="hidden" name="plataforma" value="C">
-	              <div class="row mt-14 pt-7">
-	                <div class="col-sm-6 pt-7"><span class="solano-22 uppercase">Nombre de usuario:</span></div>
-	                <div class="col-sm-6"><input class="form-control" type="text" name="codigo" value="" maxlength="32" class="input" size="25"  placeholder=""></div>
-	              </div>
-	              <div class="row pt-14">
-	                <div class="col-sm-6"><span class="solano-22 uppercase">Contraseña:</span></div>
-	                <div class="col-sm-6"><input type="password" name="contrasena" value="" maxlength="32" class="input form-control" size="25" class="form-control" placeholder=""></div>
-	              </div>
-                <div class="row login-row">
-                  <div class="col-sm-8">
-                    <a href=""><img src="{site_url}assets/img/skyblue_arrow.png" alt=""></a> 
-                    <a href="" class="zizou-16">No puedo acceder a mi cuenta</a> 
-                  </div>
-                  <div class="col-sm-4">
-  	               <button type="submit" value="Send" class="mt-21 btn btn-custom info lg">Iniciar Sesión</button>
-                  </div>
+                <div class="row mt-14 pt-7">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-8"><input class="form-control zizou-12" type="text" name="codigo" value="" maxlength="32" class="input" size="25"  placeholder="Nombre de Usuario*"></div>
+                </div>  
+                <div class="row">
+                  <div class="col-sm-2"></div>
+	                <div class="col-sm-8"><input type="password" name="contrasena" value="" maxlength="32" class="zizou-12 input form-control" size="25" placeholder="Contraseña*"></div>
+                </div>
+                <div class="row mt-7">
+                  <div class="col-sm-2"></div>
+              		<div class="col-sm-8 inicia">
+              			<div>
+              				<button type="submit" value="Send" class="btn btn-custom black-btn wide lg">Iniciar Sesión</button>
+              			</div>
+                    <div class="mt-14">
+                    	<a href="" class="zizou-14">No puedo acceder a mi cuenta</a> 
+                    </div>
+              		</div>
                 </div>
               </form>
             </div>
