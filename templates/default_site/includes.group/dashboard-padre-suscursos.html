@@ -2,7 +2,7 @@
     <div class="panel-head">
       <div class="panel-head-left">
         <div class="panel-title">
-          <h2>Mis cursos</h2>
+          <h2>Sus cursos</h2>
         </div>
       </div>
     </div>
@@ -21,8 +21,7 @@
         </ul>
       </div>  
       <div class="panel-table mis-cursos-content no-bg" id="miscursos">
-        {exp:webservices:inasistencias_alumno}
+        {exp:webservices:padre_inasistencias_alumno codigo_alumno="{embed:codigo_alumno}"}
       </div>
     </div>
   </div>
-            

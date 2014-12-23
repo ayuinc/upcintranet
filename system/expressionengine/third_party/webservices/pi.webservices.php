@@ -76,7 +76,6 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      
       //INICIAR SESSON
       $_SESSION["Codigo"] = $json['Codigo'];
       $_SESSION["TipoUser"] = $json['TipoUser'];
@@ -106,19 +105,19 @@ class Webservices
       
       if (strval($TipoUser)=='ALUMNO') {
         //header('Location: '.'{site_url}/dashboard/estudiante');
-        /*$result .= '<ul class="tr pb-7">';
+        $result .= '<ul class="tr pb-7">';
         $result .= '<li class="col-sm-2"></li>';
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="/dashboard/estudiante">';
+        $result .= '<a href="{site_url}dashboard/estudiante">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Alumno';
         $result .= '</a>';
         $result .= '</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '</ul> ';*/
-        $result .= '{redirect="dashboard/estudiante" status_code="301"}';
+        $result .= '</ul> ';
+        //$result .= '{redirect="dashboard/estudiante" status_code="301"}';
         return $result;     
       }
       
@@ -128,7 +127,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="/dashboard/docente">';
+        $result .= '<a href="{site_url}dashboard/docente">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Profesor';
         $result .= '</a>';
         $result .= '</span>';
@@ -154,12 +153,12 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="/dashboard/padre">';
+        $result .= '<a href="{site_url}dashboard/padre">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Padre';
         $result .= '</a>';
         $result .= '<ul> ';
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
-          $result .= '<li><a href="http://104.131.41.84/dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
+          $result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
         }
         $result .= '</ul> ';
         $result .= '</span>';
@@ -171,7 +170,42 @@ class Webservices
       }  
                     
     }
+
+    // HEADER PADRES CON LISTA DE HIJOS 
+    public function padre_lista_de_hijos(){
+      $codigo = $_SESSION["Codigo"];
+      $token = $_SESSION["Token"];
+      
+      $result = '';
+      
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $hijosWebService=curl_exec($ch);
+      $json = json_decode($hijosWebService, true);
+
+      for ($i=0; $i < count($json["hijos"])  ; $i++) { 
+        //$result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
+        $result .=  '<div class="col-sm-3">';
+        $result .=  '<div class="dropdown">';
+        $result .=  '<div class="dropdown-toggle" id="dropdownMenuA" data-toggle="dropdown">';
+        $result .=  '<img class="img-circle img-responsive" src="{site_url}images/avatars/default_set/user.png">';
+        $result .=  '<span>'.$json["hijos"][$i]["nombres"].'</span>';
+        $result .=  '</div>';
+        $result .=  '<ul class="dropdown-menu first-child" role="menu" aria-labelledby="dropdownMenuA">';
+        $result .=  '<li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">Activar su perfil</a></li>';
+        $result .=  '</ul>';
+        $result .=  '</div>';
+        $result .=  '</div>';
+      }
+      
+      return $result;             
+                    
+    }
     
+
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO Y LA REDIRECCION QUE LLEGA
     public function consultar_alumno_redireccion(){
       $codigo = $_SESSION["Codigo"];
@@ -186,7 +220,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="'.$redireccion.'">';
+        $result .= '<a href="{site_url}'.$redireccion.'">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Alumno Pregrado';
         $result .= '</a>';
         $result .= '</span>';
@@ -203,7 +237,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="'.$redireccion.'">';
+        $result .= '<a href="{site_url}'.$redireccion.'">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Alumno Pregrado';
         $result .= '</a>';
         $result .= '</span>';
@@ -220,7 +254,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="'.$redireccion.'">';
+        $result .= '<a href="{site_url}'.$redireccion.'">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Alumno Pregrado';
         $result .= '</a>';
         $result .= '</span>';
@@ -466,6 +500,143 @@ class Webservices
       return $result;               
     }     
     
+     //HORARIO CICLO ACTUAL DEL ALUMNO CONSULTADO POR PADRE
+    public function padre_horario_ciclo_actual_alumno(){
+      $codigo = $_SESSION["Codigo"];
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $token = $_SESSION["Token"];
+      
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/UPCMobile.svc/HorarioPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
+      
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $result=curl_exec($ch);
+      $json = json_decode($result, true);
+      
+      $error = $json['CodError'];
+      $error_mensaje = $json['MsgError'];      
+      
+      //limpio la variable para reutilizarla
+      $result = '';
+      
+      //genera el tamano del array
+      $tamano = count($json['HorarioDia']);  
+      
+      for ($i=0; $i<$tamano; $i++) {
+        $result .= '<div>';
+        $result .= '<span class="zizou-14">';
+        if ($json['HorarioDia'][$i]['CodDia'] == 1) {
+          $result .= 'Lunes';
+        }
+        if ($json['HorarioDia'][$i]['CodDia'] == 2) {
+          $result .= 'Martes';
+        }       
+        if ($json['HorarioDia'][$i]['CodDia'] == 3) {
+          $result .= 'Miércoles';
+        }    
+        if ($json['HorarioDia'][$i]['CodDia'] == 4) {
+          $result .= 'Jueves';
+        }  
+        if ($json['HorarioDia'][$i]['CodDia'] == 5) {
+          $result .= 'Viernes';
+        }                    
+        if ($json['HorarioDia'][$i]['CodDia'] == 6) {
+          $result .= 'Sábado';
+        }           
+        $result .= '</span>';
+        $result .= '</div>'; 
+        $result .= '<div class="panel-body mb-35">';
+        $result .= '<div class="panel-body-head-table">'; 
+        $result .= '<ul class="tr">'; 
+        $result .= '<li class="col-sm-1">'; 
+        $result .= '<div><span>Inicio</span></div>'; 
+        $result .= '</li>'; 
+        $result .= '<li class="col-sm-1">'; 
+        $result .= '<div><span>Fin</span></div>'; 
+        $result .= '</li>'; 
+        $result .= '<li class="col-sm-7">'; 
+        $result .= '<div><span>Clase</span></div>'; 
+        $result .= '</li>'; 
+        $result .= '<li class="col-sm-1">'; 
+        $result .= '<div><span>Sede</span></div>'; 
+        $result .= '</li>';  
+        $result .= '<li class="col-sm-1">'; 
+        $result .= '<div><span>Sección</span></div>'; 
+        $result .= '</li>'; 
+        $result .= '<li class="col-sm-1">'; 
+        $result .= '<div><span>Salón</span></div>'; 
+        $result .= '</li>';                                                                                                                                                  
+        $result .= '</ul>'; 
+        $result .= '</div>';        
+        
+        //genera el tamano del array
+        $tamano_int = count($json['HorarioDia'][$i]['Clases']); 
+        
+        for ($b=0; $b<$tamano_int; $b++) {
+            $result .= '<div class="panel-table">'; 
+            $result .= '<ul class="tr mis-cursos-row">'; 
+            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<span class="helvetica-12">';
+            $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
+            $HoraInicio = ltrim($HoraInicio,'0');
+            $result .= $HoraInicio.':00';
+            $result .='</span>'; 
+            $result .= '</li>'; 
+            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<span class="helvetica-12">';
+            $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
+            $HoraFin = ltrim($HoraFin,'0');
+            $result .= $HoraFin.':00';                  
+            $result .='</span>';                  
+            $result .= '</li>';                        
+            $result .= '<li class="col-xs-7 whole-cell-height">'; 
+            $result .= '<span class="helvetica-12">';
+            $result .= $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre'];
+            $result .= '</span>';                   
+            $result .= '</li>'; 
+            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<span class="helvetica-12">';
+            $result .= $json['HorarioDia'][$i]['Clases'][$b]['Sede'];
+            $result .= '</span>'; 
+            $result .= '</li>'; 
+            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<span class="helvetica-12">';
+            $result .= $json['HorarioDia'][$i]['Clases'][$b]['Seccion'];
+            $result .= '</span>'; 
+            $result .= '</li>'; 
+            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<span class="helvetica-12">';
+            $result .= $json['HorarioDia'][$i]['Clases'][$b]['Salon'];
+            $result .= '</span>';  
+            $result .= '</li>'; 
+            $result .= '</ul>'; 
+            $result .= '</div>';                              
+        }               
+        $result .= '</div>';
+      }
+
+      //Control de errores
+      if ($error!='00000') {
+        $result = '';
+        $result .= '<div>';
+        $result .= '<div class="panel-body mb-35">';
+        $result .= '<div class="panel-table">';
+        $result .= '<ul class="tr mis-cursos-row">';
+        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<span>'.$error_mensaje.'</span>';
+        $result .= '</li>';                
+        $result .= '</ul>';  
+        $result .= '</div>';
+        $result .= '</div>'; 
+        $result .= '</div>';     
+      }         
+      
+      return $result;               
+    }     
+    
     
     //INASISTENCIAS ALUMNO
     public function inasistencias_alumno(){
@@ -542,6 +713,93 @@ class Webservices
         $result .= '<div>'.$error_mensaje.'</div>';
         $result .= '</li>';                
         $result .= '</ul>';	 
+        $result .= '</div>';     
+      }       
+      
+      
+      return $result;               
+    }  
+
+    //INASISTENCIAS ALUMNO
+    public function padre_inasistencias_alumno(){
+      $codigo = $_SESSION["Codigo"];
+      $token = $_SESSION["Token"];
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
+      
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
+      
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $result=curl_exec($ch);
+      $json = json_decode($result, true);
+      
+      $error = $json['CodError'];
+      $error_mensaje = $json['MsgError'];       
+      
+      //limpio la variable para reutilizarla
+      $result = '';
+      
+      //genera el tamano del array
+      $tamano = count($json['Inasistencias']);
+      
+      for ($i=0; $i<$tamano; $i++) {
+        $result .= '<ul class="tr bg-muted">';
+        $result .= '<li class="col-sm-8 helvetica-12 pb-0">';
+        $result .= '<div>';
+        $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-sm-2 helvetica-bold-14 curso-faltas">';
+        $result .= '<div class="text-center">';
+        $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-sm-2 helvetica-bold-14 curso-promedio">';
+
+        $codcurso = $json['Inasistencias'][$i]['CodCurso'];
+        
+        //Loop interno para calcular notas segun curso
+        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&CodCurso='.$codcurso.'&Token='.$token;
+        //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token=1'.$token.'&CodCurso='.$codcurso;
+        
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL,$url);
+        $result_int=curl_exec($ch);
+        $json_int = json_decode($result_int, true);
+      
+        //genera el tamano del array
+        $tamano_int = count($json_int['Notas']);
+        $nota = 0;
+        $porcentaje = 0;
+        
+        for ($b=0; $b<$tamano_int; $b++) {
+          $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
+          $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
+        }
+          
+        //Cambia el formato a 2 decimales
+        $nota = number_format($nota, 2, '.', '');
+        
+        $result .= '<div class="text-center"><span>'.$nota.'</span></div>';
+        $result .= '</li>';
+        $result .= '<li class="col-sm-4 show-curso-detail"><div class="text-center"><span><img src="/assets/img/ojo.png"></span></div></li>';
+        $result .= '</ul>';
+      }     
+      
+      //Control de errores
+      if ($error!='00000') {
+        $result = '';
+        $result .= '<div class="panel-table">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-sm-12">';
+        $result .= '<div>'.$error_mensaje.'</div>';
+        $result .= '</li>';                
+        $result .= '</ul>';  
         $result .= '</div>';     
       }       
       
@@ -702,6 +960,90 @@ class Webservices
       return $result;           
     }   
     
+
+    //CURSOS QUE LLEVA UN ALUMNO CONSULTADO POR UN PADRE
+    public function padre_cursos_que_lleva_un_alumno(){
+      $codigo = $_SESSION["Codigo"];
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $token = $_SESSION["Token"];     
+      
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
+
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $result=curl_exec($ch);
+      $json = json_decode($result, true);
+      
+      $error = $json['CodError'];
+      $error_mensaje = $json['MsgError'];        
+      
+      //limpio la variable para reutilizarla
+      $result = '';
+      
+      //genera el tamano del array
+      $tamano = count($json['Inasistencias']);
+      
+      for ($i=0; $i<$tamano; $i++) {
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-sm-9 helvetica-12">';
+        $result .= '<div>';
+        $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-sm-3 text-center helvetica-bold-14">';
+
+          $codcurso = $json['Inasistencias'][$i]['CodCurso'];
+          
+          //Loop interno para calcular notas segun curso
+          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&CodCurso='.$codcurso.'&Token='.$token;
+          //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+          
+          $ch = curl_init($url);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_URL,$url);
+          $result_int=curl_exec($ch);
+          $json_int = json_decode($result_int, true);
+        
+          //genera el tamano del array
+          $tamano_int = count($json_int['Notas']);
+          $nota = 0;
+          $porcentaje = 0;
+          
+          for ($b=0; $b<$tamano_int; $b++) {
+            $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
+            $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
+          }
+          
+          //Cambia el formato a 2 decimales
+          $nota = number_format($nota, 2, '.', '');
+        
+        $result .= '<div>';
+        $result .= '<span>'.$nota.'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '</ul>';
+      }     
+      
+      //Control de errores
+      if ($error!='00000') {
+        $result = '';
+        $result .= '<div class="panel-table">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-sm-12">';
+        $result .= '<div>'.$error_mensaje.'</div>';
+        $result .= '</li>';                
+        $result .= '</ul>';  
+        $result .= '</div>';     
+      }       
+      
+      return $result;           
+    }   
+    
+
     //TODOS LOS CURSOS QUE LLEVA UN ALUMNO
     public function todos_los_curos_que_lleva_un_alumno(){
       $codigo = $_SESSION["Codigo"];
@@ -1120,6 +1462,32 @@ class Webservices
       return $result;         
     } 
     
+     //PROXIMA BOLETA DEL ALUMNO CONSULTADA POR EL PADRE 
+    public function padre_proxima_boleta_alumno(){
+      $codigo = $_SESSION["Codigo"];
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $token = $_SESSION["Token"];
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendientePadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $result=curl_exec($ch);
+      $json = json_decode($result, true);
+      
+      //Control de errores
+      if ($json['CodError']!='00000') {
+        $result = '<p><span class="solano-14 uppercase">'.$json['MsgError'].'</span></p>'; 
+      } else {
+        //limpio la variable para reutilizarla
+        $result = ''; 
+        $result .= '<h3 class="monto">S/.'.$json['PagosPendientes'][0]['Total'].'</h3>';
+        $result .= '<span class="uppercase">Vence el '.$json['PagosPendientes'][0]['FecVencimiento'].'</span>';
+      }
+      
+      return $result;         
+    } 
     //BOLETAS PENDIENTES DEL ALUMNO   
     public function boletas_pendientes_alumno(){
       $codigo = $_SESSION["Codigo"];
@@ -1342,7 +1710,9 @@ class Webservices
       $codactiv = ee()->TMPL->fetch_param('codactiv');
       $numhoras = ee()->TMPL->fetch_param('numhoras');
       $fechaini = ee()->TMPL->fetch_param('fechaini');
+      $fechaini = substr($fechaini, 6,4).substr($fechaini, 3,2).substr($fechaini, 0,2);
       $fechafin = ee()->TMPL->fetch_param('fechafin');
+      $fechafin = substr($fechafin, 6,4).substr($fechafin, 3,2).substr($fechafin, 0,2);
       $segmento = ee()->TMPL->fetch_param('segmento');
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
@@ -1439,6 +1809,7 @@ class Webservices
       $codactiv = ee()->TMPL->fetch_param('codactiv');
       $numhoras = ee()->TMPL->fetch_param('numhoras');
       $fecha = ee()->TMPL->fetch_param('fecha');
+      $fecha = substr($fecha, 0,2).substr($fecha, 3,2).substr($fecha, 6,4);
       $horaini = ee()->TMPL->fetch_param('horaini');
       $horafin = ee()->TMPL->fetch_param('horafin');
       $detalles = ee()->TMPL->fetch_param('detalles');
@@ -1470,15 +1841,18 @@ class Webservices
       $codigo = $_SESSION["Codigo"];
       $token = $_SESSION["Token"];
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
+      
       $fecini = ee()->TMPL->fetch_param('FecIni');
+      $fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
+      $fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
 			$segmento= ee()->TMPL->fetch_param('segmento');
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
-
+      //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso=CO&Local=A&FecIni=19122014&CanHoras=1&FechaFin=19122014&CodAlumno=U201121382&Token=52143ef2a545456cbbe6eff148b0812820141219120128      
       $ch = curl_init($url);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
@@ -1486,44 +1860,46 @@ class Webservices
       
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
-      $result = ''; 
+      //$result = ''; 
       
       $tamano = count($json['Recursos']); 
       
-      $result .= '<div class="panel-table no-bg">';
-			for ($i=0; $i<$tamano; $i++) { 
-	      $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
-	      $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';	
-	      $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['CodRecurso'].'" value="CodRecurso" />';
-	      $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['NomRecurso'].'" value="NomRecurso" />';
-	      $result .= '<input type="hidden" name="'.$canhoras.'" value="CanHoras" />';
-	      $result .= '<input type="hidden" name="'.$fecini.'" value="fecIni" />';
-	      $result .= '<input type="hidden" name="'.$fechafin.'" value="fecFin" />';
-	      $result .= '<input type="hidden" name="1" value="Flag" />';				
-	      $result .= '<ul class="tr">';
-	      $result .= '<li class="col-sm-4 helvetica-12">';
-	      $result .= '<div class="text-center">';    
-	      $result .= '<span>'.$json['Recursos'][$i]['NomRecurso'].'</span>';
-	      $result .= '</div>';
-	      $result .= '</li>';
-	      $result .= '<li class="col-sm-4 helvetica-10">';
-	      $result .= '<div class="text-center">';
-	      $result .= '<span>'.$json['Recursos'][$i]['Local'].'</span>';
-	      $result .= '</div>';
-	      $result .= '</li>';
-	      $result .= '<li class="col-sm-4 helvetica-12">';
-	      $result .= '<div class="text-center">';	      
-	      $result .= '<input type="submit" value="Reservar" name="submit">';
-	      $result .= '</div>';
-	      $result .= '</li>';	      
-	      $result .= '</ul>';
-	      $result .= '</form>';
+      if($error=='00000'){
+        $result .= '<div class="panel-table no-bg">';
+  			for ($i=0; $i<$tamano; $i++) { 
+  	      $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
+  	      $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';	
+  	      $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['CodRecurso'].'" value="CodRecurso" />';
+  	      $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['NomRecurso'].'" value="NomRecurso" />';
+  	      $result .= '<input type="hidden" name="'.$canhoras.'" value="CanHoras" />';
+  	      $result .= '<input type="hidden" name="'.$fecini.'" value="fecIni" />';
+  	      $result .= '<input type="hidden" name="'.$fechafin.'" value="fecFin" />';
+  	      $result .= '<input type="hidden" name="1" value="Flag" />';				
+  	      $result .= '<ul class="tr">';
+  	      $result .= '<li class="col-sm-4 helvetica-12">';
+  	      $result .= '<div class="text-center">';    
+  	      $result .= '<span>'.$json['Recursos'][$i]['NomRecurso'].'</span>';
+  	      $result .= '</div>';
+  	      $result .= '</li>';
+  	      $result .= '<li class="col-sm-4 helvetica-10">';
+  	      $result .= '<div class="text-center">';
+  	      $result .= '<span>'.$json['Recursos'][$i]['Local'].'</span>';
+  	      $result .= '</div>';
+  	      $result .= '</li>';
+  	      $result .= '<li class="col-sm-4 helvetica-12">';
+  	      $result .= '<div class="text-center">';	      
+  	      $result .= '<input type="submit" value="Reservar" name="submit">';
+  	      $result .= '</div>';
+  	      $result .= '</li>';	      
+  	      $result .= '</ul>';
+  	      $result .= '</form>';
+        }
+        $result .= "</div>";
       }
-      $result .= "</div>";
-       
       //Control de errores
       if ($error!='00000') {
         $result = '';
+        $result .= $url;
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
@@ -1541,8 +1917,10 @@ class Webservices
       $codrecurso = ee()->TMPL->fetch_param('CodRecurso');
       $nomrecurso = ee()->TMPL->fetch_param('NomRecurso');
       $fecini = ee()->TMPL->fetch_param('FecIni');
+      $fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $horaini = ee()->TMPL->fetch_param('HoraIni');
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
+      $fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
       $horafin = ee()->TMPL->fetch_param('HoraFin');
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       
@@ -2479,7 +2857,7 @@ class Webservices
       $result = '';
       
       if (strval($TipoUser)=='ALUMNO') {
-        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
+        /*$result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
         $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
@@ -2498,7 +2876,8 @@ class Webservices
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '{/exp:channel:entries}';  
-        return $result;     
+        return $result; */
+        redirect('/dashboard/estudiante');    
       }
       
       if (strval($TipoUser)=='PROFESOR') {
@@ -2585,6 +2964,8 @@ class Webservices
     
     //DESTRUYE LA SESSION
     public function destruir_session () {
+      session_start();
+      $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
       unset($_SESSION["Nombres"]);
@@ -2597,6 +2978,7 @@ class Webservices
       unset($_SESSION["CodError"]);
       unset($_SESSION["MsgError"]);
       unset($_SESSION["Redireccion"]);     
+      var_dump($_SESSION);
       session_destroy();
       redirect('/');
     }
