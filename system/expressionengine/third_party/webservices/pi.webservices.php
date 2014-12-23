@@ -158,7 +158,7 @@ class Webservices
         $result .= '</a>';
         $result .= '<ul> ';
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
-          $result .= '<li><a href="http://104.131.41.84/dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
+          $result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
         }
         $result .= '</ul> ';
         $result .= '</span>';
@@ -187,7 +187,7 @@ class Webservices
       $json = json_decode($hijosWebService, true);
 
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
-        //$result .= '<li><a href="http://104.131.41.84/dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
+        //$result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
         $result .=  '<div class="col-sm-3">';
         $result .=  '<div class="dropdown">';
         $result .=  '<div class="dropdown-toggle" id="dropdownMenuA" data-toggle="dropdown">';
@@ -195,9 +195,9 @@ class Webservices
         $result .=  '<span>'.$json["hijos"][$i]["nombres"].'</span>';
         $result .=  '</div>';
         $result .=  '<ul class="dropdown-menu first-child" role="menu" aria-labelledby="dropdownMenuA">';
-        $result .=  '<li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="http://104.131.41.84/dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">Activar su perfil</a></li>';
+        $result .=  '<li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">Activar su perfil</a></li>';
         $result .=  '</ul>';
-        $result .=  ' </div>';
+        $result .=  '</div>';
         $result .=  '</div>';
       }
       
