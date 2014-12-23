@@ -197,7 +197,7 @@ class Webservices
         $result .=  '<ul class="dropdown-menu first-child" role="menu" aria-labelledby="dropdownMenuA">';
         $result .=  '<li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Activar su perfil</a></li>';
         $result .=  '</ul>';
-        $result .=  '</div>';
+        $result .=  ' </div>';
         $result .=  '</div>';
       }
       
@@ -724,9 +724,9 @@ class Webservices
     public function padre_inasistencias_alumno(){
       $codigo = $_SESSION["Codigo"];
       $token = $_SESSION["Token"];
-      $codalumno = ee()->TMPL->fetch_param('codalumno');  
+      $codigo_alumno = ee()->TMPL->fetch_param('codalumno');  
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codalumno.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       
       $ch = curl_init($url);
