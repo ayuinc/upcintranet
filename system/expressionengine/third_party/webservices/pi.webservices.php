@@ -110,7 +110,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="/dashboard/estudiante">';
+        $result .= '<a href="{site_url}dashboard/estudiante">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Alumno';
         $result .= '</a>';
         $result .= '</span>';
@@ -127,7 +127,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="/dashboard/docente">';
+        $result .= '<a href="{site_url}dashboard/docente">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Profesor';
         $result .= '</a>';
         $result .= '</span>';
@@ -153,7 +153,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="/dashboard/padre">';
+        $result .= '<a href="{site_url}dashboard/padre">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Padre';
         $result .= '</a>';
         $result .= '<ul> ';
@@ -220,7 +220,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="'.$redireccion.'">';
+        $result .= '<a href="{site_url}'.$redireccion.'">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Alumno Pregrado';
         $result .= '</a>';
         $result .= '</span>';
@@ -237,7 +237,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="'.$redireccion.'">';
+        $result .= '<a href="{site_url}'.$redireccion.'">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Alumno Pregrado';
         $result .= '</a>';
         $result .= '</span>';
@@ -254,7 +254,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="'.$redireccion.'">';
+        $result .= '<a href="{site_url}'.$redireccion.'">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Alumno Pregrado';
         $result .= '</a>';
         $result .= '</span>';
