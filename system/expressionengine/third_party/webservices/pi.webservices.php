@@ -105,7 +105,7 @@ class Webservices
             "token" => $json['Token']
           );
           ee()->db->where('codigo', $codigo);
-          ee()->db->insert('exp_user_upc_data', $user_upc_update);
+          ee()->db->update('exp_user_upc_data', $user_upc_update);
         }
         
         // $_SESSION["CodError"] = $json['CodError'];
