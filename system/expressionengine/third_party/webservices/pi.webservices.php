@@ -122,7 +122,12 @@ class Webservices
       }               
     }
 
+    public function eliminar_cookie(){
+      unset($_COOKIE["Codigo"]);
+    }
+
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
+    
     public function consultar_alumno(){
       //$codigo = $_SESSION["Codigo"];
       $codigo =  $_COOKIE["Codigo"];
