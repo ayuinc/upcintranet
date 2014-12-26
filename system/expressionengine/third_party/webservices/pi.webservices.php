@@ -85,8 +85,8 @@ class Webservices
         ee()->db->select('*');
         ee()->db->where('codigo',$codigo);
         $query_modelo_result = ee()->db->get('exp_user_upc_data');
-        var_dump($query_modelo_result);
-        if($query_modelo_result["row_data"] == null){
+        var_dump($query_modelo_result->result());
+        if($query_modelo_result->result() == NULL){
           $user_upc_insert = array(
             "codigo" => $json['Codigo'],
             "tipouser" => $json['TipoUser'],  
