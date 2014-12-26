@@ -123,7 +123,23 @@ class Webservices
     }
 
     public function eliminar_cookie(){
+      session_start();
       unset($_COOKIE["Codigo"]);
+      $_SESSION["Token"] = "";
+      unset($_SESSION["Codigo"]);
+      unset($_SESSION["TipoUser"]);
+      unset($_SESSION["Nombres"]);
+      unset($_SESSION["Apellidos"]);
+      unset($_SESSION["Estado"]);
+      unset($_SESSION["DscModal"]);
+      unset($_SESSION["DscSede"]);
+      unset($_SESSION["Ciclo"]);
+      unset($_SESSION["Token"]);
+      unset($_SESSION["CodError"]);
+      unset($_SESSION["MsgError"]);
+      unset($_SESSION["Redireccion"]);     
+      var_dump($_SESSION);
+      session_destroy();
     }
 
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
