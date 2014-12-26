@@ -77,7 +77,8 @@ class Webservices
       $result=curl_exec($ch);
       $json = json_decode($result, true);
       //INICIAR SESSION
-      if (strval($_SESSION["CodError"])=='00001') {
+      var_dump($json['CodError']);
+      if (strval($json['CodError'])=='00001') {
         redirect('/login/error');
       } 
       else {
@@ -85,7 +86,7 @@ class Webservices
         ee()->db->where('codigo',$codigo);
         $query_modelo_result = ee()->db->get('exp_user_upc_data');
         var_dump($query_modelo_result);
-        if($query_modelo_result == null){
+        if($query_modelo_result["row_data"] == null){
           $user_upc_insert = array(
             "codigo" => $json['Codigo'],
             "tipouser" => $json['TipoUser'],  
