@@ -77,7 +77,6 @@ class Webservices
       $result=curl_exec($ch);
       $json = json_decode($result, true);
       //INICIAR SESSION
-      var_dump($json['CodError']);
       if (strval($json['CodError'])=='00001') {
         redirect('/login/error');
       } 
@@ -85,7 +84,6 @@ class Webservices
         ee()->db->select('*');
         ee()->db->where('codigo',$codigo);
         $query_modelo_result = ee()->db->get('exp_user_upc_data');
-        var_dump($query_modelo_result->result());
         if($query_modelo_result->result() == NULL){
           $user_upc_insert = array(
             "codigo" => $json['Codigo'],
@@ -126,9 +124,19 @@ class Webservices
 
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
     public function consultar_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $TipoUser = $_SESSION["TipoUser"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      foreach($query_modelo_result->result() as $row){
+        $TipoUser = $row->tipouser;
+        $token = $row->token;
+      }
+
+      //$TipoUser = $_SESSION["TipoUser"];
+      //$token = $_SESSION["Token"];
       
       $result = '';
       
