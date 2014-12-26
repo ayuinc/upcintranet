@@ -70,7 +70,7 @@ $link-hover-color:      darken($link-color, 15%) !default;
 $font-family-sans-serif:  "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !default;
 // $font-family-sans-serif:  "Solano Gothic MVB", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       "Zizou Slab", "Times New Roman", Times, serif !default;
-$font-family-alt:         "Helvetica", $font-family-sans-serif;
+$font-family-alt:         "Helvetica", "HelveticaNeue";
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;

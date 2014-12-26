@@ -9,24 +9,29 @@
 
   </div>
   <div class="row">
-    <div class="col-sm-1"></div>
-    <div class="col-sm-4">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-4">
      <div class="panel">
-      <div class="panel-head">
+      <div class="panel-head bg-muted">
         <div class="panel-head-left">
-          <div class="panel-title">
-            <h2>Mi Horario: {current_time format="%l"}</h2>
+          <div class="panel-head-wrap">
+            <div class="panel-title">
+              <h2>Mi Horario:<span class="gray-light">{current_time format="%l"}</span></h2>
+              <a class="arrow-link" href="#">
+                <img class="pull-right" src="/assets/img/red_arrow.png" alt="">  
+              </a>
+            </div>
           </div>
         </div>
       </div>
       {embed="includes/dashboard-horario"}
      </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-xs-4">
       {embed="includes/dashboard-miscursos"}
       <!-- {embed="includes/dashboard-misreservas"} -->
     </div>
-    <div class="col-sm-3">
+    <div class="col-xs-3">
         {embed="includes/dashboard-mispagos"}
         {embed="includes/rss-noticias"}
         {embed="includes/rss-vida-universitaria"}

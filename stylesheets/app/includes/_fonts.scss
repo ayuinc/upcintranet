@@ -8,6 +8,15 @@
 }
 
 @font-face {
+  font-family: 'HelveticaNeue';
+  src: url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.eot'); /* IE9 */
+  src: url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.woff') format('woff'), 
+       url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.ttf')  format('truetype'), 
+       url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.svg') format('svg'); 
+}
+
+@font-face {
   font-family: 'Zizou Slab-Light';
   src: url('../stylesheets/fonts/Zizou Slab-Light.eot'); 
   src: url('../stylesheets/fonts/Zizou Slab-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */

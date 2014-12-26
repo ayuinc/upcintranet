@@ -28,9 +28,12 @@
 				color: white;
 			}
 		}
-		.panel-head-left {
-			float: left;
-			@include serif-book;
+		.panel-head-wrap {
+			border-bottom: red 2px solid;
+			margin-left: 7px;
+			width: 97%;
+			// float: left;
+			// @include serif-book;
 		}
 		.panel-head-right {
 			float: right;
@@ -44,11 +47,17 @@
 			}
 		}
 		.panel-title {
+			padding: 7px !important;
 			h1, h2, h3, h4, h5, h6 {
 				margin: 0;
 				padding-bottom: 7px;
 			}
 			@include serif-book;
+			a.arrow-link {
+				img {
+					margin-top: -30px !important;
+				}
+			}
 		}
 		.panel-display {
 			
@@ -72,6 +81,9 @@
 		}
 		.panel-table {
 			background-color: white !important;
+			&.observaciones {
+				background-color: $brand-info !important;
+			}
 			&.no-bg {
 				background: none !important;
 				.tr {
@@ -126,8 +138,8 @@
 		}
 		.panel-body-head {
 			text-transform: uppercase;
-			background: black;
-			color: white;
+			background: white;
+			color: black;
 			text-align: center;
 			&.left {
 				text-align: left;
@@ -158,30 +170,34 @@
 		}
 		.panel-body-head-table {
 			background: $gray-main;
-			&.red {
-				background: $brand-danger;
-				.tr {
-					@include list-unstyled;
-					@include clearfix;
-					li + li {
-						&.col-sm-2, &.col-sm-1, &.col-sm-4, &.col-sm-5, &.col-sm-6, &.col-sm-7 {
-							div {
-								border-left: 1px solid white;
-								&.fecha {
-									border: none;
-								}
-							}
-						}
-					}
-				}
+			&.white {
+				background: white !important;
+				color: $gray-main !important;
 			}
+			// &.red {
+			// 	background: $brand-danger;
+			// 	.tr {
+			// 		@include list-unstyled;
+			// 		@include clearfix;
+			// 		li + li {
+			// 			&.col-sm-2, &.col-sm-1, &.col-sm-4, &.col-sm-5, &.col-sm-6, &.col-sm-7 {
+			// 				div {
+			// 					border-left: 1px solid white;
+			// 					&.fecha {
+			// 						border: none;
+			// 					}
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
 			.tr {
 				@include list-unstyled;
 				@include clearfix;
 				li + li {
 					&.col-sm-2, &.col-sm-1, &.col-sm-4, &.col-sm-5, &.col-sm-6, &.col-sm-7 {
 						div {
-							border-left: 2px solid $gray-light;
+							// border-left: 2px solid $gray-light;
 							&.fecha {
 								border: none;
 							}
@@ -197,9 +213,11 @@
 						span {
 							@include flex-grow(0);
 							@include extra-light;
+							// font-family: "HelveticaNeue" !important;
 							font-size: rem(15px);
 							font-size: 15px;
-							color: white;
+							// color: white;
+							color: $gray-light;
 							text-transform: uppercase;
 							text-align: center;
 						&.head-left {
@@ -273,7 +291,7 @@
 					li {
 						padding-bottom: 7px !important;
 						background: white;
-						&.col-sm-2 {
+						&.col-xs-2 {
 							display: none;
 						}
 						&.show-curso-detail {
@@ -345,7 +363,7 @@
 				}	
 				@include list-unstyled;
 				@include clearfix;
-				border-bottom: 1px solid $gray-lighter;
+				// border-bottom: 1px solid $gray-lighter;
 				li {
 					padding: 7px 0;
 					&.pdte-tr {
@@ -372,10 +390,6 @@
 						h1, h2, h3, h4, h5, h6 {
 						margin: 7px;
 						}
-						.keep-reading {
-							color: $brand-info;
-							@include serif-book;
-						}
 					}
 					span {
 						@include flex-grow(0);
@@ -385,7 +399,7 @@
 						@include flex-direction(column);
 						@include justify-content(center);
 						min-height: 28px;
-						border-right: 1px solid $gray-lighter;
+						border-right: 2px solid $gray-lighter;
 						padding: 0 6px;
 						&.nrb {
 						border: none;	
