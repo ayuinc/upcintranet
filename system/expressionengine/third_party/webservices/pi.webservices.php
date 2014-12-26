@@ -76,48 +76,51 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      //INICIAR SESSON
-      // if($query_modelo_result != null){
-      //   $user_upc_insert = array(
-      //     "codigo" => $json['Codigo'],
-      //     "tipouser" => $json['TipoUser'],  
-      //     "nombres" => $json['Nombres'],      
-      //     "apellidos" => $json['Apellidos'],
-      //     "estado" => $json['Estado'],  
-      //     "dscmodal" => $json['Datos']['DscModal'],
-      //     "dscsede" => $json['Datos']['DscSede'],
-      //     "ciclo" => $json['Datos']['Ciclo'], 
-      //     "token" => $json['Token']
-      //   );
-      //   ee()->db->insert('exp_user_upc_data', $user_upc_insert);
-      // }
-      // else {
-      //   $user_upc_update = array(
-      //     "token" => $json['Token']
-      //   );
-      //   ee()->db->where('codigo', $codigo);
-      //   ee()->db->insert('exp_user_upc_data', $user_upc_update);
-      // }
-      
-      // $_SESSION["CodError"] = $json['CodError'];
-      setcookie("Codigo", $json['Codigo'], time() + (86400 * 30), "/"); // 86400 = 1 day
-      $_COOKIE["Codigo"] = $json['Codigo'];
-      $_SESSION["Codigo"] = $json['Codigo'];
-      $_SESSION["TipoUser"] = $json['TipoUser'];
-      $_SESSION["Nombres"] = $json['Nombres'];
-      $_SESSION["Apellidos"] = $json['Apellidos'];
-      $_SESSION["Estado"] = $json['Estado'];
-      $_SESSION["DscModal"] = $json['Datos']['DscModal'];
-      $_SESSION["DscSede"] = $json['Datos']['DscSede'];
-      $_SESSION["Ciclo"] = $json['Datos']['Ciclo'];
-      $_SESSION["Token"] = $json['Token'];
-      $_SESSION["CodError"] = $json['CodError'];
-      $_SESSION["MsgError"] = $json['MsgError'];
-      
+      //INICIAR SESSION
       if (strval($_SESSION["CodError"])=='00001') {
         redirect('/login/error');
-      }    
-                    
+      } 
+      else {
+        ee()->db->select('*');
+        ee()->db->where('codigo',$codigo);
+        $query_modelo_result = ee()->db->get('exp_user_upc_data');
+        var_dump($query_modelo_result);
+        if($query_modelo_result == null){
+          $user_upc_insert = array(
+            "codigo" => $json['Codigo'],
+            "tipouser" => $json['TipoUser'],  
+            "nombres" => $json['Nombres'],      
+            "apellidos" => $json['Apellidos'],
+            "estado" => $json['Estado'],  
+            "dscmodal" => $json['Datos']['DscModal'],
+            "dscsede" => $json['Datos']['DscSede'],
+            "ciclo" => $json['Datos']['Ciclo'], 
+            "token" => $json['Token']
+          );
+          ee()->db->insert('exp_user_upc_data', $user_upc_insert);
+        }
+        else {
+          $user_upc_update = array(
+            "token" => $json['Token']
+          );
+          ee()->db->where('codigo', $codigo);
+          ee()->db->insert('exp_user_upc_data', $user_upc_update);
+        }
+        
+        // $_SESSION["CodError"] = $json['CodError'];
+        $_COOKIE["Codigo"] = $json['Codigo'];
+        $_SESSION["Codigo"] = $json['Codigo'];
+        $_SESSION["TipoUser"] = $json['TipoUser'];
+        $_SESSION["Nombres"] = $json['Nombres'];
+        $_SESSION["Apellidos"] = $json['Apellidos'];
+        $_SESSION["Estado"] = $json['Estado'];
+        $_SESSION["DscModal"] = $json['Datos']['DscModal'];
+        $_SESSION["DscSede"] = $json['Datos']['DscSede'];
+        $_SESSION["Ciclo"] = $json['Datos']['Ciclo'];
+        $_SESSION["Token"] = $json['Token'];
+        $_SESSION["CodError"] = $json['CodError'];
+        $_SESSION["MsgError"] = $json['MsgError'];
+      }               
     }
 
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
