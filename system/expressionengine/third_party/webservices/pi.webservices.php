@@ -69,7 +69,7 @@ class Webservices
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma.'';
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -77,6 +77,33 @@ class Webservices
       $result=curl_exec($ch);
       $json = json_decode($result, true);
       //INICIAR SESSON
+      // if($query_modelo_result != null){
+      //   $user_upc_insert = array(
+      //     "codigo" => $json['Codigo'],
+      //     "tipouser" => $json['TipoUser'],  
+      //     "nombres" => $json['Nombres'],      
+      //     "apellidos" => $json['Apellidos'],
+      //     "estado" => $json['Estado'],  
+      //     "dscmodal" => $json['Datos']['DscModal'],
+      //     "dscsede" => $json['Datos']['DscSede'],
+      //     "ciclo" => $json['Datos']['Ciclo'], 
+      //     "token" => $json['Token']
+      //   );
+      //   ee()->db->insert('exp_user_upc_data', $user_upc_insert);
+      // }
+      // else {
+      //   $user_upc_update = array(
+      //     "token" => $json['Token']
+      //   );
+      //   ee()->db->where('codigo', $codigo);
+      //   ee()->db->insert('exp_user_upc_data', $user_upc_update);
+      // }
+      
+      // $_SESSION["CodError"] = $json['CodError'];
+      $cookie_name = "Codigo";
+      $cookie_value = $json['Codigo'];
+      setcookie("Codigo", $json['Codigo'], time() + (86400 * 30), "/"); // 86400 = 1 day
+      
       $_SESSION["Codigo"] = $json['Codigo'];
       $_SESSION["TipoUser"] = $json['TipoUser'];
       $_SESSION["Nombres"] = $json['Nombres'];
@@ -2802,7 +2829,7 @@ class Webservices
     //NOMBRE DEL USUARIO
     public function nombre_alumno(){
       // return $_SESSION["Nombres"];
-      $names = $_SESSION["Nombres"];
+      $names = $_SESSION["Nombres"]." COOKIE ".$_COOKIE["Codigo"];
       $names = ucwords(strtolower($names));
       return $names;
     }    
