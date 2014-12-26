@@ -97,10 +97,11 @@ class Webservices
             "token" => $json['Token']
           );
           ee()->db->insert('exp_user_upc_data', $user_upc_insert);
-        }
+        } 
         else {
           $user_upc_update = array(
-            "token" => $json['Token']
+            "token" => $json['Token'],
+            "tipouser" => "BLABLABLA"
           );
           ee()->db->where('codigo', $codigo);
           ee()->db->update('exp_user_upc_data', $user_upc_update);
