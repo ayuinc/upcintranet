@@ -727,7 +727,7 @@ class Webservices
         
         $result .= '<div class="text-center"><span>'.$nota.'</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 show-curso-detail"><div class="text-center"><span><img src="/assets/img/ojo.png"></span></div></li>';
+        $result .= '<li class="col-sm-4 show-curso-detail"><div class="text-center"><span class="zizou-12"><img class="mr-7" src="/assets/img/ojo.png">Ver más</span></div></li>';
         $result .= '</ul>';
       }     
       

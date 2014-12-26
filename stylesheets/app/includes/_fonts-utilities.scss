@@ -7,7 +7,7 @@ $sans-serif: "solano";
 $alt: "helvetica";
 
 /// fonts loops
-@for $fs from 9 to 30 {
+@for $fs from 9 to 33 {
 	.#{$sans-serif}-bold-#{$fs} {
 		@include bold;	
 		font-size: rem($fs) !important;	

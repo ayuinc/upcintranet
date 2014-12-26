@@ -12,6 +12,9 @@
 	&.gray {
 		background-color: $gray-main !important;
 	}
+	&.black-btn {
+		background-color: black !important;
+	}
 	&.info {
 		background-color: $brand-info !important;
 	}
@@ -23,6 +26,10 @@
 	color: white;
 	&:hover {
 		color: white;
+	}
+	&.wide {
+		min-width: 189px !important;
+		padding: 3px !important; 
 	}
 	&.lg {
 		font-size: 22px !important;

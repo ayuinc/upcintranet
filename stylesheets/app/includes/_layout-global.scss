@@ -72,25 +72,25 @@ body {
 		padding-bottom: 0px;
 		.row {
 			margin-left: -14px;
-			.col-sm-10 {
-				img.logo {
-					float: right !important;
-				}
+			.col-sm-8 {
+				// img.logo {
+				// 	float: right !important;
+				// }
 				.row {
 					.col-sm-5 {
 						.row {
-							&.login-row {
-								.col-sm-8 {
-									@media #{$lg-down} {
-										margin-top: 14px !important;
-									}
-									a img {
-										@media #{$lg-down} {
-											width: 14px !important;
-										}
-									}
-								}
-							}
+							// &.login-row {
+							// 	.col-sm-8 {
+							// 		@media #{$lg-down} {
+							// 			margin-top: 14px !important;
+							// 		}
+							// 		a img {
+							// 			@media #{$lg-down} {
+							// 				width: 14px !important;
+							// 			}
+							// 		}
+							// 	}
+							// }
 							.col-sm-5 {
 								@media #{$md-down} {
 									padding-left: 0px;
@@ -130,6 +130,17 @@ body {
 
 						button {
 							float: right;
+						}
+					}
+					.col-sm-7 {
+						form {
+							.row {
+								.inicia {
+									div {
+										margin-left: 125px !important;
+									}
+								}
+							}
 						}
 					}
 
@@ -211,7 +222,8 @@ body {
 			color: $gray-light;
 		}
 		.second-line {
-			margin-left: -30px !important; 
+			margin-left: -30px !important;
+			margin-top: 7px !important; 
 			span {
 				@include book;
 				text-transform: uppercase;

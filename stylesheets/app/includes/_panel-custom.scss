@@ -275,6 +275,9 @@
 						background: white;
 						&.col-sm-2 {
 							display: none;
+						}
+						&.show-curso-detail {
+							cursor: pointer !important;
 						}	
 						&.curso-promedio {
 							div {
