@@ -100,8 +100,7 @@ class Webservices
         } 
         else {
           $user_upc_update = array(
-            "token" => $json['Token'],
-            "tipouser" => "BLABLABLA"
+            "token" => $json['Token']
           );
           ee()->db->where('codigo', $codigo);
           ee()->db->update('exp_user_upc_data', $user_upc_update);
@@ -131,6 +130,7 @@ class Webservices
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      var_dump($query_modelo_result);
       foreach($query_modelo_result->result() as $row){
         $TipoUser = $row->tipouser;
         $token = $row->token;
