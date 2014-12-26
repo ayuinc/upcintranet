@@ -69,37 +69,94 @@ class Webservices
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma.'';
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      //INICIAR SESSON
-      $_SESSION["Codigo"] = $json['Codigo'];
-      $_SESSION["TipoUser"] = $json['TipoUser'];
-      $_SESSION["Nombres"] = $json['Nombres'];
-      $_SESSION["Apellidos"] = $json['Apellidos'];
-      $_SESSION["Estado"] = $json['Estado'];
-      $_SESSION["DscModal"] = $json['Datos']['DscModal'];
-      $_SESSION["DscSede"] = $json['Datos']['DscSede'];
-      $_SESSION["Ciclo"] = $json['Datos']['Ciclo'];
-      $_SESSION["Token"] = $json['Token'];
-      $_SESSION["CodError"] = $json['CodError'];
-      $_SESSION["MsgError"] = $json['MsgError'];
-      
-      if (strval($_SESSION["CodError"])=='00001') {
+      //INICIAR SESSION
+      if (strval($json['CodError'])=='00001') {
         redirect('/login/error');
-      }    
-                    
+      } 
+      else {
+        ee()->db->select('*');
+        ee()->db->where('codigo',$codigo);
+        $query_modelo_result = ee()->db->get('exp_user_upc_data');
+        if($query_modelo_result->result() == NULL){
+          $user_upc_insert = array(
+            "codigo" => $json['Codigo'],
+            "tipouser" => $json['TipoUser'],  
+            "nombres" => $json['Nombres'],      
+            "apellidos" => $json['Apellidos'],
+            "estado" => $json['Estado'],  
+            "dscmodal" => $json['Datos']['DscModal'],
+            "dscsede" => $json['Datos']['DscSede'],
+            "ciclo" => $json['Datos']['Ciclo'], 
+            "token" => $json['Token']
+          );
+          ee()->db->insert('exp_user_upc_data', $user_upc_insert);
+        } 
+        else {
+          $user_upc_update = array(
+            "token" => $json['Token']
+          );
+          ee()->db->where('codigo', $codigo);
+          ee()->db->update('exp_user_upc_data', $user_upc_update);
+        }
+        
+        // $_SESSION["CodError"] = $json['CodError'];
+        $_COOKIE["Codigo"] = $json['Codigo'];
+        $_SESSION["Codigo"] = $json['Codigo'];
+        $_SESSION["TipoUser"] = $json['TipoUser'];
+        $_SESSION["Nombres"] = $json['Nombres'];
+        $_SESSION["Apellidos"] = $json['Apellidos'];
+        $_SESSION["Estado"] = $json['Estado'];
+        $_SESSION["DscModal"] = $json['Datos']['DscModal'];
+        $_SESSION["DscSede"] = $json['Datos']['DscSede'];
+        $_SESSION["Ciclo"] = $json['Datos']['Ciclo'];
+        $_SESSION["Token"] = $json['Token'];
+        $_SESSION["CodError"] = $json['CodError'];
+        $_SESSION["MsgError"] = $json['MsgError'];
+      }               
+    }
+
+    public function eliminar_cookie(){
+      session_start();
+      unset($_COOKIE["Codigo"]);
+      $_SESSION["Token"] = "";
+      unset($_SESSION["Codigo"]);
+      unset($_SESSION["TipoUser"]);
+      unset($_SESSION["Nombres"]);
+      unset($_SESSION["Apellidos"]);
+      unset($_SESSION["Estado"]);
+      unset($_SESSION["DscModal"]);
+      unset($_SESSION["DscSede"]);
+      unset($_SESSION["Ciclo"]);
+      unset($_SESSION["Token"]);
+      unset($_SESSION["CodError"]);
+      unset($_SESSION["MsgError"]);
+      unset($_SESSION["Redireccion"]);     
+      session_destroy();
     }
 
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
+    
     public function consultar_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $TipoUser = $_SESSION["TipoUser"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      foreach($query_modelo_result->result() as $row){
+        $TipoUser = $row->tipouser;
+        $token = $row->token;
+      }
+
+      //$TipoUser = $_SESSION["TipoUser"];
+      //$token = $_SESSION["Token"];
       
       $result = '';
       
@@ -173,9 +230,18 @@ class Webservices
 
     // HEADER PADRES CON LISTA DE HIJOS 
     public function padre_lista_de_hijos(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $result = '';
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
@@ -208,10 +274,21 @@ class Webservices
 
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO Y LA REDIRECCION QUE LLEGA
     public function consultar_alumno_redireccion(){
-      $codigo = $_SESSION["Codigo"];
-      $TipoUser = $_SESSION["TipoUser"];
-      $redireccion = $_SESSION["Redireccion"];
+      //$codigo = $_SESSION["Codigo"];
+      //$TipoUser = $_SESSION["TipoUser"];
+      //$redireccion = $_SESSION["Redireccion"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $TipoUser = $row->tipouser;
+        $redireccion = $row->redireccion;
+      }
+
       $result = '';
       
       if (strval($TipoUser)=='ALUMNO') {
@@ -269,9 +346,21 @@ class Webservices
     
     //HORARIO DEL ALUMNO
     public function horario_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
+
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -368,8 +457,18 @@ class Webservices
     
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
@@ -502,10 +601,21 @@ class Webservices
     
      //HORARIO CICLO ACTUAL DEL ALUMNO CONSULTADO POR PADRE
     public function padre_horario_ciclo_actual_alumno(){
-      $codigo = $_SESSION["Codigo"];
+      //$codigo = $_SESSION["Codigo"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
-      $token = $_SESSION["Token"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/UPCMobile.svc/HorarioPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
       
@@ -640,9 +750,19 @@ class Webservices
     
     //INASISTENCIAS ALUMNO
     public function inasistencias_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -722,9 +842,20 @@ class Webservices
 
     //INASISTENCIAS ALUMNO
     public function padre_inasistencias_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
+      
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
@@ -810,10 +941,20 @@ class Webservices
 
     //CURSOS QUE LLEVA UN ALUMNO
     public function buscar_curos_que_lleva_un_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"]; 
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"]; 
       $codalumno = ee()->TMPL->fetch_param('codalumno');  
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codalumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -885,9 +1026,19 @@ class Webservices
 
     //CURSOS QUE LLEVA UN ALUMNO
     public function curos_que_lleva_un_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];     
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];     
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -963,9 +1114,19 @@ class Webservices
 
     //CURSOS QUE LLEVA UN ALUMNO CONSULTADO POR UN PADRE
     public function padre_cursos_que_lleva_un_alumno(){
-      $codigo = $_SESSION["Codigo"];
+      //$codigo = $_SESSION["Codigo"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
-      $token = $_SESSION["Token"];     
+      //$token = $_SESSION["Token"];     
+      
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
@@ -1046,9 +1207,19 @@ class Webservices
 
     //TODOS LOS CURSOS QUE LLEVA UN ALUMNO
     public function todos_los_curos_que_lleva_un_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -1096,8 +1267,18 @@ class Webservices
     
     //DETALLE DE CURSOS POR ALUMNO
     public function detalle_de_curos_por_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
@@ -1163,8 +1344,19 @@ class Webservices
     
     //NOTAS DE UN ALUMNO POR CURSO
     public function notas_alumno_por_curso(){
-     $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
@@ -1330,9 +1522,19 @@ class Webservices
     
     //TRAMITES REALIZADOS POR ALUMNO     
     public function tramites_realizados_por_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/TramiteRealizado/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -1422,10 +1624,20 @@ class Webservices
     
     //LISTADO DE COMPANEROS DE CLASE POR CURSO    
     public function companeros_clase_por_curso(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       $codcurso = ee()->TMPL->fetch_param('codcurso');
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Companeros/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -1438,9 +1650,19 @@ class Webservices
     
     //PROXIMA BOLETA DEL ALUMNO   
     public function proxima_boleta_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -1464,9 +1686,20 @@ class Webservices
     
      //PROXIMA BOLETA DEL ALUMNO CONSULTADA POR EL PADRE 
     public function padre_proxima_boleta_alumno(){
-      $codigo = $_SESSION["Codigo"];
+      //$codigo = $_SESSION["Codigo"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
-      $token = $_SESSION["Token"];
+      //$token = $_SESSION["Token"];
+      
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendientePadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
@@ -1490,9 +1723,19 @@ class Webservices
     } 
     //BOLETAS PENDIENTES DEL ALUMNO   
     public function boletas_pendientes_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -1602,9 +1845,19 @@ class Webservices
     
     //POBLAR ESPACIOS DEPORTIVOS - SEDE  
     public function poblar_espacios_deportivos_sede(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -1631,9 +1884,19 @@ class Webservices
     
     //POBLAR ESPACIOS DEPORTIVOS - Espacios  
     public function poblar_espacios_deportivos_espacios(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -1664,9 +1927,19 @@ class Webservices
     
     //POBLAR ESPACIOS DEPORTIVOS - ACTIVIDAD  
     public function poblar_espacios_deportivos_actividad(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -1703,8 +1976,8 @@ class Webservices
     
     //DISPONIBILIDAD DE ESPACIOS DEPORTIVOS   
     public function disponibilidad_espacios_deportivos(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       $codsede = ee()->TMPL->fetch_param('codsede');
       $coded = ee()->TMPL->fetch_param('coded');
       $codactiv = ee()->TMPL->fetch_param('codactiv');
@@ -1715,6 +1988,16 @@ class Webservices
       $fechafin = substr($fechafin, 6,4).substr($fechafin, 3,2).substr($fechafin, 0,2);
       $segmento = ee()->TMPL->fetch_param('segmento');
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -1802,8 +2085,8 @@ class Webservices
     
     //RESERVA DE ESPACIOS DEPORTIVOS   
     public function reserva_espacios_deportivos(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       $codsede = ee()->TMPL->fetch_param('codsede');
       $coded = ee()->TMPL->fetch_param('coded');
       $codactiv = ee()->TMPL->fetch_param('codactiv');
@@ -1814,6 +2097,15 @@ class Webservices
       $horafin = ee()->TMPL->fetch_param('horafin');
       $detalles = ee()->TMPL->fetch_param('detalles');
 
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ReservarED/?CodSede='.$codsede.'&CodED='.$coded.'&CodActiv='.$codactiv.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&Fecha='.$fecha.'&HoraIni='.$horaini.'&HoraFin='.$horafin.'&Detalles='.$detalles.'&Token='.$token;
       $ch = curl_init($url);
@@ -1838,10 +2130,20 @@ class Webservices
     
     //LISTA DE RECURSOS DISPONIBLES
     public function listado_recursos_disponibles(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $fecini = ee()->TMPL->fetch_param('FecIni');
       $fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
@@ -1912,8 +2214,19 @@ class Webservices
     
     //RESERVA DE RECURSOS
     public function reserva_recursos(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+      
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $codrecurso = ee()->TMPL->fetch_param('CodRecurso');
       $nomrecurso = ee()->TMPL->fetch_param('NomRecurso');
       $fecini = ee()->TMPL->fetch_param('FecIni');
@@ -1972,8 +2285,19 @@ class Webservices
     
     //LISTADO DE RECURSOS RESERVADOS POR EL ALUMNO     
     public function listado_recursos_reservados_alumno(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $hoy = date('dmY');
       $unasemana = date('dmY',strtotime('+1 week'));
       
@@ -2038,8 +2362,18 @@ class Webservices
     
     //LISTADO DE HIJOS DEL PADRE DE FAMILIA  
     public function lista_hijos_padre(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
@@ -2053,9 +2387,19 @@ class Webservices
     
     //LISTADOS DE CURSOS DICTADOS POR EL PROFESOR 
     public function lista_cursos_dictados_profesor(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoCursosProfesor/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -2132,9 +2476,19 @@ class Webservices
     
      //LISTADOS DE CURSOS DICTADOS POR EL PROFESOR LINK ALUMNOS 
     public function lista_cursos_dictados_link_alumnos_profesor(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoCursosProfesor/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -2211,8 +2565,19 @@ class Webservices
     
     //LISTADOS DE ALUMNOS MATRICULADOS EN UN CURSO DICTADO POR EL PROFESOR
     public function lista_alumnos_matriculados_en_curso_por_profesor(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+      
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $modalidad = ee()->TMPL->fetch_param('modalidad');
       $periodo = ee()->TMPL->fetch_param('periodo');
       $curso = ee()->TMPL->fetch_param('curso');
@@ -2362,9 +2727,19 @@ class Webservices
     
     //HORARIOS DE UN PROFESOR 
     public function horario_profesor(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/HorarioProfesor/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -2461,9 +2836,19 @@ class Webservices
 
     //HORARIO PROFESOR CICLO ACTUAL
     public function horario_profesor_ciclo_actual(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/HorarioProfesor/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -2595,8 +2980,19 @@ class Webservices
        
     //LISTA ALUMNOS MATRICULADOS EN UN CURSO DICTADO POR EL PROFESOR
     public function lista_alumnos_matriculado_curso_profesor(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+      
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $codcurso = ee()->TMPL->fetch_param('codcurso');
       $codalumno = ee()->TMPL->fetch_param('codalumno');      
       
@@ -2613,8 +3009,19 @@ class Webservices
 
     //CONSULTA DE NOTAS DE UN ALUMNO POR UN PROFESOR
     public function consulta_notas_alumno_por_un_profesor(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $codalumno = ee()->TMPL->fetch_param('codalumno');
       $codcurso = ee()->TMPL->fetch_param('cursoid');
       $nombrealumno = ee()->TMPL->fetch_param('nombrealumno');     
@@ -2766,8 +3173,19 @@ class Webservices
     
     //PROMEDIO DE NOTAS DE UN ALUMNO POR CURSO
     public function promedio_notas_alumno_por_curso(){
-      $codigo = $_SESSION["Codigo"];
-      $token = $_SESSION["Token"];
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
       $codcurso = ee()->TMPL->fetch_param('codcurso');
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&CodCurso='.strval ($codcurso).'&Token='.$token;
@@ -2802,58 +3220,141 @@ class Webservices
     //NOMBRE DEL USUARIO
     public function nombre_alumno(){
       // return $_SESSION["Nombres"];
-      $names = $_SESSION["Nombres"];
+       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $nombres = $row->nombres;
+      }
+      $names = $nombres;
       $names = ucwords(strtolower($names));
       return $names;
     }    
     
     //APELLIDO DEL ALUMNO
-    public function apellido_alumno(){    
-      return $_SESSION["Apellidos"];
+    public function apellido_alumno(){
+
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $apellidos = $row->apellidos;
+      }
+
+      return $apellidos;
     }  
     
     //CODIGO DEL ALUMNO
     public function codigo_alumno(){    
-      return $_SESSION["Codigo"];
+      
+      return $_COOKIE["Codigo"];
     }  
     
     //MODALIDAD DEL ALUMNO
     public function modalidad_alumno(){    
-      return $_SESSION["DscModal"];
+      
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $dscmodal = $row->dscmodal;
+      }
+
+      return $dscmodal;
     }      
     
     //ESTADO DEL ALUMNO
     public function estado_alumno(){ 
-      if ($_SESSION["Estado"]=='A') {
-        $estado = 'Activo';
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $estado = $row->estado;
+      }
+
+      if ($estado=='A') {
+        $estado_result = 'Activo';
       } else {
-        $estado = 'Inactivo'; 
+        $estado_result = 'Inactivo'; 
       }  
       return $estado;
     }               
     
     //SEDE DEL ALUMNO
     public function sede_alumno(){       
-      return $_SESSION["DscSede"];
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $dscsede = $row->dscsede;
+      }
+
+      return $dscsede;
     }
     
     //CICLO DEL ALUMNO
     public function ciclo_alumno(){ 
-      $yyyy = substr($_SESSION["Ciclo"],0,4); 
-      $dd = substr($_SESSION["Ciclo"],4,6); 
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $ciclo = $row->ciclo;
+      }
+
+      $yyyy = substr($ciclo,0,4); 
+      $dd = substr($ciclo,4,6); 
       return $dd.'-'.$yyyy;     
     }
         
     //MUESTRA EL TIPO DE USUARIO
     public function tipo_usuario(){
-      return $_SESSION["TipoUser"];
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $tipouser = $row->tipouser;
+      }
+      return $tipouser;
     }          
     
     //CALENDARIO DE CUOTAS TIPO DE USUARIOS
     public function calendario_cuotas_tipo_usuario(){
-      $codigo = $_SESSION["Codigo"];
-      $TipoUser = $_SESSION["TipoUser"];
+      //$codigo = $_SESSION["Codigo"];
+      //$TipoUser = $_SESSION["TipoUser"];
       
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $tipouser = $row->tipouser;
+      }
+
+
       $result = '';
       
       if (strval($TipoUser)=='ALUMNO') {
@@ -2940,8 +3441,17 @@ class Webservices
     
     //INICIAR SESION
     public function verificar_usuario() {
-	    $token = $_SESSION["Token"];
-	    $redireccion = current_url();
+	    //$token = $_SESSION["Token"];
+	    $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+      $redireccion = current_url();
 	    $_SESSION["Redireccion"] = $redireccion;
 	    
       if ($token=='') {
@@ -2951,13 +3461,22 @@ class Webservices
     
     //BOTON INICIO
     public function boton_inicio() {
-      if (strval($_SESSION["TipoUser"])=='ALUMNO') {
+      $codigo =  $_COOKIE["Codigo"];
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $tipouser = $row->tipouser;
+      }
+      if (strval($tipouser)=='ALUMNO') {
         return '{site_url}dashboard/estudiante'; 
       } 
-      if (strval($_SESSION["TipoUser"])=='PROFESOR') {
+      if (strval($tipouser)=='PROFESOR') {
         return '{site_url}dashboard/estudiante'; 
       } 
-      if (strval($_SESSION["TipoUser"])=='PADRE') {
+      if (strval($tipouser)=='PADRE') {
         return '{site_url}dashboard/estudiante'; 
       }             
     }    
@@ -2977,8 +3496,8 @@ class Webservices
       unset($_SESSION["Token"]);
       unset($_SESSION["CodError"]);
       unset($_SESSION["MsgError"]);
-      unset($_SESSION["Redireccion"]);     
-      var_dump($_SESSION);
+      unset($_SESSION["Redireccion"]);
+      unset($_COOKIE["Codigo"]);        
       session_destroy();
       redirect('/');
     }
