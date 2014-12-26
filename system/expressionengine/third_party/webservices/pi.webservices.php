@@ -100,10 +100,8 @@ class Webservices
       // }
       
       // $_SESSION["CodError"] = $json['CodError'];
-      $cookie_name = "Codigo";
-      $cookie_value = $json['Codigo'];
       setcookie("Codigo", $json['Codigo'], time() + (86400 * 30), "/"); // 86400 = 1 day
-      
+      $_COOKIE["Codigo"] = $json['Codigo'];
       $_SESSION["Codigo"] = $json['Codigo'];
       $_SESSION["TipoUser"] = $json['TipoUser'];
       $_SESSION["Nombres"] = $json['Nombres'];
