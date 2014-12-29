@@ -5,6 +5,7 @@ $custom-h5: 13px;
 $serif: "zizou";
 $sans-serif: "solano";
 $alt: "helvetica";
+$alt-b: "helv-neue";
 
 /// fonts loops
 @for $fs from 9 to 33 {
@@ -33,7 +34,8 @@ $alt: "helvetica";
 		font-size: $fs + px !important;	
 	}
 	.#{$serif}-light-#{$fs} {
-		@include serif-light;	
+		// @include serif-light;	
+		@include serif-book;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
 	}

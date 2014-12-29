@@ -51,3 +51,10 @@
 // .alt-medium {@include alt-medium;}
 @mixin alt-bold { font-family: "Helvetica" !important; font-weight: 700; font-style: normal;}
 .alt-bold {@include alt-bold;}
+
+
+// ALTERNATIVE-B FONTS
+@mixin alt-b-light { font-family: "ronnia-condensed" !important; font-weight: 300; font-style: normal;}
+.alt-light {@include alt-b-light;}
+@mixin alt-b-book { font-family: "ronnia-condensed" !important; font-weight: 500; font-style: normal;}
+.alt-book {@include alt-b-book;}

@@ -405,7 +405,7 @@ body {
 			background-position: center; 
 		}
 		a {
-			@include book;
+			@include bold;
 			display: block;
 			text-align: center;
 			padding: 3px;
@@ -436,7 +436,7 @@ body {
 				width: 210px;
 				padding-left: 7px;
 				a {
-					@include serif-light;
+					@include serif-book;
 					display: block;
 					color: $gray-main;
 					width: 210px;
@@ -457,7 +457,7 @@ body {
 	.container-fluid {
 		padding-right: 0;
 		.header-global {
-			@include book;
+			@include bold;
 			font-size: 18px;
 			color: $gray-light;
 			text-transform: uppercase;
@@ -479,7 +479,7 @@ body {
 			}
 			background-image:url("../assets/img/trama.png");
 			background-position: 7% 80%;
-			@include book;
+			@include bold;
 			text-transform: uppercase;
 			text-align: center;
 			&.alumno, &.docente {
@@ -676,9 +676,11 @@ body {
 										padding-top: 3px;
 										padding-bottom: 3px;
 										&:hover {
-											background-color: $gray-main;
+											// background-color: $gray-main;
+											background-color: $brand-info;
+											color: white !important;
 											a {
-											color: white;
+											color: white !important;
 											}
 										}
 									}
@@ -686,7 +688,8 @@ body {
 										margin: 0;
 									}
 									font-size: 16px;
-									text-transform: uppercase;
+									@include serif-book;
+									// text-transform: uppercase;
 								}
 							}
 						}

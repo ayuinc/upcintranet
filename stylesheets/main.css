@@ -4148,6 +4148,16 @@ input[type="button"].btn-block {
   font-weight: 700;
   font-style: normal; }
 
+.alt-light {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 300;
+  font-style: normal; }
+
+.alt-book {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal; }
+
 html {
   font-size: 14px; }
   @media only screen and (min-width: 480px) and (max-width: 768px) {
@@ -4788,7 +4798,8 @@ body {
       background-repeat: no-repeat;
       background-position: center; }
     .nav-main > li a {
-      font-family: "sgothic-rgcap" !important;
+      font-family: "sgothic-bdcap" !important;
+      font-weight: 700;
       font-style: normal;
       display: block;
       text-align: center;
@@ -4818,7 +4829,7 @@ body {
         width: 210px;
         padding-left: 7px; }
         .nav-main > li ul li a {
-          font-family: "Zizou Slab-Light" !important;
+          font-family: "zizou-slab-regular" !important;
           font-style: normal;
           display: block;
           color: #565658;
@@ -4832,7 +4843,8 @@ body {
 .site-header .container-fluid {
   padding-right: 0; }
   .site-header .container-fluid .header-global {
-    font-family: "sgothic-rgcap" !important;
+    font-family: "sgothic-bdcap" !important;
+    font-weight: 700;
     font-style: normal;
     font-size: 18px;
     color: #858688;
@@ -4850,7 +4862,8 @@ body {
     padding-right: 35px !important;
     background-image: url("../assets/img/trama.png");
     background-position: 7% 80%;
-    font-family: "sgothic-rgcap" !important;
+    font-family: "sgothic-bdcap" !important;
+    font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
     text-align: center; }
@@ -4999,14 +5012,16 @@ body {
               margin-left: -15px; }
             .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li {
               font-size: 16px;
-              text-transform: uppercase; }
+              font-family: "zizou-slab-regular" !important;
+              font-style: normal; }
               .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.dditem {
                 padding-top: 3px;
                 padding-bottom: 3px; }
                 .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.dditem:hover {
-                  background-color: #565658; }
+                  background-color: #3298FF;
+                  color: white !important; }
                   .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.dditem:hover a {
-                    color: white; }
+                    color: white !important; }
               .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu li.divider {
                 margin: 0; }
 
@@ -5040,7 +5055,7 @@ body {
   font-size: 9px !important; }
 
 .zizou-light-9 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.5625rem !important;
   font-size: 9px !important; }
@@ -5099,7 +5114,7 @@ body {
   font-size: 10px !important; }
 
 .zizou-light-10 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.625rem !important;
   font-size: 10px !important; }
@@ -5158,7 +5173,7 @@ body {
   font-size: 11px !important; }
 
 .zizou-light-11 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.6875rem !important;
   font-size: 11px !important; }
@@ -5217,7 +5232,7 @@ body {
   font-size: 12px !important; }
 
 .zizou-light-12 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.75rem !important;
   font-size: 12px !important; }
@@ -5276,7 +5291,7 @@ body {
   font-size: 13px !important; }
 
 .zizou-light-13 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.8125rem !important;
   font-size: 13px !important; }
@@ -5335,7 +5350,7 @@ body {
   font-size: 14px !important; }
 
 .zizou-light-14 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.875rem !important;
   font-size: 14px !important; }
@@ -5394,7 +5409,7 @@ body {
   font-size: 15px !important; }
 
 .zizou-light-15 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.9375rem !important;
   font-size: 15px !important; }
@@ -5453,7 +5468,7 @@ body {
   font-size: 16px !important; }
 
 .zizou-light-16 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1rem !important;
   font-size: 16px !important; }
@@ -5512,7 +5527,7 @@ body {
   font-size: 17px !important; }
 
 .zizou-light-17 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.0625rem !important;
   font-size: 17px !important; }
@@ -5571,7 +5586,7 @@ body {
   font-size: 18px !important; }
 
 .zizou-light-18 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.125rem !important;
   font-size: 18px !important; }
@@ -5630,7 +5645,7 @@ body {
   font-size: 19px !important; }
 
 .zizou-light-19 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.1875rem !important;
   font-size: 19px !important; }
@@ -5689,7 +5704,7 @@ body {
   font-size: 20px !important; }
 
 .zizou-light-20 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.25rem !important;
   font-size: 20px !important; }
@@ -5748,7 +5763,7 @@ body {
   font-size: 21px !important; }
 
 .zizou-light-21 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.3125rem !important;
   font-size: 21px !important; }
@@ -5807,7 +5822,7 @@ body {
   font-size: 22px !important; }
 
 .zizou-light-22 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.375rem !important;
   font-size: 22px !important; }
@@ -5866,7 +5881,7 @@ body {
   font-size: 23px !important; }
 
 .zizou-light-23 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.4375rem !important;
   font-size: 23px !important; }
@@ -5925,7 +5940,7 @@ body {
   font-size: 24px !important; }
 
 .zizou-light-24 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.5rem !important;
   font-size: 24px !important; }
@@ -5984,7 +5999,7 @@ body {
   font-size: 25px !important; }
 
 .zizou-light-25 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.5625rem !important;
   font-size: 25px !important; }
@@ -6043,7 +6058,7 @@ body {
   font-size: 26px !important; }
 
 .zizou-light-26 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.625rem !important;
   font-size: 26px !important; }
@@ -6102,7 +6117,7 @@ body {
   font-size: 27px !important; }
 
 .zizou-light-27 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.6875rem !important;
   font-size: 27px !important; }
@@ -6161,7 +6176,7 @@ body {
   font-size: 28px !important; }
 
 .zizou-light-28 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.75rem !important;
   font-size: 28px !important; }
@@ -6220,7 +6235,7 @@ body {
   font-size: 29px !important; }
 
 .zizou-light-29 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.8125rem !important;
   font-size: 29px !important; }
@@ -6279,7 +6294,7 @@ body {
   font-size: 30px !important; }
 
 .zizou-light-30 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.875rem !important;
   font-size: 30px !important; }
@@ -6338,7 +6353,7 @@ body {
   font-size: 31px !important; }
 
 .zizou-light-31 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.9375rem !important;
   font-size: 31px !important; }
@@ -6397,7 +6412,7 @@ body {
   font-size: 32px !important; }
 
 .zizou-light-32 {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 2rem !important;
   font-size: 32px !important; }
@@ -6660,11 +6675,11 @@ a {
             -moz-flex-grow: 0;
             flex-grow: 0;
             -ms-flex-positive: 0;
-            font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
-            font-weight: 200;
+            font-family: "ronnia-condensed" !important;
+            font-weight: 300;
             font-style: normal;
-            font-size: 0.9375rem;
-            font-size: 15px;
+            font-size: 0.8125rem;
+            font-size: 13px;
             color: #858688;
             text-transform: uppercase;
             text-align: center; }
@@ -7030,8 +7045,7 @@ input[type="submit"].btn.btn-white.btn-custom {
   appearance: none !important;
   background: url(../assets/img/select.png) no-repeat right;
   background-color: #E3E3E3;
-  font-family: "Zizou Slab-Thin" !important;
-  font-weight: 100;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   margin-bottom: 7px;
   border: none !important;
