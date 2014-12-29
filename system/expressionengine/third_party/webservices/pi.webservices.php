@@ -3457,7 +3457,7 @@ class Webservices
 	    $_SESSION["Redireccion"] = $redireccion;
 	    
       if ($token=='') {
-	      redirect('/login/no-es-usuario');
+	      //redirect('/login/no-es-usuario');
       } 
     }    
     
