@@ -167,7 +167,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="{site_url}dashboard/estudiante">';
+        $result .= '<a href="{site_url}dashboard/estudiante">'.$_COOKIE["Codigo"];
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Alumno';
         $result .= '</a>';
         $result .= '</span>';
@@ -184,7 +184,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="{site_url}dashboard/docente">';
+        $result .= '<a href="{site_url}dashboard/docente">'.$_COOKIE["Codigo"];
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Profesor';
         $result .= '</a>';
         $result .= '</span>';
@@ -210,7 +210,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="{site_url}dashboard/padre">';
+        $result .= '<a href="{site_url}dashboard/padre">'.$_COOKIE["Codigo"];
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Padre';
         $result .= '</a>';
         $result .= '<ul> ';
