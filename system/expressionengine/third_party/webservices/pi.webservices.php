@@ -3445,8 +3445,10 @@ class Webservices
 	    $codigo =  $_COOKIE["Codigo"];
 
       ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
+      ee()->db->where('codigo', $codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      var_dump($query_modelo_result);
 
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
