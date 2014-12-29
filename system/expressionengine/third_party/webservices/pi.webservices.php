@@ -107,7 +107,7 @@ class Webservices
         }
         
         // $_SESSION["CodError"] = $json['CodError'];
-        setcookie("Codigo", $json['Codigo']);
+        var_dump(setcookie("Codigo", $json['Codigo']));
         //$_COOKIE["Codigo"] = $json['Codigo'];
         $_SESSION["Codigo"] = $json['Codigo'];
         $_SESSION["TipoUser"] = $json['TipoUser'];
