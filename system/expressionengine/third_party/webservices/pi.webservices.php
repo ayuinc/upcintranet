@@ -3449,7 +3449,7 @@ class Webservices
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
 
       var_dump($query_modelo_result);
-
+      var_dump("CODIGO".$codigo);
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
