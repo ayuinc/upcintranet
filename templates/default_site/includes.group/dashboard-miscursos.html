@@ -1,27 +1,32 @@
   <div class="panel">
-    <div class="panel-head">
+    <div class="panel-head bg-muted">
       <div class="panel-head-left">
-        <div class="panel-title">
-          <h2>Mis cursos</h2>
+        <div class="panel-head-wrap">
+          <div class="panel-title">
+            <h2>Mis Cursos</h2>
+            <a class="arrow-link" href="#">
+              <img class="pull-right" src="/assets/img/red_arrow.png" alt="">
+            </a>
         </div>
       </div>
     </div>
     <div class="panel-body">
-      <div class="panel-body-head-table red">
+      <div class="panel-body-head-table white">
         <ul class="tr">
-          <li class="col-sm-8">
+          <li class="col-xs-8">
             <div class=""><span>Curso</span></div>
           </li>
-          <li class="col-sm-2">
+          <li class="col-xs-2">
             <div class=""><span>Faltas</span></div>
           </li>
-          <li class="col-sm-2">
+          <li class="col-xs-2">
             <div class=""><span>Promedio</span></div>
           </li>
         </ul>
       </div>  
       <div class="panel-table mis-cursos-content no-bg" id="miscursos">
         {exp:webservices:inasistencias_alumno}
+      </div>
       </div>
     </div>
   </div>

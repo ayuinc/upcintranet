@@ -68,35 +68,17 @@ body {
 	}
 	&.login {
 		margin-top: 0px;
-		padding-top: 7px;
+		padding-top: 126px;
 		padding-bottom: 0px;
 		.row {
 			margin-left: -14px;
-			.col-sm-8 {
+			.col-sm-10 {
 				// img.logo {
 				// 	float: right !important;
 				// }
 				.row {
 					.col-sm-5 {
 						.row {
-							// &.login-row {
-							// 	.col-sm-8 {
-							// 		@media #{$lg-down} {
-							// 			margin-top: 14px !important;
-							// 		}
-							// 		a img {
-							// 			@media #{$lg-down} {
-							// 				width: 14px !important;
-							// 			}
-							// 		}
-							// 	}
-							// }
-							.col-sm-5 {
-								@media #{$md-down} {
-									padding-left: 0px;
-									padding-right: 0px;
-								}
-							}
 							p {
 								color: $gray-light !important;
 								@include serif-book;
@@ -107,14 +89,6 @@ body {
 								font-size: 16px;
 								color: $gray-darker;
 							}
-							// label {
-							// 	@include book;
-							// 	font-size: 20px !important;
-							// 	@media #{$md-down} {
-							// 	font-size: 16px !important;
-							// 	}
-							// 	text-transform: uppercase;
-							// }
 							input {
 								background-color: $gray-lighter;
 								border-radius: 0px;
@@ -123,21 +97,32 @@ body {
 									font-size: 20px;
 								}
 							}
-							// &.recover {
-							// 	padding-top: 175px
-							// }
 						}
 
 						button {
 							float: right;
 						}
 					}
-					.col-sm-7 {
+					.col-sm-7.bg-muted {
+						padding-bottom: 77px !important;
+						border-bottom: 2px solid $brand-danger; 
 						form {
 							.row {
+								.col-sm-8 {
+									div.center-input {
+										margin-left: 21px !important;
+										margin-bottom: -14px !important;
+										input.form-control {
+										  border-radius: 0px !important;
+										  border: 0px !important;
+										  background-color: $gray-lighter;
+										  color: black !important;
+										}
+									}
+								}
 								.inicia {
 									div {
-										margin-left: 125px !important;
+										// margin-left: 125px !important;
 									}
 								}
 							}

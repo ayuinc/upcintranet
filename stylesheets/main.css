@@ -4053,6 +4053,11 @@ input[type="button"].btn-block {
   /* IE9 */
   src: url("../stylesheets/fonts/Zizou Slab-Regular.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fonts/Zizou Slab-Regular.woff") format("woff"), url("../stylesheets/fonts/Zizou Slab-Regular.ttf") format("truetype"), url("../stylesheets/fonts/Zizou Slab-Regular.svg") format("svg"); }
 @font-face {
+  font-family: 'HelveticaNeue';
+  src: url("../stylesheets/fonts/HelveticaNeueLTStd-Bd.eot");
+  /* IE9 */
+  src: url("../stylesheets/fonts/HelveticaNeueLTStd-Bd.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fonts/HelveticaNeueLTStd-Bd.woff") format("woff"), url("../stylesheets/fonts/HelveticaNeueLTStd-Bd.ttf") format("truetype"), url("../stylesheets/fonts/HelveticaNeueLTStd-Bd.svg") format("svg"); }
+@font-face {
   font-family: 'Zizou Slab-Light';
   src: url("../stylesheets/fonts/Zizou Slab-Light.eot");
   src: url("../stylesheets/fonts/Zizou Slab-Light.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fonts/Zizou Slab-Light.woff") format("woff"), url("../stylesheets/fonts/Zizou Slab-Light.ttf") format("truetype"), url("../stylesheets/fonts/Zizou Slab-Light.svg") format("svg"); }
@@ -4586,34 +4591,39 @@ body {
       padding-left: 28px !important; } }
   .site-content.login {
     margin-top: 0px;
-    padding-top: 7px;
+    padding-top: 126px;
     padding-bottom: 0px; }
     .site-content.login .row {
       margin-left: -14px; }
-      @media only screen and (max-width: 992px) {
-        .site-content.login .row .col-sm-8 .row .col-sm-5 .row .col-sm-5 {
-          padding-left: 0px;
-          padding-right: 0px; } }
-      .site-content.login .row .col-sm-8 .row .col-sm-5 .row p {
+      .site-content.login .row .col-sm-10 .row .col-sm-5 .row p {
         color: #858688 !important;
         font-family: "Zizou Slab-Regular" !important;
         font-style: normal;
         font-size: 28px; }
-      .site-content.login .row .col-sm-8 .row .col-sm-5 .row a {
+      .site-content.login .row .col-sm-10 .row .col-sm-5 .row a {
         font-family: "Zizou Slab-Regular" !important;
         font-style: normal;
         font-size: 16px;
         color: #262624; }
-      .site-content.login .row .col-sm-8 .row .col-sm-5 .row input {
+      .site-content.login .row .col-sm-10 .row .col-sm-5 .row input {
         background-color: #E3E3E3;
         border-radius: 0px;
         border: none !important; }
-        .site-content.login .row .col-sm-8 .row .col-sm-5 .row input .form-control {
+        .site-content.login .row .col-sm-10 .row .col-sm-5 .row input .form-control {
           font-size: 20px; }
-      .site-content.login .row .col-sm-8 .row .col-sm-5 button {
+      .site-content.login .row .col-sm-10 .row .col-sm-5 button {
         float: right; }
-      .site-content.login .row .col-sm-8 .row .col-sm-7 form .row .inicia div {
-        margin-left: 125px !important; }
+      .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted {
+        padding-bottom: 77px !important;
+        border-bottom: 2px solid #E42322; }
+        .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form .row .col-sm-8 div.center-input {
+          margin-left: 21px !important;
+          margin-bottom: -14px !important; }
+          .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form .row .col-sm-8 div.center-input input.form-control {
+            border-radius: 0px !important;
+            border: 0px !important;
+            background-color: #E3E3E3;
+            color: black !important; }
       .site-content.login .row .col-sm-8 {
         padding-top: 28px; }
         @media only screen and (max-width: 1200px) {
@@ -6462,6 +6472,9 @@ body {
 .gray-main {
   color: #565658 !important; }
 
+.gray-light {
+  color: #858688 !important; }
+
 .m-auto {
   margin: auto !important; }
 
@@ -6492,6 +6505,9 @@ body {
 .ml--63 {
   margin-left: -63px !important; }
 
+.ml--70 {
+  margin-left: -70px !important; }
+
 .btn-custom {
   padding: 7px !important;
   border-radius: 0px;
@@ -6519,6 +6535,8 @@ body {
 
 a {
   color: #858688 !important; }
+  a.sb-link {
+    color: #3298FF !important; }
 
 .panel {
   position: relative; }
@@ -6544,10 +6562,10 @@ a {
       font-size: 1.5rem;
       font-size: 24px;
       color: white; }
-  .panel .panel-head .panel-head-left {
-    float: left;
-    font-family: "Zizou Slab-Regular" !important;
-    font-style: normal; }
+  .panel .panel-head .panel-head-wrap {
+    border-bottom: red 2px solid;
+    margin-left: 7px;
+    width: 97%; }
   .panel .panel-head .panel-head-right {
     float: right; }
     .panel .panel-head .panel-head-right:before, .panel .panel-head .panel-head-right:after {
@@ -6561,11 +6579,14 @@ a {
       padding: 1px 5px;
       border-radius: 0px; }
   .panel .panel-head .panel-title {
+    padding: 7px !important;
     font-family: "Zizou Slab-Regular" !important;
     font-style: normal; }
     .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
       margin: 0;
       padding-bottom: 7px; }
+    .panel .panel-head .panel-title a.arrow-link img {
+      margin-top: -30px !important; }
   .panel .panel-body.canales {
     padding-bottom: 28px; }
     .panel .panel-body.canales .panel-table {
@@ -6574,6 +6595,8 @@ a {
         border: none !important; }
   .panel .panel-body .panel-table {
     background-color: white !important; }
+    .panel .panel-body .panel-table.observaciones {
+      background-color: #3298FF !important; }
     .panel .panel-body .panel-table.no-bg {
       background: none !important; }
       .panel .panel-body .panel-table.no-bg .tr {
@@ -6603,8 +6626,8 @@ a {
         text-decoration: underline; }
   .panel .panel-body .panel-body-head {
     text-transform: uppercase;
-    background: black;
-    color: white;
+    background: white;
+    color: black;
     text-align: center;
     font-family: "SolanoGothicMVBProBd" !important;
     font-weight: 700;
@@ -6629,21 +6652,9 @@ a {
         font-size: 20px; }
   .panel .panel-body .panel-body-head-table {
     background: #565658; }
-    .panel .panel-body .panel-body-head-table.red {
-      background: #E42322; }
-      .panel .panel-body .panel-body-head-table.red .tr {
-        padding-left: 0;
-        list-style: none;
-        margin: 0; }
-        .panel .panel-body .panel-body-head-table.red .tr:before, .panel .panel-body .panel-body-head-table.red .tr:after {
-          content: " ";
-          display: table; }
-        .panel .panel-body .panel-body-head-table.red .tr:after {
-          clear: both; }
-        .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-2 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-1 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-4 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-5 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-6 div, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-7 div {
-          border-left: 1px solid white; }
-          .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-2 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-1 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-4 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-5 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-6 div.fecha, .panel .panel-body .panel-body-head-table.red .tr li + li.col-sm-7 div.fecha {
-            border: none; }
+    .panel .panel-body .panel-body-head-table.white {
+      background: white !important;
+      color: #565658 !important; }
     .panel .panel-body .panel-body-head-table .tr {
       padding-left: 0;
       list-style: none;
@@ -6653,10 +6664,8 @@ a {
         display: table; }
       .panel .panel-body .panel-body-head-table .tr:after {
         clear: both; }
-      .panel .panel-body .panel-body-head-table .tr li + li.col-sm-2 div, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-1 div, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-4 div, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-5 div, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-6 div, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-7 div {
-        border-left: 2px solid #858688; }
-        .panel .panel-body .panel-body-head-table .tr li + li.col-sm-2 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-1 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-4 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-5 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-6 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-7 div.fecha {
-          border: none; }
+      .panel .panel-body .panel-body-head-table .tr li + li.col-sm-2 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-1 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-4 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-5 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-6 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-7 div.fecha {
+        border: none; }
       .panel .panel-body .panel-body-head-table .tr li {
         padding: 6px 0; }
         .panel .panel-body .panel-body-head-table .tr li div {
@@ -6693,7 +6702,7 @@ a {
             font-style: normal;
             font-size: 0.9375rem;
             font-size: 15px;
-            color: white;
+            color: #858688;
             text-transform: uppercase;
             text-align: center; }
             .panel .panel-body .panel-body-head-table .tr li div span.head-left {
@@ -6734,7 +6743,7 @@ a {
     .panel .panel-body .panel-table.mis-cursos-content ul li {
       padding-bottom: 7px !important;
       background: white; }
-      .panel .panel-body .panel-table.mis-cursos-content ul li.col-sm-2 {
+      .panel .panel-body .panel-table.mis-cursos-content ul li.col-xs-2 {
         display: none; }
       .panel .panel-body .panel-table.mis-cursos-content ul li.show-curso-detail {
         cursor: pointer !important; }
@@ -6776,8 +6785,7 @@ a {
   .panel .panel-body .panel-table .tr {
     padding-left: 0;
     list-style: none;
-    margin: 0;
-    border-bottom: 1px solid #E3E3E3; }
+    margin: 0; }
     .panel .panel-body .panel-table .tr.row-libre {
       padding-left: 7px; }
     .panel .panel-body .panel-table .tr a {
@@ -6828,10 +6836,6 @@ a {
         padding: 0 6px; }
       .panel .panel-body .panel-table .tr li div h1, .panel .panel-body .panel-table .tr li div h2, .panel .panel-body .panel-table .tr li div h3, .panel .panel-body .panel-table .tr li div h4, .panel .panel-body .panel-table .tr li div h5, .panel .panel-body .panel-table .tr li div h6 {
         margin: 7px; }
-      .panel .panel-body .panel-table .tr li div .keep-reading {
-        color: #3298FF;
-        font-family: "Zizou Slab-Regular" !important;
-        font-style: normal; }
       .panel .panel-body .panel-table .tr li span {
         -webkit-flex-grow: 0;
         -moz-flex-grow: 0;
@@ -6862,7 +6866,7 @@ a {
         justify-content: center;
         -ms-flex-pack: center;
         min-height: 28px;
-        border-right: 1px solid #E3E3E3;
+        border-right: 2px solid #E3E3E3;
         padding: 0 6px; }
         .panel .panel-body .panel-table .tr li > div.nrb {
           border: none; }

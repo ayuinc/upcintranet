@@ -1,8 +1,11 @@
 <div class="panel pt-21">
-  <div class="panel-head">
-    <div class="panel-head-left">
+  <div class="panel-head bg-muted">
+    <div class="panel-head-wrap">
       <div class="panel-title">
         <h2>Vida Universitaria</h2>
+        <a class="arrow-link" href="#">
+          <img class="pull-right" src="/assets/img/skb_arrow.png" alt="">  
+        </a>
       </div>
     </div>
   </div>
@@ -11,27 +14,12 @@
 	    cache_refresh="30"
 	    limit="2"
 	}  
-  <div class="panel-body mb-14">
-    <div class="panel-body-head-table">
-      <ul class="tr">
-        <li class="col-xs-12">
-          <div class="pl-7 pr-7">
-	          <span class="text-left h5 mt-0 mb-0">{title}</span>
-	        </div>
-        </li>
-      </ul>
+  <div class="panel-body p-7 bg-muted">
+    <div>
+      <span class="uppercase">{pubDate}</span>
     </div>
-    <div class="panel-table noticias-content">
-      <ul class="tr">
-        <li class="col-xs-12">
-          <div>
-						<small class="mt-7 mb-7 zizou-14">{pubDate}</small>
-						<p class="noticia-body helvetica-12">{description}</p>
-						<p class="keep-reading zizou-14"><a href="{link}" target="_blank"><img class="pr-7" src="/assets/img/skyblue_arrow.png">Seguir Leyendo</a></p>        
-          </div>
-        </li>
-      </ul>
-    </div>
+    <small class="mt-7 mb-7 zizou-14">{title}</small>
+    <p class="zizou-14"><a class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
   </div>
   {/exp:ajw_feedparser} 
 </div> 
