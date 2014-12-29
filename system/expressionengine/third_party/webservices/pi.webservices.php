@@ -3451,6 +3451,9 @@ class Webservices
     public function verificar_usuario() {
 	    //$token = $_SESSION["Token"];
 	    $codigo =  $_COOKIE["Codigo"];
+      var_dump($_COOKIE["Codigo"]);
+      var_dump($HTTP_COOKIE_VARS["Codigo"]);
+      var_dump($_REQUEST);
 
       ee()->db->select('*');
       ee()->db->where('codigo', $codigo);
