@@ -108,6 +108,9 @@ class Webservices
         
         // $_SESSION["CodError"] = $json['CodError'];
         var_dump(setcookie("Codigo", $json['Codigo']));
+        var_dump($_COOKIE["Codigo"]);
+        var_dump($HTTP_COOKIE_VARS["Codigo"]);
+        var_dump($_REQUEST);
         //$_COOKIE["Codigo"] = $json['Codigo'];
         $_SESSION["Codigo"] = $json['Codigo'];
         $_SESSION["TipoUser"] = $json['TipoUser'];
@@ -147,7 +150,11 @@ class Webservices
     public function consultar_alumno(){
       //$codigo = $_SESSION["Codigo"];
       $codigo =  $_COOKIE["Codigo"];
-
+      
+      var_dump($_COOKIE["Codigo"]);
+      var_dump($HTTP_COOKIE_VARS["Codigo"]);
+      var_dump($_REQUEST);
+      
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
