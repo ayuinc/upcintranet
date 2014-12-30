@@ -436,7 +436,7 @@ body {
 				width: 210px;
 				padding-left: 7px;
 				a {
-					@include serif-book;
+					@include serif-thin;
 					display: block;
 					color: $gray-main;
 					width: 210px;
@@ -444,7 +444,7 @@ body {
 					text-align: left;
 					&:hover {
 						background: white;
-						color: $brand-danger;
+						color: $brand-danger !important;
 					}
 				}
 			}
@@ -485,44 +485,38 @@ body {
 			&.alumno, &.docente {
 				.col-sm-5 {
 					.row {
-						div[class^='col-sm'] {
+						.col-sm-3 {
 							a {
-							>div {
-								height: 28px !important;
-								&.mi-correo {
-									background-image: url("../assets/img/correo_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
+								div {
+									height: 35px !important;
+									margin-bottom: 7px;
+									&.mi-correo {
+										// background-image: url("../assets/img/correo_grey.png");
+										// background-repeat: no-repeat;
+										// background-position: center; 
+									}
+									&.mi-aula {
+										// margin-bottom: 14px; 
+									}
+									// &.print {
+									// 	margin-bottom: 7px; 
+									// }
 								}
-								&.mi-aula {
-									background-image: url("../assets/img/aula_virtual_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
-								&.print {
-									background-image: url("../assets/img/print_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
-								&.asistencia {
-									background-image: url("../assets/img/asistencia_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
-								&.search {
-									background-image: url("../assets/img/search_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
+								span {
+									color: $gray-main;
+									&:hover {
+										text-decoration: underline;
+									}
 								}
 							}
-							span {
-		    				color: $gray-main !important;
-							}	
+							.print {
+								margin-bottom: 7px; 
+							}
 						}
 					 }
 				  }	
 				}
-			}
+			// }
 			&.padre, &.docente {
 				.col-sm-5 {
 					padding-top: 21px;
@@ -625,7 +619,7 @@ body {
 				}
 			}
 			.col-sm-3.right-upper-corner {
-				@include serif-book;
+				@include serif-thin;
 				text-transform: none !important;
 				.row {
 					.col-sm-8 {
