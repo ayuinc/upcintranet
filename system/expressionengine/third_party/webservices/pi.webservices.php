@@ -127,7 +127,7 @@ class Webservices
 
     public function eliminar_cookie(){
       session_start();
-      unset($_COOKIE["test"]);
+      unset($_COOKIE["Codigo"]);
       $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
