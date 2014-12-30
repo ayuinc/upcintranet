@@ -9,7 +9,7 @@
 .light {@include light;}
 @mixin light-italic { font-family: $font-family-base !important; font-weight: 300; font-style: italic;}
 .light-italic {@include light-italic;}
-@mixin book { font-family: "SolanoGothicMVBProBd" !important; font-style: normal;}
+@mixin book { font-family: "sgothic-rgcap" !important; font-style: normal;}
 .book {@include book;}
 @mixin book-italic { font-family: $font-family-base !important; font-weight: 400; font-style: italic;}
 .book-italic {@include book-italic;}
@@ -17,7 +17,7 @@
 .medium {@include medium;}
 @mixin medium-italic { font-family: $font-family-base !important; font-weight: 500; font-style: italic;}
 .medium-italic {@include medium-italic;}
-@mixin bold { font-family: "SolanoGothicMVBProBd" !important; font-weight: 700; font-style: normal;}
+@mixin bold { font-family: "sgothic-bdcap" !important; font-weight: 700; font-style: normal;}
 .bold {@include bold;}
 @mixin bold-italic { font-family: "SolanoGothicMVBProBd" !important; font-weight: 700; font-style: italic;}
 .bold-italic {@include bold-italic;}
@@ -29,15 +29,15 @@
 .serif-light {@include serif-light;}
 @mixin serif-light-italic { font-family: $font-family-serif !important; font-weight: 300; font-style: italic;}
 .serif-light-italic {@include serif-light-italic;}
-@mixin serif-book { font-family: "Zizou Slab-Regular" !important; font-style: normal;}
+@mixin serif-book { font-family: "zizou-slab-regular" !important; font-style: normal;}
 .serif-book {@include serif-book;}
-@mixin serif-book-italic { font-family: "Zizou Slab-Regular" !important; font-weight: 400; font-style: italic;}
+@mixin serif-book-italic { font-family: "zizou-slab-regular" !important; font-weight: 400; font-style: italic;}
 .serif-book-italic {@include serif-book-italic;}
 @mixin serif-medium { font-family: "Zizou Slab-Medium" !important; font-style: normal;}
 .serif-medium {@include serif-medium;}
 @mixin serif-medium-italic { font-family: $font-family-serif !important; font-weight: 500; font-style: italic;}
 .serif-medium-italic {@include serif-medium-italic;}
-@mixin serif-bold { font-family: "Zizou Slab-Bold" !important; font-style: normal;}
+@mixin serif-bold { font-family: "zizou-slab-bold" !important; font-style: normal;}
 .serif-bold {@include serif-bold;}
 @mixin serif-bold-italic { font-family: $font-family-serif !important; font-weight: 700; font-style: italic;}
 .serif-bold-italic {@include serif-bold-italic;}
@@ -51,3 +51,10 @@
 // .alt-medium {@include alt-medium;}
 @mixin alt-bold { font-family: "Helvetica" !important; font-weight: 700; font-style: normal;}
 .alt-bold {@include alt-bold;}
+
+
+// ALTERNATIVE-B FONTS
+@mixin alt-b-light { font-family: "ronnia-condensed" !important; font-weight: 300; font-style: normal;}
+.alt-light {@include alt-b-light;}
+@mixin alt-b-book { font-family: "ronnia-condensed" !important; font-weight: 500; font-style: normal;}
+.alt-book {@include alt-b-book;}

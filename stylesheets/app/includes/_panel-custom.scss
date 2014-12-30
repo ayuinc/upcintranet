@@ -212,10 +212,10 @@
 						@include justify-content(center);
 						span {
 							@include flex-grow(0);
-							@include extra-light;
-							// font-family: "HelveticaNeue" !important;
-							font-size: rem(15px);
-							font-size: 15px;
+							@include alt-b-light;
+							// font-family: "ronnia-condensed" !important;
+							font-size: rem(13px);
+							font-size: 13px;
 							// color: white;
 							color: $gray-light;
 							text-transform: uppercase;
