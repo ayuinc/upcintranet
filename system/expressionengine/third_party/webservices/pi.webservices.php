@@ -108,8 +108,7 @@ class Webservices
         
 
         $_COOKIE["Codigo"] = $json['Codigo'];
-        //var_dump(setcookie("Codigo", $json['Codigo'], time() + (1800), "/"));
-        var_dump($_COOKIE["Codigo"]);
+        setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
 
         $_SESSION["Codigo"] = $json['Codigo'];
         $_SESSION["TipoUser"] = $json['TipoUser'];
@@ -128,7 +127,7 @@ class Webservices
     public function eliminar_cookie(){
       session_start();
       unset($_COOKIE["Codigo"]);
-      $_COOKIE["Codigo"] = "";
+      setcookie("Codigo",NULL);
       $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
