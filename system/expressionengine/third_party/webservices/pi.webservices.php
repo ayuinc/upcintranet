@@ -107,7 +107,8 @@ class Webservices
         }
         
 
-        var_dump(setcookie("Codigo", $json['Codigo'], time() + (1800), "/"));
+        $_COOKIE["Codigo"] = $json['Codigo'];
+        //var_dump(setcookie("Codigo", $json['Codigo'], time() + (1800), "/"));
         var_dump($_COOKIE["Codigo"]);
         var_dump($HTTP_COOKIE_VARS["Codigo"]);
 
@@ -150,10 +151,10 @@ class Webservices
     public function consultar_alumno(){
       //$codigo = $_SESSION["Codigo"];
       $codigo =  $_COOKIE["Codigo"];
-      
-      setcookie("Codigo",$codigo, time() + (1800), "/");
+      $_COOKIE["Codigo"] =  $codigo;
+      //setcookie("Codigo",$codigo, time() + (1800), "/");
       var_dump($_COOKIE["Codigo"]);
-      var_dump($HTTP_COOKIE_VARS["Codigo"]);
+      var_dump($codigo);
       
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
