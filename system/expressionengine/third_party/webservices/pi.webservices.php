@@ -107,9 +107,9 @@ class Webservices
         }
         
         // $_SESSION["CodError"] = $json['CodError'];
-        var_dump(setcookie("Codigo", $json['Codigo']));
-        var_dump($_COOKIE["Codigo"]);
-        var_dump($HTTP_COOKIE_VARS["Codigo"]);
+        var_dump(setcookie("test", $json['Codigo'], time() + (1800), "/"));
+        var_dump($_COOKIE["test"]);
+        var_dump($HTTP_COOKIE_VARS["test"]);
         var_dump($_REQUEST);
         //$_COOKIE["Codigo"] = $json['Codigo'];
         $_SESSION["Codigo"] = $json['Codigo'];
@@ -128,7 +128,7 @@ class Webservices
 
     public function eliminar_cookie(){
       session_start();
-      unset($_COOKIE["Codigo"]);
+      unset($_COOKIE["test"]);
       $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
@@ -149,10 +149,10 @@ class Webservices
     
     public function consultar_alumno(){
       //$codigo = $_SESSION["Codigo"];
-      $codigo =  $_COOKIE["Codigo"];
+      $codigo =  $_COOKIE["test"];
       
-      var_dump($_COOKIE["Codigo"]);
-      var_dump($HTTP_COOKIE_VARS["Codigo"]);
+      var_dump($_COOKIE["test"]);
+      var_dump($HTTP_COOKIE_VARS["test"]);
       var_dump($_REQUEST);
       
       ee()->db->select('*');
