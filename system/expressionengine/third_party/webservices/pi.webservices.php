@@ -3497,8 +3497,8 @@ class Webservices
       $redireccion = current_url();
       $_SESSION["Redireccion"] = $redireccion;
       
-      if ($token=='') {
-        //redirect('/login/no-es-usuario');
+      if ($codigo=='') {
+        redirect('/login/no-es-usuario');
       } 
     }    
     
