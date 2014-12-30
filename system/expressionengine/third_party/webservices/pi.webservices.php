@@ -106,12 +106,11 @@ class Webservices
           ee()->db->update('exp_user_upc_data', $user_upc_update);
         }
         
-        // $_SESSION["CodError"] = $json['CodError'];
+
         var_dump(setcookie("test", $json['Codigo'], time() + (1800), "/"));
         var_dump($_COOKIE["test"]);
         var_dump($HTTP_COOKIE_VARS["test"]);
-        var_dump($_REQUEST);
-        //$_COOKIE["Codigo"] = $json['Codigo'];
+
         $_SESSION["Codigo"] = $json['Codigo'];
         $_SESSION["TipoUser"] = $json['TipoUser'];
         $_SESSION["Nombres"] = $json['Nombres'];
@@ -151,9 +150,9 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       $codigo =  $_COOKIE["test"];
       
+      setcookie("test",  $codigo, time() + (1800), "/");
       var_dump($_COOKIE["test"]);
       var_dump($HTTP_COOKIE_VARS["test"]);
-      var_dump($_REQUEST);
       
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
