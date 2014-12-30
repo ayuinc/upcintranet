@@ -167,7 +167,7 @@ class Webservices
       
       if (strval($TipoUser)=='ALUMNO') {
         //header('Location: '.'{site_url}/dashboard/estudiante');
-        $result .= '<ul class="tr pb-7">';
+        /*$result .= '<ul class="tr pb-7">';
         $result .= '<li class="col-sm-2"></li>';
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
@@ -178,8 +178,8 @@ class Webservices
         $result .= '</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '</ul> ';
-        //$result .= '{redirect="dashboard/estudiante" status_code="301"}';
+        $result .= '</ul> ';*/
+        $result .= '{redirect="dashboard/estudiante" status_code="301"}';
         return $result;     
       }
       
@@ -189,7 +189,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="{site_url}dashboard/docente">'.$_COOKIE["Codigo"];
+        $result .= '<a href="{site_url}dashboard/docente">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Profesor';
         $result .= '</a>';
         $result .= '</span>';
@@ -215,7 +215,7 @@ class Webservices
         $result .= '<li class="col-sm-8 bg-muted">';
         $result .= '<div>';
         $result .= '<span class="zizou-14">';
-        $result .= '<a href="{site_url}dashboard/padre">'.$_COOKIE["Codigo"];
+        $result .= '<a href="{site_url}dashboard/padre">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Padre';
         $result .= '</a>';
         $result .= '<ul> ';
