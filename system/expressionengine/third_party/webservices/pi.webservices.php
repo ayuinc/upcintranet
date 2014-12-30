@@ -110,7 +110,6 @@ class Webservices
         $_COOKIE["Codigo"] = $json['Codigo'];
         //var_dump(setcookie("Codigo", $json['Codigo'], time() + (1800), "/"));
         var_dump($_COOKIE["Codigo"]);
-        var_dump($HTTP_COOKIE_VARS["Codigo"]);
 
         $_SESSION["Codigo"] = $json['Codigo'];
         $_SESSION["TipoUser"] = $json['TipoUser'];
@@ -3452,9 +3451,8 @@ class Webservices
     public function verificar_usuario() {
 	    //$token = $_SESSION["Token"];
 	    $codigo =  $_COOKIE["Codigo"];
+      $_COOKIE["Codigo"] = $codigo;
       var_dump($_COOKIE["Codigo"]);
-      var_dump($HTTP_COOKIE_VARS["Codigo"]);
-      var_dump($_REQUEST);
 
       ee()->db->select('*');
       ee()->db->where('codigo', $codigo);
