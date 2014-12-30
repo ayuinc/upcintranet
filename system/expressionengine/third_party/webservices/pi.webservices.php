@@ -151,7 +151,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       $codigo =  $_COOKIE["Codigo"];
       $_COOKIE["Codigo"] =  $codigo;
-      //setcookie("Codigo",$codigo, time() + (1800), "/");
+      var_dump(setcookie("Codigo",$codigo, time() + (1800), "/"));
       var_dump($_COOKIE["Codigo"]);
       var_dump($codigo);
       
