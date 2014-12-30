@@ -151,9 +151,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       $codigo =  $_COOKIE["Codigo"];
       $_COOKIE["Codigo"] =  $codigo;
-      var_dump(setcookie("Codigo",$codigo, time() + (1800), "/"));
-      var_dump($_COOKIE["Codigo"]);
-      var_dump($codigo);
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -242,6 +240,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -287,6 +286,7 @@ class Webservices
       //$redireccion = $_SESSION["Redireccion"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -358,6 +358,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -469,6 +470,7 @@ class Webservices
       //$token = $_SESSION["Token"];
 
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -614,6 +616,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -762,6 +765,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -855,6 +859,7 @@ class Webservices
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -954,6 +959,7 @@ class Webservices
       $codalumno = ee()->TMPL->fetch_param('codalumno');  
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1038,6 +1044,7 @@ class Webservices
       //$token = $_SESSION["Token"];     
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1127,6 +1134,7 @@ class Webservices
       //$token = $_SESSION["Token"];     
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1219,6 +1227,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1279,6 +1288,7 @@ class Webservices
       //$token = $_SESSION["Token"];
 
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1356,6 +1366,7 @@ class Webservices
       //$token = $_SESSION["Token"];
 
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1534,6 +1545,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1637,6 +1649,7 @@ class Webservices
       $codcurso = ee()->TMPL->fetch_param('codcurso');
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1662,6 +1675,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1699,6 +1713,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1735,6 +1750,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1857,6 +1873,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1896,6 +1913,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1939,6 +1957,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1997,6 +2016,7 @@ class Webservices
       $segmento = ee()->TMPL->fetch_param('segmento');
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2106,6 +2126,7 @@ class Webservices
       $detalles = ee()->TMPL->fetch_param('detalles');
 
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2143,6 +2164,7 @@ class Webservices
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2226,6 +2248,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2297,6 +2320,7 @@ class Webservices
       //$token = $_SESSION["Token"];
        
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2374,6 +2398,7 @@ class Webservices
       //$token = $_SESSION["Token"];
 
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2399,6 +2424,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2488,6 +2514,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2577,6 +2604,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2739,6 +2767,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2848,6 +2877,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -2992,6 +3022,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -3021,6 +3052,7 @@ class Webservices
       //$token = $_SESSION["Token"];
 
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -3185,6 +3217,7 @@ class Webservices
       //$token = $_SESSION["Token"];
        
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -3230,6 +3263,7 @@ class Webservices
       // return $_SESSION["Nombres"];
        
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -3247,6 +3281,7 @@ class Webservices
     public function apellido_alumno(){
 
       $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -3261,13 +3296,13 @@ class Webservices
     
     //CODIGO DEL ALUMNO
     public function codigo_alumno(){    
-      
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       return $_COOKIE["Codigo"];
     }  
     
     //MODALIDAD DEL ALUMNO
     public function modalidad_alumno(){    
-      
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       $codigo =  $_COOKIE["Codigo"];
 
       ee()->db->select('*');
@@ -3284,7 +3319,7 @@ class Webservices
     //ESTADO DEL ALUMNO
     public function estado_alumno(){ 
       $codigo =  $_COOKIE["Codigo"];
-
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3304,7 +3339,7 @@ class Webservices
     //SEDE DEL ALUMNO
     public function sede_alumno(){       
       $codigo =  $_COOKIE["Codigo"];
-
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3319,7 +3354,7 @@ class Webservices
     //CICLO DEL ALUMNO
     public function ciclo_alumno(){ 
       $codigo =  $_COOKIE["Codigo"];
-
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3336,7 +3371,7 @@ class Webservices
     //MUESTRA EL TIPO DE USUARIO
     public function tipo_usuario(){
       $codigo =  $_COOKIE["Codigo"];
-
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3353,7 +3388,7 @@ class Webservices
       //$TipoUser = $_SESSION["TipoUser"];
       
       $codigo =  $_COOKIE["Codigo"];
-
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3452,14 +3487,11 @@ class Webservices
 	    //$token = $_SESSION["Token"];
 	    $codigo =  $_COOKIE["Codigo"];
       $_COOKIE["Codigo"] = $codigo;
-      var_dump($_COOKIE["Codigo"]);
-
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo', $codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
 
-      var_dump($query_modelo_result);
-      var_dump("CODIGO".$codigo);
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
@@ -3474,7 +3506,7 @@ class Webservices
     //BOTON INICIO
     public function boton_inicio() {
       $codigo =  $_COOKIE["Codigo"];
-
+      setcookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3497,6 +3529,7 @@ class Webservices
     public function destruir_session () {
       session_start();
       $_SESSION["Token"] = "";
+      setcookie("Codigo", NULL);
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
       unset($_SESSION["Nombres"]);
