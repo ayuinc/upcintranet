@@ -65,6 +65,7 @@ class Webservices
 
     //CONSTRUCTOR DE SESIONES DE ACURDO AL USUARIO
     public function generador_token(){
+      session_start();
       $codigo = ee()->TMPL->fetch_param('codigo');
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
@@ -76,6 +77,8 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
+      $_SESSION["CodError"] = $json['CodError'];
+      $_SESSION["MsgError"] = $json['MsgError'];
       //INICIAR SESSION
       if (strval($json['CodError'])=='00001') {
         redirect('/login/error');
@@ -109,7 +112,6 @@ class Webservices
 
         $_COOKIE["Codigo"] = $json['Codigo'];
         setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
-
         $_SESSION["Codigo"] = $json['Codigo'];
         $_SESSION["TipoUser"] = $json['TipoUser'];
         $_SESSION["Nombres"] = $json['Nombres'];
@@ -119,8 +121,6 @@ class Webservices
         $_SESSION["DscSede"] = $json['Datos']['DscSede'];
         $_SESSION["Ciclo"] = $json['Datos']['Ciclo'];
         $_SESSION["Token"] = $json['Token'];
-        $_SESSION["CodError"] = $json['CodError'];
-        $_SESSION["MsgError"] = $json['MsgError'];
       }               
     }
 
@@ -142,6 +142,41 @@ class Webservices
       unset($_SESSION["MsgError"]);
       unset($_SESSION["Redireccion"]);     
       session_destroy();
+    }
+
+    // CONSULTAR ORDEN DE MERITO ALUMNO
+    public function consultar_orden_de_merito_alumno(){
+      //$codigo = $_SESSION["Codigo"];
+      $codigo =  $_COOKIE["Codigo"];
+      $_COOKIE["Codigo"] =  $codigo;
+      setcookie("Codigo",$codigo, time() + (1800), "/");
+      
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      foreach($query_modelo_result->result() as $row){
+        $TipoUser = $row->tipouser;
+        $token = $row->token;
+      }
+
+      $data = {
+        "codigo" => $codigo,
+        "clave" =>
+      };
+      
+      $data_string = json_encode($data, true);
+      $url = 'http://190.41.141.198/Infhotel/ServiceReservaWeb.svc/InsertReserva';
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data_string)); 
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);     
+      curl_setopt($ch, CURLOPT_URL,$url);
+      curl_setopt($ch, CURLOPT_HTTPHEADER,array(
+          'Content-Type: application/json', 'charset=utf-8')
+      ); 
+      $result = curl_exec($ch);
+      curl_close($ch);
+
     }
 
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
@@ -367,8 +402,6 @@ class Webservices
         $token = $row->token;
       }
 
-
-
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -413,21 +446,22 @@ class Webservices
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
-              $result .= '<ul class="tr">';
-              $result .= '<li class="col-sm-2 helvetica-bold-14">';
-              $result .= '<div class="text-center"><span>'.$HoraInicio[$disponibles].':00</span></div>';
-              $result .= '</li>';
-              $result .= '<li class="col-sm-2 helvetica-bold-14">';
-              $result .= '<div class="text-center"><span>'.$Sede[$disponibles].'</span></div>';
-              $result .= '</li>';
-              $result .= '<li class="col-sm-6 helvetica-12">';
-              $result .= '<div><span>'.$CursoNombre[$disponibles].'</span></div>';
-              $result .= '</li>';
-              $result .= '<li class="col-sm-2 helvetica-bold-14">';
-              $result .= '<div class="text-center"><span>'.$Salon[$disponibles].'</span></div>';
-              $result .= '</li>';
-              $result .= '</ul>';    
-              
+              if($CursoNombre[$disponibles] != ""){
+                $result .= '<ul class="tr">';
+                $result .= '<li class="col-sm-2 helvetica-bold-14">';
+                $result .= '<div class="text-center"><span>'.$HoraInicio[$disponibles].':00</span></div>';
+                $result .= '</li>';
+                $result .= '<li class="col-sm-2 helvetica-bold-14">';
+                $result .= '<div class="text-center"><span>'.$Sede[$disponibles].'</span></div>';
+                $result .= '</li>';
+                $result .= '<li class="col-sm-6 helvetica-12">';
+                $result .= '<div><span>'.$CursoNombre[$disponibles].'</span></div>';
+                $result .= '</li>';
+                $result .= '<li class="col-sm-2 helvetica-bold-14">';
+                $result .= '<div class="text-center"><span>'.$Salon[$disponibles].'</span></div>';
+                $result .= '</li>';
+                $result .= '</ul>';    
+              }
               //Controla que ya no recorra mas el arreglo 
               if ($disponibles != $tamano_2-1) {
                 $disponibles++;
