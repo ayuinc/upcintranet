@@ -83,7 +83,7 @@ class Webservices
       $_SESSION["MsgError"] = $json['MsgError'];
       //INICIAR SESSION
       if (strval($json['CodError'])=='00001') {
-        redirect('/login/error');
+        redirect('/login/error_login');
       } 
       else {
         ee()->db->select('*');

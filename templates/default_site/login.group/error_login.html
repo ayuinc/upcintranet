@@ -1,0 +1,68 @@
+{embed="includes/head"}
+    <div class="site-content login">
+      <div class="row pt-14">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+          <div class="row">
+            <div class="col-sm-5">
+              <img src="{site_url}assets/img/login_xl.png" class="img-responsive" alt="">
+            </div>
+            <!-- Eliminado Informacion Local-->
+              {exp:webservices:eliminar_cookie}
+            <!-- -->
+            <div class="col-sm-7 bg-muted pr-35">
+              <div class="row mt-14">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4 ml-21 mt-49"><span class="uppercase solano-32 black">Intranet</span></div>
+                <div class="col-sm-4 pull-right"><img class="logo" src="{site_url}assets/img/logo_upc_red.png" alt=""></div>
+                <div class="col-sm-2"></div>
+              </div>
+              <form action="{site_url}index.php/login/usuario" method="post" name="login_form">
+								<input type="hidden" name="XID" value="{XID_HASH}"> 
+								<input type="hidden" name="plataforma" value="C">
+                <div class="row mt-14 pt-7">
+                  <p>Contraseña o correo incorrecto</p>
+                </div> 
+                <div class="row mt-14 pt-7">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-8">
+										<div class="center-input">
+                  		<input class="form-control zizou-12" type="text" name="codigo" value="" maxlength="32" class="input" size="25"  placeholder="Nombre de Usuario*"></div>
+										</div>
+                </div>  
+                <div class="row">
+                  <div class="col-sm-2"></div>
+	                <div class="col-sm-8">
+										<div class="center-input">
+	                		<input type="password" name="contrasena" value="" maxlength="32" class="zizou-12 input form-control" size="25" placeholder="Contraseña*">
+	                	</div>
+									</div>
+                </div>
+                <div class="row mt-7">
+                  <div class="col-sm-2"></div>
+              		<div class="col-sm-8 inicia">
+              			<div class="pull-right">
+              				<button type="submit" value="Send" class="btn btn-custom black-btn wide lg">Iniciar Sesión</button>
+	                    <div class="mt-14">
+	                    	<a href="" class="zizou-14">¿No puedes acceder a tu cuenta?</a>
+	                    </div>
+              			</div>
+              		</div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="text-center mt-7 ml--70"><span class="helvetica-bold-10 black uppercase">*Campo obligatorio</span></div>
+          </div>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+      <div class="row footer pt-28">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2"><img src="{site_url}assets/img/laureate.png" alt="" class="img-responsive"></div>
+        <div class="col-sm-8 copyright"><span>COPYRIGHT UPC 2014. Prolongación Primavera 2390, Monterrico. Lima - Perú. Teléfonos: 313-333 | Fax: 313-3344</span></div>
+      </div>
+    </div>
+{embed="includes/footer"}
+
