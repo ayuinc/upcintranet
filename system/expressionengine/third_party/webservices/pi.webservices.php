@@ -158,12 +158,7 @@ class Webservices
         $TipoUser = $row->tipouser;
         $token = $row->token;
       }
-
-      $data = {
-        "codigo" => $codigo,
-        "clave" =>
-      };
-      
+      /*
       $data_string = json_encode($data, true);
       $url = 'http://190.41.141.198/Infhotel/ServiceReservaWeb.svc/InsertReserva';
       $ch = curl_init($url);
@@ -175,7 +170,7 @@ class Webservices
           'Content-Type: application/json', 'charset=utf-8')
       ); 
       $result = curl_exec($ch);
-      curl_close($ch);
+      curl_close($ch);*/
 
     }
 
