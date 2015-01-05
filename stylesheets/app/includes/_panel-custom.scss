@@ -2,12 +2,7 @@
 .panel {
 	position: relative;
 	&.curso-detalle {
-		padding-top: 14px;
-		.panel-body .observaciones {
-			.tr {
-				border-top: 1px $gray-main solid;
-			}
-		}
+		padding-top: 3px;
 	}
 	.panel-head {
 		@include clearfix;
@@ -83,6 +78,7 @@
 			background-color: white !important;
 			&.observaciones {
 				background-color: $brand-info !important;
+				border-top: 2px solid $brand-danger;
 			}
 			&.no-bg {
 				background: none !important;
@@ -91,6 +87,9 @@
 				}
 			}
 			.tr {
+				li.formula {
+					border-bottom: 2px solid $gray-main;
+				}
 				a.sb-link {
 					color: $brand-info !important;
 				}
@@ -174,24 +173,10 @@
 				background: white !important;
 				color: $gray-main !important;
 			}
-			// &.red {
-			// 	background: $brand-danger;
-			// 	.tr {
-			// 		@include list-unstyled;
-			// 		@include clearfix;
-			// 		li + li {
-			// 			&.col-sm-2, &.col-sm-1, &.col-sm-4, &.col-sm-5, &.col-sm-6, &.col-sm-7 {
-			// 				div {
-			// 					border-left: 1px solid white;
-			// 					&.fecha {
-			// 						border: none;
-			// 					}
-			// 				}
-			// 			}
-			// 		}
-			// 	}
-			// }
 			.tr {
+				&.border-bt-gl {
+					border-bottom: 2px solid $gray-light;
+				}
 				@include list-unstyled;
 				@include clearfix;
 				li + li {
@@ -213,10 +198,8 @@
 						span {
 							@include flex-grow(0);
 							@include alt-b-light;
-							// font-family: "ronnia-condensed" !important;
 							font-size: rem(13px);
 							font-size: 13px;
-							// color: white;
 							color: $gray-light;
 							text-transform: uppercase;
 							text-align: center;

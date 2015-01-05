@@ -7016,9 +7016,7 @@ a {
 .panel {
   position: relative; }
   .panel.curso-detalle {
-    padding-top: 14px; }
-    .panel.curso-detalle .panel-body .observaciones .tr {
-      border-top: 1px #565658 solid; }
+    padding-top: 3px; }
   .panel .panel-head:before, .panel .panel-head:after {
     content: " ";
     display: table; }
@@ -7071,11 +7069,14 @@ a {
   .panel .panel-body .panel-table {
     background-color: white !important; }
     .panel .panel-body .panel-table.observaciones {
-      background-color: #3298FF !important; }
+      background-color: #3298FF !important;
+      border-top: 2px solid #E42322; }
     .panel .panel-body .panel-table.no-bg {
       background: none !important; }
       .panel .panel-body .panel-table.no-bg .tr {
         background-color: white !important; }
+    .panel .panel-body .panel-table .tr li.formula {
+      border-bottom: 2px solid #565658; }
     .panel .panel-body .panel-table .tr a.sb-link {
       color: #3298FF !important; }
     .panel .panel-body .panel-table.otras-acciones {
@@ -7134,6 +7135,8 @@ a {
       padding-left: 0;
       list-style: none;
       margin: 0; }
+      .panel .panel-body .panel-body-head-table .tr.border-bt-gl {
+        border-bottom: 2px solid #858688; }
       .panel .panel-body .panel-body-head-table .tr:before, .panel .panel-body .panel-body-head-table .tr:after {
         content: " ";
         display: table; }
