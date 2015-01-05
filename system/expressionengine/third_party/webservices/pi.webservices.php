@@ -65,6 +65,7 @@ class Webservices
 
     //CONSTRUCTOR DE SESIONES DE ACURDO AL USUARIO
     public function generador_token(){
+      session_start();
       $codigo = ee()->TMPL->fetch_param('codigo');
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
@@ -411,7 +412,7 @@ class Webservices
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
-              if($CursoNombre[$disponibles]!=''){
+              if($CursoNombre[$disponibles] != ""){
                 $result .= '<ul class="tr">';
                 $result .= '<li class="col-sm-2 helvetica-bold-14">';
                 $result .= '<div class="text-center"><span>'.$HoraInicio[$disponibles].':00</span></div>';
