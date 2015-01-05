@@ -77,8 +77,8 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      $_SESSION["CodError"] = $json['CodError'];
-      $_SESSION["MsgError"] = $json['MsgError'];
+      //$_SESSION["CodError"] = $json['CodError'];
+      //$_SESSION["MsgError"] = $json['MsgError'];
       //INICIAR SESSION
       if (strval($json['CodError'])=='00001') {
         redirect('/login/error');
