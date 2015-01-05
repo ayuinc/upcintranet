@@ -3504,8 +3504,8 @@ class Webservices
     
     //MENSAJE DE ERROR
     public function mensaje_error(){
-      $MsgError = $_SESSION["MsgError"];
-      setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
+      $MsgError = $_COOKIE["MsgError"];
+      setcookie("MsgError", $MsgError, time() + (1800), "/");
       return $MsgError;
     }    
     
