@@ -462,6 +462,7 @@ class Webservices
                 $disponibles++;
               } 
             } else {
+              /*
               $result .= '<ul class="tr">';
               $result .= '<li class="col-sm-2 helvetica-bold-14">';
               $result .= '<div class="text-center"><span>'.$b.':00</span></div>';
@@ -469,7 +470,7 @@ class Webservices
               $result .= '<li class="col-sm-10">';
               $result .= '<div class="text-center"></div>';
               $result .= '</li>';
-              $result .= '</ul>';
+              $result .= '</ul>';*/
             }   
           } 
         } 
