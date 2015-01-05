@@ -77,6 +77,8 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
+      setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
+      //setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
       $_SESSION["CodError"] = $json['CodError'];
       $_SESSION["MsgError"] = $json['MsgError'];
       //INICIAR SESSION
@@ -128,6 +130,7 @@ class Webservices
       session_start();
       unset($_COOKIE["Codigo"]);
       setcookie("Codigo",NULL);
+      setcookie("MsgError",NULL);
       $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
@@ -3501,8 +3504,9 @@ class Webservices
     
     //MENSAJE DE ERROR
     public function mensaje_error(){
-      var_dump( $_SESSION);
-      return "";
+      $MsgError = $_SESSION["MsgError"];
+      setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
+      return $MsgError;
     }    
     
     //INICIAR SESION
@@ -3558,6 +3562,7 @@ class Webservices
       session_start();
       $_SESSION["Token"] = "";
       setcookie("Codigo", NULL);
+      setcookie("MsgError", NULL);
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
       unset($_SESSION["Nombres"]);
