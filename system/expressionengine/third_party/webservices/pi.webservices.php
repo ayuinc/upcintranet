@@ -3501,7 +3501,8 @@ class Webservices
     
     //MENSAJE DE ERROR
     public function mensaje_error(){
-      return $_SESSION["MsgError"];
+      var_dump( $_SESSION);
+      return "";
     }    
     
     //INICIAR SESION
