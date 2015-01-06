@@ -2227,6 +2227,7 @@ class Webservices
       $tamano = count($json['Recursos']); 
       
       if($error=='00000'){
+        $result = $fechafin."  ".$fecini;
         $result .= '<div class="panel-table no-bg">';
         for ($i=0; $i<$tamano; $i++) { 
           $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
