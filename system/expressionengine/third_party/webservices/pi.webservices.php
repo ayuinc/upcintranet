@@ -2296,10 +2296,10 @@ class Webservices
       $codrecurso = ee()->TMPL->fetch_param('CodRecurso');
       $nomrecurso = ee()->TMPL->fetch_param('NomRecurso');
       $fecini = ee()->TMPL->fetch_param('FecIni');
-      $fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
+      //$fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $horaini = ee()->TMPL->fetch_param('HoraIni');
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
-      $fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
+      //$fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
       $horafin = ee()->TMPL->fetch_param('HoraFin');
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       
