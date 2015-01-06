@@ -49,8 +49,8 @@ $alt-b: "helv-neue";
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;
 		@media #{$lg-down} {
-			font-size: rem(($fs) - 4) !important;	
-			font-size: ($fs - 4) + px !important;
+			font-size: rem(($fs) - 2) !important;	
+			font-size: ($fs - 2) + px !important;
 		}	
 	}
 	.#{$alt}-light-#{$fs} {

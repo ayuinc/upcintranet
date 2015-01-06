@@ -4939,11 +4939,15 @@ body {
       margin-left: -9px;
       margin-right: 5px; }
 
-.mobile-nav .container .collapse.navbar-collapse ul li {
-  background-color: white;
-  font-family: "zizou-slab-regular" !important;
-  font-style: normal;
-  font-size: 16px; }
+#mobile-nav .col-xs-4 {
+  padding-left: 0; }
+
+#collapseMobile {
+  margin-left: 14px !important; }
+  #collapseMobile ul li {
+    font-family: "zizou-slab-regular" !important;
+    font-style: normal;
+    font-size: 14px; }
 
 .site-content {
   position: absolute;
@@ -5048,7 +5052,8 @@ body {
     margin-left: -30px !important;
     margin-top: 7px !important; }
     .site-content .internal-header .second-line span {
-      font-family: "sgothic-rgcap" !important;
+      font-family: "sgothic-bdcap" !important;
+      font-weight: 700;
       font-style: normal;
       text-transform: uppercase;
       font-size: 2.75rem !important;
@@ -5257,20 +5262,20 @@ body {
   .site-header .container-fluid .header-no-global {
     padding-left: 98px !important;
     padding-right: 35px !important;
-    background-image: url("../assets/img/trama.png");
-    background-position: 7% 80%;
+    border-bottom: 2px solid #d3d3d3 !important;
+    background-image: url("../assets/img/header_no_global.png");
     font-family: "sgothic-bdcap" !important;
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
     text-align: center; }
-    .site-header .container-fluid .header-no-global .inner {
-      border-bottom: 2px solid #d3d3d3 !important; }
     .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a div, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a div {
       height: 35px !important;
       margin-bottom: 7px; }
+      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a div.mi-correo, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a div.mi-correo {
+        padding-top: 7px; }
     .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a span, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a span {
-      color: #565658; }
+      color: white; }
       .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a span:hover, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a span:hover {
         text-decoration: underline; }
     .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 .print, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .print {
@@ -5340,17 +5345,15 @@ body {
               background-color: #565658; }
               .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover a, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover a {
                 color: white; }
-    .site-header .container-fluid .header-no-global .col-sm-4.busqueda {
-      padding-bottom: 14px; }
-      .site-header .container-fluid .header-no-global .col-sm-4.busqueda .right-inner-addon {
-        position: relative; }
-        .site-header .container-fluid .header-no-global .col-sm-4.busqueda .right-inner-addon input {
-          padding-right: 30px; }
-        .site-header .container-fluid .header-no-global .col-sm-4.busqueda .right-inner-addon img {
-          background-color: #565658;
-          position: absolute;
-          right: 0px;
-          padding: 9px 10px;
+    .site-header .container-fluid .header-no-global .busqueda {
+      padding-bottom: 14px;
+      margin-top: 28px !important; }
+      .site-header .container-fluid .header-no-global .busqueda.col-sm-3 {
+        padding-right: 0px !important; }
+      .site-header .container-fluid .header-no-global .busqueda.col-sm-1 {
+        padding-left: 3px !important; }
+        .site-header .container-fluid .header-no-global .busqueda.col-sm-1 img {
+          float: left;
           cursor: pointer !important; }
     .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner {
       font-family: "zizou-slab-regular" !important;
@@ -5457,8 +5460,8 @@ body {
   font-size: 9px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-9 {
-      font-size: 0.3125rem !important;
-      font-size: 5px !important; } }
+      font-size: 0.4375rem !important;
+      font-size: 7px !important; } }
 
 .helvetica-light-9 {
   font-family: "nimbus-sans" !important;
@@ -5537,8 +5540,8 @@ body {
   font-size: 10px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-10 {
-      font-size: 0.375rem !important;
-      font-size: 6px !important; } }
+      font-size: 0.5rem !important;
+      font-size: 8px !important; } }
 
 .helvetica-light-10 {
   font-family: "nimbus-sans" !important;
@@ -5617,8 +5620,8 @@ body {
   font-size: 11px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-11 {
-      font-size: 0.4375rem !important;
-      font-size: 7px !important; } }
+      font-size: 0.5625rem !important;
+      font-size: 9px !important; } }
 
 .helvetica-light-11 {
   font-family: "nimbus-sans" !important;
@@ -5697,8 +5700,8 @@ body {
   font-size: 12px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-12 {
-      font-size: 0.5rem !important;
-      font-size: 8px !important; } }
+      font-size: 0.625rem !important;
+      font-size: 10px !important; } }
 
 .helvetica-light-12 {
   font-family: "nimbus-sans" !important;
@@ -5777,8 +5780,8 @@ body {
   font-size: 13px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-13 {
-      font-size: 0.5625rem !important;
-      font-size: 9px !important; } }
+      font-size: 0.6875rem !important;
+      font-size: 11px !important; } }
 
 .helvetica-light-13 {
   font-family: "nimbus-sans" !important;
@@ -5857,8 +5860,8 @@ body {
   font-size: 14px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-14 {
-      font-size: 0.625rem !important;
-      font-size: 10px !important; } }
+      font-size: 0.75rem !important;
+      font-size: 12px !important; } }
 
 .helvetica-light-14 {
   font-family: "nimbus-sans" !important;
@@ -5937,8 +5940,8 @@ body {
   font-size: 15px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-15 {
-      font-size: 0.6875rem !important;
-      font-size: 11px !important; } }
+      font-size: 0.8125rem !important;
+      font-size: 13px !important; } }
 
 .helvetica-light-15 {
   font-family: "nimbus-sans" !important;
@@ -6017,8 +6020,8 @@ body {
   font-size: 16px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-16 {
-      font-size: 0.75rem !important;
-      font-size: 12px !important; } }
+      font-size: 0.875rem !important;
+      font-size: 14px !important; } }
 
 .helvetica-light-16 {
   font-family: "nimbus-sans" !important;
@@ -6097,8 +6100,8 @@ body {
   font-size: 17px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-17 {
-      font-size: 0.8125rem !important;
-      font-size: 13px !important; } }
+      font-size: 0.9375rem !important;
+      font-size: 15px !important; } }
 
 .helvetica-light-17 {
   font-family: "nimbus-sans" !important;
@@ -6177,8 +6180,8 @@ body {
   font-size: 18px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-18 {
-      font-size: 0.875rem !important;
-      font-size: 14px !important; } }
+      font-size: 1rem !important;
+      font-size: 16px !important; } }
 
 .helvetica-light-18 {
   font-family: "nimbus-sans" !important;
@@ -6257,8 +6260,8 @@ body {
   font-size: 19px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-19 {
-      font-size: 0.9375rem !important;
-      font-size: 15px !important; } }
+      font-size: 1.0625rem !important;
+      font-size: 17px !important; } }
 
 .helvetica-light-19 {
   font-family: "nimbus-sans" !important;
@@ -6337,8 +6340,8 @@ body {
   font-size: 20px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-20 {
-      font-size: 1rem !important;
-      font-size: 16px !important; } }
+      font-size: 1.125rem !important;
+      font-size: 18px !important; } }
 
 .helvetica-light-20 {
   font-family: "nimbus-sans" !important;
@@ -6417,8 +6420,8 @@ body {
   font-size: 21px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-21 {
-      font-size: 1.0625rem !important;
-      font-size: 17px !important; } }
+      font-size: 1.1875rem !important;
+      font-size: 19px !important; } }
 
 .helvetica-light-21 {
   font-family: "nimbus-sans" !important;
@@ -6497,8 +6500,8 @@ body {
   font-size: 22px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-22 {
-      font-size: 1.125rem !important;
-      font-size: 18px !important; } }
+      font-size: 1.25rem !important;
+      font-size: 20px !important; } }
 
 .helvetica-light-22 {
   font-family: "nimbus-sans" !important;
@@ -6577,8 +6580,8 @@ body {
   font-size: 23px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-23 {
-      font-size: 1.1875rem !important;
-      font-size: 19px !important; } }
+      font-size: 1.3125rem !important;
+      font-size: 21px !important; } }
 
 .helvetica-light-23 {
   font-family: "nimbus-sans" !important;
@@ -6657,8 +6660,8 @@ body {
   font-size: 24px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-24 {
-      font-size: 1.25rem !important;
-      font-size: 20px !important; } }
+      font-size: 1.375rem !important;
+      font-size: 22px !important; } }
 
 .helvetica-light-24 {
   font-family: "nimbus-sans" !important;
@@ -6737,8 +6740,8 @@ body {
   font-size: 25px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-25 {
-      font-size: 1.3125rem !important;
-      font-size: 21px !important; } }
+      font-size: 1.4375rem !important;
+      font-size: 23px !important; } }
 
 .helvetica-light-25 {
   font-family: "nimbus-sans" !important;
@@ -6817,8 +6820,8 @@ body {
   font-size: 26px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-26 {
-      font-size: 1.375rem !important;
-      font-size: 22px !important; } }
+      font-size: 1.5rem !important;
+      font-size: 24px !important; } }
 
 .helvetica-light-26 {
   font-family: "nimbus-sans" !important;
@@ -6897,8 +6900,8 @@ body {
   font-size: 27px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-27 {
-      font-size: 1.4375rem !important;
-      font-size: 23px !important; } }
+      font-size: 1.5625rem !important;
+      font-size: 25px !important; } }
 
 .helvetica-light-27 {
   font-family: "nimbus-sans" !important;
@@ -6977,8 +6980,8 @@ body {
   font-size: 28px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-28 {
-      font-size: 1.5rem !important;
-      font-size: 24px !important; } }
+      font-size: 1.625rem !important;
+      font-size: 26px !important; } }
 
 .helvetica-light-28 {
   font-family: "nimbus-sans" !important;
@@ -7057,8 +7060,8 @@ body {
   font-size: 29px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-29 {
-      font-size: 1.5625rem !important;
-      font-size: 25px !important; } }
+      font-size: 1.6875rem !important;
+      font-size: 27px !important; } }
 
 .helvetica-light-29 {
   font-family: "nimbus-sans" !important;
@@ -7137,8 +7140,8 @@ body {
   font-size: 30px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-30 {
-      font-size: 1.625rem !important;
-      font-size: 26px !important; } }
+      font-size: 1.75rem !important;
+      font-size: 28px !important; } }
 
 .helvetica-light-30 {
   font-family: "nimbus-sans" !important;
@@ -7217,8 +7220,8 @@ body {
   font-size: 31px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-31 {
-      font-size: 1.6875rem !important;
-      font-size: 27px !important; } }
+      font-size: 1.8125rem !important;
+      font-size: 29px !important; } }
 
 .helvetica-light-31 {
   font-family: "nimbus-sans" !important;
@@ -7297,8 +7300,8 @@ body {
   font-size: 32px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-32 {
-      font-size: 1.75rem !important;
-      font-size: 28px !important; } }
+      font-size: 1.875rem !important;
+      font-size: 30px !important; } }
 
 .helvetica-light-32 {
   font-family: "nimbus-sans" !important;
@@ -7339,6 +7342,90 @@ body {
 
 .gray-light {
   color: #858688 !important; }
+
+.col-md-2-4 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 992px) {
+    .col-md-2-4 {
+      float: left;
+      width: 20%; } }
+
+.col-sm-2-4 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-2-4 {
+      float: left;
+      width: 20%; } }
+
+.col-xs-2-4 {
+  position: relative;
+  float: left;
+  width: 20%;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.col-sm-0-8 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-0-8 {
+      float: left;
+      width: 6.66667%; } }
+
+.col-sm-0-5 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-0-5 {
+      float: left;
+      width: 4.16667%; } }
+
+.col-sm-1-5 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-1-5 {
+      float: left;
+      width: 12.5%; } }
+
+.col-xs-1-5 {
+  position: relative;
+  float: left;
+  width: 12.5%;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.col-xs-4-5 {
+  position: relative;
+  float: left;
+  width: 37.5%;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.col-sm-7-5 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-7-5 {
+      float: left;
+      width: 62.5%; } }
 
 .m-auto {
   margin: auto !important; }
@@ -7405,6 +7492,9 @@ a {
 
 .panel {
   position: relative; }
+  @media only screen and (max-width: 768px) {
+    .panel {
+      margin-top: 21px !important; } }
   .panel.curso-detalle {
     padding-top: 3px; }
   .panel .panel-head:before, .panel .panel-head:after {
@@ -7442,7 +7532,7 @@ a {
       padding: 1px 5px;
       border-radius: 0px; }
   .panel .panel-head .panel-title {
-    padding: 7px !important;
+    padding: 0px !important;
     font-family: "zizou-slab-regular" !important;
     font-style: normal; }
     .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
@@ -7943,74 +8033,6 @@ input[type="submit"].btn.btn-white.btn-custom {
   height: 42px !important;
   border-radius: 0px !important; }
 
-.col-md-2-4 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 992px) {
-    .col-md-2-4 {
-      float: left;
-      width: 20%; } }
-
-.col-sm-2-4 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-2-4 {
-      float: left;
-      width: 20%; } }
-
-.col-xs-2-4 {
-  position: relative;
-  float: left;
-  width: 20%;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-
-.col-sm-0-8 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-0-8 {
-      float: left;
-      width: 6.66667%; } }
-
-.col-sm-0-5 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-0-5 {
-      float: left;
-      width: 4.16667%; } }
-
-.col-sm-1-5 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-1-5 {
-      float: left;
-      width: 12.5%; } }
-
-.col-sm-7-5 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-7-5 {
-      float: left;
-      width: 62.5%; } }
-
 .section-desc {
   font-family: "zizou-slab-regular" !important;
   font-style: normal;
@@ -8023,6 +8045,9 @@ input[type="submit"].btn.btn-white.btn-custom {
 .talleres .talleres-disp-head {
   margin-top: -15px; }
 
+@media only screen and (max-width: 992px) {
+  .site-content {
+    margin-top: 7px !important; } }
 .site-content.ciclo-actual, .site-content.notas-detalladas {
   margin-top: 77px; }
   .site-content.ciclo-actual .section-content .row .col-sm-3 .keep-reading, .site-content.notas-detalladas .section-content .row .col-sm-3 .keep-reading {

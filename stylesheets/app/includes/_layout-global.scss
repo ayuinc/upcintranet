@@ -53,17 +53,17 @@ body {
 	} 
 }
 
-.mobile-nav {
-	.container {
-		.collapse.navbar-collapse {
-			ul {
-				li {
-					background-color: white;
-					@include serif-book;
-					font-size: 16px;
-				}
-			}
-		}
+#mobile-nav {
+	.col-xs-4 {
+		padding-left: 0;
+	}
+}
+
+#collapseMobile {
+	margin-left: 14px !important;
+	ul li {
+		@include serif-book;
+		font-size: 14px;
 	}
 }
 
@@ -224,7 +224,7 @@ body {
 			margin-left: -30px !important;
 			margin-top: 7px !important; 
 			span {
-				@include book;
+				@include bold;
 				text-transform: uppercase;
 				font-size: rem(44px) !important;
 				font-size: 44px !important;
@@ -488,11 +488,8 @@ body {
 		.header-no-global {
 			padding-left: 98px !important;
 			padding-right: 35px !important;
-			.inner {
-				border-bottom: 2px solid #d3d3d3 !important;
-			}
-			background-image:url("../assets/img/trama.png");
-			background-position: 7% 80%;
+			border-bottom: 2px solid #d3d3d3 !important;
+			background-image:url("../assets/img/header_no_global.png");
 			@include bold;
 			text-transform: uppercase;
 			text-align: center;
@@ -505,19 +502,11 @@ body {
 									height: 35px !important;
 									margin-bottom: 7px;
 									&.mi-correo {
-										// background-image: url("../assets/img/correo_grey.png");
-										// background-repeat: no-repeat;
-										// background-position: center; 
+										padding-top: 7px;
 									}
-									&.mi-aula {
-										// margin-bottom: 14px; 
-									}
-									// &.print {
-									// 	margin-bottom: 7px; 
-									// }
 								}
 								span {
-									color: $gray-main;
+									color: white;
 									&:hover {
 										text-decoration: underline;
 									}
@@ -528,9 +517,9 @@ body {
 							}
 						}
 					 }
-				  }	
+					}	
 				}
-			// }
+			
 			&.padre, &.docente {
 				.col-sm-5 {
 					padding-top: 21px;
@@ -616,19 +605,17 @@ body {
 					}
 				}
 			}
-			.col-sm-4.busqueda {
+			.busqueda {
 				padding-bottom: 14px;
-				.right-inner-addon {
-			    position: relative;
-					input {
-			    	padding-right: 30px;    
-					}
+				margin-top:28px !important;
+				&.col-sm-3 {
+					padding-right: 0px !important;
+				}
+				&.col-sm-1 {
+					padding-left: 3px !important;
 					img {
-			    background-color: $gray-main;
-			    position: absolute;
-			    right: 0px;
-			    padding: 9px 10px;
-			    cursor: pointer !important;
+						float: left;
+						cursor: pointer !important;
 					}
 				}
 			}
