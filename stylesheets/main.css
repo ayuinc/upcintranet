@@ -212,7 +212,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif;
+  font-family: "nimbus-sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #5d5d58;
@@ -1862,40 +1862,45 @@ select[multiple].input-lg,
   color: #9d9d98; }
 
 @media (min-width: 768px) {
-  .form-inline .form-group {
+  .form-inline .form-group, .navbar-form .form-group {
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle; }
-  .form-inline .form-control {
+  .form-inline .form-control, .navbar-form .form-control {
     display: inline-block;
     width: auto;
     vertical-align: middle; }
-  .form-inline .input-group {
+  .form-inline .input-group, .navbar-form .input-group {
     display: inline-table;
     vertical-align: middle; }
-    .form-inline .input-group .input-group-addon,
+    .form-inline .input-group .input-group-addon, .navbar-form .input-group .input-group-addon,
     .form-inline .input-group .input-group-btn,
-    .form-inline .input-group .form-control {
+    .navbar-form .input-group .input-group-btn,
+    .form-inline .input-group .form-control,
+    .navbar-form .input-group .form-control {
       width: auto; }
-  .form-inline .input-group > .form-control {
+  .form-inline .input-group > .form-control, .navbar-form .input-group > .form-control {
     width: 100%; }
-  .form-inline .control-label {
+  .form-inline .control-label, .navbar-form .control-label {
     margin-bottom: 0;
     vertical-align: middle; }
-  .form-inline .radio,
-  .form-inline .checkbox {
+  .form-inline .radio, .navbar-form .radio,
+  .form-inline .checkbox,
+  .navbar-form .checkbox {
     display: inline-block;
     margin-top: 0;
     margin-bottom: 0;
     vertical-align: middle; }
-    .form-inline .radio label,
-    .form-inline .checkbox label {
+    .form-inline .radio label, .navbar-form .radio label,
+    .form-inline .checkbox label,
+    .navbar-form .checkbox label {
       padding-left: 0; }
-  .form-inline .radio input[type="radio"],
-  .form-inline .checkbox input[type="checkbox"] {
+  .form-inline .radio input[type="radio"], .navbar-form .radio input[type="radio"],
+  .form-inline .checkbox input[type="checkbox"],
+  .navbar-form .checkbox input[type="checkbox"] {
     position: relative;
     margin-left: 0; }
-  .form-inline .has-feedback .form-control-feedback {
+  .form-inline .has-feedback .form-control-feedback, .navbar-form .has-feedback .form-control-feedback {
     top: 0; } }
 
 .form-horizontal .radio,
@@ -2119,6 +2124,33 @@ input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%; }
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear; }
+  .fade.in {
+    opacity: 1; }
+
+.collapse {
+  display: none; }
+  .collapse.in {
+    display: block; }
+
+tr.collapse.in {
+  display: table-row; }
+
+tbody.collapse.in {
+  display: table-row-group; }
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.35s ease;
+  -o-transition: height 0.35s ease;
+  transition: height 0.35s ease; }
 
 .caret {
   display: inline-block;
@@ -2978,6 +3010,358 @@ input[type="button"].btn-block {
 
 .glyphicon-tree-deciduous:before {
   content: "\e200"; }
+
+.navbar {
+  position: relative;
+  min-height: 56px;
+  margin-bottom: 20px;
+  border: 1px solid transparent; }
+  .navbar:before, .navbar:after {
+    content: " ";
+    display: table; }
+  .navbar:after {
+    clear: both; }
+  @media (min-width: 768px) {
+    .navbar {
+      border-radius: 3px; } }
+
+.navbar-header:before, .navbar-header:after {
+  content: " ";
+  display: table; }
+.navbar-header:after {
+  clear: both; }
+@media (min-width: 768px) {
+  .navbar-header {
+    float: left; } }
+
+.navbar-collapse {
+  overflow-x: visible;
+  padding-right: 14px;
+  padding-left: 14px;
+  border-top: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  -webkit-overflow-scrolling: touch; }
+  .navbar-collapse:before, .navbar-collapse:after {
+    content: " ";
+    display: table; }
+  .navbar-collapse:after {
+    clear: both; }
+  .navbar-collapse.in {
+    overflow-y: auto; }
+  @media (min-width: 768px) {
+    .navbar-collapse {
+      width: auto;
+      border-top: 0;
+      box-shadow: none; }
+      .navbar-collapse.collapse {
+        display: block !important;
+        height: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important; }
+      .navbar-collapse.in {
+        overflow-y: visible; }
+      .navbar-fixed-top .navbar-collapse, .navbar-static-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0; } }
+
+.navbar-fixed-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse {
+  max-height: 340px; }
+  @media (max-width: 480px) and (orientation: landscape) {
+    .navbar-fixed-top .navbar-collapse,
+    .navbar-fixed-bottom .navbar-collapse {
+      max-height: 200px; } }
+
+.container > .navbar-header,
+.container > .navbar-collapse,
+.container-fluid > .navbar-header,
+.container-fluid > .navbar-collapse {
+  margin-right: -14px;
+  margin-left: -14px; }
+  @media (min-width: 768px) {
+    .container > .navbar-header,
+    .container > .navbar-collapse,
+    .container-fluid > .navbar-header,
+    .container-fluid > .navbar-collapse {
+      margin-right: 0;
+      margin-left: 0; } }
+
+.navbar-static-top {
+  z-index: 1000;
+  border-width: 0 0 1px; }
+  @media (min-width: 768px) {
+    .navbar-static-top {
+      border-radius: 0; } }
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+  @media (min-width: 768px) {
+    .navbar-fixed-top,
+    .navbar-fixed-bottom {
+      border-radius: 0; } }
+
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px; }
+
+.navbar-fixed-bottom {
+  bottom: 0;
+  margin-bottom: 0;
+  border-width: 1px 0 0; }
+
+.navbar-brand {
+  float: left;
+  padding: 18px 14px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 56px; }
+  .navbar-brand:hover, .navbar-brand:focus {
+    text-decoration: none; }
+  @media (min-width: 768px) {
+    .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+      margin-left: -14px; } }
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin-right: 14px;
+  padding: 9px 10px;
+  margin-top: 11px;
+  margin-bottom: 11px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 3px; }
+  .navbar-toggle:focus {
+    outline: 0; }
+  .navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px; }
+  .navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 4px; }
+  @media (min-width: 768px) {
+    .navbar-toggle {
+      display: none; } }
+
+.navbar-nav {
+  margin: 9px -14px; }
+  .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px; }
+  @media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none; }
+      .navbar-nav .open .dropdown-menu > li > a,
+      .navbar-nav .open .dropdown-menu .dropdown-header {
+        padding: 5px 15px 5px 25px; }
+      .navbar-nav .open .dropdown-menu > li > a {
+        line-height: 20px; }
+        .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus {
+          background-image: none; } }
+  @media (min-width: 768px) {
+    .navbar-nav {
+      float: left;
+      margin: 0; }
+      .navbar-nav > li {
+        float: left; }
+        .navbar-nav > li > a {
+          padding-top: 18px;
+          padding-bottom: 18px; }
+      .navbar-nav.navbar-right:last-child {
+        margin-right: -14px; } }
+
+@media (min-width: 768px) {
+  .navbar-left {
+    float: left !important; }
+
+  .navbar-right {
+    float: right !important; } }
+.navbar-form {
+  margin-left: -14px;
+  margin-right: -14px;
+  padding: 10px 14px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-top: 11px;
+  margin-bottom: 11px; }
+  @media (max-width: 767px) {
+    .navbar-form .form-group {
+      margin-bottom: 5px; } }
+  @media (min-width: 768px) {
+    .navbar-form {
+      width: auto;
+      border: 0;
+      margin-left: 0;
+      margin-right: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+      .navbar-form.navbar-right:last-child {
+        margin-right: -14px; } }
+
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0; }
+
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.navbar-btn {
+  margin-top: 11px;
+  margin-bottom: 11px; }
+  .navbar-btn.btn-sm {
+    margin-top: 13px;
+    margin-bottom: 13px; }
+  .navbar-btn.btn-xs {
+    margin-top: 17px;
+    margin-bottom: 17px; }
+
+.navbar-text {
+  margin-top: 18px;
+  margin-bottom: 18px; }
+  @media (min-width: 768px) {
+    .navbar-text {
+      float: left;
+      margin-left: 14px;
+      margin-right: 14px; }
+      .navbar-text.navbar-right:last-child {
+        margin-right: 0; } }
+
+.navbar-default {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7; }
+  .navbar-default .navbar-brand {
+    color: #777; }
+    .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+      color: #5e5e5e;
+      background-color: transparent; }
+  .navbar-default .navbar-text {
+    color: #777; }
+  .navbar-default .navbar-nav > li > a {
+    color: #777; }
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+      color: #333;
+      background-color: transparent; }
+  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #e7e7e7; }
+  .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent; }
+  .navbar-default .navbar-toggle {
+    border-color: #ddd; }
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+      background-color: #ddd; }
+    .navbar-default .navbar-toggle .icon-bar {
+      background-color: #888; }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border-color: #e7e7e7; }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #e7e7e7;
+    color: #555; }
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+      color: #777; }
+      .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent; }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+      color: #555;
+      background-color: #e7e7e7; }
+    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+      color: #ccc;
+      background-color: transparent; } }
+  .navbar-default .navbar-link {
+    color: #777; }
+    .navbar-default .navbar-link:hover {
+      color: #333; }
+  .navbar-default .btn-link {
+    color: #777; }
+    .navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
+      color: #333; }
+    .navbar-default .btn-link[disabled]:hover, .navbar-default .btn-link[disabled]:focus, fieldset[disabled] .navbar-default .btn-link:hover, fieldset[disabled] .navbar-default .btn-link:focus {
+      color: #ccc; }
+
+.navbar-inverse {
+  background-color: #222;
+  border-color: #090909; }
+  .navbar-inverse .navbar-brand {
+    color: #858688; }
+    .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+      color: #fff;
+      background-color: transparent; }
+  .navbar-inverse .navbar-text {
+    color: #858688; }
+  .navbar-inverse .navbar-nav > li > a {
+    color: #858688; }
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+      color: #fff;
+      background-color: transparent; }
+  .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #090909; }
+  .navbar-inverse .navbar-nav > .disabled > a, .navbar-inverse .navbar-nav > .disabled > a:hover, .navbar-inverse .navbar-nav > .disabled > a:focus {
+    color: #444;
+    background-color: transparent; }
+  .navbar-inverse .navbar-toggle {
+    border-color: #333; }
+    .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+      background-color: #333; }
+    .navbar-inverse .navbar-toggle .icon-bar {
+      background-color: #fff; }
+  .navbar-inverse .navbar-collapse,
+  .navbar-inverse .navbar-form {
+    border-color: #101010; }
+  .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #090909;
+    color: #fff; }
+  @media (max-width: 767px) {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
+      border-color: #090909; }
+    .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+      background-color: #090909; }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+      color: #858688; }
+      .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #fff;
+        background-color: transparent; }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+      color: #fff;
+      background-color: #090909; }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+      color: #444;
+      background-color: transparent; } }
+  .navbar-inverse .navbar-link {
+    color: #858688; }
+    .navbar-inverse .navbar-link:hover {
+      color: #fff; }
+  .navbar-inverse .btn-link {
+    color: #858688; }
+    .navbar-inverse .btn-link:hover, .navbar-inverse .btn-link:focus {
+      color: #fff; }
+    .navbar-inverse .btn-link[disabled]:hover, .navbar-inverse .btn-link[disabled]:focus, fieldset[disabled] .navbar-inverse .btn-link:hover, fieldset[disabled] .navbar-inverse .btn-link:focus {
+      color: #444; }
 
 .media,
 .media-body {
@@ -4050,21 +4434,22 @@ input[type="button"].btn-block {
 
 /* PROJECT ESPECIFIC FONTS */
 .thin {
-  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
+  font-family: "sgothic-rgcap" !important;
   font-weight: 100;
   font-style: normal; }
 
 .extra-light {
-  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
+  font-family: "sgothic-rgcap" !important;
   font-weight: 200;
   font-style: normal; }
 
 .light {
-  font-family: "SolanoGothicMVB-Lt" !important;
+  font-family: "sgothic-rgcap" !important;
+  font-weight: 300;
   font-style: normal; }
 
 .light-italic {
-  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
+  font-family: "sgothic-rgcap" !important;
   font-weight: 300;
   font-style: italic; }
 
@@ -4073,17 +4458,17 @@ input[type="button"].btn-block {
   font-style: normal; }
 
 .book-italic {
-  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
+  font-family: "sgothic-rgcap" !important;
   font-weight: 400;
   font-style: italic; }
 
 .medium {
-  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
+  font-family: "nimbus-sans", Helvetica, Arial, sans-serif !important;
   font-weight: 500;
   font-style: normal; }
 
 .medium-italic {
-  font-family: "SolanoGothicMVBProBd", Helvetica, Arial, sans-serif !important;
+  font-family: "nimbus-sans", Helvetica, Arial, sans-serif !important;
   font-weight: 500;
   font-style: italic; }
 
@@ -4098,12 +4483,12 @@ input[type="button"].btn-block {
   font-style: italic; }
 
 .thin {
-  font-family: "Zizou Slab-Thin" !important;
+  font-family: "zizou-slab-regular" !important;
   font-weight: 100;
   font-style: normal; }
 
 .serif-light {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal; }
 
 .serif-light-italic {
@@ -4138,13 +4523,18 @@ input[type="button"].btn-block {
   font-weight: 700;
   font-style: italic; }
 
+.alt-light {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal; }
+
 .alt-book {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 500;
   font-style: normal; }
 
 .alt-bold {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal; }
 
@@ -4549,6 +4939,16 @@ body {
       margin-left: -9px;
       margin-right: 5px; }
 
+#mobile-nav .col-xs-4 {
+  padding-left: 0; }
+
+#collapseMobile {
+  margin-left: 14px !important; }
+  #collapseMobile ul li {
+    font-family: "zizou-slab-regular" !important;
+    font-style: normal;
+    font-size: 14px; }
+
 .site-content {
   position: absolute;
   background-image: url("../assets/img/trama.png");
@@ -4629,7 +5029,7 @@ body {
         padding-bottom: 3px; }
     .site-content .mensaje .col-sm-10 {
       font-size: 10px;
-      font-family: "Helvetica" !important;
+      font-family: "nimbus-sans" !important;
       font-weight: 500;
       font-style: normal; }
       .site-content .mensaje .col-sm-10 .inner {
@@ -4652,7 +5052,8 @@ body {
     margin-left: -30px !important;
     margin-top: 7px !important; }
     .site-content .internal-header .second-line span {
-      font-family: "sgothic-rgcap" !important;
+      font-family: "sgothic-bdcap" !important;
+      font-weight: 700;
       font-style: normal;
       text-transform: uppercase;
       font-size: 2.75rem !important;
@@ -4699,7 +5100,7 @@ body {
         padding-bottom: 5px;
         margin-right: 5px; }
     .section-content .row .col-sm-8.resultados ul li .resultado-content {
-      font-family: "Helvetica" !important;
+      font-family: "nimbus-sans" !important;
       font-weight: 500;
       font-style: normal;
       font-size: 14px; }
@@ -4830,6 +5231,7 @@ body {
         padding-left: 7px; }
         .nav-main > li ul li a {
           font-family: "zizou-slab-regular" !important;
+          font-weight: 100;
           font-style: normal;
           display: block;
           color: #565658;
@@ -4838,7 +5240,7 @@ body {
           text-align: left; }
           .nav-main > li ul li a:hover {
             background: white;
-            color: #E42322; }
+            color: #E42322 !important; }
 
 .site-header .container-fluid {
   padding-right: 0; }
@@ -4860,39 +5262,24 @@ body {
   .site-header .container-fluid .header-no-global {
     padding-left: 98px !important;
     padding-right: 35px !important;
-    background-image: url("../assets/img/trama.png");
-    background-position: 7% 80%;
+    border-bottom: 2px solid #d3d3d3 !important;
+    background-image: url("../assets/img/header_no_global.png");
     font-family: "sgothic-bdcap" !important;
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
     text-align: center; }
-    .site-header .container-fluid .header-no-global .inner {
-      border-bottom: 2px solid #d3d3d3 !important; }
-    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div {
-      height: 28px !important; }
-      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.mi-correo, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.mi-correo {
-        background-image: url("../assets/img/correo_grey.png");
-        background-repeat: no-repeat;
-        background-position: center; }
-      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.mi-aula, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.mi-aula {
-        background-image: url("../assets/img/aula_virtual_grey.png");
-        background-repeat: no-repeat;
-        background-position: center; }
-      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.print, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.print {
-        background-image: url("../assets/img/print_grey.png");
-        background-repeat: no-repeat;
-        background-position: center; }
-      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.asistencia, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.asistencia {
-        background-image: url("../assets/img/asistencia_grey.png");
-        background-repeat: no-repeat;
-        background-position: center; }
-      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a > div.search, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a > div.search {
-        background-image: url("../assets/img/search_grey.png");
-        background-repeat: no-repeat;
-        background-position: center; }
-    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row div[class^='col-sm'] a span, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row div[class^='col-sm'] a span {
-      color: #565658 !important; }
+    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a div, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a div {
+      height: 35px !important;
+      margin-bottom: 7px; }
+      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a div.mi-correo, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a div.mi-correo {
+        padding-top: 7px; }
+    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a span, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a span {
+      color: white; }
+      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a span:hover, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a span:hover {
+        text-decoration: underline; }
+    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 .print, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .print {
+      margin-bottom: 7px; }
     .site-header .container-fluid .header-no-global.padre .col-sm-5, .site-header .container-fluid .header-no-global.docente .col-sm-5 {
       padding-top: 21px;
       padding-bottom: 12px; }
@@ -4958,20 +5345,19 @@ body {
               background-color: #565658; }
               .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover a, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu li.dditem:hover a {
                 color: white; }
-    .site-header .container-fluid .header-no-global .col-sm-4.busqueda {
-      padding-bottom: 14px; }
-      .site-header .container-fluid .header-no-global .col-sm-4.busqueda .right-inner-addon {
-        position: relative; }
-        .site-header .container-fluid .header-no-global .col-sm-4.busqueda .right-inner-addon input {
-          padding-right: 30px; }
-        .site-header .container-fluid .header-no-global .col-sm-4.busqueda .right-inner-addon img {
-          background-color: #565658;
-          position: absolute;
-          right: 0px;
-          padding: 9px 10px;
+    .site-header .container-fluid .header-no-global .busqueda {
+      padding-bottom: 14px;
+      margin-top: 28px !important; }
+      .site-header .container-fluid .header-no-global .busqueda.col-sm-3 {
+        padding-right: 0px !important; }
+      .site-header .container-fluid .header-no-global .busqueda.col-sm-1 {
+        padding-left: 3px !important; }
+        .site-header .container-fluid .header-no-global .busqueda.col-sm-1 img {
+          float: left;
           cursor: pointer !important; }
     .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner {
       font-family: "zizou-slab-regular" !important;
+      font-weight: 100;
       font-style: normal;
       text-transform: none !important; }
       .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-8 span.hola {
@@ -5042,8 +5428,15 @@ body {
       font-size: 0.3125rem !important;
       font-size: 5px !important; } }
 
-.solano-light-9 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-9 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 0.5625rem !important;
+  font-size: 9px !important; }
+
+.zizou-light-9 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.5625rem !important;
   font-size: 9px !important; }
@@ -5067,18 +5460,32 @@ body {
   font-size: 9px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-9 {
-      font-size: 0.3125rem !important;
-      font-size: 5px !important; } }
+      font-size: 0.4375rem !important;
+      font-size: 7px !important; } }
+
+.helvetica-light-9 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.5625rem !important;
+  font-size: 9px !important; }
 
 .helvetica-9 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.5625rem !important;
+  font-size: 9px !important; }
+
+.helv-neue-9 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 0.5625rem !important;
   font-size: 9px !important; }
 
 .helvetica-bold-9 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 0.5625rem !important;
@@ -5101,8 +5508,15 @@ body {
       font-size: 0.375rem !important;
       font-size: 6px !important; } }
 
-.solano-light-10 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-10 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 0.625rem !important;
+  font-size: 10px !important; }
+
+.zizou-light-10 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.625rem !important;
   font-size: 10px !important; }
@@ -5126,18 +5540,32 @@ body {
   font-size: 10px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-10 {
-      font-size: 0.375rem !important;
-      font-size: 6px !important; } }
+      font-size: 0.5rem !important;
+      font-size: 8px !important; } }
+
+.helvetica-light-10 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.625rem !important;
+  font-size: 10px !important; }
 
 .helvetica-10 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.625rem !important;
+  font-size: 10px !important; }
+
+.helv-neue-10 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 0.625rem !important;
   font-size: 10px !important; }
 
 .helvetica-bold-10 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 0.625rem !important;
@@ -5160,8 +5588,15 @@ body {
       font-size: 0.4375rem !important;
       font-size: 7px !important; } }
 
-.solano-light-11 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-11 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 0.6875rem !important;
+  font-size: 11px !important; }
+
+.zizou-light-11 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.6875rem !important;
   font-size: 11px !important; }
@@ -5185,18 +5620,32 @@ body {
   font-size: 11px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-11 {
-      font-size: 0.4375rem !important;
-      font-size: 7px !important; } }
+      font-size: 0.5625rem !important;
+      font-size: 9px !important; } }
+
+.helvetica-light-11 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.6875rem !important;
+  font-size: 11px !important; }
 
 .helvetica-11 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.6875rem !important;
+  font-size: 11px !important; }
+
+.helv-neue-11 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 0.6875rem !important;
   font-size: 11px !important; }
 
 .helvetica-bold-11 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 0.6875rem !important;
@@ -5219,8 +5668,15 @@ body {
       font-size: 0.5rem !important;
       font-size: 8px !important; } }
 
-.solano-light-12 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-12 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 0.75rem !important;
+  font-size: 12px !important; }
+
+.zizou-light-12 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.75rem !important;
   font-size: 12px !important; }
@@ -5244,18 +5700,32 @@ body {
   font-size: 12px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-12 {
-      font-size: 0.5rem !important;
-      font-size: 8px !important; } }
+      font-size: 0.625rem !important;
+      font-size: 10px !important; } }
+
+.helvetica-light-12 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75rem !important;
+  font-size: 12px !important; }
 
 .helvetica-12 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.75rem !important;
+  font-size: 12px !important; }
+
+.helv-neue-12 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 0.75rem !important;
   font-size: 12px !important; }
 
 .helvetica-bold-12 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 0.75rem !important;
@@ -5278,8 +5748,15 @@ body {
       font-size: 0.5625rem !important;
       font-size: 9px !important; } }
 
-.solano-light-13 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-13 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 0.8125rem !important;
+  font-size: 13px !important; }
+
+.zizou-light-13 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.8125rem !important;
   font-size: 13px !important; }
@@ -5303,18 +5780,32 @@ body {
   font-size: 13px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-13 {
-      font-size: 0.5625rem !important;
-      font-size: 9px !important; } }
+      font-size: 0.6875rem !important;
+      font-size: 11px !important; } }
+
+.helvetica-light-13 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8125rem !important;
+  font-size: 13px !important; }
 
 .helvetica-13 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8125rem !important;
+  font-size: 13px !important; }
+
+.helv-neue-13 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 0.8125rem !important;
   font-size: 13px !important; }
 
 .helvetica-bold-13 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 0.8125rem !important;
@@ -5337,8 +5828,15 @@ body {
       font-size: 0.625rem !important;
       font-size: 10px !important; } }
 
-.solano-light-14 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-14 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 0.875rem !important;
+  font-size: 14px !important; }
+
+.zizou-light-14 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.875rem !important;
   font-size: 14px !important; }
@@ -5362,18 +5860,32 @@ body {
   font-size: 14px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-14 {
-      font-size: 0.625rem !important;
-      font-size: 10px !important; } }
+      font-size: 0.75rem !important;
+      font-size: 12px !important; } }
+
+.helvetica-light-14 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.875rem !important;
+  font-size: 14px !important; }
 
 .helvetica-14 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.875rem !important;
+  font-size: 14px !important; }
+
+.helv-neue-14 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 0.875rem !important;
   font-size: 14px !important; }
 
 .helvetica-bold-14 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 0.875rem !important;
@@ -5396,8 +5908,15 @@ body {
       font-size: 0.6875rem !important;
       font-size: 11px !important; } }
 
-.solano-light-15 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-15 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 0.9375rem !important;
+  font-size: 15px !important; }
+
+.zizou-light-15 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 0.9375rem !important;
   font-size: 15px !important; }
@@ -5421,18 +5940,32 @@ body {
   font-size: 15px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-15 {
-      font-size: 0.6875rem !important;
-      font-size: 11px !important; } }
+      font-size: 0.8125rem !important;
+      font-size: 13px !important; } }
+
+.helvetica-light-15 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9375rem !important;
+  font-size: 15px !important; }
 
 .helvetica-15 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.9375rem !important;
+  font-size: 15px !important; }
+
+.helv-neue-15 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 0.9375rem !important;
   font-size: 15px !important; }
 
 .helvetica-bold-15 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 0.9375rem !important;
@@ -5455,8 +5988,15 @@ body {
       font-size: 0.75rem !important;
       font-size: 12px !important; } }
 
-.solano-light-16 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-16 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.zizou-light-16 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1rem !important;
   font-size: 16px !important; }
@@ -5480,18 +6020,32 @@ body {
   font-size: 16px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-16 {
-      font-size: 0.75rem !important;
-      font-size: 12px !important; } }
+      font-size: 0.875rem !important;
+      font-size: 14px !important; } }
+
+.helvetica-light-16 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
 
 .helvetica-16 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.helv-neue-16 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1rem !important;
   font-size: 16px !important; }
 
 .helvetica-bold-16 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1rem !important;
@@ -5514,8 +6068,15 @@ body {
       font-size: 0.8125rem !important;
       font-size: 13px !important; } }
 
-.solano-light-17 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-17 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.zizou-light-17 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.0625rem !important;
   font-size: 17px !important; }
@@ -5539,18 +6100,32 @@ body {
   font-size: 17px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-17 {
-      font-size: 0.8125rem !important;
-      font-size: 13px !important; } }
+      font-size: 0.9375rem !important;
+      font-size: 15px !important; } }
+
+.helvetica-light-17 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
 
 .helvetica-17 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.helv-neue-17 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.0625rem !important;
   font-size: 17px !important; }
 
 .helvetica-bold-17 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.0625rem !important;
@@ -5573,8 +6148,15 @@ body {
       font-size: 0.875rem !important;
       font-size: 14px !important; } }
 
-.solano-light-18 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-18 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.zizou-light-18 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.125rem !important;
   font-size: 18px !important; }
@@ -5598,18 +6180,32 @@ body {
   font-size: 18px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-18 {
-      font-size: 0.875rem !important;
-      font-size: 14px !important; } }
+      font-size: 1rem !important;
+      font-size: 16px !important; } }
+
+.helvetica-light-18 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
 
 .helvetica-18 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.helv-neue-18 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.125rem !important;
   font-size: 18px !important; }
 
 .helvetica-bold-18 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.125rem !important;
@@ -5632,8 +6228,15 @@ body {
       font-size: 0.9375rem !important;
       font-size: 15px !important; } }
 
-.solano-light-19 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-19 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.zizou-light-19 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.1875rem !important;
   font-size: 19px !important; }
@@ -5657,18 +6260,32 @@ body {
   font-size: 19px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-19 {
-      font-size: 0.9375rem !important;
-      font-size: 15px !important; } }
+      font-size: 1.0625rem !important;
+      font-size: 17px !important; } }
+
+.helvetica-light-19 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
 
 .helvetica-19 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.helv-neue-19 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.1875rem !important;
   font-size: 19px !important; }
 
 .helvetica-bold-19 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.1875rem !important;
@@ -5691,8 +6308,15 @@ body {
       font-size: 1rem !important;
       font-size: 16px !important; } }
 
-.solano-light-20 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-20 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.zizou-light-20 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.25rem !important;
   font-size: 20px !important; }
@@ -5716,18 +6340,32 @@ body {
   font-size: 20px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-20 {
-      font-size: 1rem !important;
-      font-size: 16px !important; } }
+      font-size: 1.125rem !important;
+      font-size: 18px !important; } }
+
+.helvetica-light-20 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
 
 .helvetica-20 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.helv-neue-20 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.25rem !important;
   font-size: 20px !important; }
 
 .helvetica-bold-20 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.25rem !important;
@@ -5750,8 +6388,15 @@ body {
       font-size: 1.0625rem !important;
       font-size: 17px !important; } }
 
-.solano-light-21 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-21 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.zizou-light-21 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.3125rem !important;
   font-size: 21px !important; }
@@ -5775,18 +6420,32 @@ body {
   font-size: 21px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-21 {
-      font-size: 1.0625rem !important;
-      font-size: 17px !important; } }
+      font-size: 1.1875rem !important;
+      font-size: 19px !important; } }
+
+.helvetica-light-21 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
 
 .helvetica-21 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.helv-neue-21 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.3125rem !important;
   font-size: 21px !important; }
 
 .helvetica-bold-21 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.3125rem !important;
@@ -5809,8 +6468,15 @@ body {
       font-size: 1.125rem !important;
       font-size: 18px !important; } }
 
-.solano-light-22 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-22 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.zizou-light-22 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.375rem !important;
   font-size: 22px !important; }
@@ -5834,18 +6500,32 @@ body {
   font-size: 22px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-22 {
-      font-size: 1.125rem !important;
-      font-size: 18px !important; } }
+      font-size: 1.25rem !important;
+      font-size: 20px !important; } }
+
+.helvetica-light-22 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
 
 .helvetica-22 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.helv-neue-22 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.375rem !important;
   font-size: 22px !important; }
 
 .helvetica-bold-22 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.375rem !important;
@@ -5868,8 +6548,15 @@ body {
       font-size: 1.1875rem !important;
       font-size: 19px !important; } }
 
-.solano-light-23 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-23 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.zizou-light-23 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.4375rem !important;
   font-size: 23px !important; }
@@ -5893,18 +6580,32 @@ body {
   font-size: 23px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-23 {
-      font-size: 1.1875rem !important;
-      font-size: 19px !important; } }
+      font-size: 1.3125rem !important;
+      font-size: 21px !important; } }
+
+.helvetica-light-23 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
 
 .helvetica-23 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.helv-neue-23 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.4375rem !important;
   font-size: 23px !important; }
 
 .helvetica-bold-23 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.4375rem !important;
@@ -5927,8 +6628,15 @@ body {
       font-size: 1.25rem !important;
       font-size: 20px !important; } }
 
-.solano-light-24 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-24 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.zizou-light-24 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.5rem !important;
   font-size: 24px !important; }
@@ -5952,18 +6660,32 @@ body {
   font-size: 24px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-24 {
-      font-size: 1.25rem !important;
-      font-size: 20px !important; } }
+      font-size: 1.375rem !important;
+      font-size: 22px !important; } }
+
+.helvetica-light-24 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
 
 .helvetica-24 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.helv-neue-24 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.5rem !important;
   font-size: 24px !important; }
 
 .helvetica-bold-24 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.5rem !important;
@@ -5986,8 +6708,15 @@ body {
       font-size: 1.3125rem !important;
       font-size: 21px !important; } }
 
-.solano-light-25 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-25 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.zizou-light-25 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.5625rem !important;
   font-size: 25px !important; }
@@ -6011,18 +6740,32 @@ body {
   font-size: 25px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-25 {
-      font-size: 1.3125rem !important;
-      font-size: 21px !important; } }
+      font-size: 1.4375rem !important;
+      font-size: 23px !important; } }
+
+.helvetica-light-25 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
 
 .helvetica-25 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.helv-neue-25 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.5625rem !important;
   font-size: 25px !important; }
 
 .helvetica-bold-25 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.5625rem !important;
@@ -6045,8 +6788,15 @@ body {
       font-size: 1.375rem !important;
       font-size: 22px !important; } }
 
-.solano-light-26 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-26 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.zizou-light-26 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.625rem !important;
   font-size: 26px !important; }
@@ -6070,18 +6820,32 @@ body {
   font-size: 26px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-26 {
-      font-size: 1.375rem !important;
-      font-size: 22px !important; } }
+      font-size: 1.5rem !important;
+      font-size: 24px !important; } }
+
+.helvetica-light-26 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
 
 .helvetica-26 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.helv-neue-26 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.625rem !important;
   font-size: 26px !important; }
 
 .helvetica-bold-26 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.625rem !important;
@@ -6104,8 +6868,15 @@ body {
       font-size: 1.4375rem !important;
       font-size: 23px !important; } }
 
-.solano-light-27 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-27 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.zizou-light-27 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.6875rem !important;
   font-size: 27px !important; }
@@ -6129,18 +6900,32 @@ body {
   font-size: 27px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-27 {
-      font-size: 1.4375rem !important;
-      font-size: 23px !important; } }
+      font-size: 1.5625rem !important;
+      font-size: 25px !important; } }
+
+.helvetica-light-27 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
 
 .helvetica-27 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.helv-neue-27 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.6875rem !important;
   font-size: 27px !important; }
 
 .helvetica-bold-27 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.6875rem !important;
@@ -6163,8 +6948,15 @@ body {
       font-size: 1.5rem !important;
       font-size: 24px !important; } }
 
-.solano-light-28 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-28 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.zizou-light-28 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.75rem !important;
   font-size: 28px !important; }
@@ -6188,18 +6980,32 @@ body {
   font-size: 28px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-28 {
-      font-size: 1.5rem !important;
-      font-size: 24px !important; } }
+      font-size: 1.625rem !important;
+      font-size: 26px !important; } }
+
+.helvetica-light-28 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
 
 .helvetica-28 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.helv-neue-28 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.75rem !important;
   font-size: 28px !important; }
 
 .helvetica-bold-28 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.75rem !important;
@@ -6222,8 +7028,15 @@ body {
       font-size: 1.5625rem !important;
       font-size: 25px !important; } }
 
-.solano-light-29 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-29 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.zizou-light-29 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.8125rem !important;
   font-size: 29px !important; }
@@ -6247,18 +7060,32 @@ body {
   font-size: 29px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-29 {
-      font-size: 1.5625rem !important;
-      font-size: 25px !important; } }
+      font-size: 1.6875rem !important;
+      font-size: 27px !important; } }
+
+.helvetica-light-29 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
 
 .helvetica-29 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.helv-neue-29 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.8125rem !important;
   font-size: 29px !important; }
 
 .helvetica-bold-29 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.8125rem !important;
@@ -6281,8 +7108,15 @@ body {
       font-size: 1.625rem !important;
       font-size: 26px !important; } }
 
-.solano-light-30 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-30 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.zizou-light-30 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.875rem !important;
   font-size: 30px !important; }
@@ -6306,18 +7140,32 @@ body {
   font-size: 30px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-30 {
-      font-size: 1.625rem !important;
-      font-size: 26px !important; } }
+      font-size: 1.75rem !important;
+      font-size: 28px !important; } }
+
+.helvetica-light-30 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
 
 .helvetica-30 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.helv-neue-30 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.875rem !important;
   font-size: 30px !important; }
 
 .helvetica-bold-30 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.875rem !important;
@@ -6340,8 +7188,15 @@ body {
       font-size: 1.6875rem !important;
       font-size: 27px !important; } }
 
-.solano-light-31 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-31 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.zizou-light-31 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 1.9375rem !important;
   font-size: 31px !important; }
@@ -6365,18 +7220,32 @@ body {
   font-size: 31px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-31 {
-      font-size: 1.6875rem !important;
-      font-size: 27px !important; } }
+      font-size: 1.8125rem !important;
+      font-size: 29px !important; } }
+
+.helvetica-light-31 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
 
 .helvetica-31 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.helv-neue-31 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 1.9375rem !important;
   font-size: 31px !important; }
 
 .helvetica-bold-31 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 1.9375rem !important;
@@ -6399,8 +7268,15 @@ body {
       font-size: 1.75rem !important;
       font-size: 28px !important; } }
 
-.solano-light-32 {
-  font-family: "SolanoGothicMVB-Lt" !important;
+.zizou-thin-32 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.zizou-light-32 {
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 2rem !important;
   font-size: 32px !important; }
@@ -6424,18 +7300,32 @@ body {
   font-size: 32px !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-32 {
-      font-size: 1.75rem !important;
-      font-size: 28px !important; } }
+      font-size: 1.875rem !important;
+      font-size: 30px !important; } }
+
+.helvetica-light-32 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
 
 .helvetica-32 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.helv-neue-32 {
+  font-family: "ronnia-condensed" !important;
   font-weight: 500;
   font-style: normal;
   font-size: 2rem !important;
   font-size: 32px !important; }
 
 .helvetica-bold-32 {
-  font-family: "Helvetica" !important;
+  font-family: "nimbus-sans" !important;
   font-weight: 700;
   font-style: normal;
   font-size: 2rem !important;
@@ -6452,6 +7342,90 @@ body {
 
 .gray-light {
   color: #858688 !important; }
+
+.col-md-2-4 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 992px) {
+    .col-md-2-4 {
+      float: left;
+      width: 20%; } }
+
+.col-sm-2-4 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-2-4 {
+      float: left;
+      width: 20%; } }
+
+.col-xs-2-4 {
+  position: relative;
+  float: left;
+  width: 20%;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.col-sm-0-8 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-0-8 {
+      float: left;
+      width: 6.66667%; } }
+
+.col-sm-0-5 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-0-5 {
+      float: left;
+      width: 4.16667%; } }
+
+.col-sm-1-5 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-1-5 {
+      float: left;
+      width: 12.5%; } }
+
+.col-xs-1-5 {
+  position: relative;
+  float: left;
+  width: 12.5%;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.col-xs-4-5 {
+  position: relative;
+  float: left;
+  width: 37.5%;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.col-sm-7-5 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-7-5 {
+      float: left;
+      width: 62.5%; } }
 
 .m-auto {
   margin: auto !important; }
@@ -6518,10 +7492,11 @@ a {
 
 .panel {
   position: relative; }
+  @media only screen and (max-width: 768px) {
+    .panel {
+      margin-top: 21px !important; } }
   .panel.curso-detalle {
-    padding-top: 14px; }
-    .panel.curso-detalle .panel-body .observaciones .tr {
-      border-top: 1px #565658 solid; }
+    padding-top: 3px; }
   .panel .panel-head:before, .panel .panel-head:after {
     content: " ";
     display: table; }
@@ -6541,7 +7516,7 @@ a {
       font-size: 24px;
       color: white; }
   .panel .panel-head .panel-head-wrap {
-    border-bottom: red 2px solid;
+    border-bottom: #E3E3E3 2px solid;
     margin-left: 7px;
     width: 97%; }
   .panel .panel-head .panel-head-right {
@@ -6557,7 +7532,7 @@ a {
       padding: 1px 5px;
       border-radius: 0px; }
   .panel .panel-head .panel-title {
-    padding: 7px !important;
+    padding: 0px !important;
     font-family: "zizou-slab-regular" !important;
     font-style: normal; }
     .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
@@ -6574,11 +7549,14 @@ a {
   .panel .panel-body .panel-table {
     background-color: white !important; }
     .panel .panel-body .panel-table.observaciones {
-      background-color: #3298FF !important; }
+      background-color: #3298FF !important;
+      border-top: 2px solid #E42322; }
     .panel .panel-body .panel-table.no-bg {
       background: none !important; }
       .panel .panel-body .panel-table.no-bg .tr {
         background-color: white !important; }
+    .panel .panel-body .panel-table .tr li.formula {
+      border-bottom: 2px solid #565658; }
     .panel .panel-body .panel-table .tr a.sb-link {
       color: #3298FF !important; }
     .panel .panel-body .panel-table.otras-acciones {
@@ -6637,6 +7615,8 @@ a {
       padding-left: 0;
       list-style: none;
       margin: 0; }
+      .panel .panel-body .panel-body-head-table .tr.border-bt-gl {
+        border-bottom: 2px solid #858688; }
       .panel .panel-body .panel-body-head-table .tr:before, .panel .panel-body .panel-body-head-table .tr:after {
         content: " ";
         display: table; }
@@ -6698,12 +7678,12 @@ a {
     text-align: center;
     padding-top: 7px; }
   .panel .panel-body .panel-table.mis-reservas-content ul.tr li.col-sm-2 div span {
-    font-family: "Helvetica" !important;
+    font-family: "nimbus-sans" !important;
     font-weight: 700;
     font-style: normal;
     font-size: 12px; }
   .panel .panel-body .panel-table.mis-reservas-content ul.tr li.col-sm-6 div span {
-    font-family: "Helvetica" !important;
+    font-family: "nimbus-sans" !important;
     font-weight: 500;
     font-style: normal;
     font-size: 12px; }
@@ -7053,76 +8033,8 @@ input[type="submit"].btn.btn-white.btn-custom {
   height: 42px !important;
   border-radius: 0px !important; }
 
-.col-md-2-4 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 992px) {
-    .col-md-2-4 {
-      float: left;
-      width: 20%; } }
-
-.col-sm-2-4 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-2-4 {
-      float: left;
-      width: 20%; } }
-
-.col-xs-2-4 {
-  position: relative;
-  float: left;
-  width: 20%;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-
-.col-sm-0-8 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-0-8 {
-      float: left;
-      width: 6.66667%; } }
-
-.col-sm-0-5 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-0-5 {
-      float: left;
-      width: 4.16667%; } }
-
-.col-sm-1-5 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-1-5 {
-      float: left;
-      width: 12.5%; } }
-
-.col-sm-7-5 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-7-5 {
-      float: left;
-      width: 62.5%; } }
-
 .section-desc {
-  font-family: "Zizou Slab-Light" !important;
+  font-family: "zizou-slab-regular" !important;
   font-style: normal;
   font-size: 14px;
   line-height: 1em !important; }
@@ -7133,6 +8045,9 @@ input[type="submit"].btn.btn-white.btn-custom {
 .talleres .talleres-disp-head {
   margin-top: -15px; }
 
+@media only screen and (max-width: 992px) {
+  .site-content {
+    margin-top: 7px !important; } }
 .site-content.ciclo-actual, .site-content.notas-detalladas {
   margin-top: 77px; }
   .site-content.ciclo-actual .section-content .row .col-sm-3 .keep-reading, .site-content.notas-detalladas .section-content .row .col-sm-3 .keep-reading {
@@ -7149,7 +8064,7 @@ input[type="submit"].btn.btn-white.btn-custom {
     font-size: 0.75rem !important;
     font-size: 12px !important; }
   .site-content.mi-perfil .section-content .row .col-sm-8 .panel-table .data {
-    font-family: "Helvetica" !important;
+    font-family: "nimbus-sans" !important;
     font-weight: 500;
     font-style: normal;
     font-size: 0.75rem !important;

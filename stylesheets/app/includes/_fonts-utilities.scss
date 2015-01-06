@@ -23,8 +23,13 @@ $alt-b: "helv-neue";
 			font-size: ($fs - 4) + px !important;
 		}	
 	}
-	.#{$sans-serif}-light-#{$fs} {
-		@include light;	
+	.#{$serif}-thin-#{$fs} {
+		@include serif-thin;	
+		font-size: rem($fs) !important;	
+		font-size: $fs + px !important;	
+	}
+	.#{$serif}-light-#{$fs} {
+		@include serif-light;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
 	}
@@ -44,12 +49,22 @@ $alt-b: "helv-neue";
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;
 		@media #{$lg-down} {
-			font-size: rem(($fs) - 4) !important;	
-			font-size: ($fs - 4) + px !important;
+			font-size: rem(($fs) - 2) !important;	
+			font-size: ($fs - 2) + px !important;
 		}	
+	}
+	.#{$alt}-light-#{$fs} {
+		@include alt-light;	
+		font-size: rem($fs) !important;	
+		font-size: $fs + px !important;	
 	}
 	.#{$alt}-#{$fs} {
 		@include alt-book;	
+		font-size: rem($fs) !important;	
+		font-size: $fs + px !important;	
+	}
+	.#{$alt-b}-#{$fs} {
+		@include alt-b-book;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
 	}
