@@ -2310,7 +2310,7 @@ class Webservices
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
       $result = ''; 
-      $fechafin."  ".$fecini
+      $result = $fechafin."  ".$fecini;
       $result .= '<div class="panel-table no-bg">';
       $result .= '<ul class="tr">';
       $result .= '<li class="col-sm-3 helvetica-12">';
