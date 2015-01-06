@@ -56,23 +56,32 @@
 					                </div>  
 					                <div class="panel-table mis-cursos-content no-bg" >
 						                {if post:Flag!='1'}
+						               		{post:Flag}
 						                	{exp:webservices:listado_recursos_disponibles 
-																TipoRecurso='{post:TipoRecurso}'
+														  TipoRecurso='{post:TipoRecurso}'
 													      FecIni='{post:FecIni}'
 													      FechaFin='{post:FechaFin}'
 													      CanHoras='{post:CanHoras}'
 													      segmento='{segment_1}'
 							                }	
 						                {if:else}
-							                {exp:webservices:reserva_recursos 
-																CodRecurso='{post:CodRecurso}'
+						                	{post:Flag}
+						                	{post:NomRecurso
+											{post:FecIni}
+											{post:HoraIni}
+											{post:FechaFin}
+							                {post:CodRecurso}
+							                {post:HoraFin}
+							                {post:CanHoras}
+							                <!--{exp:webservices:reserva_recursos 
+														  CodRecurso='{post:CodRecurso}'
 													      NomRecurso='{post:NomRecurso}'
 													      FecIni='{post:FecIni}'
 													      HoraIni='{post:HoraIni}'
 													      FechaFin='{post:FechaFin}'
 													      HoraFin='{post:HoraFin}'
 													      CanHoras='{post:CanHoras}'
-							                }                
+							                }-->                
 						                {/if}					                
 					                </div>
 					              </div>
