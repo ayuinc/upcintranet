@@ -2298,11 +2298,11 @@ class Webservices
       $fecini = ee()->TMPL->fetch_param('FecIni');
       //$fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $horaini = ee()->TMPL->fetch_param('HoraIni');
-      $horaini = substr($horaini, 0,4);
+      //$horaini = substr($horaini, 0,4);
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
       //$fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
       $horafin = ee()->TMPL->fetch_param('HoraFin');
-      $horafin = substr($horafin, 0,4);
+      //$horafin = substr($horafin, 0,4);
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Reservar/?CodRecurso='.$codrecurso.'&NomRecurso='.$nomrecurso.'&CodAlumno='.$codigo.'&CanHoras='.$canhoras.'&fecIni='.$fecini.' '.$horaini.'&fecFin='.$fechafin.' '.$horafin.'&Token='.$token;
@@ -2316,8 +2316,7 @@ class Webservices
       var_dump($json);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
-      $result .= $url; 
-      $result .= $fechafin."  ".$fecini;
+      $result .= $url;
       $result .= '<div class="panel-table no-bg">';
       $result .= '<ul class="tr">';
       $result .= '<li class="col-sm-3 helvetica-12">';
