@@ -444,22 +444,6 @@ class Webservices
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
-<<<<<<< HEAD
-                $result .= '<ul class="tr">';
-                $result .= '<li class="col-sm-2 helvetica-bold-14">';
-                $result .= '<div class="text-center"><span>'.$HoraInicio[$disponibles].':00</span></div>';
-                $result .= '</li>';
-                $result .= '<li class="col-sm-2 helvetica-bold-14">';
-                $result .= '<div class="text-center"><span>'.$Sede[$disponibles].'</span></div>';
-                $result .= '</li>';
-                $result .= '<li class="col-sm-6 helvetica-12">';
-                $result .= '<div><span>'.$CursoNombre[$disponibles].'</span></div>';
-                $result .= '</li>';
-                $result .= '<li class="col-sm-2 helvetica-bold-14">';
-                $result .= '<div class="text-center"><span>'.$Salon[$disponibles].'</span></div>';
-                $result .= '</li>';
-                $result .= '</ul>';     
-=======
               $result .= '<ul class="tr">';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
@@ -474,8 +458,6 @@ class Webservices
               $result .= '<div class="text-center"><span class="solano-bold-18">'.$Salon[$disponibles].'</span></div>';
               $result .= '</li>';
               $result .= '</ul>';    
-              
->>>>>>> new_design
               //Controla que ya no recorra mas el arreglo 
               if ($disponibles != $tamano_2-1) {
                 $disponibles++;
