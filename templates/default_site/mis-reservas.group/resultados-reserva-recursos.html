@@ -56,7 +56,6 @@
 					                </div>  
 					                <div class="panel-table mis-cursos-content no-bg" >
 						                {if post:Flag!='1'}
-						               		{post:Flag}
 						                	{exp:webservices:listado_recursos_disponibles 
 														  	TipoRecurso='{post:TipoRecurso}'
 													      FecIni='{post:FecIni}'
@@ -67,7 +66,6 @@
 													      segmento='{segment_1}'
 							                }	
 						                {if:else}
-						                	 Flag: {post:Flag} <br>
 						                	<!--Nombre Recurso: {post:NomRecurso} <br> 
 							                Codigo Recurso: {post:CodRecurso} <br> 
 															Fecha Inicio: {post:FecIni} <br>
