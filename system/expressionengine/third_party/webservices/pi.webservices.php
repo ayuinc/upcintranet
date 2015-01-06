@@ -2311,7 +2311,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      
+      var_dump($json);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
       $result .= $url; 
@@ -2338,7 +2338,7 @@ class Webservices
        
       //Control de errores
       if ($error!='00000') {
-        $result = '';
+        $result .= '';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
