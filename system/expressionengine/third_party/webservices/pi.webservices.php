@@ -2234,9 +2234,51 @@ class Webservices
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
           $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
           $result .= '<input type="hidden" name="NomRecurso" value="'.$json['Recursos'][$i]['NomRecurso'].'" />';
+          $result .= '<div class="col-sm-6">
+          <label>Hora Inicio</label>
+          <select name="HoraIni">
+            <option value="070000">7:00</option>
+            <option value="080000">8:00</option>
+            <option value="090000">9:00</option>
+            <option value="100000">10:00</option>
+            <option value="110000">11:00</option>
+            <option value="120000">12:00</option>
+            <option value="130000">13:00</option>   
+            <option value="140000">14:00</option>
+            <option value="150000">15:00</option>
+            <option value="160000">16:00</option>
+            <option value="170000">17:00</option>
+            <option value="180000">18:00</option>
+            <option value="190000">19:00</option>
+            <option value="200000">20:00</option>
+            <option value="210000">21:00</option>
+            <option value="220000">22:00</option>                                                                              
+          </select>                           
+        </div>
+<div class="col-sm-6">
+          <label>Hora Fin</label>
+          <select name="HoraFin">
+            <option value="070000">7:00</option>
+            <option value="080000">8:00</option>
+            <option value="090000">9:00</option>
+            <option value="100000">10:00</option>
+            <option value="110000">11:00</option>
+            <option value="120000">12:00</option>
+            <option value="130000">13:00</option>   
+            <option value="140000">14:00</option>
+            <option value="150000">15:00</option>
+            <option value="160000">16:00</option>
+            <option value="170000">17:00</option>
+            <option value="180000">18:00</option>
+            <option value="190000">19:00</option>
+            <option value="200000">20:00</option>
+            <option value="210000">21:00</option>
+            <option value="220000">22:00</option>                                                                              
+          </select> 
+        </div>';
           $result .= '<input type="hidden" name="CanHoras" value="'.$canhoras.'" />';
-          $result .= '<input type="hidden" name="fecini" value="'.$fecini.'" />';
-          $result .= '<input type="hidden" name="fechafin" value="'.$fechafin.'" />';
+          $result .= '<input type="hidden" name="FecIni" value="'.$fecini.'" />';
+          $result .= '<input type="hidden" name="FechaFin" value="'.$fechafin.'" />';
           $result .= '<input type="hidden" name="Flag" value="1" />';       
           $result .= '<ul class="tr">';
           $result .= '<li class="col-sm-4 helvetica-12">';
