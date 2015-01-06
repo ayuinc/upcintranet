@@ -2222,7 +2222,7 @@ class Webservices
       
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
-      //$result = ''; 
+      $result = ''; 
       
       $tamano = count($json['Recursos']); 
       
