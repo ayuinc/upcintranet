@@ -2232,12 +2232,12 @@ class Webservices
         for ($i=0; $i<$tamano; $i++) { 
           $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
-          $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['CodRecurso'].'" value="CodRecurso" />';
-          $result .= '<input type="hidden" name="'.$json['Recursos'][$i]['NomRecurso'].'" value="NomRecurso" />';
-          $result .= '<input type="hidden" name="'.$canhoras.'" value="CanHoras" />';
-          $result .= '<input type="hidden" name="'.$fecini.'" value="fecIni" />';
-          $result .= '<input type="hidden" name="'.$fechafin.'" value="fecFin" />';
-          $result .= '<input type="hidden" name="1" value="Flag" />';       
+          $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
+          $result .= '<input type="hidden" name="NomRecurso" value="'.$json['Recursos'][$i]['NomRecurso'].'" />';
+          $result .= '<input type="hidden" name="CanHoras" value="'.$canhoras.'" />';
+          $result .= '<input type="hidden" name="fecini" value="'.$fecini.'" />';
+          $result .= '<input type="hidden" name="fechafin" value="'.$fechafin.'" />';
+          $result .= '<input type="hidden" name="Flag" value="1" />';       
           $result .= '<ul class="tr">';
           $result .= '<li class="col-sm-4 helvetica-12">';
           $result .= '<div class="text-center">';    
