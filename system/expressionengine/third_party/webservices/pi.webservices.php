@@ -2208,6 +2208,8 @@ class Webservices
       $fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $fechafin= ee()->TMPL->fetch_param('FechaFin');
       $fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
+      $HoraIni = ee()->TMPL->fetch_param('HoraIni');
+      $HoraFin = ee()->TMPL->fetch_param('HoraFin');
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       $segmento= ee()->TMPL->fetch_param('segmento');
       
@@ -2237,6 +2239,8 @@ class Webservices
           $result .= '<input type="hidden" name="CanHoras" value="'.$canhoras.'" />';
           $result .= '<input type="hidden" name="FecIni" value="'.$fecini.'" />';
           $result .= '<input type="hidden" name="FechaFin" value="'.$fechafin.'" />';
+          $result .= '<input type="hidden" name="HoraIni" value="'.$HoraIni.'" />';
+          $result .= '<input type="hidden" name="HoraFin" value="'.$HoraFin.'" />';
           $result .= '<input type="hidden" name="Flag" value="1" />';       
           $result .= '<ul class="tr">';
           $result .= '<li class="col-sm-4 helvetica-12">';
