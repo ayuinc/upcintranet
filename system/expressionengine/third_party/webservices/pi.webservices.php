@@ -2364,7 +2364,7 @@ class Webservices
     public function listado_recursos_reservados_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-       
+      $fecha = ''; 
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
