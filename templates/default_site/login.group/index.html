@@ -4,20 +4,20 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
           <div class="row">
-            <div class="col-sm-5">
+            <div class="col-sm-5 hidden-xs">
               <img src="{site_url}assets/img/login_xl.png" class="img-responsive" alt="">
             </div>
             <!-- Eliminado Informacion Local-->
               {exp:webservices:eliminar_cookie}
             <!-- -->
-            <div class="col-sm-7 bg-muted pr-35">
+            <div class="col-sm-7 col-xs-12 bg-muted pr-35">
               <div class="row mt-14">
                 <div class="col-sm-2"></div>
-                <div class="col-sm-4 ml-21 mt-49"><span class="uppercase solano-32 black">Intranet</span></div>
+                <div class="col-sm-4 ml-21 mt-49"><span class="uppercase solano-bold-32 black">Intranet</span></div>
                 <div class="col-sm-4 pull-right"><img class="logo" src="{site_url}assets/img/logo_upc_red.png" alt=""></div>
                 <div class="col-sm-2"></div>
               </div>
-              <form action="{site_url}index.php/login/usuario" method="post" name="login_form">
+              <form action="{site_url}index.php/login/usuario" method="post" name="login_form" class="login-form">
 								<input type="hidden" name="XID" value="{XID_HASH}"> 
 								<input type="hidden" name="plataforma" value="C">
                 <div class="row mt-14 pt-7">
@@ -50,15 +50,27 @@
             </div>
           </div>
           <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-7 bg-info">
+              <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                  <div class="text-muted solano-bold-24">Aviso Importante:</div>
+                </div>
+              </div>
+              mensaje celeste
+            </div>
+          </div>
+          <div class="row">
             <div class="text-center mt-7 ml--70"><span class="helvetica-bold-10 black uppercase">*Campo obligatorio</span></div>
           </div>
         </div>
         <div class="col-sm-1"></div>
       </div>
       <div class="row footer pt-28">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2"><img src="{site_url}assets/img/laureate.png" alt="" class="img-responsive"></div>
-        <div class="col-sm-8 copyright"><span>COPYRIGHT UPC 2014. Prolongación Primavera 2390, Monterrico. Lima - Perú. Teléfonos: 313-333 | Fax: 313-3344</span></div>
+        <div class="col-sm-1 hidden-xs"></div>
+        <div class="col-sm-2 col-xs-4"><img src="{site_url}assets/img/laureate.png" alt="" class="img-responsive"></div>
+        <div class="col-sm-8 col-xs-8 copyright"><span>COPYRIGHT UPC 2014. Prolongación Primavera 2390, Monterrico. Lima - Perú. Teléfonos: 313-333 | Fax: 313-3344</span></div>
       </div>
     </div>
 {embed="includes/footer"}

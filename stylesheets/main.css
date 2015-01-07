@@ -4961,7 +4961,8 @@ body {
   margin-top: 62px; }
   @media only screen and (max-width: 1200px) {
     .site-content {
-      padding-left: 28px !important; } }
+      padding-left: 28px !important;
+      padding-right: 28px !important; } }
   .site-content.login {
     margin-top: 0px;
     padding-top: 126px;
@@ -4989,26 +4990,38 @@ body {
       .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted {
         padding-bottom: 77px !important;
         border-bottom: 2px solid #E42322; }
-        .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form .row .col-sm-8 div.center-input {
-          margin-left: 21px !important;
-          margin-bottom: -14px !important; }
-          .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form .row .col-sm-8 div.center-input input.form-control {
-            border-radius: 0px !important;
-            border: 0px !important;
-            background-color: #E3E3E3;
-            color: black !important; }
-      .site-content.login .row .col-sm-8 {
-        padding-top: 28px; }
-        @media only screen and (max-width: 1200px) {
-          .site-content.login .row .col-sm-8 {
-            padding-top: 14px; } }
-        .site-content.login .row .col-sm-8.copyright span {
-          font-family: "zizou-slab-regular" !important;
-          font-style: normal;
-          font-size: 16px; }
-          @media only screen and (max-width: 1200px) {
-            .site-content.login .row .col-sm-8.copyright span {
-              font-size: 13px; } }
+        .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form {
+          margin-top: -21px !important; }
+          .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-sm-8 {
+            padding-top: 28px; }
+            .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-sm-8 div.center-input {
+              margin-left: 21px !important;
+              margin-bottom: -14px !important; }
+              .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-sm-8 div.center-input input.form-control {
+                border-radius: 0px !important;
+                border: 0px !important;
+                background-color: #E3E3E3;
+                color: black !important; }
+        .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted .pwd-mismatch {
+          margin-top: 28px !important; }
+          .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted .pwd-mismatch .col-sm-1 {
+            padding: 0 !important; }
+      .site-content.login .row.footer .col-xs-4, .site-content.login .row.footer .col-xs-8 {
+        padding: 7px !important; }
+      .site-content.login .row.footer .col-sm-8 {
+        margin-top: 28px !important; }
+      .site-content.login .row.footer .col-xs-8 {
+        line-height: 12px !important; }
+        @media only screen and (max-width: 480px) {
+          .site-content.login .row.footer .col-xs-8 {
+            margin-top: 4px !important; } }
+      .site-content.login .row.footer .copyright span {
+        font-family: "zizou-slab-regular" !important;
+        font-style: normal;
+        font-size: 16px; }
+        @media only screen and (max-width: 480px) {
+          .site-content.login .row.footer .copyright span {
+            font-size: 10px !important; } }
   .site-content.iframe {
     background: none !important; }
   .site-content .row {
@@ -7336,6 +7349,9 @@ body {
 
 .black {
   color: black !important; }
+
+.red {
+  color: #E42322 !important; }
 
 .gray-main {
   color: #565658 !important; }
