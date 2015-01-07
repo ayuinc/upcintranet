@@ -2348,7 +2348,7 @@ class Webservices
         $result .= "</div>";
          
         //Control de errores
-        if ($error!='00000') {
+        if ($error!='00002') {
           $result .= '<div class="panel-table">';
           $result .= '<ul class="tr">';
           $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
@@ -2399,7 +2399,8 @@ class Webservices
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-2 helvetica-12">';
         $result .= '<div class="text-center">';
-        $result .= '<span>'.$json['Reservas'][$i]['FecReserva'].'</span>';
+        $fecha .= substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2)."/".substr($json['Reservas'][$i]['FecReserva'],4,4);
+        $result .= '<span>'.$fecha.'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-sm-2 helvetica-12">';
@@ -2408,7 +2409,7 @@ class Webservices
         $HoraInicio = ltrim($HoraInicio,'0');
         $HoraFin = substr($json['Reservas'][$i]['HoraFin'], 0, 2);
         $HoraFin = ltrim($HoraFin,'0');       
-        $result .= '<span>'.$HoraInicio.'-'.$HoraFin.'</span>';
+        $result .= '<span>'.$HoraInicio.':00 - '.$HoraFin.':00</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-sm-6 helvetica-12">';
