@@ -2324,6 +2324,7 @@ class Webservices
         //var_dump($json);
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];      
+        $result .= $url;
         $result .= '<div class="panel-table no-bg">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-3 helvetica-12">';
