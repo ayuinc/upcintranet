@@ -2233,7 +2233,8 @@ class Webservices
       if($error=='00000'){
         $result .= '<div class="panel-table no-bg">';
         for ($i=0; $i<$tamano; $i++) { 
-          if($json['Recursos'][$i]['Estado'] == true){
+          //if($json['Recursos'][$i]['Estado'] == true){
+          if(true){
             $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
             $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
             $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
@@ -2306,50 +2307,54 @@ class Webservices
       //$horafin = substr($horafin, 0,4);
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Reservar/?CodRecurso='.$codrecurso.'&NomRecurso='.$nomrecurso.'&CodAlumno='.$codigo.'&CanHoras='.$canhoras.'&fecIni='.$fecini.' '.$horaini.'&fecFin='.$fechafin.' '.$horafin.'&Token='.$token;
-      var_dump($url);
-      //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Reservar/?CodRecurso=3208&NomRecurso=COMPUTADORA 128 (SALA 2)&CodAlumno=U201121382&CanHoras=1&fecIni=07012015 1800&fecFin=08012015 1900&Token=2702b70d8b1942b38a51aceffd31acd520150107125348
-      //var_dump($url);
-      $ch = curl_init($url);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_URL,$url);
-      $result=curl_exec($ch);
-      $json = json_decode($result, true);
-      //var_dump($result);
-      //var_dump($json);
-      $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];      
-      $result .= '<div class="panel-table no-bg">';
-      $result .= '<ul class="tr">';
-      $result .= '<li class="col-sm-3 helvetica-12">';
-      $result .= '<div class="text-center">';
-      $result .= '<span>'.$json['CodRecurso'].'</span>';
-      $result .= '</div>';
-      $result .= '</li>';
-      $result .= '<li class="col-sm-3 helvetica-12">';
-      $result .= '<div class="text-center">';    
-      $result .= '<span>'.$json['CodReserva'].'</span>';
-      $result .= '</div>';
-      $result .= '</li>';
-      $result .= '<li class="col-sm-6 helvetica-12">';
-      $result .= '<div class="text-center">';
-      $result .= '<span>'.$json['Mensaje'].'</span>';
-      $result .= '</div>';
-      $result .= '</li>';
-      $result .= '</ul>';
-      $result .= "</div>";
-       
-      //Control de errores
-      if ($error!='00000') {
-        $result .= '';
-        $result .= '<div class="panel-table">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
-        $result .= '</ul>';
-        $result .= '</div>';
+      if ($codrecurso == "{post:CodRecurso}" || $nomrecurso == "{post:NomRecurso}") {
+        return "";
       }
-      return $result;          
+      else { 
+        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Reservar/?CodRecurso='.$codrecurso.'&NomRecurso='.$nomrecurso.'&CodAlumno='.$codigo.'&CanHoras='.$canhoras.'&fecIni='.$fecini.' '.$horaini.'&fecFin='.$fechafin.' '.$horafin.'&Token='.$token;
+        //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Reservar/?CodRecurso=3208&NomRecurso=COMPUTADORA 128 (SALA 2)&CodAlumno=U201121382&CanHoras=1&fecIni=07012015 1800&fecFin=08012015 1900&Token=2702b70d8b1942b38a51aceffd31acd520150107125348
+        //var_dump($url);
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL,$url);
+        $result=curl_exec($ch);
+        $json = json_decode($result, true);
+        //var_dump($result);
+        //var_dump($json);
+        $error = $json['CodError'];
+        $error_mensaje = $json['MsgError'];      
+        $result .= '<div class="panel-table no-bg">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-sm-3 helvetica-12">';
+        $result .= '<div class="text-center">';
+        $result .= '<span>'.$json['CodRecurso'].'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-sm-3 helvetica-12">';
+        $result .= '<div class="text-center">';    
+        $result .= '<span>'.$json['CodReserva'].'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-sm-6 helvetica-12">';
+        $result .= '<div class="text-center">';
+        $result .= '<span>'.$json['Mensaje'].'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '</ul>';
+        $result .= "</div>";
+         
+        //Control de errores
+        if ($error!='00000') {
+          $result .= '';
+          $result .= '<div class="panel-table">';
+          $result .= '<ul class="tr">';
+          $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
+          $result .= '</ul>';
+          $result .= '</div>';
+        }
+        return $result;      
+      }    
     }     
     
     
