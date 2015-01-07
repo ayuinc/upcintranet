@@ -2326,7 +2326,7 @@ class Webservices
         //var_dump($json);
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];      
-        $result .= $url;
+        
         $result .= '<div class="panel-table no-bg">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-3 helvetica-12">';
@@ -2341,7 +2341,7 @@ class Webservices
         $result .= '</li>';
         $result .= '<li class="col-sm-6 helvetica-12">';
         $result .= '<div class="text-center">';
-        $result .= '<span>'.$json['Mensaje'].'</span>';
+        $result .= '<span>'.$json['MsgError'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul>';
@@ -2349,7 +2349,6 @@ class Webservices
          
         //Control de errores
         if ($error!='00000') {
-          $result .= '';
           $result .= '<div class="panel-table">';
           $result .= '<ul class="tr">';
           $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
