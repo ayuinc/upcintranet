@@ -2224,7 +2224,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      
+      $result .=  $json;
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
       $result = ''; 
@@ -2309,6 +2309,7 @@ class Webservices
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Reservar/?CodRecurso='.$codrecurso.'&NomRecurso='.$nomrecurso.'&CodAlumno='.$codigo.'&CanHoras='.$canhoras.'&fecIni='.$fecini.' '.$horaini.'&fecFin='.$fechafin.' '.$horafin.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ReservaAlumno/?FecIni=20032014&FechaFin=29032014&CodAlumno=U201321137&Token=5f22ac566dc44636a27d6c446c7cd77e20140325031512';
       //var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
