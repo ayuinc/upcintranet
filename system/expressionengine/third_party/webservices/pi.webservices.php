@@ -2224,7 +2224,6 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      var_dump($json);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
       $result = ''; 
@@ -2232,7 +2231,6 @@ class Webservices
       $tamano = count($json['Recursos']); 
       
       if($error=='00000'){
-        $result = $fechafin."  ".$fecini;
         $result .= '<div class="panel-table no-bg">';
         for ($i=0; $i<$tamano; $i++) { 
           if($json['Recursos'][$i]['Estado'] == true){
@@ -2270,8 +2268,6 @@ class Webservices
       }
       //Control de errores
       if ($error!='00000') {
-        $result = $fechafin."  ".$fecini;
-        $result .= $url;
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
