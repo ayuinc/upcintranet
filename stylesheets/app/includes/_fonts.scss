@@ -1,80 +1,80 @@
-@font-face {
-  font-family: 'Zizou Slab-Regular';
-  src: url('../stylesheets/fonts/Zizou Slab-Regular.eot'); /* IE9 */
-  src: url('../stylesheets/fonts/Zizou Slab-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../stylesheets/fonts/Zizou Slab-Regular.woff') format('woff'), 
-       url('../stylesheets/fonts/Zizou Slab-Regular.ttf')  format('truetype'), 
-       url('../stylesheets/fonts/Zizou Slab-Regular.svg') format('svg'); 
-}
+// @font-face {
+//   font-family: 'Zizou Slab-Regular';
+//   src: url('../stylesheets/fonts/Zizou Slab-Regular.eot'); /* IE9 */
+//   src: url('../stylesheets/fonts/Zizou Slab-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../stylesheets/fonts/Zizou Slab-Regular.woff') format('woff'), 
+//        url('../stylesheets/fonts/Zizou Slab-Regular.ttf')  format('truetype'), 
+//        url('../stylesheets/fonts/Zizou Slab-Regular.svg') format('svg'); 
+// }
 
-@font-face {
-  font-family: 'HelveticaNeue';
-  src: url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.eot'); /* IE9 */
-  src: url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.woff') format('woff'), 
-       url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.ttf')  format('truetype'), 
-       url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.svg') format('svg'); 
-}
+// @font-face {
+//   font-family: 'HelveticaNeue';
+//   src: url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.eot'); /* IE9 */
+//   src: url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.woff') format('woff'), 
+//        url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.ttf')  format('truetype'), 
+//        url('../stylesheets/fonts/HelveticaNeueLTStd-Bd.svg') format('svg'); 
+// }
 
-@font-face {
-  font-family: 'Zizou Slab-Light';
-  src: url('../stylesheets/fonts/Zizou Slab-Light.eot'); 
-  src: url('../stylesheets/fonts/Zizou Slab-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../stylesheets/fonts/Zizou Slab-Light.woff') format('woff'), 
-       url('../stylesheets/fonts/Zizou Slab-Light.ttf')  format('truetype'), 
-       url('../stylesheets/fonts/Zizou Slab-Light.svg') format('svg'); 
-}
+// @font-face {
+//   font-family: 'Zizou Slab-Light';
+//   src: url('../stylesheets/fonts/Zizou Slab-Light.eot'); 
+//   src: url('../stylesheets/fonts/Zizou Slab-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../stylesheets/fonts/Zizou Slab-Light.woff') format('woff'), 
+//        url('../stylesheets/fonts/Zizou Slab-Light.ttf')  format('truetype'), 
+//        url('../stylesheets/fonts/Zizou Slab-Light.svg') format('svg'); 
+// }
 
-@font-face {
-  font-family: 'Zizou Slab-Bold';
-  src: url('../stylesheets/fonts/Zizou Slab-Bold.eot'); 
-  src: url('../stylesheets/fonts/Zizou Slab-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../stylesheets/fonts/Zizou Slab-Bold.woff') format('woff'), 
-       url('../stylesheets/fonts/Zizou Slab-Bold.ttf')  format('truetype'), 
-       url('../stylesheets/fonts/Zizou Slab-Bold.svg') format('svg'); 
-}
+// @font-face {
+//   font-family: 'Zizou Slab-Bold';
+//   src: url('../stylesheets/fonts/Zizou Slab-Bold.eot'); 
+//   src: url('../stylesheets/fonts/Zizou Slab-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../stylesheets/fonts/Zizou Slab-Bold.woff') format('woff'), 
+//        url('../stylesheets/fonts/Zizou Slab-Bold.ttf')  format('truetype'), 
+//        url('../stylesheets/fonts/Zizou Slab-Bold.svg') format('svg'); 
+// }
 
-@font-face {
-  font-family: 'Zizou Slab-Medium';
-  src: url('../stylesheets/fonts/Zizou Slab-Medium.eot'); 
-  src: url('../stylesheets/fonts/Zizou Slab-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../stylesheets/fonts/Zizou Slab-Medium.woff') format('woff'), 
-       url('../stylesheets/fonts/Zizou Slab-Medium.ttf')  format('truetype'), 
-       url('../stylesheets/fonts/Zizou Slab-Medium.svg') format('svg'); 
-}
+// @font-face {
+//   font-family: 'Zizou Slab-Medium';
+//   src: url('../stylesheets/fonts/Zizou Slab-Medium.eot'); 
+//   src: url('../stylesheets/fonts/Zizou Slab-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../stylesheets/fonts/Zizou Slab-Medium.woff') format('woff'), 
+//        url('../stylesheets/fonts/Zizou Slab-Medium.ttf')  format('truetype'), 
+//        url('../stylesheets/fonts/Zizou Slab-Medium.svg') format('svg'); 
+// }
 
-@font-face {
-  font-family: 'Zizou Slab-Thin';
-  src: url('../stylesheets/fonts/Zizou Slab-Thin.eot'); 
-  src: url('../stylesheets/fonts/Zizou Slab-Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../stylesheets/fonts/Zizou Slab-Thin.woff') format('woff'), 
-       url('../stylesheets/fonts/Zizou Slab-Thin.ttf')  format('truetype'), 
-       url('../stylesheets/fonts/Zizou Slab-Thin.svg') format('svg'); 
-}
+// @font-face {
+//   font-family: 'Zizou Slab-Thin';
+//   src: url('../stylesheets/fonts/Zizou Slab-Thin.eot'); 
+//   src: url('../stylesheets/fonts/Zizou Slab-Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../stylesheets/fonts/Zizou Slab-Thin.woff') format('woff'), 
+//        url('../stylesheets/fonts/Zizou Slab-Thin.ttf')  format('truetype'), 
+//        url('../stylesheets/fonts/Zizou Slab-Thin.svg') format('svg'); 
+// }
 
-@font-face {
-  font-family: 'SolanoGothicMVBProBd';
-  src: url('../stylesheets/fonts/SolanoGothicMVBProBd.eot'); 
-  src: url('../stylesheets/fonts/SolanoGothicMVBProBd.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../stylesheets/fonts/SolanoGothicMVBProBd.woff') format('woff'), 
-       url('../stylesheets/fonts/SolanoGothicMVBProBd.ttf')  format('truetype'), 
-       url('../stylesheets/fonts/SolanoGothicMVBProBd.svg') format('svg'); 
-}
+// @font-face {
+//   font-family: 'SolanoGothicMVBProBd';
+//   src: url('../stylesheets/fonts/SolanoGothicMVBProBd.eot'); 
+//   src: url('../stylesheets/fonts/SolanoGothicMVBProBd.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../stylesheets/fonts/SolanoGothicMVBProBd.woff') format('woff'), 
+//        url('../stylesheets/fonts/SolanoGothicMVBProBd.ttf')  format('truetype'), 
+//        url('../stylesheets/fonts/SolanoGothicMVBProBd.svg') format('svg'); 
+// }
 
-@font-face {
-  font-family: 'SolanoGothicMVB-Lt';
-  src: url('../stylesheets/fonts/SolanoGothicMVB-Lt.eot'); 
-  src: url('../stylesheets/fonts/SolanoGothicMVB-Lt.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../stylesheets/fonts/SolanoGothicMVB-Lt.woff') format('woff'), 
-       url('../stylesheets/fonts/SolanoGothicMVB-Lt.ttf')  format('truetype'), 
-       url('../stylesheets/fonts/SolanoGothicMVB-Lt.svg') format('svg'); 
-}
+// @font-face {
+//   font-family: 'SolanoGothicMVB-Lt';
+//   src: url('../stylesheets/fonts/SolanoGothicMVB-Lt.eot'); 
+//   src: url('../stylesheets/fonts/SolanoGothicMVB-Lt.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../stylesheets/fonts/SolanoGothicMVB-Lt.woff') format('woff'), 
+//        url('../stylesheets/fonts/SolanoGothicMVB-Lt.ttf')  format('truetype'), 
+//        url('../stylesheets/fonts/SolanoGothicMVB-Lt.svg') format('svg'); 
+// }
 
-@font-face {
-  font-family: 'Helvetica';
-  src: url('../stylesheets/fonts/Helvetica.eot'); 
-  src: url('../stylesheets/fonts/Helvetica.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../stylesheets/fonts/Helvetica.woff') format('woff'), 
-       url('../stylesheets/fonts/Helvetica.ttf')  format('truetype'), 
-       url('../stylesheets/fonts/Helvetica.svg') format('svg'); 
-}
+// @font-face {
+//   font-family: 'Helvetica';
+//   src: url('../stylesheets/fonts/Helvetica.eot'); 
+//   src: url('../stylesheets/fonts/Helvetica.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('../stylesheets/fonts/Helvetica.woff') format('woff'), 
+//        url('../stylesheets/fonts/Helvetica.ttf')  format('truetype'), 
+//        url('../stylesheets/fonts/Helvetica.svg') format('svg'); 
+// }

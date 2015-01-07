@@ -53,6 +53,20 @@ body {
 	} 
 }
 
+#mobile-nav {
+	.col-xs-4 {
+		padding-left: 0;
+	}
+}
+
+#collapseMobile {
+	margin-left: 14px !important;
+	ul li {
+		@include serif-book;
+		font-size: 14px;
+	}
+}
+
 .site-content {
 	position: absolute;
 	background-image:url("../assets/img/trama.png");
@@ -210,7 +224,7 @@ body {
 			margin-left: -30px !important;
 			margin-top: 7px !important; 
 			span {
-				@include book;
+				@include bold;
 				text-transform: uppercase;
 				font-size: rem(44px) !important;
 				font-size: 44px !important;
@@ -405,7 +419,7 @@ body {
 			background-position: center; 
 		}
 		a {
-			@include book;
+			@include bold;
 			display: block;
 			text-align: center;
 			padding: 3px;
@@ -436,7 +450,7 @@ body {
 				width: 210px;
 				padding-left: 7px;
 				a {
-					@include serif-light;
+					@include serif-thin;
 					display: block;
 					color: $gray-main;
 					width: 210px;
@@ -444,7 +458,7 @@ body {
 					text-align: left;
 					&:hover {
 						background: white;
-						color: $brand-danger;
+						color: $brand-danger !important;
 					}
 				}
 			}
@@ -457,7 +471,7 @@ body {
 	.container-fluid {
 		padding-right: 0;
 		.header-global {
-			@include book;
+			@include bold;
 			font-size: 18px;
 			color: $gray-light;
 			text-transform: uppercase;
@@ -474,55 +488,38 @@ body {
 		.header-no-global {
 			padding-left: 98px !important;
 			padding-right: 35px !important;
-			.inner {
-				border-bottom: 2px solid #d3d3d3 !important;
-			}
-			background-image:url("../assets/img/trama.png");
-			background-position: 7% 80%;
-			@include book;
+			border-bottom: 2px solid #d3d3d3 !important;
+			background-image:url("../assets/img/header_no_global.png");
+			@include bold;
 			text-transform: uppercase;
 			text-align: center;
 			&.alumno, &.docente {
 				.col-sm-5 {
 					.row {
-						div[class^='col-sm'] {
+						.col-sm-3 {
 							a {
-							>div {
-								height: 28px !important;
-								&.mi-correo {
-									background-image: url("../assets/img/correo_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
+								div {
+									height: 35px !important;
+									margin-bottom: 7px;
+									&.mi-correo {
+										padding-top: 7px;
+									}
 								}
-								&.mi-aula {
-									background-image: url("../assets/img/aula_virtual_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
-								&.print {
-									background-image: url("../assets/img/print_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
-								&.asistencia {
-									background-image: url("../assets/img/asistencia_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
-								&.search {
-									background-image: url("../assets/img/search_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
+								span {
+									color: white;
+									&:hover {
+										text-decoration: underline;
+									}
 								}
 							}
-							span {
-		    				color: $gray-main !important;
-							}	
+							.print {
+								margin-bottom: 7px; 
+							}
 						}
 					 }
-				  }	
+					}	
 				}
-			}
+			
 			&.padre, &.docente {
 				.col-sm-5 {
 					padding-top: 21px;
@@ -608,24 +605,22 @@ body {
 					}
 				}
 			}
-			.col-sm-4.busqueda {
+			.busqueda {
 				padding-bottom: 14px;
-				.right-inner-addon {
-			    position: relative;
-					input {
-			    	padding-right: 30px;    
-					}
+				margin-top:28px !important;
+				&.col-sm-3 {
+					padding-right: 0px !important;
+				}
+				&.col-sm-1 {
+					padding-left: 3px !important;
 					img {
-			    background-color: $gray-main;
-			    position: absolute;
-			    right: 0px;
-			    padding: 9px 10px;
-			    cursor: pointer !important;
+						float: left;
+						cursor: pointer !important;
 					}
 				}
 			}
 			.col-sm-3.right-upper-corner {
-				@include serif-book;
+				@include serif-thin;
 				text-transform: none !important;
 				.row {
 					.col-sm-8 {
@@ -676,9 +671,11 @@ body {
 										padding-top: 3px;
 										padding-bottom: 3px;
 										&:hover {
-											background-color: $gray-main;
+											// background-color: $gray-main;
+											background-color: $brand-info;
+											color: white !important;
 											a {
-											color: white;
+											color: white !important;
 											}
 										}
 									}
@@ -686,7 +683,8 @@ body {
 										margin: 0;
 									}
 									font-size: 16px;
-									text-transform: uppercase;
+									@include serif-book;
+									// text-transform: uppercase;
 								}
 							}
 						}

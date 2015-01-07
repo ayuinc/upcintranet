@@ -57,22 +57,31 @@
 					                <div class="panel-table mis-cursos-content no-bg" >
 						                {if post:Flag!='1'}
 						                	{exp:webservices:listado_recursos_disponibles 
-																TipoRecurso='{post:TipoRecurso}'
+														  	TipoRecurso='{post:TipoRecurso}'
 													      FecIni='{post:FecIni}'
 													      FechaFin='{post:FechaFin}'
+													      HoraIni='{post:HoraIni}'
+													      HoraFin='{post:HoraFin}'
 													      CanHoras='{post:CanHoras}'
 													      segmento='{segment_1}'
 							                }	
 						                {if:else}
-							                <!--{exp:webservices:reserva_recursos 
-																CodRecurso='{post:CodRecurso}'
+						                	<!--Nombre Recurso: {post:NomRecurso} <br> 
+							                Codigo Recurso: {post:CodRecurso} <br> 
+															Fecha Inicio: {post:FecIni} <br>
+															Hora Inicio: {post:HoraIni} <br>
+															Fecha Fin: {post:FechaFin} <br>
+							                Hora Fin: {post:HoraFin} <br>
+							                Cantidad de Horas: {post:CanHoras} <br> -->
+							                {exp:webservices:reserva_recursos 
+														  	CodRecurso='{post:CodRecurso}'
 													      NomRecurso='{post:NomRecurso}'
 													      FecIni='{post:FecIni}'
 													      HoraIni='{post:HoraIni}'
 													      FechaFin='{post:FechaFin}'
 													      HoraFin='{post:HoraFin}'
 													      CanHoras='{post:CanHoras}'
-							                }-->                
+							                }                
 						                {/if}					                
 					                </div>
 					              </div>

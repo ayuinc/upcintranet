@@ -16,61 +16,54 @@
             <span class="solano-bold-15"><a href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span>
           </div>
         </div>
-        <div class="header-no-global alumno">
-          <div class="inner row">
-            <div class="col-sm-5 pt-21 pb-21">
+        <div class="header-no-global row alumno">
+            <div class="col-sm-5 pt-21 pb-7">
                <div class="row">
                  <div class="col-sm-3">
                   <a href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
-                    <div class="mi-correo"></div>
-                    <span>Mi Correo</span>
+                    <div class="mi-correo"><img src="{site_url}/assets/img/white_mail.png" alt=""></div>
+                    <span>Correo</span>
                   </a>
                  </div>
                  <div class="col-sm-3">
                   <a href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
-                    <div class="mi-aula"></div>
+                    <div><img src="{site_url}/assets/img/aula_virtual.png" alt=""></div>
                     <span>Aula Virtual</span>
                   </a>
                  </div>
                  <div class="col-sm-3">
-                  <a href="#">
-                    <div>
-                    {exp:printfriendly:button custom_button="{side_url}assets/img/print_grey.png"}
+                  <a href="http://www.printfriendly.com/" style="color:#6D9F00;text-decoration:none;" onclick="window.print();return false;" title="Print Friendly and PDF" class="gray-main printfriendly" id="printfriendly">
+                    <div class="print">
+                      {exp:printfriendly:button custom_button="{site_url}assets/img/print_new.png"}
                     </div>
-                    <span><a href="http://www.printfriendly.com/" style="color:#6D9F00;text-decoration:none;" onclick="window.print();return false;" title="Print Friendly and PDF" class="gray-main printfriendly" id="printfriendly">Impresiones</a></span>
-                  </a>
-                 </div>
-                 <div class="col-sm-3">
-                  <a href="#">
-                    <div class="search"></div>
-                    <span>Buscar</span>
+                    <a href="http://www.printfriendly.com/" style="color:#6D9F00;text-decoration:none;" onclick="window.print();return false;" title="Print Friendly and PDF" class="gray-main printfriendly" id="printfriendly"><span>Impresiones</span></a>
                   </a>
                  </div>
                </div>
             </div>
-            <div class="col-sm-4 pt-28 busqueda">
-              <div class="right-inner-addon">
-                {exp:search:simple_form channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" result_page="buscar/index"}
-                <img src="{site_url}assets/img/search_arrow.png" id="search-phr">
-                <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Introduce tu búsqueda">
-                <input type="submit" value="submit" id="search-submit" class="hidden submit">
-                {/exp:search:simple_form}
-              </div>
+            {exp:search:simple_form channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" result_page="buscar/index"}
+            <div class="col-sm-3 busqueda">
+              <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-thin-12 form-control" placeholder="Introduce tu búsqueda">
+              <input type="submit" value="submit" id="search-submit" class="hidden submit">
             </div>
+            <div class="col-sm-1 busqueda">
+              <img src="{site_url}assets/img/search_white.png" id="search-phr">
+            </div>
+            {/exp:search:simple_form}
             <div class="col-sm-3 right-upper-corner pt-0 pb-0">
               <div class="row">
-                <div class="col-sm-8 pt-28"><span class="hola">Hola {exp:webservices:nombre_alumno}</span></div>
+                <div class="col-sm-8 pt-28"><span class="text-muted hola">Hola {exp:webservices:nombre_alumno}</span></div>
                 <div class="col-sm-4">
                   <div class="dropdown pt-7">
                     <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                       <img class="img-circle img-responsive" src="{site_url}images/avatars/default_set/user.png">
                     </div>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil">Mi perfil</a></li>
+                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil">Mi Perfil</a></li>
                       <li role="presentation" class="divider"></li>
-                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Cambiar a docente</a></li>
+                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Cambiar a Docente</a></li>
                       <li  role="presentation" class="divider"></li>
-                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Ver tutorial</a></li>
+                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Ver Tutorial</a></li>
                       <li role="presentation" class="divider"></li>
                       <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
                     </ul>
@@ -78,7 +71,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
