@@ -65,7 +65,6 @@ class Webservices
 
     //CONSTRUCTOR DE SESIONES DE ACURDO AL USUARIO
     public function generador_token(){
-      session_start();
       $codigo = ee()->TMPL->fetch_param('codigo');
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
@@ -83,7 +82,7 @@ class Webservices
       $_SESSION["MsgError"] = $json['MsgError'];
       //INICIAR SESSION
       var_dump($json);
-      if (strval($json['CodError'])=='00001') {
+      if (strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
         redirect('/login/error_login');
       } 
       else {
