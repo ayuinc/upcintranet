@@ -1452,9 +1452,14 @@ class Webservices
 
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12 formula">';
-        $result .= '<div>';
-        $result .= '<span class="helv-neue-14 black ml-7"><b>FÓRMULA:</b> '.$json_int['Formula'].'</span>';
+        $result .= '<li class="col-xs-1 formula">';
+        $result .= '<div class="black borderless">';
+        $result .= '<span class="ml-7 helv-neue-16">FÓRMULA:</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-11 formula">';
+        $result .= '<div class="black">';
+        $result .= '<span class="ronnia-16">'.$json_int['Formula'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul>';
@@ -1490,27 +1495,27 @@ class Webservices
             
           $result .= '<li class="col-xs-1">';
           $result .= '<div class="text-center">';
-          $result .= '<span class="helvetica-14">'.$json_int['Notas'][$b]['NombreCorto'].'</span>';
+          $result .= '<span class="helv-neue-16">'.$json_int['Notas'][$b]['NombreCorto'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
           $result .= '<li class="col-xs-2">';
           $result .= '<div class="text-center">';
-          $result .= '<span class="helvetica-14">'.$json_int['Notas'][$b]['NroEvaluacion'].'</span>';
+          $result .= '<span class="ronnia-16">'.$json_int['Notas'][$b]['NroEvaluacion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
           $result .= '<li class="col-xs-5">';
           $result .= '<div>';
-          $result .= '<span class="helvetica-14">'.$json_int['Notas'][$b]['NombreEvaluacion'].'</span>';
+          $result .= '<span class="helvetica-16">'.$json_int['Notas'][$b]['NombreEvaluacion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
           $result .= '<li class="col-xs-2">';
           $result .= '<div class="text-center">';
-          $result .= '<span class="helvetica-14">'.$json_int['Notas'][$b]['Peso'].'</span>';
+          $result .= '<span class="ronnia-18">'.$json_int['Notas'][$b]['Peso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
           $result .= '<li class="col-xs-2">';
-          $result .= '<div class="text-center">';
-          $result .= '<span class="helvetica-bold-14">'.$json_int['Notas'][$b]['Valor'].'</span>';
+          $result .= '<div class="borderless text-center">';
+          $result .= '<span class="ronnia-18">'.$json_int['Notas'][$b]['Valor'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
           
@@ -1524,12 +1529,12 @@ class Webservices
         $result .= '<div class="panel-table observaciones">';
         $result .= ' <ul class="tr">';
         $result .= '<li class="col-xs-8">';
-        $result .= '<div class="text-left">';
+        $result .= '<div class="text-left borderless">';
         $result .= '<span class="helvetica-bold-16 pl-7 text-muted uppercase">Observaciones:</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-2">';
-        $result .= '<div class="text-center">';
+        $result .= '<div class="text-center borderless">';
         $result .= '<span class="helv-neue-14 text-muted uppercase">Nota al '.$json_int['PorcentajeAvance'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
@@ -2390,12 +2395,12 @@ class Webservices
       $result .= '<div class="panel-table no-bg">';
       for ($i=0; $i<$tamano; $i++) { 
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-2 helvetica-12">';
+        $result .= '<li class="col-xs-2 helvetica-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>'.$json['Reservas'][$i]['FecReserva'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2 helvetica-12">';
+        $result .= '<li class="col-xs-2 helvetica-12">';
         $result .= '<div class="text-center">';
         $HoraInicio = substr($json['Reservas'][$i]['HoraIni'], 0, 2);
         $HoraInicio = ltrim($HoraInicio,'0');
@@ -2404,12 +2409,12 @@ class Webservices
         $result .= '<span>'.$HoraInicio.'-'.$HoraFin.'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-6 helvetica-12">';
+        $result .= '<li class="col-xs-6 helvetica-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>'.$json['Reservas'][$i]['DesTipoRecurso'].'<br>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2 helvetica-12">';
+        $result .= '<li class="col-xs-2 helvetica-12">';
         $result .= '<div class="text-center">';
         $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>';
         $result .= '</div>';
@@ -2423,7 +2428,7 @@ class Webservices
         $result = '';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-12 helvetica-12"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
+        $result .= '<li class="col-xs-12 helvetica-12"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
         $result .= '</ul>';
         $result .= '</div>';
       }

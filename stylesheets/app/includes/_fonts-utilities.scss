@@ -5,7 +5,8 @@ $custom-h5: 13px;
 $serif: "zizou";
 $sans-serif: "solano";
 $alt: "helvetica";
-$alt-b: "helv-neue";
+$alt-ab: "helv-neue";
+$alt-12: "ronnia";
 
 /// fonts loops
 @for $fs from 9 to 33 {
@@ -63,8 +64,13 @@ $alt-b: "helv-neue";
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
 	}
-	.#{$alt-b}-#{$fs} {
-		@include alt-b-book;	
+	.#{$alt-ab}-#{$fs} {
+		@include alt-ab-book;	
+		font-size: rem($fs) !important;	
+		font-size: $fs + px !important;	
+	}
+	.#{$alt-12}-#{$fs} {
+		@include alt-12-book;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
 	}

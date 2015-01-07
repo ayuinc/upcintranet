@@ -200,7 +200,7 @@
 						@include justify-content(center);
 						span {
 							@include flex-grow(0);
-							@include alt-b-light;
+							@include alt-ab-light;
 							font-size: rem(13px);
 							font-size: 13px;
 							color: $gray-light;
@@ -385,7 +385,7 @@
 						@include flex-direction(column);
 						@include justify-content(center);
 						min-height: 28px;
-						border-right: 2px solid $gray-lighter;
+						border-right: 2px solid $gray-light;
 						padding: 0 6px;
 						&.nrb {
 						border: none;	
