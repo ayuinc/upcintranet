@@ -2318,7 +2318,7 @@ class Webservices
       $horaini = ee()->TMPL->fetch_param('HoraIni');
       $horaini = substr($horaini, 0,4);
       //$fechafin= ee()->TMPL->fetch_param('FechaFin');
-      $fechafin = $fechaini;
+      $fechafin = $fecini;
       //$fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);ere
       $horafin = ee()->TMPL->fetch_param('HoraFin');
       $horafin = substr($horafin, 0,4);
