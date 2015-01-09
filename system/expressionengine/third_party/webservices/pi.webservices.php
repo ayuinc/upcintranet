@@ -2195,7 +2195,6 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
-      
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -2206,6 +2205,7 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
+
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       $segmento= ee()->TMPL->fetch_param('segmento');
       $fecini = ee()->TMPL->fetch_param('FecIni');
@@ -2219,6 +2219,7 @@ class Webservices
       //$HoraFin = ee()->TMPL->fetch_param('HoraFin');
       
       $HoraIni = intval($HoraIni);
+      
       if($HoraIni < 10){
         $HoraIni = '0'.$HoraIni.'00';
       }
@@ -2232,11 +2233,8 @@ class Webservices
       else{
         $HoraFin = $HoraFin.'00';
       }
-
-      
-      
+  
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
-      //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso=CO&Local=A&FecIni=19122014&CanHoras=1&FechaFin=19122014&CodAlumno=U201121382&Token=52143ef2a545456cbbe6eff148b0812820141219120128      
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2246,7 +2244,6 @@ class Webservices
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
       $result = ''; 
-      
       $tamano = count($json['Recursos']); 
       
       if($error=='00000'){
