@@ -2206,15 +2206,34 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
-      $fecini = ee()->TMPL->fetch_param('FecIni');
-      $fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
-      $fechafin= ee()->TMPL->fetch_param('FechaFin');
-      $fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
-      $HoraIni = ee()->TMPL->fetch_param('HoraIni');
-      $HoraFin = ee()->TMPL->fetch_param('HoraFin');
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       $segmento= ee()->TMPL->fetch_param('segmento');
+      $fecini = ee()->TMPL->fetch_param('FecIni');
+      $fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
+      $fechafin = $fecini;
+      //$fechafin= ee()->TMPL->fetch_param('FechaFin');
+      //$fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
+      $HoraIni = ee()->TMPL->fetch_param('HoraIni');
+      $HoraIni = intval($HoraIni);
+      $HoraFin = intval($HoraIni) + intval($canhoras);
+      //$HoraFin = ee()->TMPL->fetch_param('HoraFin');
+      
+      $HoraIni = intval($HoraIni);
+      if($HoraIni < 10){
+        $HoraIni = '0'.$HoraIni.'00';
+      }
+      else{
+        $HoraIni = $HoraIni.'00';
+      }
+
+      if($HoraFin < 10){
+        $HoraFin = '0'.$HoraFin.'00'
+      }
+      else{
+        $HoraFin = $HoraFin.'00';
+      }
+
+      
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
       //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso=CO&Local=A&FecIni=19122014&CanHoras=1&FechaFin=19122014&CodAlumno=U201121382&Token=52143ef2a545456cbbe6eff148b0812820141219120128      
@@ -2301,8 +2320,9 @@ class Webservices
       //$fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $horaini = ee()->TMPL->fetch_param('HoraIni');
       $horaini = substr($horaini, 0,4);
-      $fechafin= ee()->TMPL->fetch_param('FechaFin');
-      //$fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);
+      //$fechafin= ee()->TMPL->fetch_param('FechaFin');
+      $fechafin = $fechaini;
+      //$fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);ere
       $horafin = ee()->TMPL->fetch_param('HoraFin');
       $horafin = substr($horafin, 0,4);
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
