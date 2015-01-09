@@ -57,6 +57,7 @@
 					                <div class="panel-table mis-cursos-content no-bg" >
 						                {if post:Flag!='1'}
 						                	{exp:webservices:listado_recursos_disponibles 
+														  	CodSede = '{post:CodSede}'
 														  	TipoRecurso='{post:TipoRecurso}'
 													      FecIni='{post:FecIni}'
 													      FechaFin='{post:FechaFin}'
