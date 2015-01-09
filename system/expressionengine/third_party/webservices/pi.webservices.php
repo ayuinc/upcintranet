@@ -2228,7 +2228,7 @@ class Webservices
       }
 
       if($HoraFin < 10){
-        $HoraFin = '0'.$HoraFin.'00'
+        $HoraFin = '0'.$HoraFin.'00';
       }
       else{
         $HoraFin = $HoraFin.'00';
