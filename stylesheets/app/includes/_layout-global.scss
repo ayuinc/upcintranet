@@ -57,6 +57,17 @@ body {
 	.col-xs-4 {
 		padding-left: 0;
 	}
+	.col-xs-6 {
+		div.btn {
+			// padding-left: 12px !important;
+			margin: 7px !important;
+			img {
+				height: 14px;
+				margin-right: 3px;
+				margin-bottom: 3px;
+			}
+		} 
+	}
 }
 
 #collapseMobile {
@@ -79,6 +90,7 @@ body {
 	margin-top: 62px;
 	@media #{$lg-down} {
 		padding-left: 28px !important;
+		padding-right: 28px !important;
 	}
 	&.login {
 		margin-top: 0px;
@@ -87,42 +99,23 @@ body {
 		.row {
 			margin-left: -14px;
 			.col-sm-10 {
-				// img.logo {
-				// 	float: right !important;
-				// }
 				.row {
 					.col-sm-5 {
-						.row {
-							p {
-								color: $gray-light !important;
-								@include serif-book;
-								font-size: 28px;
-							}
-							a {
-								@include serif-book;
-								font-size: 16px;
-								color: $gray-darker;
-							}
-							input {
-								background-color: $gray-lighter;
-								border-radius: 0px;
-								border: none !important;
-								.form-control {
-									font-size: 20px;
-								}
-							}
+						img {
+							margin: 0 auto;							
 						}
-
 						button {
 							float: right;
 						}
 					}
 					.col-sm-7.bg-muted {
 						padding-bottom: 77px !important;
-						border-bottom: 2px solid $brand-danger; 
-						form {
+						border-bottom: 4px solid $brand-danger; 
+						form.login-form {
+							margin-top: -21px !important;
 							.row {
 								.col-sm-8 {
+									padding-top: 28px;
 									div.center-input {
 										margin-left: 21px !important;
 										margin-bottom: -14px !important;
@@ -136,35 +129,62 @@ body {
 								}
 								.inicia {
 									div {
-										// margin-left: 125px !important;
 									}
 								}
 							}
 						}
+						.pwd-mismatch {
+							margin-top: 28px !important;
+							.col-sm-1 {
+								padding: 0 !important;
+							} 
+						}
 					}
-
+					&.aviso {
+						margin-top: -7px !important;
+						.col-sm-7 {
+							padding-top: 35px !important;
+							padding-bottom: 35px !important;
+						}
+						img {
+							margin: 0 auto;
+							display: block;
+						}
+					}
 				}
 			}
-			.col-sm-8 {
-				padding-top: 28px;
-				@media #{$lg-down} {
-					padding-top: 14px;
+			&.footer {
+				.col-xs-4, .col-xs-8 {
+					padding: 7px !important;
 				}
-				&.copyright span {
+				.col-sm-8 {
+					margin-top: 28px !important;
+				}
+				.col-xs-8 {
+					line-height: 12px !important;
+					@media #{$xs-only} {
+						margin-top: 4px !important;
+					}
+				}
+				.copyright span {
 					@include serif-book;
 					font-size: 16px;
-					@media #{$lg-down} {
-						font-size: 13px;
+					@media #{$xs-only} {
+						font-size: 10px !important;
 					}
 				}
 			}
 		}
 	}
+
 	&.iframe {
 		background: none !important;
 	}
 	.row {
 		margin-left: -28px;
+		@media #{$xs-only} {
+			margin-right: -28px !important;
+		}
 	}
 	.mensaje {
 		padding-right: 14px;

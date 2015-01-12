@@ -53,8 +53,14 @@
 .alt-bold {@include alt-bold;}
 
 
-// ALTERNATIVE-B FONTS
-@mixin alt-b-light { font-family: "ronnia-condensed" !important; font-weight: 300; font-style: normal;}
-.alt-light {@include alt-b-light;}
-@mixin alt-b-book { font-family: "ronnia-condensed" !important; font-weight: 500; font-style: normal;}
-.alt-book {@include alt-b-book;}
+// ALTERNATIVE-12 FONTS (for numbers)
+@mixin alt-12-light { font-family: "pragmatica-web-condensed" !important; font-weight: 300; font-style: normal;}
+.alt-light {@include alt-12-light;}
+@mixin alt-12-book { font-family: "pragmatica-web-condensed" !important; font-weight: 500; font-style: normal;}
+.alt-book {@include alt-12-book;}
+
+// ALTERNATIVE-AB FONTS (for letter)
+@mixin alt-ab-light { font-family: "ronnia-condensed" !important; font-weight: 300; font-style: normal;}
+.alt-light {@include alt-ab-light;}
+@mixin alt-ab-book { font-family: "ronnia-condensed" !important; font-weight: 500; font-style: normal;}
+.alt-book {@include alt-ab-book;}
