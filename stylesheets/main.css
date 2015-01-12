@@ -4951,6 +4951,12 @@ body {
 
 #mobile-nav .col-xs-4 {
   padding-left: 0; }
+#mobile-nav .col-xs-6 div.btn {
+  margin: 7px !important; }
+  #mobile-nav .col-xs-6 div.btn img {
+    height: 14px;
+    margin-right: 3px;
+    margin-bottom: 3px; }
 
 #collapseMobile {
   margin-left: 14px !important; }

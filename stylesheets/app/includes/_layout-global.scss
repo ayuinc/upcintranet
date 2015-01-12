@@ -57,6 +57,17 @@ body {
 	.col-xs-4 {
 		padding-left: 0;
 	}
+	.col-xs-6 {
+		div.btn {
+			// padding-left: 12px !important;
+			margin: 7px !important;
+			img {
+				height: 14px;
+				margin-right: 3px;
+				margin-bottom: 3px;
+			}
+		} 
+	}
 }
 
 #collapseMobile {
