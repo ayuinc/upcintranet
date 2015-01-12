@@ -2200,7 +2200,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
-      $CodSede = ee()->TMPL->fetch_param('CodSede');
+      //$CodSede = ee()->TMPL->fetch_param('CodSede');
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -2241,6 +2241,7 @@ class Webservices
       }
   
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local='.$CodSede.'&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
