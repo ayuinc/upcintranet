@@ -54,14 +54,17 @@
 													{if archivo-referencia}
 	                        <a class="col-xs-11 p-7" href="{archivo-referencia}">
 		                      {/if}  
-													{if link-referencia}
-														{if tipo-referencia=='Socrates'}
+														{if tipo-referencia=='Interna'}
+                            <a class="col-xs-11 p-7" href="{site_url}socrates/{url_title}">
+                            {/if} 
+                            {if tipo-referencia=='Socrates'}
 														<a class="col-xs-11 p-7" href="{site_url}socrates/{url_title}">
-														{/if}	
-														{if tipo-referencia=='Externa'}
-														<a class="col-xs-11 p-7" href="{link-referencia}">
-														{/if}															
-		                      {/if}  		                       	                        
+														{/if}
+                            {if link-referencia}	
+  														{if tipo-referencia=='Externa'}
+  														<a class="col-xs-11 p-7" href="{link-referencia}">
+  														{/if}															
+		                        {/if}  		                       	                        
 	                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">
 	                        {if nombre-referencia!=''}
 	                        	{nombre-referencia}
