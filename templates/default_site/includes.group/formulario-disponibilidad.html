@@ -1,14 +1,16 @@
 									<div class="col-sm-6 reservas-select-group">
 						        <form action="{site_url}index.php/{segment_1}/resultados-reservas-deportivos" method="post">
-							        <input type="hidden" name="XID" value="{XID_HASH}" /> 
-								        {exp:webservices:poblar_espacios_deportivos_sede}	
-								        {exp:webservices:poblar_espacios_deportivos_espacios}	
-								        {exp:webservices:poblar_espacios_deportivos_actividad}	
+							        <input type="hidden" name="XID" value="{XID_HASH}" />
+							        	<div class="row">
+									        {exp:webservices:poblar_espacios_deportivos_sede}	
+									        {exp:webservices:poblar_espacios_deportivos_espacios}	
+									        {exp:webservices:poblar_espacios_deportivos_actividad}	
+							        	</div> 
 								        <div class="row">
-								        	<div class="col-sm-6 mt-7">
+								        	<div class="col-xs-4 col-sm-6 mt-7">
 									        	<span class="zizou-light-20">Número de Horas:</span>
 								        	</div>
-								        	<div class="col-sm-6">
+								        	<div class="col-xs-8 col-sm-6">
 										        <select name="NumHoras" class="reservas-select form-control">
 											        <option value="1">1</option>
 											        <option value="2">2</option>
@@ -24,23 +26,23 @@
 								        	</div>
 								        </div>
 								        <div class="row datepicker-container">
-								        	<div class="col-sm-6">
+								        	<div class="col-xs-4 col-sm-6">
 									        	<span class="zizou-light-22">Fecha Inicio:</span>
 								        	</div>
-								        	<div class="col-sm-6">
-														<input type="text" name="FechaIni" id="datepicker-start" value="" placeholder="Selecciona">	
+								        	<div class="col-xs-8 col-sm-6">
+														<input type="text" name="FechaIni" id="datepicker-start" value=""  class="reservas-select form-control calendar" placeholder="Selecciona">	
 								        	</div>
 								        </div>
 								        <div class="row datepicker-container">
-								        	<div class="col-sm-6">
+								        	<div class="col-xs-4 col-sm-6">
 									        	<span class="zizou-light-22">Fecha Fin:</span>
 								        	</div>
-								        	<div class="col-sm-6">
-														<input type="text" id="datepicker-end" name="FechaFin" value=""  placeholder="Selecciona">
+								        	<div class="col-xs-8 col-sm-6">
+														<input type="text" id="datepicker-end" name="FechaFin" value=""  class="reservas-select form-control calendar" placeholder="Selecciona">
 								        	</div>
 								        </div>
-								        <div>
-									        <input type="submit" class="pull-right mb-7 btn btn-custom-gray lg" name="submit" value="Disponibilidad">
+								        <div class="col-xs-12">
+									        <input type="submit" class="mb-7 btn btn-custom gray lg" name="submit" value="Ver Disponibilidad">
 								        </div>
 						        </form>
 									</div>				        
