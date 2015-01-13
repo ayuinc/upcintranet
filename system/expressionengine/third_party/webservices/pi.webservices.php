@@ -1933,7 +1933,8 @@ class Webservices
       
       $tamano = count($json['Sedes']);
       
-      $result .= '<select name="CodSede" id="CodSede" class="reservas-select form-control">';
+      $result .= '<div class="col-xs-12">';
+      $result .= '<select name="CodSede" id="CodSede" class="reservas-select arrow form-control">';
       $result .= '<option>Selecciona una sede</option>';      
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<option value="'.$json['Sedes'][$i]['key'].'">';
@@ -1941,6 +1942,7 @@ class Webservices
         $result .= '</option>';
       }
       $result .= '</select>';
+      $result .= '</div>';
       
       return $result;          
     } 
@@ -1976,7 +1978,8 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
 
         $tamano_int = count($json['Sedes'][$i]['espacios']);
-        $result .= '<select name="CodED" class="reservas-select form-control" id="sede-'.$json['Sedes'][$i]['key'].'">';
+        $result .= '<div class="col-xs-12">';
+        $result .= '<select name="CodED" class="reservas-select arrow form-control" id="sede-'.$json['Sedes'][$i]['key'].'">';
         $result .= '<option>Seleccionar espacio</option>'; 
           for ($a=0; $a<$tamano_int; $a++) {
             $result .= '<option value="'.$json['Sedes'][$i]['espacios'][$a]['codigo'].'">';
@@ -1984,6 +1987,7 @@ class Webservices
             $result .= '</option>';
           }
         $result .= '</select>';
+        $result .= '</div>';
 
       }
       return $result;          
@@ -2024,7 +2028,8 @@ class Webservices
         for ($a=0; $a<$tamano_int; $a++) {
 
           $tamano_fin = count($json['Sedes'][$i]['espacios'][$a]['actividades']);
-          $result .= '<select class="reservas-select form-control" name="CodActiv" id="actividad-'.$json['Sedes'][$i]['espacios'][$a]['codigo'].'">';
+          $result .= '<div class="col-xs-12">';
+          $result .= '<select class="reservas-select arrow form-control" name="CodActiv" id="actividad-'.$json['Sedes'][$i]['espacios'][$a]['codigo'].'">';
           //$result .= '<option>Selecciona una actividad</option>';   
             for ($b=0; $b<$tamano_fin; $b++) {
               $result .= '<option value="'.$json['Sedes'][$i]['espacios'][$a]['actividades'][$b]['codigo'].'">';
@@ -2032,6 +2037,7 @@ class Webservices
               $result .= '</option>';
             }
           $result .= '</select>';
+          $result .= '</div>';
             
         }
 

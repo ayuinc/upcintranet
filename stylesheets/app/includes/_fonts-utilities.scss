@@ -32,16 +32,18 @@ $alt-12: "ronnia";
 	.#{$serif}-light-#{$fs} {
 		@include serif-light;	
 		font-size: rem($fs) !important;	
-		font-size: $fs + px !important;	
+		font-size: $fs + px !important;
+		@media #{$lg-down} {
+			font-size: rem(($fs) - 4) !important;	
+			font-size: ($fs - 4) + px !important;
+		}	
+		@media #{$xs-only} {
+			font-size: rem(($fs) - 6) !important;	
+			font-size: ($fs - 6) + px !important;
+		}		
 	}
 	.#{$serif}-bold-#{$fs} {
 		@include serif-bold;	
-		font-size: rem($fs) !important;	
-		font-size: $fs + px !important;	
-	}
-	.#{$serif}-light-#{$fs} {
-		// @include serif-light;	
-		@include serif-book;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
 	}

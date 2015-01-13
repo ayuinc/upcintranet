@@ -42,6 +42,12 @@
 	}		
 }
 
+@for $nm from 1 to 11 {
+	.mr--#{$nm*7} {
+		margin-right: $nm * -1 * 7 + px !important;
+	}		
+}
+
 .btn-custom {
 	&.gray {
 		background-color: $gray-main !important;
