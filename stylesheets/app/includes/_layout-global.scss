@@ -498,6 +498,32 @@ body {
 	}
 }
 
+.dropdown {
+	&.avatar-hijo {
+		.dropdown-toggle {
+			img {
+				height: 42px !important;
+			}
+		}
+		.dropdown-menu {
+			padding: 0 !important;
+			margin: 6px 0 0;
+			li {
+				&.dditem {
+					&:hover {
+						background-color: $brand-info;
+						color: white !important;
+						a {
+						color: white !important;
+						}
+					}
+				}
+				font-size: 16px;
+			}
+		}
+	}
+}
+
 .site-header {
 	.container-fluid {
 		padding-right: 0;
@@ -560,12 +586,6 @@ body {
 							a {
 								text-decoration: none;
 								color: $gray-main;
-								div.search {
-									height: 35px;
-									background-image: url("../assets/img/search_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
 							}
 							.dropdown {
 								.dropdown-toggle {

@@ -16,47 +16,44 @@
 	      <span class="solano-bold-15">Blogs</span>
 	    </div>
 	  </div>
-	  <div class="header-no-global padre pl-7 pr-21">
-			<div class="inner row">
-				<div class="col-sm-5">
-	       <div class="row">
+	  <div class="header-no-global row padre">
+			<div class="col-sm-5 pt-21 pb-7">
+	      <div class="row">
 	         <!-- INICIO DE LINKS DE DASHBOARDS DE HIJOS -->
 	        {exp:webservices:padre_lista_de_hijos}
 	         <!-- FIN DE LINKS DE DASHBOARDS DE HIJOS -->
-	         <div class="col-sm-3">
-	          <a href="#">
-	            <div class="search"></div>
-	            <span>Buscar</span>
-	          </a>
-	         </div>
-	       </div>
-	    	</div>
-		    <div class="col-sm-4 pt-28 busqueda">
-		      <div class="right-inner-addon">
-		        <img src="{site_url}assets/img/search_arrow.png">
-		        <input type="search" class="zizou-light-12 form-control" placeholder="Introduce tu búsqueda" />
-		      </div>
-		    </div>
-		    <div class="col-sm-3 right-upper-corner pt-0 pb-0">
-		      <div class="row">
-		        <div class="col-sm-8 pt-28"><span class="hola">Hola {exp:webservices:nombre_alumno}</span></div>
-		        <div class="col-sm-4">
-		          <div class="dropdown">
-		            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-		              <img class="img-circle img-responsive" src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png">
-		            </div>
-		            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		              <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Mi perfil</a></li>
-		              <li role="presentation" class="divider"></li>
-		              <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Ver tutorial</a></li>
-		              <li role="presentation" class="divider"></li>
-		              <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
-		            </ul>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-			</div>
-	  </div>
+	      </div>
+	    </div> 
+	    <!-- inicio BUSQUEDA -->
+	    {exp:search:simple_form channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" result_page="buscar/index"}
+	    <div class="col-sm-3 busqueda">
+	      <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-thin-12 form-control" placeholder="Introduce tu búsqueda">
+	      <input type="submit" value="submit" id="search-submit" class="hidden submit">
+	    </div>
+	    <div class="col-sm-1 busqueda">
+	      <img src="{site_url}assets/img/search_white.png" id="search-phr">
+	    </div>
+	    {/exp:search:simple_form}    
+	    <!-- fin BUSQUEDA -->
+	    <div class="col-sm-3 right-upper-corner pt-0 pb-0">
+	      <div class="row">
+	        <div class="col-sm-8 pt-28"><span class="text-muted hola">Hola {exp:webservices:nombre_alumno}</span></div>
+	        <div class="col-sm-4">
+	          <div class="dropdown">
+	            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+	              <img class="img-circle img-responsive" src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png">
+	            </div>
+	            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+	              <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Mi perfil</a></li>
+	              <li role="presentation" class="divider"></li>
+	              <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Ver tutorial</a></li>
+	              <li role="presentation" class="divider"></li>
+	              <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
+	            </ul>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+		</div>
   </div>
 </div>

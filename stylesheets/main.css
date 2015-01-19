@@ -5276,6 +5276,19 @@ body {
             background: white;
             color: #E42322 !important; }
 
+.dropdown.avatar-hijo .dropdown-toggle img {
+  height: 42px !important; }
+.dropdown.avatar-hijo .dropdown-menu {
+  padding: 0 !important;
+  margin: 6px 0 0; }
+  .dropdown.avatar-hijo .dropdown-menu li {
+    font-size: 16px; }
+    .dropdown.avatar-hijo .dropdown-menu li.dditem:hover {
+      background-color: #3298FF;
+      color: white !important; }
+      .dropdown.avatar-hijo .dropdown-menu li.dditem:hover a {
+        color: white !important; }
+
 .site-header .container-fluid {
   padding-right: 0; }
   .site-header .container-fluid .header-global {
@@ -5320,11 +5333,6 @@ body {
       .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 a, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a {
         text-decoration: none;
         color: #565658; }
-        .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 a div.search, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a div.search {
-          height: 35px;
-          background-image: url("../assets/img/search_grey.png");
-          background-repeat: no-repeat;
-          background-position: center; }
       .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle {
         height: 49px !important; }
         .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle img, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle img {
