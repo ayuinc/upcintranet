@@ -2164,7 +2164,7 @@ class Webservices
       $codactiv = ee()->TMPL->fetch_param('codactiv');
       $numhoras = ee()->TMPL->fetch_param('numhoras');
       $fecha = ee()->TMPL->fetch_param('fecha');
-      $fecha = substr($fecha, 0,2).substr($fecha, 3,2).substr($fecha, 6,4);
+      $fecha = substr($fecha, 0,4).substr($fecha, 4,2).substr($fecha, 6,2);
       $horaini = ee()->TMPL->fetch_param('horaini');
       $horafin = ee()->TMPL->fetch_param('horafin');
       $detalles = ee()->TMPL->fetch_param('detalles');
