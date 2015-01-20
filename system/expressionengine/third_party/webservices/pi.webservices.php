@@ -2190,8 +2190,8 @@ class Webservices
       
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];       
-
-      $result = ''.$json;
+      var_dump($json);
+      $result = '';
       
       //Control de errores
       $result .= '<div class="mt-7 zizou-14">'.$error_mensaje.'</div>';
