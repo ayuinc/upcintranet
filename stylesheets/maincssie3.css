@@ -1,0 +1,2375 @@
+
+.helvetica-light-15 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9375rem !important;
+  font-size: 15px !important; }
+
+.helvetica-15 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.9375rem !important;
+  font-size: 15px !important; }
+
+.helv-neue-15 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.9375rem !important;
+  font-size: 15px !important; }
+
+.ronnia-15 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.9375rem !important;
+  font-size: 15px !important; }
+
+.helvetica-bold-15 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.9375rem !important;
+  font-size: 15px !important; }
+
+.solano-bold-16 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.solano-16 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-16 {
+      font-size: 0.75rem !important;
+      font-size: 12px !important; } }
+
+.zizou-thin-16 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.zizou-light-16 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-16 {
+      font-size: 0.75rem !important;
+      font-size: 12px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-16 {
+      font-size: 0.625rem !important;
+      font-size: 10px !important; } }
+
+.zizou-bold-16 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.zizou-16 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-16 {
+      font-size: 0.875rem !important;
+      font-size: 14px !important; } }
+
+.helvetica-light-16 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.helvetica-16 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.helv-neue-16 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.ronnia-16 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.helvetica-bold-16 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1rem !important;
+  font-size: 16px !important; }
+
+.solano-bold-17 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.solano-17 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-17 {
+      font-size: 0.8125rem !important;
+      font-size: 13px !important; } }
+
+.zizou-thin-17 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.zizou-light-17 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-17 {
+      font-size: 0.8125rem !important;
+      font-size: 13px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-17 {
+      font-size: 0.6875rem !important;
+      font-size: 11px !important; } }
+
+.zizou-bold-17 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.zizou-17 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-17 {
+      font-size: 0.9375rem !important;
+      font-size: 15px !important; } }
+
+.helvetica-light-17 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.helvetica-17 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.helv-neue-17 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.ronnia-17 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.helvetica-bold-17 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.0625rem !important;
+  font-size: 17px !important; }
+
+.solano-bold-18 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.solano-18 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-18 {
+      font-size: 0.875rem !important;
+      font-size: 14px !important; } }
+
+.zizou-thin-18 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.zizou-light-18 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-18 {
+      font-size: 0.875rem !important;
+      font-size: 14px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-18 {
+      font-size: 0.75rem !important;
+      font-size: 12px !important; } }
+
+.zizou-bold-18 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.zizou-18 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-18 {
+      font-size: 1rem !important;
+      font-size: 16px !important; } }
+
+.helvetica-light-18 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.helvetica-18 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.helv-neue-18 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.ronnia-18 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.helvetica-bold-18 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.125rem !important;
+  font-size: 18px !important; }
+
+.solano-bold-19 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.solano-19 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-19 {
+      font-size: 0.9375rem !important;
+      font-size: 15px !important; } }
+
+.zizou-thin-19 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.zizou-light-19 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-19 {
+      font-size: 0.9375rem !important;
+      font-size: 15px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-19 {
+      font-size: 0.8125rem !important;
+      font-size: 13px !important; } }
+
+.zizou-bold-19 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.zizou-19 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-19 {
+      font-size: 1.0625rem !important;
+      font-size: 17px !important; } }
+
+.helvetica-light-19 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.helvetica-19 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.helv-neue-19 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.ronnia-19 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.helvetica-bold-19 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.1875rem !important;
+  font-size: 19px !important; }
+
+.solano-bold-20 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.solano-20 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-20 {
+      font-size: 1rem !important;
+      font-size: 16px !important; } }
+
+.zizou-thin-20 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.zizou-light-20 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-20 {
+      font-size: 1rem !important;
+      font-size: 16px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-20 {
+      font-size: 0.875rem !important;
+      font-size: 14px !important; } }
+
+.zizou-bold-20 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.zizou-20 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-20 {
+      font-size: 1.125rem !important;
+      font-size: 18px !important; } }
+
+.helvetica-light-20 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.helvetica-20 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.helv-neue-20 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.ronnia-20 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.helvetica-bold-20 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.25rem !important;
+  font-size: 20px !important; }
+
+.solano-bold-21 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.solano-21 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-21 {
+      font-size: 1.0625rem !important;
+      font-size: 17px !important; } }
+
+.zizou-thin-21 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.zizou-light-21 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-21 {
+      font-size: 1.0625rem !important;
+      font-size: 17px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-21 {
+      font-size: 0.9375rem !important;
+      font-size: 15px !important; } }
+
+.zizou-bold-21 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.zizou-21 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-21 {
+      font-size: 1.1875rem !important;
+      font-size: 19px !important; } }
+
+.helvetica-light-21 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.helvetica-21 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.helv-neue-21 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.ronnia-21 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.helvetica-bold-21 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.3125rem !important;
+  font-size: 21px !important; }
+
+.solano-bold-22 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.solano-22 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-22 {
+      font-size: 1.125rem !important;
+      font-size: 18px !important; } }
+
+.zizou-thin-22 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.zizou-light-22 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-22 {
+      font-size: 1.125rem !important;
+      font-size: 18px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-22 {
+      font-size: 1rem !important;
+      font-size: 16px !important; } }
+
+.zizou-bold-22 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.zizou-22 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-22 {
+      font-size: 1.25rem !important;
+      font-size: 20px !important; } }
+
+.helvetica-light-22 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.helvetica-22 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.helv-neue-22 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.ronnia-22 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.helvetica-bold-22 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.375rem !important;
+  font-size: 22px !important; }
+
+.solano-bold-23 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.solano-23 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-23 {
+      font-size: 1.1875rem !important;
+      font-size: 19px !important; } }
+
+.zizou-thin-23 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.zizou-light-23 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-23 {
+      font-size: 1.1875rem !important;
+      font-size: 19px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-23 {
+      font-size: 1.0625rem !important;
+      font-size: 17px !important; } }
+
+.zizou-bold-23 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.zizou-23 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-23 {
+      font-size: 1.3125rem !important;
+      font-size: 21px !important; } }
+
+.helvetica-light-23 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.helvetica-23 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.helv-neue-23 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.ronnia-23 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.helvetica-bold-23 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4375rem !important;
+  font-size: 23px !important; }
+
+.solano-bold-24 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.solano-24 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-24 {
+      font-size: 1.25rem !important;
+      font-size: 20px !important; } }
+
+.zizou-thin-24 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.zizou-light-24 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-24 {
+      font-size: 1.25rem !important;
+      font-size: 20px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-24 {
+      font-size: 1.125rem !important;
+      font-size: 18px !important; } }
+
+.zizou-bold-24 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.zizou-24 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-24 {
+      font-size: 1.375rem !important;
+      font-size: 22px !important; } }
+
+.helvetica-light-24 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.helvetica-24 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.helv-neue-24 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.ronnia-24 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.helvetica-bold-24 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem !important;
+  font-size: 24px !important; }
+
+.solano-bold-25 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.solano-25 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-25 {
+      font-size: 1.3125rem !important;
+      font-size: 21px !important; } }
+
+.zizou-thin-25 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.zizou-light-25 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-25 {
+      font-size: 1.3125rem !important;
+      font-size: 21px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-25 {
+      font-size: 1.1875rem !important;
+      font-size: 19px !important; } }
+
+.zizou-bold-25 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.zizou-25 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-25 {
+      font-size: 1.4375rem !important;
+      font-size: 23px !important; } }
+
+.helvetica-light-25 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.helvetica-25 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.helv-neue-25 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.ronnia-25 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.helvetica-bold-25 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5625rem !important;
+  font-size: 25px !important; }
+
+.solano-bold-26 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.solano-26 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-26 {
+      font-size: 1.375rem !important;
+      font-size: 22px !important; } }
+
+.zizou-thin-26 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.zizou-light-26 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-26 {
+      font-size: 1.375rem !important;
+      font-size: 22px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-26 {
+      font-size: 1.25rem !important;
+      font-size: 20px !important; } }
+
+.zizou-bold-26 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.zizou-26 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-26 {
+      font-size: 1.5rem !important;
+      font-size: 24px !important; } }
+
+.helvetica-light-26 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.helvetica-26 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.helv-neue-26 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.ronnia-26 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.helvetica-bold-26 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.625rem !important;
+  font-size: 26px !important; }
+
+.solano-bold-27 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.solano-27 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-27 {
+      font-size: 1.4375rem !important;
+      font-size: 23px !important; } }
+
+.zizou-thin-27 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.zizou-light-27 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-27 {
+      font-size: 1.4375rem !important;
+      font-size: 23px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-27 {
+      font-size: 1.3125rem !important;
+      font-size: 21px !important; } }
+
+.zizou-bold-27 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.zizou-27 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-27 {
+      font-size: 1.5625rem !important;
+      font-size: 25px !important; } }
+
+.helvetica-light-27 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.helvetica-27 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.helv-neue-27 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.ronnia-27 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.helvetica-bold-27 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.6875rem !important;
+  font-size: 27px !important; }
+
+.solano-bold-28 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.solano-28 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-28 {
+      font-size: 1.5rem !important;
+      font-size: 24px !important; } }
+
+.zizou-thin-28 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.zizou-light-28 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-28 {
+      font-size: 1.5rem !important;
+      font-size: 24px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-28 {
+      font-size: 1.375rem !important;
+      font-size: 22px !important; } }
+
+.zizou-bold-28 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.zizou-28 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-28 {
+      font-size: 1.625rem !important;
+      font-size: 26px !important; } }
+
+.helvetica-light-28 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.helvetica-28 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.helv-neue-28 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.ronnia-28 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.helvetica-bold-28 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.75rem !important;
+  font-size: 28px !important; }
+
+.solano-bold-29 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.solano-29 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-29 {
+      font-size: 1.5625rem !important;
+      font-size: 25px !important; } }
+
+.zizou-thin-29 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.zizou-light-29 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-29 {
+      font-size: 1.5625rem !important;
+      font-size: 25px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-29 {
+      font-size: 1.4375rem !important;
+      font-size: 23px !important; } }
+
+.zizou-bold-29 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.zizou-29 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-29 {
+      font-size: 1.6875rem !important;
+      font-size: 27px !important; } }
+
+.helvetica-light-29 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.helvetica-29 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.helv-neue-29 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.ronnia-29 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.helvetica-bold-29 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.8125rem !important;
+  font-size: 29px !important; }
+
+.solano-bold-30 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.solano-30 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-30 {
+      font-size: 1.625rem !important;
+      font-size: 26px !important; } }
+
+.zizou-thin-30 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.zizou-light-30 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-30 {
+      font-size: 1.625rem !important;
+      font-size: 26px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-30 {
+      font-size: 1.5rem !important;
+      font-size: 24px !important; } }
+
+.zizou-bold-30 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.zizou-30 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-30 {
+      font-size: 1.75rem !important;
+      font-size: 28px !important; } }
+
+.helvetica-light-30 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.helvetica-30 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.helv-neue-30 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.ronnia-30 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.helvetica-bold-30 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.875rem !important;
+  font-size: 30px !important; }
+
+.solano-bold-31 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.solano-31 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-31 {
+      font-size: 1.6875rem !important;
+      font-size: 27px !important; } }
+
+.zizou-thin-31 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.zizou-light-31 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-31 {
+      font-size: 1.6875rem !important;
+      font-size: 27px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-31 {
+      font-size: 1.5625rem !important;
+      font-size: 25px !important; } }
+
+.zizou-bold-31 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.zizou-31 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-31 {
+      font-size: 1.8125rem !important;
+      font-size: 29px !important; } }
+
+.helvetica-light-31 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.helvetica-31 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.helv-neue-31 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.ronnia-31 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.helvetica-bold-31 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.9375rem !important;
+  font-size: 31px !important; }
+
+.solano-bold-32 {
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.solano-32 {
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+  @media only screen and (max-width: 1200px) {
+    .solano-32 {
+      font-size: 1.75rem !important;
+      font-size: 28px !important; } }
+
+.zizou-thin-32 {
+  font-family: "zizou-slab-regular" !important;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.zizou-light-32 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-light-32 {
+      font-size: 1.75rem !important;
+      font-size: 28px !important; } }
+  @media only screen and (max-width: 480px) {
+    .zizou-light-32 {
+      font-size: 1.625rem !important;
+      font-size: 26px !important; } }
+
+.zizou-bold-32 {
+  font-family: "zizou-slab-bold" !important;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.zizou-32 {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+  @media only screen and (max-width: 1200px) {
+    .zizou-32 {
+      font-size: 1.875rem !important;
+      font-size: 30px !important; } }
+
+.helvetica-light-32 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.helvetica-32 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.helv-neue-32 {
+  font-family: "ronnia-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.ronnia-32 {
+  font-family: "pragmatica-web-condensed" !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.helvetica-bold-32 {
+  font-family: "nimbus-sans" !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem !important;
+  font-size: 32px !important; }
+
+.form-control {
+  font-size: 18px !important; }
+
+.black {
+  color: black !important; }
+
+.red {
+  color: #E42322 !important; }
+
+.gray-main {
+  color: #565658 !important; }
+
+.gray-light {
+  color: #858688 !important; }
+
+.col-md-2-4 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 992px) {
+    .col-md-2-4 {
+      float: left;
+      width: 20%; } }
+
+.col-sm-2-4 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-2-4 {
+      float: left;
+      width: 20%; } }
+
+.col-xs-2-4 {
+  position: relative;
+  float: left;
+  width: 20%;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.col-sm-0-8 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-0-8 {
+      float: left;
+      width: 6.66667%; } }
+
+.col-sm-0-5 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-0-5 {
+      float: left;
+      width: 4.16667%; } }
+
+.col-sm-1-5 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-1-5 {
+      float: left;
+      width: 12.5%; } }
+
+.col-xs-1-5 {
+  position: relative;
+  float: left;
+  width: 12.5%;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.col-xs-4-5 {
+  position: relative;
+  float: left;
+  width: 37.5%;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.col-sm-7-5 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  @media (min-width: 768px) {
+    .col-sm-7-5 {
+      float: left;
+      width: 62.5%; } }
+
+.m-auto {
+  margin: auto !important; }
+
+.ml--7 {
+  margin-left: -7px !important; }
+
+.ml--14 {
+  margin-left: -14px !important; }
+
+.ml--21 {
+  margin-left: -21px !important; }
+
+.ml--28 {
+  margin-left: -28px !important; }
+
+.ml--35 {
+  margin-left: -35px !important; }
+
+.ml--42 {
+  margin-left: -42px !important; }
+
+.ml--49 {
+  margin-left: -49px !important; }
+
+.ml--56 {
+  margin-left: -56px !important; }
+
+.ml--63 {
+  margin-left: -63px !important; }
+
+.ml--70 {
+  margin-left: -70px !important; }
+
+.mr--7 {
+  margin-right: -7px !important; }
+
+.mr--14 {
+  margin-right: -14px !important; }
+
+.mr--21 {
+  margin-right: -21px !important; }
+
+.mr--28 {
+  margin-right: -28px !important; }
+
+.mr--35 {
+  margin-right: -35px !important; }
+
+.mr--42 {
+  margin-right: -42px !important; }
+
+.mr--49 {
+  margin-right: -49px !important; }
+
+.mr--56 {
+  margin-right: -56px !important; }
+
+.mr--63 {
+  margin-right: -63px !important; }
+
+.mr--70 {
+  margin-right: -70px !important; }
+
+.btn-custom {
+  padding: 7px !important;
+  border-radius: 0px;
+  border: none !important;
+  font-family: "sgothic-rgcap" !important;
+  font-style: normal;
+  text-transform: uppercase;
+  color: white; }
+  .btn-custom.gray {
+    background-color: #565658 !important; }
+  .btn-custom.black-btn {
+    background-color: black !important; }
+  .btn-custom.info {
+    background-color: #3298FF !important; }
+  .btn-custom:hover {
+    color: white; }
+  .btn-custom.wide {
+    min-width: 189px !important;
+    padding: 3px !important; }
+  .btn-custom.lg {
+    font-size: 22px !important; }
+    @media only screen and (max-width: 992px) {
+      .btn-custom.lg {
+        font-size: 18px !important; } }
+
+a {
+  color: #858688 !important; }
+  a.sb-link {
+    color: #3298FF !important; }
+
+.panel {
+  position: relative; }
+  @media only screen and (max-width: 768px) {
+    .panel {
+      margin-top: 21px !important; } }
+  .panel.curso-detalle {
+    padding-top: 3px; }
+  .panel .panel-head:before, .panel .panel-head:after {
+    content: " ";
+    display: table; }
+  .panel .panel-head:after {
+    clear: both; }
+  .panel .panel-head.muted-head-underlined {
+    border-bottom: 2px solid white;
+    margin: 14px auto; }
+    .panel .panel-head.muted-head-underlined h2 {
+      font-size: 1.5rem;
+      font-size: 24px;
+      color: white; }
+  .panel .panel-head.muted-head {
+    margin: 14px auto; }
+    .panel .panel-head.muted-head h2 {
+      font-size: 1.5rem;
+      font-size: 24px;
+      color: white; }
+  .panel .panel-head .panel-head-wrap {
+    border-bottom: #E3E3E3 2px solid;
+    margin-left: 7px;
+    width: 97%; }
+  .panel .panel-head .panel-head-right {
+    float: right; }
+    .panel .panel-head .panel-head-right:before, .panel .panel-head .panel-head-right:after {
+      content: " ";
+      display: table; }
+    .panel .panel-head .panel-head-right:after {
+      clear: both; }
+    .panel .panel-head .panel-head-right div {
+      float: right; }
+    .panel .panel-head .panel-head-right .reservas-btn {
+      padding: 1px 5px;
+      border-radius: 0px; }
+  .panel .panel-head .panel-title {
+    padding: 0px !important;
+    font-family: "zizou-slab-regular" !important;
+    font-style: normal; }
+    .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
+      margin: 0;
+      padding-bottom: 7px; }
+    .panel .panel-head .panel-title a.arrow-link img {
+      margin-top: -30px !important; }
+  .panel .panel-body.canales {
+    padding-bottom: 28px; }
+    .panel .panel-body.canales .panel-table {
+      min-height: 160px !important; }
+      .panel .panel-body.canales .panel-table .tr {
+        border: none !important; }
+  .panel .panel-body .panel-table {
+    background-color: white !important; }
+    .panel .panel-body .panel-table.observaciones {
+      background-color: #3298FF !important;
+      border-top: 2px solid #E42322; }
+    .panel .panel-body .panel-table.no-bg {
+      background: none !important; }
+      .panel .panel-body .panel-table.no-bg .tr {
+        background-color: white !important; }
+    .panel .panel-body .panel-table .tr li.formula {
+      border-bottom: 2px solid #565658; }
+    .panel .panel-body .panel-table .tr a.sb-link {
+      color: #3298FF !important; }
+    .panel .panel-body .panel-table.otras-acciones {
+      background: none !important; }
+      .panel .panel-body .panel-table.otras-acciones .tr li .oa-icon {
+        display: inline-block !important;
+        border: none !important; }
+      .panel .panel-body .panel-table.otras-acciones .tr li a div.oa-label {
+        display: inline-block !important;
+        color: black;
+        width: 260px; }
+        .panel .panel-body .panel-table.otras-acciones .tr li a div.oa-label:hover {
+          text-decoration: underline; }
+      .panel .panel-body .panel-table.otras-acciones .tr a li .oa-icon {
+        display: inline-block !important; }
+      .panel .panel-body .panel-table.otras-acciones .tr a li span:hover {
+        text-decoration: underline; }
+      .panel .panel-body .panel-table.otras-acciones .tr a.sb-link {
+        color: #3298FF !important; }
+        .panel .panel-body .panel-table.otras-acciones .tr a.sb-link li span {
+          color: #3298FF !important; }
+      .panel .panel-body .panel-table.otras-acciones .tr a:hover {
+        text-decoration: underline; }
+  .panel .panel-body .panel-body-head {
+    text-transform: uppercase;
+    background: white;
+    color: black;
+    text-align: center;
+    font-family: "sgothic-bdcap" !important;
+    font-weight: 700;
+    font-style: normal; }
+    .panel .panel-body .panel-body-head.left {
+      text-align: left;
+      padding-left: 7px; }
+    .panel .panel-body .panel-body-head.tall {
+      min-height: 63px;
+      padding: 7px; }
+    .panel .panel-body .panel-body-head.gray {
+      background: #565658;
+      font-size: 15px;
+      padding-top: 4px !important;
+      padding-bottom: 4px !important; }
+    .panel .panel-body .panel-body-head h1, .panel .panel-body .panel-body-head h2, .panel .panel-body .panel-body-head h3, .panel .panel-body .panel-body-head h4, .panel .panel-body .panel-body-head h5, .panel .panel-body .panel-body-head h6 {
+      margin: 0; }
+    .panel .panel-body .panel-body-head ul {
+      padding: 7px !important;
+      margin: 0 !important; }
+      .panel .panel-body .panel-body-head ul span {
+        font-size: 20px; }
+  .panel .panel-body .panel-body-head-table {
+    background: #565658; }
+    .panel .panel-body .panel-body-head-table.white {
+      background: white !important;
+      color: #565658 !important; }
+    .panel .panel-body .panel-body-head-table .tr {
+      padding-left: 0;
+      list-style: none;
+      margin: 0; }
+      .panel .panel-body .panel-body-head-table .tr.border-bt-gl {
+        border-bottom: 2px solid #858688; }
+      .panel .panel-body .panel-body-head-table .tr:before, .panel .panel-body .panel-body-head-table .tr:after {
+        content: " ";
+        display: table; }
+      .panel .panel-body .panel-body-head-table .tr:after {
+        clear: both; }
+      .panel .panel-body .panel-body-head-table .tr li + li.col-sm-2 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-1 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-4 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-5 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-6 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-7 div.fecha {
+        border: none; }
+      .panel .panel-body .panel-body-head-table .tr li {
+        padding: 6px 0; }
+        .panel .panel-body .panel-body-head-table .tr li div {
+          display: -webkit-box;
+          display: -moz-box;
+          display: box;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -moz-box-orient: vertical;
+          box-orient: vertical;
+          -webkit-flex-direction: column;
+          -moz-flex-direction: column;
+          flex-direction: column;
+          -ms-flex-direction: column;
+          -webkit-box-pack: center;
+          -moz-box-pack: center;
+          box-pack: center;
+          -webkit-justify-content: center;
+          -moz-justify-content: center;
+          -ms-justify-content: center;
+          -o-justify-content: center;
+          justify-content: center;
+          -ms-flex-pack: center; }
+          .panel .panel-body .panel-body-head-table .tr li div span {
+            -webkit-flex-grow: 0;
+            -moz-flex-grow: 0;
+            flex-grow: 0;
+            -ms-flex-positive: 0;
+            font-family: "ronnia-condensed" !important;
+            font-weight: 300;
+            font-style: normal;
+            font-size: 0.8125rem;
+            font-size: 13px;
+            color: #858688;
+            text-transform: uppercase;
+            text-align: center; }
+            .panel .panel-body .panel-body-head-table .tr li div span.head-left {
+              text-align: left !important;
+              padding-left: 7px; }
+            .panel .panel-body .panel-body-head-table .tr li div span.curso {
+              text-align: left;
+              padding-left: 7px; }
+            .panel .panel-body .panel-body-head-table .tr li div span.fecha {
+              border: none; }
+    .panel .panel-body .panel-body-head-table .lista-alumnos .tr .col-sm-6 {
+      text-align: left; }
+  .panel .panel-body .panel-body-content {
+    background-color: white;
+    text-align: center;
+    padding-top: 7px; }
+  .panel .panel-body .panel-table.mis-reservas-content ul.tr li.col-sm-2 div span {
+    font-family: "nimbus-sans" !important;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 12px; }
+  .panel .panel-body .panel-table.mis-reservas-content ul.tr li.col-sm-6 div span {
+    font-family: "nimbus-sans" !important;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px; }
+  .panel .panel-body .panel-table.white-cells ul {
+    border: none; }
+    .panel .panel-body .panel-table.white-cells ul li {
+      background: white;
+      margin-bottom: 7px; }
+  .panel .panel-body .panel-table.cursos-detallados ul + ul {
+    margin-top: 5px; }
+  .panel .panel-body .panel-table.mis-cursos-content ul + ul {
+    margin-top: 5px; }
+  .panel .panel-body .panel-table.mis-cursos-content ul {
+    border: none; }
+    .panel .panel-body .panel-table.mis-cursos-content ul li {
+      padding-bottom: 7px !important;
+      background: white; }
+      .panel .panel-body .panel-table.mis-cursos-content ul li.col-xs-2 {
+        display: none; }
+      .panel .panel-body .panel-table.mis-cursos-content ul li.show-curso-detail {
+        cursor: pointer !important; }
+      .panel .panel-body .panel-table.mis-cursos-content ul li.curso-promedio div {
+        border-right: none; }
+  .panel .panel-body .panel-table.pagos {
+    padding: 7px;
+    background: white; }
+    .panel .panel-body .panel-table.pagos ul.tr {
+      border: none !important; }
+      .panel .panel-body .panel-table.pagos ul.tr li {
+        cursor: pointer; }
+        .panel .panel-body .panel-table.pagos ul.tr li#pagos-placeholder {
+          min-height: 70px; }
+          .panel .panel-body .panel-table.pagos ul.tr li#pagos-placeholder span {
+            display: block;
+            font-family: "zizou-slab-regular" !important;
+            font-style: normal;
+            font-size: 14px;
+            color: #E42322; }
+        .panel .panel-body .panel-table.pagos ul.tr li h3 {
+          margin: 0; }
+        .panel .panel-body .panel-table.pagos ul.tr li h4 {
+          margin-top: 7px;
+          margin-bottom: 0px; }
+    .panel .panel-body .panel-table.pagos ul#pagos-pdtes {
+      cursor: pointer;
+      display: none; }
+      .panel .panel-body .panel-table.pagos ul#pagos-pdtes li.col-sm-4 {
+        border-left: 2px #E3E3E3 solid; }
+      .panel .panel-body .panel-table.pagos ul#pagos-pdtes li.col-sm-8 span, .panel .panel-body .panel-table.pagos ul#pagos-pdtes li.col-sm-4 span {
+        display: block; }
+  .panel .panel-body .panel-table.detalle-nota-final {
+    background-color: transparent !important; }
+  .panel .panel-body .panel-table.striped .tr:nth-child(even) {
+    background: white; }
+  .panel .panel-body .panel-table.striped .tr:nth-child(odd) {
+    background: #E3E3E3; }
+  .panel .panel-body .panel-table .tr {
+    padding-left: 0;
+    list-style: none;
+    margin: 0; }
+    .panel .panel-body .panel-table .tr.row-libre {
+      padding-left: 7px; }
+    .panel .panel-body .panel-table .tr a {
+      color: black; }
+    .panel .panel-body .panel-table .tr:before, .panel .panel-body .panel-table .tr:after {
+      content: " ";
+      display: table; }
+    .panel .panel-body .panel-table .tr:after {
+      clear: both; }
+    .panel .panel-body .panel-table .tr li {
+      padding: 7px 0; }
+      .panel .panel-body .panel-table .tr li.pdte-tr {
+        background-color: #f4a2a1;
+        color: #E42322;
+        text-transform: uppercase; }
+      .panel .panel-body .panel-table .tr li.apr-tr {
+        background-color: #c1e0ff;
+        color: #3298FF;
+        text-transform: uppercase; }
+      .panel .panel-body .panel-table .tr li.whole-cell-height {
+        border-right: 1px solid #858688;
+        border-bottom: 1px solid #858688;
+        background: white;
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        box-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -o-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center;
+        min-height: 42px;
+        padding: 0 6px; }
+      .panel .panel-body .panel-table .tr li div h1, .panel .panel-body .panel-table .tr li div h2, .panel .panel-body .panel-table .tr li div h3, .panel .panel-body .panel-table .tr li div h4, .panel .panel-body .panel-table .tr li div h5, .panel .panel-body .panel-table .tr li div h6 {
+        margin: 7px; }
+      .panel .panel-body .panel-table .tr li span {
+        -webkit-flex-grow: 0;
+        -moz-flex-grow: 0;
+        flex-grow: 0;
+        -ms-flex-positive: 0; }
+      .panel .panel-body .panel-table .tr li > div {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        box-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -o-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center;
+        min-height: 28px;
+        border-right: 2px solid #858688;
+        padding: 0 6px; }
+        .panel .panel-body .panel-table .tr li > div.nrb {
+          border: none; }
+        @media only screen and (min-width: 768px) and (max-width: 992px) {
+          .panel .panel-body .panel-table .tr li > div {
+            min-height: 49px; } }
+        .panel .panel-body .panel-table .tr li > div span {
+          -webkit-flex-grow: 0;
+          -moz-flex-grow: 0;
+          flex-grow: 0;
+          -ms-flex-positive: 0; }
+        .panel .panel-body .panel-table .tr li > div .borderless {
+          border: none; }
+      .panel .panel-body .panel-table .tr li:last-child div {
+        border: none; }
+
+.nota-final .detalle-nota-final ul li .my-inner {
+  padding-right: 10px !important;
+  padding-left: 0px !important;
+  border: none !important; }
+  .nota-final .detalle-nota-final ul li .my-inner .row, .nota-final .detalle-nota-final ul li .my-inner span {
+    background-color: white; }
+  .nota-final .detalle-nota-final ul li .my-inner .row {
+    margin: 0;
+    padding: 7px 14px !important; }
+  .nota-final .detalle-nota-final ul li .my-inner .row div .etiqueta {
+    text-transform: uppercase; }
+  .nota-final .detalle-nota-final ul li .my-inner.adobe {
+    padding-right: 0px !important; }
+
+a.btn.form-control,
+button.btn.form-control,
+input[type="submit"].btn.form-control {
+  height: auto; }
+a.btn.borderless,
+button.btn.borderless,
+input[type="submit"].btn.borderless {
+  border-radius: 0 !important; }
+
+a.btn.btn-primary.btn-outline,
+button.btn.btn-primary.btn-outline,
+input[type="submit"].btn.btn-primary.btn-outline {
+  background: none;
+  border: 2px solid #96bee1;
+  border-radius: 0;
+  color: #96bee1; }
+  a.btn.btn-primary.btn-outline:hover,
+  button.btn.btn-primary.btn-outline:hover,
+  input[type="submit"].btn.btn-primary.btn-outline:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #428bca;
+    color: #428bca; }
+a.btn.btn-success.btn-outline,
+button.btn.btn-success.btn-outline,
+input[type="submit"].btn.btn-success.btn-outline {
+  background: none;
+  border: 2px solid #a7d8a7;
+  border-radius: 0;
+  color: #a7d8a7; }
+  a.btn.btn-success.btn-outline:hover,
+  button.btn.btn-success.btn-outline:hover,
+  input[type="submit"].btn.btn-success.btn-outline:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #5cb85c;
+    color: #5cb85c; }
+a.btn.btn-info.btn-outline,
+button.btn.btn-info.btn-outline,
+input[type="submit"].btn.btn-info.btn-outline {
+  background: none;
+  border: 2px solid #9dceff;
+  border-radius: 0;
+  color: #9dceff; }
+  a.btn.btn-info.btn-outline:hover,
+  button.btn.btn-info.btn-outline:hover,
+  input[type="submit"].btn.btn-info.btn-outline:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #3298FF;
+    color: #3298FF; }
+a.btn.btn-warning.btn-outline,
+button.btn.btn-warning.btn-outline,
+input[type="submit"].btn.btn-warning.btn-outline {
+  background: none;
+  border: 2px solid #f8dbb1;
+  border-radius: 0;
+  color: #f8dbb1; }
+  a.btn.btn-warning.btn-outline:hover,
+  button.btn.btn-warning.btn-outline:hover,
+  input[type="submit"].btn.btn-warning.btn-outline:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #f0ad4e;
+    color: #f0ad4e; }
+a.btn.btn-danger.btn-outline,
+button.btn.btn-danger.btn-outline,
+input[type="submit"].btn.btn-danger.btn-outline {
+  background: none;
+  border: 2px solid #f08281;
+  border-radius: 0;
+  color: #f08281; }
+  a.btn.btn-danger.btn-outline:hover,
+  button.btn.btn-danger.btn-outline:hover,
+  input[type="submit"].btn.btn-danger.btn-outline:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #E42322;
+    color: #E42322; }
+a.btn.btn-gray-darker.btn-custom,
+button.btn.btn-gray-darker.btn-custom,
+input[type="submit"].btn.btn-gray-darker.btn-custom {
+  background: none;
+  border: 2px solid #5d5d58;
+  border-radius: 0;
+  color: #5d5d58; }
+  a.btn.btn-gray-darker.btn-custom:hover,
+  button.btn.btn-gray-darker.btn-custom:hover,
+  input[type="submit"].btn.btn-gray-darker.btn-custom:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #262624;
+    color: #262624; }
+a.btn.btn-gray-dark.btn-custom,
+button.btn.btn-gray-dark.btn-custom,
+input[type="submit"].btn.btn-gray-dark.btn-custom {
+  background: none;
+  border: 2px solid #93938d;
+  border-radius: 0;
+  color: #93938d; }
+  a.btn.btn-gray-dark.btn-custom:hover,
+  button.btn.btn-gray-dark.btn-custom:hover,
+  input[type="submit"].btn.btn-gray-dark.btn-custom:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #5d5d58;
+    color: #5d5d58; }
+a.btn.btn-gray.btn-custom,
+button.btn.btn-gray.btn-custom,
+input[type="submit"].btn.btn-gray.btn-custom {
+  background: none;
+  border: 2px solid #b6b6b2;
+  border-radius: 0;
+  color: #b6b6b2; }
+  a.btn.btn-gray.btn-custom:hover,
+  button.btn.btn-gray.btn-custom:hover,
+  input[type="submit"].btn.btn-gray.btn-custom:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #82827b;
+    color: #82827b; }
+a.btn.btn-gray-light.btn-custom,
+button.btn.btn-gray-light.btn-custom,
+input[type="submit"].btn.btn-gray-light.btn-custom {
+  background: none;
+  border: 2px solid #bbbcbd;
+  border-radius: 0;
+  color: #bbbcbd; }
+  a.btn.btn-gray-light.btn-custom:hover,
+  button.btn.btn-gray-light.btn-custom:hover,
+  input[type="submit"].btn.btn-gray-light.btn-custom:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #858688;
+    color: #858688; }
+a.btn.btn-gray-lighter.btn-custom,
+button.btn.btn-gray-lighter.btn-custom,
+input[type="submit"].btn.btn-gray-lighter.btn-custom {
+  background: none;
+  border: 2px solid white;
+  border-radius: 0;
+  color: white; }
+  a.btn.btn-gray-lighter.btn-custom:hover,
+  button.btn.btn-gray-lighter.btn-custom:hover,
+  input[type="submit"].btn.btn-gray-lighter.btn-custom:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #E3E3E3;
+    color: #E3E3E3; }
+a.btn.btn-white.btn-custom,
+button.btn.btn-white.btn-custom,
+input[type="submit"].btn.btn-white.btn-custom {
+  background: none;
+  border: 2px solid white;
+  border-radius: 0;
+  color: white; }
+  a.btn.btn-white.btn-custom:hover,
+  button.btn.btn-white.btn-custom:hover,
+  input[type="submit"].btn.btn-white.btn-custom:hover {
+    background: none;
+    border-radius: 0;
+    border: 2px solid #fff;
+    color: #fff; }
+
+@media only screen and (max-width: 480px) {
+  .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group form .row {
+    padding-left: 14px !important; } }
+.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group form .row .col-xs-8 {
+  padding: 0 !important; }
+.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group form .row .col-xs-4 {
+  margin-top: 14px;
+  padding: 0 !important; }
+.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-color: #E3E3E3;
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  margin-bottom: 7px;
+  border: none !important;
+  font-size: 22px !important;
+  height: 42px !important;
+  border-radius: 0px !important; }
+  .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select.arrow {
+    background: url(../assets/img/select.png) no-repeat right;
+    background-color: #E3E3E3; }
+  .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select.calendar {
+    background: url(../assets/img/calendario.png) no-repeat right;
+    background-color: #E3E3E3; }
+  @media only screen and (max-width: 992px) {
+    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
+      font-size: 18px !important; } }
+  @media only screen and (max-width: 480px) {
+    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
+      font-size: 16px !important; } }
+  @media only screen and (max-width: 768px) {
+    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
+      width: 73% !important; } }
+  @media only screen and (max-width: 480px) {
+    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
+      margin-left: 12px !important; } }
+
+.section-desc {
+  font-family: "zizou-slab-regular" !important;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1em !important; }
+
+.mi-malla {
+  margin-top: -14px; }
+
+.talleres .talleres-disp-head {
+  margin-top: -15px; }
+
+@media only screen and (max-width: 992px) {
+  .site-content {
+    margin-top: 7px !important; } }
+.site-content.ciclo-actual, .site-content.notas-detalladas {
+  margin-top: 77px; }
+  .site-content.ciclo-actual .section-content .row .col-sm-3 .keep-reading, .site-content.notas-detalladas .section-content .row .col-sm-3 .keep-reading {
+    color: #3298FF;
+    font-family: "zizou-slab-regular" !important;
+    font-style: normal; }
+.site-content.mi-perfil {
+  margin-top: 91px !important; }
+  .site-content.mi-perfil .section-content .row .col-sm-8 .panel-table .tag {
+    font-family: "sgothic-bdcap" !important;
+    font-weight: 700;
+    font-style: normal;
+    float: left;
+    font-size: 0.75rem !important;
+    font-size: 12px !important; }
+  .site-content.mi-perfil .section-content .row .col-sm-8 .panel-table .data {
+    font-family: "nimbus-sans" !important;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.75rem !important;
+    font-size: 12px !important; }
+.site-content.multi-perfil {
+  min-height: 100%;
+  padding-right: 0;
+  margin-top: 49px; }
+  .site-content.multi-perfil .pic {
+    margin: 0 auto;
+    max-width: 105px !important; }
+    .site-content.multi-perfil .pic img.img-circle {
+      border: 7px white solid; }
+  .site-content.multi-perfil .row .pick-child {
+    display: inline-block !important;
+    padding-left: 14px;
+    padding-right: 14px; }
+    .site-content.multi-perfil .row .pick-child .child-pic {
+      border-radius: 50px;
+      border: 4px white solid;
+      padding: 3px; }
+      .site-content.multi-perfil .row .pick-child .child-pic.active {
+        border: 4px #E42322 solid; }
+    .site-content.multi-perfil .row .pick-child img {
+      max-height: 56px; }
+    .site-content.multi-perfil .row .pick-child span {
+      font-family: "sgothic-rgcap" !important;
+      font-style: normal;
+      font-size: 21px;
+      text-transform: uppercase; }
+  .site-content.multi-perfil .panel .panel-body .panel-table .tr {
+    border: none; }
+
+/*# sourceMappingURL=main.css.map */
