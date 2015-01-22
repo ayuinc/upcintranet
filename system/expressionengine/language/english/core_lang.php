@@ -10,34 +10,34 @@ $lang = array(
 'No',
 
 'yes' =>
-'Yes',
+'Si',
 
 'on' =>
-'on',
+'encendido',
 
 'off' =>
-'off',
+'apagado',
 
 'first' =>
-'First',
+'Primero',
 
 'last' =>
-'Last',
+'Último',
 
 'enabled' =>
-'enabled',
+'habilitado',
 
 'disabled' =>
-'disabled',
+'discapacitado',
 
 'back' =>
-'Back',
+'atrás',
 
 'submit' =>
-'Submit',
+'presentar',
 
 'update' =>
-'Update',
+'actualización',
 
 'thank_you' =>
 'Thank You!',
@@ -73,28 +73,28 @@ $lang = array(
 'Search',
 
 'system_off_msg' =>
-'This site is currently inactive.',
+'Este sitio se encuentra actualmente inactivo.',
 
 'not_authorized' =>
-'You are not authorized to perform this action',
+'Usted no está autorizado para realizar esta acción',
 
 'auto_redirection' =>
-'You will be redirected automatically in %x seconds',
+'Usted será redirigido automáticamente en %x segundos',
 
 'click_if_no_redirect' =>
-'Click here if you are not redirected automatically',
+'Haga clic aquí si no redirige automáticamente',
 
 'return_to_previous' =>
-'Return to Previous Page',
+'Volver a la página anterior',
 
 'not_available' =>
-'Not available',
+'no disponible',
 
 'setting' =>
-'Setting',
+'Configuración',
 
 'preference' =>
-'Preference',
+'Preferencia',
 
 'pag_first_link' => '&lsaquo; First',
 'pag_last_link' => 'Last &rsaquo;',
@@ -107,38 +107,38 @@ $lang = array(
 'Error',
 
 'invalid_url' =>
-'The URL you submitted is not valid.',
+'La URL que ha enviado no es válida.',
 
 'submission_error' =>
-'The form you submitted contained the following errors',
+'La forma que ha enviado contenía los siguientes errores',
 
 'general_error' =>
-'The following errors were encountered',
+'Se han encontrado los siguientes errores',
 
 'invalid_action' =>
-'The action you have requested is invalid.',
+'La acción que ha solicitado no es válido.',
 
 'csrf_token_expired' =>
-'This form has expired. Please refresh and try again.',
+'Esta forma ha expirado. Por favor regenere y vuelva a intentarlo.',
 
 'current_password_required' =>
-'Your current password is required.',
+'Se requiere su contraseña actual.',
 
 'current_password_incorrect' =>
-'Your current password was not submitted correctly.',
+'Su contraseña actual no se presentó correctamente.',
 
 'captcha_required' =>
-'You must submit the word that appears in the image',
+'Usted debe enviar la palabra que aparece en la imagen',
 
 'captcha_incorrect' =>
-'You did not submit the word exactly as it appears in the image',
+'Usted no envíe la palabra tal y como aparece en la imagen',
 
 'nonexistent_page' =>
-'The page you requested was not found',
+'La página solicitada no fue encontrada',
 
 'unable_to_load_field_type' =>
-'Unable to load requested field type file:  %s.<br />
-Confirm the fieldtype file is located in the expressionengine/third_party/ directory',
+'No se puede cargar el archivo solicitado tipo de campo:. %S <br />
+Confirme que el archivo FieldType se encuentra en el directorio ExpressionEngine / third_party /',
 
 //----------------------------
 // Member Groups
