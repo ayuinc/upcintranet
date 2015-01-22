@@ -2530,15 +2530,15 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
         
-        $result .= '<div class="panel-body-head-table">';
+        $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-8">';
+        $result .= '<li class="col-xs-8">';
         $result .= '<div><span>Curso</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2">';
+        $result .= '<li class="col-xs-2">';
         $result .= '<div class=""><span>Sección</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2">';
+        $result .= '<li class="col-xs-2">';
         $result .= '<div class=""><span>Grupo</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
@@ -2550,17 +2550,17 @@ class Webservices
         
         for ($a=0; $a<$tamano; $a++) {
           $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-sm-8 helvetica-10 pb-0">';
+          $result .= '<li class="col-xs-8 helvetica-10 pb-0">';
           $result .= '<div>';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-2 helvetica-10">';
+          $result .= '<li class="col-xs-2 helvetica-10">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-2 helvetica-10">';
+          $result .= '<li class="col-xs-2 helvetica-10">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'</span>';
           $result .= '</div>';
@@ -2576,7 +2576,7 @@ class Webservices
         $result = '';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
+        $result .= '<li class="col-xs-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
         $result .= '</ul>';
         $result .= '</div>';
       }      
