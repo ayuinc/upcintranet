@@ -7,7 +7,7 @@ $lang = array(
 //----------------------------------------
 
 'search_module_name' =>
-'Search',
+'Búsqueda',
 
 'search_module_description' =>
 'Search module',
@@ -15,7 +15,7 @@ $lang = array(
 //----------------------------------------
 
 'search_no_stopwords' =>
-'Your search term included common words that are not allowed to be searched.',
+'Su término de búsqueda incluyó las palabras comunes que no están permitidos a buscar.',
 
 'search_exact_word' =>
 'Search for Exact Word',
@@ -24,13 +24,13 @@ $lang = array(
 'Search for Any Word',
 
 'search_all_words' =>
-'Search for All Words',
+'Buscar Todas las Palabras',
 
 'search_keywords' =>
-'Keywords',
+'Palabras clave',
 
 'search_total_results' =>
-'Total Search Results:',
+'Total de Resultados de la búsqueda:',
 
 'search_channel' =>
 'Channel',
@@ -51,19 +51,19 @@ $lang = array(
 'Recent Comment',
 
 'search_by_keyword' =>
-'Search by Keyword',
+'Buscar por palabra clave',
 
 'search_in_titles' =>
-'Search in Titles',
+'Buscar en los títulos',
 
 'search_entries' =>
-'Search in Titles and Entries',
+'Buscar en títulos y comentarios',
 
 'search_everywhere' =>
-'Search in Titles, Entries and Comments',
+'Buscar en los títulos, entradas y comentarios',
 
 'search_exact_phrase_match' =>
-'Exact Phrase Match',
+'Partido Frase exacta',
 
 'search_by_member_name' =>
 'Search by Member Name',
@@ -150,61 +150,61 @@ $lang = array(
 'Search Engine',
 
 'search' =>
-'Search',
+'Búsqueda',
 
 'search_path_error' =>
-'The search path contains an error.  Please contact the system administrator.',
+'La ruta de búsqueda contiene un error. Por favor, póngase en contacto con el administrador del sistema.',
 
 'search_not_allowed' =>
-'You are not permitted to use the search engine.',
+'No se le permite utilizar el motor de búsqueda.',
 
 'search_no_keywords' =>
-'You did not submit a search term',
+'Usted no presentó un término de búsqueda',
 
 'search_min_length' =>
-'Search terms must be at least %x characters in length',
+'Los términos de búsqueda deben tener al menos %x caracteres de longitud',
 
 'search_result_heading' =>
-'Search Results:',
+'Resultados de la búsqueda:',
 
 'search_no_result' =>
-'Your search did not return any results.',
+'Su búsqueda no ha obtenido ningún resultado.',
 
 'search_time_not_expired' =>
-'You are only allowed to search every %x seconds.',
+'Sólo se le permite a la búsqueda cada %x segundos.',
 
 'search_results' =>
-'Search Results',
+'Resultados de la búsqueda',
 
 'search_type' =>
-'Search Type',
+'Búsqueda Tipo',
 
 'none_of_these_words' =>
-'None of these words',
+'Ninguna de estas palabras',
 
 'search_in' =>
-'Search In',
+'Buscar en',
 
 'search_in_channels' =>
-'Search in Channels',
+'Buscar en Canales',
 
 'any_field' =>
-'Any Field',
+'cualquier campo',
 
 'search_in_articles' =>
-'Search in Articles',
+'Buscar en los artículos',
 
 'search_in_titles_articles' =>
-'Search in Titles and Articles',
+'Buscar en los títulos y en los artículos',
 
 'search_content_from' =>
-'Search Content From',
+'Buscar contenido ce',
 
 'date_since' =>
-'Since',
+'desde',
 
 'today' =>
-'Today',
+'hoy',
 
 'past_week' =>
 'Past Week',
