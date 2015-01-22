@@ -5,7 +5,8 @@ $custom-h5: 13px;
 $serif: "zizou";
 $sans-serif: "solano";
 $alt: "helvetica";
-$alt-b: "helv-neue";
+$alt-ab: "helv-neue";
+$alt-12: "ronnia";
 
 /// fonts loops
 @for $fs from 9 to 33 {
@@ -23,19 +24,26 @@ $alt-b: "helv-neue";
 			font-size: ($fs - 4) + px !important;
 		}	
 	}
-	.#{$sans-serif}-light-#{$fs} {
-		@include light;	
-		font-size: rem($fs) !important;	
-		font-size: $fs + px !important;	
-	}
-	.#{$serif}-bold-#{$fs} {
-		@include serif-bold;	
+	.#{$serif}-thin-#{$fs} {
+		@include serif-thin;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
 	}
 	.#{$serif}-light-#{$fs} {
-		// @include serif-light;	
-		@include serif-book;	
+		@include serif-light;	
+		font-size: rem($fs) !important;	
+		font-size: $fs + px !important;
+		@media #{$lg-down} {
+			font-size: rem(($fs) - 4) !important;	
+			font-size: ($fs - 4) + px !important;
+		}	
+		@media #{$xs-only} {
+			font-size: rem(($fs) - 6) !important;	
+			font-size: ($fs - 6) + px !important;
+		}		
+	}
+	.#{$serif}-bold-#{$fs} {
+		@include serif-bold;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
 	}
@@ -44,12 +52,27 @@ $alt-b: "helv-neue";
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;
 		@media #{$lg-down} {
-			font-size: rem(($fs) - 4) !important;	
-			font-size: ($fs - 4) + px !important;
+			font-size: rem(($fs) - 2) !important;	
+			font-size: ($fs - 2) + px !important;
 		}	
+	}
+	.#{$alt}-light-#{$fs} {
+		@include alt-light;	
+		font-size: rem($fs) !important;	
+		font-size: $fs + px !important;	
 	}
 	.#{$alt}-#{$fs} {
 		@include alt-book;	
+		font-size: rem($fs) !important;	
+		font-size: $fs + px !important;	
+	}
+	.#{$alt-ab}-#{$fs} {
+		@include alt-ab-book;	
+		font-size: rem($fs) !important;	
+		font-size: $fs + px !important;	
+	}
+	.#{$alt-12}-#{$fs} {
+		@include alt-12-book;	
 		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
 	}
@@ -68,6 +91,10 @@ $alt-b: "helv-neue";
 
 .black {
 	color: black !important;
+}
+
+.red {
+	color: $brand-danger !important;
 }
 
 .gray-main {

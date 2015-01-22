@@ -1,0 +1,32 @@
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+{exp:webservices:verificar_usuario}
+{embed="includes/header"}
+{embed="includes/sidebar"}
+    <div class="site-content">
+      <div class="internal-header">
+          <div class="row first-line">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4"><span>Mundo UPC</span></div>
+          </div>
+          <div class="row second-line pb-14">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+	            <span>INFORMACIÓN GENERAL</span>
+            </div>
+          </div>
+      </div> 
+      <div class="section-content pb-70">
+        <div class="row">
+	        <div class="col-sm-1"></div>
+          <div class="col-sm-3"><span><a href="{site_url}mundo-upc/informacion-general">Regresar</a></span></div>
+          <div class="col-sm-8 resultados">
+              {exp:channel:entries channel="referencias" limit="1" disable="member_data" dynamic="off"}
+              <h3>{title}</h3>
+              <p>{contenido_interno}</p>
+  						{/exp:channel:entries} 		            
+          </div>
+        </div>
+      </div>
+      </div>
+{embed="includes/footer"} 

@@ -1,0 +1,69 @@
+<div class="col-sm-6 reservas-select-group">
+  <form action="{site_url}index.php/{segment_1}/resultados-reserva-de-computadoras" method="post">
+    <input type="hidden" name="XID" value="{XID_HASH}" /> 
+    <div class="row">
+    	<div class="col-xs-4 col-sm-6">
+      	<span class="zizou-light-22">Sede</span>
+    	</div>
+      <div class="col-xs-8 col-sm-6">
+        <select name="CodSede" id="CodSede" class="reservas-select arrow form-control">
+          <option value="A">CAMPUS MONTERRICO</option>
+        </select> 
+      </div>
+      <div class="col-xs-4 col-sm-6">
+        <span class="zizou-light-22">Tipo de Recurso</span>
+      </div>
+    	<div class="col-xs-8 col-sm-6">
+      	<select name="TipoRecurso" class="reservas-select arrow form-control">
+	        <option value="CO">Computadora</option>
+      	</select>	
+    	</div>
+    </div>
+      <div class="row">
+          <div class="col-xs-4 col-sm-6">
+              <span class="zizou-light-22">Número de Horas</span>
+          </div>
+          <div class="col-xs-8 col-sm-6">
+              <select name="CanHoras" class="reservas-select arrow form-control">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+              </select>   
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-4 col-sm-6">
+              <span class="zizou-light-22">Hora de Reserva</span>
+          </div>
+          <div class="col-xs-8 col-sm-6">
+              <select name="HoraIni" class="reservas-select arrow form-control">
+                 <option value="7">7:00</option>
+                 <option value="8">8:00</option>
+                 <option value="9">9:00</option>
+                 <option value="10">10:00</option>
+                 <option value="11">11:00</option>
+                 <option value="12">12:00</option>
+                 <option value="13">13:00</option>   
+                 <option value="14">14:00</option>
+                 <option value="15">15:00</option>
+                 <option value="16">16:00</option>
+                 <option value="17">17:00</option>
+                 <option value="18">18:00</option>
+                 <option value="19">19:00</option>
+                 <option value="20">20:00</option>
+                 <option value="21">21:00</option>
+              </select>   
+          </div>
+      </div>
+      <div class="row datepicker-container">
+    		<div class="col-xs-4 col-sm-6">
+      			<span class="zizou-light-22">Fecha Inicio</span>
+    		</div>
+		    <div class="col-xs-8 col-sm-6">
+			   <input type="text" name="FecIni" class="reservas-select form-control calendar" value="" placeholder="Selecciona" id="start-date-rec">	
+      	</div>
+      </div>				        
+      <div class="col-xs-12">
+        <input type="submit" class="btn btn-custom gray lg mb-7" name="submit" value="Ver Disponibilidad">
+      </div>
+  </form>
+</div>  

@@ -5,9 +5,14 @@ $active_record = TRUE;
 
 $db['expressionengine']['hostname'] = '127.0.0.1';
 $db['expressionengine']['username'] = 'root';
+<<<<<<< HEAD
 // $db['expressionengine']['password'] = '';
 $db['expressionengine']['password'] = '';
-$db['expressionengine']['database'] = 'UPCIntranet';
+=======
+$db['expressionengine']['password'] = '';
+// $db['expressionengine']['password'] = 'JKPQiUAb8f';
+>>>>>>> 6b56f6d06eaebe2749cbf0bb8fe449385b03d336
+$db['expressionengine']['database'] = 'upc';
 $db['expressionengine']['dbdriver'] = 'mysql';
 $db['expressionengine']['pconnect'] = FALSE;
 $db['expressionengine']['dbprefix'] = 'exp_';

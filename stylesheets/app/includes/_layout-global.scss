@@ -53,6 +53,31 @@ body {
 	} 
 }
 
+#mobile-nav {
+	.col-xs-4 {
+		padding-left: 0;
+	}
+	.col-xs-6 {
+		div.btn {
+			// padding-left: 12px !important;
+			margin: 7px !important;
+			img {
+				height: 14px;
+				margin-right: 3px;
+				margin-bottom: 3px;
+			}
+		} 
+	}
+}
+
+#collapseMobile {
+	margin-left: 14px !important;
+	ul li {
+		@include serif-book;
+		font-size: 14px;
+	}
+}
+
 .site-content {
 	position: absolute;
 	background-image:url("../assets/img/trama.png");
@@ -65,6 +90,7 @@ body {
 	margin-top: 62px;
 	@media #{$lg-down} {
 		padding-left: 28px !important;
+		padding-right: 28px !important;
 	}
 	&.login {
 		margin-top: 0px;
@@ -73,42 +99,23 @@ body {
 		.row {
 			margin-left: -14px;
 			.col-sm-10 {
-				// img.logo {
-				// 	float: right !important;
-				// }
 				.row {
 					.col-sm-5 {
-						.row {
-							p {
-								color: $gray-light !important;
-								@include serif-book;
-								font-size: 28px;
-							}
-							a {
-								@include serif-book;
-								font-size: 16px;
-								color: $gray-darker;
-							}
-							input {
-								background-color: $gray-lighter;
-								border-radius: 0px;
-								border: none !important;
-								.form-control {
-									font-size: 20px;
-								}
-							}
+						img {
+							margin: 0 auto;							
 						}
-
 						button {
 							float: right;
 						}
 					}
 					.col-sm-7.bg-muted {
 						padding-bottom: 77px !important;
-						border-bottom: 2px solid $brand-danger; 
-						form {
+						border-bottom: 4px solid $brand-danger; 
+						form.login-form {
+							margin-top: -21px !important;
 							.row {
 								.col-sm-8 {
+									padding-top: 28px;
 									div.center-input {
 										margin-left: 21px !important;
 										margin-bottom: -14px !important;
@@ -122,35 +129,62 @@ body {
 								}
 								.inicia {
 									div {
-										// margin-left: 125px !important;
 									}
 								}
 							}
 						}
+						.pwd-mismatch {
+							margin-top: 28px !important;
+							.col-sm-1 {
+								padding: 0 !important;
+							} 
+						}
 					}
-
+					&.aviso {
+						margin-top: -7px !important;
+						.col-sm-7 {
+							padding-top: 35px !important;
+							padding-bottom: 35px !important;
+						}
+						img {
+							margin: 0 auto;
+							display: block;
+						}
+					}
 				}
 			}
-			.col-sm-8 {
-				padding-top: 28px;
-				@media #{$lg-down} {
-					padding-top: 14px;
+			&.footer {
+				.col-xs-4, .col-xs-8 {
+					padding: 7px !important;
 				}
-				&.copyright span {
+				.col-sm-8 {
+					margin-top: 28px !important;
+				}
+				.col-xs-8 {
+					line-height: 12px !important;
+					@media #{$xs-only} {
+						margin-top: 4px !important;
+					}
+				}
+				.copyright span {
 					@include serif-book;
 					font-size: 16px;
-					@media #{$lg-down} {
-						font-size: 13px;
+					@media #{$xs-only} {
+						font-size: 10px !important;
 					}
 				}
 			}
 		}
 	}
+
 	&.iframe {
 		background: none !important;
 	}
 	.row {
 		margin-left: -28px;
+		@media #{$xs-only} {
+			margin-right: -28px !important;
+		}
 	}
 	.mensaje {
 		padding-right: 14px;
@@ -210,7 +244,7 @@ body {
 			margin-left: -30px !important;
 			margin-top: 7px !important; 
 			span {
-				@include book;
+				@include bold;
 				text-transform: uppercase;
 				font-size: rem(44px) !important;
 				font-size: 44px !important;
@@ -317,6 +351,9 @@ body {
 			&.mis-reservas a div {
 			background-image: url(../assets/img/mis_reservas_red.png);
 			}
+			&.info-gral a div {
+			background-image: url(../assets/img/info_red.png);
+			}
 			&.ci a div {
 			background-image: url(../assets/img/ci_red.png);
 			}
@@ -346,6 +383,9 @@ body {
 			}
 			&.mis-reservas a div {
 			background-image: url(../assets/img/mis_reservas_red.png);
+			}
+			&.info-gral a div {
+			background-image: url(../assets/img/info_red.png);
 			}
 			&.ci a div {
 			background-image: url(../assets/img/ci_red.png);
@@ -381,6 +421,11 @@ body {
 		}
 		&.mis-tramites a div {
 			background-image: url(../assets/img/mis_tramites_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.info-gral a div {
+			background-image: url(../assets/img/info_grey.png);
 			background-repeat: no-repeat;
 			background-position: center; 
 		}
@@ -436,7 +481,7 @@ body {
 				width: 210px;
 				padding-left: 7px;
 				a {
-					@include serif-book;
+					@include serif-thin;
 					display: block;
 					color: $gray-main;
 					width: 210px;
@@ -444,7 +489,7 @@ body {
 					text-align: left;
 					&:hover {
 						background: white;
-						color: $brand-danger;
+						color: $brand-danger !important;
 					}
 				}
 			}
@@ -474,55 +519,38 @@ body {
 		.header-no-global {
 			padding-left: 98px !important;
 			padding-right: 35px !important;
-			.inner {
-				border-bottom: 2px solid #d3d3d3 !important;
-			}
-			background-image:url("../assets/img/trama.png");
-			background-position: 7% 80%;
+			border-bottom: 2px solid #d3d3d3 !important;
+			background-image:url("../assets/img/header_no_global.png");
 			@include bold;
 			text-transform: uppercase;
 			text-align: center;
 			&.alumno, &.docente {
 				.col-sm-5 {
 					.row {
-						div[class^='col-sm'] {
+						.col-sm-3 {
 							a {
-							>div {
-								height: 28px !important;
-								&.mi-correo {
-									background-image: url("../assets/img/correo_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
+								div {
+									height: 35px !important;
+									margin-bottom: 7px;
+									&.mi-correo {
+										padding-top: 7px;
+									}
 								}
-								&.mi-aula {
-									background-image: url("../assets/img/aula_virtual_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
-								&.print {
-									background-image: url("../assets/img/print_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
-								&.asistencia {
-									background-image: url("../assets/img/asistencia_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
-								&.search {
-									background-image: url("../assets/img/search_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
+								span {
+									color: white;
+									&:hover {
+										text-decoration: underline;
+									}
 								}
 							}
-							span {
-		    				color: $gray-main !important;
-							}	
+							.print {
+								margin-bottom: 7px; 
+							}
 						}
 					 }
-				  }	
+					}	
 				}
-			}
+			
 			&.padre, &.docente {
 				.col-sm-5 {
 					padding-top: 21px;
@@ -608,24 +636,22 @@ body {
 					}
 				}
 			}
-			.col-sm-4.busqueda {
+			.busqueda {
 				padding-bottom: 14px;
-				.right-inner-addon {
-			    position: relative;
-					input {
-			    	padding-right: 30px;    
-					}
+				margin-top:28px !important;
+				&.col-sm-3 {
+					padding-right: 0px !important;
+				}
+				&.col-sm-1 {
+					padding-left: 3px !important;
 					img {
-			    background-color: $gray-main;
-			    position: absolute;
-			    right: 0px;
-			    padding: 9px 10px;
-			    cursor: pointer !important;
+						float: left;
+						cursor: pointer !important;
 					}
 				}
 			}
 			.col-sm-3.right-upper-corner {
-				@include serif-book;
+				@include serif-thin;
 				text-transform: none !important;
 				.row {
 					.col-sm-8 {
