@@ -293,11 +293,12 @@ class Webservices
 
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
         //$result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
-        $result .=  '<div class="col-sm-3">';
-        $result .=  '<div class="dropdown">';
+        $result .=  '<div class="col-sm-2">';
+        $result .=  '<div class="dropdown avatar-hijo">';
         $result .=  '<div class="dropdown-toggle" id="dropdownMenuA" data-toggle="dropdown">';
-        $result .=  '<img class="img-circle img-responsive" src="{site_url}images/avatars/default_set/user.png">';
-        $result .=  '<span>'.$json["hijos"][$i]["nombres"].'</span>';
+        $result .=  '<img src="{site_url}images/avatars/default_set/user.png">';
+        // $result .=  '<span>'.$json["hijos"][$i]["nombres"].'</span>';
+        $result .=  '<span class="text-muted">FIORELLA</span>';
         $result .=  '</div>';
         $result .=  '<ul class="dropdown-menu first-child" role="menu" aria-labelledby="dropdownMenuA">';
         $result .=  '<li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">Activar su perfil</a></li>';
@@ -728,37 +729,37 @@ class Webservices
         
         for ($b=0; $b<$tamano_int; $b++) {
             $result .= '<div class="panel-table">'; 
-            $result .= '<ul class="tr mis-cursos-row">'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<ul class="tr">'; 
+            $result .= '<li class="col-xs-1">'; 
             $result .= '<span class="helvetica-12">';
             $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
             $HoraInicio = ltrim($HoraInicio,'0');
             $result .= $HoraInicio.':00';
             $result .='</span>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<li class="col-xs-1">'; 
             $result .= '<span class="helvetica-12">';
             $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
             $HoraFin = ltrim($HoraFin,'0');
             $result .= $HoraFin.':00';                  
             $result .='</span>';                  
             $result .= '</li>';                        
-            $result .= '<li class="col-xs-7 whole-cell-height">'; 
+            $result .= '<li class="col-xs-7">'; 
             $result .= '<span class="helvetica-12">';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre'];
             $result .= '</span>';                   
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<li class="col-xs-1">'; 
             $result .= '<span class="helvetica-12">';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Sede'];
             $result .= '</span>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<li class="col-xs-1">'; 
             $result .= '<span class="helvetica-12">';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Seccion'];
             $result .= '</span>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<li class="col-xs-1">'; 
             $result .= '<span class="helvetica-12">';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Salon'];
             $result .= '</span>';  
@@ -775,8 +776,8 @@ class Webservices
         $result .= '<div>';
         $result .= '<div class="panel-body mb-35">';
         $result .= '<div class="panel-table">';
-        $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
@@ -921,17 +922,17 @@ class Webservices
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-8 helvetica-12 pb-0">';
+        $result .= '<li class="col-xs-8 helvetica-12 pb-0">';
         $result .= '<div>';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2 helvetica-bold-14 curso-faltas">';
+        $result .= '<li class="col-xs-2 helvetica-bold-14">';
         $result .= '<div class="text-center">';
         $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2 helvetica-bold-14 curso-promedio">';
+        $result .= '<li class="col-xs-2 helvetica-bold-14">';
 
         $codcurso = $json['Inasistencias'][$i]['CodCurso'];
         
@@ -961,8 +962,6 @@ class Webservices
         
         $result .= '<div class="text-center"><span>'.$nota.'</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 show-curso-detail"><div class="text-center"><span><img src="/assets/img/ojo.png"></span></div></li>';
-        $result .= '</ul>';
       }     
       
       //Control de errores
@@ -970,7 +969,7 @@ class Webservices
         $result = '';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-12">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<div>'.$error_mensaje.'</div>';
         $result .= '</li>';                
         $result .= '</ul>';  
@@ -2274,19 +2273,19 @@ class Webservices
             $result .= '<input type="hidden" name="HoraFin" value="'.$HoraFin.'" />';
             $result .= '<input type="hidden" name="Flag" value="1" />';       
             $result .= '<ul class="tr">';
-            $result .= '<li class="col-sm-4 helvetica-12">';
+            $result .= '<li class="col-xs-4 helvetica-12">';
             $result .= '<div class="text-center">';    
             $result .= '<span>'.$json['Recursos'][$i]['NomRecurso'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
-            $result .= '<li class="col-sm-4 helvetica-10">';
-            $result .= '<div class="text-center">';
+            $result .= '<li class="col-xs-4 helvetica-10">';
+            $result .= '<div class="text-center borderless">';
             $result .= '<span>'.$json['Recursos'][$i]['Local'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
-            $result .= '<li class="col-sm-4 helvetica-12">';
+            $result .= '<li class="col-xs-4 helvetica-12">';
             $result .= '<div class="text-center">';       
-            $result .= '<input type="submit" value="Reservar" name="submit">';
+            $result .= '<input type="submit" class="btn btn-custom info mb-7" value="Reservar" name="submit">';
             $result .= '</div>';
             $result .= '</li>';       
             $result .= '</ul>';

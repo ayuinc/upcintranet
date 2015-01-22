@@ -48,5 +48,11 @@
 				border-radius: 0px !important;
 			}
 		}
+		.col-sm-6.disponibilidad {
+			@media #{$xs-only} {
+				padding-right: 35px !important;
+				margin-top: 42px !important;
+			}
+		}
 	}
 }

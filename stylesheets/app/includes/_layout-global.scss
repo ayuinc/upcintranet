@@ -71,10 +71,31 @@ body {
 }
 
 #collapseMobile {
-	margin-left: 14px !important;
-	ul li {
-		@include serif-book;
-		font-size: 14px;
+	margin-top: 21px !important;
+	ul.mobile-menu {
+		> li {
+			padding-left: 21px !important;
+			a {
+				@include book;
+				color: white !important;
+				font-size: 20px !important;
+				text-transform: uppercase;
+			}
+			&:nth-child(even) {
+				background: $gray-light;
+			}
+			&:nth-child(odd) {
+				background: $gray-lighter;
+				a {
+				color: $gray-main !important;
+				}
+			}
+			@include serif-book;
+			font-size: 14px;
+		}
+	}
+	.child li {
+		padding-left: 21px !important;
 	}
 }
 
@@ -312,7 +333,7 @@ body {
 		}
 	}
 }
-
+// Sidebar
 .nav-main {
 		top: 20px;
 		> li {
@@ -498,6 +519,70 @@ body {
 	}
 }
 
+// Dropdowns
+.dropdown {
+	ul.dropdown-menu {
+		left: -84px !important;
+		top: 100px;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+		border: none;
+		margin: 0;
+		padding: 0;
+		&.first-child {
+			left: -24px !important;
+			top: 79px !important;
+			&:after {
+				left: 32% !important;
+			}
+		}
+		&:after {
+			bottom: 100%;
+			left: 77%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(255, 255, 255, 0);
+			border-bottom-color: #ffffff;
+			border-width: 15px;
+			margin-left: -15px;
+		} 
+		@include book;
+		li {
+			&.dditem {
+				padding-top: 3px;
+				padding-bottom: 3px;
+				&:hover {
+					background-color: $brand-info;
+					color: white !important;
+					a {
+					color: white !important;
+					}
+				}
+			}
+			&.divider {
+				margin: 0;
+			}
+			font-size: 16px;
+			@include serif-book;
+		}
+	}
+	&.avatar-hijo {
+		.dropdown-toggle {
+			img {
+				height: 42px !important;
+			}
+		}
+		.dropdown-menu {
+			padding: 0 !important;
+			margin: 6px 0 0;
+		}
+	}
+}
+
 .site-header {
 	.container-fluid {
 		padding-right: 0;
@@ -560,12 +645,6 @@ body {
 							a {
 								text-decoration: none;
 								color: $gray-main;
-								div.search {
-									height: 35px;
-									background-image: url("../assets/img/search_grey.png");
-									background-repeat: no-repeat;
-									background-position: center; 
-								}
 							}
 							.dropdown {
 								.dropdown-toggle {
@@ -580,74 +659,29 @@ body {
 								ul.dropdown-menu {
 									left: -70px !important;
 									top: 70px;
-								&.first-child {
-									left: -28px !important;
-									top: 70px;
-									&:after {
-										bottom: 100%;
-										left: 49%;
-										border: solid transparent;
-										content: " ";
-										height: 0;
-										width: 0;
-										position: absolute;
-										pointer-events: none;
-										border-color: rgba(255, 255, 255, 0);
-										border-bottom-color: #ffffff;
-										border-width: 15px;
-										margin-left: -15px;
-									} 	
 								}
-								border: none;
-								margin: 0;
-								padding: 0;
-								&:after {
-									bottom: 100%;
-									left: 77%;
-									border: solid transparent;
-									content: " ";
-									height: 0;
-									width: 0;
-									position: absolute;
-									pointer-events: none;
-									border-color: rgba(255, 255, 255, 0);
-									border-bottom-color: #ffffff;
-									border-width: 15px;
-									margin-left: -15px;
-								} 
-								@include book;
-								li {
-									&.dditem {
-										padding-top: 3px;
-										padding-bottom: 3px;
-										&:hover {
-											background-color: $gray-main;
-											a {
-											color: white;
-											}
-										}
-									}
-									font-size: 16px;
-									text-transform: uppercase;
-								}
-							}
 							}
 						}
 					}
 				}
 			}
-			.busqueda {
-				padding-bottom: 14px;
-				margin-top:28px !important;
-				&.col-sm-3 {
+			.col-sm-4 {
+				.search-bar, .search-icon {
+					padding-bottom: 14px;
+					margin-top:28px !important;
+				}
+				.search-bar {
 					padding-right: 0px !important;
 				}
-				&.col-sm-1 {
+				.search-icon {
 					padding-left: 3px !important;
 					img {
 						float: left;
 						cursor: pointer !important;
 					}
+				}
+				.search-trigger {
+					padding-top: 28px !important;
 				}
 			}
 			.col-sm-3.right-upper-corner {
@@ -677,46 +711,6 @@ body {
 							ul.dropdown-menu {
 								left: -84px !important;
 								top: 100px;
-								// -webkit-box-shadow: none !important;
-								// box-shadow: none !important;
-								border: none;
-								margin: 0;
-								padding: 0;
-								&:after {
-									bottom: 100%;
-									left: 77%;
-									border: solid transparent;
-									content: " ";
-									height: 0;
-									width: 0;
-									position: absolute;
-									pointer-events: none;
-									border-color: rgba(255, 255, 255, 0);
-									border-bottom-color: #ffffff;
-									border-width: 15px;
-									margin-left: -15px;
-								} 
-								@include book;
-								li {
-									&.dditem {
-										padding-top: 3px;
-										padding-bottom: 3px;
-										&:hover {
-											// background-color: $gray-main;
-											background-color: $brand-info;
-											color: white !important;
-											a {
-											color: white !important;
-											}
-										}
-									}
-									&.divider {
-										margin: 0;
-									}
-									font-size: 16px;
-									@include serif-book;
-									// text-transform: uppercase;
-								}
 							}
 						}
 					}
