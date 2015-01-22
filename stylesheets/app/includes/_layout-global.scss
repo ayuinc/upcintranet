@@ -71,10 +71,31 @@ body {
 }
 
 #collapseMobile {
-	margin-left: 14px !important;
-	ul li {
-		@include serif-book;
-		font-size: 14px;
+	margin-top: 21px !important;
+	ul.mobile-menu {
+		> li {
+			padding-left: 21px !important;
+			a {
+				@include book;
+				color: white !important;
+				font-size: 20px !important;
+				text-transform: uppercase;
+			}
+			&:nth-child(even) {
+				background: $gray-light;
+			}
+			&:nth-child(odd) {
+				background: $gray-lighter;
+				a {
+				color: $gray-main !important;
+				}
+			}
+			@include serif-book;
+			font-size: 14px;
+		}
+	}
+	.child li {
+		padding-left: 21px !important;
 	}
 }
 
@@ -644,18 +665,23 @@ body {
 					}
 				}
 			}
-			.busqueda {
-				padding-bottom: 14px;
-				margin-top:28px !important;
-				&.col-sm-3 {
+			.col-sm-4 {
+				.search-bar, .search-icon {
+					padding-bottom: 14px;
+					margin-top:28px !important;
+				}
+				.search-bar {
 					padding-right: 0px !important;
 				}
-				&.col-sm-1 {
+				.search-icon {
 					padding-left: 3px !important;
 					img {
 						float: left;
 						cursor: pointer !important;
 					}
+				}
+				.search-trigger {
+					padding-top: 28px !important;
 				}
 			}
 			.col-sm-3.right-upper-corner {

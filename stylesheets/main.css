@@ -4959,11 +4959,26 @@ body {
     margin-bottom: 3px; }
 
 #collapseMobile {
-  margin-left: 14px !important; }
-  #collapseMobile ul li {
+  margin-top: 21px !important; }
+  #collapseMobile ul.mobile-menu > li {
+    padding-left: 21px !important;
     font-family: "zizou-slab-regular" !important;
     font-style: normal;
     font-size: 14px; }
+    #collapseMobile ul.mobile-menu > li a {
+      font-family: "sgothic-rgcap" !important;
+      font-style: normal;
+      color: white !important;
+      font-size: 20px !important;
+      text-transform: uppercase; }
+    #collapseMobile ul.mobile-menu > li:nth-child(even) {
+      background: #858688; }
+    #collapseMobile ul.mobile-menu > li:nth-child(odd) {
+      background: #E3E3E3; }
+      #collapseMobile ul.mobile-menu > li:nth-child(odd) a {
+        color: #565658 !important; }
+  #collapseMobile .child li {
+    padding-left: 21px !important; }
 
 .site-content {
   position: absolute;
@@ -5378,16 +5393,18 @@ body {
       .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu {
         left: -70px !important;
         top: 70px; }
-    .site-header .container-fluid .header-no-global .busqueda {
+    .site-header .container-fluid .header-no-global .col-sm-4 .search-bar, .site-header .container-fluid .header-no-global .col-sm-4 .search-icon {
       padding-bottom: 14px;
       margin-top: 28px !important; }
-      .site-header .container-fluid .header-no-global .busqueda.col-sm-3 {
-        padding-right: 0px !important; }
-      .site-header .container-fluid .header-no-global .busqueda.col-sm-1 {
-        padding-left: 3px !important; }
-        .site-header .container-fluid .header-no-global .busqueda.col-sm-1 img {
-          float: left;
-          cursor: pointer !important; }
+    .site-header .container-fluid .header-no-global .col-sm-4 .search-bar {
+      padding-right: 0px !important; }
+    .site-header .container-fluid .header-no-global .col-sm-4 .search-icon {
+      padding-left: 3px !important; }
+      .site-header .container-fluid .header-no-global .col-sm-4 .search-icon img {
+        float: left;
+        cursor: pointer !important; }
+    .site-header .container-fluid .header-no-global .col-sm-4 .search-trigger {
+      padding-top: 28px !important; }
     .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner {
       font-family: "zizou-slab-regular" !important;
       font-weight: 100;
@@ -8307,6 +8324,10 @@ input[type="submit"].btn.btn-white.btn-custom {
   @media only screen and (max-width: 480px) {
     .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
       margin-left: 12px !important; } }
+@media only screen and (max-width: 480px) {
+  .mis-reservas-reservar .section-content .col-sm-6.disponibilidad {
+    padding-right: 35px !important;
+    margin-top: 42px !important; } }
 
 .section-desc {
   font-family: "zizou-slab-regular" !important;
