@@ -17,9 +17,9 @@
   <ul class="list-unstyled mobile-menu">
     <li class="parent"><a href="">Mis Estudios</a>
       <ul class="list-unstyled child">
-        <li><a href="http://www.google.com" target="_blank">mis-estudios-1</a></li>
-        <li><a href="">misestudios-2</a></li>
-        <li><a href="">misestudios-3</a></li>
+        {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="8"}
+          <li><a href="{site_url}mis-estudios/{url_title}">{title}</a></li>
+        {/exp:channel:entries}
       </ul>
     </li>
     <li class="parent"><a href="">Mis Reservas</a>
