@@ -7810,7 +7810,7 @@ a {
   .panel .panel-body.canales {
     padding-bottom: 28px; }
     .panel .panel-body.canales .panel-table {
-      min-height: 160px !important; }
+      min-height: 140px !important; }
       .panel .panel-body.canales .panel-table .tr {
         border: none !important; }
   .panel .panel-body .panel-table {
@@ -7944,23 +7944,6 @@ a {
     background-color: white;
     text-align: center;
     padding-top: 7px; }
-  .panel .panel-body .panel-table.mis-reservas-content ul.tr li.col-sm-2 div span {
-    font-family: "nimbus-sans" !important;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 12px; }
-  .panel .panel-body .panel-table.mis-reservas-content ul.tr li.col-sm-6 div span {
-    font-family: "nimbus-sans" !important;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 12px; }
-  .panel .panel-body .panel-table.white-cells ul {
-    border: none; }
-    .panel .panel-body .panel-table.white-cells ul li {
-      background: white;
-      margin-bottom: 7px; }
-  .panel .panel-body .panel-table.cursos-detallados ul + ul {
-    margin-top: 5px; }
   .panel .panel-body .panel-table.mis-cursos-content ul + ul {
     margin-top: 5px; }
   .panel .panel-body .panel-table.mis-cursos-content ul {
@@ -8107,6 +8090,9 @@ a {
           border: none; }
       .panel .panel-body .panel-table .tr li:last-child div {
         border: none; }
+  .panel .panel-footer {
+    background-color: white;
+    padding-bottom: 14px; }
 
 .nota-final .detalle-nota-final ul li .my-inner {
   padding-right: 10px !important;

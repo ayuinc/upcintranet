@@ -71,7 +71,7 @@
 		&.canales {
 			padding-bottom: 28px;
 			.panel-table {
-				min-height: 160px !important;
+				min-height: 140px !important;
 				.tr {
 					border: none !important;
 				}
@@ -237,37 +237,6 @@
 			padding-top: 7px;
 		}
 		.panel-table {
-			&.mis-reservas-content {
-				ul.tr {
-					li.col-sm-2 div span {
-						@include alt-bold;
-						font-size: 12px;
-					}
-					li.col-sm-6 div span {
-						@include alt-book;
-						font-size: 12px;
-					}
-				}
-			}
-			&.white-cells {
-				ul {
-					border: none;
-					li {
-						background: white;
-						margin-bottom: 7px;
-					}
-				}
-			}
-			&.cursos-detallados {
-				// ul {
-				// 	li {
-				// 		&.col-sm-6
-				// 	}
-				// }
-				ul + ul {
-					margin-top: 5px;
-				}
-			}
 			&.mis-cursos-content {
 				ul + ul {
 					margin-top: 5px;
@@ -349,7 +318,6 @@
 				}	
 				@include list-unstyled;
 				@include clearfix;
-				// border-bottom: 1px solid $gray-lighter;
 				li {
 					padding: 7px 0;
 					&.pdte-tr {
@@ -410,7 +378,8 @@
 		}
 	}
 	.panel-footer {
-
+		background-color: white;
+		padding-bottom: 14px;
 	}
 }
 
