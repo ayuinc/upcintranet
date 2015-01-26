@@ -8329,6 +8329,9 @@ input[type="submit"].btn.btn-white.btn-custom {
     padding-right: 35px !important;
     margin-top: 42px !important; } }
 
+input#buscar-alumno {
+  width: 200px !important; }
+
 .section-desc {
   font-family: "zizou-slab-regular" !important;
   font-style: normal;
