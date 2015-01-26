@@ -4491,7 +4491,7 @@ tbody.collapse.in {
   font-style: normal; }
 
 .serif-light-italic {
-  font-family: "Zizou Slab", "Times New Roman", Times, serif !important;
+  font-family: "zizou-slab-regular", "Times New Roman", Times, serif !important;
   font-weight: 300;
   font-style: italic; }
 
@@ -4509,7 +4509,7 @@ tbody.collapse.in {
   font-style: normal; }
 
 .serif-medium-italic {
-  font-family: "Zizou Slab", "Times New Roman", Times, serif !important;
+  font-family: "zizou-slab-regular", "Times New Roman", Times, serif !important;
   font-weight: 500;
   font-style: italic; }
 
@@ -4518,7 +4518,7 @@ tbody.collapse.in {
   font-style: normal; }
 
 .serif-bold-italic {
-  font-family: "Zizou Slab", "Times New Roman", Times, serif !important;
+  font-family: "zizou-slab-regular", "Times New Roman", Times, serif !important;
   font-weight: 700;
   font-style: italic; }
 
