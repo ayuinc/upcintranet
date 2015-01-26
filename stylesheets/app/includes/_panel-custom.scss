@@ -30,8 +30,6 @@
 			border-bottom: $gray-lighter 2px solid;
 			margin-left: 7px;
 			width: 97%;
-			// float: left;
-			// @include serif-book;
 		}
 		.panel-head-right {
 			float: right;
@@ -56,15 +54,6 @@
 					margin-top: -30px !important;
 				}
 			}
-		}
-		.panel-display {
-			
-		}
-		.panel-actions {
-			
-		}
-		.panel-scroll {
-			
 		}
 	}
 	.panel-body {
@@ -302,9 +291,6 @@
 					} 
 				}
 			}
-			&.detalle-nota-final {
-				background-color: transparent !important;
-			}
 			&.striped {
 					.tr:nth-child(even) {background: white};
 					.tr:nth-child(odd) {background: $gray-lighter}
@@ -380,33 +366,5 @@
 	.panel-footer {
 		background-color: white;
 		padding-bottom: 14px;
-	}
-}
-
-// other widgets
-.nota-final {
-	.detalle-nota-final {
-		ul {
-			li {
-				.my-inner {
-					padding-right: 10px !important;
-					padding-left: 0px !important;
-					border: none !important;
-					.row, span {
-					background-color: white;
-					}
-					.row {
-						margin: 0;
-						padding: 7px 14px !important;
-					}
-					.row div .etiqueta {
-						text-transform: uppercase;
-					}
-					&.adobe {
-					padding-right: 0px !important;
-					}
-				}
-			}			
-		}
 	}
 }
