@@ -24,7 +24,7 @@ body {
 	position: fixed;
 		.sidebar-top {
 			height: 47px;
-			border-bottom: 1px solid $gray-dark;
+			// border-bottom: 1px solid $gray-dark;
 			img {
 				display: inline-block !important;
 			}
@@ -41,7 +41,7 @@ body {
 .site-header {
 	position: fixed;
 	width: 100%;
-	height: 86px;
+	height: 47px;
 	background: $gray-light;
 	z-index: 1010;
 	&.outside {
@@ -591,8 +591,12 @@ body {
 			color: $gray-light;
 			text-transform: uppercase;
 			margin-left: -28px;
-			border-bottom: 1px solid $gray-dark;
+			// border-bottom: 1px solid $gray-dark;
 			background-color: white;
+			height: 47px !important;
+			>.pull-left {
+				margin-left: 126px !important;
+			}
 		}
 		.header-iframe {
 			background-image:url("../assets/img/trama.png");
