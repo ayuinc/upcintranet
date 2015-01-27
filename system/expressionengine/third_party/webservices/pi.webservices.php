@@ -2259,7 +2259,7 @@ class Webservices
       $tamano = count($json['Recursos']); 
       
       if($error=='00000'){
-        $result .= '<div class="panel-table no-bg">';
+        $result .= '<div class="panel-table">';
         for ($i=0; $i<$tamano; $i++) { 
           //if($json['Recursos'][$i]['Estado'] == true){
           if(true){
