@@ -2259,10 +2259,15 @@ class Webservices
       $tamano = count($json['Recursos']); 
       
       if($error=='00000'){
-        $result .= '<div class="panel-table">';
-        for ($i=0; $i<$tamano; $i++) { 
+        $result .= '<div class="flexslider">';
+        $result .= '<ul class="slides">';
+        $tamano = 24;
+        for ($i=1; $i<=$tamano; $i++) { 
           //if($json['Recursos'][$i]['Estado'] == true){
           if(true){
+            if ($i % 5 == 1) {
+              $result .= '<li>'; // apertura
+            }
             $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
             $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
             $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
@@ -2274,7 +2279,9 @@ class Webservices
             $result .= '<input type="hidden" name="HoraFin" value="'.$HoraFin.'" />';
             $result .= '<input type="hidden" name="Flag" value="1" />';       
             $result .= '<ul class="tr">';
-            $result .= '<li class="col-xs-4 helvetica-12">';
+            $result .= '<li class="col-xs-1">';
+            $result .= '</li>';
+            $result .= '<li class="col-xs-3 helvetica-12">';
             $result .= '<div class="text-center">';    
             $result .= '<span>'.$json['Recursos'][$i]['NomRecurso'].'</span>';
             $result .= '</div>';
@@ -2284,15 +2291,19 @@ class Webservices
             $result .= '<span>'.$json['Recursos'][$i]['Local'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
-            $result .= '<li class="col-xs-4 helvetica-12">';
+            $result .= '<li class="col-xs-3 helvetica-12">';
             $result .= '<div class="text-center">';       
             $result .= '<input type="submit" class="btn btn-custom info mb-7" value="Reservar" name="submit">';
             $result .= '</div>';
             $result .= '</li>';       
             $result .= '</ul>';
             $result .= '</form>';
+            if ($i % 5 == 0) {
+              $result .= "</li>"; //cierre
+            } 
           }
         }
+        $result .= "</ul>";
         $result .= "</div>";
       }
       //Control de errores
