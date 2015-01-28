@@ -293,10 +293,10 @@ class Webservices
 
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
         //$result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
-        $result .=  '<div class="col-sm-2">';
+        $result .=  '<li class="ml-21 mr-21">';
         $result .=  '<div class="dropdown avatar-hijo">';
         $result .=  '<div class="dropdown-toggle" id="dropdownMenuA" data-toggle="dropdown">';
-        $result .=  '<img src="{site_url}images/avatars/default_set/user.png">';
+        $result .=  '<img class="block" src="{site_url}images/avatars/default_set/user.png">';
         // $result .=  '<span>'.$json["hijos"][$i]["nombres"].'</span>';
         $result .=  '<span class="text-muted">FIORELLA</span>';
         $result .=  '</div>';
@@ -304,7 +304,7 @@ class Webservices
         $result .=  '<li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">Activar su perfil</a></li>';
         $result .=  '</ul>';
         $result .=  '</div>';
-        $result .=  '</div>';
+        $result .=  '</li>';
       }
       
       return $result;             

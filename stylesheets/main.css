@@ -7158,9 +7158,6 @@ input[type="submit"].btn.btn-white.btn-custom {
 .site-header .container-fluid {
   padding: 0; }
   .site-header .container-fluid .header-global {
-    font-family: "sgothic-bdcap" !important;
-    font-weight: 700;
-    font-style: normal;
     font-size: 18px;
     color: #858688;
     text-transform: uppercase;
