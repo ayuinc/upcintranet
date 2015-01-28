@@ -9,23 +9,6 @@
 	}
 	.panel-head {
 		@include clearfix;
-		&.muted-head-underlined {
-			border-bottom: 2px solid white;
-			margin: 14px auto;
-			h2 {
-				font-size: rem($custom-h2);
-				font-size: $custom-h2;
-				color: white;
-			}
-		}
-		&.muted-head {
-			margin: 14px auto;
-			h2 {
-				font-size: rem($custom-h2);
-				font-size: $custom-h2;
-				color: white;
-			}
-		}
 		.panel-head-wrap {
 			border-bottom: $gray-lighter 2px solid;
 			margin-left: 7px;
@@ -71,12 +54,6 @@
 			&.observaciones {
 				background-color: $brand-info !important;
 				border-top: 2px solid $brand-danger;
-			}
-			&.no-bg {
-				background: none !important;
-				.tr {
-					background-color: white !important;
-				}
 			}
 			.tr {
 				li.formula {
@@ -137,7 +114,6 @@
 				padding-left: 7px;
 			}
 			&.tall {
-				// background: black;
 				min-height: 63px;
 				padding: 7px;
 			}
@@ -291,14 +267,7 @@
 					} 
 				}
 			}
-			&.striped {
-					.tr:nth-child(even) {background: white};
-					.tr:nth-child(odd) {background: $gray-lighter}
-			}
 			.tr {
-				&.row-libre {
-					padding-left: 7px;
-				}
 				a {
 					color: black;
 				}	
@@ -315,16 +284,6 @@
 						background-color: lighten($brand-info, 28%);
 						color: $brand-info;
 						text-transform: uppercase;
-					}
-					&.whole-cell-height {
-						border-right: 1px solid $gray-light;
-						border-bottom: 1px solid $gray-light;
-						background: white;
-						@include display(flex);
-						@include flex-direction(column);
-						@include justify-content(center);
-						min-height: 42px;						
-						padding: 0 6px;
 					}
 					div {
 						h1, h2, h3, h4, h5, h6 {

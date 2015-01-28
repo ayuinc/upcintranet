@@ -1,0 +1,184 @@
+// Sidebar
+.nav-main {
+		top: 20px;
+		> li {
+		border-bottom: 1px solid $gray-lighter !important;
+		position: relative;
+		background-color: white;
+		&.open {
+			ul {
+				width: 210px;
+				@include transition(all 0.2s ease-in-out);
+			}
+		}
+		a span {
+			color: $gray-main;
+		}
+		&.active-menu {
+			background-color: white;
+			a span {
+			color: $brand-danger;
+			}
+			&.mis-estudios a div {
+			background-image: url(../assets/img/mis_estudios_red.png);
+			}
+			&.mi-docencia a div {
+			background-image: url(../assets/img/mi_docencia_red.png);
+			}
+			&.mis-alumnos a div {
+			background-image: url(../assets/img/mis_alumnos_red.png);
+			}
+			&.mis-tramites a div {
+			background-image: url(../assets/img/mis_tramites_red.png);
+			}
+			&.mis-finanzas a div {
+			background-image: url(../assets/img/mis_finanzas_red.png);
+			}
+			&.mis-reservas a div {
+			background-image: url(../assets/img/mis_reservas_red.png);
+			}
+			&.info-gral a div {
+			background-image: url(../assets/img/info_red.png);
+			}
+			&.ci a div {
+			background-image: url(../assets/img/ci_red.png);
+			}
+			&.ayuda a div {
+			background-image: url(../assets/img/ayuda_red.png);
+			}
+		}
+		&.current-menu {
+			background-color: white;
+			a span {
+			color: $brand-danger;
+			}
+			&.mis-estudios a div {
+			background-image: url(../assets/img/mis_estudios_red.png);
+			}
+			&.mi-docencia a div {
+			background-image: url(../assets/img/mi_docencia_red.png);
+			}
+			&.mis-alumnos a div {
+			background-image: url(../assets/img/mis_alumnos_red.png);
+			}
+			&.mis-tramites a div {
+			background-image: url(../assets/img/mis_tramites_red.png);
+			}
+			&.mis-finanzas a div {
+			background-image: url(../assets/img/mis_finanzas_red.png);
+			}
+			&.mis-reservas a div {
+			background-image: url(../assets/img/mis_reservas_red.png);
+			}
+			&.info-gral a div {
+			background-image: url(../assets/img/info_red.png);
+			}
+			&.ci a div {
+			background-image: url(../assets/img/ci_red.png);
+			}
+			&.ayuda a div {
+			background-image: url(../assets/img/ayuda_red.png);
+			}
+		} 
+		&.inicio {
+			padding-bottom: 14px;
+			padding-top: 10px;
+			a div {
+			margin-bottom: -9px;
+			background-image: url(../assets/img/home_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+			}
+		}			
+		&.mis-estudios a div {
+			background-image: url(../assets/img/mis_estudios_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.mi-docencia a div {
+			background-image: url(../assets/img/mi_docencia_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.mis-alumnos a div {
+			background-image: url(../assets/img/mis_alumnos_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.mis-tramites a div {
+			background-image: url(../assets/img/mis_tramites_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.info-gral a div {
+			background-image: url(../assets/img/info_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.mis-finanzas a div {
+			background-image: url(../assets/img/mis_finanzas_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.mis-reservas a div {
+			background-image: url(../assets/img/mis_reservas_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.ci a div {
+			background-image: url(../assets/img/ci_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		&.ayuda a div {
+			background-image: url(../assets/img/ayuda_grey.png);
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		a {
+			@include bold;
+			display: block;
+			text-align: center;
+			padding: 3px;
+			color: $gray-darker;
+			&:hover {
+				text-decoration: none;
+			}
+			div {
+				height: 50px;
+				margin-bottom: 2px;
+			}
+			span {
+				text-transform: uppercase;
+				font-size: rem(13px) !important;
+				font-size: 13px !important;
+			}
+		}
+		ul {
+			width: 0;
+			position: absolute;
+			background: white;
+			top: -1px;
+			left: 80px;
+			@include transition(all 0.02s ease-in-out);
+			overflow: hidden;
+			li {
+				border-top: 1px solid $gray-lighter;
+				width: 210px;
+				padding-left: 7px;
+				a {
+					@include serif-thin;
+					display: block;
+					color: $gray-main;
+					width: 210px;
+					font-size: 16px;
+					text-align: left;
+					&:hover {
+						background: white;
+						color: $brand-danger !important;
+					}
+				}
+			}
+		}
+	}
+}

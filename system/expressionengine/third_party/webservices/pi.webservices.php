@@ -628,7 +628,7 @@ class Webservices
         $result .= '<div class="panel-body mb-35">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
@@ -1563,7 +1563,7 @@ class Webservices
         $result .= '<div class="panel-body mb-35">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
@@ -2367,7 +2367,7 @@ class Webservices
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];      
         
-        $result .= '<div class="panel-table no-bg">';
+        $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-3 helvetica-12">';
         $result .= '<div class="text-center">';
@@ -2434,7 +2434,7 @@ class Webservices
        
       $tamano = count($json['Reservas']); 
       
-      $result .= '<div class="panel-table no-bg">';
+      $result .= '<div class="panel-table">';
       for ($i=0; $i<$tamano; $i++) { 
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-2 helvetica-12">';
@@ -2554,7 +2554,7 @@ class Webservices
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';  
-        $result .= '<div class="panel-table no-bg">';              
+        $result .= '<div class="panel-table">';              
         
         //genera el tamano del array
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
@@ -2638,7 +2638,7 @@ class Webservices
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';  
-        $result .= '<div class="panel-table no-bg">';              
+        $result .= '<div class="panel-table">';              
         
         //genera el tamano del array
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
@@ -3103,7 +3103,7 @@ class Webservices
         $result .= '<div class="panel-body mb-35">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
@@ -3295,7 +3295,7 @@ class Webservices
         $result .= '<div class="panel-body mb-35">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
