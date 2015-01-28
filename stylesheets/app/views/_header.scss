@@ -1,6 +1,6 @@
 .site-header {
 	.container-fluid {
-		padding-right: 0;
+		padding: 0;
 		.header-global {
 			@include bold;
 			font-size: 18px;
@@ -20,119 +20,68 @@
 			border-bottom: 1px solid $gray-main;
 		}
 		.header-no-global {
-			padding-left: 98px !important;
 			padding-right: 35px !important;
 			border-bottom: 1px solid #d3d3d3 !important;
 			background-image:url("../assets/img/header_no_global.png");
+			height: 100px;
 			@include bold;
 			text-transform: uppercase;
 			text-align: center;
-			&.alumno, &.docente {
-				.col-sm-5 {
-					.row {
-						.col-sm-3 {
-							a {
-								div {
-									height: 35px !important;
-									margin-bottom: 7px;
-									&.mi-correo {
-										padding-top: 7px;
-									}
-								}
-								span {
-									color: white;
-									&:hover {
-										text-decoration: underline;
-									}
-								}
-							}
-							.print {
-								margin-bottom: 7px; 
-							}
+			.inicio {
+				background-color: white;
+				color: $gray-light;
+				display: inline-block;
+				float: left;
+				height: 100%;
+				padding: 28px 21px;
+			}
+			.pull-left {
+				ul {
+					padding-top: 18px;
+					list-style: none;
+					li {
+						display: inline-block;
+						color: white;
+						img {
+							margin-left: auto;
+							margin-right: auto;
 						}
-					 }
-					}	
-				}
-			
-			&.padre, &.docente {
-				.col-sm-5 {
-					padding-top: 21px;
-					padding-bottom: 12px;
-					.row {
-						.col-sm-3 {
-							a {
-								text-decoration: none;
-								color: $gray-main;
-							}
-							.dropdown {
-								.dropdown-toggle {
-									height: 49px !important;
-									img {
-										height: 36px !important;
-										display: block;
-										margin-left: auto;
-										margin-right: auto;
-									}
-								}
-								ul.dropdown-menu {
-									left: -70px !important;
-									top: 70px;
-								}
-							}
+						span {
+							@include book;
+							font-size: 16px;
 						}
 					}
 				}
 			}
-			.col-sm-4 {
-				.search-bar, .search-icon {
-					padding-bottom: 14px;
-					margin-top:28px !important;
-				}
-				.search-bar {
-					padding-right: 0px !important;
-				}
-				.search-icon {
-					padding-left: 3px !important;
-					img {
-						float: left;
-						cursor: pointer !important;
-					}
-				}
-				.search-trigger {
-					padding-top: 28px !important;
-				}
-			}
-			.col-sm-3.right-upper-corner {
+			.pull-right {
 				@include serif-thin;
 				text-transform: none !important;
-				.row {
-					.col-sm-8 {
-						span.hola {
-							margin:0;
-							text-transform: capitalize;
-							font-size: 22px;
+				padding-top: 3px;
+				padding-bottom: 3px;
+				ul {
+					li {
+						display: inline-block;
+					}
+				}
+				.dropdown {
+					width: 70px;
+					#dropdownMenu1 {
+						border-radius: 50px;
+						border: 4px white solid;
+						margin-top: 14px;
+						padding: 3px;
+						img {
+							margin: 0;
+						}
+						&:hover {
+							border: 4px $brand-info solid;
 						}
 					}
-					.col-sm-4	{
-						padding-top: 3px;
-						padding-bottom: 3px;
-						.dropdown {
-							width: 70px;
-							#dropdownMenu1 {
-								border-radius: 50px;
-								border: 4px white solid;
-								padding: 3px;
-								img {
-									margin: 0;
-								}
-								&:hover {
-									border: 4px $brand-info solid;
-								}
-							}
-							ul.dropdown-menu {
-								left: -84px !important;
-								top: 100px;
-							}
+					ul.dropdown-menu {
+						left: -93px !important;
+						top: 100px;
+						li {
+							display: block !important; 
 						}
 					}
 				}

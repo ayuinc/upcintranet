@@ -7915,4 +7915,10 @@
 .borderless {
   border: none !important; }
 
+.block {
+  display: block; }
+
+.inline-block {
+  display: inline-block; }
+
 /*# sourceMappingURL=ebm-loops.css.map */

@@ -4029,11 +4029,8 @@ body {
   background: white;
   width: 80px;
   z-index: 2000;
-  position: fixed; }
-  .site-menu .sidebar-top {
-    height: 47px; }
-    .site-menu .sidebar-top img {
-      display: inline-block !important; }
+  position: fixed;
+  margin-top: 147px; }
 
 .lista-cursos {
   z-index: 2000;
@@ -7078,14 +7075,6 @@ input[type="submit"].btn.btn-white.btn-custom {
         background-image: url(../assets/img/ci_red.png); }
       .nav-main > li.current-menu.ayuda a div {
         background-image: url(../assets/img/ayuda_red.png); }
-    .nav-main > li.inicio {
-      padding-bottom: 14px;
-      padding-top: 10px; }
-      .nav-main > li.inicio a div {
-        margin-bottom: -9px;
-        background-image: url(../assets/img/home_grey.png);
-        background-repeat: no-repeat;
-        background-position: center; }
     .nav-main > li.mis-estudios a div {
       background-image: url(../assets/img/mis_estudios_grey.png);
       background-repeat: no-repeat;
@@ -7167,7 +7156,7 @@ input[type="submit"].btn.btn-white.btn-custom {
             color: #E42322 !important; }
 
 .site-header .container-fluid {
-  padding-right: 0; }
+  padding: 0; }
   .site-header .container-fluid .header-global {
     font-family: "sgothic-bdcap" !important;
     font-weight: 700;
@@ -7186,79 +7175,60 @@ input[type="submit"].btn.btn-white.btn-custom {
     padding-left: 28px;
     border-bottom: 1px solid #565658; }
   .site-header .container-fluid .header-no-global {
-    padding-left: 98px !important;
     padding-right: 35px !important;
     border-bottom: 1px solid #d3d3d3 !important;
     background-image: url("../assets/img/header_no_global.png");
+    height: 100px;
     font-family: "sgothic-bdcap" !important;
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
     text-align: center; }
-    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a div, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a div {
-      height: 35px !important;
-      margin-bottom: 7px; }
-      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a div.mi-correo, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a div.mi-correo {
-        padding-top: 7px; }
-    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a span, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a span {
-      color: white; }
-      .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 a span:hover, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a span:hover {
-        text-decoration: underline; }
-    .site-header .container-fluid .header-no-global.alumno .col-sm-5 .row .col-sm-3 .print, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .print {
-      margin-bottom: 7px; }
-    .site-header .container-fluid .header-no-global.padre .col-sm-5, .site-header .container-fluid .header-no-global.docente .col-sm-5 {
-      padding-top: 21px;
-      padding-bottom: 12px; }
-      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 a, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 a {
-        text-decoration: none;
-        color: #565658; }
-      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle {
-        height: 49px !important; }
-        .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle img, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown .dropdown-toggle img {
-          height: 36px !important;
-          display: block;
+    .site-header .container-fluid .header-no-global .inicio {
+      background-color: white;
+      color: #858688;
+      display: inline-block;
+      float: left;
+      height: 100%;
+      padding: 28px 21px; }
+    .site-header .container-fluid .header-no-global .pull-left ul {
+      padding-top: 18px;
+      list-style: none; }
+      .site-header .container-fluid .header-no-global .pull-left ul li {
+        display: inline-block;
+        color: white; }
+        .site-header .container-fluid .header-no-global .pull-left ul li img {
           margin-left: auto;
           margin-right: auto; }
-      .site-header .container-fluid .header-no-global.padre .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu, .site-header .container-fluid .header-no-global.docente .col-sm-5 .row .col-sm-3 .dropdown ul.dropdown-menu {
-        left: -70px !important;
-        top: 70px; }
-    .site-header .container-fluid .header-no-global .col-sm-4 .search-bar, .site-header .container-fluid .header-no-global .col-sm-4 .search-icon {
-      padding-bottom: 14px;
-      margin-top: 28px !important; }
-    .site-header .container-fluid .header-no-global .col-sm-4 .search-bar {
-      padding-right: 0px !important; }
-    .site-header .container-fluid .header-no-global .col-sm-4 .search-icon {
-      padding-left: 3px !important; }
-      .site-header .container-fluid .header-no-global .col-sm-4 .search-icon img {
-        float: left;
-        cursor: pointer !important; }
-    .site-header .container-fluid .header-no-global .col-sm-4 .search-trigger {
-      padding-top: 28px !important; }
-    .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner {
+        .site-header .container-fluid .header-no-global .pull-left ul li span {
+          font-family: "sgothic-rgcap" !important;
+          font-style: normal;
+          font-size: 16px; }
+    .site-header .container-fluid .header-no-global .pull-right {
       font-family: "zizou-slab-regular" !important;
       font-weight: 100;
       font-style: normal;
-      text-transform: none !important; }
-      .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-8 span.hola {
-        margin: 0;
-        text-transform: capitalize;
-        font-size: 22px; }
-      .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 {
-        padding-top: 3px;
-        padding-bottom: 3px; }
-        .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown {
-          width: 70px; }
-          .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown #dropdownMenu1 {
-            border-radius: 50px;
-            border: 4px white solid;
-            padding: 3px; }
-            .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown #dropdownMenu1 img {
-              margin: 0; }
-            .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown #dropdownMenu1:hover {
-              border: 4px #3298FF solid; }
-          .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu {
-            left: -84px !important;
-            top: 100px; }
+      text-transform: none !important;
+      padding-top: 3px;
+      padding-bottom: 3px; }
+      .site-header .container-fluid .header-no-global .pull-right ul li {
+        display: inline-block; }
+      .site-header .container-fluid .header-no-global .pull-right .dropdown {
+        width: 70px; }
+        .site-header .container-fluid .header-no-global .pull-right .dropdown #dropdownMenu1 {
+          border-radius: 50px;
+          border: 4px white solid;
+          margin-top: 14px;
+          padding: 3px; }
+          .site-header .container-fluid .header-no-global .pull-right .dropdown #dropdownMenu1 img {
+            margin: 0; }
+          .site-header .container-fluid .header-no-global .pull-right .dropdown #dropdownMenu1:hover {
+            border: 4px #3298FF solid; }
+        .site-header .container-fluid .header-no-global .pull-right .dropdown ul.dropdown-menu {
+          left: -93px !important;
+          top: 100px; }
+          .site-header .container-fluid .header-no-global .pull-right .dropdown ul.dropdown-menu li {
+            display: block !important; }
 
 .site-content.login {
   margin-top: 0px;
