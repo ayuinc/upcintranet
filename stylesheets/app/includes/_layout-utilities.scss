@@ -61,7 +61,7 @@
 	padding: 7px !important;
 	border-radius: 0px;
 	border: none !important;
-	@include book;
+	@include bold;
 	text-transform: uppercase;
 	color: white;
 	&:hover {

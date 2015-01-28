@@ -4110,7 +4110,7 @@ body {
         float: right; }
       .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted {
         padding-bottom: 77px !important;
-        border-bottom: 4px solid #E42322; }
+        border-bottom: 2px solid #E42322; }
         .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form {
           margin-top: -21px !important; }
           .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-sm-8 {
@@ -4253,7 +4253,7 @@ body {
 .nav-main {
   top: 20px; }
   .nav-main > li {
-    border-bottom: 2px solid #E3E3E3 !important;
+    border-bottom: 1px solid #E3E3E3 !important;
     position: relative;
     background-color: white; }
     .nav-main > li.open ul {
@@ -4456,7 +4456,7 @@ body {
     background-color: white;
     height: 47px !important; }
     .site-header .container-fluid .header-global > .pull-left {
-      margin-left: 126px !important; }
+      margin-left: 87px !important; }
   .site-header .container-fluid .header-iframe {
     background-image: url("../assets/img/trama.png");
     background-position: 7% 80%;
@@ -4465,7 +4465,7 @@ body {
   .site-header .container-fluid .header-no-global {
     padding-left: 98px !important;
     padding-right: 35px !important;
-    border-bottom: 2px solid #d3d3d3 !important;
+    border-bottom: 1px solid #d3d3d3 !important;
     background-image: url("../assets/img/header_no_global.png");
     font-family: "sgothic-bdcap" !important;
     font-weight: 700;
@@ -4531,6 +4531,8 @@ body {
             padding: 3px; }
             .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown #dropdownMenu1 img {
               margin: 0; }
+            .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown #dropdownMenu1:hover {
+              border: 4px #3298FF solid; }
           .site-header .container-fluid .header-no-global .col-sm-3.right-upper-corner .row .col-sm-4 .dropdown ul.dropdown-menu {
             left: -84px !important;
             top: 100px; }
@@ -6837,7 +6839,8 @@ body {
   padding: 7px !important;
   border-radius: 0px;
   border: none !important;
-  font-family: "sgothic-rgcap" !important;
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
   font-style: normal;
   text-transform: uppercase;
   color: white; }
