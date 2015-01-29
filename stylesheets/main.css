@@ -4030,7 +4030,7 @@ body {
   width: 80px;
   z-index: 2000;
   position: fixed;
-  margin-top: 147px; }
+  margin-top: 156px; }
 
 .lista-cursos {
   z-index: 2000;
@@ -7161,11 +7161,10 @@ input[type="submit"].btn.btn-white.btn-custom {
     font-size: 18px;
     color: #858688;
     text-transform: uppercase;
-    margin-left: -28px;
     background-color: white;
-    height: 47px !important; }
-    .site-header .container-fluid .header-global > .pull-left {
-      margin-left: 87px !important; }
+    height: 56px !important; }
+    .site-header .container-fluid .header-global .pull-left ul li {
+      display: inline-block; }
   .site-header .container-fluid .header-iframe {
     background-image: url("../assets/img/trama.png");
     background-position: 7% 80%;
@@ -7190,6 +7189,7 @@ input[type="submit"].btn.btn-white.btn-custom {
       padding: 28px 21px; }
     .site-header .container-fluid .header-no-global .pull-left ul {
       padding-top: 18px;
+      padding-left: 28px;
       list-style: none; }
       .site-header .container-fluid .header-no-global .pull-left ul li {
         display: inline-block;

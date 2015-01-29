@@ -5,11 +5,16 @@
 			font-size: 18px;
 			color: $gray-light;
 			text-transform: uppercase;
-			margin-left: -28px;
+			// margin-left: -28px;
 			background-color: white;
-			height: 47px !important;
-			>.pull-left {
-				margin-left: 87px !important;
+			height: 56px !important;
+			.pull-left {
+				ul {
+					li {
+						display: inline-block;
+					}
+				}
+				// margin-left: 87px !important;
 			}
 		}
 		.header-iframe {
@@ -37,6 +42,7 @@
 			.pull-left {
 				ul {
 					padding-top: 18px;
+					padding-left: 28px;
 					list-style: none;
 					li {
 						display: inline-block;
