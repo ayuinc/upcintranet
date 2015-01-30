@@ -304,9 +304,8 @@ class Webservices
         }
         $result .=  '<img class="block" src="{site_url}images/avatars/default_set/user.png">';
         $result .=  '</div>';
-        $result .=  '<span>'.$nombre_hijo.'</span>';
-        //  $result .=  '<span class="text-muted">FIORELLA</span>';
         $result .=  '</div>';
+        $result .=  '<span>'.$nombre_hijo.'</span>';
         $result .=  '<ul class="dropdown-menu first-child" role="menu" aria-labelledby="dropdownMenuA">';
         $result .=  '<li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">Activar su perfil</a></li>';
         $result .=  '</ul>';

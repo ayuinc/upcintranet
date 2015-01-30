@@ -289,8 +289,18 @@ body {
 	}
 	&.avatar-hijo {
 		.dropdown-toggle {
-			img {
-				height: 42px !important;
+			.avatar-container {
+				border-radius: 50px;
+				border: 4px solid white;
+				&.active-child {
+					border: 4px solid $brand-danger;
+				}
+				padding: 3px;
+				background-color: $gray-light;
+				width: 50px !important;
+				img {
+					height: 38px !important;
+				}
 			}
 		}
 		.dropdown-menu {
