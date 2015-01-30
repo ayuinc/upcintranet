@@ -56,3 +56,39 @@
 		}
 	}
 }
+
+// custom flexslider
+.flexslider {
+	border: none !important;
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+.flex-direction-nav a:before  { 
+    content: " ";
+    display: block;
+    background: url('../assets/img/black_arrow_tiny_left.png') no-repeat;
+    width: 40px;
+    height: 40px;
+}
+.flex-direction-nav a.flex-next:before  { 
+    content: " ";
+    display: block;
+    background: url('../assets/img/black_arrow_tiny.png') no-repeat;
+    width: 40px;
+    height: 40px;
+}
+
+.flexslider:hover .flex-prev {
+	left: 21px !important;
+}
+
+.flexslider:hover .flex-next {
+	right: 0 !important;
+}
+
+.flex-control-paging li a {
+	display: inline !important;
+	padding: 0 6px !important;
+	color: white !important;
+	@include alt-ab-book;
+}

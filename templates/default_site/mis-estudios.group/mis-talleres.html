@@ -68,22 +68,22 @@
                         {fecha-referencia  format="%d %F"}, {hora-referencia}, Aula {aula-referencia}
                         </p>
                         {/if}    
-                        <p class="sb-link pl-7 zizou-14">
-													{if archivo-referencia}
-	                        <a class="col-xs-11 p-7" href="{archivo-referencia}">
-		                      {/if}  
-													{if link-referencia}
-	                        <a class="col-xs-11 p-7" href="{link-referencia}">
-		                      {/if}  		                       	                        
-	                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
-	                      	{if archivo-referencia}
-	                        </a>
-		                      {/if}  
-													{if link-referencia}
-	                        </a>
-		                      {/if}
-                        </p>
                       </ul>
+                    </div>
+                    <div class="panel-footer">
+                      {if archivo-referencia}
+                        <a class="sb-link pl-7 zizou-14" href="{archivo-referencia}">
+                      {/if}  
+                      {if link-referencia}
+                        <a class="sb-link pl-7 zizou-14" href="{link-referencia}">
+                      {/if}                                                     
+                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
+                      {if archivo-referencia}
+                        </a>
+                      {/if}  
+                      {if link-referencia}
+                        </a>
+                      {/if}
                     </div>
                   </div>
                 </div>

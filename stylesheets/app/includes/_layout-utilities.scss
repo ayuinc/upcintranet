@@ -1,37 +1,3 @@
-.col-md-2-4{
-  @include make-md-column(2.4)
-}
-.col-sm-2-4{
-  @include make-sm-column(2.4)
-}
-.col-xs-2-4{
-  @include make-xs-column(2.4)
-}
-
-.col-sm-0-8{
-  @include make-sm-column(0.8)
-}
-
-.col-sm-0-5{
-  @include make-sm-column(0.5)
-}
-
-.col-sm-1-5{
-  @include make-sm-column(1.5)
-}
-
-.col-xs-1-5{
-  @include make-xs-column(1.5)
-}
-
-.col-xs-4-5{
-  @include make-xs-column(4.5)
-}
-
-.col-sm-7-5{
-  @include make-sm-column(7.5)
-}
-
 .m-auto {
 	margin: auto !important;
 }
@@ -47,7 +13,7 @@
 		margin-right: $nm * -1 * 7 + px !important;
 	}		
 }
-
+// Custom Buttons
 .btn-custom {
 	&.gray {
 		background-color: $gray-main !important;
@@ -61,7 +27,7 @@
 	padding: 7px !important;
 	border-radius: 0px;
 	border: none !important;
-	@include book;
+	@include bold;
 	text-transform: uppercase;
 	color: white;
 	&:hover {
@@ -84,4 +50,8 @@ a {
 	&.sb-link {
 		color: $brand-info !important;
 	}					
+}
+// Custom Line Heights
+.lh-1-1 {
+	line-height: 1.1 !important;
 }

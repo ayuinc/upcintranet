@@ -1,9 +1,4 @@
 $(document).ready(function(){
-	var freeTime = $('.row-libre');
-	var scheduleDisplay = $('#horas-libres');
-	scheduleDisplay.click(function(){
-		freeTime.toggle();
-	});
 	var debts = $('#pagos-pdtes');
 	var debtsPlaceholder = $("#pagos-placeholder");
 	debtsPlaceholder.click(function(){

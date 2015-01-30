@@ -293,10 +293,10 @@ class Webservices
 
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
         //$result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
-        $result .=  '<div class="col-sm-2">';
+        $result .=  '<li class="ml-21 mr-21">';
         $result .=  '<div class="dropdown avatar-hijo">';
         $result .=  '<div class="dropdown-toggle" id="dropdownMenuA" data-toggle="dropdown">';
-        $result .=  '<img src="{site_url}images/avatars/default_set/user.png">';
+        $result .=  '<img class="block" src="{site_url}images/avatars/default_set/user.png">';
         // $result .=  '<span>'.$json["hijos"][$i]["nombres"].'</span>';
         $result .=  '<span class="text-muted">FIORELLA</span>';
         $result .=  '</div>';
@@ -304,7 +304,7 @@ class Webservices
         $result .=  '<li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">Activar su perfil</a></li>';
         $result .=  '</ul>';
         $result .=  '</div>';
-        $result .=  '</div>';
+        $result .=  '</li>';
       }
       
       return $result;             
@@ -628,7 +628,7 @@ class Webservices
         $result .= '<div class="panel-body mb-35">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
@@ -1016,7 +1016,7 @@ class Webservices
       $tamano = count($json['Inasistencias']);
 
       $result .= '<div class="panel-body">';
-      $result .= '<div class="panel-body-head-table">';
+      $result .= '<div class="panel-body-head-table white">';
       $result .= '<ul class="tr">';
       $result .= '<li class="col-xs-2"><div><span>Código Curso</span></div></li>';
       $result .= '<li class="col-xs-7"><div><span>Nombre</span></div></li>';
@@ -1029,18 +1029,18 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
 
         $result .= '<li class="col-xs-2 helvetica-12">';
-        $result .= '<div>';
-        $result .= '<span class="text-left">'.$json['Inasistencias'][$i]['CodCurso'].'</span>';
+        $result .= '<div class="text-center">';
+        $result .= '<span>'.$json['Inasistencias'][$i]['CodCurso'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-7 text-center helvetica-bold-14">';
-        $result .= '<div>';       
-        $result .= '<span class="text-left">'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+        $result .= '<li class="col-xs-7 text-center solano-bold-14">';
+        $result .= '<div class="text-center">';       
+        $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-3 text-center helvetica-bold-14">';
-        $result .= '<div>';
-        $result .= '<span class="text-left">'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
+        $result .= '<div class="borderless text-center">';
+        $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
 
@@ -1563,7 +1563,7 @@ class Webservices
         $result .= '<div class="panel-body mb-35">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
@@ -2258,10 +2258,15 @@ class Webservices
       $tamano = count($json['Recursos']); 
       
       if($error=='00000'){
-        $result .= '<div class="panel-table no-bg">';
-        for ($i=0; $i<$tamano; $i++) { 
+        $result .= '<div class="flexslider">';
+        $result .= '<ul class="slides">';
+        $tamano = 24;
+        for ($i=1; $i<=$tamano; $i++) { 
           //if($json['Recursos'][$i]['Estado'] == true){
           if(true){
+            if ($i % 5 == 1) {
+              $result .= '<li>'; // apertura
+            }
             $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
             $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
             $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
@@ -2273,7 +2278,9 @@ class Webservices
             $result .= '<input type="hidden" name="HoraFin" value="'.$HoraFin.'" />';
             $result .= '<input type="hidden" name="Flag" value="1" />';       
             $result .= '<ul class="tr">';
-            $result .= '<li class="col-xs-4 helvetica-12">';
+            $result .= '<li class="col-xs-1">';
+            $result .= '</li>';
+            $result .= '<li class="col-xs-3 helvetica-12">';
             $result .= '<div class="text-center">';    
             $result .= '<span>'.$json['Recursos'][$i]['NomRecurso'].'</span>';
             $result .= '</div>';
@@ -2283,15 +2290,19 @@ class Webservices
             $result .= '<span>'.$json['Recursos'][$i]['Local'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
-            $result .= '<li class="col-xs-4 helvetica-12">';
+            $result .= '<li class="col-xs-3 helvetica-12">';
             $result .= '<div class="text-center">';       
             $result .= '<input type="submit" class="btn btn-custom info mb-7" value="Reservar" name="submit">';
             $result .= '</div>';
             $result .= '</li>';       
             $result .= '</ul>';
             $result .= '</form>';
+            if ($i % 5 == 0) {
+              $result .= "</li>"; //cierre
+            } 
           }
         }
+        $result .= "</ul>";
         $result .= "</div>";
       }
       //Control de errores
@@ -2356,7 +2367,7 @@ class Webservices
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];      
         
-        $result .= '<div class="panel-table no-bg">';
+        $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-3 helvetica-12">';
         $result .= '<div class="text-center">';
@@ -2423,7 +2434,7 @@ class Webservices
        
       $tamano = count($json['Reservas']); 
       
-      $result .= '<div class="panel-table no-bg">';
+      $result .= '<div class="panel-table">';
       for ($i=0; $i<$tamano; $i++) { 
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-2 helvetica-12">';
@@ -2530,37 +2541,37 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
         
-        $result .= '<div class="panel-body-head-table">';
+        $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-8">';
+        $result .= '<li class="col-xs-8">';
         $result .= '<div><span>Curso</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2">';
+        $result .= '<li class="col-xs-2">';
         $result .= '<div class=""><span>Sección</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2">';
+        $result .= '<li class="col-xs-2">';
         $result .= '<div class=""><span>Grupo</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';  
-        $result .= '<div class="panel-table no-bg">';              
+        $result .= '<div class="panel-table">';              
         
         //genera el tamano del array
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
         
         for ($a=0; $a<$tamano; $a++) {
           $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-sm-8 helvetica-10 pb-0">';
+          $result .= '<li class="col-xs-8 helvetica-10 pb-0">';
           $result .= '<div>';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-2 helvetica-10">';
+          $result .= '<li class="col-xs-2 helvetica-10">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-2 helvetica-10">';
+          $result .= '<li class="col-xs-2 helvetica-10">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'</span>';
           $result .= '</div>';
@@ -2576,7 +2587,7 @@ class Webservices
         $result = '';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
+        $result .= '<li class="col-xs-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
         $result .= '</ul>';
         $result .= '</div>';
       }      
@@ -2620,14 +2631,14 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
         
-        $result .= '<div class="panel-body-head-table">';
+        $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-12">';
         $result .= '<div><span>Curso</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';  
-        $result .= '<div class="panel-table no-bg">';              
+        $result .= '<div class="panel-table">';              
         
         //genera el tamano del array
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
@@ -2650,7 +2661,7 @@ class Webservices
           $result .= '<input type="hidden" name="Curso" value="'.$json['modalidades'][$i]['cursos'][$a]['cursoId'].'">';
           $result .= '<input type="hidden" name="Seccion" value="'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'">';
           $result .= '<input type="hidden" name="Grupo" value="'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'">';
-          $result .= '<input type="submit" value="Alumnos" name="submit">';
+          $result .= '<input type="submit" class="btn btn-custom" value="Alumnos" name="submit">';
           $result .= '</form>';
           $result .= '</span>';
           $result .= '</div>';
@@ -2728,7 +2739,7 @@ class Webservices
         $result .= '</div>';
         
         $result .= '<div class="panel-body mb-35">';
-        $result .= '<div class="panel-body-head-table">';
+        $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-2">';
         $result .= '<div>';
@@ -2782,7 +2793,7 @@ class Webservices
           $result .= '<input type="hidden" name="cursoid" value="'.$json['Cursos'][$i]['cursoId'].'">';
           $result .= '<input type="hidden" name="nombrealumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['nombre_completo'].'">';
           $result .= '<input type="hidden" name="Flag" value="notas">';
-          $result .= '<input type="submit" name="submit" value="Ver Notas">';
+          $result .= '<input type="submit" class="btn btn-custom" name="submit" value="Ver Notas">';
           $result .= '</form>'; 
           $result .= '</span>';                 
           $result .= '</div>';
@@ -3004,24 +3015,24 @@ class Webservices
         $result .= '</h4>';
         $result .= '</div>'; 
         $result .= '<div class="panel-body mb-35">';
-        $result .= '<div class="panel-body-head-table bold">'; 
+        $result .= '<div class="panel-body-head-table white">'; 
         $result .= '<ul class="tr">'; 
-        $result .= '<li class="col-sm-1">'; 
+        $result .= '<li class="col-xs-1">'; 
         $result .= '<div class=""><span>Inicio</span></div>'; 
         $result .= '</li>'; 
-        $result .= '<li class="col-sm-1">'; 
+        $result .= '<li class="col-xs-1">'; 
         $result .= '<div class=""><span>Fin</span></div>'; 
         $result .= '</li>'; 
-        $result .= '<li class="col-sm-7">'; 
+        $result .= '<li class="col-xs-7">'; 
         $result .= '<div class=""><span>Clase</span></div>'; 
         $result .= '</li>'; 
-        $result .= '<li class="col-sm-1">'; 
+        $result .= '<li class="col-xs-1">'; 
         $result .= '<div class=""><span>Sede</span></div>'; 
         $result .= '</li>';  
-        $result .= '<li class="col-sm-1">'; 
+        $result .= '<li class="col-xs-1">'; 
         $result .= '<div class=""><span>Sección</span></div>'; 
         $result .= '</li>'; 
-        $result .= '<li class="col-sm-1">'; 
+        $result .= '<li class="col-xs-1">'; 
         $result .= '<div class=""><span>Salón</span></div>'; 
         $result .= '</li>';                                                                                                                                                  
         $result .= '</ul>'; 
@@ -3033,39 +3044,51 @@ class Webservices
         for ($b=0; $b<$tamano_int; $b++) {
             $result .= '<div class="panel-table">'; 
             $result .= '<ul class="tr mis-cursos-row">'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<li class="col-xs-1">'; 
+            $result .= '<div class="text-center">';
             $result .= '<span>';
             $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
             $HoraInicio = ltrim($HoraInicio,'0');
             $result .= $HoraInicio.':00';
             $result .='</span>'; 
+            $result .= '</div>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<li class="col-xs-1">';
+            $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
             $HoraFin = ltrim($HoraFin,'0');
             $result .= $HoraFin.':00';                  
             $result .='</span>';                  
+            $result .= '</div>'; 
             $result .= '</li>';                        
-            $result .= '<li class="col-xs-7 whole-cell-height">'; 
+            $result .= '<li class="col-xs-7">'; 
+            $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre'];
             $result .= '</span>';                   
+            $result .= '</div>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<li class="col-xs-1">'; 
+            $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Sede'];
             $result .= '</span>'; 
+            $result .= '</div>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<li class="col-xs-1">'; 
+            $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Seccion'];
             $result .= '</span>'; 
+            $result .= '</div>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1 whole-cell-height">'; 
+            $result .= '<li class="col-xs-1">'; 
+            $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Salon'];
             $result .= '</span>';  
+            $result .= '</div>'; 
             $result .= '</li>'; 
             $result .= '</ul>'; 
             $result .= '</div>';                              
@@ -3080,7 +3103,7 @@ class Webservices
         $result .= '<div class="panel-body mb-35">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
@@ -3272,7 +3295,7 @@ class Webservices
         $result .= '<div class="panel-body mb-35">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12 whole-cell-height">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
