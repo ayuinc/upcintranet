@@ -4083,7 +4083,7 @@ body {
 
 .site-content {
   position: absolute;
-  background-image: url("../assets/img/trama.png");
+  background-image: url("../assets/img/trama_xs.png");
   width: 100%;
   padding-top: 98px;
   padding-left: 0px;
@@ -6393,90 +6393,6 @@ body {
 .gray-light {
   color: #858688 !important; }
 
-.col-md-2-4 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 992px) {
-    .col-md-2-4 {
-      float: left;
-      width: 20%; } }
-
-.col-sm-2-4 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-2-4 {
-      float: left;
-      width: 20%; } }
-
-.col-xs-2-4 {
-  position: relative;
-  float: left;
-  width: 20%;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-
-.col-sm-0-8 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-0-8 {
-      float: left;
-      width: 6.66667%; } }
-
-.col-sm-0-5 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-0-5 {
-      float: left;
-      width: 4.16667%; } }
-
-.col-sm-1-5 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-1-5 {
-      float: left;
-      width: 12.5%; } }
-
-.col-xs-1-5 {
-  position: relative;
-  float: left;
-  width: 12.5%;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-
-.col-xs-4-5 {
-  position: relative;
-  float: left;
-  width: 37.5%;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-
-.col-sm-7-5 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px; }
-  @media (min-width: 768px) {
-    .col-sm-7-5 {
-      float: left;
-      width: 62.5%; } }
-
 .m-auto {
   margin: auto !important; }
 
@@ -6571,6 +6487,9 @@ a {
   a.sb-link {
     color: #3298FF !important; }
 
+.lh-1-1 {
+  line-height: 1.1 !important; }
+
 .panel {
   position: relative; }
   @media only screen and (max-width: 768px) {
@@ -6600,12 +6519,12 @@ a {
       padding: 1px 5px;
       border-radius: 0px; }
   .panel .panel-head .panel-title {
-    padding: 0px !important;
+    padding: 7px !important;
     font-family: "zizou-slab-regular" !important;
     font-style: normal; }
     .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
       margin: 0;
-      padding-bottom: 7px; }
+      padding-top: 3px; }
     .panel .panel-head .panel-title a.arrow-link img {
       margin-top: -30px !important; }
   .panel .panel-body.canales {
