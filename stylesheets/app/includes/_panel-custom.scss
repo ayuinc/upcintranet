@@ -8,9 +8,10 @@
 		padding-top: 3px;
 	}
 	.panel-head {
+		background-color: white !important;
 		@include clearfix;
 		.panel-head-wrap {
-			border-bottom: $gray-lighter 2px solid;
+			border-bottom: $gray-lighter 1px solid;
 			margin-left: 7px;
 			width: 97%;
 		}
@@ -136,11 +137,9 @@
 			}
 		}
 		.panel-body-head-table {
-			background: $gray-main;
-			&.white {
-				background: white !important;
-				color: $gray-main !important;
-			}
+			padding-top: 14px;
+			background: white !important;
+			color: $gray-main !important;
 			.tr {
 				&.border-bt-gl {
 					border-bottom: 2px solid $gray-light;
@@ -158,7 +157,8 @@
 					}
 				}
 				li {
-					padding: 6px 0;
+					padding: 0;
+					// padding: 6px 0;
 					div {
 						@include display(flex);
 						@include flex-direction(column);

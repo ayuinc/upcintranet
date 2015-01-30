@@ -5,10 +5,10 @@ $active_record = TRUE;
 
 $db['expressionengine']['hostname'] = '127.0.0.1';
 $db['expressionengine']['username'] = 'root';
-// $db['expressionengine']['password'] = '';
+$db['expressionengine']['password'] = '';
 
 //$db['expressionengine']['password'] = '';
-$db['expressionengine']['password'] = 'JKPQiUAb8f';
+// $db['expressionengine']['password'] = 'JKPQiUAb8f';
 $db['expressionengine']['database'] = 'upc';
 
 $db['expressionengine']['dbdriver'] = 'mysql';

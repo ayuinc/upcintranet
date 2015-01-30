@@ -290,16 +290,22 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $hijosWebService=curl_exec($ch);
       $json = json_decode($hijosWebService, true);
-
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
+        $nombre_hijo = $json["hijos"][$i]["nombres"];
+         if(strlen($nombre_hijo) > 9 && strpos($nombre_hijo," ")!== false){
+           $nombre_hijo = explode(" ", $nombre_hijo);
+           $nombre_hijo = $nombre_hijo[0];
+         }
         //$result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
         $result .=  '<li class="ml-21 mr-21">';
         $result .=  '<div class="dropdown avatar-hijo">';
         $result .=  '<div class="dropdown-toggle" id="dropdownMenuA" data-toggle="dropdown">';
+        $result .=  '<div class="avatar-container">';
         $result .=  '<img class="block" src="{site_url}images/avatars/default_set/user.png">';
-        // $result .=  '<span>'.$json["hijos"][$i]["nombres"].'</span>';
-        $result .=  '<span class="text-muted">FIORELLA</span>';
         $result .=  '</div>';
+        // $result .=  '<span class="text-muted">FIORELLA</span>';
+        $result .=  '</div>';
+        $result .=  '<span>'.$nombre_hijo.'</span>';
         $result .=  '<ul class="dropdown-menu first-child" role="menu" aria-labelledby="dropdownMenuA">';
         $result .=  '<li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">Activar su perfil</a></li>';
         $result .=  '</ul>';

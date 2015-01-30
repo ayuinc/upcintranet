@@ -4236,8 +4236,16 @@ body {
           color: white !important; }
     .dropdown ul.dropdown-menu li.divider {
       margin: 0; }
-.dropdown.avatar-hijo .dropdown-toggle img {
-  height: 42px !important; }
+.dropdown.avatar-hijo .dropdown-toggle .avatar-container {
+  border-radius: 50px;
+  border: 4px solid white;
+  padding: 3px;
+  background-color: #858688;
+  width: 50px !important; }
+  .dropdown.avatar-hijo .dropdown-toggle .avatar-container.active-child {
+    border: 4px solid #E42322; }
+  .dropdown.avatar-hijo .dropdown-toggle .avatar-container img {
+    height: 38px !important; }
 .dropdown.avatar-hijo .dropdown-menu {
   padding: 0 !important;
   margin: 6px 0 0; }
@@ -6497,36 +6505,38 @@ a {
       margin-top: 21px !important; } }
   .panel.curso-detalle {
     padding-top: 3px; }
-  .panel .panel-head:before, .panel .panel-head:after {
-    content: " ";
-    display: table; }
-  .panel .panel-head:after {
-    clear: both; }
-  .panel .panel-head .panel-head-wrap {
-    border-bottom: #E3E3E3 2px solid;
-    margin-left: 7px;
-    width: 97%; }
-  .panel .panel-head .panel-head-right {
-    float: right; }
-    .panel .panel-head .panel-head-right:before, .panel .panel-head .panel-head-right:after {
+  .panel .panel-head {
+    background-color: white !important; }
+    .panel .panel-head:before, .panel .panel-head:after {
       content: " ";
       display: table; }
-    .panel .panel-head .panel-head-right:after {
+    .panel .panel-head:after {
       clear: both; }
-    .panel .panel-head .panel-head-right div {
+    .panel .panel-head .panel-head-wrap {
+      border-bottom: #E3E3E3 1px solid;
+      margin-left: 7px;
+      width: 97%; }
+    .panel .panel-head .panel-head-right {
       float: right; }
-    .panel .panel-head .panel-head-right .reservas-btn {
-      padding: 1px 5px;
-      border-radius: 0px; }
-  .panel .panel-head .panel-title {
-    padding: 7px !important;
-    font-family: "zizou-slab-regular" !important;
-    font-style: normal; }
-    .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
-      margin: 0;
-      padding-top: 3px; }
-    .panel .panel-head .panel-title a.arrow-link img {
-      margin-top: -30px !important; }
+      .panel .panel-head .panel-head-right:before, .panel .panel-head .panel-head-right:after {
+        content: " ";
+        display: table; }
+      .panel .panel-head .panel-head-right:after {
+        clear: both; }
+      .panel .panel-head .panel-head-right div {
+        float: right; }
+      .panel .panel-head .panel-head-right .reservas-btn {
+        padding: 1px 5px;
+        border-radius: 0px; }
+    .panel .panel-head .panel-title {
+      padding: 7px !important;
+      font-family: "zizou-slab-regular" !important;
+      font-style: normal; }
+      .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
+        margin: 0;
+        padding-top: 3px; }
+      .panel .panel-head .panel-title a.arrow-link img {
+        margin-top: -30px !important; }
   .panel .panel-body.canales {
     padding-bottom: 28px; }
     .panel .panel-body.canales .panel-table {
@@ -6590,10 +6600,9 @@ a {
       .panel .panel-body .panel-body-head ul span {
         font-size: 20px; }
   .panel .panel-body .panel-body-head-table {
-    background: #565658; }
-    .panel .panel-body .panel-body-head-table.white {
-      background: white !important;
-      color: #565658 !important; }
+    padding-top: 14px;
+    background: white !important;
+    color: #565658 !important; }
     .panel .panel-body .panel-body-head-table .tr {
       padding-left: 0;
       list-style: none;
@@ -6608,7 +6617,7 @@ a {
       .panel .panel-body .panel-body-head-table .tr li + li.col-sm-2 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-1 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-4 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-5 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-6 div.fecha, .panel .panel-body .panel-body-head-table .tr li + li.col-sm-7 div.fecha {
         border: none; }
       .panel .panel-body .panel-body-head-table .tr li {
-        padding: 6px 0; }
+        padding: 0; }
         .panel .panel-body .panel-body-head-table .tr li div {
           display: -webkit-box;
           display: -moz-box;
