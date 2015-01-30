@@ -5,8 +5,11 @@
 
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=8"> -->
     <meta charset="utf-8">
-
-    <title>INTRANET UPC</title>
+    {if embed:keywords != ""}
+        <title>INTRANET UPC</title>
+    {if:else}
+        <title>{embed:keywords} - Buscar | INTRANET UPC</title>
+    {/if}
     <!-- Project SEO -->
     <meta name="description" content="">
     <meta name="keywords" content="" /> 
