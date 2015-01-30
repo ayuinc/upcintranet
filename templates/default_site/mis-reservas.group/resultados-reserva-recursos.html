@@ -46,16 +46,17 @@
 					              <div class="panel-body">
 					                <div class="panel-body-head-table white">
 					                  <ul class="tr">
-					                    <li class="col-xs-4">
+					                  	<li class="col-xs-1"></li>
+					                    <li class="col-xs-3">
 					                      <div class=""><span>Recurso</span></div>
 					                    </li>
 					                    <li class="col-xs-4">
 					                      <div class=""><span>Sede</span></div>
 					                    </li>
-					                    <li class="col-xs-4"></li>	
+					                    <li class="col-xs-3"></li>	
 					                  </ul>
 					                </div>  
-					                <div class="panel-table mis-cursos-content no-bg" >
+					                <div class="panel-table" >
 						                {if post:Flag!='1'}
 						                	{exp:webservices:listado_recursos_disponibles 
 														  	CodSede = '{post:CodSede}'

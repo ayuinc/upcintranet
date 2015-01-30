@@ -9,29 +9,10 @@
 	}
 	.panel-head {
 		@include clearfix;
-		&.muted-head-underlined {
-			border-bottom: 2px solid white;
-			margin: 14px auto;
-			h2 {
-				font-size: rem($custom-h2);
-				font-size: $custom-h2;
-				color: white;
-			}
-		}
-		&.muted-head {
-			margin: 14px auto;
-			h2 {
-				font-size: rem($custom-h2);
-				font-size: $custom-h2;
-				color: white;
-			}
-		}
 		.panel-head-wrap {
 			border-bottom: $gray-lighter 2px solid;
 			margin-left: 7px;
 			width: 97%;
-			// float: left;
-			// @include serif-book;
 		}
 		.panel-head-right {
 			float: right;
@@ -45,10 +26,10 @@
 			}
 		}
 		.panel-title {
-			padding: 0px !important;
+			padding: 7px !important;
 			h1, h2, h3, h4, h5, h6 {
 				margin: 0;
-				padding-bottom: 7px;
+				padding-top: 3px;
 			}
 			@include serif-book;
 			a.arrow-link {
@@ -57,21 +38,12 @@
 				}
 			}
 		}
-		.panel-display {
-			
-		}
-		.panel-actions {
-			
-		}
-		.panel-scroll {
-			
-		}
 	}
 	.panel-body {
 		&.canales {
 			padding-bottom: 28px;
 			.panel-table {
-				min-height: 160px !important;
+				min-height: 140px !important;
 				.tr {
 					border: none !important;
 				}
@@ -82,12 +54,6 @@
 			&.observaciones {
 				background-color: $brand-info !important;
 				border-top: 2px solid $brand-danger;
-			}
-			&.no-bg {
-				background: none !important;
-				.tr {
-					background-color: white !important;
-				}
 			}
 			.tr {
 				li.formula {
@@ -148,7 +114,6 @@
 				padding-left: 7px;
 			}
 			&.tall {
-				// background: black;
 				min-height: 63px;
 				padding: 7px;
 			}
@@ -237,37 +202,6 @@
 			padding-top: 7px;
 		}
 		.panel-table {
-			&.mis-reservas-content {
-				ul.tr {
-					li.col-sm-2 div span {
-						@include alt-bold;
-						font-size: 12px;
-					}
-					li.col-sm-6 div span {
-						@include alt-book;
-						font-size: 12px;
-					}
-				}
-			}
-			&.white-cells {
-				ul {
-					border: none;
-					li {
-						background: white;
-						margin-bottom: 7px;
-					}
-				}
-			}
-			&.cursos-detallados {
-				// ul {
-				// 	li {
-				// 		&.col-sm-6
-				// 	}
-				// }
-				ul + ul {
-					margin-top: 5px;
-				}
-			}
 			&.mis-cursos-content {
 				ul + ul {
 					margin-top: 5px;
@@ -333,23 +267,12 @@
 					} 
 				}
 			}
-			&.detalle-nota-final {
-				background-color: transparent !important;
-			}
-			&.striped {
-					.tr:nth-child(even) {background: white};
-					.tr:nth-child(odd) {background: $gray-lighter}
-			}
 			.tr {
-				&.row-libre {
-					padding-left: 7px;
-				}
 				a {
 					color: black;
 				}	
 				@include list-unstyled;
 				@include clearfix;
-				// border-bottom: 1px solid $gray-lighter;
 				li {
 					padding: 7px 0;
 					&.pdte-tr {
@@ -361,16 +284,6 @@
 						background-color: lighten($brand-info, 28%);
 						color: $brand-info;
 						text-transform: uppercase;
-					}
-					&.whole-cell-height {
-						border-right: 1px solid $gray-light;
-						border-bottom: 1px solid $gray-light;
-						background: white;
-						@include display(flex);
-						@include flex-direction(column);
-						@include justify-content(center);
-						min-height: 42px;						
-						padding: 0 6px;
 					}
 					div {
 						h1, h2, h3, h4, h5, h6 {
@@ -410,34 +323,7 @@
 		}
 	}
 	.panel-footer {
-
-	}
-}
-
-// other widgets
-.nota-final {
-	.detalle-nota-final {
-		ul {
-			li {
-				.my-inner {
-					padding-right: 10px !important;
-					padding-left: 0px !important;
-					border: none !important;
-					.row, span {
-					background-color: white;
-					}
-					.row {
-						margin: 0;
-						padding: 7px 14px !important;
-					}
-					.row div .etiqueta {
-						text-transform: uppercase;
-					}
-					&.adobe {
-					padding-right: 0px !important;
-					}
-				}
-			}			
-		}
+		background-color: white;
+		padding-bottom: 14px;
 	}
 }

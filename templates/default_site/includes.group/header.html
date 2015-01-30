@@ -1,81 +1,92 @@
     <div class="site-header hidden-xs">
       <div class="container-fluid">
-        <div class="header-global pl-7 row pb-7 pr-21">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-1 text-center pt-14">
-            <span>Intranet</h4>
+        <div class="header-global clearfix">
+          <div class="inline-block ml-21 mr-21 mt-14">
+            <img src="{site_url}assets/img/isotipo_upc.png" alt="">
           </div>
-          <div class="col-sm-7"></div>
-          <div class="col-sm-1 text-center pt-14">
-            <span class="solano-bold-15"><a href="http://www.upc.edu.pe/" target="_blank">Portal</a></span>
+          <div class="inline-block">
+            <span class="solano-22 black">Intranet</span>
           </div>
-          <div class="col-sm-1 text-center pt-14">
-            <span class="solano-bold-15"><a href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span>
-          </div>
-          <div class="col-sm-1 text-center pt-14">
-            <span class="solano-bold-15"><a href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span>
+          <div class="pull-right mt-14">
+            <ul class="list-unstyled">
+              <li class="pull-left mr-14"><span class="solano-20 black"><a href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-20 black"><a href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-20 black"><a href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
+            </ul>
           </div>
         </div>
-        <div class="header-no-global row alumno">
-            <div class="col-sm-5 pt-21 pb-7">
-               <div class="row">
-                 <div class="col-sm-3">
-                  <a href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
-                    <div class="mi-correo"><img src="{site_url}/assets/img/white_mail.png" alt=""></div>
-                    <span>Correo</span>
-                  </a>
-                 </div>
-                 <div class="col-sm-3">
-                  <a href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
-                    <div><img src="{site_url}/assets/img/aula_virtual.png" alt=""></div>
-                    <span>Aula Virtual</span>
-                  </a>
-                 </div>
-                 <div class="col-sm-3">
-                  <a href="http://www.printfriendly.com/" style="color:#6D9F00;text-decoration:none;" onclick="window.print();return false;" title="Print Friendly and PDF" class="gray-main printfriendly" id="printfriendly">
-                    <div class="print">
-                      {exp:printfriendly:button custom_button="{site_url}assets/img/print_new.png"}
-                    </div>
-                    <a href="http://www.printfriendly.com/" style="color:#6D9F00;text-decoration:none;" onclick="window.print();return false;" title="Print Friendly and PDF" class="gray-main printfriendly" id="printfriendly"><span>Impresiones</span></a>
-                  </a>
-                 </div>
-               </div>
-            </div>
-            {exp:search:simple_form channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" result_page="buscar/index"}
-            <div class="col-sm-4">
-              <div class="col-sm-2 search-trigger">
-                <img src="{site_url}assets/img/search_white.png">
-              </div>
-              <div class="col-sm-8 search-bar hidden">
-                <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-thin-12 form-control" placeholder="Introduce tu búsqueda">
-                <input type="submit" value="submit" id="search-submit" class="hidden submit">
-              </div>
-              <div class="col-sm-2 search-icon hidden" id="search-phr">
-                <img src="{site_url}assets/img/search_white.png">
-              </div>
-            </div>
-            {/exp:search:simple_form}
-            <div class="col-sm-3 right-upper-corner pt-0 pb-0">
-              <div class="row">
-                <div class="col-sm-8 pt-28"><span class="text-muted hola">Hola {exp:webservices:nombre_alumno}</span></div>
-                <div class="col-sm-4">
-                  <div class="dropdown pt-7">
-                    <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                      <img class="img-circle img-responsive" src="{site_url}images/avatars/default_set/user.png">
-                    </div>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil">Mi Perfil</a></li>
-                      <li role="presentation" class="divider"></li>
-                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Cambiar a Docente</a></li>
-                      <li  role="presentation" class="divider"></li>
-                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Ver Tutorial</a></li>
-                      <li role="presentation" class="divider"></li>
-                      <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
-                    </ul>
+        <div class="header-no-global">
+          <div class="inicio">
+            <a href="{exp:webservices:boton_inicio}">
+              <div><img src="{site_url}/assets/img/home_grey.png" alt=""></div>
+              <span>Inicio</span>
+            </a>
+          </div>
+          <div class="pull-left">
+            <ul>
+              <li class="ml-21 mr-21">
+                <a class="text-muted" href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
+                  <div class="text-center">
+                    <img src="{site_url}/assets/img/white_mail.png" class="block mb-7" alt="">
+                    <span class="text-muted">Correo</span>
                   </div>
+                </a>
+              </li>
+              <li class="ml-21 mr-21">
+                <a class="text-muted" href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
+                  <div class="text-center">
+                    <img src="{site_url}/assets/img/aula_virtual.png" class="block mb-7" alt="">
+                    <span class="text-muted">Aula Virtual</span>
+                  </div>
+                </a>
+              </li>
+              <li class="ml-21 mr-21">
+                <a href="http://www.printfriendly.com/" style="color:#6D9F00;text-decoration:none;" onclick="window.print();return false;" title="Print Friendly and PDF" class="gray-main printfriendly" id="printfriendly">
+                  <div class="pb-7">
+                    {exp:printfriendly:button custom_button="{site_url}assets/img/print_new.png"}
+                  </div>
+                    <a class="text-muted" href="http://www.printfriendly.com/" style="color:#6D9F00;text-decoration:none;" onclick="window.print();return false;" title="Print Friendly and PDF" class="gray-main printfriendly" id="printfriendly"><span class="text-muted">Impresiones</span></a>
+                </a>
+              </li>
+              <li class="ml-21 mr-21">
+                <div class="search-trigger">
+                  <img src="{site_url}assets/img/search_white.png" class="block mb-7">
+                  <span>&nbsp;</span>
                 </div>
+              </li>
+              <li>
+                {exp:search:simple_form channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" result_page="buscar/index"}
+                <div class="search-bar hidden">
+                  <input type="text-muted" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-thin-12 form-control" placeholder="Introduce tu búsqueda">
+                  <input type="submit" value="submit" id="search-submit" class="hidden submit">
+                  <span>&nbsp;</span>
+                </div>
+                {/exp:search:simple_form}
+              </li>
+            </ul>
+          </div>
+          <div class="pull-right">
+            <div class="inline-block mr-28">
+              <div>
+                <span class="text-muted zizou-22">Hola {exp:webservices:nombre_alumno}</span>
               </div>
+              <span>&nbsp;</span>
             </div>
+            <div class="dropdown inline-block">
+              <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                <img class="img-circle img-responsive" src="{site_url}images/avatars/default_set/user.png">
+              </div>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil">Mi Perfil</a></li>
+                <li role="presentation" class="divider"></li>
+                <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Cambiar a Docente</a></li>
+                <li  role="presentation" class="divider"></li>
+                <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Ver Tutorial</a></li>
+                <li role="presentation" class="divider"></li>
+                <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

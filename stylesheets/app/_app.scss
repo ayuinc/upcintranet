@@ -1,12 +1,11 @@
 /*========================================
 =             APP CUSTOM                 =
 ========================================*/
-// @import url("http://www.upc.edu.pe/html/fonts/fuentes.css");
-@import url("https://s3-sa-east-1.amazonaws.com/webfontsupc/fuentes.css");
+
 // APP Includes
 @import
 
-  "plugins/datepicker";
+  "plugins/flexslider";
 
 @import 
   // TYPE
@@ -32,6 +31,10 @@
 // APP Views
 @import 
   // VIEW NAME
+  "views/sidebar",
+  "views/header",
+  "views/login",
   "views/dashboard",
   "views/mis-reservas",
+  "views/padres",
   "views/mis-estudios";
