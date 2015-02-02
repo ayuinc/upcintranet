@@ -1555,7 +1555,7 @@ class Webservices
         $result .= '<a class="black curso-link text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
-        $result .= '<img src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
+        $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';          
 
