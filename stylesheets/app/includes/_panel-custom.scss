@@ -28,9 +28,15 @@
 			background-position: center;
 			&.danger {
 				background-color: $brand-danger;
+				&:hover {
+					background-color: $brand-danger-hover;
+				}
 			}
 			&.info {
 				background-color: $brand-info;
+				&:hover {
+					background-color: $brand-info-hover;
+				}
 			}
 			float: right;
 			margin: 12px 7px;

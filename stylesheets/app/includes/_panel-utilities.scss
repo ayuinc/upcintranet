@@ -1,6 +1,7 @@
 .custom-icon {
+	min-height: 24px !important;
+	width: 24px;
 	height: 24px;
-	width: 28px;
 	border-radius: 50%;
 	background-image:url("../assets/img/white_arrow.png");
 	background-repeat: no-repeat;
@@ -12,4 +13,28 @@
 		background-color: $brand-info;
 	}
 	float: left;
+}
+
+.arrow-icon {
+	height: 24px;
+	width: 24px;
+	min-height: 24px !important;
+	border-radius: 50%;
+	background-image:url("../assets/img/white_arrow.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	&.danger {
+		background-color: $brand-danger;
+		&:hover {
+			background-color: $brand-danger-hover;
+		}
+	}
+	&.info {
+		background-color: $brand-info;
+		&:hover {
+			background-color: $brand-info-hover;
+		}
+	}
+	float: left;
+
 }
