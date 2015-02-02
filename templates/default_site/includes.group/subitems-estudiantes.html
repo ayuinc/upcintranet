@@ -1,4 +1,6 @@
 <ul class="list-unstyled">
+	<li>{embed:category}</li>
+	<li>{embed:item}</li>
   {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="{embed:category}"}
 	<li><a href="{site_url}{embed:item}/{url_title}">{title}</a></li>
   {/exp:channel:entries}
