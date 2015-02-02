@@ -9,6 +9,12 @@ $alt-ab: "helv-neue";
 $alt-12: "ronnia";
 
 /// fonts loops
+.xl {
+	font-size: rem(44) !important;	
+	font-size: 44px !important;
+	line-height: 1;	
+	color: black;
+}
 @for $fs from 9 to 33 {
 	.#{$sans-serif}-bold-#{$fs} {
 		@include bold;	

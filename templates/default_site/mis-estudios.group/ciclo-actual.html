@@ -5,16 +5,16 @@
 {embed="includes/header_movil"}
 {embed="includes/sidebar"}
 
-    <div class="site-content ciclo-actual">
+    <div class="site-content">
     {exp:channel:entries channel="seccion" limit="1" entry_id="20"}
       <div class="internal-header">
-          <div class="row first-line">
+          <div class="row">
             <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span>Mis Estudios</span></div>
+            <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
           </div>
-          <div class="row second-line pb-14">
+          <div class="row">
             <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span>{title}</span></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
           </div>
       </div>  
       <div class="section-content pb-70">
@@ -22,15 +22,13 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
               <div class="panel">
-                <div class="panel-head">
-                  <div class="panel-head-left">
-                    <div class="panel-title">
-                      <h2>Mis Cursos</h2>
-                    </div>
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h2>Mis Cursos</h2>
                   </div>
                 </div>
                 <div class="panel-body">
-                  <div class="panel-body-head-table white">
+                  <div class="panel-body-head-table">
                     <ul class="tr">
                       <li class="col-xs-9">
                         <div class=""><span>Curso</span></div>
@@ -52,11 +50,9 @@
     {/exp:channel:entries}        
             <div class="col-sm-8">
               <div class="panel">
-                  <div class="panel-head">
-                    <div class="panel-head-left">
-                      <div class="panel-title">
-                        <h2>Mi Horario Semanal</h2>
-                      </div>
+                  <div class="panel-head no-bg">
+                    <div class="panel-title left">
+                      <h2>Mi Horario Semanal</h2>
                     </div>
                   </div>
                   {exp:webservices:horario_ciclo_actual_alumno}

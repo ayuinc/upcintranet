@@ -19,7 +19,7 @@ body {
 
 .site-menu {
 	background: white;
-	width: 80px;
+	width: 79px;
 	z-index: 2000;
 	position: fixed;
 	margin-top: 156px;
@@ -36,15 +36,11 @@ body {
 	position: fixed;
 	width: 100%;
 	height: 47px;
-	background: $gray-light;
-	z-index: 1010;
-	&.outside {
-		height: 49px;
-		.col-sm-0-5.servicios {
-			margin-left: -9px;
-			margin-right: 5px;
-		}
-	} 
+	z-index: 100;
+}
+
+.internal-header {
+	margin-bottom: 7px;
 }
 
 #mobile-nav {
@@ -96,12 +92,11 @@ body {
 	position: absolute;
 	background-image:url("../assets/img/trama_xs.png");
 	width: 100%;
-	padding-top: 98px;
+	padding-top: 196px;
 	padding-left: 0px;
 	padding-right: 14px;
 	min-height: 100%;
 	padding-bottom: 49px;
-	margin-top: 62px;
 	@media #{$lg-down} {
 		padding-left: 28px !important;
 		padding-right: 28px !important;
@@ -154,40 +149,19 @@ body {
 			margin-left: 0px;
 			width: 100%;
 		}
-		.first-line, .second-line {
-			h1, h2, h3, h4, h5, h6 {
-				margin-top: 0px;
-				margin-bottom: 0px;
-			}
-		}
-		.first-line span {
-			@include serif-book;
-			font-size: rem(14px) !important;
-			font-size: 14px !important;
-			color: $gray-light;
-		}
-		.second-line {
-			margin-left: -30px !important;
-			margin-top: 7px !important; 
-			span {
-				@include bold;
-				text-transform: uppercase;
-				font-size: rem(44px) !important;
-				font-size: 44px !important;
-				color: $gray-main;
-				line-height: 35px !important;
-			}
-		} 
 	}
 }
 
 .section-content {
+	.section-desc {
+		padding-top: 9px;
+	}
 	.row {
 		.title-no-panel {
 			@include serif-book;
 			font-size: 26px;
 			margin-top: 0;
-			margin-left: -7px;
+			margin-left: -14px;
 			padding: 0;
 		}
 		.col-sm-3 {
@@ -202,37 +176,42 @@ body {
 				padding: 3px 49px !important;
 			}
 		}
-		.col-sm-8.resultados {
-			padding-left: 0px;
-			padding-right: 42px;
-			.num-resultados {
-				@include serif-book;
-				font-size: 26px;
-				margin-top: 0;
-				padding: 0;
+		.col-sm-8 {
+			.row {
+				padding-top: 14px;
 			}
-			ul {
-				li {
-					padding-bottom: 14px;
-					.resultado-heading {
-						color: black;
-						@include book;
-						text-transform: uppercase;
-						font-size: 20px;
-						img {
-							width: 16px;
-							padding-bottom: 5px;
-							margin-right: 5px;
+			&.resultados {
+				padding-left: 0px;
+				padding-right: 42px;
+				.num-resultados {
+					@include serif-book;
+					font-size: 26px;
+					margin-top: 0;
+					padding: 0;
+				}
+				ul {
+					li {
+						padding-bottom: 14px;
+						.resultado-heading {
+							color: black;
+							@include book;
+							text-transform: uppercase;
+							font-size: 20px;
+							img {
+								width: 16px;
+								padding-bottom: 5px;
+								margin-right: 5px;
+							}
 						}
-					}
-					.resultado-content {
-						@include alt-book;
-						font-size: 14px;
+						.resultado-content {
+							@include alt-book;
+							font-size: 14px;
+						}
 					}
 				}
 			}
-
 		}
+
 	}
 }
 

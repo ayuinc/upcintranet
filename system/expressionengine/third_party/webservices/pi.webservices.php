@@ -557,7 +557,7 @@ class Webservices
         }           
         $result .= '</span>';
         $result .= '</div>'; 
-        $result .= '<div class="panel-body mb-35">';
+        $result .= '<div class="panel-body red-line mb-7">';
         $result .= '<div class="panel-body-head-table white">'; 
         $result .= '<ul class="tr">'; 
         $result .= '<li class="col-xs-1-5">'; 
@@ -576,7 +576,7 @@ class Webservices
         $result .= '<div><span>Sección</span></div>'; 
         $result .= '</li>'; 
         $result .= '<li class="col-xs-1-5">'; 
-        $result .= '<div><span>Salón</span></div>'; 
+        $result .= '<div><span>Aula</span></div>'; 
         $result .= '</li>';                                                                                                                                                  
         $result .= '</ul>'; 
         $result .= '</div>';        
@@ -616,7 +616,7 @@ class Webservices
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Seccion'];
             $result .= '</span></div>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1">'; 
+            $result .= '<li class="col-xs-1-5">'; 
             $result .= '<div class="text-center"><span class="helvetica-12">';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Salon'];
             $result .= '</span></div>';  
@@ -1555,7 +1555,7 @@ class Webservices
         $result .= '<a class="black curso-link text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
-        $result .= '<img src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
+        $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';          
 
@@ -2737,10 +2737,6 @@ class Webservices
         $result .= '<div class="panel-title">';
         $result .= '<h2>Lista de Alumnos: '.$json['Cursos'][$i]['curso'].'</h2>';
         $result .= '</div>';
-        $result .= '</div>';
-        $result .= '<div class="panel-head-right pt-14">';
-        $result .= '<div class="panel-scroll"></div>';
-        $result .= '<div class="panel-display"></div>';
         $result .= '</div>';
         $result .= '</div>';
         

@@ -1,0 +1,15 @@
+.custom-icon {
+	height: 24px;
+	width: 28px;
+	border-radius: 50%;
+	background-image:url("../assets/img/white_arrow.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	&.danger {
+		background-color: $brand-danger;
+	}
+	&.info {
+		background-color: $brand-info;
+	}
+	float: left;
+}
