@@ -1,17 +1,40 @@
+// custom colums
+.col-md-2-4{
+  @include make-md-column(2.4)
+}
+.col-sm-2-4{
+  @include make-sm-column(2.4)
+}
+.col-xs-2-4{
+  @include make-xs-column(2.4)
+}
+
+.col-sm-0-8{
+  @include make-sm-column(0.8)
+}
+
+.col-sm-0-5{
+  @include make-sm-column(0.5)
+}
+
+.col-sm-1-5{
+  @include make-sm-column(1.5)
+}
+
+.col-xs-1-5{
+  @include make-xs-column(1.5)
+}
+
+.col-xs-4-5{
+  @include make-xs-column(4.5)
+}
+
+.col-sm-7-5{
+  @include make-sm-column(7.5)
+}
+// custom margin
 .m-auto {
 	margin: auto !important;
-}
-
-@for $nm from 1 to 11 {
-	.ml--#{$nm*7} {
-		margin-left: $nm * -1 * 7 + px !important;
-	}		
-}
-
-@for $nm from 1 to 11 {
-	.mr--#{$nm*7} {
-		margin-right: $nm * -1 * 7 + px !important;
-	}		
 }
 // Custom Buttons
 .btn-custom {
@@ -44,9 +67,9 @@
 		}	
 	}
 }
-
+// custom links
 a {
-	color: $gray-light !important;
+	color: $gray-main !important;
 	&.sb-link {
 		color: $brand-info !important;
 	}					
@@ -54,4 +77,14 @@ a {
 // Custom Line Heights
 .lh-1-1 {
 	line-height: 1.1 !important;
+}
+// custom backgrounds
+.no-bg {
+	background: none !important;
+}
+.panel-title-line {
+	height: 1px;
+	width: 97%;
+	border-bottom: $gray-lighter 1px solid;
+	margin-left: 7px;
 }

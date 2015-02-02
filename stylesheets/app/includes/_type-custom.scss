@@ -139,9 +139,9 @@ a {
   }
 }
 
-@for $h from -10 to 20 {
+@for $h from -10 to -1 {
   .mb-#{$h} {
-    margin-top: ($h) + px!important;
-    margin-top: rem($h)!important;
+    margin-bottom: ($h) + px!important;
+    margin-bottom: rem($h)!important;
   }
 }
