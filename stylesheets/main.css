@@ -6486,25 +6486,6 @@ a {
       color: #3298FF !important; }
     .panel .panel-body .panel-table.otras-acciones {
       background: none !important; }
-      .panel .panel-body .panel-table.otras-acciones .tr li .oa-icon {
-        display: inline-block !important;
-        border: none !important; }
-      .panel .panel-body .panel-table.otras-acciones .tr li a div.oa-label {
-        display: inline-block !important;
-        color: black;
-        width: 260px; }
-        .panel .panel-body .panel-table.otras-acciones .tr li a div.oa-label:hover {
-          text-decoration: underline; }
-      .panel .panel-body .panel-table.otras-acciones .tr a li .oa-icon {
-        display: inline-block !important; }
-      .panel .panel-body .panel-table.otras-acciones .tr a li span:hover {
-        text-decoration: underline; }
-      .panel .panel-body .panel-table.otras-acciones .tr a.sb-link {
-        color: #3298FF !important; }
-        .panel .panel-body .panel-table.otras-acciones .tr a.sb-link li span {
-          color: #3298FF !important; }
-      .panel .panel-body .panel-table.otras-acciones .tr a:hover {
-        text-decoration: underline; }
   .panel .panel-body .panel-body-head {
     text-transform: uppercase;
     background: white;
@@ -6704,6 +6685,19 @@ a {
   .panel .panel-footer {
     background-color: white;
     padding-bottom: 14px; }
+
+.custom-icon {
+  height: 24px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url("../assets/img/white_arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left; }
+  .custom-icon.danger {
+    background-color: #E42322; }
+  .custom-icon.info {
+    background-color: #3298FF; }
 
 a.btn.form-control,
 button.btn.form-control,

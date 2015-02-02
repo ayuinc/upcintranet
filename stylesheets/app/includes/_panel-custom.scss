@@ -65,43 +65,6 @@
 			}
 			&.otras-acciones {
 				background: none !important;
-				.tr li {
-					.oa-icon {
-						display: inline-block !important;
-						border: none !important;
-					}
-					a {
-						div.oa-label {
-							display: inline-block !important;
-							color: black;
-							width: 260px;
-							&:hover {
-								text-decoration: underline;
-							}
-						}
-					}
-				}
-				.tr a {
-					li {
-						.oa-icon {
-							display: inline-block !important;
-						}
-						span {
-							&:hover {
-								text-decoration: underline;
-							}						
-						}
-					}
-					&.sb-link {
-						color: $brand-info !important;
-						li span {
-								color: $brand-info !important;
-						}
-					}
-					&:hover {
-						text-decoration: underline;
-					}
-				}
 			}
 		}
 		.panel-body-head {
