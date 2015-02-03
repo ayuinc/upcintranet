@@ -5,6 +5,7 @@
 		padding-bottom: 0px;
 		.row {
 			margin-left: -14px;
+			margin-right: -14px !important;
 			.col-sm-10 {
 				.row {
 					.col-sm-5 {
@@ -19,33 +20,24 @@
 						padding-bottom: 77px !important;
 						border-bottom: 2px solid $brand-danger; 
 						form.login-form {
-							margin-top: -21px !important;
 							.row {
-								.col-sm-8 {
-									padding-top: 28px;
-									div.center-input {
-										margin-left: 21px !important;
-										margin-bottom: -14px !important;
-										input.form-control {
-										  border-radius: 0px !important;
-										  border: 0px !important;
-										  background-color: $gray-lighter;
-										  color: black !important;
-										}
+								.col-xs-8 {
+									input.form-control {
+									  border-radius: 0px !important;
+									  border: 0px !important;
+									  background-color: $gray-lighter;
+									  color: black !important;
 									}
 								}
 							}
 						}
 						.pwd-mismatch {
 							margin-top: 28px !important;
-							.col-sm-1 {
-								padding: 0 !important;
-							} 
 						}
 					}
 					&.aviso {
 						margin-top: -7px !important;
-						.col-sm-7 {
+						.col-xs-7 {
 							padding-top: 35px !important;
 							padding-bottom: 35px !important;
 						}
@@ -67,13 +59,6 @@
 					line-height: 12px !important;
 					@media #{$xs-only} {
 						margin-top: 4px !important;
-					}
-				}
-				.copyright span {
-					@include serif-book;
-					font-size: 16px;
-					@media #{$xs-only} {
-						font-size: 10px !important;
 					}
 				}
 			}

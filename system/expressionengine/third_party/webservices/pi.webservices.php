@@ -1941,7 +1941,6 @@ class Webservices
       
       $tamano = count($json['Sedes']);
       
-      $result .= '<div class="col-xs-12">';
       $result .= '<select name="CodSede" id="CodSede" class="reservas-select arrow form-control">';
       $result .= '<option>Selecciona una sede</option>';      
       for ($i=0; $i<$tamano; $i++) {
@@ -1950,7 +1949,6 @@ class Webservices
         $result .= '</option>';
       }
       $result .= '</select>';
-      $result .= '</div>';
       
       return $result;          
     } 
@@ -1986,7 +1984,6 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
 
         $tamano_int = count($json['Sedes'][$i]['espacios']);
-        $result .= '<div class="col-xs-12">';
         $result .= '<select name="CodED" class="reservas-select arrow form-control" id="sede-'.$json['Sedes'][$i]['key'].'">';
         $result .= '<option>Seleccionar espacio</option>'; 
           for ($a=0; $a<$tamano_int; $a++) {
@@ -1995,7 +1992,6 @@ class Webservices
             $result .= '</option>';
           }
         $result .= '</select>';
-        $result .= '</div>';
 
       }
       return $result;          
@@ -2036,7 +2032,6 @@ class Webservices
         for ($a=0; $a<$tamano_int; $a++) {
 
           $tamano_fin = count($json['Sedes'][$i]['espacios'][$a]['actividades']);
-          $result .= '<div class="col-xs-12">';
           $result .= '<select class="reservas-select arrow form-control" name="CodActiv" id="actividad-'.$json['Sedes'][$i]['espacios'][$a]['codigo'].'">';
           //$result .= '<option>Selecciona una actividad</option>';   
             for ($b=0; $b<$tamano_fin; $b++) {
@@ -2045,7 +2040,6 @@ class Webservices
               $result .= '</option>';
             }
           $result .= '</select>';
-          $result .= '</div>';
             
         }
 
@@ -2260,6 +2254,59 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      $result = '{
+    "CodError":"00000",
+    "MsgError":"",
+    "TipoRecurso":"CO",
+    "FecReserva":"28032015",
+    "CanHoras":"1",
+    "Recursos":[
+        {
+            "CodRecurso":34,
+            "NomRecurso":"COMPUTADORA 04 (SALA 1)",
+            "Local":"CAMPUS MONTERRICO",
+            "FecReserva":"28032015",
+            "HoraIni":"0000",
+            "HoraFin":"0000",
+            "Estado":false,
+            "CodError":null,
+            "Mensaje":null
+        },
+        {
+            "CodRecurso":35,
+            "NomRecurso":"COMPUTADORA 05 (SALA 1)",
+            "Local":"CAMPUS MONTERRICO",
+            "FecReserva":"28032015",
+            "HoraIni":"0000",
+            "HoraFin":"0000",
+            "Estado":false,
+            "CodError":null,
+            "Mensaje":null
+        },
+        {
+            "CodRecurso":35,
+            "NomRecurso":"COMPUTADORA 05 (SALA 1)",
+            "Local":"CAMPUS MONTERRICO",
+            "FecReserva":"28032015",
+            "HoraIni":"0000",
+            "HoraFin":"0000",
+            "Estado":false,
+            "CodError":null,
+            "Mensaje":null
+        },
+        {
+            "CodRecurso":35,
+            "NomRecurso":"COMPUTADORA 05 (SALA 1)",
+            "Local":"CAMPUS MONTERRICO",
+            "FecReserva":"28032015",
+            "HoraIni":"0000",
+            "HoraFin":"0000",
+            "Estado":false,
+            "CodError":null,
+            "Mensaje":null
+        }
+    ]
+}';
       $json = json_decode($result, true);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
@@ -2267,15 +2314,17 @@ class Webservices
       $tamano = count($json['Recursos']); 
       
       if($error=='00000'){
-        $result .= '<div class="flexslider">';
-        $result .= '<ul class="slides">';
-        $tamano = 24;
-        for ($i=1; $i<=$tamano; $i++) { 
+        // $result .= '<div class="panel-table no-bg">';
+        for ($i=0; $i<$tamano; $i++) { 
           //if($json['Recursos'][$i]['Estado'] == true){
           if(true){
-            if ($i % 5 == 1) {
-              $result .= '<li>'; // apertura
+            if ($i == 0) {
+              $result .= '<div class="row pt-0 pl-28">'; // apertura
             }
+            if ($i == 2) {
+              $result .= '<div class="row mt-14 pl-28">'; // apertura
+            }
+            $result .= '<div class="col-sm-5 p-14 text-left red-line bg-muted">';    
             $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-recursos" method="post" name="formrecurso-'.$i.'">';
             $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
             $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
@@ -2286,33 +2335,24 @@ class Webservices
             $result .= '<input type="hidden" name="HoraIni" value="'.$HoraIni.'" />';
             $result .= '<input type="hidden" name="HoraFin" value="'.$HoraFin.'" />';
             $result .= '<input type="hidden" name="Flag" value="1" />';       
-            $result .= '<ul class="tr">';
-            $result .= '<li class="col-xs-1">';
-            $result .= '</li>';
-            $result .= '<li class="col-xs-3 helvetica-12">';
-            $result .= '<div class="text-center">';    
-            $result .= '<span>'.$json['Recursos'][$i]['NomRecurso'].'</span>';
+            $i++;
+            $result .= '<div class="solano-bold-24 black-text"> Opción '.$i.'</div>';
+            $i--;
+            $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['Local'].'</div>';
+            $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['FecReserva'].'</div>';
+            $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
+            $result .= '<input type="submit" class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
+            $result .= '</form>'; 
             $result .= '</div>';
-            $result .= '</li>';
-            $result .= '<li class="col-xs-4 helvetica-10">';
-            $result .= '<div class="text-center borderless">';
-            $result .= '<span>'.$json['Recursos'][$i]['Local'].'</span>';
-            $result .= '</div>';
-            $result .= '</li>';
-            $result .= '<li class="col-xs-3 helvetica-12">';
-            $result .= '<div class="text-center">';       
-            $result .= '<input type="submit" class="btn btn-custom info mb-7" value="Reservar" name="submit">';
-            $result .= '</div>';
-            $result .= '</li>';       
-            $result .= '</ul>';
-            $result .= '</form>';
-            if ($i % 5 == 0) {
-              $result .= "</li>"; //cierre
-            } 
+            if ($i == 0 || $i == 2) {
+              $result .= '<div class="col-sm-1"></div>'; // apertura
+            }
+            if ($i == 1 || $i == 3) {
+              $result .= '</div>'; // apertura
+            }
           }
         }
-        $result .= "</ul>";
-        $result .= "</div>";
+        // $result .= "</div>";
       }
       //Control de errores
       if ($error!='00000') {

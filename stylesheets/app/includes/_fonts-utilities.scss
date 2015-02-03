@@ -14,6 +14,7 @@ $alt-12: "ronnia";
 	font-size: 44px !important;
 	line-height: 1;	
 	color: black;
+	@include bold;
 }
 @for $fs from 9 to 33 {
 	.#{$sans-serif}-bold-#{$fs} {

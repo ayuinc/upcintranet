@@ -4051,7 +4051,10 @@ body {
   font-size: 2.75rem !important;
   font-size: 44px !important;
   line-height: 1;
-  color: black; }
+  color: black;
+  font-family: "sgothic-bdcap" !important;
+  font-weight: 700;
+  font-style: normal; }
 
 .solano-bold-9 {
   font-family: "sgothic-bdcap" !important;
@@ -6465,7 +6468,12 @@ body {
     color: white; }
   .btn-custom.wide {
     min-width: 189px !important;
+    font-size: 20px !important;
     padding: 3px !important; }
+    @media only screen and (max-width: 992px) {
+      .btn-custom.wide {
+        min-width: 126px !important;
+        font-size: 16px !important; } }
   .btn-custom.lg {
     font-size: 22px !important; }
     @media only screen and (max-width: 992px) {
@@ -6484,6 +6492,10 @@ a {
 
 .no-bg {
   background: none !important; }
+
+.img-center {
+  display: block;
+  margin: 0 auto; }
 
 .panel {
   position: relative; }
@@ -7173,7 +7185,8 @@ input[type="submit"].btn.btn-white.btn-custom {
   padding-top: 126px;
   padding-bottom: 0px; }
   .site-content.login .row {
-    margin-left: -14px; }
+    margin-left: -14px;
+    margin-right: -14px !important; }
     .site-content.login .row .col-sm-10 .row .col-sm-5 img {
       margin: 0 auto; }
     .site-content.login .row .col-sm-10 .row .col-sm-5 button {
@@ -7181,25 +7194,16 @@ input[type="submit"].btn.btn-white.btn-custom {
     .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted {
       padding-bottom: 77px !important;
       border-bottom: 2px solid #E42322; }
-      .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form {
-        margin-top: -21px !important; }
-        .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-sm-8 {
-          padding-top: 28px; }
-          .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-sm-8 div.center-input {
-            margin-left: 21px !important;
-            margin-bottom: -14px !important; }
-            .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-sm-8 div.center-input input.form-control {
-              border-radius: 0px !important;
-              border: 0px !important;
-              background-color: #E3E3E3;
-              color: black !important; }
+      .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-xs-8 input.form-control {
+        border-radius: 0px !important;
+        border: 0px !important;
+        background-color: #E3E3E3;
+        color: black !important; }
       .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted .pwd-mismatch {
         margin-top: 28px !important; }
-        .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted .pwd-mismatch .col-sm-1 {
-          padding: 0 !important; }
     .site-content.login .row .col-sm-10 .row.aviso {
       margin-top: -7px !important; }
-      .site-content.login .row .col-sm-10 .row.aviso .col-sm-7 {
+      .site-content.login .row .col-sm-10 .row.aviso .col-xs-7 {
         padding-top: 35px !important;
         padding-bottom: 35px !important; }
       .site-content.login .row .col-sm-10 .row.aviso img {
@@ -7214,52 +7218,31 @@ input[type="submit"].btn.btn-white.btn-custom {
       @media only screen and (max-width: 480px) {
         .site-content.login .row.footer .col-xs-8 {
           margin-top: 4px !important; } }
-    .site-content.login .row.footer .copyright span {
-      font-family: "zizou-slab-regular" !important;
-      font-style: normal;
-      font-size: 16px; }
-      @media only screen and (max-width: 480px) {
-        .site-content.login .row.footer .copyright span {
-          font-size: 10px !important; } }
 
-@media only screen and (max-width: 480px) {
-  .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group form .row {
-    padding-left: 14px !important; } }
-.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group form .row .col-xs-8 {
-  padding: 0 !important; }
-.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group form .row .col-xs-4 {
-  margin-top: 14px;
-  padding: 0 !important; }
-.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-  background-color: #E3E3E3;
-  font-family: "zizou-slab-regular" !important;
-  font-style: normal;
-  margin-bottom: 7px;
-  border: none !important;
-  font-size: 22px !important;
-  height: 42px !important;
-  border-radius: 0px !important; }
-  .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select.arrow {
-    background: url(../assets/img/select.png) no-repeat right;
-    background-color: #E3E3E3; }
-  .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select.calendar {
-    background: url(../assets/img/calendario.png) no-repeat right;
-    background-color: #E3E3E3; }
-  @media only screen and (max-width: 992px) {
-    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-      font-size: 18px !important; } }
+.mis-reservas-reservar .section-content .reservas-select-group {
+  padding-left: 14px;
+  padding-bottom: 56px; }
   @media only screen and (max-width: 480px) {
-    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-      font-size: 16px !important; } }
-  @media only screen and (max-width: 768px) {
-    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-      width: 73% !important; } }
-  @media only screen and (max-width: 480px) {
-    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-      margin-left: 12px !important; } }
+    .mis-reservas-reservar .section-content .reservas-select-group form .row {
+      padding-left: 14px !important; } }
+  .mis-reservas-reservar .section-content .reservas-select-group form .row .col-xs-8 {
+    padding: 0 !important; }
+  .mis-reservas-reservar .section-content .reservas-select-group form .row .col-xs-4 {
+    margin-top: 14px;
+    padding: 0 !important; }
+  .mis-reservas-reservar .section-content .reservas-select-group .reservas-select {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    width: 310px;
+    margin-bottom: 7px;
+    border: 1px solid #B0B1B2 !important;
+    height: 42px !important;
+    border-radius: 0px !important; }
+    .mis-reservas-reservar .section-content .reservas-select-group .reservas-select.arrow {
+      background: url(../assets/img/select.png) no-repeat right; }
+    .mis-reservas-reservar .section-content .reservas-select-group .reservas-select.calendar {
+      background: url(../assets/img/calendario.png) no-repeat right; }
 @media only screen and (max-width: 480px) {
   .mis-reservas-reservar .section-content .col-sm-6.disponibilidad {
     padding-right: 35px !important;
