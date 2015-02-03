@@ -130,18 +130,3 @@ a {
 .sb-text {
   color: $brand-info;
 }
-
-//  Negative Margins
-@for $h from -10 to -1 {
-  .mt-#{$h} {
-    margin-top: ($h) + px!important;
-    margin-top: rem($h)!important;
-  }
-}
-
-@for $h from -10 to -1 {
-  .mb-#{$h} {
-    margin-bottom: ($h) + px!important;
-    margin-bottom: rem($h)!important;
-  }
-}
