@@ -8,58 +8,59 @@
     <div class="site-content">
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="91" }
       <div class="internal-header">
-          <div class="row first-line">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span>Búsqueda</span></div>
-          </div>
-          <div class="row second-line pb-14">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span>{title}</span></div>
-          </div>
-      </div> 
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-4"><span class="zizou-16">Búsqueda</span></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+        </div>
+      </div>  
       {/exp:channel:entries}  
       <div class="section-content pb-70">
         <div class="row">
           <div class="col-sm-1"></div>
           <div class="col-sm-3 que-buscas">
-            <!--<span class="zizou-26">¿Qué buscas?</span>
+            <span class="zizou-26">¿Qué buscas?</span>
             {exp:search:simple_form channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" result_page="buscar/index"}
             <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco...">
-            <button type="button" class="btn" id="buscar-phr">BUSCAR</button>
+            <button type="button" class="btn btn-custom black-btn" id="buscar-phr">BUSCAR</button>
             <input type="submit" value="submit" id="search-nh-submit" class="submit hidden">
-            {/exp:search:simple_form}-->
+            {/exp:search:simple_form}
           </div>  
           <div class="col-sm-8 resultados">
-            <span class="num-resultados">Se han encontrado {exp:search:total_results} resultados</span>
+            <span class="zizou-26">Se han encontrado {exp:search:total_results} resultados</span>
+            <div class="resultados-busqueda red-line bg-muted">
               {exp:search:search_results}
-                <ul class="list-unstyled mt-21">
-                  <li>
-                    <div class="resultado-heading"><img src="{site_url}assets/img/black_arrow_tiny.png" alt="">{title}</div>   
-                    <div class="resultado-content">
-	                  {if intrudccion-referencia}
-	                  	{intrudccion-referencia}
-	                  {/if}
-	                  {if intro-noticia}
-	                  	{intro-noticia}
-	                  {/if}
-                    {if link-referencia}
-                      {if tipo-referencia=='Socrates'}
-                      <a class="zizou-16 black" href="{site_url}socrates/{url_title}">
-                      {/if} 
-                      {if tipo-referencia=='Externa'}
-                      <a class="zizou-16 black" href="{link-referencia}">
-                      {/if}   
-                      Ver más
-                      </a>                          
-                    {/if} 
-                    </div>     
-                  </li>
-                </ul>
-  						    
-  					    {paginate}
-  					      <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-  					    {/paginate}
-  						{/exp:search:search_results}		            
+              <div class="panel-body p-14">
+                <div class="solano-bold-20 black-text">{title}</div>   
+                <div class="helvetica-16">
+                  {if intrudccion-referencia}
+                  	{intrudccion-referencia}
+                  {/if}
+                  {if intro-noticia}
+                  	{intro-noticia}
+                  {/if}
+                </div>     
+                {if link-referencia}
+                  {if tipo-referencia=='Socrates'}
+                  <a class="danger-link zizou-16" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+                  {/if} 
+                  {if tipo-referencia=='Externa'}
+                  <a class="sb-link zizou-16" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
+                  {/if}   
+                {/if} 
+                {paginate}
+                  <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+                {/paginate}
+              </div>
+              {if count != total_results}
+              <div class="dotted-line"></div>
+              {/if}
+              {/exp:search:search_results}                
+            </div>
+            </div>
           </div>
         </div>
       </div>

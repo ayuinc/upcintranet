@@ -1614,10 +1614,11 @@ class Webservices
       $MsgError = $json['MsgError'];
       
       if ($CodError == '00051') {
-        $result .= '<span class="zizou-18">';
-        $result .= '<img class="mt--7" src="{site_url}assets/img/check.png" alt="">';
+        $result .= '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
+        $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">';
         $result .= $MsgError;
         $result .= '</span>';
+        $result .= '</div>';
       } else {
         
         $tamano = count($json['TramitesRealizados']);
@@ -1813,7 +1814,9 @@ class Webservices
       
       if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
         
-        $result = '<span class="zizou-18"><img class="mt--7" src="{site_url}assets/img/check.png" alt="">'.$json['MsgError'].'</span>';
+        $result = '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
+        $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';
+        $result .= '</div>';
         return $result;
         
       } else {
