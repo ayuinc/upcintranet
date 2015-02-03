@@ -180,38 +180,7 @@ body {
 			.row {
 				padding-top: 14px;
 			}
-			&.resultados {
-				padding-left: 0px;
-				padding-right: 42px;
-				.num-resultados {
-					@include serif-book;
-					font-size: 26px;
-					margin-top: 0;
-					padding: 0;
-				}
-				ul {
-					li {
-						padding-bottom: 14px;
-						.resultado-heading {
-							color: black;
-							@include book;
-							text-transform: uppercase;
-							font-size: 20px;
-							img {
-								width: 16px;
-								padding-bottom: 5px;
-								margin-right: 5px;
-							}
-						}
-						.resultado-content {
-							@include alt-book;
-							font-size: 14px;
-						}
-					}
-				}
-			}
 		}
-
 	}
 }
 

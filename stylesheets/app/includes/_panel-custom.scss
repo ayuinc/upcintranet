@@ -43,9 +43,6 @@
 		}
 	}
 	.panel-body {
-		&.red-line {
-			  border-top: 1px solid $brand-danger;
-		}
 		&.canales {
 			padding-bottom: 28px;
 			.panel-table {
@@ -230,16 +227,6 @@
 				@include clearfix;
 				li {
 					padding: 7px 0;
-					&.pdte-tr {
-						background-color: lighten($brand-danger, 28%);
-						color: $brand-danger;
-						text-transform: uppercase;
-					}
-					&.apr-tr {
-						background-color: lighten($brand-info, 28%);
-						color: $brand-info;
-						text-transform: uppercase;
-					}
 					div {
 						h1, h2, h3, h4, h5, h6 {
 						margin: 7px;

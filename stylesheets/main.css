@@ -4062,32 +4062,6 @@ body {
   padding: 3px 49px !important; }
 .section-content .row .col-sm-8 .row {
   padding-top: 14px; }
-.section-content .row .col-sm-8.resultados {
-  padding-left: 0px;
-  padding-right: 42px; }
-  .section-content .row .col-sm-8.resultados .num-resultados {
-    font-family: "zizou-slab-regular" !important;
-    font-style: normal;
-    font-size: 26px;
-    margin-top: 0;
-    padding: 0; }
-  .section-content .row .col-sm-8.resultados ul li {
-    padding-bottom: 14px; }
-    .section-content .row .col-sm-8.resultados ul li .resultado-heading {
-      color: black;
-      font-family: "sgothic-rgcap" !important;
-      font-style: normal;
-      text-transform: uppercase;
-      font-size: 20px; }
-      .section-content .row .col-sm-8.resultados ul li .resultado-heading img {
-        width: 16px;
-        padding-bottom: 5px;
-        margin-right: 5px; }
-    .section-content .row .col-sm-8.resultados ul li .resultado-content {
-      font-family: "nimbus-sans" !important;
-      font-weight: 500;
-      font-style: normal;
-      font-size: 14px; }
 
 .dropdown ul.dropdown-menu {
   left: -84px !important;
@@ -6296,6 +6270,9 @@ body {
 .red {
   color: #E42322 !important; }
 
+.text-info {
+  color: #3298FF !important; }
+
 .gray-main {
   color: #565658 !important; }
 
@@ -6471,8 +6448,6 @@ a {
         background-color: #3298FF; }
         .panel .panel-head .panel-head-link.info:hover {
           background-color: #33C5FF; }
-  .panel .panel-body.red-line {
-    border-top: 1px solid #E42322; }
   .panel .panel-body.canales {
     padding-bottom: 28px; }
     .panel .panel-body.canales .panel-table {
@@ -6630,14 +6605,6 @@ a {
       clear: both; }
     .panel .panel-body .panel-table .tr li {
       padding: 7px 0; }
-      .panel .panel-body .panel-table .tr li.pdte-tr {
-        background-color: #f4a2a1;
-        color: #E42322;
-        text-transform: uppercase; }
-      .panel .panel-body .panel-table .tr li.apr-tr {
-        background-color: #c1e0ff;
-        color: #3298FF;
-        text-transform: uppercase; }
       .panel .panel-body .panel-table .tr li div h1, .panel .panel-body .panel-table .tr li div h2, .panel .panel-body .panel-table .tr li div h3, .panel .panel-body .panel-table .tr li div h4, .panel .panel-body .panel-table .tr li div h5, .panel .panel-body .panel-table .tr li div h6 {
         margin: 7px; }
       .panel .panel-body .panel-table .tr li span {
@@ -6721,6 +6688,22 @@ a {
     background-color: #3298FF; }
     .arrow-icon.info:hover {
       background-color: #33C5FF; }
+
+.pdte-tr {
+  background-color: #f4a2a1;
+  color: #E42322;
+  text-transform: uppercase; }
+
+.apr-tr {
+  background-color: #c1e0ff;
+  color: #3298FF;
+  text-transform: uppercase; }
+
+.red-line {
+  border-top: 2px solid #E42322; }
+
+.info-border {
+  border-top: 2px solid #3298FF; }
 
 a.btn.form-control,
 button.btn.form-control,

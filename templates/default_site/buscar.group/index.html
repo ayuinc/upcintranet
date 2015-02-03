@@ -28,36 +28,34 @@
             {/exp:search:simple_form}-->
           </div>  
           <div class="col-sm-8 resultados">
-            <span class="num-resultados">Se han encontrado {exp:search:total_results} resultados</span>
+            <span class="zizou-26">Se han encontrado {exp:search:total_results} resultados</span>
+            <div class="resultados-busqueda red-line bg-muted">
               {exp:search:search_results}
-                <ul class="list-unstyled mt-21">
-                  <li>
-                    <div class="resultado-heading"><img src="{site_url}assets/img/black_arrow_tiny.png" alt="">{title}</div>   
-                    <div class="resultado-content">
-	                  {if intrudccion-referencia}
-	                  	{intrudccion-referencia}
-	                  {/if}
-	                  {if intro-noticia}
-	                  	{intro-noticia}
-	                  {/if}
-                    {if link-referencia}
-                      {if tipo-referencia=='Socrates'}
-                      <a class="zizou-16 black" href="{site_url}socrates/{url_title}">
-                      {/if} 
-                      {if tipo-referencia=='Externa'}
-                      <a class="zizou-16 black" href="{link-referencia}">
-                      {/if}   
-                      Ver más
-                      </a>                          
+              <div class="panel-body p-14">
+                  <div class="solano-bold-20">{title}</div>   
+                  <div class="helvetica-16">
+                    {if intrudccion-referencia}
+                    	{intrudccion-referencia}
+                    {/if}
+                    {if intro-noticia}
+                    	{intro-noticia}
+                    {/if}
+                  </div>     
+                  {if link-referencia}
+                    {if tipo-referencia=='Socrates'}
+                    <a class="sb-link zizou-16" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
                     {/if} 
-                    </div>     
-                  </li>
-                </ul>
-  						    
-  					    {paginate}
-  					      <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-  					    {/paginate}
-  						{/exp:search:search_results}		            
+                    {if tipo-referencia=='Externa'}
+                    <a class="sb-link zizou-16" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
+                    {/if}   
+                  {/if} 
+                {paginate}
+                  <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+                {/paginate}
+              </div>
+              {/exp:search:search_results}                
+            </div>
+            </div>
           </div>
         </div>
       </div>

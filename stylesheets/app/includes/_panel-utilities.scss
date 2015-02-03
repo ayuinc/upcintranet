@@ -1,3 +1,4 @@
+// icons and arrows
 .custom-icon {
 	min-height: 24px !important;
 	width: 24px;
@@ -38,3 +39,21 @@
 	float: left;
 
 }
+// Mis Trámites
+.pdte-tr {
+	background-color: lighten($brand-danger, 28%);
+	color: $brand-danger;
+	text-transform: uppercase;
+}
+.apr-tr {
+	background-color: lighten($brand-info, 28%);
+	color: $brand-info;
+	text-transform: uppercase;
+}
+// Panel Body
+.red-line {
+	  border-top: 2px solid $brand-danger;
+}
+.info-border {
+	  border-top: 2px solid $brand-info;
+}	
