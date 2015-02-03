@@ -21,3 +21,4 @@ $db['expressionengine']['cachedir'] = '/var/www/html/system/expressionengine/cac
 
 /* End of file database.php */
 /* Location: ./system/expressionengine/config/database.php */
+

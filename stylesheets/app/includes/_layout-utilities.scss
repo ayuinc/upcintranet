@@ -32,9 +32,29 @@
 .col-sm-7-5{
   @include make-sm-column(7.5)
 }
-// custom margin
+// Custom Margins & Paddings
 .m-auto {
 	margin: auto !important;
+}
+@for $h from -10 to 10 {
+  .mt-#{$h} {
+    margin-top: ($h) + px!important;
+    margin-top: rem($h)!important;
+  }
+}
+
+@for $h from -10 to -1 {
+  .mb-#{$h} {
+    margin-bottom: ($h) + px!important;
+    margin-bottom: rem($h)!important;
+  }
+}
+
+@for $h from 1 to 10 {
+  .pt-#{$h} {
+    padding-top: ($h) + px!important;
+    padding-top: rem($h)!important;
+  }
 }
 // Custom Buttons
 .btn-custom {
@@ -67,24 +87,24 @@
 		}	
 	}
 }
+
 // custom links
 a {
 	color: $gray-main !important;
 	&.sb-link {
 		color: $brand-info !important;
 	}					
+	&.danger-link {
+		color: $brand-danger !important;
+	}					
 }
+
 // Custom Line Heights
 .lh-1-1 {
 	line-height: 1.1 !important;
 }
+
 // custom backgrounds
 .no-bg {
 	background: none !important;
-}
-.panel-title-line {
-	height: 1px;
-	width: 97%;
-	border-bottom: $gray-lighter 1px solid;
-	margin-left: 7px;
 }
