@@ -78,6 +78,9 @@
 	}
 	&.wide {
 		min-width: 189px !important;
+		@media #{$md-down} {
+			min-width: 126px !important;	
+		}	
 		padding: 3px !important; 
 	}
 	&.lg {
@@ -107,4 +110,9 @@ a {
 // custom backgrounds
 .no-bg {
 	background: none !important;
+}
+// images
+.img-center {
+	display: block;
+	margin: 0 auto;
 }
