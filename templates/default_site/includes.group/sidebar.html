@@ -1,5 +1,15 @@
     <div class="site-menu hidden-xs">
       <ul class="list-unstyled nav-main">
+        {exp:channel:entries channel="sidebar_estudiante" dynamic="off" orderby="date" sort="asc"}
+          <li class="{url_title} menu {if segment_1=='{url_title}'}current-menu{/if}">
+            <a href="{url-root-item}">
+              <div></div>
+              <span>{title}</span>
+            </a>
+            {embed="includes/subitems-sidebar" category="{id_categoria_subitems}" item="{url_title}"}
+          </li>
+        {/exp:channel:entries}
+        <!-- 
         <li class="mis-estudios menu {if segment_1=='mis-estudios'}current-menu{/if}">
           <a href="{site_url}mis-estudios/ciclo-actual">
             <div></div>
@@ -60,12 +70,14 @@
           	<li><a href="{site_url}centro-de-informacion/{url_title}">{title}</a></li>
           {/exp:channel:entries}
           </ul>	          
-        </li>       
+        </li>
+        -->       
         <li class="ayuda menu">
           <a href="{site_url}ayuda">
             <div></div>
             <span>Ayuda</span>
           </a>
         </li>
+        
       </ul>
     </div>
