@@ -1,6 +1,8 @@
 .mis-reservas-reservar {
 	.section-content {
-		.col-sm-6.reservas-select-group {
+		.reservas-select-group {
+			padding-left: 14px;
+			padding-bottom: 56px;
 			form {
 				.row {
 					@media #{$xs-only} {
@@ -19,31 +21,15 @@
 				-webkit-appearance: none !important;
 				-moz-appearance: none !important;
 				appearance: none !important;
-				background-color: $gray-lighter;
+				width: 310px;
 				&.arrow {
 					background: url(../assets/img/select.png) no-repeat right;
-					background-color: $gray-lighter;
 				}
 				&.calendar {
 					background: url(../assets/img/calendario.png) no-repeat right;
-					background-color: $gray-lighter;
 				}
-				@include serif-book;
 				margin-bottom: 7px;
-				border: none !important;
-				font-size: 22px !important;
-				@media #{$md-down} {
-					font-size: 18px !important;
-				}
-				@media #{$xs-only} {
-					font-size: 16px !important;
-				}
-				@media #{$sm-down} {
-					width: 73% !important;
-				}
-				@media #{$xs-only} {
-					margin-left: 12px !important;
-				}
+				border: 1px solid $gray-light !important;
 				height: 42px !important;
 				border-radius: 0px !important;
 			}

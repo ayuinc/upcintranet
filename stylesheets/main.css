@@ -6468,10 +6468,12 @@ body {
     color: white; }
   .btn-custom.wide {
     min-width: 189px !important;
+    font-size: 20px !important;
     padding: 3px !important; }
     @media only screen and (max-width: 992px) {
       .btn-custom.wide {
-        min-width: 126px !important; } }
+        min-width: 126px !important;
+        font-size: 16px !important; } }
   .btn-custom.lg {
     font-size: 22px !important; }
     @media only screen and (max-width: 992px) {
@@ -7199,8 +7201,6 @@ input[type="submit"].btn.btn-white.btn-custom {
         color: black !important; }
       .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted .pwd-mismatch {
         margin-top: 28px !important; }
-        .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted .pwd-mismatch .col-xs-1 {
-          padding: 0 !important; }
     .site-content.login .row .col-sm-10 .row.aviso {
       margin-top: -7px !important; }
       .site-content.login .row .col-sm-10 .row.aviso .col-xs-7 {
@@ -7219,44 +7219,30 @@ input[type="submit"].btn.btn-white.btn-custom {
         .site-content.login .row.footer .col-xs-8 {
           margin-top: 4px !important; } }
 
-@media only screen and (max-width: 480px) {
-  .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group form .row {
-    padding-left: 14px !important; } }
-.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group form .row .col-xs-8 {
-  padding: 0 !important; }
-.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group form .row .col-xs-4 {
-  margin-top: 14px;
-  padding: 0 !important; }
-.mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-  background-color: #E3E3E3;
-  font-family: "zizou-slab-regular" !important;
-  font-style: normal;
-  margin-bottom: 7px;
-  border: none !important;
-  font-size: 22px !important;
-  height: 42px !important;
-  border-radius: 0px !important; }
-  .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select.arrow {
-    background: url(../assets/img/select.png) no-repeat right;
-    background-color: #E3E3E3; }
-  .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select.calendar {
-    background: url(../assets/img/calendario.png) no-repeat right;
-    background-color: #E3E3E3; }
-  @media only screen and (max-width: 992px) {
-    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-      font-size: 18px !important; } }
+.mis-reservas-reservar .section-content .reservas-select-group {
+  padding-left: 14px;
+  padding-bottom: 56px; }
   @media only screen and (max-width: 480px) {
-    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-      font-size: 16px !important; } }
-  @media only screen and (max-width: 768px) {
-    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-      width: 73% !important; } }
-  @media only screen and (max-width: 480px) {
-    .mis-reservas-reservar .section-content .col-sm-6.reservas-select-group .reservas-select {
-      margin-left: 12px !important; } }
+    .mis-reservas-reservar .section-content .reservas-select-group form .row {
+      padding-left: 14px !important; } }
+  .mis-reservas-reservar .section-content .reservas-select-group form .row .col-xs-8 {
+    padding: 0 !important; }
+  .mis-reservas-reservar .section-content .reservas-select-group form .row .col-xs-4 {
+    margin-top: 14px;
+    padding: 0 !important; }
+  .mis-reservas-reservar .section-content .reservas-select-group .reservas-select {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    width: 310px;
+    margin-bottom: 7px;
+    border: 1px solid #B0B1B2 !important;
+    height: 42px !important;
+    border-radius: 0px !important; }
+    .mis-reservas-reservar .section-content .reservas-select-group .reservas-select.arrow {
+      background: url(../assets/img/select.png) no-repeat right; }
+    .mis-reservas-reservar .section-content .reservas-select-group .reservas-select.calendar {
+      background: url(../assets/img/calendario.png) no-repeat right; }
 @media only screen and (max-width: 480px) {
   .mis-reservas-reservar .section-content .col-sm-6.disponibilidad {
     padding-right: 35px !important;

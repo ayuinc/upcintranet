@@ -78,8 +78,10 @@
 	}
 	&.wide {
 		min-width: 189px !important;
+		font-size: 20px !important;
 		@media #{$md-down} {
 			min-width: 126px !important;	
+			font-size: 16px !important;
 		}	
 		padding: 3px !important; 
 	}
