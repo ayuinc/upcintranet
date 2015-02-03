@@ -2254,59 +2254,6 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      $result = '{
-    "CodError":"00000",
-    "MsgError":"",
-    "TipoRecurso":"CO",
-    "FecReserva":"28032015",
-    "CanHoras":"1",
-    "Recursos":[
-        {
-            "CodRecurso":34,
-            "NomRecurso":"COMPUTADORA 04 (SALA 1)",
-            "Local":"CAMPUS MONTERRICO",
-            "FecReserva":"28032015",
-            "HoraIni":"0000",
-            "HoraFin":"0000",
-            "Estado":false,
-            "CodError":null,
-            "Mensaje":null
-        },
-        {
-            "CodRecurso":35,
-            "NomRecurso":"COMPUTADORA 05 (SALA 1)",
-            "Local":"CAMPUS MONTERRICO",
-            "FecReserva":"28032015",
-            "HoraIni":"0000",
-            "HoraFin":"0000",
-            "Estado":false,
-            "CodError":null,
-            "Mensaje":null
-        },
-        {
-            "CodRecurso":35,
-            "NomRecurso":"COMPUTADORA 05 (SALA 1)",
-            "Local":"CAMPUS MONTERRICO",
-            "FecReserva":"28032015",
-            "HoraIni":"0000",
-            "HoraFin":"0000",
-            "Estado":false,
-            "CodError":null,
-            "Mensaje":null
-        },
-        {
-            "CodRecurso":35,
-            "NomRecurso":"COMPUTADORA 05 (SALA 1)",
-            "Local":"CAMPUS MONTERRICO",
-            "FecReserva":"28032015",
-            "HoraIni":"0000",
-            "HoraFin":"0000",
-            "Estado":false,
-            "CodError":null,
-            "Mensaje":null
-        }
-    ]
-}';
       $json = json_decode($result, true);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
