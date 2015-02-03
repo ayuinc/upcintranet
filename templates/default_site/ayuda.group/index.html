@@ -24,21 +24,39 @@
           </div>
           <div class="col-sm-8 resultados">
             <div class="resultados-busqueda red-line bg-muted">
-            {exp:channel:entries channel="ayuda" limit="20" disable="member_data" dynamic="off"}
-              <div class="mt-14">
-                <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
-                <div class="solano-bold-20 pt-3 black-text">{title}</div>   
-              </div>
-              <div class="pl-35 pb-7 pr-35">
-                {intro-noticia}
-              </div>     
-					    {paginate}
-					    <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-					    {/paginate}
-              {if count != total_results}
-              <div class="dotted-line"></div>
-              {/if}
-  					{/exp:channel:entries} 		            
+              {if segment_2 == ""}
+                {exp:channel:entries channel="ayuda" limit="20" disable="member_data" dynamic="off"}
+                  <div class="mt-14">
+                    <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
+                    <div class="solano-bold-20 pt-3 black-text">{title}</div>   
+                  </div>
+                  <div class="pl-35 pb-7 pr-35">
+                    {intro-noticia}
+                  </div>     
+    					    {paginate}
+    					    <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+    					    {/paginate}
+                  {if count != total_results}
+                  <div class="dotted-line"></div>
+                  {/if}
+      					{/exp:channel:entries} 		      
+              {if:else}
+                {exp:channel:entries category="{segment_2}" channel="ayuda" limit="20" disable="member_data" dynamic="off"}
+                  <div class="mt-14">
+                    <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
+                    <div class="solano-bold-20 pt-3 black-text">{title}</div>   
+                  </div>
+                  <div class="pl-35 pb-7 pr-35">
+                    {intro-noticia}
+                  </div>     
+                  {paginate}
+                  <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+                  {/paginate}
+                  {if count != total_results}
+                  <div class="dotted-line"></div>
+                  {/if}
+                {/exp:channel:entries} 
+              {/if}      
             </div>  
                   
           </div>
