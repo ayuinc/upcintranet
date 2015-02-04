@@ -77,11 +77,19 @@ $alt-12: "ronnia";
 		@include alt-ab-book;	
 		font-size: $fs + px !important;	
 		font-size: rem($fs) !important;	
+		@media #{$lg-down} {
+			font-size: ($fs - 2) + px !important;
+			font-size: rem(($fs) - 2) !important;	
+		}
 	}
 	.#{$alt-12}-#{$fs} {
 		@include alt-12-book;	
 		font-size: $fs + px !important;	
-		font-size: rem($fs) !important;	
+		font-size: rem($fs) !important;
+		@media #{$lg-down} {
+			font-size: ($fs - 2) + px !important;
+			font-size: rem(($fs) - 2) !important;	
+		}	
 	}
 	.#{$alt}-bold-#{$fs} {
 		@include alt-bold;	

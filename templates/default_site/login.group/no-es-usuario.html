@@ -1,4 +1,5 @@
 {embed="includes/head"}
+{embed="includes/header-global-only"}
     <div class="site-content login">
       <div class="row pt-14">
         <div class="col-sm-1"></div>
@@ -11,39 +12,31 @@
               {exp:webservices:eliminar_cookie}
             <!-- -->
             <div class="col-sm-7 col-xs-12 bg-muted pr-35">
-              <div class="row mt-14">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4 ml-21 mt-49"><span class="uppercase solano-bold-32 black">Intranet</span></div>
-                <div class="col-sm-4 pull-right"><img class="logo" src="{site_url}assets/img/logo_upc_red.png" alt=""></div>
-                <div class="col-sm-2"></div>
+              <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-4 pt-28"><span class="uppercase xl">Intranet</span></div>
+                <div class="col-xs-6"><img class="logo img-center" src="{site_url}assets/img/logo_upc_red.png" alt=""></div>
               </div>
               <form action="{site_url}index.php/login/usuario" method="post" name="login_form" class="login-form">
                 <input type="hidden" name="XID" value="{XID_HASH}"> 
                 <input type="hidden" name="plataforma" value="C">
-                <div class="row mt-14 pt-7">
-                  <div class="col-sm-2"></div>
-                  <div class="col-sm-8">
-                    <div class="center-input">
-                      <input class="form-control zizou-12" type="text" name="codigo" value="" maxlength="32" class="input" size="25"  placeholder="Nombre de Usuario*"></div>
-                    </div>
+                <div class="row mt-56">
+                  <div class="col-xs-2"></div>
+                  <div class="col-xs-8">
+                    <input class="form-control zizou-12" type="text" name="codigo" value="" maxlength="32" class="input" size="25"  placeholder="Nombre de Usuario*">
+                  </div>
                 </div>  
-                <div class="row">
-                  <div class="col-sm-2"></div>
-                  <div class="col-sm-8">
-                    <div class="center-input">
-                      <input type="password" name="contrasena" value="" maxlength="32" class="zizou-12 input form-control" size="25" placeholder="Contraseña*">
-                    </div>
+                <div class="row mt-14">
+                  <div class="col-xs-2"></div>
+                  <div class="col-xs-8">
+                    <input type="password" name="contrasena" value="" maxlength="32" class="zizou-12 input form-control" size="25" placeholder="Contraseña*">
                   </div>
                 </div>
-                <div class="row mt-7">
-                  <div class="col-sm-2"></div>
-                  <div class="col-sm-8 inicia">
-                    <div class="pull-right">
-                      <button type="submit" value="Send" class="btn btn-custom black-btn wide lg">Iniciar Sesión</button>
-                      <div class="mt-14">
-                        <a href="" class="zizou-14">¿No puedes acceder a tu cuenta?</a>
-                      </div>
-                    </div>
+                <div class="row mt-21">
+                  <div class="col-xs-2"></div>
+                  <div class="col-xs-8 text-right">
+                    <button type="submit" value="Send" class="btn btn-custom black-btn wide lg">Iniciar Sesión</button>
+                    <a href="" class="pt-14 block zizou-14">¿No puedes acceder a tu cuenta?</a>
                   </div>
                 </div>
               </form>
@@ -66,10 +59,12 @@
             </div>
           {/exp:channel:entries} 
           <div class="row">
-            <div class="text-center mt-7 ml--70"><span class="helvetica-bold-10 black uppercase">*Campo obligatorio</span></div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-7">
+              <div class="pull-left"><span class="helvetica-bold-10 black uppercase">*Campo obligatorio</span></div>
+            </div>
           </div>
         </div>
-        <div class="col-sm-1"></div>
       </div>
       <div class="row footer pt-28">
         <div class="col-sm-1 hidden-xs"></div>

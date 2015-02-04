@@ -1,23 +1,28 @@
   </div> <!-- site wrapper  -->
  
-  <script src="{site_url}js/app/vendor/jquery-ui.js"></script>
-  <script src="{site_url}js/app/vendor/datepicker-es.js"></script>
-  <script src="{site_url}js/app/vendor/jquery.slicknav.min.js"></script>
   <script src="{site_url}js/b3/transition.js"></script>
   <script src="{site_url}js/b3/dropdown.js"></script>
   <script src="{site_url}js/b3/collapse.js"></script>
-  <script src="{site_url}js/app/src/global.js"></script>
-  <script src="{site_url}js/app/src/dashboard.js"></script>
   <script src="{site_url}js/app/vendor/wurfl.js"></script>
   <script src="{site_url}js/app/src/insert-script.js"></script>
   <script src="{site_url}js/app/vendor/velocity.min.js"></script>
-  <script src="{site_url}js/app/src/notas-detalladas.js"></script>
   {if segment_1 == 'dashboard'}
   <script src="{site_url}js/app/src/session_expired.js"></script>
+  {/if}
+  {if segment_1 == 'dashboard' && segment_2 == 'estudiante'}
+  <script src="{site_url}js/app/src/dashboard.js"></script>
+  {/if}
+  {if segment_1 == 'mis-estudios' && segment_2 == 'notas-detalladas'}
+  <script src="{site_url}js/app/src/notas-detalladas.js"></script>
   {/if}
   {if segment_2 == 'salir'}
   <script src="{site_url}js/app/src/cssrefresh.js"></script>
   {/if}
+  {if segment_1 == 'mis-reservas'}
+  <script src="{site_url}js/app/vendor/jquery-ui.js"></script>
+  <script src="{site_url}js/app/vendor/datepicker-es.js"></script>
+  {/if}
+
 	<script>
 		$( document ).ready(function() {
 		    $('#sede-L').hide();
