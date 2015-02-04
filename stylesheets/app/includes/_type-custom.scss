@@ -1,25 +1,25 @@
-// RESPONSIVE FONT RESIZE
-html {
-  font-size: $font-size-base;
-  @media #{$sm-only} {
-    font-size: $font-size-base - 2;
-  }
-  @media #{$xs-only} {
-    font-size: $font-size-base - 2;
-  }
-}
+// // RESPONSIVE FONT RESIZE
+// html {
+//   font-size: $font-size-base;
+//   @media #{$sm-only} {
+//     font-size: $font-size-base - 2;
+//   }
+//   @media #{$xs-only} {
+//     font-size: $font-size-base - 2;
+//   }
+// }
 
 // MAIN TEXT
 
 
 // TEXT IN REMS
-h1, .h1 { font-size: rem($font-size-h1); }
-h2, .h2 { font-size: rem($font-size-h2); }
-h3, .h3 { font-size: rem($font-size-h3); }
-h4, .h4 { font-size: rem($font-size-h4); }
-h5, .h5 { font-size: rem($font-size-h5); }
-h6, .h6 { font-size: rem($font-size-h6); }
-p, .p, ul { font-size: rem($font-size-base); }
+// h1, .h1 { font-size: rem($font-size-h1); }
+// h2, .h2 { font-size: rem($font-size-h2); }
+// h3, .h3 { font-size: rem($font-size-h3); }
+// h4, .h4 { font-size: rem($font-size-h4); }
+// h5, .h5 { font-size: rem($font-size-h5); }
+// h6, .h6 { font-size: rem($font-size-h6); }
+// p, .p, ul { font-size: rem($font-size-base); }
 
 // Contextual emphasis
 @for $i from 1 through length($brand-colors-list) {

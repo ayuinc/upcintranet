@@ -15,23 +15,23 @@ $box-model-ch-abbr-percentage: pp-ch, ptp-ch, prp-ch, pbp-ch, plp-ch, mp-ch, mtp
       }
     }
     
-    @for $k from 1 through length($breakpoints-sufix-list) {
-      @media #{nth($media-only-list, $k)} {
-        .#{nth($box-model-abbr, $j)}-#{$i*$times}-#{nth($breakpoints-sufix-list, $k)} {          
-          // For <IE8
-          #{nth($box-model-sides, $j)}: ($i*$times) + px !important;
-          // REMs for modern browsers
-          @if $px-to-rems == true {
-            #{nth($box-model-sides, $j)}: rem($i*$times) !important;
-          }
-        }
-        @if $percentage == true {
-          .#{nth($box-model-abbr, $j)}p-#{$i*$times}-#{nth($breakpoints-sufix-list, $k)} {
-            #{nth($box-model-sides, $j)}: percentage(($i*($times/100))) !important; 
-          }
-        }
-      }
-    }
+    // @for $k from 1 through length($breakpoints-sufix-list) {
+    //   @media #{nth($media-only-list, $k)} {
+    //     .#{nth($box-model-abbr, $j)}-#{$i*$times}-#{nth($breakpoints-sufix-list, $k)} {          
+    //       // For <IE8
+    //       #{nth($box-model-sides, $j)}: ($i*$times) + px !important;
+    //       // REMs for modern browsers
+    //       @if $px-to-rems == true {
+    //         #{nth($box-model-sides, $j)}: rem($i*$times) !important;
+    //       }
+    //     }
+    //     @if $percentage == true {
+    //       .#{nth($box-model-abbr, $j)}p-#{$i*$times}-#{nth($breakpoints-sufix-list, $k)} {
+    //         #{nth($box-model-sides, $j)}: percentage(($i*($times/100))) !important; 
+    //       }
+    //     }
+    //   }
+    // }
 
     @if $percentage == true {
       .#{nth($box-model-abbr, $j)}p-#{$i*$times} {
@@ -42,47 +42,47 @@ $box-model-ch-abbr-percentage: pp-ch, ptp-ch, prp-ch, pbp-ch, plp-ch, mp-ch, mtp
 }
 
 // BOX MODEL CHILDREN ELEMENTS
-@for $i from 0 through 10 {
-  @for $j from 1 through length($box-model-sides) {
+// @for $i from 0 through 10 {
+//   @for $j from 1 through length($box-model-sides) {
 
-    .#{nth($box-model-ch-abbr, $j)}-#{$i*$times} {
-      > a, > div, > li, > p, > h1, > h2, > h3, > h4, > h5, > h6, > ul, > ol, > section {
-        // For <IE8
-        #{nth($box-model-sides, $j)}: ($i*$times) + px !important;
-        // REMs for modern browsers
-        @if $px-to-rems == true {
-          #{nth($box-model-sides, $j)}: rem($i*$times) !important;
-        }
-      }
-    }
-    @if $percentage == true {
-      .#{nth($box-model-ch-abbr-percentage, $j)}-#{$i*$times} {
-        > a, > div, > li, > p, > h1, > h2, > h3, > h4, > h5, > h6, > ul, > ol, > section {
-          #{nth($box-model-sides, $j)}: percentage(($i*($times/100))) !important;
-        }
-      }
-    }
+//     .#{nth($box-model-ch-abbr, $j)}-#{$i*$times} {
+//       > a, > div, > li, > p, > h1, > h2, > h3, > h4, > h5, > h6, > ul, > ol, > section {
+//         // For <IE8
+//         #{nth($box-model-sides, $j)}: ($i*$times) + px !important;
+//         // REMs for modern browsers
+//         @if $px-to-rems == true {
+//           #{nth($box-model-sides, $j)}: rem($i*$times) !important;
+//         }
+//       }
+//     }
+//     @if $percentage == true {
+//       .#{nth($box-model-ch-abbr-percentage, $j)}-#{$i*$times} {
+//         > a, > div, > li, > p, > h1, > h2, > h3, > h4, > h5, > h6, > ul, > ol, > section {
+//           #{nth($box-model-sides, $j)}: percentage(($i*($times/100))) !important;
+//         }
+//       }
+//     }
 
-    @for $k from 1 through length($breakpoints-sufix-list) {
-      @media #{nth($media-only-list, $k)} {
-        .#{nth($box-model-ch-abbr, $j)}-#{$i*$times}-#{nth($breakpoints-sufix-list, $k)} {
-          > a, > div, > li, > p, > h1, > h2, > h3, > h4, > h5, > h6, > ul, > ol, > section {
-            // For <IE8
-            #{nth($box-model-sides, $j)}: ($i*$times) + px !important;
-            // REMs for modern browsers
-            @if $px-to-rems == true {
-              #{nth($box-model-sides, $j)}: rem($i*$times) !important;
-            }
-          }
-        }
-        @if $percentage == true {
-          .#{nth($box-model-ch-abbr-percentage, $j)}-#{$i*$times}-#{nth($breakpoints-sufix-list, $k)} {
-            > a, > div, > li, > p, > h1, > h2, > h3, > h4, > h5, > h6, > ul, > ol, > section {
-              #{nth($box-model-sides, $j)}: percentage(($i*($times/100))) !important;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//     @for $k from 1 through length($breakpoints-sufix-list) {
+//       @media #{nth($media-only-list, $k)} {
+//         .#{nth($box-model-ch-abbr, $j)}-#{$i*$times}-#{nth($breakpoints-sufix-list, $k)} {
+//           > a, > div, > li, > p, > h1, > h2, > h3, > h4, > h5, > h6, > ul, > ol, > section {
+//             // For <IE8
+//             #{nth($box-model-sides, $j)}: ($i*$times) + px !important;
+//             // REMs for modern browsers
+//             @if $px-to-rems == true {
+//               #{nth($box-model-sides, $j)}: rem($i*$times) !important;
+//             }
+//           }
+//         }
+//         @if $percentage == true {
+//           .#{nth($box-model-ch-abbr-percentage, $j)}-#{$i*$times}-#{nth($breakpoints-sufix-list, $k)} {
+//             > a, > div, > li, > p, > h1, > h2, > h3, > h4, > h5, > h6, > ul, > ol, > section {
+//               #{nth($box-model-sides, $j)}: percentage(($i*($times/100))) !important;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

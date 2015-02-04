@@ -10,8 +10,8 @@ $alt-12: "ronnia";
 
 /// fonts loops
 .xl {
-	font-size: rem(44) !important;	
 	font-size: 44px !important;
+	font-size: rem(44) !important;	
 	line-height: 1;	
 	color: black;
 	@include bold;

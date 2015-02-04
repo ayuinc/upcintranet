@@ -1,0 +1,247 @@
+// RESPONSIVE FONT RESIZE
+$em-base: $font-size-base;
+
+html {
+  font-size: $font-size-base;
+  @media #{$sm-only} {
+    font-size: $font-size-base - 2;
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+      line-height: $headings-line-height - 0.1;
+    }
+    h1, .h1,
+    h2, .h2,
+    h3, .h3 {
+      margin-top: rem($line-height-computed);
+      margin-bottom: rem(($line-height-computed / 2));
+    }
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
+      margin-top: rem(($line-height-computed / 2));
+      margin-bottom: rem(($line-height-computed / 2));
+    }
+  }
+  @media #{$xs-only} {
+    font-size: $font-size-base - 3;
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+      line-height: $headings-line-height - 0.2;
+    }
+    h1, .h1,
+    h2, .h2,
+    h3, .h3 {
+      margin-top: rem($line-height-computed);
+      margin-bottom: rem(($line-height-computed / 2));
+    }
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
+      margin-top: rem(($line-height-computed / 2));
+      margin-bottom: rem(($line-height-computed / 2));
+    }
+  }
+}
+
+/* TEXT IN REMS */
+$text-in-rems-md-up: 7;
+$line-height-md-up: 1.3;
+$text-in-rems-sm-only: 5;
+$line-height-sm-only: 1.2;
+$text-in-rems-xs-only: 3;
+$line-height-xs-only: 1.1;
+
+$font-size-list: 
+  $font-size-h1,
+  $font-size-h2,
+  $font-size-h3,
+  $font-size-h4,
+  $font-size-h5,
+  $font-size-h6;
+
+$headings-list: 
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6";
+
+$headings-class-list:
+  ".h1",
+  ".h2",
+  ".h3",
+  ".h4",
+  ".h5",
+  ".h6";
+
+$text-elements-list: 
+  "p", ".p",
+  "span",
+  "em",
+  "strong",
+  "label",
+  "i",
+  "ul",
+  "ol",
+  "li";
+
+// LEAD TEXT ELEMENTS
+#{$text-elements-list} {
+  &.lead {
+    font-size: $font-size-base + $text-in-rems-md-up !important;
+    font-size: rem($font-size-base + $text-in-rems-md-up) !important;
+    line-height: $line-height-md-up;
+  }
+  @media #{$xs-only} {
+    &.lead {
+      font-size: $font-size-base + $text-in-rems-xs-only !important;
+      font-size: rem($font-size-base + $text-in-rems-xs-only) !important;
+      line-height: $line-height-xs-only;
+    }
+  }
+  @media #{$sm-only} {
+    &.lead {
+      font-size: $font-size-base + $text-in-rems-sm-only !important;
+      font-size: rem($font-size-base + $text-in-rems-sm-only) !important;
+      line-height: $line-height-sm-only;
+    }
+  }
+}
+.lead-ch {
+  #{$text-elements-list} {
+    font-size: $font-size-base + $text-in-rems-md-up !important;
+    font-size: rem($font-size-base + $text-in-rems-md-up) !important;
+    line-height: $line-height-md-up;
+    @media #{$xs-only} {
+      font-size: $font-size-base + $text-in-rems-xs-only !important;
+      font-size: rem($font-size-base + $text-in-rems-xs-only) !important;
+      line-height: $line-height-xs-only;
+    }
+    @media #{$sm-only} {
+      font-size: $font-size-base + $text-in-rems-sm-only !important;
+      font-size: rem($font-size-base + $text-in-rems-sm-only) !important;
+      line-height: $line-height-sm-only;
+    }
+  }
+}
+
+// LEAD HEADINGS
+@for $i from 1 through length($headings-list) {
+  #{nth($headings-list, $i)} {
+    font-size: #{rem(nth($font-size-list, $i))};
+    &.lead {
+      font-size: #{nth($font-size-list, $i) + $text-in-rems-md-up} !important;
+      font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-md-up)} !important;
+      line-height: $line-height-md-up;
+    }
+    @media #{$xs-only} {
+      &.lead {
+        font-size: #{nth($font-size-list, $i) + $text-in-rems-xs-only} !important;
+        font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-xs-only)} !important;
+        line-height: $line-height-xs-only;
+      }
+    }
+    @media #{$sm-only} {
+      &.lead {
+        font-size: #{nth($font-size-list, $i) + $text-in-rems-sm-only} !important;
+        font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-sm-only)} !important;
+        line-height: $line-height-sm-only;
+      }
+    }
+  }
+}
+@for $i from 1 through length($headings-class-list) {
+  #{nth($headings-class-list, $i)} {
+    font-size: #{rem(nth($font-size-list, $i))};
+    &.lead {
+      font-size: #{nth($font-size-list, $i) + $text-in-rems-md-up} !important;
+      font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-md-up)} !important;
+      line-height: $line-height-md-up;
+    }
+    @media #{$xs-only} {
+      &.lead {
+        font-size: #{nth($font-size-list, $i) + $text-in-rems-xs-only} !important;
+        font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-xs-only)} !important;
+        line-height: $line-height-xs-only;
+      }
+    }
+    @media #{$sm-only} {
+      &.lead {
+        font-size: #{nth($font-size-list, $i) + $text-in-rems-sm-only} !important;
+        font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-sm-only)} !important;
+        line-height: $line-height-sm-only;
+      }
+    }
+  }
+}
+
+// LEAD CHILDREN HEADINGS
+.lead-ch {
+  @for $i from 1 through length($headings-list) {
+    #{nth($headings-list, $i)} {
+      font-size: #{nth($font-size-list, $i) + $text-in-rems-md-up} !important;
+      font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-md-up)} !important;
+      @media #{$xs-only} {
+        font-size: #{nth($font-size-list, $i) + $text-in-rems-xs-only} !important;
+        font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-xs-only)} !important;
+        line-height: $line-height-xs-only;
+      }
+      @media #{$sm-only} {
+        font-size: #{nth($font-size-list, $i) + $text-in-rems-sm-only} !important;
+        font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-sm-only)} !important;
+        line-height: $line-height-sm-only;
+      }
+    }
+  }
+}
+.lead-ch {
+  @for $i from 1 through length($headings-class-list) {
+    #{nth($headings-class-list, $i)} {
+      font-size: #{nth($font-size-list, $i) + $text-in-rems-md-up} !important;
+      font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-md-up)} !important;
+      @media #{$xs-only} {
+        font-size: #{nth($font-size-list, $i) + $text-in-rems-xs-only} !important;
+        font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-xs-only)} !important;
+        line-height: $line-height-xs-only;
+      }
+      @media #{$sm-only} {
+        font-size: #{nth($font-size-list, $i) + $text-in-rems-sm-only} !important;
+        font-size: #{rem(nth($font-size-list, $i) + $text-in-rems-sm-only)} !important;
+        line-height: $line-height-sm-only;
+      }
+    }
+  }
+}
+
+// HEADINGS IN REMS
+// @for $i from 1 through length($headings-list) {
+//   #{nth($headings-list, $i)} {
+//     font-size: #{nth($font-size-list, $i)};
+//     font-size: #{rem(nth($font-size-list, $i))};
+//   }
+// }
+
+// // TEXT IN REMS
+// @for $i from 1 through length($text-elements-list) {
+//   #{nth($text-elements-list, $i)} {
+//     font-size: $font-size-base;
+//     font-size: rem($font-size-base);
+//   }
+// }
+
+// RESPONSIVE HEADINGS CLASSES
+@for $i from 1 through length($headings-class-list) {
+  // #{nth($headings-class-list, $i)} {
+  //   font-size: #{nth($font-size-list, $i)};
+  //   font-size: #{rem(nth($font-size-list, $i))};
+  // }
+  @for $k from 1 through length($breakpoints-sufix-list) {
+    @media #{nth($media-control-list, $k)} {
+      #{nth($headings-class-list, $i)}-#{nth($breakpoints-sufix-list, $k)} {
+        font-size: #{nth($font-size-list, $i)} !important;
+        font-size: #{rem(nth($font-size-list, $i))} !important;
+      }
+    }
+  }
+}

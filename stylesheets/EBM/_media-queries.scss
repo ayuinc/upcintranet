@@ -28,6 +28,25 @@ $lg-up: "#{$screen} and (min-width: #{$screen-lg-desktop})" !default;
 
 // VARIABLES LIST FOR EBM 
 
-$media-only-list: $xs-only, $sm-only, $md-only, $lg-only;
-$media-down-list: $sm-down, $md-down, $lg-down;
-$media-up-list: 	$xs-up, $sm-up, $md-up, $lg-up;
+$media-only-list: 
+	$xs-only, 
+	$sm-only, 
+	$md-only, 
+	$lg-only;
+
+$media-down-list: 
+	$sm-down, 
+	$md-down, 
+	$lg-down;
+	
+$media-up-list: 	
+	$xs-up, 
+	$sm-up, 
+	$md-up, 
+	$lg-up;
+
+$media-control-list: 
+  $xs-only, 
+  $sm-up, 
+  $md-up, 
+  $lg-up;

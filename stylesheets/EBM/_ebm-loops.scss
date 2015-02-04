@@ -14,7 +14,7 @@
 $times: 7; 
 
 // Include EBM in "%" units?
-$percentage: true;
+$percentage: false;
 
 // Include EBM Min-Heights?
 $min-heights: true;
@@ -51,7 +51,7 @@ $hr-style: solid;
   "list-unstyled",
   "media-queries",
   "easy-box-model",
-  "ebm-loops-small",
+  // "ebm-loops-small",
   "min-heights",
   "box-shadow",
   // "horizontal-rules",
