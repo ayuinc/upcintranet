@@ -3553,19 +3553,9 @@ html[xmlns] .slides {
   font-weight: 300;
   font-style: normal; }
 
-.light-italic {
-  font-family: "sgothic-rgcap" !important;
-  font-weight: 300;
-  font-style: italic; }
-
 .book {
   font-family: "sgothic-rgcap" !important;
   font-style: normal; }
-
-.book-italic {
-  font-family: "sgothic-rgcap" !important;
-  font-weight: 400;
-  font-style: italic; }
 
 .medium {
   font-family: "nimbus-sans", Helvetica, Arial, sans-serif !important;
@@ -3582,11 +3572,6 @@ html[xmlns] .slides {
   font-weight: 700;
   font-style: normal; }
 
-.bold-italic {
-  font-family: "SolanoGothicMVBProBd" !important;
-  font-weight: 700;
-  font-style: italic; }
-
 .thin {
   font-family: "zizou-slab-regular" !important;
   font-weight: 100;
@@ -3596,13 +3581,8 @@ html[xmlns] .slides {
   font-family: "zizou-slab-regular" !important;
   font-style: normal; }
 
-.serif-light-italic {
-  font-family: "zizou-slab-regular", "Times New Roman", Times, serif !important;
-  font-weight: 300;
-  font-style: italic; }
-
 .serif-book {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal; }
 
 .serif-book-italic {
@@ -3622,11 +3602,6 @@ html[xmlns] .slides {
 .serif-bold {
   font-family: "zizou-slab-bold" !important;
   font-style: normal; }
-
-.serif-bold-italic {
-  font-family: "zizou-slab-regular", "Times New Roman", Times, serif !important;
-  font-weight: 700;
-  font-style: italic; }
 
 .alt-light {
   font-family: "nimbus-sans" !important;
@@ -3901,7 +3876,7 @@ body {
   margin-top: 21px !important; }
   #collapseMobile ul.mobile-menu > li {
     padding-left: 21px !important;
-    font-family: "zizou-slab-regular" !important;
+    font-family: "zizou-slab-regular" "quatro-slab" !important;
     font-style: normal;
     font-size: 14px; }
     #collapseMobile ul.mobile-menu > li a {
@@ -3967,7 +3942,7 @@ body {
 .section-content .section-desc {
   padding-top: 9px; }
 .section-content .row .title-no-panel {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 26px;
   margin-top: 0;
@@ -4016,7 +3991,7 @@ body {
     margin-left: -15px; }
   .dropdown ul.dropdown-menu li {
     font-size: 16px;
-    font-family: "zizou-slab-regular" !important;
+    font-family: "zizou-slab-regular" "quatro-slab" !important;
     font-style: normal; }
     .dropdown ul.dropdown-menu li.dditem {
       padding-top: 3px;
@@ -4096,7 +4071,7 @@ body {
   font-size: 9px !important; }
 
 .zizou-9 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 0.5625rem !important;
   font-size: 9px !important; }
@@ -4185,7 +4160,7 @@ body {
   font-size: 10px !important; }
 
 .zizou-10 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 0.625rem !important;
   font-size: 10px !important; }
@@ -4274,7 +4249,7 @@ body {
   font-size: 11px !important; }
 
 .zizou-11 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 0.6875rem !important;
   font-size: 11px !important; }
@@ -4363,7 +4338,7 @@ body {
   font-size: 12px !important; }
 
 .zizou-12 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 0.75rem !important;
   font-size: 12px !important; }
@@ -4452,7 +4427,7 @@ body {
   font-size: 13px !important; }
 
 .zizou-13 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 0.8125rem !important;
   font-size: 13px !important; }
@@ -4541,7 +4516,7 @@ body {
   font-size: 14px !important; }
 
 .zizou-14 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 0.875rem !important;
   font-size: 14px !important; }
@@ -4630,7 +4605,7 @@ body {
   font-size: 15px !important; }
 
 .zizou-15 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 0.9375rem !important;
   font-size: 15px !important; }
@@ -4719,7 +4694,7 @@ body {
   font-size: 16px !important; }
 
 .zizou-16 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1rem !important;
   font-size: 16px !important; }
@@ -4808,7 +4783,7 @@ body {
   font-size: 17px !important; }
 
 .zizou-17 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.0625rem !important;
   font-size: 17px !important; }
@@ -4897,7 +4872,7 @@ body {
   font-size: 18px !important; }
 
 .zizou-18 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.125rem !important;
   font-size: 18px !important; }
@@ -4986,7 +4961,7 @@ body {
   font-size: 19px !important; }
 
 .zizou-19 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.1875rem !important;
   font-size: 19px !important; }
@@ -5075,7 +5050,7 @@ body {
   font-size: 20px !important; }
 
 .zizou-20 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.25rem !important;
   font-size: 20px !important; }
@@ -5164,7 +5139,7 @@ body {
   font-size: 21px !important; }
 
 .zizou-21 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.3125rem !important;
   font-size: 21px !important; }
@@ -5253,7 +5228,7 @@ body {
   font-size: 22px !important; }
 
 .zizou-22 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.375rem !important;
   font-size: 22px !important; }
@@ -5342,7 +5317,7 @@ body {
   font-size: 23px !important; }
 
 .zizou-23 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.4375rem !important;
   font-size: 23px !important; }
@@ -5431,7 +5406,7 @@ body {
   font-size: 24px !important; }
 
 .zizou-24 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.5rem !important;
   font-size: 24px !important; }
@@ -5520,7 +5495,7 @@ body {
   font-size: 25px !important; }
 
 .zizou-25 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.5625rem !important;
   font-size: 25px !important; }
@@ -5609,7 +5584,7 @@ body {
   font-size: 26px !important; }
 
 .zizou-26 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.625rem !important;
   font-size: 26px !important; }
@@ -5698,7 +5673,7 @@ body {
   font-size: 27px !important; }
 
 .zizou-27 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.6875rem !important;
   font-size: 27px !important; }
@@ -5787,7 +5762,7 @@ body {
   font-size: 28px !important; }
 
 .zizou-28 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.75rem !important;
   font-size: 28px !important; }
@@ -5876,7 +5851,7 @@ body {
   font-size: 29px !important; }
 
 .zizou-29 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.8125rem !important;
   font-size: 29px !important; }
@@ -5965,7 +5940,7 @@ body {
   font-size: 30px !important; }
 
 .zizou-30 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.875rem !important;
   font-size: 30px !important; }
@@ -6054,7 +6029,7 @@ body {
   font-size: 31px !important; }
 
 .zizou-31 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 1.9375rem !important;
   font-size: 31px !important; }
@@ -6143,7 +6118,7 @@ body {
   font-size: 32px !important; }
 
 .zizou-32 {
-  font-family: "zizou-slab-regular" !important;
+  font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 2rem !important;
   font-size: 32px !important; }
@@ -6457,6 +6432,8 @@ body {
     background-color: #565658 !important; }
   .btn-custom.black-btn {
     background-color: black !important; }
+    .btn-custom.black-btn:hover {
+      background-color: #6F7072 !important; }
   .btn-custom.info {
     background-color: #3298FF !important; }
   .btn-custom:hover {
@@ -6512,7 +6489,7 @@ a {
       .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
         margin: 0;
         padding-top: 3px;
-        font-family: "zizou-slab-regular" !important;
+        font-family: "zizou-slab-regular" "quatro-slab" !important;
         font-style: normal; }
     .panel .panel-head .panel-head-link {
       height: 24px;
@@ -6659,7 +6636,7 @@ a {
           min-height: 70px; }
           .panel .panel-body .panel-table.pagos ul.tr li#pagos-placeholder span {
             display: block;
-            font-family: "zizou-slab-regular" !important;
+            font-family: "zizou-slab-regular" "quatro-slab" !important;
             font-style: normal;
             font-size: 14px;
             color: #E42322; }

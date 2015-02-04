@@ -63,6 +63,9 @@
 	}
 	&.black-btn {
 		background-color: black !important;
+		&:hover {
+			background-color: #6F7072 !important; 
+		}
 	}
 	&.info {
 		background-color: $brand-info !important;
