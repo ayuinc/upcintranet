@@ -15,6 +15,10 @@ $alt-12: "ronnia";
 	line-height: 1;	
 	color: black;
 	@include bold;
+	@media #{$md-down} {
+		font-size: 40px !important;
+		font-size: rem(40) !important;	
+	}
 }
 @for $fs from 9 to 33 {
 	.#{$sans-serif}-bold-#{$fs} {
@@ -71,7 +75,11 @@ $alt-12: "ronnia";
 	.#{$alt}-#{$fs} {
 		@include alt-book;	
 		font-size: $fs + px !important;	
-		font-size: rem($fs) !important;	
+		font-size: rem($fs) !important;
+		@media #{$lg-down} {
+			font-size: ($fs - 2) + px !important;
+			font-size: rem(($fs) - 2) !important;	
+		}	
 	}
 	.#{$alt-ab}-#{$fs} {
 		@include alt-ab-book;	
