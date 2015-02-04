@@ -19,74 +19,74 @@ $alt-12: "ronnia";
 @for $fs from 9 to 33 {
 	.#{$sans-serif}-bold-#{$fs} {
 		@include bold;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
+		font-size: rem($fs) !important;	
 	}
 	.#{$sans-serif}-#{$fs} {
 		@include book;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;
+		font-size: rem($fs) !important;	
 		@media #{$lg-down} {
-			font-size: rem(($fs) - 4) !important;	
 			font-size: ($fs - 4) + px !important;
+			font-size: rem(($fs) - 4) !important;	
 		}	
 	}
 	.#{$serif}-thin-#{$fs} {
 		@include serif-thin;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
+		font-size: rem($fs) !important;	
 	}
 	.#{$serif}-light-#{$fs} {
 		@include serif-light;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;
+		font-size: rem($fs) !important;	
 		@media #{$lg-down} {
-			font-size: rem(($fs) - 4) !important;	
 			font-size: ($fs - 4) + px !important;
+			font-size: rem(($fs) - 4) !important;	
 		}	
 		@media #{$xs-only} {
-			font-size: rem(($fs) - 6) !important;	
 			font-size: ($fs - 6) + px !important;
+			font-size: rem(($fs) - 6) !important;	
 		}		
 	}
 	.#{$serif}-bold-#{$fs} {
 		@include serif-bold;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
+		font-size: rem($fs) !important;	
 	}
 	.#{$serif}-#{$fs} {
 		@include serif-book;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;
+		font-size: rem($fs) !important;	
 		@media #{$lg-down} {
-			font-size: rem(($fs) - 2) !important;	
 			font-size: ($fs - 2) + px !important;
+			font-size: rem(($fs) - 2) !important;	
 		}	
 	}
 	.#{$alt}-light-#{$fs} {
 		@include alt-light;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
+		font-size: rem($fs) !important;	
 	}
 	.#{$alt}-#{$fs} {
 		@include alt-book;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
+		font-size: rem($fs) !important;	
 	}
 	.#{$alt-ab}-#{$fs} {
 		@include alt-ab-book;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
+		font-size: rem($fs) !important;	
 	}
 	.#{$alt-12}-#{$fs} {
 		@include alt-12-book;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
+		font-size: rem($fs) !important;	
 	}
 	.#{$alt}-bold-#{$fs} {
 		@include alt-bold;	
-		font-size: rem($fs) !important;	
 		font-size: $fs + px !important;	
+		font-size: rem($fs) !important;	
 	}
 }
 
