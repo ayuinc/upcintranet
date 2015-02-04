@@ -3850,9 +3850,6 @@ a.black {
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
     text-fill-color: transparent; } }
-.sb-text {
-  color: #3298FF; }
-
 html,
 body {
   min-height: 100%;
@@ -3935,8 +3932,6 @@ body {
     .site-content {
       padding-left: 28px !important;
       padding-right: 28px !important; } }
-  .site-content.iframe {
-    background: none !important; }
   .site-content .row {
     margin-left: -28px; }
     @media only screen and (max-width: 480px) {
@@ -7121,8 +7116,14 @@ input[type="submit"].btn.btn-white.btn-custom {
   .site-header .container-fluid .header-iframe {
     background-image: url("../assets/img/trama.png");
     background-position: 7% 80%;
-    padding-left: 28px;
     border-bottom: 1px solid #565658; }
+    .site-header .container-fluid .header-iframe .pull-right {
+      margin-top: 1px;
+      padding-top: 28px;
+      padding-left: 14px;
+      padding-right: 14px;
+      height: 139px;
+      width: 121px; }
   .site-header .container-fluid .header-no-global {
     padding-right: 35px !important;
     border-bottom: 1px solid #d3d3d3 !important;

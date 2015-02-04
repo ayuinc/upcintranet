@@ -101,10 +101,6 @@ body {
 		padding-left: 28px !important;
 		padding-right: 28px !important;
 	}
-
-	&.iframe {
-		background: none !important;
-	}
 	.row {
 		margin-left: -28px;
 		@media #{$xs-only} {
