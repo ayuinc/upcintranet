@@ -2057,8 +2057,8 @@ class Webservices
       $numhoras = ee()->TMPL->fetch_param('numhoras');
       $fechaini = ee()->TMPL->fetch_param('fechaini');
       $fechaini = substr($fechaini, 6,4).substr($fechaini, 3,2).substr($fechaini, 0,2);
-      $fechafin = ee()->TMPL->fetch_param('fechafin');
-      $fechafin = substr($fechafin, 6,4).substr($fechafin, 3,2).substr($fechafin, 0,2);
+      //$fechafin = ee()->TMPL->fetch_param('fechafin');
+      $fechafin = $fechaini;
       $segmento = ee()->TMPL->fetch_param('segmento');
       
       $codigo =  $_COOKIE["Codigo"];
@@ -2116,7 +2116,7 @@ class Webservices
         
         $result .='<div class="row">';
         
-        for ($a=0; $a<$tamano_int; $a++) {
+        for ($a=0; $a< 4; $a++) {
           $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
           $result .= '<input type="hidden" value="1" name="Flag">';
@@ -2192,7 +2192,7 @@ class Webservices
       
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];
-      $result = ''.$url;
+      $result = '';
       
       //Control de errores
       $result .= '<div class="mt-7 zizou-14">'.$error_mensaje.'</div>';
@@ -2367,28 +2367,13 @@ class Webservices
         //var_dump($json);
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];      
+
         $result = '';
         $result .= '<div class="red-line panel-table">';
         $result .= '<div class="panel-body p-28">';
-        // $result .= '<ul class="tr">';
-        // $result .= '<li class="col-sm-3 helvetica-12">';
-        // $result .= '<div class="text-center">';
-        // $result .= '<span>'.$json['CodRecurso'].'</span>';
-        // $result .= '</div>';
-        // $result .= '</li>';
-        // $result .= '<li class="col-sm-3 helvetica-12">';
-        // $result .= '<div class="text-center">';    
-        // $result .= '<span>'.$json['CodReserva'].'</span>';
-        // $result .= '</div>';
-        // $result .= '</li>';
-        // $result .= '<li class="col-sm-6 helvetica-12">';
-        // $result .= '<div class="text-center">';
-        // $result .= '<span>'.$json['MsgError'].'</span>';
         $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
         $result .= '<span class="helvetica-16 red">'.$json['MsgError'].'</span>';
         $result .= '</div>';
-        // $result .= '</li>';
-        // $result .= '</ul>';
         $result .= "</div>";
          
         //Control de errores
