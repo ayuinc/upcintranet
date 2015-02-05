@@ -2262,7 +2262,7 @@ class Webservices
       
       if($error=='00000'){
         // $result .= '<div class="panel-table no-bg">';
-        for ($i=0; $i<$tamano; $i++) { 
+        for ($i=0; $i<$4; $i++) {  //Se desplegarán 4 resultados
           //if($json['Recursos'][$i]['Estado'] == true){
           if(true){
             if ($i == 0) {
