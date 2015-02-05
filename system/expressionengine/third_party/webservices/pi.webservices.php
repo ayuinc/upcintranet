@@ -2055,7 +2055,7 @@ class Webservices
       $coded = ee()->TMPL->fetch_param('coded');
       $codactiv = ee()->TMPL->fetch_param('codactiv');
       $numhoras = ee()->TMPL->fetch_param('numhoras');
-      $fechaini = ee()->TMPL->fetch_param('fechaini');
+      $fechaini = ee()->TMPL->fetch_param('FecIni');
       $fechaini = substr($fechaini, 6,4).substr($fechaini, 3,2).substr($fechaini, 0,2);
       //$fechafin = ee()->TMPL->fetch_param('fechafin');
       $fechafin = $fechaini;
