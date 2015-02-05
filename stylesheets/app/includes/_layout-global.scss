@@ -20,9 +20,9 @@ body {
 .site-menu {
 	background: white;
 	width: 79px;
-	z-index: 2000;
-	position: fixed;
-	margin-top: 156px;
+	z-index: 10;
+	position: relative;
+	top: 156px;
 }
 
 .lista-cursos {
@@ -90,6 +90,7 @@ body {
 
 .site-content {
 	position: absolute;
+	top: 0;
 	background-image:url("../assets/img/trama_xs.png");
 	width: 100%;
 	padding-top: 196px;
