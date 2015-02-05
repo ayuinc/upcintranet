@@ -21,7 +21,4 @@ $(document).ready(function(){
 		$(this).parent().find(".col-xs-4").toggle();
 		$(this).parent().find(".col-xs-2").toggle();
 	});
-	$('#search-phr').click(function(){
-		$('#search-submit').click();
-	});
 });

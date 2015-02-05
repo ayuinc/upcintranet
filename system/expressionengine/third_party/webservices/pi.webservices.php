@@ -1457,19 +1457,19 @@ class Webservices
 
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-1 formula">';
+        $result .= '<li class="col-xs-2 formula">';
         $result .= '<div class="black borderless">';
-        $result .= '<span class="ml-7 helv-neue-16">FÓRMULA:</span>';
+        $result .= '<span class="pl-7 helv-neue-16">FÓRMULA:</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-11 formula">';
+        $result .= '<li class="col-xs-10 formula">';
         $result .= '<div class="black">';
         $result .= '<span class="ronnia-16">'.$json_int['Formula'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';    
-        $result .= '<div class="panel-body-head-table white">';
+        $result .= '<div class="panel-body-head-table black-border-top white">';
 
         $result .= '<ul class="tr border-bt-gl">';
         $result .= '<li class="col-xs-1">';

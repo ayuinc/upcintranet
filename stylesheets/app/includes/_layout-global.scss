@@ -156,8 +156,14 @@ body {
 		.title-no-panel {
 			@include serif-book;
 			font-size: 26px;
+			font-size: rem(26);
 			margin-top: 0;
 			margin-left: -14px;
+			@media #{$sm-down} {
+				margin-left: 0px;
+				font-size: 22px;
+				font-size: rem(22);
+			}
 			padding: 0;
 		}
 		.col-sm-3 {
