@@ -2367,25 +2367,28 @@ class Webservices
         //var_dump($json);
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];      
-        
-        $result .= '<div class="panel-table">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-3 helvetica-12">';
-        $result .= '<div class="text-center">';
-        $result .= '<span>'.$json['CodRecurso'].'</span>';
+        $result = '';
+        $result .= '<div class="red-line panel-table">';
+        $result .= '<div class="panel-body p-28">';
+        // $result .= '<ul class="tr">';
+        // $result .= '<li class="col-sm-3 helvetica-12">';
+        // $result .= '<div class="text-center">';
+        // $result .= '<span>'.$json['CodRecurso'].'</span>';
+        // $result .= '</div>';
+        // $result .= '</li>';
+        // $result .= '<li class="col-sm-3 helvetica-12">';
+        // $result .= '<div class="text-center">';    
+        // $result .= '<span>'.$json['CodReserva'].'</span>';
+        // $result .= '</div>';
+        // $result .= '</li>';
+        // $result .= '<li class="col-sm-6 helvetica-12">';
+        // $result .= '<div class="text-center">';
+        // $result .= '<span>'.$json['MsgError'].'</span>';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+        $result .= '<span class="helvetica-16 red">'.$json['MsgError'].'</span>';
         $result .= '</div>';
-        $result .= '</li>';
-        $result .= '<li class="col-sm-3 helvetica-12">';
-        $result .= '<div class="text-center">';    
-        $result .= '<span>'.$json['CodReserva'].'</span>';
-        $result .= '</div>';
-        $result .= '</li>';
-        $result .= '<li class="col-sm-6 helvetica-12">';
-        $result .= '<div class="text-center">';
-        $result .= '<span>'.$json['MsgError'].'</span>';
-        $result .= '</div>';
-        $result .= '</li>';
-        $result .= '</ul>';
+        // $result .= '</li>';
+        // $result .= '</ul>';
         $result .= "</div>";
          
         //Control de errores
