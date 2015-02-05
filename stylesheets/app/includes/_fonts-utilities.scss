@@ -110,6 +110,11 @@ $alt-12: "ronnia";
 
 .form-control {
 	font-size: 18px !important; 
+	font-size: rem(18) !important;
+	@media #{$lg-down} {
+		font-size: 13px !important; 
+		font-size: rem(13) !important;
+	} 
 }
 
 .black-text {
