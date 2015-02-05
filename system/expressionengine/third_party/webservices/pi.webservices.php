@@ -2116,7 +2116,7 @@ class Webservices
         
         $result .='<div class="row">';
         
-        for ($a=0; $a<$tamano_int; $a++) {
+        for ($a=0; $a< 4; $a++) {
           $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
           $result .= '<input type="hidden" value="1" name="Flag">';
