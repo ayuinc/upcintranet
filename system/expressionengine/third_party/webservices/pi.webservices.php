@@ -2055,7 +2055,7 @@ class Webservices
       $coded = ee()->TMPL->fetch_param('coded');
       $codactiv = ee()->TMPL->fetch_param('codactiv');
       $numhoras = ee()->TMPL->fetch_param('numhoras');
-      $fechaini = ee()->TMPL->fetch_param('FecIni');
+      $fechaini = ee()->TMPL->fetch_param('fechaini');
       $fechaini = substr($fechaini, 6,4).substr($fechaini, 3,2).substr($fechaini, 0,2);
       //$fechafin = ee()->TMPL->fetch_param('fechafin');
       $fechafin = $fechaini;
@@ -2073,7 +2073,6 @@ class Webservices
       }
 
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
-      var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

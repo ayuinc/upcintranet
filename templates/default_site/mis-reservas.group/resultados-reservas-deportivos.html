@@ -62,14 +62,12 @@
 									<div class="mt-70">
 										{embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
 									</div>
-									<p>FecIni -----> {post:FecIni}</p>
-                  <p>HoraIni -----> {post:HoraIni}</p>
-                  {exp:webservices:reserva_espacios_deportivos 
+									{exp:webservices:reserva_espacios_deportivos 
 										codsede="{post:CodSede}" 
 										coded="{post:CodED}" 
 										codactiv="{post:CodActiv}"
 										numhoras="{post:NumHoras}" 
-										FecIni="{post:FecIni}" 
+										fecha="{post:Fecha}" 
 										horaini="{post:HoraIni}"
 										horafin="{post:HoraFin}"
 										detalles="{post:Detalles}"
