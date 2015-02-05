@@ -62,7 +62,9 @@
 									<div class="mt-70">
 										{embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
 									</div>
-									{exp:webservices:reserva_espacios_deportivos 
+									<p>{post:FecIni}</p>
+                  <p>{post:HoraIni}</p>
+                  {exp:webservices:reserva_espacios_deportivos 
 										codsede="{post:CodSede}" 
 										coded="{post:CodED}" 
 										codactiv="{post:CodActiv}"
