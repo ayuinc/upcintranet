@@ -2087,36 +2087,19 @@ class Webservices
       $tamano = count($json['HorarioDia']);
       
       for ($i=0; $i<$tamano; $i++) {
-        
-        if ($json['HorarioDia'][$i]['CodDia']==1) {
-          $result .= '<div class="block"><span class="helvetica-14">Lunes</span></div>';
-        }
-        
-        if ($json['HorarioDia'][$i]['CodDia']==2) {
-          $result .= '<div class="block"><span class="helvetica-14">Martes</span></div>';
-        } 
-          
-        if ($json['HorarioDia'][$i]['CodDia']==3) {
-          $result .= '<div class="block"><span class="helvetica-14">Miércoles</span></div>';
-        }
-        
-        if ($json['HorarioDia'][$i]['CodDia']==4) {
-          $result .= '<div class="block"><span class="helvetica-14">Jueves</span></div>';
-        } 
-         
-        if ($json['HorarioDia'][$i]['CodDia']==5) {
-          $result .= '<div class="block"><span class="helvetica-14">Viernes</span></div>';
-        }
-        
-        if ($json['HorarioDia'][$i]['CodDia']==6) {
-          $result .= '<div class="block"><span class="helvetica-14">Sábado</span></div>';
-        } 
                 
         $tamano_int = count($json['HorarioDia'][$i]['Disponibles']);
         
-        $result .='<div class="row">';
+        // $result .='<div class="row">';
         
         for ($a=0; $a< 4; $a++) {
+          if ($a == 0) {
+            $result .= '<div class="row pl-28">'; // apertura
+          }
+          if ($a == 2) {
+            $result .= '<div class="row mt-14 pl-28">'; // apertura
+          }
+          $result .= '<div class="col-sm-5 mr-28 mb-14 p-14 text-left red-line bg-muted">';
           $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
           $result .= '<input type="hidden" value="1" name="Flag">';
@@ -2126,26 +2109,33 @@ class Webservices
           $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
           $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
           $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
-          $result .= '<div class="col-sm-4 helvetica-12 mb-7">';
+          $result .= '<span class="helvetica-14">';
           $result .= 'Fecha: '.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'<br>';
+          $result .= '</span>';
           $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
           $HoraInicio = ltrim($HoraInicio,'0');
           $HoraFin = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'], 0, 2);
           $HoraFin = ltrim($HoraFin,'0');
           $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
           $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
-          $result .= 'Hora: '.$HoraInicio.':00 - '.$HoraFin.':00<br>';          
+          $result .= '<span class="helvetica-14">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
           if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
-            $result .= 'Sede: Complejo Alamos';  
+          $result .= '<div class="helvetica-14">Sede: Complejo Alamos</div>';
           } else {
-            $result .= 'Sede: Campus Villa';
+          $result .= '<div class="helvetica-14">Sede: Campus Villa</div>';
           }
-          $result .= '<input type="submit" value="Reservar" name="submit">';
-          $result .= '</div>';
+          $result .= '<input type="submit"  class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
           $result .= '</form>';
+          $result .= '</div>';
+          if ($a == 0 || $a == 2) {
+            $result .= '<div class="col-sm-1"></div>'; // apertura
+          }
+          if ($a == 1 || $a == 3) {
+            $result .= '</div>'; // apertura
+          }
         }  
         
-        $result .= '</div>';              
+        // $result .= '</div>';              
       }        
       
       //Control de errores
