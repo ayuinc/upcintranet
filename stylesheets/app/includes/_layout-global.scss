@@ -60,7 +60,6 @@ body {
 }
 
 #collapseMobile {
-	margin-top: 21px !important;
 	ul.mobile-menu {
 		> li {
 			padding-left: 21px !important;
@@ -95,15 +94,21 @@ body {
 	width: 100%;
 	padding-top: 196px;
 	padding-left: 0px;
-	padding-right: 14px;
+	// padding-right: 14px;
+	padding-right: 28px;
 	min-height: 700px;
 	padding-bottom: 49px;
+	@media #{$xs-only} {
+		margin-top: 56px !important;
+		padding-top: 7px;
+	}
 	@media #{$lg-down} {
 		padding-left: 28px !important;
 		padding-right: 28px !important;
 	}
 	.row {
-		margin-left: -28px;
+		// margin-left: -28px;
+		margin-left: -14px;
 		@media #{$xs-only} {
 			margin-right: -28px !important;
 		}
@@ -159,7 +164,7 @@ body {
 			font-size: 26px;
 			font-size: rem(26);
 			margin-top: 0;
-			margin-left: -14px;
+			// margin-left: -14px;
 			@media #{$sm-down} {
 				margin-left: 0px;
 				font-size: 22px;
@@ -181,7 +186,7 @@ body {
 		}
 		.col-sm-8 {
 			.row {
-				padding-top: 14px;
+				padding-top: 7px;
 			}
 		}
 	}

@@ -4,9 +4,18 @@
 	width: 24px;
 	height: 24px;
 	border-radius: 50%;
-	background-image:url("../assets/img/white_arrow.png");
 	background-repeat: no-repeat;
 	background-position: center;
+	// background-image:url("../assets/img/white_arrow.png");
+	&.mail {
+		background-image:url("../assets/img/white_mail_xs.png");
+	}
+	&.pdf {
+		background-image:url("../assets/img/white_pdf_xs.png");
+	}
+	&.print {
+		background-image:url("../assets/img/white_print_xs.png");
+	}
 	&.danger {
 		background-color: $brand-danger;
 	}

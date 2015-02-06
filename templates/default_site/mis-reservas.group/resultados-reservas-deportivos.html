@@ -58,8 +58,6 @@
                   }
               </div>
               {if:else}
-              <div class="resultados-busqueda info-border bg-muted">
-                <div class="panel-body">
                   {embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
                   {exp:webservices:reserva_espacios_deportivos 
                     codsede="{post:CodSede}" 
@@ -71,8 +69,6 @@
                     horafin="{post:HoraFin}"
                     detalles="{post:Detalles}"
                   }
-                </div>
-              </div>
               {/if}
             </div>
           </div>
