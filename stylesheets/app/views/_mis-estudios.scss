@@ -17,25 +17,5 @@
 .site-content {
 	@media #{$md-down} {
 		margin-top: 7px !important;
-	} 
-	&.mi-perfil {
-		margin-top: 91px !important;
-		.section-content .row {
-			.col-sm-8 {
-				.panel-table {
-					.tag {
-						@include bold;
-						float: left;
-						font-size: rem(12px) !important;
-						font-size: 12px !important;
-					}
-					.data {
-						@include alt-book;
-						font-size: rem(12px) !important;
-						font-size: 12px !important;
-					}
-				}
-			}
-		}
 	}
 }

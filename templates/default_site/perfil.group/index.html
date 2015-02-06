@@ -6,14 +6,14 @@
 {embed="includes/sidebar"} 
 <div class="site-content mi-perfil">
   <div class="internal-header">
-      <div class="row first-line">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-4"><span>Mi Perfil</span></div>
-      </div>
-      <div class="row second-line pb-14">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-4"><span>{exp:webservices:nombre_alumno}</span></div>
-      </div>
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4"><span class="zizou-16">Mi Perfil</span></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4"><span class="uppercase bold xl">{exp:webservices:nombre_alumno}</span></div>
+    </div>
   </div>
   <div class="section-content pb-70">
       <div class="row">
@@ -24,20 +24,14 @@
         <div class="col-sm-8">
           <div class="row pl-14 pr-14">
             <div class="panel">
-              <div class="panel-head">
-                <div class="panel-head-left">
+              <div class="panel-head no-bg">
                   <div class="panel-title">
                     <h2>Mi Perfil UPC</h2>
                   </div>
-                </div>
               </div>
               <div class="panel-body">
-                <div class="panel-body-head-table bold">
-                  <ul class="tr">
-                    <li class="col-sm-12">
-                      <div><span class="solano-bold-18 head-left">Mis datos personales</span></div>
-                    </li>
-                  </ul>
+                <div class="panel-body-head p-7 text-left">
+                  <span class="solano-bold-20">Mis datos personales</span>
                 </div>  
                 <div class="panel-table">
                   <ul class="tr bg-muted">
@@ -47,20 +41,33 @@
                     <li class="col-sm-8">
                       <ul class="list-unstyled">
                         <li>
-                        	<div class="tag">NOMBRE COMPLETO:</div>
-                        	<div class="data">{exp:webservices:nombre_alumno} {exp:webservices:apellido_alumno}</div>
-                        	<div class="tag">CÓDIGO:</div>
-                        	<div class="data">{exp:webservices:codigo_alumno}</div>
-                        	<div class="tag">PERFIL:</div>
-                        	<div class="data">{exp:webservices:tipo_usuario}</div>
-                        	<div class="tag">MODALIDAD:</div>
-                        	<div class="data">{exp:webservices:modalidad_alumno}</div> 
-                        	<div class="tag">ESTADO:</div>
-                        	<div class="data">{exp:webservices:estado_alumno}</div>  
-                        	<div class="tag">SEDE:</div>
-                        	<div class="data">{exp:webservices:sede_alumno}</div>                          	                      	                                                													<div class="tag">CICLO:</div>
-                        	<div class="data">{exp:webservices:ciclo_alumno}</div> 
-                        </li>                        
+                        	<span class="solano-bold-16">NOMBRE COMPLETO:&nbsp;</span>
+                        	<span class="helvetica-16">{exp:webservices:nombre_alumno} {exp:webservices:apellido_alumno}</span>
+                        </li>
+                        <li>
+                        	<span class="solano-bold-16">CÓDIGO:</span>
+                        	<span class="helvetica-16">{exp:webservices:codigo_alumno}</span>
+                        </li>
+                        <li>
+                        	<span class="solano-bold-16">PERFIL:</span>
+                        	<span class="helvetica-16">{exp:webservices:tipo_usuario}</span>
+                        </li>  
+                        <li>
+                        	<span class="solano-bold-16">MODALIDAD:</span>
+                        	<span class="helvetica-16">{exp:webservices:modalidad_alumno}</span> 
+                        </li>
+                        <li>
+                        	<span class="solano-bold-16">ESTADO:</span>
+                        	<span class="helvetica-16">{exp:webservices:estado_alumno}</span>  
+                        </li>
+                        <li>
+                        	<span class="solano-bold-16">SEDE:</span>
+                        	<span class="helvetica-16">{exp:webservices:sede_alumno}</span>
+                        </li>
+                        <li>
+                          <span class="solano-bold-16">CICLO:</span>
+                        	<span class="helvetica-16">{exp:webservices:ciclo_alumno}</span>
+                        </li>
                       </ul>
                     </li>
                   </ul>
