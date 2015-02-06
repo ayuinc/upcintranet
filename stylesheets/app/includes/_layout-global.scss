@@ -15,6 +15,7 @@ body {
 
 .site-wrapper {
 	position: relative;
+	// background-image:url("../assets/img/trama_xs.png");
 }
 
 .site-menu {
@@ -96,8 +97,8 @@ body {
 	padding-left: 0px;
 	// padding-right: 14px;
 	padding-right: 28px;
-	min-height: 700px;
-	padding-bottom: 49px;
+	min-height: 790px;
+	padding-bottom: 120px;
 	@media #{$xs-only} {
 		margin-top: 56px !important;
 		padding-top: 7px;
