@@ -2185,7 +2185,7 @@ class Webservices
       $result = '';
       
       //Control de errores
-      $result .= '<div class="mt-7 zizou-14">'.$error_mensaje.'</div>';
+      $result .= '<div class="p-14 zizou-14">'.$error_mensaje.'</div>';
 
       
       return $result;          
