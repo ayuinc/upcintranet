@@ -24,7 +24,7 @@
           <div class="col-sm-8 resultados">
             <div class="resultados-busqueda red-line bg-muted">
               {exp:channel:categories channel="{segment_2}"}
-                {if category_name == {segment_3} }
+                {if "{category_name}" == "{segment_3}" }
                   {exp:channel:entries category="{category_id}" channel="{segment_2}" limit="20" disable="member_data" dynamic="off"}
                 {/if}
               {/exp:channel:categories}
