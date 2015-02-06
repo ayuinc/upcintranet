@@ -3,7 +3,7 @@
 	{if embed:category== 8|| embed:category == 12 || embed:category== 17 || embed:category==23 || embed:category== 24}
 		<li><a href="{site_url}{embed:item}/{url_title}">{title}</a></li>
 	{if:else}
-		<li><a href="{site_url}general/{url_title}">{title}</a></li>
+		<li><a href="{site_url}general/{embed:item}/{url_title}">{title}</a></li>
 	{/if}
   {/exp:channel:entries}
 </ul>
