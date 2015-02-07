@@ -1,9 +1,9 @@
 // icons and arrows
 .custom-icon {
-	min-height: 24px !important;
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
+	min-height: 30px !important;
+	width: 30px;
+	height: 30px;
+	// border-radius: 50%;
 	background-repeat: no-repeat;
 	background-position: center;
 	// background-image:url("../assets/img/white_arrow.png");
@@ -14,40 +14,43 @@
 		background-image:url("../assets/img/white_pdf_xs.png");
 	}
 	&.print {
-		background-image:url("../assets/img/white_print_xs.png");
-	}
-	&.danger {
-		background-color: $brand-danger;
-	}
-	&.info {
-		background-color: $brand-info;
-	}
-	&.black-arrow {
-		background-color: black;
+		background-image:url("../assets/img/red_print_icon_normal.png");
 	}
 	float: left;
 }
 
 .arrow-icon {
-	height: 24px;
-	width: 24px;
-	min-height: 24px !important;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	background-image:url("../assets/img/white_arrow.png");
+	height: 30px;
+	width: 30px;
+	min-height: 30px !important;
 	background-repeat: no-repeat;
 	background-position: center;
+	&.tiny {
+			height: 24px;
+			width: 24px;
+			min-height: 24px !important;
+	}
 	&.danger {
-		background-color: $brand-danger;
+		background-image:url("../assets/img/red_arrow_normal.png");
+		&.tiny {
+			background-image:url("../assets/img/red_arrow_normal_tiny.png");
+			&:hover {
+				background-image:url("../assets/img/red_arrow_hover_tiny.png");
+			}
+		}
 		&:hover {
-			background-color: $brand-danger-hover;
+			background-image:url("../assets/img/red_arrow_hover.png");
 		}
 	}
 	&.info {
-		background-color: $brand-info;
+		background-image:url("../assets/img/info_arrow_normal.png");
 		&:hover {
-			background-color: $brand-info-hover;
+			background-image:url("../assets/img/info_arrow_hover.png");
+		}
+	}
+	&.black {
+		&.tiny {
+			background-image:url("../assets/img/black_arrow_tiny.png");
 		}
 	}
 	float: left;
