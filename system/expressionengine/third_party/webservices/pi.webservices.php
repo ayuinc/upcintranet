@@ -2530,7 +2530,7 @@ class Webservices
       $tamano = count($json['modalidades']);
 
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
+        // $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
         
         $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
@@ -2620,7 +2620,7 @@ class Webservices
       $tamano = count($json['modalidades']);
 
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
+        // $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
         
         $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
