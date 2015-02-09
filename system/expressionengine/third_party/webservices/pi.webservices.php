@@ -3605,10 +3605,10 @@ class Webservices
         return '{site_url}dashboard/estudiante'; 
       } 
       if (strval($tipouser)=='PROFESOR') {
-        return '{site_url}dashboard/estudiante'; 
+        return '{site_url}dashboard/docente'; 
       } 
       if (strval($tipouser)=='PADRE') {
-        return '{site_url}dashboard/estudiante'; 
+        return '{site_url}dashboard/elige_tu_hijo'; 
       }             
     }    
     

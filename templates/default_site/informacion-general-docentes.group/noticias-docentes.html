@@ -2,14 +2,14 @@
 {exp:webservices:iniciar_session}
 {exp:webservices:verificar_usuario}
 {embed="includes/header"}
-{embed="includes/sidebar"}
+{embed="includes/sidebar-docente"}
 
     <div class="site-content">
       {exp:channel:entries 
       	channel="seccion" 
       	limit="1" 
       	disable="member_data|pagination"  
-      	category="{segment_1_category_id}"
+      	category="46"
       }
       <div class="internal-header">
         <div class="row">
@@ -37,7 +37,7 @@
 	            	limit="10" 
 	            	disable="member_data|pagination" 
 	            	dynamic="off"
-category="49"
+                category="49"
 	            }
               <div class="col-sm-6">
                 <div class="panel">
