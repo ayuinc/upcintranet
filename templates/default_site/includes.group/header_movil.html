@@ -12,8 +12,7 @@
     </div>
   </div>
 </div>
-
-<div class="collapse" id="collapseMobile">
+<div class="collapse hidden-md hidden-lg" id="collapseMobile">
    <ul class="list-unstyled mobile-menu">
      {exp:channel:entries channel="sidebar_estudiante" dynamic="off" orderby="date" sort="asc"}
        <li class="parent">
@@ -22,9 +21,7 @@
          </a>
          {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
        </li>
-     {/exp:channel:entries}
-     
+     {/exp:channel:entries}    
      <li class="parent"><a href="{site_url}ayuda">Ayuda</a></li> 
    </ul>
  </div>
-
