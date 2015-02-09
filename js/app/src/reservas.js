@@ -8,6 +8,9 @@ $(document).ready(function(){
 	$( "#start-date-rec" ).datepicker({
 		dateFormat: 'dd/mm/yy',
 	});
+	$( "#start-date-rec-doc" ).datepicker({
+		dateFormat: 'dd/mm/yy',
+	});
 	$( "#end-date-rec" ).datepicker({
 		dateFormat: 'dd/mm/yy',
 	});
