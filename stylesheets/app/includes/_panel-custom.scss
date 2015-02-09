@@ -20,24 +20,20 @@
 			}
 		}
 		.panel-head-link {
-			height: 24px;
-			width: 24px;
-			border-radius: 50%;
-			-webkit-border-radius: 50%;
-			-moz-border-radius: 50%;
-			background-image:url("../assets/img/white_arrow.png");
+			height: 30px;
+			width: 30px;
 			background-repeat: no-repeat;
 			background-position: center;
 			&.danger {
-				background-color: $brand-danger;
+				background-image:url("../assets/img/red_arrow_normal.png");
 				&:hover {
-					background-color: $brand-danger-hover;
+					background-image:url("../assets/img/red_arrow_hover.png");
 				}
 			}
 			&.info {
-				background-color: $brand-info;
+				background-image:url("../assets/img/info_arrow_normal.png");
 				&:hover {
-					background-color: $brand-info-hover;
+					background-image:url("../assets/img/info_arrow_hover.png");
 				}
 			}
 			float: right;

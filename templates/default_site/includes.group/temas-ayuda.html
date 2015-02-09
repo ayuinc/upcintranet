@@ -6,20 +6,18 @@
   </div>
   <div class="panel-body">
     <div class="panel-table otras-acciones ">
-      <ul class="tr">
-    {exp:channel:categories category_group="18"}
+    {exp:channel:categories category_group="18" id="" class="tr"}
         <a href="{site_url}ayuda/{category_id}">
-          <li class="bg-muted p-7 mb-7">
+          <li class="bg-muted p-0">
             {if "{category_id}" == segment_2}
-            <div class="custom-icon danger"></div>
+            <div class="m-7 arrow-icon tiny danger"></div>
             {if:else}
-            <div class="custom-icon black"></div>
+            <div class="m-7 arrow-icon tiny black"></div>
             {/if}
-            <div class="zizou-14">{category_name}</div>
+            <div class="p-7 zizou-16">{category_name}</div>
           </li>
         </a>
     {/exp:channel:categories}
-      </ul>
     </div>
   </div>
 </div>
