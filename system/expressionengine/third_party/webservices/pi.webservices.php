@@ -3486,7 +3486,7 @@ class Webservices
       $result = '';
       
       if (strval($TipoUser)=='ALUMNO') {
-        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
+        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
         $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
@@ -3509,7 +3509,7 @@ class Webservices
       }
       
       if (strval($TipoUser)=='PROFESOR') {
-        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="19" dynamic="off" orderby="numero-cuota" sort="asc" }';
+        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="19" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
         $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
@@ -3532,7 +3532,7 @@ class Webservices
       }
       
       if (strval($TipoUser)=='PADRE') {
-        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category="21" dynamic="off" orderby="numero-cuota" sort="asc" }';
+        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="21" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
         $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
         $result .= '<div>';
