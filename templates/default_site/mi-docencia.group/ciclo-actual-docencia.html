@@ -2,9 +2,10 @@
 {exp:webservices:iniciar_session}
 {exp:webservices:verificar_usuario}
 {embed="includes/header-docentes"}
+{embed="includes/header-movil-docentes"}
 {embed="includes/sidebar-docente"}
 
-    <div class="site-content ciclo-actual">
+    <div class="site-content">
     {exp:channel:entries channel="seccion" limit="1" entry_id="98"}
       <div class="internal-header">
         <div class="row">
@@ -26,7 +27,7 @@
                     <h2>Mis Cursos</h2>
                   </div>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body mt-7">
                    {exp:webservices:lista_cursos_dictados_profesor}
                 </div>
               </div>
@@ -47,4 +48,5 @@
     </div>
   </div>
 
+{embed="includes/footer-no-scripts"}   
 {embed="includes/footer"}   

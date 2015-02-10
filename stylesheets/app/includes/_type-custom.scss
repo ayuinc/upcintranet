@@ -95,18 +95,27 @@ h1, h2, h3, h4, h5 {
   text-decoration: underline!important;
 }
 
+// custom links
 a {
+  color: $gray-main;
+  &:hover {
+    color: $gray-light;
+  }
   &.not-underline {
     &:hover {
       text-decoration: underline !important;
     }
   }
-  &.sb {
+  &.sb-link {
     color: $brand-info;
   }
-  &.black {
+  &.black-link {
     color: black;
   }
+  &.danger-link {
+    color: $brand-danger;
+  }
+
 }
 
 
