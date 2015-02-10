@@ -13,21 +13,16 @@
   </div>
 </div>
 
-<div class="collapse" id="collapseMobile">
-  <ul class="list-unstyled mobile-menu">
-    <li class="parent"><a href="">Mis Estudios</a>
-      <ul class="list-unstyled child">
-        {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="8"}
-          <li><a href="{site_url}mis-estudios/{url_title}">{title}</a></li>
-        {/exp:channel:entries}
-      </ul>
-    </li>
-    <li class="parent"><a href="">Mis Reservas</a>
-      <ul class="list-unstyled child">
-        <li><a href="http://www.google.com" target="_blank">reservas-1</a></li>
-        <li><a href="">reservas-2</a></li>
-        <li><a href="">reservas-3</a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
+<div class="collapse hidden-md hidden-lg" id="collapseMobile">
+   <ul class="list-unstyled mobile-menu">
+     {exp:channel:entries channel="sidebar_docente" dynamic="off" orderby="date" sort="asc"}
+       <li class="parent">
+         <a href="{url-root-item}">
+           <span>{title}</span>
+         </a>
+         {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
+       </li>
+     {/exp:channel:entries}    
+     <li class="parent"><a href="{site_url}ayuda">Ayuda</a></li> 
+   </ul>
+ </div>
