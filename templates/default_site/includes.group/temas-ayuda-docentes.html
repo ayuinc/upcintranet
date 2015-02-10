@@ -1,0 +1,23 @@
+<div class="panel pt-14">
+  <div class="panel-head no-bg">
+    <div class="panel-title">
+      <h2>Temas</h2>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="panel-table otras-acciones">
+    {exp:channel:categories category_group="18" id="" class="tr"}
+        <a href="{site_url}ayuda-docentes/{category_id}">
+          <li class="bg-muted p-0">
+            {if "{category_id}" == segment_2}
+            <div class="m-7 arrow-icon tiny danger"></div>
+            {if:else}
+            <div class="m-7 arrow-icon tiny black"></div>
+            {/if}
+            <div class="p-7 zizou-16">{category_name}</div>
+          </li>
+        </a>
+    {/exp:channel:categories}
+    </div>
+  </div>
+</div>

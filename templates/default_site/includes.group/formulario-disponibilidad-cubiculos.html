@@ -1,7 +1,7 @@
 <div class="reservas-select-group">
   <form action="{site_url}index.php/{segment_1}/resultados-reserva-de-cubiculos" method="post">
     <input type="hidden" name="XID" value="{XID_HASH}" /> 
-    	<div class="text-left helvetica-18">Sede</div>
+    	<div class="text-left helvetica-16 gray-main">Sede</div>
       <select name="CodSede" id="CodSede" class="zizou-16 reservas-select arrow form-control">
         <option value="A">CAMPUS MONTERRICO</option>
         <option value="R">CAMPUS VILLA</option>
@@ -9,12 +9,12 @@
         <!-- <option value="F">CAMPUS SAN MIGUEL</option> -->
       </select> 
       <input type="hidden" name="TipoRecurso" value="CU">
-      <div class="text-left helvetica-18">Cantidad de Horas</div>
+      <div class="text-left helvetica-16 gray-main">Cantidad de horas</div>
       <select name="CanHoras" class="zizou-16 reservas-select arrow form-control">
           <option value="1">1</option>
           <option value="2">2</option>
       </select>   
-      <div class="text-left helvetica-18">Hora de Reserva</div>
+      <div class="text-left helvetica-16 gray-main">Hora de reserva</div>
       <select name="HoraIni" class="zizou-16 reservas-select arrow form-control">
          <option value="7">7:00</option>
          <option value="8">8:00</option>
@@ -32,7 +32,7 @@
          <option value="20">20:00</option>
          <option value="21">21:00</option>
       </select>   
-    	<div class="text-left helvetica-18">Fecha Inicio</div>
+    	<div class="text-left helvetica-16 gray-main">Fecha de inicio</div>
 		  <input type="text" name="FecIni" class="zizou-16 reservas-select form-control calendar datepicker" value="" placeholder="Selecciona" id="start-date-rec">	
       <div class="text-right m-14">
         <input type="submit" class="btn wide btn-custom black-btn mb-7" name="submit" value="Ver Disponibilidad">

@@ -1940,7 +1940,7 @@ class Webservices
       $result = '';
       
       $tamano = count($json['Sedes']);
-      
+      $result .= '<div class="text-left helvetica-16 gray-main">Sede</div>';
       $result .= '<select name="CodSede" id="CodSede" class="reservas-select arrow form-control">';
       $result .= '<option>Selecciona una sede</option>';      
       for ($i=0; $i<$tamano; $i++) {
