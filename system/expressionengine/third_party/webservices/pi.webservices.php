@@ -2268,10 +2268,10 @@ class Webservices
           //if($json['Recursos'][$i]['Estado'] == true){
           if(true){
             if ($i == 0) {
-              $result .= '<div class="row pt-0 pl-28">'; // apertura
+              $result .= '<div class="row pt-0 pl-14">'; // apertura
             }
             if ($i == 2) {
-              $result .= '<div class="row mt-14 pl-28">'; // apertura
+              $result .= '<div class="row mt-14 pl-14">'; // apertura
             }
             $result .= '<div class="col-sm-5 p-14 text-left red-line bg-muted">';    
             if($tiporecurso == "CO"){
