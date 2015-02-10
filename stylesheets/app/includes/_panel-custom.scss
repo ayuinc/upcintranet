@@ -109,22 +109,24 @@
 						@include display(flex);
 						@include flex-direction(column);
 						@include justify-content(center);
+						//
 						span {
 							@include flex-grow(0);
 							@include alt-ab-light;
-							font-size: rem(13px);
-							font-size: 13px;
 							color: $gray-light;
-							text-transform: uppercase;
+							font-size: rem(14px);
+							font-size: 14px;
 							text-align: center;
-						&.curso {
-							text-align: left;
-							padding-left: ($container-fluid / 2);
-						}	
-						&.fecha {
-							border: none;
+							text-transform: uppercase;
+							&.curso {
+								text-align: left;
+								padding-left: ($container-fluid / 2);
+							}	
+							&.fecha {
+								border: none;
+							}
 						}
-						}
+						//
 					}
 				}
 			}
@@ -210,9 +212,9 @@
 				}
 			}
 			.tr {
-				a {
-					color: black;
-				}	
+				// a {
+				// 	color: black;
+				// }	
 				@include list-unstyled;
 				@include clearfix;
 				li {

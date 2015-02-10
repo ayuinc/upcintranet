@@ -20,7 +20,7 @@ $alt-12: "ronnia";
 		font-size: rem(40) !important;	
 	}
 }
-@for $fs from 9 to 33 {
+@for $fs from 9 to 27 {
 	.#{$sans-serif}-bold-#{$fs} {
 		@include bold;	
 		font-size: $fs + px !important;	
@@ -83,6 +83,15 @@ $alt-12: "ronnia";
 	}
 	.#{$alt-ab}-#{$fs} {
 		@include alt-ab-book;	
+		font-size: $fs + px !important;	
+		font-size: rem($fs) !important;	
+		@media #{$lg-down} {
+			font-size: ($fs - 2) + px !important;
+			font-size: rem(($fs) - 2) !important;	
+		}
+	}
+	.#{$alt-ab}-light-#{$fs} {
+		@include alt-ab-light;	
 		font-size: $fs + px !important;	
 		font-size: rem($fs) !important;	
 		@media #{$lg-down} {

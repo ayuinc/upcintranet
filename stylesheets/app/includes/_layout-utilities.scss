@@ -95,16 +95,14 @@
 		}	
 	}
 }
-
-// custom links
-a {
-	color: $gray-main !important;
-	&.sb-link {
-		color: $brand-info !important;
-	}					
-	&.danger-link {
-		color: $brand-danger !important;
-	}					
+.btn-anchor {
+	color: black;
+	background: none;
+	border:none;
+	font-size: 14px;
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 // Custom Line Heights
@@ -120,4 +118,8 @@ a {
 .img-center {
 	display: block;
 	margin: 0 auto;
+}
+//
+body {
+	color: black;
 }

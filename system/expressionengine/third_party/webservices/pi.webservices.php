@@ -1457,19 +1457,19 @@ class Webservices
 
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-2 formula">';
-        $result .= '<div class="black borderless">';
+        $result .= '<li class="col-xs-2">';
+        $result .= '<div class="black-text borderless">';
         $result .= '<span class="pl-7 helv-neue-16">FÓRMULA:</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-10 formula">';
-        $result .= '<div class="black">';
+        $result .= '<li class="col-xs-10">';
+        $result .= '<div class="black-text">';
         $result .= '<span class="ronnia-16">'.$json_int['Formula'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';    
-        $result .= '<div class="panel-body-head-table black-border-top white">';
+        $result .= '<div class="panel-body-head-table black-text-border-top white">';
 
         $result .= '<ul class="tr border-bt-gl">';
         $result .= '<li class="col-xs-1">';
@@ -1552,7 +1552,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black curso-link text-right" href="#top">';
+        $result .= '<a class="black-text curso-link text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
@@ -2532,7 +2532,7 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
         // $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
         
-        $result .= '<div class="panel-body-head-table white">';
+        $result .= '<div class="panel-body-head-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-8">';
         $result .= '<div><span>Curso</span></div>';
@@ -2551,18 +2551,18 @@ class Webservices
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
         
         for ($a=0; $a<$tamano; $a++) {
-          $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-xs-8 helvetica-10 pb-0">';
+          $result .= '<ul class="tr">';
+          $result .= '<li class="col-xs-8 helvetica-12">';
           $result .= '<div>';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2 helvetica-10">';
+          $result .= '<li class="col-xs-2 helvetica-12">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2 helvetica-10">';
+          $result .= '<li class="col-xs-2 helvetica-12">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'</span>';
           $result .= '</div>';
@@ -2624,8 +2624,11 @@ class Webservices
         
         $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12">';
-        $result .= '<div><span>Curso</span></div>';
+        $result .= '<li class="col-xs-8">';
+        $result .= '<div class="pl-7"><span class="helv-neue-light-14 text-left">CURSO</span></div>';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-4">';
+        $result .= '<div><span class="helv-neue-light-14 text-center">ALUMNOS</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';  
@@ -2636,14 +2639,13 @@ class Webservices
         
         for ($a=0; $a<$tamano; $a++) {
           $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-xs-9 helvetica-10 pb-0">';
+          $result .= '<li class="col-xs-8 helvetica-12 pb-0">';
           $result .= '<div>';
-          $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
+          $result .= '<span class="prueba">'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-3 helvetica-10">';
+          $result .= '<li class="col-xs-4">';
           $result .= '<div class="text-center">';
-          $result .= '<span>';
           $result .= '<form action="{site_url}index.php/mi-docencia/cursos-detallados" method="post" id="form-'.$i.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
           $result .= '<input type="hidden" name="Flag" value="buscar-curso">';
@@ -2652,9 +2654,8 @@ class Webservices
           $result .= '<input type="hidden" name="Curso" value="'.$json['modalidades'][$i]['cursos'][$a]['cursoId'].'">';
           $result .= '<input type="hidden" name="Seccion" value="'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'">';
           $result .= '<input type="hidden" name="Grupo" value="'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'">';
-          $result .= '<input type="submit" class="btn btn-custom" value="Alumnos" name="submit">';
+          $result .= '<input type="submit" class="btn-anchor" value="Ver Listado" name="submit">';
           $result .= '</form>';
-          $result .= '</span>';
           $result .= '</div>';
           $result .= '</li>';         
           $result .= '</ul>';
@@ -2716,34 +2717,37 @@ class Webservices
       $tamano = count($json['Cursos']);  
       
       for ($i=0; $i<$tamano; $i++) {
-        
+        $nombre_curso = $json['Cursos'][$i]['curso'];
+        $nombre_curso_lc = ucwords(strtolower($nombre_curso));
+        // return $nombre_curso_lc;
         $result .= '<div class="panel-head no-bg">';
         $result .= '<div class="panel-title left">';
-        $result .= '<h3>Lista de Alumnos: '.$json['Cursos'][$i]['curso'].'</h3>';
+        $result .= '<h2 class="black-text">Lista de Alumnos: <span class="serif-bold">'.$nombre_curso_lc.'</span></h2>';
+        // $result .= '<h3>Lista de Alumnos: '.$json['Cursos'][$i]['curso'].'</h3>';
         $result .= '</div>';
         $result .= '</div>';
         
-        $result .= '<div class="panel-body mb-35">';
+        $result .= '<div class="panel-body red-line mb-35">';
         $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-2">';
         $result .= '<div>';
-        $result .= '<span>Foto</span>';
+        $result .= '<span class="helv-neue-light-14">Foto</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-6">';
         $result .= '<div>';
-        $result .= '<span>Nombre</span>';
+        $result .= '<span class="helv-neue-light-14">Nombre</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-2">';
         $result .= '<div>';
-        $result .= '<span>Nombre</span>';
+        $result .= '<span class="helv-neue-light-14">Notas</span>';
         $result .= '</div>';
         $result .= '</li>';       
         $result .= '<li class="col-xs-2">';
         $result .= '<div>';
-        $result .= '<span>Inasistencias</span>';
+        $result .= '<span class="helv-neue-light-14">Inasistencias</span>';
         $result .= '</div>';
         $result .= '</li>';       
         $result .= '</ul>';
@@ -2778,7 +2782,7 @@ class Webservices
           $result .= '<input type="hidden" name="cursoid" value="'.$json['Cursos'][$i]['cursoId'].'">';
           $result .= '<input type="hidden" name="nombrealumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['nombre_completo'].'">';
           $result .= '<input type="hidden" name="Flag" value="notas">';
-          $result .= '<input type="submit" class="btn btn-custom" name="submit" value="Ver Notas">';
+          $result .= '<input type="submit" class="btn-anchor" name="submit" value=">Ver">';
           $result .= '</form>'; 
           $result .= '</span>';                 
           $result .= '</div>';
@@ -2803,7 +2807,7 @@ class Webservices
           
           for ($b=0; $b<$tamano_inas; $b++) {
             if ($json['Cursos'][$i]['cursoId'] == $json_b['Inasistencias'][$b]['CodCurso']) {
-              $result .= 'Total: '.$json_b['Inasistencias'][$b]['Total'].' Máximo: '.$json_b['Inasistencias'][$b]['Maximo'];
+              $result .= 'Total: '.$json_b['Inasistencias'][$b]['Total'].' (Máximo: '.$json_b['Inasistencias'][$b]['Maximo'].')';
             } 
           } 
           
@@ -2978,7 +2982,7 @@ class Webservices
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<div>';
-        $result .= '<h4>';
+        $result .= '<span class="zizou-16">';
         if ($json['HorarioDia'][$i]['CodDia'] == 1) {
           $result .= 'Lunes';
         }
@@ -2997,9 +3001,9 @@ class Webservices
         if ($json['HorarioDia'][$i]['CodDia'] == 6) {
           $result .= 'Sábado';
         }           
-        $result .= '</h4>';
+        $result .= '</span>';
         $result .= '</div>'; 
-        $result .= '<div class="panel-body mb-35">';
+        $result .= '<div class="panel-body red-line mb-7">';
         $result .= '<div class="panel-body-head-table white">'; 
         $result .= '<ul class="tr">'; 
         $result .= '<li class="col-xs-1">'; 
