@@ -20,7 +20,7 @@ $alt-12: "ronnia";
 		font-size: rem(40) !important;	
 	}
 }
-@for $fs from 9 to 27 {
+@for $fs from 9 to 29 {
 	.#{$sans-serif}-bold-#{$fs} {
 		@include bold;	
 		font-size: $fs + px !important;	

@@ -67,14 +67,21 @@
 }
 // Panel Body
 .red-line {
-	  border-top: 2px solid $brand-danger;
+	border-top: 2px solid $brand-danger;
 }
 .info-border {
-	  border-top: 2px solid $brand-info;
+	border-top: 2px solid $brand-info;
 }
 .black-border-top {
-	  border-top: 2px solid black;
+	border-top: 2px solid black;
 }	
+.gl-border-top {
+	border-top: 2px solid $gray-light;
+}
+// Borders Helpers
+.br-gl {
+	border-right: 2px solid $gray-light;
+}
 // Separation lines
 .panel-title-line {
 	height: 1px;

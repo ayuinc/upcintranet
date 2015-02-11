@@ -56,6 +56,12 @@
     padding-top: rem($h)!important;
   }
 }
+@for $h from 1 to 6 {
+  .pb-#{$h} {
+    padding-bottom: ($h) + px!important;
+    padding-bottom: rem($h)!important;
+  }
+}
 // Custom Buttons
 .btn-custom {
 	&.gray {
@@ -74,6 +80,7 @@
 	border-radius: 0px;
 	border: none !important;
 	@include bold;
+	font-weight: 500;
 	text-transform: uppercase;
 	color: white;
 	&:hover {
@@ -121,5 +128,5 @@
 }
 //
 body {
-	color: black;
+	color: $gray-darker;
 }
