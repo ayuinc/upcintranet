@@ -15,7 +15,6 @@
 			display: inline-block;
 			h1, h2, h3, h4, h5, h6 {
 				margin: 0;
-				// padding-top: 3px;
 				@include serif-book;
 			}
 		}
@@ -51,6 +50,9 @@
 			}
 		}
 		.panel-table {
+			.tr {
+				color: $gray-darker;
+			}
 			background-color: white !important;
 			&.observaciones {
 				background-color: $brand-info !important;

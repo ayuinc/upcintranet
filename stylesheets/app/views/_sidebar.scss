@@ -25,23 +25,20 @@
 			&.mi-docencia a div {
 			background-image: url(../assets/img/mi_docencia_red.png);
 			}
-			&.mis-alumnos a div {
+			&.alumnos a div {
 			background-image: url(../assets/img/mis_alumnos_red.png);
 			}
-			&.mis-tramites a div {
+			&.mis-tramites a div, &.mis-tramites-docentes a div {
 			background-image: url(../assets/img/mis_tramites_red.png);
 			}
 			&.mis-finanzas a div {
 			background-image: url(../assets/img/mis_finanzas_red.png);
 			}
-			&.mis-reservas a div {
+			&.mis-reservas a div, &.mis-reservas-docentes a div {
 			background-image: url(../assets/img/mis_reservas_red.png);
 			}
-			&.info-gral a div {
+			&.informacion-general a div, &.informacion-general-docentes a div {
 			background-image: url(../assets/img/info_red.png);
-			}
-			&.ci a div {
-			background-image: url(../assets/img/ci_red.png);
 			}
 			&.ayuda a div {
 			background-image: url(../assets/img/ayuda_red.png);
@@ -58,72 +55,52 @@
 			&.mi-docencia a div {
 			background-image: url(../assets/img/mi_docencia_red.png);
 			}
-			&.mis-alumnos a div {
+			&.alumnos a div {
 			background-image: url(../assets/img/mis_alumnos_red.png);
 			}
-			&.mis-tramites a div {
+			&.mis-tramites a div, &.mis-tramites-docentes a div {
 			background-image: url(../assets/img/mis_tramites_red.png);
 			}
 			&.mis-finanzas a div {
 			background-image: url(../assets/img/mis_finanzas_red.png);
 			}
-			&.mis-reservas a div {
+			&.mis-reservas a div, &.mis-reservas-docentes a div  {
 			background-image: url(../assets/img/mis_reservas_red.png);
 			}
-			&.info-gral a div {
+			&.informacion-general a div, &.informacion-general-docentes a div {
 			background-image: url(../assets/img/info_red.png);
-			}
-			&.ci a div {
-			background-image: url(../assets/img/ci_red.png);
 			}
 			&.ayuda a div {
 			background-image: url(../assets/img/ayuda_red.png);
 			}
+		}
+		&.sidebar-item a div {
+			background-repeat: no-repeat;
+			background-position: center; 
 		} 			
 		&.mis-estudios a div {
 			background-image: url(../assets/img/mis_estudios_grey.png);
-			background-repeat: no-repeat;
-			background-position: center; 
 		}
 		&.mi-docencia a div {
 			background-image: url(../assets/img/mi_docencia_grey.png);
-			background-repeat: no-repeat;
-			background-position: center; 
 		}
-		&.mis-alumnos a div {
+		&.alumnos a div {
 			background-image: url(../assets/img/mis_alumnos_grey.png);
-			background-repeat: no-repeat;
-			background-position: center; 
 		}
-		&.mis-tramites a div {
+		&.mis-tramites a div, &.mis-tramites-docentes a div {
 			background-image: url(../assets/img/mis_tramites_grey.png);
-			background-repeat: no-repeat;
-			background-position: center; 
 		}
-		&.info-gral a div {
+		&.informacion-general a div, &.informacion-general-docentes a div {
 			background-image: url(../assets/img/info_grey.png);
-			background-repeat: no-repeat;
-			background-position: center; 
 		}
 		&.mis-finanzas a div {
 			background-image: url(../assets/img/mis_finanzas_grey.png);
-			background-repeat: no-repeat;
-			background-position: center; 
 		}
-		&.mis-reservas a div {
+		&.mis-reservas a div, &.mis-reservas-docentes a div {
 			background-image: url(../assets/img/mis_reservas_grey.png);
-			background-repeat: no-repeat;
-			background-position: center; 
-		}
-		&.ci a div {
-			background-image: url(../assets/img/ci_grey.png);
-			background-repeat: no-repeat;
-			background-position: center; 
 		}
 		&.ayuda a div {
 			background-image: url(../assets/img/ayuda_grey.png);
-			background-repeat: no-repeat;
-			background-position: center; 
 		}
 		a {
 			@include bold;

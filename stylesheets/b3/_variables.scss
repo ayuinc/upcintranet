@@ -25,7 +25,7 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 
 $gray-base: #262624;
 
-$gray-darker:           lighten($gray-base, 0%) !default; // #222
+$gray-darker:           #3D3C3E;
 $gray-dark:             lighten($gray-base, 21%) !default;   // #333
 $gray:                  lighten($gray-base, 35%) !default; // #555
 $gray-light:            #B0B1B2 !default;   // #999
