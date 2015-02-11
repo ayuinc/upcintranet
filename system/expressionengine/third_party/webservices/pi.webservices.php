@@ -510,12 +510,10 @@ class Webservices
                 $result .= '';
                 $result .= '';
               }
-            }
-            if($b == 22){
-              $result .= '</div>';
             }   
           } 
         } 
+        $result .= '</div>';
         $result .= '</div>'; 
       }
       
