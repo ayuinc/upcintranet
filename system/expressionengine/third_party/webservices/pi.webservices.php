@@ -2498,13 +2498,15 @@ class Webservices
       $result .= '  </ul>';
       $result .= '</div>';      
       $result .= '<div class="panel-table">';
+      
       if($tamano == 0){
         $result = '<div class="panel-body">' ;
-        $result = '<div class="panel-table">' ;
-        $result = 'Aqui va el mensaje' ;
-        $result = '</div>' ;
-        $result = '</div>' ;
+        $result .= '<div class="panel-table">' ;
+        $result .= 'Aqui va el mensaje' ;
+        $result .= '</div>' ;
+        $result .= '</div>' ;
       }
+
       else{ 
         for ($i=0; $i<$tamano; $i++) { 
           $result .= '<ul class="tr">';
@@ -2537,17 +2539,19 @@ class Webservices
         }
       }
       $result .= '</div>';  
+      $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
-        $result = '';
+        $result = '<div class="panel-body">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-12 helvetica-12"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
         $result .= '</ul>';
         $result .= '</div>';
+        $result .= '</div>'; 
       }
 
-        $result .= '</div>';  
+         
       return $result;          
     } 
     
