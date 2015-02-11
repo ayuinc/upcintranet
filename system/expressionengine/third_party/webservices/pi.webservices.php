@@ -2499,7 +2499,7 @@ class Webservices
       $result .= '</div>';      
       $result .= '<div class="panel-table">';
       
-      if($tamano == 0){
+      if($json['Reservas'] == null){
         $result = '<div class="panel-body">' ;
         $result .= '<div class="panel-table">' ;
         $result .= 'Aqui va el mensaje' ;
