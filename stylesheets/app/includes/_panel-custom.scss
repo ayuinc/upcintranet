@@ -21,22 +21,39 @@
 		.panel-head-link {
 			height: 30px;
 			width: 30px;
+			margin: 12px 7px;
 			background-repeat: no-repeat;
 			background-position: center;
+			@media #{$xs-only} {
+				height: 24px;
+				width: 24px;
+				margin: 7px;
+			}
 			&.danger {
 				background-image:url("../assets/img/red_arrow_normal.png");
+				@media #{$xs-only} {
+					background-image:url("../assets/img/red_arrow_normal_tiny.png");
+				}
 				&:hover {
 					background-image:url("../assets/img/red_arrow_hover.png");
+				@media #{$xs-only} {
+					background-image:url("../assets/img/red_arrow_hover_tiny.png");
+				}
 				}
 			}
 			&.info {
 				background-image:url("../assets/img/info_arrow_normal.png");
+				@media #{$xs-only} {
+					background-image:url("../assets/img/info_arrow_normal_tiny.png");
+				}
 				&:hover {
 					background-image:url("../assets/img/info_arrow_hover.png");
+					@media #{$xs-only} {
+						background-image:url("../assets/img/info_arrow_hover_tiny.png");
+					}
 				}
 			}
 			float: right;
-			margin: 12px 7px;
 		}
 	}
 	.panel-body {
@@ -67,9 +84,11 @@
 			background: white;
 			color: black;
 			text-align: center;
+			padding-top: 14px; //agregado para canales
+			padding-left: 14px; //agregado para canales
 			&.tall {
 				min-height: 63px;
-				padding: 7px;
+				// padding: 7px;
 			}
 			&.left {
 				text-align: left !important;
@@ -91,9 +110,6 @@
 			background: white !important;
 			color: $gray-main !important;
 			.tr {
-				&.border-bt-gl {
-					border-bottom: 2px solid $gray-light;
-				}
 				@include list-unstyled;
 				@include clearfix;
 				li + li {
@@ -261,5 +277,6 @@
 	.panel-footer {
 		background-color: white;
 		padding-bottom: 14px;
+		padding-left: 7px;
 	}
 }

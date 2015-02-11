@@ -4,4 +4,10 @@
 	bottom: 0;
 	width: 100%;
 	margin: 0;
+	color: $gray-main;
+	.col-sm-8 {
+		@media #{$md-up} {
+			padding-top: 28px;
+		}
+	}
 }

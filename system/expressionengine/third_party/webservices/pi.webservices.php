@@ -490,7 +490,7 @@ class Webservices
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$Sede[$disponibles].'</span></div>';
               $result .= '</li>';
               $result .= '<li class="col-xs-6">';
-              $result .= '<div><span class="helvetica-12">'.$CursoNombre[$disponibles].'</span></div>';
+              $result .= '<div><span class="helvetica-14">'.$CursoNombre[$disponibles].'</span></div>';
               $result .= '</li>';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center"><span class="solano-bold-18">'.$Salon[$disponibles].'</span></div>';
@@ -1345,7 +1345,7 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<a href="#curso-'.$i.'" class="curso-link">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
-        $result .= '<span class="zizou-14">';
+        $result .= '<span class="zizou-16">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
         $result .= $json['Inasistencias'][$i]['CursoNombre'];
         $result .= '</span>';
@@ -1360,7 +1360,7 @@ class Webservices
         $result = '';
         $result .= '<ul class="tr">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5 pr-7">';
-        $result .= '<span class="zizou-14">';
+        $result .= '<span class="zizou-16">';
         $result .= $error_mensaje;
         $result .= '</span>';
         $result .= '</li>';                
@@ -1524,28 +1524,28 @@ class Webservices
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';    
-        $result .= '<div class="panel-body-head-table black-text-border-top white">';
+        $result .= '<div class="panel-body-head-table pb-7 black-border-top">';
 
-        $result .= '<ul class="tr border-bt-gl">';
+        $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-1">';
 
-        $result .= '<div><span>Tipo</span></div>';
+        $result .= '<div class="br-gl"><span>Tipo</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-2">';
         $result .= '<div><span>Número</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-5">';
-        $result .= '<div><span>Evaluación</span></div>';
+        $result .= '<div class="br-gl"><span>Evaluación</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-2">';
-        $result .= '<div><span>Peso</span></div>';
+        $result .= '<div class="br-gl"><span>Peso</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-2">';
         $result .= '<div><span>Nota</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>'; 
-        $result .= '<div class="panel-table">'; 
+        $result .= '<div class="panel-table gl-border-top">'; 
         $result .= '<ul class="tr">';          
 
         for ($b=0; $b<$tamano_int; $b++) {
@@ -1680,15 +1680,16 @@ class Webservices
         
         $result .= '<div class="panel-body-head-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-2">';
+        $result .= '<li class="col-xs-2">';
         $result .= '<div class="fecha"><span>No. Solicitud</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-6">';
+        $result .= '<li class="col-xs-6">';
+        $result .= '<div class="fecha"><span>DESCRIPCIóN DEL TRáMITE</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2">';
+        $result .= '<li class="col-xs-2">';
         $result .= '<div class=""><span>Fecha de Inicio</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2">';
+        $result .= '<li class="col-xs-2">';
         $result .= '<div class=""><span>Estado</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
@@ -1697,38 +1698,38 @@ class Webservices
         for ($i=0; $i<$tamano; $i++) {  
           $result .= '<div class="panel-table"> ';
           $result .= '<ul class="tr">';
-          $result .= '<li class="col-sm-2 solano-bold-18 uppercase">';
+          $result .= '<li class="col-xs-2 solano-bold-18 uppercase">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['TramitesRealizados'][$i]['NroSolicitud'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-6 helvetica-14">';
+          $result .= '<li class="col-xs-6 helvetica-14">';
           $result .= '<div>';
           $result .= '<span>'.$json['TramitesRealizados'][$i]['Nombre'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-2 solano-bold-18 uppercase">';
+          $result .= '<li class="col-xs-2 solano-bold-18 uppercase">';
           $result .= '<div class="text-center nrb">';
           $result .= '<span>'.$json['TramitesRealizados'][$i]['Fecha'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
           
           if ($json['TramitesRealizados'][$i]['Estado']=='NO PROCEDE') {
-            $result .= '<li class="col-sm-2 pdte-tr solano-bold-18">';
+            $result .= '<li class="col-xs-2 pdte-tr solano-bold-18">';
             $result .= '<div class="text-center">';
             $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
           } 
           if ($json['TramitesRealizados'][$i]['Estado']=='PROCEDE') {
-            $result .= '<li class="col-sm-2 apr-tr solano-bold-18">';
+            $result .= '<li class="col-xs-2 apr-tr solano-bold-18">';
             $result .= '<div class="text-center">';
             $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
           }
           if ($json['TramitesRealizados'][$i]['Estado']=='RESPONDIDA') {
-            $result .= '<li class="col-sm-2 apr-tr solano-bold-18">';
+            $result .= '<li class="col-xs-2 apr-tr solano-bold-18">';
             $result .= '<div class="text-center">';
             $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
             $result .= '</div>';
@@ -2149,12 +2150,12 @@ class Webservices
         
         for ($a=0; $a< 4; $a++) {
           if ($a == 0) {
-            $result .= '<div class="row pl-28">'; // apertura
+            $result .= '<div class="row pt-0 pl-28">'; // apertura
           }
           if ($a == 2) {
             $result .= '<div class="row mt-14 pl-28">'; // apertura
           }
-          $result .= '<div class="col-sm-5 mr-28 mb-14 p-14 text-left red-line bg-muted">';
+          $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
           $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
           $result .= '<input type="hidden" value="1" name="Flag">';
@@ -2196,7 +2197,14 @@ class Webservices
       //Control de errores
       if ($error!='00000') {
         $result = '';
-        $result .= $error_mensaje;   
+        // $result .= $error_mensaje;
+        //
+        $result .= '<div class="panel-table red-line">';
+        $result .= '<div class="panel-body p-28">';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+        $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
+        $result .= '</div>';
+        $result .= '</div>';
       }          
        
       return $result;          
@@ -2242,14 +2250,16 @@ class Webservices
       //Control de errores
       if (strpos($error_mensaje, 'realizado') !== false ) {
         $result .= '<div class="resultados-busqueda info-border bg-muted">';
-        $result .= '<div class="panel-body">';
-        $result .= '<div class="p-14 zizou-14">'.$error_mensaje.'</div>';
+        $result .= '<div class="panel-body p-28">';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
+        $result .= '<span class="helvetica-16 text-info">'.$error_mensaje.'</span>';
         $result .= '</div>';
         $result .= '</div>';
       } else {
         $result .= '<div class="resultados-busqueda red-line bg-muted">';
-        $result .= '<div class="panel-body">';
-        $result .= '<div class="p-14 zizou-14">'.$error_mensaje.'</div>';
+        $result .= '<div class="panel-body p-28">';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+        $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
         $result .= '</div>';
         $result .= '</div>';
       }  
@@ -2545,7 +2555,7 @@ class Webservices
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12 helvetica-12"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
+        $result .= '<li class="col-xs-12 helvetica-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
         $result .= '</ul>';
         $result .= '</div>';
         $result .= '</div>'; 
@@ -3578,17 +3588,17 @@ class Webservices
       if (strval($tipouser)=='ALUMNO') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
+        $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-12">';
+        $result .= '<li class="col-xs-4 helvetica-bold-14">';
         $result .= '<div class="text-center">';
         $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-12">';
+        $result .= '<li class="col-xs-4 helvetica-bold-14">';
         $result .= '<div class="text-center">';
         $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
@@ -3601,17 +3611,17 @@ class Webservices
       if (strval($tipouser)=='PROFESOR') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="19" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
+        $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-12">';
+        $result .= '<li class="col-xs-4 helvetica-bold-14">';
         $result .= '<div class="text-center">';
         $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-12">';
+        $result .= '<li class="col-xs-4 helvetica-bold-14">';
         $result .= '<div class="text-center">';
         $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
@@ -3624,17 +3634,17 @@ class Webservices
       if (strval($tipouser)=='PADRE') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="21" dynamic="off" orderby="numero-cuota" sort="asc" }';
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-sm-4 text-center helvetica-bold-12">';
+        $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-12">';
+        $result .= '<li class="col-xs-4 helvetica-bold-14">';
         $result .= '<div class="text-center">';
         $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 helvetica-bold-12">';
+        $result .= '<li class="col-xs-4 helvetica-bold-14">';
         $result .= '<div class="text-center">';
         $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
         $result .= '</div>';
