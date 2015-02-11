@@ -432,6 +432,25 @@ class Webservices
       $error_mensaje = $json['MsgError']; 
       
       //limpio la variable para reutilizarla
+      $result = '<div class="panel-body">';
+      $result .= '<div class="panel-body-head-table">';
+      $result .= '  <ul class="tr">';
+      $result .= '    <li class="col-xs-2">';
+      $result .= '      <div class="fecha"><span>Hora</span></div>';
+      $result .= '    </li>';
+      $result .= '    <li class="col-xs-2">';
+      $result .= '      <div class=""><span>Campus</span></div>';
+      $result .= '    </li>';
+      $result .= '    <li class="col-xs-6">';
+      $result .= '      <div class=""><span>Curso</span></div>';
+      $result .= '    </li>';
+      $result .= '    <li class="col-xs-2">';
+      $result .= '      <div class=""><span>Aula</span></div>';
+      $result .= '    </li>';
+      $result .= '  </ul>';
+      $result .= '</div>';
+
+      
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
       $flag = TRUE;
@@ -459,25 +478,7 @@ class Webservices
           
           //Loop generador de horas
           for ($b=7; $b<=22; $b++) {
-            if($b == 7){
-              $result = '<div class="panel-body">';
-              $result .= '<div class="panel-body-head-table">';
-              $result .= '  <ul class="tr">';
-              $result .= '    <li class="col-xs-2">';
-              $result .= '      <div class="fecha"><span>Hora</span></div>';
-              $result .= '    </li>';
-              $result .= '    <li class="col-xs-2">';
-              $result .= '      <div class=""><span>Campus</span></div>';
-              $result .= '    </li>';
-              $result .= '    <li class="col-xs-6">';
-              $result .= '      <div class=""><span>Curso</span></div>';
-              $result .= '    </li>';
-              $result .= '    <li class="col-xs-2">';
-              $result .= '      <div class=""><span>Aula</span></div>';
-              $result .= '    </li>';
-              $result .= '  </ul>';
-              $result .= '</div>';
-            }
+            
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
               $flag = FALSE;
@@ -501,7 +502,7 @@ class Webservices
               } 
             } else {
               if($b == 22 && $flag){
-                $result .= '';
+                $result = '';
                 $result .= '';
                 $result .= '';
                 $result .= '<p>Aquí va este mensaje</p>';                
