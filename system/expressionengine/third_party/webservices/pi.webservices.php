@@ -504,12 +504,14 @@ class Webservices
               if($b == 22 && $flag){
                 $result = '<div class="panel-body">';
                 $result .= '<div class="panel-table">';
-                $result .= '';
-                $result .= '<p>Aquí va este mensaje</p>';                
-                $result .= '';
-                $result .= '';
-                $result .= '';
-                $result .= '';
+                $result .= '<ul class="tr">';
+                $result .= '<li class="col-xs-4">';
+                $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+                $result .= '</li>';
+                $result .= '<li class="col-xs-8 pt-28">';
+                $result .= '<p>No tienes ninguna clase programada</p>';                
+                $result .= '</li>';
+                $result .= '</ul>';
               }
             }   
           } 
