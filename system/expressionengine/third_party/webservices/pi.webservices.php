@@ -877,6 +877,8 @@ class Webservices
       $tamano = count($json['Inasistencias']);
 
       if($tamano == 0 ){
+         $result = '<div class="panel-body-head-table">';
+         $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
          $result .= 'aquí va el mensaje';
       }
       else{
