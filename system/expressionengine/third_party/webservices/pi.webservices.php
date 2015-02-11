@@ -413,6 +413,19 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      $result='{  
+    "CodError":"00000",
+    "MsgError":"",
+    "HorarioDia":[  
+        {  
+            "CodDia":3,
+            "CodAlumno":"U201121382",
+            "Fecha":"20150211",
+            "Clases":[  
+            ]
+        }
+    ]
+}';
       $json = json_decode($result, true);
       var_dump($result);
       $error = $json['CodError'];
