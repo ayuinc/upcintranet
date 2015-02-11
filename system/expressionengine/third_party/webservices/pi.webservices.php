@@ -419,11 +419,28 @@ class Webservices
       $error_mensaje = $json['MsgError']; 
       
       //limpio la variable para reutilizarla
-      $result = '';      
+      $result = '<div class="panel-body">';
+      $result .= '<div class="panel-body-head-table">';
+      $result .= '  <ul class="tr">';
+      $result .= '    <li class="col-xs-2">';
+      $result .= '      <div class="fecha"><span>Hora</span></div>';
+      $result .= '    </li>';
+      $result .= '    <li class="col-xs-2">';
+      $result .= '      <div class=""><span>Campus</span></div>';
+      $result .= '    </li>';
+      $result .= '    <li class="col-xs-6">';
+      $result .= '      <div class=""><span>Curso</span></div>';
+      $result .= '    </li>';
+      $result .= '    <li class="col-xs-2">';
+      $result .= '      <div class=""><span>Aula</span></div>';
+      $result .= '    </li>';
+      $result .= '  </ul>';
+      $result .= '</div>';
+
       
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
-      
+      $flag = TRUE;
       //Loop basado en el HorarioDia
       for ($i=0; $i<$tamano; $i++) {
         $result.= '<div class="panel-table">';
@@ -451,6 +468,7 @@ class Webservices
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
+              $flag = FALSE;
               $result .= '<ul class="tr">';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
@@ -470,6 +488,16 @@ class Webservices
                 $disponibles++;
               } 
             } else {
+              if($b == 22 && $flag){
+                $result .= '';
+                $result .= '';
+                $result .= '';
+                $result .= '<p>Aquí va este mensaje</p>';                
+                $result .= '';
+                $result .= '';
+                $result .= '';
+                $result .= '';
+              }
               /*
               $result .= '<ul class="tr">';
               $result .= '<li class="col-xs-2 helvetica-bold-14">';
@@ -482,6 +510,7 @@ class Webservices
             }   
           } 
         } 
+        $result .= '</div>';
         $result .= '</div>'; 
       }
       
