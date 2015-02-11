@@ -880,6 +880,7 @@ class Webservices
          $result = '<div class="panel-body-head-table">';
          $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
          $result .= 'aquí va el mensaje';
+         $result .= '</div>';
       }
       else{
         for ($i=0; $i<$tamano; $i++) {
