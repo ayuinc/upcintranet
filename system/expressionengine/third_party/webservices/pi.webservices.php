@@ -414,7 +414,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      
+      var_dump($result);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError']; 
       
