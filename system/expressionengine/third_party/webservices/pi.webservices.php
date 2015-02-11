@@ -2536,8 +2536,7 @@ class Webservices
           $result .= '</ul>';
         }
       }
-      $result .= '</div>';     
-      $result .= '</div>';      
+           
       //Control de errores
       if ($error!='00000') {
         $result = '';
@@ -2547,6 +2546,8 @@ class Webservices
         $result .= '</ul>';
         $result .= '</div>';
       }
+       $result .= '</div>';     
+        $result .= '</div>';  
       return $result;          
     } 
     
