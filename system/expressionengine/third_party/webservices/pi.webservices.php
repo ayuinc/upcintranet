@@ -81,7 +81,7 @@ class Webservices
       $_SESSION["CodError"] = $json['CodError'];
       $_SESSION["MsgError"] = $json['MsgError'];
       //INICIAR SESSION
-      //var_dump($json);
+
       if (strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
         redirect('/login/error_login');
       } 
@@ -413,21 +413,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      $result='{  
-    "CodError":"00000",
-    "MsgError":"",
-    "HorarioDia":[  
-        {  
-            "CodDia":3,
-            "CodAlumno":"U201121382",
-            "Fecha":"20150211",
-            "Clases":[  
-            ]
-        }
-    ]
-}';
       $json = json_decode($result, true);
-      var_dump($result);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError']; 
       
@@ -852,8 +838,6 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
-      $result='{"CodError":"00000","MsgError":"","Inasistencias":[]}';
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -2432,15 +2416,13 @@ class Webservices
         $url = str_replace(" ", "%20", $url);
 
         //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Reservar/?CodRecurso=3208&NomRecurso=COMPUTADORA 128 (SALA 2)&CodAlumno=U201121382&CanHoras=1&fecIni=07012015 1800&fecFin=08012015 1900&Token=2702b70d8b1942b38a51aceffd31acd520150107125348
-        //var_dump($url);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_URL,$url);
         $result=curl_exec($ch);
         $json = json_decode($result, true);
-        //var_dump($result);
-        //var_dump($json);
+
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];      
 
@@ -2490,7 +2472,6 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
       $json = json_decode($result, true);
       
       $result = '';
