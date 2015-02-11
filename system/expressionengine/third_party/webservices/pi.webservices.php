@@ -503,7 +503,7 @@ class Webservices
             } else {
               if($b == 22 && $flag){
                 $result = '<div class="panel-body">';
-                $result .= '<div class="panel-table">';
+                $result .= '<div class="panel-table pb-7">';
                 $result .= '<ul class="tr">';
                 $result .= '<li class="col-xs-4">';
                 $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
@@ -881,7 +881,14 @@ class Webservices
       if($tamano == 0 ){
          $result = '<div class="panel-body-head-table">';
          $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
-         $result .= 'aquí va el mensaje';
+         $result .= '<ul class="tr">';
+         $result .= '<li class="col-xs-4">';
+         $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
+         $result .= '</li>';
+         $result .= '<li class="col-xs-6 text-center pt-21">';
+         $result .= '<p>No te encuentras matriculado en ningun curso en este ciclo</p>';
+         $result .= '</li>';
+         $result .= '</ul>';
          $result .= '</div>';
       }
       else{
@@ -2491,7 +2498,7 @@ class Webservices
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
        
-      $tamano = count($json['Reservas']); 
+      $tamano = count($json['Reservas']);
       $result .= '<div class="panel-body">';
       $result .= ' <div class="panel-body-head-table">';
       $result .= '  <ul class="tr">';
@@ -2557,7 +2564,10 @@ class Webservices
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12 helvetica-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
+        $result .= '<li class="col-xs-4">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_bookings.png">';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-6 text-center pt-21"><span>'.$error_mensaje.'</span></li>'; 
         $result .= '</ul>';
         $result .= '</div>';
         $result .= '</div>'; 
