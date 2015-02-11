@@ -510,15 +510,6 @@ class Webservices
                 $result .= '';
                 $result .= '';
               }
-              /*
-              $result .= '<ul class="tr">';
-              $result .= '<li class="col-xs-2 helvetica-bold-14">';
-              $result .= '<div class="text-center"><span>'.$b.':00</span></div>';
-              $result .= '</li>';                
-              $result .= '<li class="col-xs-10">';
-              $result .= '<div class="text-center"></div>';
-              $result .= '</li>';
-              $result .= '</ul>';*/
             }
             if($b == 22){
               $result .= '</div>';
