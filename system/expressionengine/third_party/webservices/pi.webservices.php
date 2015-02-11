@@ -851,6 +851,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
       var_dump($result);
+      $result='{"CodError":"00000","MsgError":"","Inasistencias":[]}';
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
