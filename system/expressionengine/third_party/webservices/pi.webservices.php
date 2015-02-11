@@ -509,12 +509,14 @@ class Webservices
       //Control de errores
       if ($error!='00000') {
         $result = '';
+        $result .= '<div class="panel-body">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-12">';
         $result .= '<div>'.$error_mensaje.'</div>';
         $result .= '</li>';                
         $result .= '</ul>';  
+        $result .= '</div>';     
         $result .= '</div>';     
       } 
       
@@ -878,17 +880,17 @@ class Webservices
       else{
         for ($i=0; $i<$tamano; $i++) {
           $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-xs-8 helvetica-12 pb-0">';
+          $result .= '<li class="col-xs-8 helvetica-14 pb-0">';
           $result .= '<div>';
           $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2 helvetica-bold-14 curso-faltas">';
+          $result .= '<li class="col-xs-2 ronnia-18 curso-faltas">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2 helvetica-bold-14 curso-promedio">';
+          $result .= '<li class="col-xs-2 ronnia-18 curso-promedio">';
 
           $codcurso = $json['Inasistencias'][$i]['CodCurso'];
           
@@ -976,7 +978,7 @@ class Webservices
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-xs-8 helvetica-12 pb-0">';
+        $result .= '<li class="col-xs-8 helvetica-14 pb-0">';
         $result .= '<div>';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
