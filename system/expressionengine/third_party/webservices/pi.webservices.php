@@ -502,7 +502,7 @@ class Webservices
               } 
             } else {
               if($b == 22 && $flag){
-                $result = '';
+                $result .= '';
                 $result .= '';
                 $result .= '';
                 $result .= '<p>Aquí va este mensaje</p>';                
