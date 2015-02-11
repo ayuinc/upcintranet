@@ -836,7 +836,6 @@ class Webservices
       
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
-
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -857,55 +856,73 @@ class Webservices
       $error_mensaje = $json['MsgError'];       
       
       //limpio la variable para reutilizarla
-      $result = '';
-      
+      $result = '<div class="panel-body-head-table">';
+      $result .= '<ul class="tr">';
+      $result .= '<li class="col-xs-8">';
+      $result .= '<div class="pl-7"><span class="text-left">Curso</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Faltas</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Promedio</span></div>';
+      $result .= '</li>';
+      $result .= '</ul>';
+      $result .= '</div>'; 
+      $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
+
       //genera el tamano del array
       $tamano = count($json['Inasistencias']);
-      
-      for ($i=0; $i<$tamano; $i++) {
-        $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-xs-8 helvetica-12 pb-0">';
-        $result .= '<div>';
-        $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
-        $result .= '</div>';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-2 helvetica-bold-14 curso-faltas">';
-        $result .= '<div class="text-center">';
-        $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
-        $result .= '</div>';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-2 helvetica-bold-14 curso-promedio">';
 
-        $codcurso = $json['Inasistencias'][$i]['CodCurso'];
-        
-        //Loop interno para calcular notas segun curso
-        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token=1'.$token.'&CodCurso='.$codcurso;
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL,$url);
-        $result_int=curl_exec($ch);
-        $json_int = json_decode($result_int, true);
-      
-        //genera el tamano del array
-        $tamano_int = count($json_int['Notas']);
-        $nota = 0;
-        $porcentaje = 0;
-        
-        for ($b=0; $b<$tamano_int; $b++) {
-          $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
-          $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
-        }
+      if($tamano == 0 ){
+         $result .= 'aquí va el mensaje';
+      }
+      else{
+        for ($i=0; $i<$tamano; $i++) {
+          $result .= '<ul class="tr bg-muted">';
+          $result .= '<li class="col-xs-8 helvetica-12 pb-0">';
+          $result .= '<div>';
+          $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+          $result .= '</div>';
+          $result .= '</li>';
+          $result .= '<li class="col-xs-2 helvetica-bold-14 curso-faltas">';
+          $result .= '<div class="text-center">';
+          $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
+          $result .= '</div>';
+          $result .= '</li>';
+          $result .= '<li class="col-xs-2 helvetica-bold-14 curso-promedio">';
+
+          $codcurso = $json['Inasistencias'][$i]['CodCurso'];
           
-        //Cambia el formato a 2 decimales
-        $nota = number_format($nota, 2, '.', '');
+          //Loop interno para calcular notas segun curso
+          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token=1'.$token.'&CodCurso='.$codcurso;
+          $ch = curl_init($url);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_URL,$url);
+          $result_int=curl_exec($ch);
+          $json_int = json_decode($result_int, true);
         
-        $result .= '<div class="text-center"><span>'.$nota.'</span></div>';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="zizou-12"><img class="mr-7" src="/assets/img/ojo.png">Ver más</span></div></li>';
-        $result .= '</ul>';
+          //genera el tamano del array
+          $tamano_int = count($json_int['Notas']);
+          $nota = 0;
+          $porcentaje = 0;
+          
+          for ($b=0; $b<$tamano_int; $b++) {
+            $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
+            $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
+          }
+            
+          //Cambia el formato a 2 decimales
+          $nota = number_format($nota, 2, '.', '');
+          
+          $result .= '<div class="text-center"><span>'.$nota.'</span></div>';
+          $result .= '</li>';
+          $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="zizou-12"><img class="mr-7" src="/assets/img/ojo.png">Ver más</span></div></li>';
+          $result .= '</ul>';
+        }
       }     
-      
+      $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
         $result = '';
