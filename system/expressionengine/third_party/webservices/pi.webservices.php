@@ -459,6 +459,8 @@ class Webservices
           $result .= '<p>No tienes ninguna clase programada</p>';                
           $result .= '</li>';
           $result .= '</ul>';
+          $result .= '</div>';
+          $result .= '</div>'; 
           break;
         }
         
