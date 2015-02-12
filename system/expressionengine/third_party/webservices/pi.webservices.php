@@ -881,7 +881,7 @@ class Webservices
       //genera el tamano del array
       $tamano = count($json['Inasistencias']);
 
-      if($tamano == 0 ){
+      if($tamano == 0 || $json['Inasistencias'] == NULL){
          $result = '<div class="panel-body-head-table">';
          $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
          $result .= '<ul class="tr">';
