@@ -73,6 +73,18 @@
               background-image: url({icono_sidebar_grey}); 
               }
         {/exp:channel:entries}
+
+        {exp:channel:entries channel="sidebar_docente" dynamic="off" orderby="date" sort="asc"}
+            .nav-main > li.active-menu.{url_title} a div {
+              background-image: url({icono_sidebar_red}); 
+              }
+            .nav-main > li.current-menu.{url_title} a div {
+              background-image: url({icono_sidebar_red}); 
+              }
+            .nav-main > li.{url_title} a div {
+              background-image: url({icono_sidebar_grey}); 
+              }
+        {/exp:channel:entries}
       /*.nav-main > li.active-menu.mis-estudios a div {
         background-image: url(/assets/img/mis_estudios_red.png); 
         }
