@@ -413,7 +413,6 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
       $json = json_decode($result, true);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError']; 
@@ -2244,21 +2243,21 @@ class Webservices
       $result = '';
       
       //Control de errores
-      // if (strpos($error_mensaje, 'realizado') !== false ) {
+      if (strpos($error_mensaje, 'realizado') !== false ) {
         $result .= '<div class="resultados-busqueda info-border bg-muted">';
         $result .= '<div class="panel-body p-28">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
         $result .= '<span class="helvetica-16 text-info">'.$error_mensaje.'</span>';
         $result .= '</div>';
         $result .= '</div>';
-      // } else {
-      //   $result .= '<div class="resultados-busqueda red-line bg-muted">';
-      //   $result .= '<div class="panel-body p-28">';
-      //   $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-      //   $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
-      //   $result .= '</div>';
-      //   $result .= '</div>';
-      // }  
+      } else {
+        $result .= '<div class="resultados-busqueda red-line bg-muted">';
+        $result .= '<div class="panel-body p-28">';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+        $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
+        $result .= '</div>';
+        $result .= '</div>';
+      }  
 
       
       return $result;          
