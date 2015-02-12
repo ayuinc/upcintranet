@@ -450,57 +450,70 @@ class Webservices
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
-
-          //Loop de las clases diponibles
-          for ($b=0; $b<$tamano_1; $b++) {
-            $HoraInicio[$b] = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
-            $HoraInicio[$b] = ltrim($HoraInicio[$b],'0');
-            $Sede[$b] = $json['HorarioDia'][$i]['Clases'][$b]['Sede'];
-            $CursoNombre[$b] = $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre'];
-            $Salon[$b] = $json['HorarioDia'][$i]['Clases'][$b]['Salon'];
-          }
-          
-          $tamano_2 = count($HoraInicio);
-          $disponibles = 0;
-          
-          //Loop generador de horas
-          for ($b=7; $b<=22; $b++) {
-            
-            //Compara si en el arreglo construido la hora es igual al counter del loop
-            if ($HoraInicio[$disponibles]==$b) {
-              $flag = FALSE;
+            if($json['HorarioDia'][$i]['CodDia'] == NULL){
+              $result = '<div class="panel-body">';
+              $result .= '<div class="panel-table pb-7">';
               $result .= '<ul class="tr">';
-              $result .= '<li class="col-xs-2">';
-              $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
+              $result .= '<li class="col-xs-4">';
+              $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
               $result .= '</li>';
-              $result .= '<li class="col-xs-2">';
-              $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$Sede[$disponibles].'</span></div>';
+              $result .= '<li class="col-xs-8 pt-28">';
+              $result .= '<p>No tienes ninguna clase programada</p>';                
               $result .= '</li>';
-              $result .= '<li class="col-xs-6">';
-              $result .= '<div><span class="helvetica-14">'.$CursoNombre[$disponibles].'</span></div>';
-              $result .= '</li>';
-              $result .= '<li class="col-xs-2">';
-              $result .= '<div class="text-center"><span class="solano-bold-18">'.$Salon[$disponibles].'</span></div>';
-              $result .= '</li>';
-              $result .= '</ul>';    
-              //Controla que ya no recorra mas el arreglo 
-              if ($disponibles != $tamano_2-1) {
-                $disponibles++;
-              } 
-            } else {
-              if($b == 22 && $flag){
-                $result = '<div class="panel-body">';
-                $result .= '<div class="panel-table pb-7">';
+              $result .= '</ul>';
+            }
+            else{
+            //Loop de las clases diponibles
+            for ($b=0; $b<$tamano_1; $b++) {
+              $HoraInicio[$b] = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
+              $HoraInicio[$b] = ltrim($HoraInicio[$b],'0');
+              $Sede[$b] = $json['HorarioDia'][$i]['Clases'][$b]['Sede'];
+              $CursoNombre[$b] = $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre'];
+              $Salon[$b] = $json['HorarioDia'][$i]['Clases'][$b]['Salon'];
+            }
+            
+            $tamano_2 = count($HoraInicio);
+            $disponibles = 0;
+            
+            //Loop generador de horas
+            for ($b=7; $b<=22; $b++) {
+              
+              //Compara si en el arreglo construido la hora es igual al counter del loop
+              if ($HoraInicio[$disponibles]==$b) {
+                $flag = FALSE;
                 $result .= '<ul class="tr">';
-                $result .= '<li class="col-xs-4">';
-                $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+                $result .= '<li class="col-xs-2">';
+                $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
                 $result .= '</li>';
-                $result .= '<li class="col-xs-8 pt-28">';
-                $result .= '<p>No tienes ninguna clase programada</p>';                
+                $result .= '<li class="col-xs-2">';
+                $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$Sede[$disponibles].'</span></div>';
                 $result .= '</li>';
-                $result .= '</ul>';
-              }
-            }   
+                $result .= '<li class="col-xs-6">';
+                $result .= '<div><span class="helvetica-14">'.$CursoNombre[$disponibles].'</span></div>';
+                $result .= '</li>';
+                $result .= '<li class="col-xs-2">';
+                $result .= '<div class="text-center"><span class="solano-bold-18">'.$Salon[$disponibles].'</span></div>';
+                $result .= '</li>';
+                $result .= '</ul>';    
+                //Controla que ya no recorra mas el arreglo 
+                if ($disponibles != $tamano_2-1) {
+                  $disponibles++;
+                } 
+              } else {
+                if($b == 22 && $flag){
+                  $result = '<div class="panel-body">';
+                  $result .= '<div class="panel-table pb-7">';
+                  $result .= '<ul class="tr">';
+                  $result .= '<li class="col-xs-4">';
+                  $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+                  $result .= '</li>';
+                  $result .= '<li class="col-xs-8 pt-28">';
+                  $result .= '<p>No tienes ninguna clase programada</p>';                
+                  $result .= '</li>';
+                  $result .= '</ul>';
+                }
+              }   
+            }
           } 
         }
         else{
