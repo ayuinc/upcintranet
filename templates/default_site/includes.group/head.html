@@ -61,6 +61,38 @@
     <!-- <link rel="stylesheet" href="{site_url}stylesheets/prueba.css"> -->
     <link rel="stylesheet" type="text/css" href="https://s3-sa-east-1.amazonaws.com/webfontsupc/fuentes.css">
 
+    <style>
+        {exp:channel:entries channel="sidebar_estudiante" dynamic="off" orderby="date" sort="asc"}
+            .nav-main > li.active-menu.{url_title} a div {
+              background-image: url({icono_sidebar_red}); 
+              }
+            .nav-main > li.current-menu.{url_title} a div {
+              background-image: url({icono_sidebar_red}); 
+              }
+            .nav-main > li.{url_title} a div {
+              background-image: url({icono_sidebar_grey}); 
+              }
+        {/exp:channel:entries}
+      /*.nav-main > li.active-menu.mis-estudios a div {
+        background-image: url(/assets/img/mis_estudios_red.png); 
+        }
+      .nav-main > li.current-menu.mis-estudios a div {
+        background-image: url(/assets/img/mis_estudios_red.png); 
+        }
+      .nav-main > li.mis-estudios a div {
+        background-image: url(/assets/img/mis_estudios_grey.png); 
+        }
+      .nav-main > li.active-menu.mis-finanzas a div {
+        background-image: url(/assets/img/mis_estudios_red.png); 
+        }
+      .nav-main > li.current-menu.mis-finanzas a div {
+        background-image: url(/assets/img/mis_estudios_red.png); 
+        }
+      .nav-main > li.mis-finanzas a div {
+        background-image: url(/assets/img/mis_estudios_grey.png); 
+        }*/
+    </style>
+
     <!--[if lt IE 9]>
     <script src="//use.typekit.net/dbm5wbg.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
