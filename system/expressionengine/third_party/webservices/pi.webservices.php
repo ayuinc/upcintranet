@@ -944,18 +944,17 @@ class Webservices
       $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
-        $result = '<div class="panel-body-head-table">';
-        $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
+        $result = '';
+        $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-4">';
-        $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-6 text-center pt-21">';
-        $result .= '<p>'.$error_mensaje.'</p>';
-        $result .= '</li>';
-        $result .= '</ul>';
-        $result .= '</div>';    
-      }          
+        $result .= '<li class="col-xs-12">';
+        $result .= '<div>'.$error_mensaje.'</div>';
+        $result .= '</li>';                
+        $result .= '</ul>';  
+        $result .= '</div>';     
+      }       
+      
+      
       return $result;               
     }  
 
