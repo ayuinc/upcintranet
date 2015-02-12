@@ -40,9 +40,9 @@
 			// &.informacion-general a div, &.informacion-general-docentes a div {
 			// background-image: url(../assets/img/info_red.png);
 			// }
-			// &.ayuda a div {
-			// background-image: url(../assets/img/ayuda_red.png);
-			// }
+			&.ayuda a div {
+			background-image: url(../assets/img/ayuda_red.png);
+			}
 		}
 		&.current-menu {
 			background-color: white;
@@ -70,9 +70,9 @@
 			// &.informacion-general a div, &.informacion-general-docentes a div {
 			// background-image: url(../assets/img/info_red.png);
 			// }
-			// &.ayuda a div {
-			// background-image: url(../assets/img/ayuda_red.png);
-			// }
+			&.ayuda a div {
+			background-image: url(../assets/img/ayuda_red.png);
+			}
 		}
 		&.sidebar-item a div {
 			background-repeat: no-repeat;
@@ -99,9 +99,9 @@
 		// &.mis-reservas a div, &.mis-reservas-docentes a div {
 		// 	background-image: url(../assets/img/mis_reservas_grey.png);
 		// }
-		// &.ayuda a div {
-		// 	background-image: url(../assets/img/ayuda_grey.png);
-		// }
+		&.ayuda a div {
+			background-image: url(../assets/img/ayuda_grey.png);
+		}
 		a {
 			@include bold;
 			display: block;

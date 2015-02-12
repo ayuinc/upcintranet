@@ -217,18 +217,11 @@ class Webservices
       }
       
       if (strval($TipoUser)=='PROFESOR') {
-        $result .= '<ul class="tr pb-7">';
-        $result .= '<li class="col-sm-2"></li>';
-        $result .= '<li class="col-sm-8 bg-muted">';
-        $result .= '<div>';
-        $result .= '<span class="zizou-14">';
+        $result .= '<div class="pt-35 pl-21 zizou-16">';
         $result .= '<a href="{site_url}dashboard/docente">';
-        $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Profesor';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/red_arrow_normal_tiny.png">Ingrese como Profesor';
         $result .= '</a>';
-        $result .= '</span>';
         $result .= '</div>';
-        $result .= '</li>';
-        $result .= '</ul> ';   
         
         return $result;             
       }

@@ -7,25 +7,17 @@
   <div class="section-content pb-70">
 	  <div class="row">
 	    <div class="col-sm-4"></div>
-	    <div class="col-sm-4">
-	      <div class="text-center">
-	        <img src="{site_url}images/avatars/default_set/user_male-50.png" alt="">
+	    <div class="col-sm-4 p-35">
+	      <div class="usuario-container pb-14 bg-muted">
+	      	<div class="avatar-circle">
+	        	<img class="img-center" src="{site_url}images/avatars/default_set/user_male-50.png" alt="">
+	      	</div>
+	        <div class="zizou-26 text-center">Hola {exp:webservices:nombre_alumno}</div>
+	        <div class="zizou-18 text-center gray-light">Elige el perfil que deseas utilizar</div>
+		   		{exp:webservices:consultar_alumno}
 	      </div>
-	      <div class="text-center">
-	        <span class="zizou-26">Hola {exp:webservices:nombre_alumno}</span>
-	      </div>
-	      <div class="text-center pt-14 pb-7">
-	        <span class="zizou-16">Elige el perfil que deseas utilizar</span>
-	      </div>
-	      <div class="panel">
-	        <div class="panel-body">
-	          <div class="panel-table">
-		          {exp:webservices:consultar_alumno}
-	          </div>
-	        </div>
-	      </div>
+	     </div>
 	    </div>
-	    <div class="col-sm-4"></div>
 	  </div>
   </div>
 </div>
