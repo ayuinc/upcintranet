@@ -951,11 +951,11 @@ class Webservices
         $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
         $result .= '</li>';
         $result .= '<li class="col-xs-6 text-center pt-21">';
-        $result .= '<p>No te encuentras matriculado en ningun curso en este ciclo</p>';
+        $result .= '<p>'.$error_mensaje.'</p>';
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';
-        $result .= '</div>';    
+        $result .= '</div>';  
       }       
       
       
