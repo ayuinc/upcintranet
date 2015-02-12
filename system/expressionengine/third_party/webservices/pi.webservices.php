@@ -2637,7 +2637,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
+      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -2645,28 +2645,27 @@ class Webservices
 
       //limpio la variable para reutilizarla
       $result = '';
+      $result .= '<div class="panel-body-head-table">';
+      $result .= '<ul class="tr">';
+      $result .= '<li class="col-xs-8">';
+      $result .= '<div><span>Curso</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Sección</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Grupo</span></div>';
+      $result .= '</li>';
+      $result .= '</ul>';
+      $result .= '</div>';  
+      $result .= '<div class="panel-table">'; 
 
       //genera el tamano del array
       $tamano = count($json['modalidades']);
 
       for ($i=0; $i<$tamano; $i++) {
         // $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
-        
-        $result .= '<div class="panel-body-head-table">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-8">';
-        $result .= '<div><span>Curso</span></div>';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-2">';
-        $result .= '<div class=""><span>Sección</span></div>';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-2">';
-        $result .= '<div class=""><span>Grupo</span></div>';
-        $result .= '</li>';
-        $result .= '</ul>';
-        $result .= '</div>';  
-        $result .= '<div class="panel-table">';              
-        
+         
         //genera el tamano del array
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
         
