@@ -441,6 +441,8 @@ class Webservices
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
       $flag = TRUE;
+      $dia_actual = date('w');
+      var_dump($json['HorarioDia'][$i][$dia_actual]);
       //Loop basado en el HorarioDia
       for ($i=0; $i<$tamano; $i++) {
         $result.= '<div class="panel-table">';
