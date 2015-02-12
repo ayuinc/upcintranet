@@ -38,13 +38,13 @@
           <div class="col-sm-8 pt-0">
             <div class="panel pt-0">
               <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  {if post:Flag!=1}
-                  	{embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
-                  {/if}	
-                </div>
-              </div>
               {if post:Flag!=1}
+                <!-- <div class="panel-title left"> -->
+                  {if post:Flag!=1}
+                    {embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
+                  {/if} 
+                <!-- </div> -->
+              </div>
               <div class="panel-body">
                   {exp:webservices:disponibilidad_espacios_deportivos 
                     codsede="{post:CodSede}" 

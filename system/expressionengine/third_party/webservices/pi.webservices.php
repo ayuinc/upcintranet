@@ -2346,7 +2346,7 @@ class Webservices
       $tamano = count($json['Recursos']); 
       
       if($error=='00000'){
-        // $result .= '<div class="panel-table no-bg">';
+        // $result .= '<div class="panel-body red-line">';
         for ($i=0; $i<4; $i++) {  //Se desplegarán 4 resultados
           //if($json['Recursos'][$i]['Estado'] == true){
           if(true){
@@ -2389,14 +2389,15 @@ class Webservices
             }
           }
         }
-        // $result .= "</div>";
+        // $result .= "</div>"; //cierre panel-body
       }
       //Control de errores
       if ($error!='00000') {
-        $result .= '<div class="panel-table">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
-        $result .= '</ul>';
+        $result .= '<div class="panel-body red-line">';
+        $result .= '<div class="panel-table p-28">';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+        $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
+        $result .= '</div>';
         $result .= '</div>';
       }
       return $result;
@@ -2450,21 +2451,32 @@ class Webservices
 
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];      
-
         $result = '';
-        $result .= '<div class="red-line panel-table">';
-        $result .= '<div class="panel-body p-28">';
-        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-        $result .= '<span class="helvetica-16 red">'.$json['MsgError'].'</span>';
-        $result .= '</div>';
-        $result .= "</div>";
-         
+
+        //mensaje de exito
+        if (strpos($error_mensaje, 'realizado') !== false ) {
+          $result .= '<div class="resultados-busqueda info-border bg-muted">';
+          $result .= '<div class="panel-body p-28">';
+          $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
+          $result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
+          $result .= '</div>';
+          $result .= '</div>';
+        } else {
+          $result .= '<div class="panel-body red-line">';
+          $result .= '<div class="p-28 panel-table">';
+          $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+          $result .= '<span class="helvetica-16 red">'.$json['MsgError'].'</span>';
+          $result .= '</div>';
+          $result .= "</div>";
+        }
+
         //Control de errores
         if ($error!='00002') {
-          $result .= '<div class="panel-table">';
-          $result .= '<ul class="tr">';
-          $result .= '<li class="col-sm-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
-          $result .= '</ul>';
+          $result .= '<div class="red-line panel-table">';
+          $result .= '<div class="panel-body p-28">';
+          $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+          $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>'; 
+          $result .= '</div>';
           $result .= '</div>';
         }
         return $result;      

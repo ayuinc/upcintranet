@@ -42,3 +42,9 @@
 		}
 	}
 }
+
+//datepicker
+.ui-datepicker {
+	@include serif-book;
+	font-size: 14px;
+}
