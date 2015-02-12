@@ -1077,17 +1077,17 @@ class Webservices
 
       for ($i=0; $i<$tamano; $i++) {
 
-        $result .= '<li class="col-xs-2 helvetica-12">';
+        $result .= '<li class="col-xs-2 helvetica-14">';
         $result .= '<div class="text-center">';
         $result .= '<span>'.$json['Inasistencias'][$i]['CodCurso'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-7 text-center solano-bold-14">';
+        $result .= '<li class="col-xs-7 text-center solano-bold-16">';
         $result .= '<div class="text-center">';       
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-3 text-center helvetica-bold-14">';
+        $result .= '<li class="col-xs-3 text-center helvetica-bold-16">';
         $result .= '<div class="borderless text-center">';
         $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
         $result .= '</div>';

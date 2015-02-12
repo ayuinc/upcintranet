@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5 {
 a {
   color: $gray-main;
   &:hover {
-    color: $gray-light;
+    color: $gray-main;
   }
   &.not-underline {
     &:hover {

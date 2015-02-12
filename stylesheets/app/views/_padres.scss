@@ -1,3 +1,6 @@
-input#buscar-alumno {
-	width: 200px !important;
+.buscar-alumno-container {
+	text-align: right;
+	input#buscar-alumno {
+		width: 100%;
+	}
 }
