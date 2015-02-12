@@ -2984,7 +2984,22 @@ class Webservices
       $error_mensaje = $json['MsgError']; 
       
       //limpio la variable para reutilizarla
-      $result = '';      
+      $result = '<div class="panel-body-head-table">';
+      $result .= '<ul class="tr">';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class="fecha"><span>Hora</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Campus</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-6">';
+      $result .= '<div class=""><span>Curso</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Salón</span></div>';
+      $result .= '</li>';
+      $result .= '</ul>';
+      $result .= '</div>';      
       
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
