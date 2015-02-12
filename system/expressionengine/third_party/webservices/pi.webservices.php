@@ -450,8 +450,9 @@ class Webservices
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
-            var_dump($json['HorarioDia'][$i]['CodDia']);
-            if($json['HorarioDia'][$i]['CodDia'] == NULL){
+            $dia_actual = date('w');
+            var_dump($json['HorarioDia'][$i][$dia_actual]);
+            if($json['HorarioDia'][$i][$dia_actual] == NULL){
               $result = '<div class="panel-body">';
               $result .= '<div class="panel-table pb-7">';
               $result .= '<ul class="tr">';
