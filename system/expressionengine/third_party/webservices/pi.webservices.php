@@ -2670,7 +2670,7 @@ class Webservices
         //genera el tamano del array
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
         
-        for ($a=0; $a<$tamano; $a++) {
+        for ($a=0; $a<$tamano_int; $a++) {
           $result .= '<ul class="tr">';
           $result .= '<li class="col-xs-8 helvetica-12">';
           $result .= '<div>';
