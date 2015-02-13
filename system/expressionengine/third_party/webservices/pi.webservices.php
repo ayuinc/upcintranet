@@ -439,6 +439,22 @@ class Webservices
         
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
+        $dia_actual = date('w');
+        if($json['HorarioDia'][$i][$dia_actual] == NULL){
+          $result = '<div class="panel-body">';
+          $result .= '<div class="panel-table pb-7">';
+          $result .= '<ul class="tr">';
+          $result .= '<li class="col-xs-4">';
+          $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+          $result .= '</li>';
+          $result .= '<li class="col-xs-8 pt-28">';
+          $result .= '<p>No tienes ninguna clase programada</p>';                
+          $result .= '</li>';
+          $result .= '</ul>';
+          $result .= '</div>';
+          $result .= '</div>'; 
+          break;
+        }
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
@@ -501,16 +517,18 @@ class Webservices
       
       //Control de errores
       if ($error!='00000') {
-        $result = '';
-        $result .= '<div class="panel-body">';
-        $result .= '<div class="panel-table">';
+        $result = '<div class="panel-body">';
+        $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12">';
-        $result .= '<div>'.$error_mensaje.'</div>';
-        $result .= '</li>';                
-        $result .= '</ul>';  
-        $result .= '</div>';     
-        $result .= '</div>';     
+        $result .= '<li class="col-xs-4">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-8 pt-28">';
+        $result .= '<p>'.$error_mensaje.'</p>';                
+        $result .= '</li>';
+        $result .= '</ul>';
+        $result .= '</div>';
+        $result .= '</div>';    
       } 
       
       return $result;             
@@ -833,6 +851,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -857,7 +876,7 @@ class Webservices
       //genera el tamano del array
       $tamano = count($json['Inasistencias']);
 
-      if($tamano == 0 ){
+      if($tamano == 0 || $json['Inasistencias'] == NULL){
          $result = '<div class="panel-body-head-table">';
          $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
          $result .= '<ul class="tr">';
@@ -918,14 +937,18 @@ class Webservices
       $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
-        $result = '';
-        $result .= '<div class="panel-table">';
+        $result = '<div class="panel-body-head-table">';
+        $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12">';
-        $result .= '<div>'.$error_mensaje.'</div>';
-        $result .= '</li>';                
-        $result .= '</ul>';  
-        $result .= '</div>';     
+        $result .= '<li class="col-xs-4">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-6 text-center pt-21">';
+        $result .= '<p>'.$error_mensaje.'</p>';
+        $result .= '</li>';
+        $result .= '</ul>';
+        $result .= '</div>';
+        $result .= '</div>';  
       }       
       
       
@@ -2614,6 +2637,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -2621,32 +2645,31 @@ class Webservices
 
       //limpio la variable para reutilizarla
       $result = '';
+      $result .= '<div class="panel-body-head-table">';
+      $result .= '<ul class="tr">';
+      $result .= '<li class="col-xs-8">';
+      $result .= '<div><span>Curso</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Sección</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Grupo</span></div>';
+      $result .= '</li>';
+      $result .= '</ul>';
+      $result .= '</div>';  
+      $result .= '<div class="panel-table">'; 
 
       //genera el tamano del array
       $tamano = count($json['modalidades']);
 
       for ($i=0; $i<$tamano; $i++) {
         // $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
-        
-        $result .= '<div class="panel-body-head-table">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-8">';
-        $result .= '<div><span>Curso</span></div>';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-2">';
-        $result .= '<div class=""><span>Sección</span></div>';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-2">';
-        $result .= '<div class=""><span>Grupo</span></div>';
-        $result .= '</li>';
-        $result .= '</ul>';
-        $result .= '</div>';  
-        $result .= '<div class="panel-table">';              
-        
+         
         //genera el tamano del array
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
         
-        for ($a=0; $a<$tamano; $a++) {
+        for ($a=0; $a<$tamano_int; $a++) {
           $result .= '<ul class="tr">';
           $result .= '<li class="col-xs-8 helvetica-12">';
           $result .= '<div>';
@@ -2961,7 +2984,22 @@ class Webservices
       $error_mensaje = $json['MsgError']; 
       
       //limpio la variable para reutilizarla
-      $result = '';      
+      $result = '<div class="panel-body-head-table">';
+      $result .= '<ul class="tr">';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class="fecha"><span>Hora</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Campus</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-6">';
+      $result .= '<div class=""><span>Curso</span></div>';
+      $result .= '</li>';
+      $result .= '<li class="col-xs-2">';
+      $result .= '<div class=""><span>Salón</span></div>';
+      $result .= '</li>';
+      $result .= '</ul>';
+      $result .= '</div>';      
       
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
@@ -2972,6 +3010,22 @@ class Webservices
         
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
+        $dia_actual = date('w');
+        if($json['HorarioDia'][$i][$dia_actual] == NULL){
+          $result = '<div class="panel-body">';
+          $result .= '<div class="panel-table pb-7">';
+          $result .= '<ul class="tr">';
+          $result .= '<li class="col-xs-4">';
+          $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+          $result .= '</li>';
+          $result .= '<li class="col-xs-8 pt-28">';
+          $result .= '<p>No tienes ninguna clase programada</p>';                
+          $result .= '</li>';
+          $result .= '</ul>';
+          $result .= '</div>';
+          $result .= '</div>'; 
+          break;
+        }
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
