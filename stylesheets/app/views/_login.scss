@@ -67,10 +67,11 @@
 }
 // elige tipo de usuario (usuario.html)
 .welcome {
-	padding-left: 84px !important;
-	padding-right: 84px !important;
+	padding-left: 91px !important;
+	padding-right: 91px !important;
 	.usuario-container {
 		// position: absolute;
+		box-shadow: 5px 5px 5px #B0B1B2;
 		min-height: 280px;
 		.avatar-circle {
 			// width: 77px;
@@ -81,11 +82,11 @@
 			// border: 4px solid $brand-info;
 			// margin: 0 auto;
 			position: relative;
-			top: -21px;
+			top: -35px;
 			img {
-				width: 77px;
+				width: 105px;
 				height: auto;
-				border: 1px solid $brand-info;
+				border: 2px solid $brand-info;
 				background-color: $brand-info;
 			}
 		}

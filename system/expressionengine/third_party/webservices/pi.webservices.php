@@ -2846,7 +2846,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         
-        $result .= '<div class="panel-body red-line mb-35">';
+        $result .= '<div class="panel-body red-line">';
         $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-2">';
@@ -2934,12 +2934,21 @@ class Webservices
           $result .= '</div>';        
           $result .= '</li>';              
           $result .= '</ul>';   
-          $result .= '</div>';        
+          $result .= '</div>';
+
         }
         
         
         
         $result .= '</div>'; 
+        //temp
+        $result .= '<a class="black-text curso-link text-right" href="{site_url}mi-docencia/cursos-detallados">';
+        $result .= '<div class="zizou-14 pt-14 mb-35">';
+        $result .= 'Regresar a lista de cursos';
+        $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
+        $result .= '</div>';
+        $result .= '</a>';  
+        //temp
       }    
 
       //Control de errores

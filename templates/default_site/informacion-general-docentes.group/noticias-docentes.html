@@ -1,7 +1,8 @@
 {embed="includes/head"}
 {exp:webservices:iniciar_session}
 {exp:webservices:verificar_usuario}
-{embed="includes/header"}
+{embed="includes/header-docentes"}
+{embed="includes/header-movil-docentes"}
 {embed="includes/sidebar-docente"}
 
     <div class="site-content">
@@ -14,7 +15,7 @@
       <div class="internal-header">
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Centro de Información</span></div>
+          <div class="col-sm-4"><span class="zizou-16">Información General</span></div>
         </div>
         <div class="row">
           <div class="col-sm-1"></div>
@@ -30,7 +31,7 @@
           
       {/exp:channel:entries}      
           <div class="col-sm-8 pt-0">
-            <span class="title-no-panel mb-21">Últimas Noticias de la UPC</span>
+            <span class="title-no-panel">Últimas Noticias de la UPC</span>
             <div class="row">
 	            {exp:channel:entries 
 	            	channel="noticias" 
@@ -67,5 +68,5 @@
         </div>
       </div>
   </div>
-
+{embed="includes/footer-no-scripts"}
 {embed="includes/footer"}   
