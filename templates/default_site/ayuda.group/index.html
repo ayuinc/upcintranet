@@ -9,11 +9,11 @@
       <div class="internal-header">
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Necesitas</span></div>
+          <div class="col-sm-4"><span class="zizou-16">Ayuda</span></div>
         </div>
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          <div class="col-sm-4"><span class="uppercase bold xl">¿Qué Necesitas?</span></div>
         </div>
       </div>   
       {/exp:channel:entries}   
@@ -24,6 +24,13 @@
             {embed="includes/temas-ayuda"}
           </div>
           <div class="col-sm-8 resultados">
+            <div class="panel">
+              <div class="panel-head no-bg">
+                <div class="panel-title left">
+                  <h3>Resultados</h3>
+                </div>
+              </div>
+            </div>  
             <div class="resultados-busqueda red-line bg-muted">
               {if segment_2 == ""}
                 {exp:channel:entries channel="ayuda" limit="20" disable="member_data" dynamic="off"}
@@ -58,8 +65,7 @@
                   {/if}
                 {/exp:channel:entries} 
               {/if}      
-            </div>  
-                  
+            </div>                   
           </div>
         </div>
       </div>

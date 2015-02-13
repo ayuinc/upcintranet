@@ -2,17 +2,18 @@
 {exp:webservices:iniciar_session}
 {exp:webservices:verificar_usuario}
 {embed="includes/header-docentes"}
+{embed="includes/header-movil-docentes"}
 {embed="includes/sidebar-docente"}
     <div class="site-content">
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="93" }
       <div class="internal-header">
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Necesitas</span></div>
+          <div class="col-sm-4"><span class="zizou-16">Ayuda</span></div>
         </div>
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          <div class="col-sm-4"><span class="uppercase bold xl">¿Qué Necesitas?</span></div>
         </div>
       </div>
       {/exp:channel:entries}   
@@ -24,7 +25,7 @@
           </div>
           <div class="col-sm-8 resultados">
             <div class="resultados-busqueda red-line bg-muted">
-            {exp:channel:entries channel="ayuda" limit="20" disable="member_data" dynamic="off"}
+            {exp:channel:entries channel="ayuda_docentes" limit="20" disable="member_data" dynamic="off"}
               <div class="mt-14">
                 <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
                 <div class="solano-bold-20 pt-3 black-text">{title}</div>   
