@@ -68,7 +68,7 @@
 			.pull-right {
 				@include serif-thin;
 				text-transform: none !important;
-				padding-top: 3px;
+				padding-top: 7px;
 				padding-bottom: 3px;
 				ul {
 					li {
@@ -78,20 +78,17 @@
 				.dropdown {
 					width: 70px;
 					#dropdownMenu1 {
-						border-radius: 50px;
-						border: 4px white solid;
-						margin-top: 14px;
-						padding: 3px;
 						img {
-							margin: 0;
-						}
-						&:hover {
-							border: 4px $brand-info solid;
+							border: none;
+							&:hover, &.open {
+								background-color: $brand-info;
+							}
 						}
 					}
 					ul.dropdown-menu {
-						left: -93px !important;
-						top: 100px;
+						left: -96px;
+						top: 97px;
+						border-radius: 0px;
 						li {
 							display: block !important; 
 						}

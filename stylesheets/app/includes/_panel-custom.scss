@@ -131,6 +131,10 @@
 							color: $gray-light;
 							font-size: rem(14px);
 							font-size: 14px;
+							@media #{$lg-down} {
+								font-size: rem(11px);
+								font-size: 11px;
+							}
 							text-align: center;
 							text-transform: uppercase;
 							&.curso {

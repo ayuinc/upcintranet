@@ -2773,7 +2773,7 @@ class Webservices
           $result .= '<input type="hidden" name="Curso" value="'.$json['modalidades'][$i]['cursos'][$a]['cursoId'].'">';
           $result .= '<input type="hidden" name="Seccion" value="'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'">';
           $result .= '<input type="hidden" name="Grupo" value="'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'">';
-          $result .= '<input type="submit" class="btn-anchor" value="Ver Listado" name="submit">';
+          $result .= '<input type="submit" class="helvetica-14 btn-anchor" value="Ver Listado" name="submit">';
           $result .= '</form>';
           $result .= '</div>';
           $result .= '</li>';         
