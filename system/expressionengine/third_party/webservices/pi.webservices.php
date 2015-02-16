@@ -301,7 +301,7 @@ class Webservices
         else{
           $result .=  '<div class="avatar-container">';
         }
-        $result .=  '<img class="block" src="{site_url}images/avatars/default_set/user.png">';
+        $result .=  '<img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_gray.png">';
         $result .=  '</div>';
         $result .=  '</div>';
         $result .=  '<span>'.$nombre_hijo.'</span>';
