@@ -3,6 +3,10 @@
 		margin-top: 0px;
 		padding-top: 126px;
 		padding-bottom: 0px;
+		min-height: 500px;
+		@media #{$xs-only} {
+			padding-bottom: 63px;
+		} 
 		.row {
 			margin-left: -14px;
 			margin-right: -14px !important;
@@ -94,6 +98,10 @@
 				background-color: $gray-main;
 				width: 77px;
 				height: auto;
+				&:hover {
+					border: 2px solid $brand-danger;
+					background-color: $brand-danger;
+				}
 			}
 		}
 	}
