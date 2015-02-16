@@ -6,7 +6,7 @@
 {embed="includes/sidebar-padres"}
 
     <div class="site-content">
-    {exp:channel:entries channel="seccion" limit="1" entry_id="20"}
+    {exp:channel:entries channel="seccion" limit="1" entry_id="275"}
       <div class="internal-header">
           <div class="row">
             <div class="col-sm-1"></div>
@@ -24,7 +24,7 @@
               <div class="panel">
                 <div class="panel-head no-bg">
                   <div class="panel-title left">
-                    <h2>Mis Cursos</h2>
+                    <h2>Sus Cursos</h2>
                   </div>
                 </div>
                 <div class="panel-body mt-7">
@@ -39,7 +39,7 @@
                     </ul>
                   </div>
                   <div class="panel-table no-bg">
-                   
+                   {exp:webservices:curos_que_lleva_un_alumno}
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@
               <div class="panel">
                   <div class="panel-head no-bg">
                     <div class="panel-title left">
-                      <h2>Mi Horario Semanal</h2>
+                      <h2>Su Horario Semanal</h2>
                     </div>
                   </div>
                   {exp:webservices:padre_horario_ciclo_actual_alumno codigo_alumno="{segment_4}"}
