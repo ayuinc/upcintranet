@@ -217,6 +217,10 @@ class Webservices
       }
       
       if (strval($TipoUser)=='PROFESOR') {
+        $result .= '<div class="col-sm-4"></div>';
+        $result .= '<div class="col-sm-4 welcome">';
+        $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt=""></div><div class="zizou-28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
+        $result .= '<div class="zizou-18 text-center gray-light">Elige el perfil que deseas utilizar</div>';
         $result .= '<div class="pt-35 pl-21 zizou-16">';
         $result .= '<a href="{site_url}dashboard/docente">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/red_arrow_normal_tiny.png">Ingrese como Profesor';
@@ -236,20 +240,22 @@ class Webservices
         $hijosWebService=curl_exec($ch);
         $json = json_decode($hijosWebService, true);
 
-        $result .= '<ul class="tr pb-7">';
-        $result .= '<li class="col-sm-2"></li>';
-        $result .= '<li class="col-sm-8 bg-muted">';
-        $result .= '<div>';
-        $result .= '<span class="zizou-14">';
-        $result .= '<ul> ';
+        $result .= '<div class="col-sm-3"></div>';
+        $result .= '<div class="col-sm-6 welcome">';
+        $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt=""></div><div class="zizou-28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
+        $result .= '<div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>';
+        $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
-          $result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
-        }
-        $result .= '</ul> ';
-        $result .= '</span>';
+        $result .= '<li>';
+        $result .= '<a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">';
+        $result .= '<div class="children-avatar text-center">';
+        $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
         $result .= '</div>';
+        $result .= '</a>';
+        $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
         $result .= '</li>';
-        $result .= '</ul> ';  
+        }
+        $result .= '</ul>';
         
         return $result;             
       }  
@@ -295,7 +301,7 @@ class Webservices
         else{
           $result .=  '<div class="avatar-container">';
         }
-        $result .=  '<img class="block" src="{site_url}images/avatars/default_set/user.png">';
+        $result .=  '<img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_gray.png">';
         $result .=  '</div>';
         $result .=  '</div>';
         $result .=  '<span>'.$nombre_hijo.'</span>';
