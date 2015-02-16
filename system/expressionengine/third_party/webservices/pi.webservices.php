@@ -330,6 +330,74 @@ class Webservices
       return $result;      
     }
 
+    public function padre_lista_de_hijos_estado_actual(){
+      $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+      $result = '';
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $hijosWebService=curl_exec($ch);
+      $json = json_decode($hijosWebService, true);
+
+      $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
+      for ($i=0; $i < count($json["hijos"])  ; $i++) { 
+      $result .= '<li>';
+      $result .= '<a href="{site_url}sus-tramites/estado-actual/'.$json["hijos"][$i]["codigo"].'">';
+      $result .= '<div class="children-avatar text-center">';
+      $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
+      $result .= '</div>';
+      $result .= '</a>';
+      $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
+      $result .= '</li>';
+      }
+      $result .= '</ul>';
+      
+      return $result;      
+    }
+
+    public function padre_lista_de_hijos_mis_pagos_hijos(){
+      $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+      $result = '';
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $hijosWebService=curl_exec($ch);
+      $json = json_decode($hijosWebService, true);
+
+      $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
+      for ($i=0; $i < count($json["hijos"])  ; $i++) { 
+      $result .= '<li>';
+      $result .= '<a href="{site_url}mis-finanzas-padres/mis-pagos/'.$json["hijos"][$i]["codigo"].'">';
+      $result .= '<div class="children-avatar text-center">';
+      $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
+      $result .= '</div>';
+      $result .= '</a>';
+      $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
+      $result .= '</li>';
+      }
+      $result .= '</ul>';
+      
+      return $result;      
+    }
+
 
     // HEADER PADRES CON LISTA DE HIJOS 
     public function padre_lista_de_hijos(){
