@@ -1,0 +1,82 @@
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+{exp:webservices:verificar_usuario}
+{embed="includes/header-movil-padres"}
+{embed="includes/header-padres"}
+{embed="includes/sidebar-padres"}
+<div class="site-content mi-perfil">
+  <div class="internal-header">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4"><span class="zizou-16">Mi Perfil</span></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4"><span class="uppercase bold xl">{exp:webservices:nombre_alumno}</span></div>
+    </div>
+  </div>
+  <div class="section-content pb-70">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+          <!--<span class="section-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget sapien vel massa rhoncus gravida. Duis iaculis pretium ligula, vel fringilla nunc euismod in.</span>-->
+        </div>  
+        <div class="col-sm-8">
+          <div class="row pl-14 pr-14">
+            <div class="panel">
+              <div class="panel-head no-bg">
+                  <div class="panel-title">
+                    <h2>Mi Perfil UPC</h2>
+                  </div>
+              </div>
+              <div class="panel-body">
+                <div class="panel-body-head p-7 text-left">
+                  <span class="solano-bold-20">Mis datos personales</span>
+                </div>  
+                <div class="panel-table">
+                  <ul class="tr bg-muted">
+                    <li class="col-sm-4 text-center">
+                    	<img src="{site_url}assets/img/user_dark.png" class="mt-14">
+                    </li>
+                    <li class="col-sm-8">
+                      <ul class="list-unstyled">
+                        <li>
+                        	<span class="solano-bold-16">NOMBRE COMPLETO:&nbsp;</span>
+                        	<span class="helvetica-16">{exp:webservices:nombre_alumno} {exp:webservices:apellido_alumno}</span>
+                        </li>
+                        <li>
+                        	<span class="solano-bold-16">CÓDIGO:</span>
+                        	<span class="helvetica-16">{exp:webservices:codigo_alumno}</span>
+                        </li>
+                        <li>
+                        	<span class="solano-bold-16">PERFIL:</span>
+                        	<span class="helvetica-16">{exp:webservices:tipo_usuario}</span>
+                        </li>  
+                        <li>
+                        	<span class="solano-bold-16">MODALIDAD:</span>
+                        	<span class="helvetica-16">{exp:webservices:modalidad_alumno}</span> 
+                        </li>
+                        <li>
+                        	<span class="solano-bold-16">ESTADO:</span>
+                        	<span class="helvetica-16">{exp:webservices:estado_alumno}</span>  
+                        </li>
+                        <li>
+                        	<span class="solano-bold-16">SEDE:</span>
+                        	<span class="helvetica-16">{exp:webservices:sede_alumno}</span>
+                        </li>
+                        <li>
+                          <span class="solano-bold-16">CICLO:</span>
+                        	<span class="helvetica-16">{exp:webservices:ciclo_alumno}</span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+     </div>
+  </div>
+</div>
+{embed="includes/footer"} 
