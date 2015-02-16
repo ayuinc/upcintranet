@@ -88,5 +88,13 @@
 				background-color: $brand-info;
 			}
 		}
+		.children-avatar {
+			img {
+				border: 2px solid $gray-main;
+				background-color: $gray-main;
+				width: 77px;
+				height: auto;
+			}
+		}
 	}
 }
