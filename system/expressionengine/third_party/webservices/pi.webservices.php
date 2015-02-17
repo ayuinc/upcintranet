@@ -322,7 +322,7 @@ class Webservices
       $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
       $result .= '</div>';
       $result .= '</a>';
-      $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
+      $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}sus-estudios/notas-detalladas/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
       $result .= '</li>';
       }
       $result .= '</ul>';
@@ -356,7 +356,41 @@ class Webservices
       $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
       $result .= '</div>';
       $result .= '</a>';
-      $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
+      $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}sus-tramites/estado-actual/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
+      $result .= '</li>';
+      }
+      $result .= '</ul>';
+      
+      return $result;      
+    }
+
+     public function padre_lista_de_hijos_mis_pagos(){
+      $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+      $result = '';
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $hijosWebService=curl_exec($ch);
+      $json = json_decode($hijosWebService, true);
+
+      $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
+      for ($i=0; $i < count($json["hijos"])  ; $i++) { 
+      $result .= '<li>';
+      $result .= '<a href="{site_url}mis-finanzas-padres/mis-pagos/'.$json["hijos"][$i]["codigo"].'">';
+      $result .= '<div class="children-avatar text-center">';
+      $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
+      $result .= '</div>';
+      $result .= '</a>';
+      $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}mis-finanzas-padres/mis-pagos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
       $result .= '</li>';
       }
       $result .= '</ul>';
@@ -2314,6 +2348,133 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      $json = json_decode($result, true);
+      
+      if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
+        
+        $result = '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
+        $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';
+        $result .= '</div>';
+        return $result;
+        
+      } else {
+        
+        $result = '<div class="panel-body-head left">';
+        $result = '<ul class="tr">';
+        $result = '<span>Cuota 3</span>';
+        $result = '</ul>';
+        $result = '</div>';
+        $result = '<div class="panel-table">';
+        $result = '<ul class="tr">';
+        $result = '<li class="col-sm-4 pl-7">';
+        $result = '<div class="nrb helvetica-14">';
+        $result = '<div>';
+        $result = '<strong>DOCUMENTO: </strong>200-0116467';
+        $result = '</div> ';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '<li class="col-sm-3">';
+        $result = '<div class="nrb helvetica-14">';
+        $result = '<div>';
+        $result = '<strong>EMITIDA: </strong>20/02/2014';
+        $result = '</div>';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '<li class="col-sm-3">';
+        $result = '<div class="nrb helvetica-14">';
+        $result = '<div>';
+        $result = '<strong>VENCE: </strong>20/02/2014';
+        $result = '</div>';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '<li class="col-sm-2 apr-tr">';
+        $result = '<div class="text-center">';
+        $result = '<span class="helvetica-bold-12">A TIEMPO</span>';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '</ul>';
+        $result = '</div>';
+        $result = '<div class="panel-body-head-table">';
+        $result = '<ul class="tr">';
+        $result = '<li class="col-sm-10">';
+        $result = '<div><span>Detalle</span></div>';
+        $result = '</li>';
+        $result = '<li class="col-sm-2">';
+        $result = '<div><span>Monto (S/.)</span></div>';
+        $result = '</li>';
+        $result = '</ul>';
+        $result = '</div>';
+        $result = '<div class="panel-table pl-7">';
+        $result = '<ul class="tr">';
+        $result = '<li class="col-sm-10">';
+        $result = '<div>';
+        $result = '<span class="helvetica-14">Importe</span>';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '<li class="col-sm-2">';
+        $result = '<div class="text-center">';
+        $result = '<span class="helvetica-14">1432.00</span>';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '</ul>';
+        $result = '<ul class="tr">';
+        $result = '<li class="col-sm-10">';
+        $result = '<div>';
+        $result = '<span class="helvetica-14">Descuento</span>';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '<li class="col-sm-2">';
+        $result = '<div class="text-center">';
+        $result = '<span class="helvetica-14">0</span>';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '</ul>';
+        $result = '</div>';
+        $result = '<div class="panel-table observaciones">';
+        $result = '<ul class="tr">';
+        $result = '<li class="col-sm-10 pl-7">';
+        $result = '<div>';
+        $result = '<span class="uppercase helvetica-14">TOTAL</span>';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '<li class="col-sm-2">';
+        $result = '<div class="text-center">';
+        $result = '<span class="helvetica-14 uppercase">1432.00</span>';
+        $result = '</div>';
+        $result = '</li>';
+        $result = '</ul>';
+        $result = '</div>';  
+
+        return $result;
+
+      } 
+           
+    } 
+
+    public function padres_boletas_pendientes_alumno(){
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+      
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendientePadre/?Codigo='.$codigo.'CodAlumno='.$codigo_alumno.'&Token='.$token;
+      var_dump($url);
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $result=curl_exec($ch);
+      var_dump($result);
       $json = json_decode($result, true);
       
       if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
