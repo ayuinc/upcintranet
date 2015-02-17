@@ -5,7 +5,6 @@
 {embed="includes/header-movil-padres"}
 {embed="includes/sidebar-padres"}
 
-		{exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination"  category="{segment_1_category_id}" entry_id="44"}
     <div class="site-content notas-detalladas">
       <div class="internal-header">
         <div class="row">
@@ -14,7 +13,7 @@
         </div>
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          <div class="col-sm-4"><span class="uppercase bold xl">Mis Pagos</span></div>
         </div>
       </div>   
       <div class="section-content pb-70">
@@ -86,7 +85,6 @@
               </div>-->
               {embed="includes/otras-acciones"}              
           </div>
-    {/exp:channel:entries} 
           <div class="col-sm-8">
             <div class="panel curso-detalle pt-0">
               <div class="panel-head no-bg">
@@ -95,7 +93,7 @@
                 </div>
               </div>
               <div class="panel-body bg-muted info-border">
-              	{exp:webservices:boletas_pendientes_alumno} 
+              	{exp:webservices:padres_boletas_pendientes_alumno codigo_alumno="{segment_3}"} 
               </div>
             </div>  
           </div>

@@ -6,7 +6,6 @@
 {embed="includes/sidebar-padres"}
 
     <div class="site-content">
-    {exp:channel:entries channel="seccion" limit="1" entry_id="275"}
       <div class="internal-header">
           <div class="row">
             <div class="col-sm-1"></div>
@@ -14,7 +13,7 @@
           </div>
           <div class="row">
             <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">Ciclo Actual</span></div>
           </div>
       </div>  
       <div class="section-content pb-70">
@@ -47,7 +46,6 @@
               	{embed="includes/otras-acciones"}
               {/if}
             </div>
-    {/exp:channel:entries}        
             <div class="col-sm-8">
               <div class="panel">
                   <div class="panel-head no-bg">
@@ -55,7 +53,7 @@
                       <h2>Su Horario Semanal</h2>
                     </div>
                   </div>
-                  {exp:webservices:padre_horario_ciclo_actual_alumno codigo_alumno="{segment_4}"}
+                  {exp:webservices:padre_horario_ciclo_actual_alumno codigo_alumno="{segment_3}"}
               </div>
             </div>
         </div>

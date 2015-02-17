@@ -6,15 +6,14 @@
 {embed="includes/sidebar-padres"}
 
     <div class="site-content">
-	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}" entry_id="28"}
       <div class="internal-header">
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Mis Trámites</span></div>
+          <div class="col-sm-4"><span class="zizou-16">Sus Trámites</span></div>
         </div>
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          <div class="col-sm-4"><span class="uppercase bold xl">Estado Actual</span></div>
         </div>
       </div>  
       <div class="section-content pb-70">
@@ -23,7 +22,6 @@
           <div class="col-sm-3 section-desc">
             <span class="zizou-14">{introduccion-seccion}</span>
           </div>
-      {/exp:channel:entries}     
           <div class="col-sm-8 pt-0">
             <div class="panel">
               <div class="panel-head no-bg">
@@ -32,7 +30,7 @@
                 </div>
               </div>
               <div class="panel-body bg-muted info-border">
-                {exp:webservices:tramites_realizados_por_alumno}
+                {exp:webservices:padre_tramites_realizados_por_alumno codigo_alumno="{segment_3}"}
               </div>
             </div>
           </div>
