@@ -2101,6 +2101,7 @@ class Webservices
       }
 
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/TramiteRealizadoPadre/?Codigo='.$codigo.'CodAlumno='.$codigo_alumno.'&Token='.$token;
+      var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
