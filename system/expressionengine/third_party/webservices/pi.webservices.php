@@ -2343,11 +2343,13 @@ class Webservices
       }
 
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
+      var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      var_dump($result);
       $json = json_decode($result, true);
       
       if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
