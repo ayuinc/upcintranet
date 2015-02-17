@@ -1845,7 +1845,7 @@ class Webservices
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_URL,$url);
         $result_int=curl_exec($ch);
-        var_dump($result_int);
+        //var_dump($result_int);
         $json_int = json_decode($result_int, true);           
       
         //genera el tamano del array
