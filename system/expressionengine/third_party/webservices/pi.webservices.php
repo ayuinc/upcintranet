@@ -874,7 +874,7 @@ class Webservices
       }
 
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/UPCMobile.svc/HorarioPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/HorarioPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
       //var_dump($url);
       $ch = curl_init($url);
