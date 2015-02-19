@@ -21,6 +21,10 @@
   @include make-sm-column(1.5)
 }
 
+// .col-sm-2-5{
+//   @include make-sm-column(2.5)
+// }
+
 .col-xs-1-5{
   @include make-xs-column(1.5)
 }
@@ -93,12 +97,18 @@
 			min-width: 126px !important;	
 			font-size: 16px !important;
 		}	
+		@media #{$xs-only} {
+			min-width: 95px !important;	
+		}	
 		padding: 3px !important; 
 	}
 	&.lg {
 		font-size: 22px !important;
 		@media #{$md-down} {
 			font-size: 18px !important;	
+		}	
+		@media #{$xs-only} {
+			font-size: 14px !important;	
 		}	
 	}
 }

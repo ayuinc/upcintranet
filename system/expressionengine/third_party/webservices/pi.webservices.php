@@ -774,7 +774,7 @@ class Webservices
           $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
           $result .= '</li>';
           $result .= '<li class="col-xs-8 pt-28">';
-          $result .= '<p>No tienes ninguna clase programada</p>';                
+          $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
           $result .= '</li>';
           $result .= '</ul>';
           $result .= '</div>';
@@ -830,7 +830,7 @@ class Webservices
                 $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
                 $result .= '</li>';
                 $result .= '<li class="col-xs-8 pt-28">';
-                $result .= '<p>No tienes ninguna clase programada</p>';                
+                $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
                 $result .= '</li>';
                 $result .= '</ul>';
               }
