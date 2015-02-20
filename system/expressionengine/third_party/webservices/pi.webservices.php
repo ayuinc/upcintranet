@@ -3078,13 +3078,13 @@ class Webservices
   
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local='.$CodSede.'&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
-      var_dump($url);
+      //var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
+      //var_dump($result);
       $json = json_decode($result, true);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
@@ -3172,11 +3172,13 @@ class Webservices
       $fecini = ee()->TMPL->fetch_param('FecIni');
       //$fecini = substr($fecini, 0,2).substr($fecini, 3,2).substr($fecini, 6,4);
       $horaini = ee()->TMPL->fetch_param('HoraIni');
+      var_dump($horaini);
       $horaini = substr($horaini, 0,4);
       //$fechafin= ee()->TMPL->fetch_param('FechaFin');
       $fechafin = $fecini;
       //$fechafin = substr($fechafin, 0,2).substr($fechafin, 3,2).substr($fechafin, 6,4);ere
       $horafin = ee()->TMPL->fetch_param('HoraFin');
+      var_dump($horafin);
       $horafin = substr($horafin, 0,4);
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       
