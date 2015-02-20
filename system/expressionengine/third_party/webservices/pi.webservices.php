@@ -620,11 +620,11 @@ class Webservices
           $result = '<div class="panel-body">';
           $result .= '<div class="panel-table pb-7">';
           $result .= '<ul class="tr">';
-          $result .= '<li class="col-xs-4">';
+          $result .= '<li class="col-xs-3">';
           $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
           $result .= '</li>';
-          $result .= '<li class="col-xs-8 pt-28">';
-          $result .= '<p>No tienes ninguna clase programada</p>';                
+          $result .= '<li class="text-center col-xs-8 pt-21">';
+          $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
           $result .= '</li>';
           $result .= '</ul>';
           $result .= '</div>';
@@ -676,11 +676,11 @@ class Webservices
                 $result = '<div class="panel-body">';
                 $result .= '<div class="panel-table pb-7">';
                 $result .= '<ul class="tr">';
-                $result .= '<li class="col-xs-4">';
+                $result .= '<li class="col-xs-3">';
                 $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
                 $result .= '</li>';
-                $result .= '<li class="col-xs-8 pt-28">';
-                $result .= '<p>No tienes ninguna clase programada</p>';                
+                $result .= '<li class="text-center col-xs-8 pt-21">';
+                $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
                 $result .= '</li>';
                 $result .= '</ul>';
               }
@@ -696,10 +696,10 @@ class Webservices
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-4">';
+        $result .= '<li class="col-xs-3">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
         $result .= '</li>';
-        $result .= '<li class="col-xs-8 pt-28">';
+        $result .= '<li class="col-xs-8 pt-21">';
         $result .= '<p>'.$error_mensaje.'</p>';                
         $result .= '</li>';
         $result .= '</ul>';
@@ -770,10 +770,10 @@ class Webservices
           $result = '<div class="panel-body">';
           $result .= '<div class="panel-table pb-7">';
           $result .= '<ul class="tr">';
-          $result .= '<li class="col-xs-4">';
+          $result .= '<li class="col-xs-3">';
           $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
           $result .= '</li>';
-          $result .= '<li class="col-xs-8 pt-28">';
+          $result .= '<li class="text-center col-xs-8 pt-21">';
           $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
           $result .= '</li>';
           $result .= '</ul>';
@@ -826,10 +826,10 @@ class Webservices
                 $result = '<div class="panel-body">';
                 $result .= '<div class="panel-table pb-7">';
                 $result .= '<ul class="tr">';
-                $result .= '<li class="col-xs-4">';
+                $result .= '<li class="col-xs-3">';
                 $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
                 $result .= '</li>';
-                $result .= '<li class="col-xs-8 pt-28">';
+                $result .= '<li class="text-center col-xs-8 pt-21">';
                 $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
                 $result .= '</li>';
                 $result .= '</ul>';
@@ -846,10 +846,10 @@ class Webservices
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-4">';
+        $result .= '<li class="col-xs-3">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
         $result .= '</li>';
-        $result .= '<li class="col-xs-8 pt-28">';
+        $result .= '<li class="col-xs-8 pt-21">';
         $result .= '<p>'.$error_mensaje.'</p>';                
         $result .= '</li>';
         $result .= '</ul>';
@@ -2197,15 +2197,17 @@ class Webservices
       $MsgError = $json['MsgError'];
       
       if ($CodError == '00051') {
+        $result .= '<div class="panel-body bg-muted info-border">';
         $result .= '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
         $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">';
         $result .= $MsgError;
         $result .= '</span>';
         $result .= '</div>';
+        $result .= '</div>';
       } else {
         
         $tamano = count($json['TramitesRealizados']);
-        
+        $result .= '<div class="panel-body bg-muted red-line">';
         $result .= '<div class="panel-body-head-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-2">';
@@ -2264,6 +2266,7 @@ class Webservices
             $result .= '</li>';
           }         
           $result .= '</ul>';
+          $result .= '</div>';
         }          
       }
   
@@ -3775,11 +3778,11 @@ class Webservices
           $result = '<div class="panel-body">';
           $result .= '<div class="panel-table pb-7">';
           $result .= '<ul class="tr">';
-          $result .= '<li class="col-xs-4">';
+          $result .= '<li class="col-xs-3">';
           $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
           $result .= '</li>';
-          $result .= '<li class="col-xs-8 pt-28">';
-          $result .= '<p>No tienes ninguna clase programada</p>';                
+          $result .= '<li class="text-center col-xs-8 pt-21">';
+          $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
           $result .= '</li>';
           $result .= '</ul>';
           $result .= '</div>';

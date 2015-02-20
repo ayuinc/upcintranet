@@ -15,6 +15,6 @@ $(document).ready(function(){
         $('.search-bar').toggleClass('hidden');
     })
     // dynamic site-menu height
-    targetHeight = $('.site-content').height() + $('.internal-footer').height() + 77;
-    $('.site-menu').css("height",targetHeight + "px");
+    // targetHeight = $('.site-content').height() + $('.internal-footer').height();
+    // $('.site-menu').css("height",targetHeight + "px");
 });

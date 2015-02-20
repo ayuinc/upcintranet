@@ -5,7 +5,7 @@
 {embed="includes/header_movil"}
 {embed="includes/sidebar"}
 
-    <div class="site-content">
+    <div class="site-content container shorter">
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}" entry_id="28"}
       <div class="internal-header">
         <div class="row">
@@ -31,9 +31,7 @@
                   <h2>Trámites en proceso</h2>
                 </div>
               </div>
-              <div class="panel-body bg-muted info-border">
-                {exp:webservices:tramites_realizados_por_alumno}
-              </div>
+              {exp:webservices:tramites_realizados_por_alumno}
             </div>
           </div>
         </div>
