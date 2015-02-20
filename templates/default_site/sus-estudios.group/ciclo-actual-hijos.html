@@ -2,21 +2,65 @@
 {exp:webservices:iniciar_session}
 {exp:webservices:verificar_usuario}
 {embed="includes/header-padres"}
-{embed="includes/sidebar-padres"}
 {embed="includes/header-movil-padres"}
+{embed="includes/sidebar-padres"}
 
-<div class="site-content">
-  <div class="section-content pb-70">
-    <div class="row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-6 welcome">
-        <div class="usuario-container pb-14 bg-muted">
-          <div class="avatar-circle">
-            <img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt="">
+    <div class="site-content">
+    {exp:channel:entries channel="seccion" limit="1" entry_id="275"}
+      <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4"><span class="zizou-16">Sus Estudios</span></div>
           </div>
-        <div class="zizou-28 text-center"></div>
-        <div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>
-        {exp:webservices:padre_lista_de_hijos_ciclo_actual}
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+      </div>  
+      <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3">
+              <div class="panel">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h2>Sus Cursos</h2>
+                  </div>
+                </div>
+                <div class="panel-body mt-7">
+                  <div class="panel-body-head-table">
+                    <ul class="tr">
+                      <li class="col-xs-9">
+                        <div class=""><span>Curso</span></div>
+                      </li>
+                      <li class="col-xs-3">
+                        <div class=""><span>Promedio</span></div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="panel-table no-bg">
+                   {exp:webservices:curos_que_lleva_un_alumno}
+                  </div>
+                </div>
+              </div>
+              {if otras-actividades-seccion=='Activar'}
+                {embed="includes/otras-acciones"}
+              {/if}
+            </div>
+    {/exp:channel:entries}        
+            <div class="col-sm-8">
+              <div class="panel">
+                  <div class="panel-head no-bg">
+                    <div class="panel-title left">
+                      <h2>Su Horario Semanal</h2>
+                    </div>
+                  </div>
+                  {exp:webservices:padre_horario_ciclo_actual_alumno codigo_alumno="{last_segment}"}
+              </div>
+            </div>
+        </div>
     </div>
   </div>
-</div>
+
+{embed="includes/footer-no-scripts"}
+{embed="includes/footer"}   

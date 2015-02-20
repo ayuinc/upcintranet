@@ -2,21 +2,42 @@
 {exp:webservices:iniciar_session}
 {exp:webservices:verificar_usuario}
 {embed="includes/header-padres"}
-{embed="includes/sidebar-padres"}
 {embed="includes/header-movil-padres"}
+{embed="includes/sidebar-padres"}
 
-<div class="site-content">
-  <div class="section-content pb-70">
-    <div class="row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-6 welcome">
-        <div class="usuario-container pb-14 bg-muted">
-          <div class="avatar-circle">
-            <img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt="">
+    <div class="site-content">
+      {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}" entry_id="28"}
+      <div class="internal-header">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-4"><span class="zizou-16">Mis Trámites</span></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+        </div>
+      </div>  
+      <div class="section-content pb-70">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-3 section-desc">
+            <span class="zizou-14">{introduccion-seccion}</span>
           </div>
-        <div class="zizou-28 text-center"></div>
-        <div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>
-        {exp:webservices:padre_lista_de_hijos_estado_actual}
-    </div>
+      {/exp:channel:entries}     
+          <div class="col-sm-8 pt-0">
+            <div class="panel">
+              <div class="panel-head no-bg">
+                <div class="panel-title">
+                  <h2>Trámites en proceso</h2>
+                </div>
+              </div>
+              <div class="panel-body bg-muted info-border">
+                {exp:webservices:padre_tramites_realizados_por_alumno codigo_alumno="{last_segment}"}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
-</div>
+{embed="includes/footer-no-scripts"}
+{embed="includes/footer"}   
