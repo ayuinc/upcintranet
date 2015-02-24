@@ -40,6 +40,15 @@
 .m-auto {
 	margin: auto !important;
 }
+
+@for $h from 1 to 10 {
+  .mt--#{$h*7} {
+    margin-top: ($h*-7) + px!important;
+    margin-top: rem($h*-7)!important;
+  }
+}
+
+
 @for $h from -10 to 10 {
   .mt-#{$h} {
     margin-top: ($h) + px!important;
@@ -51,6 +60,13 @@
   .mb-#{$h} {
     margin-bottom: ($h) + px!important;
     margin-bottom: rem($h)!important;
+  }
+}
+
+@for $h from 1 to 10 {
+  .mr-#{$h} {
+    margin-right: ($h) + px!important;
+    margin-right: rem($h)!important;
   }
 }
 

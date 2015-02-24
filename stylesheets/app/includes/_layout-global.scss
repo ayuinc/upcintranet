@@ -9,11 +9,14 @@ body {
 	padding-right: 35px;
 }
 
-.site-wrapper,
-.site-menu {
+.site-wrapper {
 	min-height: 100%;
 	height: 100%;
 }
+
+// .site-menu {
+// 	min-height: 87%;
+// }
 
 .site-wrapper {
 	position: relative;
@@ -26,7 +29,7 @@ body {
 	z-index: 10;
 	position: relative;
 	top: 156px;
-	min-height: 736px;
+	// min-height: 707px;
 }
 
 .lista-cursos {
@@ -99,11 +102,8 @@ body {
 	width: 100%;
 	padding-top: 175px;
 	padding-left: 0px;
-	// padding-right: 28px;
-	// min-height: 900px;
-	padding-bottom: 119px;
+	padding-bottom: 143px;
 	@media #{$xs-only} {
-		// min-height: 700px;
 		margin-top: 56px !important;
 		padding-top: 7px;
 	}

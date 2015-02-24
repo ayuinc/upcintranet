@@ -242,9 +242,9 @@ class Webservices
 
         $result .= '<div class="col-sm-3"></div>';
         $result .= '<div class="col-sm-6 welcome">';
-        $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt=""></div><div class="zizou-28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
+        $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt=""></div><div class="zizou-28 mt--28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
         $result .= '<div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>';
-        $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
+        $result .= '<ul class="grid-list mt-14 grid-list-3 grid-list-centered">';
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
         $result .= '<li>';
         $result .= '<a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">';
@@ -1415,11 +1415,11 @@ class Webservices
       //genera el tamano del array
       $tamano = count($json['Inasistencias']);
 
-      $result .= '<div class="panel-body">';
-      $result .= '<div class="panel-body-head-table white">';
+      $result .= '<div class="panel-body red-line">';
+      $result .= '<div class="panel-body-head-table">';
       $result .= '<ul class="tr">';
-      $result .= '<li class="col-xs-2"><div><span>Código Curso</span></div></li>';
-      $result .= '<li class="col-xs-7"><div><span>Nombre</span></div></li>';
+      $result .= '<li class="col-xs-2"><div><span class="text-left pl-7">Código Curso</span></div></li>';
+      $result .= '<li class="col-xs-7"><div><span class="text-left pl-7">Nombre</span></div></li>';
       $result .= '<li class="col-xs-3"><div><span>Inasistencias</span></div></li>';
       $result .= '</ul>';
       $result .= '</div>';
@@ -1429,12 +1429,12 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
 
         $result .= '<li class="col-xs-2 helvetica-14">';
-        $result .= '<div class="text-center">';
+        $result .= '<div>';
         $result .= '<span>'.$json['Inasistencias'][$i]['CodCurso'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-7 text-center solano-bold-16">';
-        $result .= '<div class="text-center">';       
+        $result .= '<li class="col-xs-7 solano-bold-16">';
+        $result .= '<div>';       
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
@@ -2915,10 +2915,10 @@ class Webservices
         
         for ($a=0; $a< 4; $a++) {
           if ($a == 0) {
-            $result .= '<div class="row pt-0 pl-28">'; // apertura
+            $result .= '<div class="row pt-0 pl-14">'; // apertura
           }
           if ($a == 2) {
-            $result .= '<div class="row mt-14 pl-28">'; // apertura
+            $result .= '<div class="row mt-14 pl-14">'; // apertura
           }
           $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
           $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
@@ -3018,6 +3018,12 @@ class Webservices
         $result .= '<div class="panel-body p-28">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
         $result .= '<span class="helvetica-16 text-info">'.$error_mensaje.'</span>';
+        $result .= '<a href="#">';
+        $result .= '<div class="bg-muted p-7 mb-7">';  
+        $result .= '<div class="arrow-icon info"></div>';  
+        $result .= '<div class="zizou-18">Ir a Cancelar Reserva</div>';        
+        $result .= '</div>';
+        $result .= '</a>';
         $result .= '</div>';
         $result .= '</div>';
       } else {
@@ -3101,7 +3107,7 @@ class Webservices
               $result .= '<div class="row pt-0 pl-14">'; // apertura
             }
             if ($i == 2) {
-              $result .= '<div class="row mt-14 pl-14">'; // apertura
+              $result .= '<div class="row mt-21 pl-14">'; // apertura
             }
             $result .= '<div class="col-sm-5 p-14 text-left red-line bg-muted">';    
             if($tiporecurso == "CO"){
@@ -3206,6 +3212,12 @@ class Webservices
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
           $result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
+          $result .= '<a href="#">';
+          $result .= '<div class="bg-muted p-7 mb-7">';  
+          $result .= '<div class="arrow-icon info"></div>';  
+          $result .= '<div class="zizou-18">Ir a Cancelar Reserva</div>';        
+          $result .= '</div>';
+          $result .= '</a>';
           $result .= '</div>';
           $result .= '</div>';
         } else {
@@ -3595,7 +3607,7 @@ class Webservices
         // return $nombre_curso_lc;
         $result .= '<div class="panel-head no-bg">';
         $result .= '<div class="panel-title left">';
-        $result .= '<h2 class="black-text">Lista de Alumnos: <span class="serif-bold">'.$nombre_curso_lc.'</span></h2>';
+        $result .= '<h2 class="black-text"><span class="gray-main"> Lista de Alumnos: </span>'.$nombre_curso_lc.'</h2>';
         // $result .= '<h3>Lista de Alumnos: '.$json['Cursos'][$i]['curso'].'</h3>';
         $result .= '</div>';
         $result .= '</div>';
