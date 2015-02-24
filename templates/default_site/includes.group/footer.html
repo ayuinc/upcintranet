@@ -29,39 +29,39 @@
 	<script>
 
 		$( document ).ready(function() {
-			var validNavigation = false;
+			// var validNavigation = false;
 
-		    function wireUpEvents() {
+		 //    function wireUpEvents() {
 		      
-		       $(document).bind('keypress', function(e) {
-		         if (e.keyCode == 116){
-		           validNavigation = true;
-		         }
-		       });
+		 //       $(document).bind('keypress', function(e) {
+		 //         if (e.keyCode == 116){
+		 //           validNavigation = true;
+		 //         }
+		 //       });
 		      
-		       $("a").bind("click", function() {
-		         validNavigation = true;
-		         console.log("CLICK!!!!!");
-		       });
+		 //       $("a").bind("click", function() {
+		 //         validNavigation = true;
+		 //         console.log("CLICK!!!!!");
+		 //       });
 		      
-		       $("form").bind("submit", function() {
-		         validNavigation = true;
-		       });
+		 //       $("form").bind("submit", function() {
+		 //         validNavigation = true;
+		 //       });
 		      
-		       $("input[type=submit]").bind("click", function() {
-		         validNavigation = true;
-		       });
+		 //       $("input[type=submit]").bind("click", function() {
+		 //         validNavigation = true;
+		 //       });
 		        
-		        window.onunload = function() {
-		           if (!validNavigation) {
-		           	  console.log(validNavigation, "adentro del ifff");
-		           	  window.location.replace("http://upcintranet-590402458.us-east-1.elb.amazonaws.com/login/salir");
-		              //document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-		           }
-		       } 
-		     }
-		     // console.log(validNavigation);
-		    wireUpEvents();  
+		 //        window.onunload = function() {
+		 //           if (!validNavigation) {
+		 //           	  console.log(validNavigation, "adentro del ifff");
+		 //           	  window.location.replace("http://upcintranet-590402458.us-east-1.elb.amazonaws.com/login/salir");
+		 //              //document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+		 //           }
+		 //       } 
+		 //     }
+		 //     // console.log(validNavigation);
+		 //    wireUpEvents();  
 
 		    $('#sede-L').hide();
 		    $('#sede-L').attr('name', 'CodED1');
