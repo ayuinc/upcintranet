@@ -55,7 +55,8 @@
 		        window.onunload = function() {
 		           if (!validNavigation) {
 		           	  console.log(validNavigation, "adentro del ifff");
-		              document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+		           	  window.location.replace("http://upcintranet-590402458.us-east-1.elb.amazonaws.com/login/salir");
+		              //document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
 		           }
 		       } 
 		     }
