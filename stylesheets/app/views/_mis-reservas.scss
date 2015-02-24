@@ -23,14 +23,13 @@
 				appearance: none !important;
 				width: 95%;
 				&.arrow {
-					background: url(../assets/img/select.png) no-repeat right;
+					background: url(../assets/img/select_black.png) no-repeat right;
 				}
 				&.calendar {
-					background: url(../assets/img/calendario.png) no-repeat right;
+					background: url(../assets/img/calendario_black.png) no-repeat right;
 				}
 				margin-bottom: 7px;
-				border: 1px solid $gray-light !important;
-				height: 42px !important;
+				height: 35px;
 				border-radius: 0px !important;
 			}
 		}

@@ -21,6 +21,10 @@
   @include make-sm-column(1.5)
 }
 
+// .col-sm-2-5{
+//   @include make-sm-column(2.5)
+// }
+
 .col-xs-1-5{
   @include make-xs-column(1.5)
 }
@@ -36,6 +40,15 @@
 .m-auto {
 	margin: auto !important;
 }
+
+@for $h from 1 to 10 {
+  .mt--#{$h*7} {
+    margin-top: ($h*-7) + px!important;
+    margin-top: rem($h*-7)!important;
+  }
+}
+
+
 @for $h from -10 to 10 {
   .mt-#{$h} {
     margin-top: ($h) + px!important;
@@ -47,6 +60,13 @@
   .mb-#{$h} {
     margin-bottom: ($h) + px!important;
     margin-bottom: rem($h)!important;
+  }
+}
+
+@for $h from 1 to 10 {
+  .mr-#{$h} {
+    margin-right: ($h) + px!important;
+    margin-right: rem($h)!important;
   }
 }
 
@@ -93,12 +113,18 @@
 			min-width: 126px !important;	
 			font-size: 16px !important;
 		}	
+		@media #{$xs-only} {
+			min-width: 95px !important;	
+		}	
 		padding: 3px !important; 
 	}
 	&.lg {
 		font-size: 22px !important;
 		@media #{$md-down} {
 			font-size: 18px !important;	
+		}	
+		@media #{$xs-only} {
+			font-size: 14px !important;	
 		}	
 	}
 }

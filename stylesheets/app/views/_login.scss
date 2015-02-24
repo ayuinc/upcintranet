@@ -1,11 +1,13 @@
 .site-content {
 	&.login {
 		margin-top: 0px;
-		padding-top: 126px;
 		padding-bottom: 0px;
-		min-height: 500px;
+		padding-top: 120px;
+		// min-height: 50px;
 		@media #{$xs-only} {
-			padding-bottom: 63px;
+			padding-top: 77px;
+			padding-bottom: 0px;
+			// min-height: 610px;
 		} 
 		.row {
 			margin-left: -14px;
@@ -53,17 +55,22 @@
 				}
 			}
 			&.footer {
-				.col-xs-4, .col-xs-8 {
-					padding: 7px !important;
-				}
-				.col-sm-8 {
-					margin-top: 28px !important;
-				}
-				.col-xs-8 {
-					line-height: 12px !important;
-					@media #{$xs-only} {
-						margin-top: 4px !important;
+				line-height: 1;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				padding-bottom: 14px;
+				@media #{$xs-up} {
+					padding-right: 56px;
+					padding-left: 56px;
+					.col-xs-8 {
+						padding-top: 28px;
+						text-align: left; 
 					}
+				}
+				@media #{$xs-only} {
+					padding-top: 49px;
 				}
 			}
 		}

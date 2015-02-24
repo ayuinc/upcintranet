@@ -1,9 +1,9 @@
 <div class="reservas-select-group">
   <form action="{site_url}index.php/{segment_1}/resultados-reservas-deportivos" method="post">
     <input type="hidden" name="XID" value="{XID_HASH}" />
-        {exp:webservices:poblar_espacios_deportivos_sede}	
-        {exp:webservices:poblar_espacios_deportivos_espacios}	
-        {exp:webservices:poblar_espacios_deportivos_actividad}	
+      {exp:webservices:poblar_espacios_deportivos_sede}	
+      {exp:webservices:poblar_espacios_deportivos_espacios}	
+      {exp:webservices:poblar_espacios_deportivos_actividad}	
       <div class="text-left helvetica-16 gray-main">Cantidad de horas</div>
       <select name="NumHoras" class="reservas-select form-control">
         <option value="1">1</option>
@@ -20,7 +20,7 @@
       <div class="text-left helvetica-16 gray-main">Fecha</div>
       <input type="text" name="FechaIni" class="zizou-16 reservas-select form-control calendar"  placeholder="Selecciona" id="start-date-rec">
       <div class="text-right m-14">
-        <input type="submit" class="mb-7 btn btn-custom gray lg" name="submit" value="Ver Disponibilidad">
+        <input type="submit" class="mb-7 mr-3 btn btn-custom black-btn lg" name="submit" value="Ver Disponibilidad">
       </div>
   </form>
 </div>				        

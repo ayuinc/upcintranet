@@ -66,6 +66,10 @@ $alt-12: "ronnia";
 			font-size: ($fs - 2) + px !important;
 			font-size: rem(($fs) - 2) !important;	
 		}	
+		@media #{$xs-only} {
+			font-size: ($fs - 4) + px !important;
+			font-size: rem(($fs) - 4) !important;	
+		}	
 	}
 	.#{$alt}-light-#{$fs} {
 		@include alt-light;	
