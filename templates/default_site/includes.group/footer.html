@@ -27,9 +27,20 @@
   {/if}
 
 	<script>
+		var myclose = false;
 
-	    function delCookies(){
-	        document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	    function ConfirmClose(){
+	        if (event.clientY < 0){
+		        event.returnValue = 'You have closed the browser. Do you want to logout from your application?';
+		        setTimeout('myclose=false',10);
+		        myclose=true;
+		    }
+	    };
+
+	    function HandleOnClose(){
+	    	if (myclose==true) {
+	        	document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	    	}
 	    };
 
 		$( document ).ready(function() {
