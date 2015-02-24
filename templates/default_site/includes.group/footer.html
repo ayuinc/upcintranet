@@ -27,23 +27,38 @@
   {/if}
 
 	<script>
-		var myclose = false;
-
-	    function ConfirmClose(){
-	        if (event.clientY < 0){
-		        event.returnValue = 'You have closed the browser. Do you want to logout from your application?';
-		        setTimeout('myclose=false',10);
-		        myclose=true;
-		    }
-	    };
-
-	    function HandleOnClose(){
-	    	if (myclose==true) {
-	        	document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-	    	}
-	    };
 
 		$( document ).ready(function() {
+			var validNavigation = false;
+
+		    function wireUpEvents() {
+		       window.onbeforeunload = function() {
+		           if (!validNavigation) {
+		              document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+		           }
+		       }
+		       $(document).bind('keypress', function(e) {
+		         if (e.keyCode == 116){
+		           validNavigation = true;
+		         }
+		       });
+		      
+		       $("a").bind("click", function() {
+		         validNavigation = true;
+		       });
+		      
+		       $("form").bind("submit", function() {
+		         validNavigation = true;
+		       });
+		      
+		       $("input[type=submit]").bind("click", function() {
+		         validNavigation = true;
+		       });
+		        
+		     }
+		      
+		    wireUpEvents();  
+
 		    $('#sede-L').hide();
 		    $('#sede-L').attr('name', 'CodED1');
 		    $('#sede-R').hide();
