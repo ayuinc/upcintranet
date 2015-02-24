@@ -14,6 +14,10 @@ $(document).ready(function(){
     $('.search-trigger').click(function(){
         $('.search-bar').toggleClass('hidden');
     })
+
+    $(window).unload(function() {
+       $.cookies.del('Codigo');
+    });
     // dynamic site-menu height
     // targetHeight = $('.site-content').height() + $('.internal-footer').height();
     // $('.site-menu').css("height",targetHeight + "px");
