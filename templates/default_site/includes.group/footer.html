@@ -33,8 +33,8 @@
 
 		    function wireUpEvents() {
 		       window.onunload = function() {
-		           console.log(validNavigation);
 		           if (!validNavigation) {
+		           		console.log(validNavigation, "adentro del ifff");
 		              document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
 		           }
 		       }
