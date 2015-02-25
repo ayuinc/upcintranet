@@ -2517,9 +2517,10 @@ class Webservices
         $result = '';
         for ($i=0; $i < count($json['PagosPendientes']); $i++) { 
            $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
-           $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 0,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 3,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 6,4);
-           $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 3,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,4);
-           $fech_vencimiento = strtotime($fech_vencimiento_format.' 12:00:00');
+           $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 0,4);
+           $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4);
+           $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2);
+           $fech_vencimiento = strtotime($fech_vencimiento_format1.' 12:00:00');
 
            $result .= '<div class="panel-body-head left">';
            $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
@@ -2553,14 +2554,14 @@ class Webservices
            if ($fecha_actual > $fech_vencimiento) {
               $result .= '<li class="col-sm-2 apr-tr">';
               $result .= '<div class="text-center">';
-              $result .= '<!-- <span class="helvetica-bold-12">A TIEMPO</span> -->'; /* pdte-tr*/
+              $result .= '<span class="helvetica-bold-12">A TIEMPO</span>'; /* pdte-tr*/
               $result .= '</div>';
               $result .= '</li>';
            }
            else{
               $result .= '<li class="col-sm-2 pdte-tr">';
               $result .= '<div class="text-center">';
-              $result .= '<!-- <span class="helvetica-bold-12">A TIEMPO</span> -->'; /* pdte-tr*/
+              $result .= '<span class="helvetica-bold-12">A TIEMPO</span>'; /* pdte-tr*/
               $result .= '</div>';
               $result .= '</li>';
            }
@@ -2711,9 +2712,10 @@ class Webservices
         $result = '';
         for ($i=0; $i < count($json['PagosPendientes']); $i++) { 
            $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
-           $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 0,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 3,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 6,4);
-           $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 3,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,4);
-           $fech_vencimiento = strtotime($fech_vencimiento_format.' 12:00:00');
+           $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 0,4);
+           $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4);
+           $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2);
+           $fech_vencimiento = strtotime($fech_vencimiento_format1.' 12:00:00');
 
            $result .= '<div class="panel-body-head left">';
            $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
@@ -2747,14 +2749,14 @@ class Webservices
            if ($fecha_actual > $fech_vencimiento) {
               $result .= '<li class="col-sm-2 apr-tr">';
               $result .= '<div class="text-center">';
-              $result .= '<!-- <span class="helvetica-bold-12">A TIEMPO</span> -->'; /* pdte-tr*/
+              $result .= '<span class="helvetica-bold-12">A TIEMPO</span>'; /* pdte-tr*/
               $result .= '</div>';
               $result .= '</li>';
            }
            else{
               $result .= '<li class="col-sm-2 pdte-tr">';
               $result .= '<div class="text-center">';
-              $result .= '<!-- <span class="helvetica-bold-12">A TIEMPO</span> -->'; /* pdte-tr*/
+              $result .= '<span class="helvetica-bold-12">A TIEMPO</span>'; /* pdte-tr*/
               $result .= '</div>';
               $result .= '</li>';
            }
