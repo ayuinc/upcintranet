@@ -2641,7 +2641,7 @@ class Webservices
         return $result;
         
       } else {
-        
+        $result = '';
         for ($i=0; $i < count($json['PagosPendientes']); $i++) { 
            $result .= '<div class="panel-body-head left">';
            $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
