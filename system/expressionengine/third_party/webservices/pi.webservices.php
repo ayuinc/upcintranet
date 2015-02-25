@@ -2516,6 +2516,11 @@ class Webservices
       } else {
         $result = '';
         for ($i=0; $i < count($json['PagosPendientes']); $i++) { 
+           $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
+           $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 0,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 3,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 6,4);
+           $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 3,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,4);
+           $fech_vencimiento = strtotime($fech_vencimiento_format.' 12:00:00');
+
            $result .= '<div class="panel-body-head left">';
            $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
            $result .= '<span>Cuota '.$json['PagosPendientes'][$i]['NroCuota'].'</span>';
@@ -2533,21 +2538,17 @@ class Webservices
            $result .= '<li class="col-sm-3">';
            $result .= '<div class="nrb helvetica-14">';
            $result .= '<div>';
-           $result .= '<strong>EMITIDA: </strong>'.$json['PagosPendientes'][$i]['FecEmision'].'';
+           $result .= '<strong>EMITIDA: </strong>'.$fech_emision_format.'';
            $result .= '</div>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '<li class="col-sm-3">';
            $result .= '<div class="nrb helvetica-14">';
            $result .= '<div>';
-           $result .= '<strong>VENCE: </strong>'.$json['PagosPendientes'][$i]['"FecVencimiento"'].'';
+           $result .= '<strong>VENCE: </strong>'.$fech_vencimiento_format.'';
            $result .= '</div>';
            $result .= '</div>';
            $result .= '</li>';
-           $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
-
-           $fech_vencimiento = substr($json['PagosPendientes'][$i]['"FecVencimiento"'], 0,2).'-'.substr($json['PagosPendientes'][$i]['"FecVencimiento"'], 3,2).'-'.substr($json['PagosPendientes'][$i]['"FecVencimiento"'], 6,4);
-           $fech_vencimiento = strtotime($fech_vencimiento.' 12:00:00');
 
            if ($fecha_actual > $fech_vencimiento) {
               $result .= '<li class="col-sm-2 apr-tr">';
@@ -2709,151 +2710,151 @@ class Webservices
       } else {
         $result = '';
         for ($i=0; $i < count($json['PagosPendientes']); $i++) { 
+           $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
+           $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 0,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 3,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 6,4);
+           $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 3,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,4);
+           $fech_vencimiento = strtotime($fech_vencimiento_format.' 12:00:00');
+
            $result .= '<div class="panel-body-head left">';
            $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
-           $result .= '<span class="solano-20">Cuota '.$json['PagosPendientes'][$i]['NroCuota'].'</span>';
+           $result .= '<span>Cuota '.$json['PagosPendientes'][$i]['NroCuota'].'</span>';
            $result .= '</ul>';
            $result .= '</div>';
            $result .= '<div class="panel-table">';
            $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-4 pl-7">';
-           $result .= '<div class="nrb helvetica-16">';
+           $result .= '<li class="col-sm-4 pl-7">';
+           $result .= '<div class="nrb helvetica-14">';
            $result .= '<div>';
            $result .= '<strong>DOCUMENTO: </strong>'.$json['PagosPendientes'][$i]['NroDocumento'].'';
            $result .= '</div> ';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-3">';
-           $result .= '<div class="nrb helvetica-16">';
+           $result .= '<li class="col-sm-3">';
+           $result .= '<div class="nrb helvetica-14">';
            $result .= '<div>';
-           $result .= '<strong>EMITIDA: </strong>'.$json['PagosPendientes'][$i]['FecEmision'].'';
+           $result .= '<strong>EMITIDA: </strong>'.$fech_emision_format.'';
            $result .= '</div>';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-3">';
-           $result .= '<div class="nrb helvetica-16">';
+           $result .= '<li class="col-sm-3">';
+           $result .= '<div class="nrb helvetica-14">';
            $result .= '<div>';
-           $result .= '<strong>VENCE: </strong>'.$json['PagosPendientes'][$i]['FecVencimiento'].'';
+           $result .= '<strong>VENCE: </strong>'.$fech_vencimiento_format.'';
            $result .= '</div>';
            $result .= '</div>';
            $result .= '</li>';
-
-           $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
-
-           $fech_vencimiento = substr($json['PagosPendientes'][$i]['"FecVencimiento"'], 0,2).'-'.substr($json['PagosPendientes'][$i]['"FecVencimiento"'], 3,2).'-'.substr($json['PagosPendientes'][$i]['"FecVencimiento"'], 6,4);
-           $fech_vencimiento = strtotime($fech_vencimiento.' 12:00:00');
 
            if ($fecha_actual > $fech_vencimiento) {
               $result .= '<li class="col-sm-2 apr-tr">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-bold-12">A TIEMPO</span>'; /* pdte-tr*/
+              $result .= '<!-- <span class="helvetica-bold-12">A TIEMPO</span> -->'; /* pdte-tr*/
               $result .= '</div>';
               $result .= '</li>';
            }
            else{
               $result .= '<li class="col-sm-2 pdte-tr">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-bold-12">A TIEMPO</span>'; /* pdte-tr*/
+              $result .= '<!-- <span class="helvetica-bold-12">A TIEMPO</span> -->'; /* pdte-tr*/
               $result .= '</div>';
               $result .= '</li>';
            }
 
            $result .= '</ul>';
            $result .= '</div>';
-           $result .= '<div class="panel-body-head-table gm-border-top">';
-           $result .= '<ul class="tr pb-7">';
-           $result .= '<li class="col-xs-10">';
+           $result .= '<div class="panel-body-head-table">';
+           $result .= '<ul class="tr">';
+           $result .= '<li class="col-sm-10">';
            $result .= '<div><span>Detalle</span></div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
+           $result .= '<li class="col-sm-2">';
            $result .= '<div><span>Monto (S/.)</span></div>';
            $result .= '</li>';
            $result .= '</ul>';
            $result .= '</div>';
-           $result .= '<div class="panel-table pl-7 gm-border-top">';
+           $result .= '<div class="panel-table pl-7">';
            $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
+           $result .= '<li class="col-sm-10">';
            $result .= '<div>';
-           $result .= '<span class="helvetica-16">Importe</span>';
+           $result .= '<span class="helvetica-14">Importe</span>';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
+           $result .= '<li class="col-sm-2">';
            $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Importe'].'</span>';
+           $result .= '<span class="helvetica-14">'.$json['PagosPendientes'][$i]['Importe'].'</span>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
            $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
+           $result .= '<li class="col-sm-10">';
            $result .= '<div>';
-           $result .= '<span class="helvetica-16">Descuento</span>';
+           $result .= '<span class="helvetica-14">Descuento</span>'; 
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
+           $result .= '<li class="col-sm-2">';
            $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Descuento'].'</span>';
+           $result .= '<span class="helvetica-14">'.$json['PagosPendientes'][$i]['Descuento'].'</span>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
            $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
+           $result .= '<li class="col-sm-10">';
            $result .= '<div>';
-           $result .= '<span class="helvetica-16">Impuesto</span>';
+           $result .= '<span class="helvetica-14">Impuesto</span>';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
+           $result .= '<li class="col-sm-2">';
            $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Impuesto'].'</span>';
+           $result .= '<span class="helvetica-14">'.$json['PagosPendientes'][$i]['Impuesto'].'</span>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
            $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
+           $result .= '<li class="col-sm-10">';
            $result .= '<div>';
-           $result .= '<span class="helvetica-16">Cancelado</span>';
+           $result .= '<span class="helvetica-14">Cancelado</span>';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
+           $result .= '<li class="col-sm-2">';
            $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Cancelado'].'</span>';
+           $result .= '<span class="helvetica-14">'.$json['PagosPendientes'][$i]['Cancelado'].'</span>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
            $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
+           $result .= '<li class="col-sm-10">';
            $result .= '<div>';
-           $result .= '<span class="helvetica-16">Saldo</span>';
+           $result .= '<span class="helvetica-14">Saldo</span>';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
+           $result .= '<li class="col-sm-2">';
            $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Saldo'].'</span>';
+           $result .= '<span class="helvetica-14">'.$json['PagosPendientes'][$i]['Saldo'].'</span>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
            $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
+           $result .= '<li class="col-sm-10">';
            $result .= '<div>';
-           $result .= '<span class="helvetica-16">Mora</span>';
+           $result .= '<span class="helvetica-14">Mora</span>';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
+           $result .= '<li class="col-sm-2">';
            $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Mora'].'</span>';
+           $result .= '<span class="helvetica-14">'.$json['PagosPendientes'][$i]['Mora'].'</span>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
            $result .= '</div>';
-           $result .= '<div class="panel-table gm-border-top mb-14">';
+           $result .= '<div class="panel-table observaciones">';
            $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10 pl-7">';
+           $result .= '<li class="col-sm-10 pl-7">';
            $result .= '<div>';
-           $result .= '<span class="uppercase helvetica-bold-16">TOTAL</span>';
+           $result .= '<span class="uppercase helvetica-14">TOTAL</span>';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
+           $result .= '<li class="col-sm-2">';
            $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16 uppercase">'.$json['PagosPendientes'][$i]['Total'].'</span>';
+           $result .= '<span class="helvetica-14 uppercase">'.$json['PagosPendientes'][$i]['Total'].'</span>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
