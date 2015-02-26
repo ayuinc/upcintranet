@@ -3054,6 +3054,7 @@ class Webservices
           if ($a == 2) {
             $result .= '<div class="row mt-14 pl-14">'; // apertura
           }
+          $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4).substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,4);
           $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
           $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
@@ -3065,7 +3066,7 @@ class Webservices
           $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
           $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
           $result .= '<span class="helvetica-14">';
-          $result .= 'Fecha: '.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'<br>';
+          $result .= 'Fecha: '.$fecha.'<br>';
           $result .= '</span>';
           $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
           $HoraInicio = ltrim($HoraInicio,'0');
@@ -3187,7 +3188,7 @@ class Webservices
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
 
-      foreach($query_modelo_result->result() as $row){
+      foreach($query_modelo_result->result() as $row){  
         $token = $row->token;
       }
 
@@ -3252,6 +3253,7 @@ class Webservices
             else if($tiporecurso == "CU"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-cubiculos" method="post" name="formrecurso-'.$i.'">';
             }
+            $fecha = substr($json['Recursos'][$i]['FecReserva'], 0,2).substr($json['Recursos'][$i]['FecReserva'], 2,2).substr($json['Recursos'][$i]['FecReserva'], 4,4);
             $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
             $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
             $result .= '<input type="hidden" name="NomRecurso" value="'.$json['Recursos'][$i]['NomRecurso'].'" />';
@@ -3265,7 +3267,7 @@ class Webservices
             $result .= '<div class="solano-bold-24 black-text"> Opción '.$i.'</div>';
             $i--;
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['Local'].'</div>';
-            $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['FecReserva'].'</div>';
+            $result .= '<div class="zizou-16">'.$fecha.'</div>';
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
             $result .= '<input type="submit" class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
             $result .= '</form>'; 
