@@ -3065,16 +3065,11 @@ class Webservices
           $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
           $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
           $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
-<<<<<<< HEAD
           $a++;
           $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
           $a--;
           $result .= '<span class="zizou-16">';
-          $result .= 'Fecha: '.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'<br>';
-=======
-          $result .= '<span class="helvetica-14">';
           $result .= 'Fecha: '.$fecha.'<br>';
->>>>>>> cefa08cd2026221411fc1e525428641a1acb0afa
           $result .= '</span>';
           $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
           $HoraInicio = ltrim($HoraInicio,'0');
