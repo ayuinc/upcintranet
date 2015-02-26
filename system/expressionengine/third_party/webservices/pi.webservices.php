@@ -3054,7 +3054,7 @@ class Webservices
           if ($a == 2) {
             $result .= '<div class="row mt-14 pl-14">'; // apertura
           }
-          $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4).substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,4);
+          $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
           $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
           $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
@@ -3253,7 +3253,7 @@ class Webservices
             else if($tiporecurso == "CU"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-cubiculos" method="post" name="formrecurso-'.$i.'">';
             }
-            $fecha = substr($json['Recursos'][$i]['FecReserva'], 0,2).substr($json['Recursos'][$i]['FecReserva'], 2,2).substr($json['Recursos'][$i]['FecReserva'], 4,4);
+            $fecha = substr($json['Recursos'][$i]['FecReserva'], 0,2).'-'.substr($json['Recursos'][$i]['FecReserva'], 2,2).'-'.substr($json['Recursos'][$i]['FecReserva'], 4,4);
             $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
             $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
             $result .= '<input type="hidden" name="NomRecurso" value="'.$json['Recursos'][$i]['NomRecurso'].'" />';
