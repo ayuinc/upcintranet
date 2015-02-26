@@ -3064,7 +3064,10 @@ class Webservices
           $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
           $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
           $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
-          $result .= '<span class="helvetica-14">';
+          $a++;
+          $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
+          $a--;
+          $result .= '<span class="zizou-16">';
           $result .= 'Fecha: '.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'<br>';
           $result .= '</span>';
           $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
@@ -3073,11 +3076,11 @@ class Webservices
           $HoraFin = ltrim($HoraFin,'0');
           $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
           $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
-          $result .= '<span class="helvetica-14">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
+          $result .= '<span class="zizou-16">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
           if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
-          $result .= '<div class="helvetica-14">Sede: Complejo Alamos</div>';
+          $result .= '<div class="zizou-16">Sede: Complejo Alamos</div>';
           } else {
-          $result .= '<div class="helvetica-14">Sede: Campus Villa</div>';
+          $result .= '<div class="zizou-16">Sede: Campus Villa</div>';
           }
           $result .= '<input type="submit"  class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
           $result .= '</form>';
