@@ -9,11 +9,8 @@
         <!-- <option value="F">CAMPUS SAN MIGUEL</option> -->
       </select> 
       <input type="hidden" name="TipoRecurso" value="CU">
-      <div class="text-left helvetica-16 gray-main">Cantidad de horas</div>
-      <select name="CanHoras" class="zizou-16 reservas-select arrow form-control">
-          <option value="1">1</option>
-          <option value="2">2</option>
-      </select>   
+    	<div class="text-left helvetica-16 gray-main">Fecha</div>
+		  <input type="text" name="FecIni" class="zizou-16 reservas-select form-control calendar datepicker" value="" placeholder="Selecciona" id="start-date-rec">	
       <div class="text-left helvetica-16 gray-main">Hora de reserva</div>
       <select name="HoraIni" class="zizou-16 reservas-select arrow form-control">
          <option value="7">7:00</option>
@@ -32,10 +29,13 @@
          <option value="20">20:00</option>
          <option value="21">21:00</option>
       </select>   
-    	<div class="text-left helvetica-16 gray-main">Fecha de inicio</div>
-		  <input type="text" name="FecIni" class="zizou-16 reservas-select form-control calendar datepicker" value="" placeholder="Selecciona" id="start-date-rec">	
-      <div class="text-right p-14">
-        <input type="submit" class="btn wide btn-custom black-btn mr-3 mb-7" name="submit" value="Ver Disponibilidad">
+      <div class="text-left helvetica-16 gray-main">Cantidad de horas</div>
+      <select name="CanHoras" class="zizou-16 reservas-select arrow form-control">
+          <option value="1">1</option>
+          <option value="2">2</option>
+      </select>   
+      <div class="mt-14">
+        <input type="submit" class="btn wide-full btn-custom black-btn" name="submit" value="Ver Disponibilidad">
       </div>
   </form>
 </div>  

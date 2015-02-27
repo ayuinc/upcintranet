@@ -2,6 +2,7 @@
 	.section-content {
 		.reservas-select-group {
 			padding-left: 14px;
+			padding-right: 14px;
 			padding-bottom: 56px;
 			form {
 				.row {
@@ -21,7 +22,7 @@
 				-webkit-appearance: none !important;
 				-moz-appearance: none !important;
 				appearance: none !important;
-				width: 95%;
+				width: 100%;
 				&.arrow {
 					background: url(../assets/img/select_black.png) no-repeat right;
 				}
