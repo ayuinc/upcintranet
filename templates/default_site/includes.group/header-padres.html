@@ -1,10 +1,10 @@
 <div class="site-header hidden-xs">
   <div class="container-fluid">
 	  <div class="header-global clearfix">
-		  <div class="pull-left ml-21 mr-21">
+		  <div class="pull-left ml-28 mr-21">
 		    <img class="mt-7" src="{site_url}assets/img/isotipo_upc.png" alt="">
 		  </div>
-		  <div class="pull-left mt-7">
+		  <div class="pull-left mt-7 pl-7">
 		    <span class="solano-bold-20 black-text">Intranet</span>
 		  </div>
 	    <div class="pull-right mt-7">
@@ -27,13 +27,13 @@
 	         <!-- INICIO DE LINKS DE DASHBOARDS DE HIJOS -->
 	        {exp:webservices:padre_lista_de_hijos codigo_alumno="{last_segment}"}
 	         <!-- FIN DE LINKS DE DASHBOARDS DE HIJOS -->
-	        <li class="ml-21 mr-21 pt-28">
+	        <li class="ml-21 mr-21">
 	          <div class="search-trigger">
 	            <img src="{site_url}assets/img/search_white.png" class="mb-7 block">
 	            <span>&nbsp;</span>
 	          </div>
 	        </li> 
-					<li class="ml-21 mr-21 pt-28">
+					<li class="ml-21 mr-21 pt-7">
 			    <!-- inicio BUSQUEDA -->
 					  {exp:search:simple_form channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" result_page="buscar-padres/index"}
 					  <div class="search-bar hidden">

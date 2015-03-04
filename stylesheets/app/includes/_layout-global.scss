@@ -205,7 +205,8 @@ body {
 		padding: 0;
 		&.first-child {
 			left: -24px !important;
-			top: 79px !important;
+			top: 84px !important;
+			border-radius: 0px;
 			&:after {
 				left: 32% !important;
 			}
