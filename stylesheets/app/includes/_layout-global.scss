@@ -20,7 +20,7 @@ body {
 
 .site-wrapper {
 	position: relative;
-	background-image:url("../assets/img/trama_xs.png");
+	// background-image:url("../assets/img/trama_xs.png");
 }
 
 .site-menu {
@@ -110,6 +110,9 @@ body {
 	@media #{$lg-down} {
 		padding-left: 28px !important;
 		padding-right: 28px !important;
+	}
+	&.iframe {
+		background: none;
 	}
 	&.shorter {
 		min-height: 822px;
