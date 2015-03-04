@@ -463,7 +463,7 @@ class Webservices
           $nombre_hijo = $nombre_hijo[0];
         }
         //$result .= '<li><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].' '.$json["hijos"][$i]["apellidos"].'</a></li>';
-        $result .=  '<li class="ml-21 mr-21">';
+        $result .=  '<li class="ml-21 mr-21 pt-14">';
         $result .=  '<div class="dropdown avatar-hijo">';
         $result .=  '<div class="dropdown-toggle" id="dropdownMenuA" data-toggle="dropdown">';
         if($codigo_alumno == $json["hijos"][$i]["codigo"]){
@@ -1453,12 +1453,11 @@ class Webservices
       //Control de errores
       if ($error!='00000') {
         $result = '';
-        $result .= '<div class="panel-table">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12">';
-        $result .= '<div>'.$error_mensaje.'</div>';
-        $result .= '</li>';                
-        $result .= '</ul>';  
+        $result .= '<div class="panel-body red-line">';
+        $result .= '<div class="panel-body-content p-14">';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+        $result .= '<span class="helvetica-bold-16 red">'.$error_mensaje.'</span>';
+        $result .= '</div>';     
         $result .= '</div>';     
       }  
       
@@ -2703,8 +2702,12 @@ class Webservices
       
       if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
         
-        $result = '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
+        $result = '<div class="panel-body info-border">';
+        $result .= '<div class="panel-body-content text-left">';
+        $result .= '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
         $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';
+        $result .= '</div>';
+        $result .= '</div>';
         $result .= '</div>';
         return $result;
         

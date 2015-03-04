@@ -55,14 +55,14 @@
 			}
 			.pull-left {
 				ul {
-					padding-top: 18px;
+					// padding-top: 18px;
 					padding-left: 28px;
 					list-style: none;
 					li {
 						a:hover {
 							color: white;
 						}
-						display: inline-block;
+						float: left;
 						color: white;
 						img {
 							margin-left: auto;
@@ -102,6 +102,7 @@
 						left: -96px;
 						top: 97px;
 						border-radius: 0px;
+						box-shadow: 5px 5px 5px #B0B1B2 !important;
 						li {
 							display: block !important; 
 						}
