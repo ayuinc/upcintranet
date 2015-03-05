@@ -48,12 +48,21 @@
 	    </div>
 	    <div class="pull-right">
 	    	<div class="text-center inline-block p-21">
-    	    <span class="text-muted zizou-22">Hola {exp:webservices:nombre_alumno}</span>
+    	    <span class="text-muted zizou-22 hidden-sm">Hola {exp:webservices:nombre_alumno}</span>
 	    	</div>
         <div class="dropdown pt-7 inline-block">
-          <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-            <img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
-          </div>
+	        <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+	        <!--[if !IE]><!--> 
+	          <img class="img-circle user img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
+	        <!--<![endif]--> 
+	        <!--[if gt IE 8]>  
+	          <img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
+	        <![endif]-->  
+	        <!--[if lt IE 9]>  
+	          <img src="{site_url}assets/img/user_ie8_white.png" class="ie8" style="width:77px" alt="">
+	        <![endif]-->  
+	          <img style="background:none;" src="{site_url}assets/img/white_arrow_down.png" alt="">
+	        </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Mi perfil</a></li>
             <li role="presentation" class="divider"></li>

@@ -72,7 +72,16 @@
             </div>
             <div class="dropdown pt-7 inline-block">
               <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+              <!--[if !IE]><!--> 
+                <img class="img-circle user img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
+              <!--<![endif]--> 
+              <!--[if gt IE 8]>  
                 <img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
+              <![endif]-->  
+              <!--[if lt IE 9]>  
+                <img src="{site_url}assets/img/user_ie8_white.png" class="ie8" style="width:77px" alt="">
+              <![endif]-->  
+                <img style="background:none;" src="{site_url}assets/img/white_arrow_down.png" alt="">
               </div>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil-docente">Mi Perfil</a></li>

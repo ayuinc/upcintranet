@@ -20,7 +20,7 @@ body {
 
 .site-wrapper {
 	position: relative;
-	// background-image:url("../assets/img/trama_xs.png");
+	background-image:url("../assets/img/trama_xs.png");
 }
 
 .site-menu {
@@ -29,6 +29,9 @@ body {
 	z-index: 10;
 	position: relative;
 	top: 140px;
+	@media #{$portrait} {
+		top: 86px;
+	}
 	min-height: 575px;
 }
 
@@ -204,11 +207,11 @@ body {
 		-webkit-box-shadow: none !important;
 		box-shadow: none !important;
 		border: none;
-		margin: 0;
-		padding: 0;
+		margin: 0 !important;
+		padding: 0 !important;
 		&.first-child {
 			left: -24px !important;
-			top: 84px !important;
+			top: 91px !important;
 			border-radius: 0px;
 			&:after {
 				left: 32% !important;
@@ -216,7 +219,7 @@ body {
 		}
 		&:after {
 			bottom: 100%;
-			left: 77%;
+			left: 71%;
 			border: solid transparent;
 			content: " ";
 			height: 0;
@@ -233,6 +236,7 @@ body {
 			&.dditem {
 				padding-top: 3px;
 				padding-bottom: 3px;
+				width: 100%;
 				&:hover {
 					background-color: $brand-info;
 					color: white !important;
