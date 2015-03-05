@@ -89,22 +89,26 @@
 					}
 				}
 				.dropdown {
-					width: 70px;
+					width: 84px;
 					#dropdownMenu1 {
 						img {
 							border: none;
 							&:not(.ie8):hover, &:not(.ie8).open {
 								background-color: $brand-info;
 							}
+							&.user {
+								width: 65px;
+							}
 						}
 					}
 					ul.dropdown-menu {
-						left: -96px;
+						left: -86px;
 						top: 97px;
 						border-radius: 0px;
 						box-shadow: 5px 5px 5px #B0B1B2 !important;
 						li {
 							display: block !important; 
+							width: 100%;
 						}
 					}
 				}
