@@ -1454,9 +1454,9 @@ class Webservices
       if ($error!='00000') {
         $result = '';
         $result .= '<div class="panel-body red-line">';
-        $result .= '<div class="panel-body-content p-14">';
+        $result .= '<div class="panel-body-content text-left p-28">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-        $result .= '<span class="helvetica-bold-16 red">'.$error_mensaje.'</span>';
+        $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
         $result .= '</div>';     
         $result .= '</div>';     
       }  

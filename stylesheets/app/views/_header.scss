@@ -7,10 +7,8 @@
 			background-color: white;
 			height: 40px !important;
 			.pull-left {
-				ul {
-					li {
-						display: inline-block;
-					}
+				&.crisol {
+					width: 5.5%;
 				}
 			}
 		}
