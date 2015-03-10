@@ -3482,7 +3482,7 @@ class Webservices
           $result .= '</div>';
           $result .= '</li>';
           $result .= '</ul>';
-
+          $result .= '<a class="sb-link zizou-16" href="#" target="_blank">Ir a Cancelar Reserva</a>';
         }
       }
       $result .= '</div>';  
