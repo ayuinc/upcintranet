@@ -3169,7 +3169,7 @@ class Webservices
         $result .= '<a href="#">';
         $result .= '<div class="bg-muted p-7 mb-7">';  
         $result .= '<div class="arrow-icon info"></div>';  
-        $result .= '<div class="zizou-18">Ir a Cancelar Reserva</div>';        
+        $result .= '<div class="zizou-18"><a class="sb-link" href="#" target="_blank">Ir a Cancelar Reserva</a></div>';        
         $result .= '</div>';
         $result .= '</a>';
         $result .= '</div>';
@@ -3370,7 +3370,7 @@ class Webservices
           $result .= '<a href="#">';
           $result .= '<div class="bg-muted p-7 mb-7">';  
           $result .= '<div class="arrow-icon info"></div>';  
-          $result .= '<div class="zizou-18">Ir a Cancelar Reserva</div>';        
+          $result .= '<div class="zizou-18"><a class="sb-link" href="#" target="_blank">Ir a Cancelar Reserva</a></div>';                
           $result .= '</div>';
           $result .= '</a>';
           $result .= '</div>';
@@ -3385,14 +3385,14 @@ class Webservices
         }
 
         //Control de errores
-        if ($error!='00002') {
-          $result .= '<div class="red-line panel-table">';
-          $result .= '<div class="panel-body p-28">';
-          $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-          $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>'; 
-          $result .= '</div>';
-          $result .= '</div>';
-        }
+        // if ($error!='00002') {
+        //   $result .= '<div class="red-line panel-table">';
+        //   $result .= '<div class="panel-body p-28">';
+        //   $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+        //   $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>'; 
+        //   $result .= '</div>';
+        //   $result .= '</div>';
+        // }
         return $result;      
       }    
     }     
