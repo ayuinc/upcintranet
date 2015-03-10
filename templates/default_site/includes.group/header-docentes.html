@@ -1,17 +1,17 @@
     <div class="site-header hidden-xs">
       <div class="container-fluid">
         <div class="header-global clearfix">
-          <div class="pull-left ml-21 mr-21">
-            <img class="mt-7" src="{site_url}assets/img/isotipo_upc.png" alt="">
+          <div class="pull-left crisol">
+            <img class="img-center pt-7" src="{site_url}assets/img/isotipo_upc.png" alt="">
           </div>
           <div class="pull-left mt-7">
             <span class="solano-bold-20 black-text">Intranet</span>
           </div>
-          <div class="pull-right mt-7">
+          <div class="pull-right pr-14 pt-7">
             <ul class="list-unstyled">
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
             </ul>
           </div>
         </div>
@@ -66,9 +66,12 @@
             </ul>
           </div>
           <div class="pull-right">
-            <div class="text-center inline-block p-21">
-                <span class="text-muted zizou-22">Hola {exp:webservices:nombre_alumno}</span>
-              <span>&nbsp;</span>
+            <div class="text-center pull-left p-21">
+              <span class="text-muted zizou-22 hidden-sm">
+              {if segment_1 == 'dashboard'}
+                Hola 
+              {/if}
+              {exp:webservices:nombre_alumno}</span>
             </div>
             <div class="dropdown pt-7 inline-block">
               <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
