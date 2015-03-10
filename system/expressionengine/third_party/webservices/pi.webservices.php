@@ -3362,7 +3362,7 @@ class Webservices
         $result = '';
 
         //mensaje de exito
-        /*if (strpos($error_mensaje, 'realizado') !== false  || strpos($error_mensaje, 'reservado') !== false ) {
+        if (strpos($error_mensaje, 'realizado') !== false  || strpos($error_mensaje, 'reservado') !== false ) {
           $result .= '<div class="resultados-busqueda info-border bg-muted">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
@@ -3382,7 +3382,7 @@ class Webservices
           $result .= '<span class="helvetica-16 red">'.$json['MsgError'].'</span>';
           $result .= '</div>';
           $result .= "</div>";
-        }*/
+        }
 
         //Control de errores
         // if ($error!='00002') {
