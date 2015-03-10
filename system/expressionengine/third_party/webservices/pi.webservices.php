@@ -3465,7 +3465,7 @@ class Webservices
           $result .= '<ul class="tr">';
           $result .= '<li class="col-xs-2 helvetica-12">';
           $result .= '<div class="text-center">';
-          $fecha .= substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2)."/".substr($json['Reservas'][$i]['FecReserva'],4,4);
+          $fecha .= substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2);
           $result .= '<span>'.$fecha.'</span>';
           $result .= '</div>';
           $result .= '</li>';
@@ -3478,17 +3478,14 @@ class Webservices
           $result .= '<span>'.$HoraInicio.':00 - '.$HoraFin.':00</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-5 helvetica-12">';
+          $result .= '<li class="col-xs-8 helvetica-12">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['Reservas'][$i]['DesTipoRecurso'].'<br>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
-          $result .= '</div>';
-          $result .= '</li>';
-          $result .= '<li class="col-xs-3 helvetica-12">';
-          $result .= '<div class="text-center">';
-          $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>';
+          $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>'8
           $result .= '</div>';
           $result .= '</li>';
           $result .= '</ul>';
+
         }
       }
       $result .= '</div>';  
