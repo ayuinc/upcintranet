@@ -3481,7 +3481,7 @@ class Webservices
           $result .= '<li class="col-xs-8 helvetica-12">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['Reservas'][$i]['DesTipoRecurso'].'<br>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
-          $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>'8
+          $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
           $result .= '</ul>';
