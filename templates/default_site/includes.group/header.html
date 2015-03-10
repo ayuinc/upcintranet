@@ -1,17 +1,17 @@
     <div class="site-header hidden-xs">
       <div class="container-fluid">
         <div class="header-global clearfix">
-          <div class="pull-left ml-21 mr-21">
-            <img class="mt-7" src="{site_url}assets/img/isotipo_upc.png" alt="">
+          <div class="pull-left crisol">
+            <img class="img-center pt-7" src="{site_url}assets/img/isotipo_upc.png" alt="">
           </div>
           <div class="pull-left mt-7">
             <span class="solano-bold-20 black-text">Intranet</span>
           </div>
-          <div class="pull-right mt-7">
+          <div class="pull-right pr-14 pt-7">
             <ul class="list-unstyled">
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a class="black-link" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a class="black-link" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a class="black-link" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
             </ul>
           </div>
         </div>
@@ -24,7 +24,7 @@
           </div>
           <div class="pull-left">
             <ul>
-              <li class="ml-21 mr-21">
+              <li class="ml-21 mr-21 pt-7">
                 <a class="text-muted" href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
                   <div class="text-center">
                     <img src="{site_url}/assets/img/white_mail.png" class="block mb-7" alt="">
@@ -40,7 +40,7 @@
                   </div>
                 </a>
               </li>
-              <li class="ml-21 mr-21">
+              <li class="ml-21 mr-21 pt-3">
                 <a href="http://www.printfriendly.com/" style="color:#6D9F00;text-decoration:none;" onclick="window.print();return false;" title="Print Friendly and PDF" class="gray-main printfriendly" id="printfriendly">
                   <div class="pb-7">
                     {exp:printfriendly:button custom_button="{site_url}assets/img/print_new.png"}
@@ -50,11 +50,11 @@
               </li>
               <li class="ml-21 mr-21">
                 <div class="search-trigger">
-                  <img src="{site_url}assets/img/search_white.png" class="block mb-7">
+                  <img src="{site_url}assets/img/search_white.png" class="block">
                   <span>&nbsp;</span>
                 </div>
               </li>
-              <li>
+              <li class="pt-3">
                 {exp:search:simple_form channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" result_page="buscar/index"}
                 <div class="search-bar hidden">
                   <input type="text-muted" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-thin-12 form-control" placeholder="Introduce tu búsqueda">
@@ -66,13 +66,18 @@
             </ul>
           </div>
           <div class="pull-right">
-            <div class="text-center inline-block p-21">
-              <span class="text-muted zizou-22">Hola {exp:webservices:nombre_alumno}</span>
+            <div class="text-center pull-left p-21">
+              <span class="text-muted zizou-22 hidden-sm">
+              {if segment_1 == 'dashboard'}
+                Hola 
+              {/if}
+              {exp:webservices:nombre_alumno}</span>
             </div>
-            <div class="dropdown pt-7 inline-block">
+            <div class="dropdown pt-7 pull-left">
               <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
               <!--[if !IE]><!--> 
-                <img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
+                <img class="img-circle user img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
+                <img style="background:none;" src="{site_url}assets/img/white_arrow_down.png" alt="">
               <!--<![endif]--> 
               <!--[if gt IE 8]>  
                 <img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">

@@ -1,17 +1,17 @@
 <div class="site-header hidden-xs">
   <div class="container-fluid">
 	  <div class="header-global clearfix">
-		  <div class="pull-left ml-21 mr-21">
+		  <div class="pull-left crisol">
 		    <img class="mt-7" src="{site_url}assets/img/isotipo_upc.png" alt="">
 		  </div>
 		  <div class="pull-left mt-7">
 		    <span class="solano-bold-20 black-text">Intranet</span>
 		  </div>
-	    <div class="pull-right mt-7">
+	    <div class="pull-right pr-14 pt-7">
 	      <ul class="list-unstyled">
-	        <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a class="black" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
-	        <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a class="black" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
-	        <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a class="black" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
+	        <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
+	        <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
+	        <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -29,11 +29,11 @@
 	         <!-- FIN DE LINKS DE DASHBOARDS DE HIJOS -->
 	        <li class="ml-21 mr-21">
 	          <div class="search-trigger">
-	            <img src="{site_url}assets/img/search_white.png" class="block mb-7">
+	            <img src="{site_url}assets/img/search_white.png" class="mb-7 block">
 	            <span>&nbsp;</span>
 	          </div>
 	        </li> 
-					<li class="ml-21 mr-21">
+					<li class="ml-21 mr-21 pt-7">
 			    <!-- inicio BUSQUEDA -->
 					  {exp:search:simple_form channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" result_page="buscar-padres/index"}
 					  <div class="search-bar hidden">
@@ -47,13 +47,26 @@
 				</ul>
 	    </div>
 	    <div class="pull-right">
-	    	<div class="text-center inline-block p-21">
-    	    <span class="text-muted zizou-22">Hola {exp:webservices:nombre_alumno}</span>
-	    	</div>
+		    <div class="text-center pull-left p-21">
+		      <span class="text-muted zizou-22 hidden-sm">
+		      {if segment_1 == 'dashboard'}
+		        Hola 
+		      {/if}
+		      {exp:webservices:nombre_alumno}</span>
+		    </div>
         <div class="dropdown pt-7 inline-block">
-          <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-            <img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
-          </div>
+	        <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+	        <!--[if !IE]><!--> 
+	          <img class="img-circle user img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
+	        <!--<![endif]--> 
+	        <!--[if gt IE 8]>  
+	          <img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
+	        <![endif]-->  
+	        <!--[if lt IE 9]>  
+	          <img src="{site_url}assets/img/user_ie8_white.png" class="ie8" style="width:77px" alt="">
+	        <![endif]-->  
+	          <img style="background:none;" src="{site_url}assets/img/white_arrow_down.png" alt="">
+	        </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Mi perfil</a></li>
             <li role="presentation" class="divider"></li>

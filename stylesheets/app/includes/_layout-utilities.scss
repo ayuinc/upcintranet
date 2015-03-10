@@ -118,6 +118,18 @@
 		}	
 		padding: 3px !important; 
 	}
+	&.wide-full {
+		width: 100% !important;
+		font-size: 20px !important;
+		@media #{$md-down} {
+			width: 100% !important;	
+			font-size: 16px !important;
+		}	
+		@media #{$xs-only} {
+			width: 100% !important;	
+		}	
+		padding: 3px !important; 
+	}
 	&.lg {
 		font-size: 22px !important;
 		@media #{$md-down} {

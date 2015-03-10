@@ -1,10 +1,10 @@
 .internal-footer {
 	background-color: $gray-lighter;
-	position:fixed;
+	position:absolute;
 	bottom: 0;
 	width: 100%;
 	left: 0;
-	margin: 0;
+	margin: 0px;
 	color: $gray-main;
 	.col-sm-8 {
 		@media #{$md-up} {
