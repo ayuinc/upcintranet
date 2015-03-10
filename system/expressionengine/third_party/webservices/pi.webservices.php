@@ -3442,7 +3442,10 @@ class Webservices
       $result .= '    <li class="col-xs-2">';
       $result .= '      <div><span>Hora</span></div>';
       $result .= '    </li>';
-      $result .= '    <li class="col-xs-8">';
+      $result .= '    <li class="col-xs-3">';
+      $result .= '      <div><span>Campus</span></div>';
+      $result .= '    </li>';
+      $result .= '    <li class="col-xs-5">';
       $result .= '      <div><span>Recurso</span></div>';
       $result .= '    </li>';
       $result .= '  </ul>';
@@ -3475,7 +3478,12 @@ class Webservices
           $result .= '<span>'.$HoraInicio.':00 - '.$HoraFin.':00</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-8 helvetica-12">';
+          $result .= '<li class="col-xs-3 helvetica-12">';
+          $result .= '<div class="text-center">';
+          $result .= '<span>'.substr($json['Reservas'][$i]['DesLocal'],7,strlen($json['Reservas'][$i]['DesLocal'])-1).'</span>';
+          $result .= '</div>';
+          $result .= '</li>';
+          $result .= '<li class="col-xs-5 helvetica-12">';
           $result .= '<div class="text-center">';
           $result .= '<span>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
           $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>';
