@@ -3442,11 +3442,8 @@ class Webservices
       $result .= '    <li class="col-xs-2">';
       $result .= '      <div><span>Hora</span></div>';
       $result .= '    </li>';
-      $result .= '    <li class="col-xs-5">';
+      $result .= '    <li class="col-xs-8">';
       $result .= '      <div><span>Recurso</span></div>';
-      $result .= '    </li>';
-      $result .= '    <li class="col-xs-3">';
-      $result .= '      <div><span>Campus</span></div>';
       $result .= '    </li>';
       $result .= '  </ul>';
       $result .= '</div>';      
@@ -3480,7 +3477,7 @@ class Webservices
           $result .= '</li>';
           $result .= '<li class="col-xs-8 helvetica-12">';
           $result .= '<div class="text-center">';
-          $result .= '<span>'.$json['Reservas'][$i]['DesTipoRecurso'].'<br>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
+          $result .= '<span>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
           $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
