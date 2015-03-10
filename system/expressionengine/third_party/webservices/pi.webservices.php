@@ -3362,7 +3362,7 @@ class Webservices
         $result = '';
 
         //mensaje de exito
-        if (strpos($error_mensaje, 'realizado') !== false ) {
+        if (strpos($error_mensaje, 'realizado') !== false || strpos($error_mensaje, 'reservado') !== false) {
           $result .= '<div class="resultados-busqueda info-border bg-muted">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
@@ -3442,11 +3442,8 @@ class Webservices
       $result .= '    <li class="col-xs-2">';
       $result .= '      <div><span>Hora</span></div>';
       $result .= '    </li>';
-      $result .= '    <li class="col-xs-5">';
+      $result .= '    <li class="col-xs-8">';
       $result .= '      <div><span>Recurso</span></div>';
-      $result .= '    </li>';
-      $result .= '    <li class="col-xs-3">';
-      $result .= '      <div><span>Campus</span></div>';
       $result .= '    </li>';
       $result .= '  </ul>';
       $result .= '</div>';      
@@ -3465,7 +3462,7 @@ class Webservices
           $result .= '<ul class="tr">';
           $result .= '<li class="col-xs-2 helvetica-12">';
           $result .= '<div class="text-center">';
-          $fecha .= substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2)."/".substr($json['Reservas'][$i]['FecReserva'],4,4);
+          $fecha = substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2);
           $result .= '<span>'.$fecha.'</span>';
           $result .= '</div>';
           $result .= '</li>';
@@ -3478,19 +3475,16 @@ class Webservices
           $result .= '<span>'.$HoraInicio.':00 - '.$HoraFin.':00</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-5 helvetica-12">';
+          $result .= '<li class="col-xs-8 helvetica-12">';
           $result .= '<div class="text-center">';
-          $result .= '<span>'.$json['Reservas'][$i]['DesTipoRecurso'].'<br>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
-          $result .= '</div>';
-          $result .= '</li>';
-          $result .= '<li class="col-xs-3 helvetica-12">';
-          $result .= '<div class="text-center">';
+          $result .= '<span>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
           $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
           $result .= '</ul>';
         }
       }
+      $result .= '<a class="sb-link zizou-16" href="#" target="_blank">Ir a Cancelar Reserva</a>';
       $result .= '</div>';  
       $result .= '</div>'; 
       //Control de errores
