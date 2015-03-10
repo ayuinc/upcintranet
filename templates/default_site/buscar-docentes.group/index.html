@@ -24,14 +24,14 @@
           <div class="col-sm-1"></div>
           <div class="col-sm-3 que-buscas">
             <span class="zizou-26">¿Qué buscas?</span>
-            {exp:search:simple_form channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" result_page="buscar/index"}
+            {exp:search:simple_form channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" result_page="buscar-docentes/index"}
             <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco...">
             <button type="button" class="btn btn-custom black-btn" id="buscar-phr">BUSCAR</button>
             <input type="submit" value="submit" id="search-nh-submit" class="submit hidden">
             {/exp:search:simple_form}
           </div>  
           <div class="col-sm-8 resultados">
-            <span class="zizou-26">Se han encontrado {exp:search:total_results} resultados para {exp:search:keywords}</span>
+            <span class="zizou-26">Se han encontrado {exp:search:total_results} resultados para "{exp:search:keywords}"</span>
             <div class="resultados-busqueda red-line bg-muted">
               {exp:search:search_results}
               <div class="panel-body p-14">
