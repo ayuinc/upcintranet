@@ -1,17 +1,17 @@
     <div class="site-header hidden-xs">
       <div class="container-fluid">
         <div class="header-global clearfix">
-          <div class="pull-left ml-28 mr-21">
-            <img class="mt-7" src="{site_url}assets/img/isotipo_upc.png" alt="">
+          <div class="pull-left crisol">
+            <img class="img-center pt-7" src="{site_url}assets/img/isotipo_upc.png" alt="">
           </div>
-          <div class="pull-left mt-7 pl-7">
+          <div class="pull-left mt-7">
             <span class="solano-bold-20 black-text">Intranet</span>
           </div>
-          <div class="pull-right mt-7">
+          <div class="pull-right pr-14 pt-7">
             <ul class="list-unstyled">
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a class="black-link" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a class="black-link" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a class="black-link" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
             </ul>
           </div>
         </div>
@@ -67,12 +67,17 @@
           </div>
           <div class="pull-right">
             <div class="text-center pull-left p-21">
-              <span class="text-muted zizou-22 hidden-sm">Hola {exp:webservices:nombre_alumno}</span>
+              <span class="text-muted zizou-22 hidden-sm">
+              {if segment_1 == 'dashboard'}
+                Hola 
+              {/if}
+              {exp:webservices:nombre_alumno}</span>
             </div>
             <div class="dropdown pt-7 pull-left">
               <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
               <!--[if !IE]><!--> 
                 <img class="img-circle user img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
+                <img style="background:none;" src="{site_url}assets/img/white_arrow_down.png" alt="">
               <!--<![endif]--> 
               <!--[if gt IE 8]>  
                 <img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
@@ -80,7 +85,6 @@
               <!--[if lt IE 9]>  
                 <img src="{site_url}assets/img/user_ie8_white.png" class="ie8" style="width:77px" alt="">
               <![endif]-->  
-                <img style="background:none;" src="{site_url}assets/img/white_arrow_down.png" alt="">
               </div>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil">Mi Perfil</a></li>

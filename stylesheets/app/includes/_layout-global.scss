@@ -49,9 +49,9 @@ body {
 	z-index: 100;
 }
 
-.internal-header {
-	margin-bottom: 7px;
-}
+// .internal-header {
+// 	margin-bottom: 7px;
+// }
 
 #mobile-nav {
 	background-color: white;
@@ -152,13 +152,13 @@ body {
 			}
 		}
 	}
-	.internal-header {
-		&.fixed {
-			position: fixed;
-			margin-left: 0px;
-			width: 100%;
-		}
-	}
+	// .internal-header {
+	// 	&.fixed {
+	// 		position: fixed;
+	// 		margin-left: 0px;
+	// 		width: 100%;
+	// 	}
+	// }
 }
 
 .section-content {

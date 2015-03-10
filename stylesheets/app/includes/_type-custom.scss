@@ -98,8 +98,8 @@ h1, h2, h3, h4, h5 {
 // custom links
 a {
   color: $gray-main;
-  &:hover {
-    color: $gray-main;
+  &:hover, &:focus {
+    color: $gray-main !important;
   }
   &.not-underline {
     &:hover {
