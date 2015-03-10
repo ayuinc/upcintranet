@@ -3362,7 +3362,7 @@ class Webservices
         $result = '';
 
         //mensaje de exito
-        if (strpos($error_mensaje, 'realizado') !== false ) {
+        if (strpos($error_mensaje, 'realizado') !== false ) || (strpos($error_mensaje, 'reservado') !== false ) {
           $result .= '<div class="resultados-busqueda info-border bg-muted">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
@@ -3385,14 +3385,14 @@ class Webservices
         }
 
         //Control de errores
-        if ($error!='00002') {
-          $result .= '<div class="red-line panel-table">';
-          $result .= '<div class="panel-body p-28">';
-          $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-          $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>'; 
-          $result .= '</div>';
-          $result .= '</div>';
-        }
+        // if ($error!='00002') {
+        //   $result .= '<div class="red-line panel-table">';
+        //   $result .= '<div class="panel-body p-28">';
+        //   $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+        //   $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>'; 
+        //   $result .= '</div>';
+        //   $result .= '</div>';
+        // }
         return $result;      
       }    
     }     
