@@ -3484,8 +3484,8 @@ class Webservices
           $result .= '</ul>';
         }
       }
-      $result .= '</div>';  
       $result .= '<a class="sb-link zizou-16" href="#" target="_blank">Ir a Cancelar Reserva</a>';
+      $result .= '</div>';  
       $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
