@@ -3462,7 +3462,7 @@ class Webservices
           $result .= '<ul class="tr">';
           $result .= '<li class="col-xs-2 helvetica-12">';
           $result .= '<div class="text-center">';
-          $fecha .= substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2);
+          $fecha = substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2);
           $result .= '<span>'.$fecha.'</span>';
           $result .= '</div>';
           $result .= '</li>';
