@@ -1453,12 +1453,11 @@ class Webservices
       //Control de errores
       if ($error!='00000') {
         $result = '';
-        $result .= '<div class="panel-table">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12">';
-        $result .= '<div>'.$error_mensaje.'</div>';
-        $result .= '</li>';                
-        $result .= '</ul>';  
+        $result .= '<div class="panel-body red-line">';
+        $result .= '<div class="panel-body-content text-left p-28">';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+        $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
+        $result .= '</div>';     
         $result .= '</div>';     
       }  
       
@@ -2508,8 +2507,12 @@ class Webservices
       
       if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
         
-        $result = '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
+        $result = '<div class="panel-body info-border">';
+        $result .= '<div class="panel-body-content text-left">';
+        $result .= '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
         $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';
+        $result .= '</div>';
+        $result .= '</div>';
         $result .= '</div>';
         return $result;
         
@@ -2522,6 +2525,7 @@ class Webservices
            $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2);
            $fech_vencimiento = strtotime($fech_vencimiento_format1.' 12:00:00');
 
+           $result = '<div class="panel-body">';
            $result .= '<div class="panel-body-head left">';
            $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
            $result .= '<span class="solano-20">Cuota '.$json['PagosPendientes'][$i]['NroCuota'].'</span>';
@@ -2652,16 +2656,16 @@ class Webservices
            $result .= '</li>';
            $result .= '</ul>';
            $result .= '</div>';
-           $result .= '<div class="panel-table mb-14 gm-border-top">';
+           $result .= '<div class="panel-table observaciones">';
            $result .= '<ul class="tr">';
            $result .= '<li class="col-xs-10 pl-7">';
            $result .= '<div>';
-           $result .= '<span class="uppercase helvetica-16">TOTAL</span>';
+           $result .= '<span class="uppercase helvetica-16 text-muted">TOTAL</span>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '<li class="col-xs-2">';
            $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16 uppercase">'.$json['PagosPendientes'][$i]['Total'].'</span>';
+           $result .= '<span class="helvetica-16 text-muted uppercase">'.$json['PagosPendientes'][$i]['Total'].'</span>';
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
@@ -2673,200 +2677,206 @@ class Webservices
            
     } 
 
-    public function padres_boletas_pendientes_alumno(){
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-      
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
-      $codigo =  $_COOKIE["Codigo"];
-      setcookie("Codigo",$codigo, time() + (1800), "/");
+   public function padres_boletas_pendientes_alumno(){
+         //$codigo = $_SESSION["Codigo"];
+         //$token = $_SESSION["Token"];
+         
+         $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+         $codigo =  $_COOKIE["Codigo"];
+         setcookie("Codigo",$codigo, time() + (1800), "/");
 
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+         ee()->db->select('*');
+         ee()->db->where('codigo',$codigo);
+         $query_modelo_result = ee()->db->get('exp_user_upc_data');
 
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
-      }
+         foreach($query_modelo_result->result() as $row){
+           $token = $row->token;
+         }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendientePadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
-      //var_dump($url);
-      $ch = curl_init($url);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_URL,$url);
-      $result=curl_exec($ch);
-      //var_dump($result);
-      $json = json_decode($result, true);
-      
-     
-      
-      if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
+         $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendientePadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+         //var_dump($url);
+         $ch = curl_init($url);
+         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+         curl_setopt($ch, CURLOPT_URL,$url);
+         $result=curl_exec($ch);
+         //var_dump($result);
+         $json = json_decode($result, true);
+         
         
-        $result = '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
-        $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';
-        $result .= '</div>';
-        return $result;
-        
-      } else {
-        $result = '';
-        for ($i=0; $i < count($json['PagosPendientes']); $i++) { 
-           $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
-           $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 0,4);
-           $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4);
-           $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2);
-           $fech_vencimiento = strtotime($fech_vencimiento_format1.' 12:00:00');
-
-           $result .= '<div class="panel-body-head left">';
-           $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
-           $result .= '<span class="solano-20">Cuota '.$json['PagosPendientes'][$i]['NroCuota'].'</span>';
-           $result .= '</ul>';
-           $result .= '</div>';
-           $result .= '<div class="panel-table">';
-           $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-4 pl-7">';
-           $result .= '<div class="nrb helvetica-16">';
-           $result .= '<div>';
-           $result .= '<strong>DOCUMENTO: </strong>'.$json['PagosPendientes'][$i]['NroDocumento'].'';
-           $result .= '</div> ';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-3">';
-           $result .= '<div class="nrb helvetica-16">';
-           $result .= '<div>';
-           $result .= '<strong>EMITIDA: </strong>'.$fech_emision_format.'';
-           $result .= '</div>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-3">';
-           $result .= '<div class="nrb helvetica-16">';
-           $result .= '<div>';
-           $result .= '<strong>VENCE: </strong>'.$fech_vencimiento_format.'';
-           $result .= '</div>';
-           $result .= '</div>';
-           $result .= '</li>';
-
-           if ($fecha_actual > $fech_vencimiento) {
-              $result .= '<li class="col-xs-2 apr-tr">';
-              $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-bold-14">A TIEMPO</span>'; /* pdte-tr*/
-              $result .= '</div>';
-              $result .= '</li>';
-           }
-           else{
-              $result .= '<li class="col-xs-2 pdte-tr">';
-              $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-bold-14">A TIEMPO</span>'; /* pdte-tr*/
-              $result .= '</div>';
-              $result .= '</li>';
-           }
-
-           $result .= '</ul>';
-           $result .= '</div>';
-           $result .= '<div class="panel-body-head-table gm-border-top">';
-           $result .= '<ul class="tr pb-7">';
-           $result .= '<li class="col-xs-10">';
-           $result .= '<div><span>Detalle</span></div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
-           $result .= '<div><span>Monto (S/.)</span></div>';
-           $result .= '</li>';
-           $result .= '</ul>';
-           $result .= '</div>';
-           $result .= '<div class="panel-table gm-border-top pl-7">';
-           $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
-           $result .= '<div>';
-           $result .= '<span class="helvetica-16">Importe</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
-           $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Importe'].'</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '</ul>';
-           $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
-           $result .= '<div>';
-           $result .= '<span class="helvetica-16">Descuento</span>'; 
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
-           $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Descuento'].'</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '</ul>';
-           $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
-           $result .= '<div>';
-           $result .= '<span class="helvetica-16">Impuesto</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
-           $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Impuesto'].'</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '</ul>';
-           $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
-           $result .= '<div>';
-           $result .= '<span class="helvetica-16">Cancelado</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
-           $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Cancelado'].'</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '</ul>';
-           $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
-           $result .= '<div>';
-           $result .= '<span class="helvetica-16">Saldo</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
-           $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Saldo'].'</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '</ul>';
-           $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
-           $result .= '<div>';
-           $result .= '<span class="helvetica-16">Mora</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
-           $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Mora'].'</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '</ul>';
-           $result .= '</div>';
-           $result .= '<div class="panel-table mb-14 gm-border-top">';
-           $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10 pl-7">';
-           $result .= '<div>';
-           $result .= '<span class="uppercase helvetica-16">TOTAL</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '<li class="col-xs-2">';
-           $result .= '<div class="text-center">';
-           $result .= '<span class="helvetica-16 uppercase">'.$json['PagosPendientes'][$i]['Total'].'</span>';
-           $result .= '</div>';
-           $result .= '</li>';
-           $result .= '</ul>';
-           $result .= '</div>'; 
-        }
-        return $result;
-
-      } 
+         
+         if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
            
-    }                 
+           $result = '<div class="panel-body info-border">';
+           $result .= '<div class="panel-body-content text-left">';
+           $result .= '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
+           $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';
+           $result .= '</div>';
+           $result .= '</div>';
+           $result .= '</div>';
+           return $result;
+           
+         } else {
+           $result = '';
+           for ($i=0; $i < count($json['PagosPendientes']); $i++) { 
+           // for ($i=0; $i < 5; $i++) { 
+              $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
+              $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 0,4);
+              $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4);
+              $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2);
+              $fech_vencimiento = strtotime($fech_vencimiento_format1.' 12:00:00');
+
+              $result = '<div class="panel-body">';
+              $result .= '<div class="panel-body-head left">';
+              $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
+              $result .= '<span class="solano-20">Cuota '.$json['PagosPendientes'][$i]['NroCuota'].'</span>';
+              $result .= '</ul>';
+              $result .= '</div>';
+              $result .= '<div class="panel-table">';
+              $result .= '<ul class="tr">';
+              $result .= '<li class="col-xs-4 pl-7">';
+              $result .= '<div class="nrb helvetica-16">';
+              $result .= '<div>';
+              $result .= '<strong>DOCUMENTO: </strong>'.$json['PagosPendientes'][$i]['NroDocumento'].'';
+              $result .= '</div> ';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-3">';
+              $result .= '<div class="nrb helvetica-16">';
+              $result .= '<div>';
+              $result .= '<strong>EMITIDA: </strong>'.$fech_emision_format.'';
+              $result .= '</div>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-3">';
+              $result .= '<div class="nrb helvetica-16">';
+              $result .= '<div>';
+              $result .= '<strong>VENCE: </strong>'.$fech_vencimiento_format.'';
+              $result .= '</div>';
+              $result .= '</div>';
+              $result .= '</li>';
+
+              if ($fecha_actual > $fech_vencimiento) {
+                 $result .= '<li class="col-xs-2 apr-tr">';
+                 $result .= '<div class="text-center">';
+                 $result .= '<span class="helvetica-bold-14">A TIEMPO</span>'; /* pdte-tr*/
+                 $result .= '</div>';
+                 $result .= '</li>';
+              }
+              else{
+                 $result .= '<li class="col-xs-2 pdte-tr">';
+                 $result .= '<div class="text-center">';
+                 $result .= '<span class="helvetica-bold-14">A TIEMPO</span>'; /* pdte-tr*/
+                 $result .= '</div>';
+                 $result .= '</li>';
+              }
+
+              $result .= '</ul>';
+              $result .= '</div>';
+              $result .= '<div class="panel-body-head-table gm-border-top">';
+              $result .= '<ul class="tr pb-7">';
+              $result .= '<li class="col-xs-10">';
+              $result .= '<div><span>Detalle</span></div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-2">';
+              $result .= '<div><span>Monto (S/.)</span></div>';
+              $result .= '</li>';
+              $result .= '</ul>';
+              $result .= '</div>';
+              $result .= '<div class="panel-table gm-border-top pl-7">';
+              $result .= '<ul class="tr">';
+              $result .= '<li class="col-xs-10">';
+              $result .= '<div>';
+              $result .= '<span class="helvetica-16">Importe</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-2">';
+              $result .= '<div class="text-center">';
+              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Importe'].'</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '</ul>';
+              $result .= '<ul class="tr">';
+              $result .= '<li class="col-xs-10">';
+              $result .= '<div>';
+              $result .= '<span class="helvetica-16">Descuento</span>'; 
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-2">';
+              $result .= '<div class="text-center">';
+              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Descuento'].'</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '</ul>';
+              $result .= '<ul class="tr">';
+              $result .= '<li class="col-xs-10">';
+              $result .= '<div>';
+              $result .= '<span class="helvetica-16">Impuesto</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-2">';
+              $result .= '<div class="text-center">';
+              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Impuesto'].'</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '</ul>';
+              $result .= '<ul class="tr">';
+              $result .= '<li class="col-xs-10">';
+              $result .= '<div>';
+              $result .= '<span class="helvetica-16">Cancelado</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-2">';
+              $result .= '<div class="text-center">';
+              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Cancelado'].'</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '</ul>';
+              $result .= '<ul class="tr">';
+              $result .= '<li class="col-xs-10">';
+              $result .= '<div>';
+              $result .= '<span class="helvetica-16">Saldo</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-2">';
+              $result .= '<div class="text-center">';
+              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Saldo'].'</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '</ul>';
+              $result .= '<ul class="tr">';
+              $result .= '<li class="col-xs-10">';
+              $result .= '<div>';
+              $result .= '<span class="helvetica-16">Mora</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-2">';
+              $result .= '<div class="text-center">';
+              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Mora'].'</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '</ul>';
+              $result .= '</div>';
+              $result .= '<div class="panel-table mb-14 observaciones">';
+              $result .= '<ul class="tr">';
+              $result .= '<li class="col-xs-10 pl-7">';
+              $result .= '<div>';
+              $result .= '<span class="uppercase text-muted helvetica-16">TOTAL</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '<li class="col-xs-2">';
+              $result .= '<div class="text-center">';
+              $result .= '<span class="helvetica-16 text-muted uppercase">'.$json['PagosPendientes'][$i]['Total'].'</span>';
+              $result .= '</div>';
+              $result .= '</li>';
+              $result .= '</ul>';
+              $result .= '</div>'; 
+           }
+           return $result;
+
+         } 
+              
+       }                  
     
     //POBLAR ESPACIOS DEPORTIVOS - SEDE  
     public function poblar_espacios_deportivos_sede(){
