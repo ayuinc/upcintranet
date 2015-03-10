@@ -3368,9 +3368,14 @@ class Webservices
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
           $result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
           $result .= '<a href="#">';
-          $result .= '<div class="bg-muted p-7 mb-7">';  
+          $result .= '<div class="bg-muted p-7 mb-7">';
+          $result .= '<div class="row">';  
+          $result .= '<div class="col-xs-2">';  
           $result .= '<div class="arrow-icon info"></div>';  
+          $result .= '</div>';
+          $result .= '<div class="col-xs-10">';  
           $result .= '<div class="zizou-18"><a class="sb-link" href="#" target="_blank">Ir a Cancelar Reserva</a></div>';                
+          $result .= '</div>';
           $result .= '</div>';
           $result .= '</a>';
           $result .= '</div>';
