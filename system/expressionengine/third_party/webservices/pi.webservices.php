@@ -3370,11 +3370,9 @@ class Webservices
           $result .= '<a href="#">';
           $result .= '<div class="bg-muted p-7 mb-7">';
           $result .= '<div class="row">';  
-          $result .= '<div class="col-xs-2">';  
-          $result .= '<div class="arrow-icon info"></div>';  
-          $result .= '</div>';
           $result .= '<div class="col-xs-10">';  
-          $result .= '<div class="zizou-18"><a class="sb-link" href="#" target="_blank">Ir a Cancelar Reserva</a></div>';                
+          $result .= '<span class="arrow-icon info"></span>';  
+          $result .= '<div class="zizou-18"><a class="sb-link pl-7" href="#" target="_blank">Ir a Cancelar Reserva</a></div>';                
           $result .= '</div>';
           $result .= '</div>';
           $result .= '</a>';
@@ -3497,9 +3495,8 @@ class Webservices
           $result .= '</ul>';
         }
       }
-      $result .= '<div class="arrow-icon info"></div>';  
+      $result .= '<span class="arrow-icon info"></span>';  
       $result .= '<div class="zizou-18"><a class="sb-link" href="#" target="_blank">Ir a Cancelar Reserva</a></div>';        
-      $result .= '</div>';
       $result .= '</div>';  
       $result .= '</div>'; 
       //Control de errores
