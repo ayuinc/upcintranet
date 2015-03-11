@@ -1,0 +1,43 @@
+{exp:search:search_results}
+{embed="includes/head"}
+{/exp:search:search_results}
+{exp:webservices:iniciar_session}
+{exp:webservices:verificar_usuario}
+{embed="includes/header"}
+{embed="includes/sidebar"}
+    <div class="site-content container">
+	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="91" }
+      <div class="internal-header">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-4"><span class="zizou-16">Búsqueda</span></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+        </div>
+      </div>  
+      {/exp:channel:entries}  
+      <div class="section-content pb-70">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-3 que-buscas">
+            <span class="zizou-26">¿Qué buscas?</span>
+
+            <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco...">
+            <button type="button" class="btn btn-custom black-btn" id="buscar-phr">BUSCAR</button>
+            <input type="submit" value="submit" id="search-nh-submit" class="submit hidden">
+          </div>  
+          <div class="col-sm-8 resultados">
+            <span class="zizou-26">Se han encontrado</span>
+            <div class="resultados-busqueda red-line bg-muted">
+              <div class="panel-body p-14">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+{embed="includes/footer-no-scripts"}      
+      </div>
+    </div>
+{embed="includes/footer"}   
