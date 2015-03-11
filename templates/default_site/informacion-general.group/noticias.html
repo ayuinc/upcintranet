@@ -37,17 +37,25 @@
 						    url="http://betablogs.upc.edu.pe/blog/feed/8"
 						    cache_refresh="30"
 						    limit="10"
+                parse="inward"
 							} 
               <div class="col-sm-6">
                 <div class="panel">
                   <div class="panel-body canales">
                     <div class="panel-body-head left tall">
                       <p class="zizou-14 gray-main lowercase">{pubDate}</p>            
-                      <h3 class="pr-7">{title}</h3>
+                      <h3 class="pr-7">
+                         {exp:char_limit total="80" exact="no"}
+                            {title}
+                          {/exp:char_limit}
+                        </h3>
                     </div>  
                     <div class="panel-table">
                       <ul class="tr">
-                        <p class="p-14 helvetica-16">{description}</p>
+                        <p class="p-14 helvetica-16">
+                          {exp:char_limit total="150" exact="no"}
+                            {description}
+                          {/exp:char_limit}</p>
                       </ul>
                     </div>
                     <div class="panel-footer">
