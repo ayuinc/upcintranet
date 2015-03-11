@@ -17,11 +17,7 @@
     <link>http://betablogs.upc.edu.pe//noticias-pregrado/upc-internacional/upc-participara-en-harvard-national-model-united-nations-hnmun-0</link>
     <description>Por tercer año consecutivo, la Universidad Peruana de Ciencias Aplicadas (UPC) participará en la Harvard National Model United Nations (HNMUN);  conferencia que congrega a más de 3000 estudiantes universitarios procedentes de todas partes del mundo, y  que tiene como objetivo  que los participantes desarrollen su espíritu crítico promoviendo  el debate de problemas políticos, sociales, económicos, culturales y humanitarios de la actualidad mundial, tal como se lleva a cabo en las sesiones oficiales de la ONU</description>
      <pubDate>Martes 6 de Enero del 2015</pubDate>
-<<<<<<< HEAD
  <dc:creator>&lt;a href=&quot;/users/moderadorblog&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/moderadorblog&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;moderadorblog&lt;/a&gt;</dc:creator>
-=======
- <dc:creator>&lt;a href=&quot;/users/superupc&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/superupc&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;superupc&lt;/a&gt;</dc:creator>
->>>>>>> 3f521d9f8378e67eabebb3ade17bcf1e1839b25e
  <guid isPermaLink="false">6234</guid>
   </item>
   <item>
@@ -29,11 +25,7 @@
     <link>http://betablogs.upc.edu.pe//noticias-pregrado/facultades-y-alumnos/facultad-de-comunicaciones-upc-destaco-en-el-concurso-etecom</link>
     <description>El pasado mes noviembre se realizó la décima edición del Concurso Estímulo Telefónica a la Comunicación - ETECOM 2014, organizado por Telefónica del Perú. Este concurso premia a los mejores trabajos periodísticos realizados por estudiantes universitarios a nivel nacional.</description>
      <pubDate>Jueves 18 de Diciembre del 2014</pubDate>
-<<<<<<< HEAD
  <dc:creator>&lt;a href=&quot;/users/moderadorblog&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/moderadorblog&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;moderadorblog&lt;/a&gt;</dc:creator>
-=======
- <dc:creator>&lt;a href=&quot;/users/superupc&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/superupc&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;superupc&lt;/a&gt;</dc:creator>
->>>>>>> 3f521d9f8378e67eabebb3ade17bcf1e1839b25e
  <guid isPermaLink="false">6232</guid>
   </item>
   <item>
@@ -69,20 +61,20 @@
  <guid isPermaLink="false">5078</guid>
   </item>
   <item>
-    <title>Carrera de Comunicación y Periodismo de la UPC logra su tercera Acreditación Internacional del CLAEP</title>
-    <link>http://betablogs.upc.edu.pe//noticias-pregrado/facultades-y-alumnos/carrera-de-comunicacion-y-periodismo-de-la-upc-logra-su</link>
-    <description>Por tercera vez consecutiva, la UPC demuestra su compromiso con el más alto estándar de calidad académica internacional en Periodismo.</description>
-     <pubDate>Viernes 24 de Octubre del 2014</pubDate>
- <dc:creator>&lt;a href=&quot;/users/moderadorblog&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/moderadorblog&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;moderadorblog&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">5074</guid>
-  </item>
-  <item>
     <title>Equipo de Ingeniería de Software y de Sistemas de Información de la UPC logra cuarto lugar en competencia mundial CyberLympics</title>
     <link>http://betablogs.upc.edu.pe//noticias-pregrado/facultades-y-alumnos/equipo-de-ingenieria-de-software-y-de-sistemas-de-informacion</link>
     <description>Un equipo conformado por cinco representantes de las carreras de Ingeniería de Software e Ingeniería de Sistemas de Información de la Universidad Peruana de Ciencias Aplicadas (UPC), denominado ‘HoneyBadgERS’, obtuvo el cuarto lugar en la competencia mundial Global CyberLympics, organizada por la Fundación EC-Council.</description>
      <pubDate>Viernes 24 de Octubre del 2014</pubDate>
  <dc:creator>&lt;a href=&quot;/users/moderadorblog&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/moderadorblog&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;moderadorblog&lt;/a&gt;</dc:creator>
  <guid isPermaLink="false">5075</guid>
+  </item>
+  <item>
+    <title>Carrera de Comunicación y Periodismo de la UPC logra su tercera Acreditación Internacional del CLAEP</title>
+    <link>http://betablogs.upc.edu.pe//noticias-pregrado/facultades-y-alumnos/carrera-de-comunicacion-y-periodismo-de-la-upc-logra-su</link>
+    <description>Por tercera vez consecutiva, la UPC demuestra su compromiso con el más alto estándar de calidad académica internacional en Periodismo.</description>
+     <pubDate>Viernes 24 de Octubre del 2014</pubDate>
+ <dc:creator>&lt;a href=&quot;/users/moderadorblog&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/moderadorblog&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;moderadorblog&lt;/a&gt;</dc:creator>
+ <guid isPermaLink="false">5074</guid>
   </item>
   <item>
     <title>UPC recibió importante reconocimiento en la Semana Nacional de la Calidad 2014</title>
