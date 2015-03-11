@@ -47,7 +47,10 @@
                     </div>  
                     <div class="panel-table">
                       <ul class="tr">
-                        <p class="p-14 helvetica-16">{description}</p>
+                        <p class="p-14 helvetica-16">
+                          {exp:char_limit total="150" exact="no"}
+                          {description}
+                          {/exp:char_limit}...</p>
                       </ul>
                     </div>
                     <div class="panel-footer">
