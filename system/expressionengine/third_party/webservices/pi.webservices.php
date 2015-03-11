@@ -3495,8 +3495,8 @@ class Webservices
           $result .= '</ul>';
         }
       }
-      $result .= '<span class="arrow-icon info"></span>';  
-      $result .= '<div class="zizou-18"><a class="sb-link" href="#" target="_blank">Ir a Cancelar Reserva</a></div>';        
+      $result .= '<a class="sb-link" href="#" target="_blank"><span class="arrow-icon info"></span>';  
+      $result .= '<div class="zizou-18">Ir a Cancelar Reserva</div></a>';        
       $result .= '</div>';  
       $result .= '</div>'; 
       //Control de errores
