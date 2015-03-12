@@ -1,3 +1,6 @@
+{if segment_2_category_id == ''}
+  {redirect="404"}
+{/if}
 {embed="includes/head"}
 {exp:webservices:iniciar_session}
 {exp:webservices:verificar_usuario}

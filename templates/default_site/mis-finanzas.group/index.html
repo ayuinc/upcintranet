@@ -1,3 +1,6 @@
+{if segment_2_category_id == ''}
+  {redirect="404"}
+{/if}
 {embed="includes/head"}
 {exp:webservices:iniciar_session}
 {exp:webservices:verificar_usuario}
@@ -32,6 +35,7 @@
           <div class="col-sm-8 pt-0">
             <span class="title-no-panel">¿Qué deseas hacer?</span>
             <div class="row">
+              "asdasdasdasdasd"{segment_2_category_id}"asdsadsadasasdadasd"
 	            {exp:channel:entries 
 	            	channel="referencias" 
 	            	limit="10" 
