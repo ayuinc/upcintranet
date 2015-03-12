@@ -33,22 +33,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <div class="panel-table otras-acciones">
-                  <ul class="tr">
-                    <a href="{site_url}mis-estudios/mis-talleres/">
-                      <li class="pl-7 mb-7 bg-muted col-sm-12">
-                        <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/red_arrow_normal_tiny.png">Ver todos</span>
-                      </li>
-                    </a>
-                    {exp:channel:categories category_group="5" style="linear"}
-                    <a href="{site_url}mis-estudios/mis-talleres/{category_url_title}">
-                      <li class="pl-7 mb-7 bg-muted col-sm-12">
-                        <span class="zizou-14"><img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">{category_name}</span>
-                      </li>
-                    </a>
-                    {/exp:channel:categories}
-                  </ul>
-                </div>
+                {embed="includes/temas-talleres"}
               </div>
             </div>
           </div>
