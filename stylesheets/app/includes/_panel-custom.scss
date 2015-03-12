@@ -84,7 +84,7 @@
 			padding-top: 14px; //agregado para canales
 			padding-left: 14px; //agregado para canales
 			&.tall {
-				min-height: 70px;
+				min-height: 70px !important;
 				// padding: 7px;
 			}
 			&.left {
