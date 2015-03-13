@@ -21,7 +21,7 @@ $config['cp_url'] = 'http://upcintranet.dev/admin.php';
 $config['doc_url'] = 'http://ellislab.com/expressionengine/user-guide/';
 $config['is_system_on'] = 'y';
 $config['allow_extensions'] = 'y';
-$config['cookie_prefix'] = 'im_';
+$config['cookie_prefix'] = '';
 $config['cookie_httponly'] = 'y';
 $config['disable_csrf_protection'] = 'y';
 
