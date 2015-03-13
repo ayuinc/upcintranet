@@ -9,25 +9,20 @@
                     <ul class="tr">
                       <a href="">
                         <li class="bg-muted p-7 mb-7">
-                          <div class="custom-icon print">{exp:printfriendly:button}</div>
-                        </li>
-                      </a>
-                      <a href="">
-                        <li class="bg-muted p-7 mb-7">
                           <div class="custom-icon print"></div>
-                          <div class="zizou-16">Imprimir detalles</div>
+                          <div class="zizou-16">Imprimir detalles {exp:printfriendly:button disable_pdf="yes" disable_email="yes" }</div>
                         </li>
                       </a>
                       <a href="">
                         <li class="bg-muted p-7 mb-7">
                           <div class="custom-icon danger pdf"></div>
-                          <div class="zizou-16">Descargar en PDF</div>
+                          <div class="zizou-16">Descargar en PDF {exp:printfriendly:button disable_email="yes" disable_print="yes" }</div>
                         </li>
                       </a>
                       <a href="">
                         <li class="bg-muted p-7 mb-7">
                           <div class="custom-icon danger mail"></div>
-                          <div class="zizou-16">Enviar a mi Correo UPC</div>
+                          <div class="zizou-16">Enviar a mi Correo UPC {exp:printfriendly:button disable_pdf="yes" disable_print="yes" }</div>
                         </li>
                       </a>
                     </ul>
