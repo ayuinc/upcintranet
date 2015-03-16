@@ -48,3 +48,9 @@
 	@include serif-book;
 	font-size: 14px;
 }
+// error validation 
+label.error {
+	@include alt-book;
+	color:$brand-danger;
+	text-align: left;
+}

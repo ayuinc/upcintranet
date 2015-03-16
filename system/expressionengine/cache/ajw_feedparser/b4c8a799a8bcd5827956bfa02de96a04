@@ -1,25 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="http://betablogs.upc.edu.pe/blog/feed/52" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:fb="http://ogp.me/ns/fb#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
-  <channel>
-    <title>UPC Blogs - Universidad Peruana de Ciencias Aplicadas</title>
-    <link>http://betablogs.upc.edu.pe/blog/feed/52</link>
-    <description></description>
-    <language>es</language>
-          <item>
-    <title>¿Estás listo para el primer Viernes Cultural del 2015-1?</title>
-    <link>http://betablogs.upc.edu.pe//vida-universitaria/deportes/estas-listo-para-el-primer-viernes-cultural-del-2015-1</link>
-    <description>Empezamos el Horario Cultural con actividades para todos los gustos.
-Revisa la agenda de este primer viernes. ¡Te esperamos!</description>
-     <pubDate>Jueves 22 de Enero del 2015</pubDate>
- <dc:creator>&lt;a href=&quot;/users/aalcazar&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/aalcazar&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;aalcazar&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">5447</guid>
-  </item>
-  <item>
-    <title>Voluntariado Universitario Lima 2014</title>
-    <link>http://betablogs.upc.edu.pe//vida-universitaria/voluntariados/voluntariado-universitario-lima-2014</link>
-    <description>El Instituto Bartolomé de las Casas abre su convocatoria para el Voluntariado Universitario de Lima 2014.</description>
-     <pubDate>Jueves 10 de Julio del 2014</pubDate>
- <dc:creator>&lt;a href=&quot;/users/moderadorblog&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/moderadorblog&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;moderadorblog&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">3626</guid>
-  </item>
-  </channel>
-</rss>
+
+Parse error: syntax error, unexpected ')' in /var/www/www.upc.edu.pe/upccode/drupal/sites/default/modules/menu_drupal/menu_drupal.module on line 103
+
+Call Stack:
+    0.0000     230160   1. {main}() /var/www/www.upc.edu.pe/upccode/drupal/index.php:0
+    0.0002     253000   2. drupal_bootstrap() /var/www/www.upc.edu.pe/upccode/drupal/index.php:20
+    0.0286    6208928   3. _drupal_bootstrap_full() /var/www/www.upc.edu.pe/upccode/drupal/includes/bootstrap.inc:2278
+    0.0294    6503096   4. module_load_all() /var/www/www.upc.edu.pe/upccode/drupal/includes/common.inc:5162
+    0.0430    9193152   5. drupal_load() /var/www/www.upc.edu.pe/upccode/drupal/includes/module.inc:24
+

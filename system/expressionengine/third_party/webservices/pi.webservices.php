@@ -2907,7 +2907,7 @@ class Webservices
       $tamano = count($json['Sedes']);
       $result .= '<div class="text-left helvetica-16 gray-main">Sede</div>';
       $result .= '<select name="CodSede" id="CodSede" class="reservas-select arrow form-control">';
-      $result .= '<option>Selecciona una sede</option>';      
+      $result .= '<option value="" disabled selected>Selecciona una sede</option>';      
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<option value="'.$json['Sedes'][$i]['key'].'">';
         $result .= $json['Sedes'][$i]['sede'];
@@ -2950,7 +2950,8 @@ class Webservices
 
         $tamano_int = count($json['Sedes'][$i]['espacios']);
         $result .= '<select name="CodED" class="reservas-select arrow form-control" id="sede-'.$json['Sedes'][$i]['key'].'">';
-        $result .= '<option>Seleccionar espacio</option>'; 
+
+        $result .= '<option value="" disabled selected>Seleccionar espacio</option>'; 
           for ($a=0; $a<$tamano_int; $a++) {
             $result .= '<option value="'.$json['Sedes'][$i]['espacios'][$a]['codigo'].'">';
             $result .= $json['Sedes'][$i]['espacios'][$a]['nombre'];
@@ -3495,8 +3496,8 @@ class Webservices
           $result .= '</ul>';
         }
       }
-      $result .= '<a class="sb-link" href="#" target="_blank"><span class="arrow-icon info"></span>';  
-      $result .= '<div class="zizou-18">Ir a Cancelar Reserva</div></a>';        
+      $result .= '<a class="sb-link" href="#" target="_blank">';  
+      $result .= '<div class="zizou-18 pl-14 pb-14">Ir a Cancelar Reserva</div></a>';        
       $result .= '</div>';  
       $result .= '</div>'; 
       //Control de errores
