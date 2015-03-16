@@ -32,10 +32,10 @@
           <div class="col-sm-8 resultados">
             <span class="zizou-26">Se han encontrado {exp:search:total_results} resultados para "{exp:search:keywords}"</span>
             <div class="resultados-busqueda red-line bg-muted">
-              {exp:search:search_results}
               <script>
                 ga('send', 'pageview', '/buscar?q={exp:search:keywords}');
               </script>
+              {exp:search:search_results}
               <div class="panel-body p-14">
                 <div class="solano-bold-20 black-text">{count}.&nbsp;{title}</div>   
                 <div class="helvetica-16">

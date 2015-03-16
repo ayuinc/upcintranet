@@ -17,13 +17,18 @@
         </div>
         <div class="header-iframe clearfix">
           <div class="pull-left pl-28 pt-7">
-              <div class="solano-bold-24">CÓMO VER MI SITUACIÓN ACADÉMICA ACTUAL EN <span class="text-info">SÓCRATES</span></div>
+          {exp:channel:entries 
+            channel="referencias" 
+            limit="1" 
+          }
+              <div class="solano-bold-24">{title}</div>
               <div class="zizou-20">{embed:ruta}</div>
           </div>
           <div class="pull-right text-center bg-muted">
             <img src="{site_url}assets/img/back.png" class="img-center mb-7" alt="">
             <a class="p-7" href="{site_url}dashboard/estudiante"><span class="solano-16">Regresar a mi Intranet</span></a>
           </div>
+          {/exp:channel:entries}
         </div>
       </div>
     </div>
