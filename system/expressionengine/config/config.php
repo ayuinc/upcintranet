@@ -21,7 +21,7 @@ $config['cp_url'] = 'http://upcintranet.dev/admin.php';
 $config['doc_url'] = 'http://ellislab.com/expressionengine/user-guide/';
 $config['is_system_on'] = 'y';
 $config['allow_extensions'] = 'y';
-$config['cookie_prefix'] = '';
+$config['cookie_prefix'] = "upc_";
 $config['cookie_httponly'] = 'y';
 $config['disable_csrf_protection'] = 'y';
 
@@ -29,7 +29,7 @@ $config['disable_csrf_protection'] = 'y';
 $config['site_url'] = $base_url . "/";
 $config['server_path'] = FCPATH;
 $config['site_index'] = '';
-$config['cookie_prefix'] = '';
+$config['cookie_prefix'] = "upc_";
 $config['theme_folder_url'] = $config['site_url']."/themes/";
 $config['theme_folder_path'] = $config['server_path']."/themes/";
 $config['save_tmpl_files'] = "y";
