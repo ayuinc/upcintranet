@@ -3177,7 +3177,7 @@ class Webservices
       $HoraIni = intval($HoraIni);
       $HoraFin = intval($HoraIni) + intval($canhoras);
       //$HoraFin = ee()->TMPL->fetch_param('HoraFin');
-      var_dump($HoraIni);
+      //var_dump($HoraIni);
       $HoraIni = intval($HoraIni);
       
       if($HoraIni < 10){
@@ -3211,9 +3211,9 @@ class Webservices
       
       if($error=='00000'){
         // $result .= '<div class="panel-body red-line">';
-        for ($i=0; $i<4; $i++) {  //Se desplegarán 4 resultados
+        for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
           //if($json['Recursos'][$i]['Estado'] == true){
-          if(true){
+          if($HoraIni >= intval(substr($json['Recursos'][$i]['HoraIni'], 0,2)) ){
             if ($i == 0) {
               $result .= '<div class="row pt-0 pl-14">'; // apertura
             }
@@ -3227,7 +3227,7 @@ class Webservices
             else if($tiporecurso == "CU"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-cubiculos" method="post" name="formrecurso-'.$i.'">';
             }
-            var_dump($json['Recursos'][$i]);
+            //var_dump($json['Recursos'][$i]);
             $fecha = substr($json['Recursos'][$i]['FecReserva'], 0,2).'-'.substr($json['Recursos'][$i]['FecReserva'], 2,2).'-'.substr($json['Recursos'][$i]['FecReserva'], 4,4);
             $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
             $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
