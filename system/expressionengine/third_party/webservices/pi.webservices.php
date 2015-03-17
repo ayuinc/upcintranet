@@ -3213,7 +3213,7 @@ class Webservices
         // $result .= '<div class="panel-body red-line">';
         for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
           //if($json['Recursos'][$i]['Estado'] == true){
-          if($HoraIni >= intval(substr($json['Recursos'][$i]['HoraIni'], 0,2)) ){
+          if($HoraIni <= intval(substr($json['Recursos'][$i]['HoraIni'], 0,2)) ){
             if ($i == 0) {
               $result .= '<div class="row pt-0 pl-14">'; // apertura
             }
