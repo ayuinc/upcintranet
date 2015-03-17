@@ -72,16 +72,16 @@ class Webservices
       $codigo = 'u412701';
       $contrasena = '8Ki#3Ygt';
       $contrasena = urlencode($contrasena);
-      var_dump($contrasena);
+      //var_dump($contrasena);
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
       
-      var_dump($url);
+      //var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
+      //var_dump($result);
       $json = json_decode($result, true);
       setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
       //setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
@@ -90,7 +90,7 @@ class Webservices
       //INICIAR SESSION
 
       if (strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
-        //redirect('/login/error_login');
+        redirect('/login/error_login');
       } 
       else {
         ee()->db->select('*');
