@@ -56,22 +56,22 @@
 			}
 			&.footer {
 				line-height: 1;
-				// position: fixed;
-				// bottom: 0;
-				// left: 0;
+				position: fixed;
+				bottom: 0;
+				left: 0;
 				width: 100%;
-				padding-bottom: 14px;
-				@media #{$xs-up} {
-					padding-right: 56px;
-					padding-left: 56px;
-					.col-xs-8 {
-						padding-top: 28px;
-						text-align: left; 
-					}
-				}
-				@media #{$xs-only} {
-					padding-top: 49px;
-				}
+				// padding-bottom: 14px;
+				// @media #{$xs-up} {
+				// 	padding-right: 56px;
+				// 	padding-left: 56px;
+				// 	.col-xs-8 {
+				// 		padding-top: 28px;
+				// 		text-align: left; 
+				// 	}
+				// }
+				// @media #{$xs-only} {
+				// 	padding-top: 49px;
+				// }
 			}
 		}
 	}
