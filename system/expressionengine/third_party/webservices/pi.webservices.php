@@ -170,27 +170,9 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $TipoUser = $row->tipouser;
         $token = $row->token;
-      }
-
-      //$TipoUser = $_SESSION["TipoUser"];
-      //$token = $_SESSION["Token"];
-      
+      }    
       $result = '';
-      
       if (strval($TipoUser)=='ALUMNO') {
-        //header('Location: '.'{site_url}/dashboard/estudiante');
-        /*$result .= '<ul class="tr pb-7">';
-        $result .= '<li class="col-sm-2"></li>';
-        $result .= '<li class="col-sm-8 bg-muted">';
-        $result .= '<div>';
-        $result .= '<span class="zizou-14">';
-        $result .= '<a href="{site_url}dashboard/estudiante">'.$_COOKIE["Codigo"];
-        $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Alumno';
-        $result .= '</a>';
-        $result .= '</span>';
-        $result .= '</div>';
-        $result .= '</li>';
-        $result .= '</ul> ';*/
         $result .= '{redirect="dashboard/estudiante" status_code="301"}';
         return $result;     
       }
@@ -235,7 +217,6 @@ class Webservices
         $result .= '</li>';
         }
         $result .= '</ul>';
-        
         return $result;             
       }  
                     
