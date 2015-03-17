@@ -68,7 +68,9 @@ class Webservices
       $codigo = ee()->TMPL->fetch_param('codigo');
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
-      $url = urlencode($contrasena);
+      //$url = urlencode($contrasena);
+      $codigo = 'u412701';
+      $contrasena = '8Ki#3Ygt';
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
       
       var_dump($url);
@@ -77,6 +79,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      var_dump($result);
       $json = json_decode($result, true);
       setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
       //setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
