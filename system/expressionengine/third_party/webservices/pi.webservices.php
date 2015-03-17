@@ -68,9 +68,9 @@ class Webservices
       $codigo = ee()->TMPL->fetch_param('codigo');
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
-      
+      $url = urlencode($contrasena);
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
-      $url = urlencode($url);
+      
       var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
