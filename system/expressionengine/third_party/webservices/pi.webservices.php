@@ -3177,7 +3177,7 @@ class Webservices
       $HoraIni = intval($HoraIni);
       $HoraFin = intval($HoraIni) + intval($canhoras);
       //$HoraFin = ee()->TMPL->fetch_param('HoraFin');
-      
+      var_dump($HoraIni);
       $HoraIni = intval($HoraIni);
       
       if($HoraIni < 10){
