@@ -68,29 +68,18 @@ class Webservices
       $codigo = ee()->TMPL->fetch_param('codigo');
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
-      //$url = urlencode($contrasena);
-      //$codigo = 'u412701';
-      //$contrasena = '8Ki#3Ygt';
-      //$contrasena = urlencode($contrasena);
-      //var_dump($contrasena);
+      $contrasena = urlencode($contrasena);
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
-      
-      //var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
-      //setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
       $_SESSION["CodError"] = $json['CodError'];
       $_SESSION["MsgError"] = $json['MsgError'];
-      //INICIAR SESSION
-
       if (strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
-        redirect('/login/error_login');
       } 
       else {
         ee()->db->select('*');
@@ -117,8 +106,6 @@ class Webservices
           ee()->db->where('codigo', $codigo);
           ee()->db->update('exp_user_upc_data', $user_upc_update);
         }
-        
-
         $_COOKIE["Codigo"] = $json['Codigo'];
         setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
         $_SESSION["Codigo"] = $json['Codigo'];
@@ -156,7 +143,6 @@ class Webservices
 
     // CONSULTAR ORDEN DE MERITO ALUMNO
     public function consultar_orden_de_merito_alumno(){
-      //$codigo = $_SESSION["Codigo"];
       $codigo =  $_COOKIE["Codigo"];
       $_COOKIE["Codigo"] =  $codigo;
       setcookie("Codigo",$codigo, time() + (1800), "/");
@@ -168,20 +154,6 @@ class Webservices
         $TipoUser = $row->tipouser;
         $token = $row->token;
       }
-      /*
-      $data_string = json_encode($data, true);
-      $url = 'http://190.41.141.198/Infhotel/ServiceReservaWeb.svc/InsertReserva';
-      $ch = curl_init($url);
-      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data_string)); 
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);     
-      curl_setopt($ch, CURLOPT_URL,$url);
-      curl_setopt($ch, CURLOPT_HTTPHEADER,array(
-          'Content-Type: application/json', 'charset=utf-8')
-      ); 
-      $result = curl_exec($ch);
-      curl_close($ch);*/
-
     }
 
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
@@ -198,27 +170,9 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $TipoUser = $row->tipouser;
         $token = $row->token;
-      }
-
-      //$TipoUser = $_SESSION["TipoUser"];
-      //$token = $_SESSION["Token"];
-      
+      }    
       $result = '';
-      
       if (strval($TipoUser)=='ALUMNO') {
-        //header('Location: '.'{site_url}/dashboard/estudiante');
-        /*$result .= '<ul class="tr pb-7">';
-        $result .= '<li class="col-sm-2"></li>';
-        $result .= '<li class="col-sm-8 bg-muted">';
-        $result .= '<div>';
-        $result .= '<span class="zizou-14">';
-        $result .= '<a href="{site_url}dashboard/estudiante">'.$_COOKIE["Codigo"];
-        $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Alumno';
-        $result .= '</a>';
-        $result .= '</span>';
-        $result .= '</div>';
-        $result .= '</li>';
-        $result .= '</ul> ';*/
         $result .= '{redirect="dashboard/estudiante" status_code="301"}';
         return $result;     
       }
@@ -263,7 +217,6 @@ class Webservices
         $result .= '</li>';
         }
         $result .= '</ul>';
-        
         return $result;             
       }  
                     
