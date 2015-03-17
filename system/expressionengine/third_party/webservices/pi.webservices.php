@@ -88,7 +88,7 @@ class Webservices
       //INICIAR SESSION
 
       if (strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
-        redirect('/login/error_login');
+        //redirect('/login/error_login');
       } 
       else {
         ee()->db->select('*');
