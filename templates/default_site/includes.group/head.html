@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8">
     {if embed:keywords == ""}
-        <title>INTRANET UPC {exp:channel:entries limit="1" url_title="{segment_2}"} | {title}{/exp:channel:entries}</title>
+        <title>{exp:channel:entries limit="1" url_title="{segment_2}"}{title} | {/exp:channel:entries}INTRANET UPC</title>
     {if:else}
         <title>{embed:keywords} - Buscar | INTRANET UPC</title>
     {/if}
