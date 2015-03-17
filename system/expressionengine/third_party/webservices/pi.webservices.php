@@ -71,6 +71,8 @@ class Webservices
       //$url = urlencode($contrasena);
       $codigo = 'u412701';
       $contrasena = '8Ki#3Ygt';
+      $contrasena = urlencode($contrasena);
+      var_dump($contrasena);
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
       
       var_dump($url);
