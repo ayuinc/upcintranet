@@ -72,19 +72,19 @@ class Webservices
       //$url = urlencode($contrasena);
       //$codigo = 'u412701';
       //$contrasena = '8Ki#3Ygt';
-      $contrasena = to_utf8($Contrasena);
+      $contrasena = to_utf8($contrasena);
       var_dump($contrasena);
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
-      https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo=U201421481&Contrasena=u201421481&Plataforma=C
+      //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo=U201421481&Contrasena=u201421481&Plataforma=C
 
-      //var_dump($url);
+      var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
+      var_dump($result);
       $json = json_decode($result, true);
       setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
       //setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
