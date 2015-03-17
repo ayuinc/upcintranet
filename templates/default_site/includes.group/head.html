@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8">
     {if embed:keywords == ""}
-        <title>{exp:channel:entries limit="1" url_title="{last_segment}"}{title} | {/exp:channel:entries}INTRANET UPC</title>
+        <title>{exp:channel:entries limit="1" url_title="{last_segment}" category="{last_segment_category_id}" }{title} | {/exp:channel:entries}INTRANET UPC</title>
     {if:else}
         <title>{embed:keywords} - Buscar | INTRANET UPC</title>
     {/if}
 
-    <meta name="test" content "{last_segment}"/ >
+    <meta name="test" content="{last_segment}"/ >
     <!-- Project SEO -->
     <meta name="description" content="">
     <meta name="keywords" content="" /> 
