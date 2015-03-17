@@ -68,13 +68,16 @@ class Webservices
       $codigo = ee()->TMPL->fetch_param('codigo');
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
+      
       //$url = urlencode($contrasena);
       //$codigo = 'u412701';
       //$contrasena = '8Ki#3Ygt';
-      //$contrasena = urlencode($contrasena);
-      //var_dump($contrasena);
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
+      $contrasena = to_utf8($Contrasena);
+      var_dump($contrasena);
       
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
+      https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo=U201421481&Contrasena=u201421481&Plataforma=C
+
       //var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -90,7 +93,7 @@ class Webservices
       //INICIAR SESSION
 
       if (strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
-        redirect('/login/error_login');
+        //redirect('/login/error_login');
       } 
       else {
         ee()->db->select('*');
