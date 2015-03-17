@@ -3227,6 +3227,7 @@ class Webservices
             else if($tiporecurso == "CU"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-cubiculos" method="post" name="formrecurso-'.$i.'">';
             }
+            var_dump($json['Recursos'][$i]);
             $fecha = substr($json['Recursos'][$i]['FecReserva'], 0,2).'-'.substr($json['Recursos'][$i]['FecReserva'], 2,2).'-'.substr($json['Recursos'][$i]['FecReserva'], 4,4);
             $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
             $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
