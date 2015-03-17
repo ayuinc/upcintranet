@@ -24,31 +24,36 @@
 			margin: 7px;
 			background-repeat: no-repeat;
 			background-position: center;
-			@media #{$xs-only} {
+			@media #{$md-down} {
 				height: 24px;
 				width: 24px;
 				margin: 7px;
 			}
+			@media #{$md-down} and (orientation: portrait) {
+				height: 20px;
+				width: 20px;
+				margin: 3px;
+			}
 			&.danger {
 				background-image:url("../assets/img/red_arrow_normal.png");
-				@media #{$xs-only} {
+				@media #{$md-down} {
 					background-image:url("../assets/img/red_arrow_normal_tiny.png");
 				}
 				&:hover {
 					background-image:url("../assets/img/red_arrow_hover.png");
-				@media #{$xs-only} {
+				@media #{$md-down} {
 					background-image:url("../assets/img/red_arrow_hover_tiny.png");
 				}
 				}
 			}
 			&.info {
 				background-image:url("../assets/img/info_arrow_normal.png");
-				@media #{$xs-only} {
+				@media #{$md-down} {
 					background-image:url("../assets/img/info_arrow_normal_tiny.png");
 				}
 				&:hover {
 					background-image:url("../assets/img/info_arrow_hover.png");
-					@media #{$xs-only} {
+					@media #{$md-down} {
 						background-image:url("../assets/img/info_arrow_hover_tiny.png");
 					}
 				}
@@ -197,12 +202,6 @@
 						li {
 							&#pagos-placeholder {
 								min-height: 70px;
-								span {
-									display: block;
-									@include serif-book;
-									font-size: 14px;
-									color:$brand-danger;
-									}
 							}
 							cursor: pointer;
 							h3 {
