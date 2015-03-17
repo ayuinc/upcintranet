@@ -3242,6 +3242,7 @@ class Webservices
             $i--;
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['Local'].'</div>';
             $result .= '<div class="zizou-16">'.$fecha.'</div>';
+            $result .= '<div class="zizou-16">'.$HoraIni.'-'.$HoraFin.'</div>';
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
             $result .= '<input type="submit" class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
             $result .= '</form>'; 
