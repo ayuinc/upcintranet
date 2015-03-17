@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8">
     {if embed:keywords == ""}
-        {if segment_2 == "general"}
+        {if segment_1 == "general"}
           <title>{exp:channel:entries channel="seccion" limit="1" category="46"}{title} | {/exp:channel:entries}INTRANET UPC</title>
         {if:else}
           <title>{exp:channel:entries limit="1" url_title="{last_segment}"}{title} | {/exp:channel:entries}INTRANET UPC</title>
