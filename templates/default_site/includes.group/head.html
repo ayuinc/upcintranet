@@ -7,9 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8">
     {if embed:keywords == ""}
-        {if segment_1 == "general"}
-          <title>{exp:channel:entries limit="1" url_title="{last_segment}"}Información General | {title} | {/exp:channel:entries}INTRANET UPC</title>
-        {if:else}
+        {if last_segment == "todos-los-servicios"}
+          <title>Todos los servicios | INTRANET UPC</title>
+        {/if}
+        {if last_segment == "reglamentos-y-manuales"}
+          <title>Reglamentos y manuales | INTRANET UPC</title>
+        {/if}
+        {if last_segment != "reglamentos-y-manuales" && last_segment last_segment != "todos-los-servicios" }
           <title>{exp:channel:entries limit="1" url_title="{last_segment}"}{title} | {/exp:channel:entries}INTRANET UPC</title>
         {/if}
     {if:else}
