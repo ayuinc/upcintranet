@@ -26,22 +26,18 @@ $(document).ready(function(){
 	$("#computadoras-form").validate({
 		// Specify the validation rules
     rules: {
-      FechaIni: "required",
       CodSede: "required",
-      CodEd: "required",
       CanHoras: "required",
       HoraIni: "required",
+      FecIni: "required",
     },
     // Specify the validation error messages
     messages: {
-        FechaIni: {
+        FecIni: {
             required: "Debes seleccionar una fecha",
         },
         CodSede: {
             required: "Debes seleccionar una sede",
-        },
-        CodEd: {
-            required: "Debes seleccionar un espacio",
         },
         CanHoras: {
             required: "Debes seleccionar la cantidad de horas",
