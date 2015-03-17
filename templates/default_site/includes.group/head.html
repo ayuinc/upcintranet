@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     {if embed:keywords == ""}
         {if segment_1 == "general"}
-          <title>{exp:channel:entries channel="seccion" limit="1" category="46" url_title="{last_segment}"}{title} | {/exp:channel:entries}INTRANET UPC</title>
+          <title>{exp:channel:entries channel="seccion" limit="1" category="{segment_3_category_id}"}{title} | {/exp:channel:entries}INTRANET UPC</title>
         {if:else}
           <title>{exp:channel:entries limit="1" url_title="{last_segment}"}{title} | {/exp:channel:entries}INTRANET UPC</title>
         {/if}
