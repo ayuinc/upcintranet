@@ -68,29 +68,18 @@ class Webservices
       $codigo = ee()->TMPL->fetch_param('codigo');
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
-      //$url = urlencode($contrasena);
-      //$codigo = 'u412701';
-      //$contrasena = '8Ki#3Ygt';
-      //$contrasena = urlencode($contrasena);
-      //var_dump($contrasena);
+      $contrasena = urlencode($contrasena);
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
-      
-      //var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
-      //setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
       $_SESSION["CodError"] = $json['CodError'];
       $_SESSION["MsgError"] = $json['MsgError'];
-      //INICIAR SESSION
-
       if (strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
-        redirect('/login/error_login');
       } 
       else {
         ee()->db->select('*');
@@ -117,8 +106,6 @@ class Webservices
           ee()->db->where('codigo', $codigo);
           ee()->db->update('exp_user_upc_data', $user_upc_update);
         }
-        
-
         $_COOKIE["Codigo"] = $json['Codigo'];
         setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
         $_SESSION["Codigo"] = $json['Codigo'];
@@ -156,7 +143,6 @@ class Webservices
 
     // CONSULTAR ORDEN DE MERITO ALUMNO
     public function consultar_orden_de_merito_alumno(){
-      //$codigo = $_SESSION["Codigo"];
       $codigo =  $_COOKIE["Codigo"];
       $_COOKIE["Codigo"] =  $codigo;
       setcookie("Codigo",$codigo, time() + (1800), "/");
@@ -168,20 +154,6 @@ class Webservices
         $TipoUser = $row->tipouser;
         $token = $row->token;
       }
-      /*
-      $data_string = json_encode($data, true);
-      $url = 'http://190.41.141.198/Infhotel/ServiceReservaWeb.svc/InsertReserva';
-      $ch = curl_init($url);
-      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data_string)); 
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);     
-      curl_setopt($ch, CURLOPT_URL,$url);
-      curl_setopt($ch, CURLOPT_HTTPHEADER,array(
-          'Content-Type: application/json', 'charset=utf-8')
-      ); 
-      $result = curl_exec($ch);
-      curl_close($ch);*/
-
     }
 
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
@@ -198,27 +170,9 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $TipoUser = $row->tipouser;
         $token = $row->token;
-      }
-
-      //$TipoUser = $_SESSION["TipoUser"];
-      //$token = $_SESSION["Token"];
-      
+      }    
       $result = '';
-      
       if (strval($TipoUser)=='ALUMNO') {
-        //header('Location: '.'{site_url}/dashboard/estudiante');
-        /*$result .= '<ul class="tr pb-7">';
-        $result .= '<li class="col-sm-2"></li>';
-        $result .= '<li class="col-sm-8 bg-muted">';
-        $result .= '<div>';
-        $result .= '<span class="zizou-14">';
-        $result .= '<a href="{site_url}dashboard/estudiante">'.$_COOKIE["Codigo"];
-        $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow.png">Ingrese como Alumno';
-        $result .= '</a>';
-        $result .= '</span>';
-        $result .= '</div>';
-        $result .= '</li>';
-        $result .= '</ul> ';*/
         $result .= '{redirect="dashboard/estudiante" status_code="301"}';
         return $result;     
       }
@@ -263,7 +217,6 @@ class Webservices
         $result .= '</li>';
         }
         $result .= '</ul>';
-        
         return $result;             
       }  
                     
@@ -3224,7 +3177,7 @@ class Webservices
       $HoraIni = intval($HoraIni);
       $HoraFin = intval($HoraIni) + intval($canhoras);
       //$HoraFin = ee()->TMPL->fetch_param('HoraFin');
-      
+      //var_dump($HoraIni);
       $HoraIni = intval($HoraIni);
       
       if($HoraIni < 10){
@@ -3258,9 +3211,9 @@ class Webservices
       
       if($error=='00000'){
         // $result .= '<div class="panel-body red-line">';
-        for ($i=0; $i<4; $i++) {  //Se desplegarán 4 resultados
+        for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
           //if($json['Recursos'][$i]['Estado'] == true){
-          if(true){
+          if($HoraIni <= intval(substr($json['Recursos'][$i]['HoraIni'], 0,2)) ){
             if ($i == 0) {
               $result .= '<div class="row pt-0 pl-14">'; // apertura
             }
@@ -3274,6 +3227,7 @@ class Webservices
             else if($tiporecurso == "CU"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-cubiculos" method="post" name="formrecurso-'.$i.'">';
             }
+            //var_dump($json['Recursos'][$i]);
             $fecha = substr($json['Recursos'][$i]['FecReserva'], 0,2).'-'.substr($json['Recursos'][$i]['FecReserva'], 2,2).'-'.substr($json['Recursos'][$i]['FecReserva'], 4,4);
             $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />'; 
             $result .= '<input type="hidden" name="CodRecurso" value="'.$json['Recursos'][$i]['CodRecurso'].'" />';
@@ -3289,6 +3243,7 @@ class Webservices
             $i--;
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['Local'].'</div>';
             $result .= '<div class="zizou-16">'.$fecha.'</div>';
+            $result .= '<div class="zizou-16">'.substr($json['Recursos'][$i]['HoraIni'], 0,2).':'.substr($json['Recursos'][$i]['HoraIni'], 2,2).' - '.substr($json['Recursos'][$i]['HoraFin'], 0,2).':'.substr($json['Recursos'][$i]['HoraFin'], 2,2).'</div>';
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
             $result .= '<input type="submit" class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
             $result .= '</form>'; 
