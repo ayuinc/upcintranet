@@ -17,10 +17,8 @@
        <li class="parent"><a href="{site_url}dashboard/estudiante">Inicio</a></li>
      {exp:channel:entries channel="sidebar_estudiante" dynamic="off" orderby="date" sort="asc"}
        <li class="parent">
-         <a href="{url-root-item}">
-           <span>{title}</span>
-         </a>
-         {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
+        <span>{title}</span>
+        {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
        </li>
      {/exp:channel:entries}    
      <li class="parent"><a href="{site_url}">Datos Personales</a></li>
