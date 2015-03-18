@@ -4,6 +4,7 @@
 {exp:webservices:iniciar_session}
 {exp:webservices:verificar_usuario}
 {embed="includes/header"}
+{embed="includes/header_movil"}
 {embed="includes/sidebar"}
     <div class="site-content container">
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="91" }
@@ -23,7 +24,7 @@
           <div class="col-sm-1"></div>
           <div class="col-sm-3 que-buscas">
             <span class="zizou-26">¿Qué buscas?</span>
-            {exp:search:simple_form channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" result_page="buscar/index"}
+            {exp:search:simple_form form_class="clearfix" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" result_page="buscar/index"}
             <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco...">
             <button type="button" class="btn btn-custom black-btn" id="buscar-phr">BUSCAR</button>
             <input type="submit" value="submit" id="search-nh-submit" class="submit hidden">
@@ -66,5 +67,4 @@
             </div>
           </div>
         </div>
-      </div>
 {embed="includes/footer"}   
