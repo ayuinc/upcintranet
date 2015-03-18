@@ -639,7 +639,7 @@ class Webservices
                 $result .= '<li class="col-xs-3 p-7">';
                 $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
                 $result .= '</li>';
-                $result .= '<li class="text-center col-xs-8 p-14">';
+                $result .= '<li class="text-center col-xs-9 text-center p-21">';
                 $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
                 $result .= '</li>';
                 $result .= '</ul>';
@@ -659,7 +659,7 @@ class Webservices
         $result .= '<li class="col-xs-3 p-7">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
         $result .= '</li>';
-        $result .= '<li class="col-xs-8 p-14">';
+        $result .= '<li class="col-xs-9 text-center p-21">';
         $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';                
         $result .= '</li>';
         $result .= '</ul>';
@@ -1170,7 +1170,7 @@ class Webservices
          $result .= '<li class="col-xs-4">';
          $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
          $result .= '</li>';
-         $result .= '<li class="col-xs-6 text-center pt-21">';
+         $result .= '<li class="col-xs-7 text-center p-14">';
          $result .= '<p class="helvetica-14">No te encuentras matriculado en ningun curso en este ciclo</p>';
          $result .= '</li>';
          $result .= '</ul>';
@@ -1230,7 +1230,7 @@ class Webservices
         $result .= '<li class="col-xs-4">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
         $result .= '</li>';
-        $result .= '<li class="col-xs-6 text-center pt-21">';
+        $result .= '<li class="col-xs-7 text-center p-14">';
         $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';
         $result .= '</li>';
         $result .= '</ul>';
@@ -1810,12 +1810,12 @@ class Webservices
 
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-2">';
+        $result .= '<li class="col-sm-2 col-xs-3">';
         $result .= '<div class="black-text borderless">';
         $result .= '<span class="pl-7 helv-neue-16">FÓRMULA:</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-10">';
+        $result .= '<li class="col-sm-10 col-xs-9">';
         $result .= '<div class="black-text">';
         $result .= '<span class="ronnia-16">'.$json_int['Formula'].'</span>';
         $result .= '</div>';
@@ -1825,20 +1825,19 @@ class Webservices
         $result .= '<div class="panel-body-head-table pb-7 black-border-top">';
 
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-1">';
-
+        $result .= '<li class="col-sm-1 col-xs-2">';
         $result .= '<div class="br-gl"><span>Tipo</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-2">';
-        $result .= '<div><span>Número</span></div>';
+        $result .= '<li class="col-sm-2 col-xs-2">';
+        $result .= '<div class="br-gl"><span>Número</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-5">';
+        $result .= '<li class="col-sm-5 col-xs-4">';
         $result .= '<div class="br-gl"><span>Evaluación</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-2">';
+        $result .= '<li class="col-sm-2 col-xs-2">';
         $result .= '<div class="br-gl"><span>Peso</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-2">';
+        $result .= '<li class="col-sm-2 col-xs-2">';
         $result .= '<div><span>Nota</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
@@ -1851,27 +1850,27 @@ class Webservices
           $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
           $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
             
-          $result .= '<li class="col-xs-1">';
+          $result .= '<li class="col-sm-1 col-xs-2">';
           $result .= '<div class="text-center">';
           $result .= '<span class="helv-neue-16">'.$json_int['Notas'][$b]['NombreCorto'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2">';
+          $result .= '<li class="col-sm-2 col-xs-2">';
           $result .= '<div class="text-center">';
           $result .= '<span class="ronnia-16">'.$json_int['Notas'][$b]['NroEvaluacion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-5">';
+          $result .= '<li class="col-sm-5 col-xs-4">';
           $result .= '<div>';
           $result .= '<span class="helvetica-16">'.$json_int['Notas'][$b]['NombreEvaluacion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2">';
+          $result .= '<li class="col-sm-2 col-xs-2">';
           $result .= '<div class="text-center">';
           $result .= '<span class="ronnia-18">'.$json_int['Notas'][$b]['Peso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2">';
+          $result .= '<li class="col-sm-2 col-xs-2">';
           $result .= '<div class="borderless text-center">';
           $result .= '<span class="ronnia-18">'.$json_int['Notas'][$b]['Valor'].'</span>';
           $result .= '</div>';
@@ -4550,12 +4549,12 @@ class Webservices
         $result .= '</li>';
         $result .= '<li class="col-xs-4 helvetica-bold-14">';
         $result .= '<div class="text-center">';
-        $result .= '<span>{emitida-cuota format="%d/%m/%Y"}</span>';
+        $result .= '<span>{emitida-cuota format="%d/%m/%y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-4 helvetica-bold-14">';
         $result .= '<div class="text-center">';
-        $result .= '<span>{vence-cuota format="%d/%m/%Y"}</span>';
+        $result .= '<span>{vence-cuota format="%d/%m/%y"}</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul>';
