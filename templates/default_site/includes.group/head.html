@@ -8,7 +8,9 @@
     <meta charset="utf-8">
     {if embed:keywords == ""}
       {if last_segment}
-        <title>{exp:channel:entries limit="1" url_title="{last_segment}"}{title} | {/exp:channel:entries}INTRANET UPC}</title>
+        <title>{exp:channel:entries limit="1" url_title="{last_segment}"}{title} | {/exp:channel:entries}INTRANET UPC</title>
+      {if:else}
+        <title>INTRANET UPC</title>
       {/if}
     {if:else}
         <title>{embed:keywords} - Buscar | INTRANET UPC</title>
