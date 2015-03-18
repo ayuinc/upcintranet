@@ -41,47 +41,27 @@
 	margin: auto !important;
 }
 
-@for $h from 1 to 10 {
-  .mt--#{$h*7} {
-    margin-top: ($h*-7) + px!important;
-    margin-top: rem($h*-7)!important;
-  }
+$margins-paddings: ("p": "padding", "m": "margin", "pt": "padding-top", "pb": "padding-bottom", "pl": "padding-left", "pr": "padding-right", "mt": "margin-top", "mb": "margin-bottom", "ml": "margin-left", "mr": "margin-right");
+// \\ Negative Margins & Paddings
+@each $mp-class, $mp-property in $margins-paddings {
+	@for $h from -1 to -10 {
+	  .#{$mp-class}--#{$h*7} {
+	    #{$mp-property}: rem($h*7)!important;
+	    #{$mp-property}: ($h*7) + px !important;
+	  }
+	}
 }
 
-
-@for $h from -10 to 10 {
-  .mt-#{$h} {
-    margin-top: ($h) + px!important;
-    margin-top: rem($h)!important;
-  }
+// \\ Tiny Margins & Paddings
+@each $mp-class, $mp-property in $margins-paddings {
+	@for $h from 1 to 10 {
+	  .#{$mp-class}-#{$h} {
+	    #{$mp-property}: rem($h)!important;
+	    #{$mp-property}: ($h) + px !important;
+	  }
+	}
 }
 
-@for $h from -10 to -1 {
-  .mb-#{$h} {
-    margin-bottom: ($h) + px!important;
-    margin-bottom: rem($h)!important;
-  }
-}
-
-@for $h from 1 to 10 {
-  .mr-#{$h} {
-    margin-right: ($h) + px!important;
-    margin-right: rem($h)!important;
-  }
-}
-
-@for $h from 1 to 10 {
-  .pt-#{$h} {
-    padding-top: ($h) + px!important;
-    padding-top: rem($h)!important;
-  }
-}
-@for $h from 1 to 6 {
-  .pb-#{$h} {
-    padding-bottom: ($h) + px!important;
-    padding-bottom: rem($h)!important;
-  }
-}
 // Custom Buttons
 .btn-custom {
 	&.gray {
@@ -163,10 +143,16 @@
 	display: block;
 	margin: 0 auto;
 }
-// h2
+/*========================================
+=            h2ww               =
+========================================*/
 h2 {
-	@media #{$md-only} and (orientation:portrait) {
-		font-size: 16px;
-		font-size: rem(16px);
+	@media #{$lg-down} and (orientation:portrait) {
+		font-size: 22px !important;
+		font-size: rem(22px) !important;
+	}
+	@media #{$lg-down} and (orientation:landscape) {
+		font-size: 22px !important;
+		font-size: rem(22px) !important;
 	}
 }
