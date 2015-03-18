@@ -492,8 +492,10 @@
 
 	<script>
 		function PrintElem(elem)
-		{
-		    Popup($(elem).html());
+		{	
+			var section = $(elem);
+			section.css('background-image', 'assets/img/trama_xs.png');
+		    Popup(section.html());
 		}
 
 		function Popup(data) 
