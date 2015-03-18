@@ -15,7 +15,7 @@ function Popup(data)
 
     mywindow.document.close(); // necessary for IE >= 10
     mywindow.focus(); // necessary for IE >= 10
-
+    console.log("mywindow", mywindow);
     mywindow.print();
     mywindow.close();
 
