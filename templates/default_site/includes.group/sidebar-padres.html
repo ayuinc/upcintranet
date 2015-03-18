@@ -1,7 +1,11 @@
     <div class="site-menu hidden-xs">
       <ul class="list-unstyled nav-main">
         {exp:channel:entries channel="sidebar_padre" dynamic="off" orderby="date" sort="asc"}
-          <li class="{url_title} menu {if segment_1=='{url_title}'}current-menu{/if} sidebar-item">
+          {if segment_1==url_title} 
+          <li class="{url_title} menu current-menu sidebar-item">
+          {if:else}
+          <li class="{url_title} menu sidebar-item"> 
+          {/if}
             <a href="{url-root-item}">
               <div></div>
               <span>{title}</span>

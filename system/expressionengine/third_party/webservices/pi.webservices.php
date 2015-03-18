@@ -1220,7 +1220,7 @@ class Webservices
           
           $result .= '<div class="borderless text-center"><span>'.$nota.'</span></div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="zizou-12"><img class="mr-7" src="/assets/img/red_eye.png">Ver más</span></div></li>';
+          $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="red zizou-12"><img class="mr-7" src="/assets/img/red_eye.png">Ver más</span></div></li>';
           $result .= '</ul>';
         }
       }     
@@ -2472,7 +2472,11 @@ class Webservices
         $result = '<div class="panel-body info-border">';
         $result .= '<div class="panel-body-content text-left">';
         $result .= '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
-        $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';
+        if ($json['MsgError']=="Ud. no presenta deudas pendientes.") {
+          $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">Ud. no presenta deudas.</span>';          
+        } else {
+          $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';          
+        }
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
@@ -3213,17 +3217,12 @@ class Webservices
       
       if($error=='00000'){
         // $result .= '<div class="panel-body red-line">';
+        $result .= '<div class="row pt-0 pl-14">'; // apertura row
         for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
           //if($json['Recursos'][$i]['Estado'] == true){
           //if($HoraIni <= intval(substr($json['Recursos'][$i]['HoraIni'], 0,2)) ){
           if( true ) {
-            if ($i == 0) {
-              $result .= '<div class="row pt-0 pl-14">'; // apertura
-            }
-            if ($i == 2) {
-              $result .= '<div class="row mt-21 pl-14">'; // apertura
-            }
-            $result .= '<div class="col-sm-5 p-14 text-left red-line bg-muted">';    
+            $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';    
             if($tiporecurso == "CO"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-computadoras" method="post" name="formrecurso-'.$i.'">';
             }
@@ -3251,15 +3250,10 @@ class Webservices
             $result .= '<input type="submit" class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
             $result .= '</form>'; 
             $result .= '</div>';
-            if ($i == 0 || $i == 2) {
-              $result .= '<div class="col-sm-1"></div>'; // apertura
-            }
-            if ($i == 1 || $i == 3) {
-              $result .= '</div>'; // apertura
-            }
+            // $result .= '</div>'; // cierre row
           }
         }
-        // $result .= "</div>"; //cierre panel-body
+        $result .= "</div>"; //cierre panel-body
       }
       //Control de errores
       if ($error!='00000') {
