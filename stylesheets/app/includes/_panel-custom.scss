@@ -179,17 +179,13 @@
 					li {
 						padding-bottom: 7px !important;
 						background: white;
-						&.col-xs-2 {
+						&.curso-faltas, &.curso-promedio {
 							display: none;
+							cursor: pointer !important;
 						}
 						&.show-curso-detail {
 							cursor: pointer !important;
 						}	
-						&.curso-promedio {
-							div {
-								border-right: none;
-							}
-						}
 					}
 				}
 			}
@@ -230,9 +226,6 @@
 				}
 			}
 			.tr {
-				// a {
-				// 	color: black;
-				// }	
 				@include list-unstyled;
 				@include clearfix;
 				li {
