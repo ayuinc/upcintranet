@@ -10,15 +10,19 @@ $(document).ready(function(){
 		debtsPlaceholder.toggle();
   });
   $('.show-curso-detail').click(function () {
-		$(this).parent().find(".col-xs-2").toggle();
-		$(this).parent().find(".col-xs-4").toggle();
+		$(this).parent().find(".curso-faltas").toggle();
+		$(this).parent().find(".curso-promedio").toggle();
+		$(this).hide();
 	});
 	$('.curso-faltas').click(function () {
-		$(this).parent().find(".col-xs-4").toggle();
-		$(this).parent().find(".col-xs-2").toggle();
+		$(this).parent().find(".show-curso-detail").toggle();
+		$(this).parent().find(".curso-promedio").toggle();
+		$(this).hide();
+		// $(this).parent().find(".col-xs-2").toggle();
 	});
 	$('.curso-promedio').click(function () {
-		$(this).parent().find(".col-xs-4").toggle();
-		$(this).parent().find(".col-xs-2").toggle();
+		$(this).parent().find(".show-curso-detail").toggle();
+		$(this).parent().find(".curso-faltas").toggle();
+		$(this).hide();
 	});
 });
