@@ -3045,7 +3045,7 @@ class Webservices
         
         for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
           $hora_inicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
-          if($horaini < $hora_inicio){
+          if(substr($horaini,0,2) < $hora_inicio){
             if ($a == 0) {
               $result .= '<div class="row pt-0 pl-14">'; // apertura
             }
