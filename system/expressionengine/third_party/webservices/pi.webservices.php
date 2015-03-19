@@ -3134,10 +3134,10 @@ class Webservices
         $result .= '<div class="panel-body p-28">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
         $result .= '<span class="helvetica-16 text-info">'.$error_mensaje.'</span>';
-        $result .= '<a href="#">';
+        $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=506">';
         $result .= '<div class="bg-muted p-7 mb-7">';  
         $result .= '<div class="arrow-icon info"></div>';  
-        $result .= '<div class="zizou-18"><a class="sb-link" href="#" target="_blank">Ir a Cancelar Reserva</a></div>';        
+        $result .= '<div class="zizou-18 text-info">Ir a Cancelar Reserva</div>';        
         $result .= '</div>';
         $result .= '</a>';
         $result .= '</div>';
@@ -3328,12 +3328,12 @@ class Webservices
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
           $result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
-          $result .= '<a href="#">';
+          $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33">';
           $result .= '<div class="bg-muted p-7 mb-7">';
           $result .= '<div class="row">';  
           $result .= '<div class="col-xs-10">';  
           $result .= '<span class="arrow-icon info"></span>';  
-          $result .= '<div class="zizou-18"><a class="sb-link pl-7" href="#" target="_blank">Ir a Cancelar Reserva</a></div>';                
+          $result .= '<div class="zizou-18 text-info">Ir a Cancelar Reserva</div>';                
           $result .= '</div>';
           $result .= '</div>';
           $result .= '</a>';
@@ -3456,7 +3456,7 @@ class Webservices
           $result .= '</ul>';
         }
       }
-      $result .= '<a class="sb-link" href="#" target="_blank">';  
+      $result .= '<a class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">';  
       $result .= '<div class="zizou-18 pl-14 pb-14">Ir a Cancelar Reserva</div></a>';        
       $result .= '</div>';  
       $result .= '</div>'; 
