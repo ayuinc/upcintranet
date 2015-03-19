@@ -2992,6 +2992,24 @@ class Webservices
       //$fechafin = ee()->TMPL->fetch_param('fechafin');
       $fechafin = $fechaini;
       $segmento = ee()->TMPL->fetch_param('segmento');
+
+      $HoraIni = ee()->TMPL->fetch_param('HoraIni');
+      $HoraIni = intval($HoraIni);
+      $HoraFin = intval($HoraIni) + intval($numhoras);
+      
+      if($HoraIni < 10){
+        $HoraIni = '0'.$HoraIni.'00';
+      }
+      else{
+        $HoraIni = $HoraIni.'00';
+      }
+
+      if($HoraFin < 10){
+        $HoraFin = '0'.$HoraFin.'00';
+      }
+      else{
+        $HoraFin = $HoraFin.'00';
+      }
       
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
@@ -3025,7 +3043,8 @@ class Webservices
         
         // $result .='<div class="row">';
         
-        for ($a=0; $a< 4; $a++) {
+        for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
+          
           if ($a == 0) {
             $result .= '<div class="row pt-0 pl-14">'; // apertura
           }
