@@ -3044,8 +3044,11 @@ class Webservices
         // $result .='<div class="row">';
         
         for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
-          $hora_inicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
-          if(substr($horaini,0,2) < $hora_inicio){
+          $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
+          $hora_inicio_sol = substr($horaini,0,2);
+          var_dump($hora_inicio_sol);
+          var_dump($hora_inicio_disp);
+          if($hora_inicio_sol <= $hora_inicio_disp){
             if ($a == 0) {
               $result .= '<div class="row pt-0 pl-14">'; // apertura
             }
