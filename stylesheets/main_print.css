@@ -16,6 +16,8 @@
 =          Twitter Bootstrap 3.2      =
 ========================================*/
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+@media print {
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -2476,7 +2478,7 @@ tbody.collapse.in {
 
 html {
   font-size: 14px; }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     html {
       font-size: 12px; }
       html h1, html h2, html h3, html h4, html h5, html h6,
@@ -2492,7 +2494,7 @@ html {
       html h6, html .h6 {
         margin-top: 0.71429rem;
         margin-bottom: 0.71429rem; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     html {
       font-size: 11px; }
       html h1, html h2, html h3, html h4, html h5, html h6,
@@ -2514,12 +2516,12 @@ p.lead, .p.lead, span.lead, em.lead, strong.lead, label.lead, i.lead, ul.lead, o
   font-size: 21px !important;
   font-size: 1.5rem !important;
   line-height: 1.3; }
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   p.lead, .p.lead, span.lead, em.lead, strong.lead, label.lead, i.lead, ul.lead, ol.lead, li.lead {
     font-size: 17px !important;
     font-size: 1.21429rem !important;
     line-height: 1.1; } }
-@media only screen and (min-width: 480px) and (max-width: 768px) {
+@media only print and (min-width: 480px) and (max-width: 768px) {
   p.lead, .p.lead, span.lead, em.lead, strong.lead, label.lead, i.lead, ul.lead, ol.lead, li.lead {
     font-size: 19px !important;
     font-size: 1.35714rem !important;
@@ -2529,12 +2531,12 @@ p.lead, .p.lead, span.lead, em.lead, strong.lead, label.lead, i.lead, ul.lead, o
   font-size: 21px !important;
   font-size: 1.5rem !important;
   line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch p, .lead-ch .p, .lead-ch span, .lead-ch em, .lead-ch strong, .lead-ch label, .lead-ch i, .lead-ch ul, .lead-ch ol, .lead-ch li {
       font-size: 17px !important;
       font-size: 1.21429rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch p, .lead-ch .p, .lead-ch span, .lead-ch em, .lead-ch strong, .lead-ch label, .lead-ch i, .lead-ch ul, .lead-ch ol, .lead-ch li {
       font-size: 19px !important;
       font-size: 1.35714rem !important;
@@ -2546,12 +2548,12 @@ h1 {
     font-size: 43px !important;
     font-size: 3.07143rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     h1.lead {
       font-size: 39px !important;
       font-size: 2.78571rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     h1.lead {
       font-size: 41px !important;
       font-size: 2.92857rem !important;
@@ -2563,12 +2565,12 @@ h2 {
     font-size: 37px !important;
     font-size: 2.64286rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     h2.lead {
       font-size: 33px !important;
       font-size: 2.35714rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     h2.lead {
       font-size: 35px !important;
       font-size: 2.5rem !important;
@@ -2580,12 +2582,12 @@ h3 {
     font-size: 31px !important;
     font-size: 2.21429rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     h3.lead {
       font-size: 27px !important;
       font-size: 1.92857rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     h3.lead {
       font-size: 29px !important;
       font-size: 2.07143rem !important;
@@ -2597,12 +2599,12 @@ h4 {
     font-size: 25px !important;
     font-size: 1.78571rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     h4.lead {
       font-size: 21px !important;
       font-size: 1.5rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     h4.lead {
       font-size: 23px !important;
       font-size: 1.64286rem !important;
@@ -2614,12 +2616,12 @@ h5 {
     font-size: 21px !important;
     font-size: 1.5rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     h5.lead {
       font-size: 17px !important;
       font-size: 1.21429rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     h5.lead {
       font-size: 19px !important;
       font-size: 1.35714rem !important;
@@ -2631,12 +2633,12 @@ h6 {
     font-size: 19px !important;
     font-size: 1.35714rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     h6.lead {
       font-size: 15px !important;
       font-size: 1.07143rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     h6.lead {
       font-size: 17px !important;
       font-size: 1.21429rem !important;
@@ -2648,12 +2650,12 @@ h6 {
     font-size: 43px !important;
     font-size: 3.07143rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .h1.lead {
       font-size: 39px !important;
       font-size: 2.78571rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .h1.lead {
       font-size: 41px !important;
       font-size: 2.92857rem !important;
@@ -2665,12 +2667,12 @@ h6 {
     font-size: 37px !important;
     font-size: 2.64286rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .h2.lead {
       font-size: 33px !important;
       font-size: 2.35714rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .h2.lead {
       font-size: 35px !important;
       font-size: 2.5rem !important;
@@ -2682,12 +2684,12 @@ h6 {
     font-size: 31px !important;
     font-size: 2.21429rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .h3.lead {
       font-size: 27px !important;
       font-size: 1.92857rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .h3.lead {
       font-size: 29px !important;
       font-size: 2.07143rem !important;
@@ -2699,12 +2701,12 @@ h6 {
     font-size: 25px !important;
     font-size: 1.78571rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .h4.lead {
       font-size: 21px !important;
       font-size: 1.5rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .h4.lead {
       font-size: 23px !important;
       font-size: 1.64286rem !important;
@@ -2716,12 +2718,12 @@ h6 {
     font-size: 21px !important;
     font-size: 1.5rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .h5.lead {
       font-size: 17px !important;
       font-size: 1.21429rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .h5.lead {
       font-size: 19px !important;
       font-size: 1.35714rem !important;
@@ -2733,12 +2735,12 @@ h6 {
     font-size: 19px !important;
     font-size: 1.35714rem !important;
     line-height: 1.3; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .h6.lead {
       font-size: 15px !important;
       font-size: 1.07143rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .h6.lead {
       font-size: 17px !important;
       font-size: 1.21429rem !important;
@@ -2747,12 +2749,12 @@ h6 {
 .lead-ch h1 {
   font-size: 43px !important;
   font-size: 3.07143rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch h1 {
       font-size: 39px !important;
       font-size: 2.78571rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch h1 {
       font-size: 41px !important;
       font-size: 2.92857rem !important;
@@ -2760,12 +2762,12 @@ h6 {
 .lead-ch h2 {
   font-size: 37px !important;
   font-size: 2.64286rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch h2 {
       font-size: 33px !important;
       font-size: 2.35714rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch h2 {
       font-size: 35px !important;
       font-size: 2.5rem !important;
@@ -2773,12 +2775,12 @@ h6 {
 .lead-ch h3 {
   font-size: 31px !important;
   font-size: 2.21429rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch h3 {
       font-size: 27px !important;
       font-size: 1.92857rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch h3 {
       font-size: 29px !important;
       font-size: 2.07143rem !important;
@@ -2786,12 +2788,12 @@ h6 {
 .lead-ch h4 {
   font-size: 25px !important;
   font-size: 1.78571rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch h4 {
       font-size: 21px !important;
       font-size: 1.5rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch h4 {
       font-size: 23px !important;
       font-size: 1.64286rem !important;
@@ -2799,12 +2801,12 @@ h6 {
 .lead-ch h5 {
   font-size: 21px !important;
   font-size: 1.5rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch h5 {
       font-size: 17px !important;
       font-size: 1.21429rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch h5 {
       font-size: 19px !important;
       font-size: 1.35714rem !important;
@@ -2812,12 +2814,12 @@ h6 {
 .lead-ch h6 {
   font-size: 19px !important;
   font-size: 1.35714rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch h6 {
       font-size: 15px !important;
       font-size: 1.07143rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch h6 {
       font-size: 17px !important;
       font-size: 1.21429rem !important;
@@ -2826,12 +2828,12 @@ h6 {
 .lead-ch .h1 {
   font-size: 43px !important;
   font-size: 3.07143rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch .h1 {
       font-size: 39px !important;
       font-size: 2.78571rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch .h1 {
       font-size: 41px !important;
       font-size: 2.92857rem !important;
@@ -2839,12 +2841,12 @@ h6 {
 .lead-ch .h2 {
   font-size: 37px !important;
   font-size: 2.64286rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch .h2 {
       font-size: 33px !important;
       font-size: 2.35714rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch .h2 {
       font-size: 35px !important;
       font-size: 2.5rem !important;
@@ -2852,12 +2854,12 @@ h6 {
 .lead-ch .h3 {
   font-size: 31px !important;
   font-size: 2.21429rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch .h3 {
       font-size: 27px !important;
       font-size: 1.92857rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch .h3 {
       font-size: 29px !important;
       font-size: 2.07143rem !important;
@@ -2865,12 +2867,12 @@ h6 {
 .lead-ch .h4 {
   font-size: 25px !important;
   font-size: 1.78571rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch .h4 {
       font-size: 21px !important;
       font-size: 1.5rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch .h4 {
       font-size: 23px !important;
       font-size: 1.64286rem !important;
@@ -2878,12 +2880,12 @@ h6 {
 .lead-ch .h5 {
   font-size: 21px !important;
   font-size: 1.5rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch .h5 {
       font-size: 17px !important;
       font-size: 1.21429rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch .h5 {
       font-size: 19px !important;
       font-size: 1.35714rem !important;
@@ -2891,110 +2893,110 @@ h6 {
 .lead-ch .h6 {
   font-size: 19px !important;
   font-size: 1.35714rem !important; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .lead-ch .h6 {
       font-size: 15px !important;
       font-size: 1.07143rem !important;
       line-height: 1.1; } }
-  @media only screen and (min-width: 480px) and (max-width: 768px) {
+  @media only print and (min-width: 480px) and (max-width: 768px) {
     .lead-ch .h6 {
       font-size: 17px !important;
       font-size: 1.21429rem !important;
       line-height: 1.2; } }
 
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .h1-xs {
     font-size: 36px !important;
     font-size: 2.57143rem !important; } }
-@media only screen and (min-width: 768px) {
+@media only print and (min-width: 768px) {
   .h1-sm {
     font-size: 36px !important;
     font-size: 2.57143rem !important; } }
-@media only screen and (min-width: 992px) {
+@media only print and (min-width: 992px) {
   .h1-md {
     font-size: 36px !important;
     font-size: 2.57143rem !important; } }
-@media only screen and (min-width: 1200px) {
+@media only print and (min-width: 1200px) {
   .h1-lg {
     font-size: 36px !important;
     font-size: 2.57143rem !important; } }
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .h2-xs {
     font-size: 30px !important;
     font-size: 2.14286rem !important; } }
-@media only screen and (min-width: 768px) {
+@media only print and (min-width: 768px) {
   .h2-sm {
     font-size: 30px !important;
     font-size: 2.14286rem !important; } }
-@media only screen and (min-width: 992px) {
+@media only print and (min-width: 992px) {
   .h2-md {
     font-size: 30px !important;
     font-size: 2.14286rem !important; } }
-@media only screen and (min-width: 1200px) {
+@media only print and (min-width: 1200px) {
   .h2-lg {
     font-size: 30px !important;
     font-size: 2.14286rem !important; } }
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .h3-xs {
     font-size: 24px !important;
     font-size: 1.71429rem !important; } }
-@media only screen and (min-width: 768px) {
+@media only print and (min-width: 768px) {
   .h3-sm {
     font-size: 24px !important;
     font-size: 1.71429rem !important; } }
-@media only screen and (min-width: 992px) {
+@media only print and (min-width: 992px) {
   .h3-md {
     font-size: 24px !important;
     font-size: 1.71429rem !important; } }
-@media only screen and (min-width: 1200px) {
+@media only print and (min-width: 1200px) {
   .h3-lg {
     font-size: 24px !important;
     font-size: 1.71429rem !important; } }
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .h4-xs {
     font-size: 18px !important;
     font-size: 1.28571rem !important; } }
-@media only screen and (min-width: 768px) {
+@media only print and (min-width: 768px) {
   .h4-sm {
     font-size: 18px !important;
     font-size: 1.28571rem !important; } }
-@media only screen and (min-width: 992px) {
+@media only print and (min-width: 992px) {
   .h4-md {
     font-size: 18px !important;
     font-size: 1.28571rem !important; } }
-@media only screen and (min-width: 1200px) {
+@media only print and (min-width: 1200px) {
   .h4-lg {
     font-size: 18px !important;
     font-size: 1.28571rem !important; } }
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .h5-xs {
     font-size: 14px !important;
     font-size: 1rem !important; } }
-@media only screen and (min-width: 768px) {
+@media only print and (min-width: 768px) {
   .h5-sm {
     font-size: 14px !important;
     font-size: 1rem !important; } }
-@media only screen and (min-width: 992px) {
+@media only print and (min-width: 992px) {
   .h5-md {
     font-size: 14px !important;
     font-size: 1rem !important; } }
-@media only screen and (min-width: 1200px) {
+@media only print and (min-width: 1200px) {
   .h5-lg {
     font-size: 14px !important;
     font-size: 1rem !important; } }
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .h6-xs {
     font-size: 12px !important;
     font-size: 0.85714rem !important; } }
-@media only screen and (min-width: 768px) {
+@media only print and (min-width: 768px) {
   .h6-sm {
     font-size: 12px !important;
     font-size: 0.85714rem !important; } }
-@media only screen and (min-width: 992px) {
+@media only print and (min-width: 992px) {
   .h6-md {
     font-size: 12px !important;
     font-size: 0.85714rem !important; } }
-@media only screen and (min-width: 1200px) {
+@media only print and (min-width: 1200px) {
   .h6-lg {
     font-size: 12px !important;
     font-size: 0.85714rem !important; } }
@@ -3084,51 +3086,51 @@ h1, h2, h3, h4, h5 {
 .text-right {
   text-align: right !important; }
 
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .text-left-xs {
     text-align: left !important; } }
 
-@media only screen and (min-width: 480px) and (max-width: 768px) {
+@media only print and (min-width: 480px) and (max-width: 768px) {
   .text-left-sm {
     text-align: left !important; } }
 
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@media only print and (min-width: 768px) and (max-width: 992px) {
   .text-left-md {
     text-align: left !important; } }
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only print and (min-width: 992px) and (max-width: 1200px) {
   .text-left-lg {
     text-align: left !important; } }
 
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .text-right-xs {
     text-align: right !important; } }
 
-@media only screen and (min-width: 480px) and (max-width: 768px) {
+@media only print and (min-width: 480px) and (max-width: 768px) {
   .text-right-sm {
     text-align: right !important; } }
 
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@media only print and (min-width: 768px) and (max-width: 992px) {
   .text-right-md {
     text-align: right !important; } }
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only print and (min-width: 992px) and (max-width: 1200px) {
   .text-right-lg {
     text-align: right !important; } }
 
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .text-center-xs {
     text-align: center !important; } }
 
-@media only screen and (min-width: 480px) and (max-width: 768px) {
+@media only print and (min-width: 480px) and (max-width: 768px) {
   .text-center-sm {
     text-align: center !important; } }
 
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@media only print and (min-width: 768px) and (max-width: 992px) {
   .text-center-md {
     text-align: center !important; } }
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only print and (min-width: 992px) and (max-width: 1200px) {
   .text-center-lg {
     text-align: center !important; } }
 
@@ -3154,7 +3156,7 @@ a {
   a.danger-link {
     color: #E42322; }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+@media print and (-webkit-min-device-pixel-ratio: 0) {
   .text-gradient {
     background: -webkit-linear-gradient(left, #428bca, #3298FF, #5cb85c) repeat;
     background: linear-gradient(to right, #428bca, #3298FF, #5cb85c) repeat;
@@ -3186,11 +3188,13 @@ body {
   width: 79px;
   z-index: 10;
   position: relative;
+  visibility: hidden;
   top: 140px;
   min-height: 575px; }
-  @media only screen and (orientation: portrait) {
+  @media only print and (orientation: portrait) {
     .site-menu {
-      top: 86px; } }
+      top: 86px;
+      min-height: 880px; } }
 
 .lista-cursos {
   z-index: 2000;
@@ -3202,7 +3206,9 @@ body {
   position: fixed;
   width: 100%;
   height: 47px;
-  z-index: 100; }
+  z-index: 100;
+  visibility: hidden;
+}
 
 #mobile-nav {
   background-color: white; }
@@ -3217,10 +3223,12 @@ body {
 
 #collapseMobile ul.mobile-menu > li {
   padding-left: 21px !important;
+  padding-top: 3px;
+  padding-bottom: 3px;
   font-family: "zizou-slab-regular" "quatro-slab" !important;
   font-style: normal;
   font-size: 14px; }
-  #collapseMobile ul.mobile-menu > li a {
+  #collapseMobile ul.mobile-menu > li a, #collapseMobile ul.mobile-menu > li span {
     font-family: "sgothic-rgcap" !important;
     font-style: normal;
     color: white !important;
@@ -3230,7 +3238,7 @@ body {
     background: #B0B1B2; }
   #collapseMobile ul.mobile-menu > li:nth-child(odd) {
     background: #E3E3E3; }
-    #collapseMobile ul.mobile-menu > li:nth-child(odd) a {
+    #collapseMobile ul.mobile-menu > li:nth-child(odd) a, #collapseMobile ul.mobile-menu > li:nth-child(odd) span {
       color: #565658 !important; }
 #collapseMobile .child li {
   padding-left: 21px !important; }
@@ -3243,14 +3251,18 @@ body {
   padding-top: 175px;
   padding-left: 0px;
   padding-bottom: 14px; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .site-content {
       margin-top: 56px !important;
       padding-top: 7px; } }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .site-content {
       padding-left: 28px !important;
       padding-right: 28px !important; } }
+  @media only print and (orientation: portrait) {
+    .site-content {
+      top: 56px;
+      padding-top: 70px; } }
   .site-content.iframe {
     background: none; }
   .site-content.shorter {
@@ -3287,7 +3299,7 @@ body {
   font-size: 1.85714rem;
   margin-top: 0;
   padding: 0; }
-  @media only screen and (max-width: 768px) {
+  @media only print and (max-width: 768px) {
     .section-content .row .zizou-26 {
       margin-left: 0px;
       font-size: 22px;
@@ -3368,7 +3380,7 @@ body {
   left: 0;
   margin: 0px;
   color: #565658; }
-  @media only screen and (min-width: 992px) {
+  @media only print and (min-width: 992px) {
     .internal-footer .col-sm-8 {
       padding-top: 28px; } }
 
@@ -3380,7 +3392,7 @@ body {
   font-family: "sgothic-bdcap" !important;
   font-weight: 700;
   font-style: normal; }
-  @media only screen and (max-width: 992px) {
+  @media only print and (max-width: 992px) {
     .xl {
       font-size: 40px !important;
       font-size: 2.85714rem !important; } }
@@ -3390,7 +3402,7 @@ body {
   font-style: normal;
   font-size: 10px !important;
   font-size: 0.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-10 {
       font-size: 6px !important;
       font-size: 0.42857rem !important; } }
@@ -3401,7 +3413,7 @@ body {
   font-style: normal;
   font-size: 10px !important;
   font-size: 0.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-10 {
       font-size: 6px !important;
       font-size: 0.42857rem !important; } }
@@ -3418,11 +3430,11 @@ body {
   font-style: normal;
   font-size: 10px !important;
   font-size: 0.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-10 {
       font-size: 6px !important;
       font-size: 0.42857rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-10 {
       font-size: 4px !important;
       font-size: 0.28571rem !important; } }
@@ -3438,7 +3450,7 @@ body {
   font-style: normal;
   font-size: 10px !important;
   font-size: 0.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-10 {
       font-size: 6px !important;
       font-size: 0.42857rem !important; } }
@@ -3456,7 +3468,7 @@ body {
   font-style: normal;
   font-size: 10px !important;
   font-size: 0.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-10 {
       font-size: 6px !important;
       font-size: 0.42857rem !important; } }
@@ -3467,7 +3479,7 @@ body {
   font-style: normal;
   font-size: 10px !important;
   font-size: 0.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-10 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
@@ -3478,7 +3490,7 @@ body {
   font-style: normal;
   font-size: 10px !important;
   font-size: 0.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-10 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
@@ -3489,7 +3501,7 @@ body {
   font-style: normal;
   font-size: 10px !important;
   font-size: 0.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-10 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
@@ -3500,7 +3512,7 @@ body {
   font-style: normal;
   font-size: 10px !important;
   font-size: 0.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-10 {
       font-size: 6px !important;
       font-size: 0.42857rem !important; } }
@@ -3510,7 +3522,7 @@ body {
   font-style: normal;
   font-size: 12px !important;
   font-size: 0.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-12 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
@@ -3521,7 +3533,7 @@ body {
   font-style: normal;
   font-size: 12px !important;
   font-size: 0.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-12 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
@@ -3538,11 +3550,11 @@ body {
   font-style: normal;
   font-size: 12px !important;
   font-size: 0.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-12 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-12 {
       font-size: 6px !important;
       font-size: 0.42857rem !important; } }
@@ -3558,7 +3570,7 @@ body {
   font-style: normal;
   font-size: 12px !important;
   font-size: 0.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-12 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
@@ -3576,7 +3588,7 @@ body {
   font-style: normal;
   font-size: 12px !important;
   font-size: 0.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-12 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
@@ -3587,7 +3599,7 @@ body {
   font-style: normal;
   font-size: 12px !important;
   font-size: 0.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-12 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
@@ -3598,7 +3610,7 @@ body {
   font-style: normal;
   font-size: 12px !important;
   font-size: 0.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-12 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
@@ -3609,7 +3621,7 @@ body {
   font-style: normal;
   font-size: 12px !important;
   font-size: 0.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-12 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
@@ -3620,7 +3632,7 @@ body {
   font-style: normal;
   font-size: 12px !important;
   font-size: 0.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-12 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
@@ -3630,7 +3642,7 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-size: 1rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-14 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
@@ -3641,7 +3653,7 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-size: 1rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-14 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
@@ -3658,11 +3670,11 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-size: 1rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-14 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-14 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
@@ -3678,7 +3690,7 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-size: 1rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-14 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
@@ -3696,7 +3708,7 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-size: 1rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-14 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
@@ -3707,7 +3719,7 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-size: 1rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-14 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
@@ -3718,7 +3730,7 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-size: 1rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-14 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
@@ -3729,7 +3741,7 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-size: 1rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-14 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
@@ -3740,7 +3752,7 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-size: 1rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-14 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
@@ -3750,7 +3762,7 @@ body {
   font-style: normal;
   font-size: 16px !important;
   font-size: 1.14286rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-16 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
@@ -3761,7 +3773,7 @@ body {
   font-style: normal;
   font-size: 16px !important;
   font-size: 1.14286rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-16 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
@@ -3778,11 +3790,11 @@ body {
   font-style: normal;
   font-size: 16px !important;
   font-size: 1.14286rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-16 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-16 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
@@ -3798,7 +3810,7 @@ body {
   font-style: normal;
   font-size: 16px !important;
   font-size: 1.14286rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-16 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
@@ -3816,7 +3828,7 @@ body {
   font-style: normal;
   font-size: 16px !important;
   font-size: 1.14286rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-16 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
@@ -3827,7 +3839,7 @@ body {
   font-style: normal;
   font-size: 16px !important;
   font-size: 1.14286rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-16 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
@@ -3838,7 +3850,7 @@ body {
   font-style: normal;
   font-size: 16px !important;
   font-size: 1.14286rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-16 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
@@ -3849,7 +3861,7 @@ body {
   font-style: normal;
   font-size: 16px !important;
   font-size: 1.14286rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-16 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
@@ -3860,7 +3872,7 @@ body {
   font-style: normal;
   font-size: 16px !important;
   font-size: 1.14286rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-16 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
@@ -3870,7 +3882,7 @@ body {
   font-style: normal;
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-18 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
@@ -3881,7 +3893,7 @@ body {
   font-style: normal;
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-18 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
@@ -3898,11 +3910,11 @@ body {
   font-style: normal;
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-18 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-18 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
@@ -3918,7 +3930,7 @@ body {
   font-style: normal;
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-18 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
@@ -3936,7 +3948,7 @@ body {
   font-style: normal;
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-18 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
@@ -3947,7 +3959,7 @@ body {
   font-style: normal;
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-18 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
@@ -3958,7 +3970,7 @@ body {
   font-style: normal;
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-18 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
@@ -3969,7 +3981,7 @@ body {
   font-style: normal;
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-18 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
@@ -3980,7 +3992,7 @@ body {
   font-style: normal;
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-18 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
@@ -3990,7 +4002,7 @@ body {
   font-style: normal;
   font-size: 20px !important;
   font-size: 1.42857rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-20 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
@@ -4001,7 +4013,7 @@ body {
   font-style: normal;
   font-size: 20px !important;
   font-size: 1.42857rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-20 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
@@ -4018,11 +4030,11 @@ body {
   font-style: normal;
   font-size: 20px !important;
   font-size: 1.42857rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-20 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-20 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
@@ -4038,7 +4050,7 @@ body {
   font-style: normal;
   font-size: 20px !important;
   font-size: 1.42857rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-20 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
@@ -4056,7 +4068,7 @@ body {
   font-style: normal;
   font-size: 20px !important;
   font-size: 1.42857rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-20 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
@@ -4067,7 +4079,7 @@ body {
   font-style: normal;
   font-size: 20px !important;
   font-size: 1.42857rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-20 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
@@ -4078,7 +4090,7 @@ body {
   font-style: normal;
   font-size: 20px !important;
   font-size: 1.42857rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-20 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
@@ -4089,7 +4101,7 @@ body {
   font-style: normal;
   font-size: 20px !important;
   font-size: 1.42857rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-20 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
@@ -4100,7 +4112,7 @@ body {
   font-style: normal;
   font-size: 20px !important;
   font-size: 1.42857rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-20 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
@@ -4110,7 +4122,7 @@ body {
   font-style: normal;
   font-size: 22px !important;
   font-size: 1.57143rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-22 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
@@ -4121,7 +4133,7 @@ body {
   font-style: normal;
   font-size: 22px !important;
   font-size: 1.57143rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-22 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
@@ -4138,11 +4150,11 @@ body {
   font-style: normal;
   font-size: 22px !important;
   font-size: 1.57143rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-22 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-22 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
@@ -4158,7 +4170,7 @@ body {
   font-style: normal;
   font-size: 22px !important;
   font-size: 1.57143rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-22 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
@@ -4176,7 +4188,7 @@ body {
   font-style: normal;
   font-size: 22px !important;
   font-size: 1.57143rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-22 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
@@ -4187,7 +4199,7 @@ body {
   font-style: normal;
   font-size: 22px !important;
   font-size: 1.57143rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-22 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
@@ -4198,7 +4210,7 @@ body {
   font-style: normal;
   font-size: 22px !important;
   font-size: 1.57143rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-22 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
@@ -4209,7 +4221,7 @@ body {
   font-style: normal;
   font-size: 22px !important;
   font-size: 1.57143rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-22 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
@@ -4220,7 +4232,7 @@ body {
   font-style: normal;
   font-size: 22px !important;
   font-size: 1.57143rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-22 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
@@ -4230,7 +4242,7 @@ body {
   font-style: normal;
   font-size: 24px !important;
   font-size: 1.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-24 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
@@ -4241,7 +4253,7 @@ body {
   font-style: normal;
   font-size: 24px !important;
   font-size: 1.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-24 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
@@ -4258,11 +4270,11 @@ body {
   font-style: normal;
   font-size: 24px !important;
   font-size: 1.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-24 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-24 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
@@ -4278,7 +4290,7 @@ body {
   font-style: normal;
   font-size: 24px !important;
   font-size: 1.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-24 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
@@ -4296,7 +4308,7 @@ body {
   font-style: normal;
   font-size: 24px !important;
   font-size: 1.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-24 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
@@ -4307,7 +4319,7 @@ body {
   font-style: normal;
   font-size: 24px !important;
   font-size: 1.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-24 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
@@ -4318,7 +4330,7 @@ body {
   font-style: normal;
   font-size: 24px !important;
   font-size: 1.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-24 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
@@ -4329,7 +4341,7 @@ body {
   font-style: normal;
   font-size: 24px !important;
   font-size: 1.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-24 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
@@ -4340,7 +4352,7 @@ body {
   font-style: normal;
   font-size: 24px !important;
   font-size: 1.71429rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-24 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
@@ -4350,7 +4362,7 @@ body {
   font-style: normal;
   font-size: 26px !important;
   font-size: 1.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-26 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
@@ -4361,7 +4373,7 @@ body {
   font-style: normal;
   font-size: 26px !important;
   font-size: 1.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-26 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
@@ -4378,11 +4390,11 @@ body {
   font-style: normal;
   font-size: 26px !important;
   font-size: 1.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-26 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-26 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
@@ -4398,7 +4410,7 @@ body {
   font-style: normal;
   font-size: 26px !important;
   font-size: 1.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-26 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
@@ -4416,7 +4428,7 @@ body {
   font-style: normal;
   font-size: 26px !important;
   font-size: 1.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-26 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
@@ -4427,7 +4439,7 @@ body {
   font-style: normal;
   font-size: 26px !important;
   font-size: 1.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-26 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
@@ -4438,7 +4450,7 @@ body {
   font-style: normal;
   font-size: 26px !important;
   font-size: 1.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-26 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
@@ -4449,7 +4461,7 @@ body {
   font-style: normal;
   font-size: 26px !important;
   font-size: 1.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-26 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
@@ -4460,7 +4472,7 @@ body {
   font-style: normal;
   font-size: 26px !important;
   font-size: 1.85714rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-26 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
@@ -4470,7 +4482,7 @@ body {
   font-style: normal;
   font-size: 28px !important;
   font-size: 2rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-28 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
@@ -4481,7 +4493,7 @@ body {
   font-style: normal;
   font-size: 28px !important;
   font-size: 2rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .solano-bold-28 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
@@ -4498,11 +4510,11 @@ body {
   font-style: normal;
   font-size: 28px !important;
   font-size: 2rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-light-28 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .zizou-light-28 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
@@ -4518,7 +4530,7 @@ body {
   font-style: normal;
   font-size: 28px !important;
   font-size: 2rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .zizou-28 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
@@ -4536,7 +4548,7 @@ body {
   font-style: normal;
   font-size: 28px !important;
   font-size: 2rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-28 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
@@ -4547,7 +4559,7 @@ body {
   font-style: normal;
   font-size: 28px !important;
   font-size: 2rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-28 {
       font-size: 26px !important;
       font-size: 1.85714rem !important; } }
@@ -4558,7 +4570,7 @@ body {
   font-style: normal;
   font-size: 28px !important;
   font-size: 2rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helv-neue-light-28 {
       font-size: 26px !important;
       font-size: 1.85714rem !important; } }
@@ -4569,7 +4581,7 @@ body {
   font-style: normal;
   font-size: 28px !important;
   font-size: 2rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .ronnia-28 {
       font-size: 26px !important;
       font-size: 1.85714rem !important; } }
@@ -4580,7 +4592,7 @@ body {
   font-style: normal;
   font-size: 28px !important;
   font-size: 2rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .helvetica-bold-28 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
@@ -4588,7 +4600,7 @@ body {
 .form-control {
   font-size: 18px !important;
   font-size: 1.28571rem !important; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .form-control {
       font-size: 13px !important;
       font-size: 0.92857rem !important; } }
@@ -4695,249 +4707,725 @@ body {
 .m-auto {
   margin: auto !important; }
 
-.mt--7 {
-  margin-top: -7px !important;
-  margin-top: -0.5rem !important; }
+.p---7 {
+  padding: -0.5rem !important;
+  padding: -7px !important; }
 
-.mt--14 {
-  margin-top: -14px !important;
-  margin-top: -1rem !important; }
+.p---14 {
+  padding: -1rem !important;
+  padding: -14px !important; }
 
-.mt--21 {
-  margin-top: -21px !important;
-  margin-top: -1.5rem !important; }
+.p---21 {
+  padding: -1.5rem !important;
+  padding: -21px !important; }
 
-.mt--28 {
-  margin-top: -28px !important;
-  margin-top: -2rem !important; }
+.p---28 {
+  padding: -2rem !important;
+  padding: -28px !important; }
 
-.mt--35 {
-  margin-top: -35px !important;
-  margin-top: -2.5rem !important; }
+.p---35 {
+  padding: -2.5rem !important;
+  padding: -35px !important; }
 
-.mt--42 {
-  margin-top: -42px !important;
-  margin-top: -3rem !important; }
+.p---42 {
+  padding: -3rem !important;
+  padding: -42px !important; }
 
-.mt--49 {
-  margin-top: -49px !important;
-  margin-top: -3.5rem !important; }
+.p---49 {
+  padding: -3.5rem !important;
+  padding: -49px !important; }
 
-.mt--56 {
-  margin-top: -56px !important;
-  margin-top: -4rem !important; }
+.p---56 {
+  padding: -4rem !important;
+  padding: -56px !important; }
 
-.mt--63 {
-  margin-top: -63px !important;
-  margin-top: -4.5rem !important; }
+.p---63 {
+  padding: -4.5rem !important;
+  padding: -63px !important; }
 
-.mt--10 {
-  margin-top: -10px !important;
-  margin-top: -0.71429rem !important; }
+.m---7 {
+  margin: -0.5rem !important;
+  margin: -7px !important; }
 
-.mt--9 {
-  margin-top: -9px !important;
-  margin-top: -0.64286rem !important; }
+.m---14 {
+  margin: -1rem !important;
+  margin: -14px !important; }
 
-.mt--8 {
-  margin-top: -8px !important;
-  margin-top: -0.57143rem !important; }
+.m---21 {
+  margin: -1.5rem !important;
+  margin: -21px !important; }
 
-.mt--7 {
-  margin-top: -7px !important;
-  margin-top: -0.5rem !important; }
+.m---28 {
+  margin: -2rem !important;
+  margin: -28px !important; }
 
-.mt--6 {
-  margin-top: -6px !important;
-  margin-top: -0.42857rem !important; }
+.m---35 {
+  margin: -2.5rem !important;
+  margin: -35px !important; }
 
-.mt--5 {
-  margin-top: -5px !important;
-  margin-top: -0.35714rem !important; }
+.m---42 {
+  margin: -3rem !important;
+  margin: -42px !important; }
 
-.mt--4 {
-  margin-top: -4px !important;
-  margin-top: -0.28571rem !important; }
+.m---49 {
+  margin: -3.5rem !important;
+  margin: -49px !important; }
 
-.mt--3 {
-  margin-top: -3px !important;
-  margin-top: -0.21429rem !important; }
+.m---56 {
+  margin: -4rem !important;
+  margin: -56px !important; }
 
-.mt--2 {
-  margin-top: -2px !important;
-  margin-top: -0.14286rem !important; }
+.m---63 {
+  margin: -4.5rem !important;
+  margin: -63px !important; }
 
-.mt--1 {
-  margin-top: -1px !important;
-  margin-top: -0.07143rem !important; }
+.pt---7 {
+  padding-top: -0.5rem !important;
+  padding-top: -7px !important; }
 
-.mt-0 {
-  margin-top: 0px !important;
-  margin-top: 0rem !important; }
+.pt---14 {
+  padding-top: -1rem !important;
+  padding-top: -14px !important; }
 
-.mt-1 {
-  margin-top: 1px !important;
-  margin-top: 0.07143rem !important; }
+.pt---21 {
+  padding-top: -1.5rem !important;
+  padding-top: -21px !important; }
 
-.mt-2 {
-  margin-top: 2px !important;
-  margin-top: 0.14286rem !important; }
+.pt---28 {
+  padding-top: -2rem !important;
+  padding-top: -28px !important; }
 
-.mt-3 {
-  margin-top: 3px !important;
-  margin-top: 0.21429rem !important; }
+.pt---35 {
+  padding-top: -2.5rem !important;
+  padding-top: -35px !important; }
 
-.mt-4 {
-  margin-top: 4px !important;
-  margin-top: 0.28571rem !important; }
+.pt---42 {
+  padding-top: -3rem !important;
+  padding-top: -42px !important; }
 
-.mt-5 {
-  margin-top: 5px !important;
-  margin-top: 0.35714rem !important; }
+.pt---49 {
+  padding-top: -3.5rem !important;
+  padding-top: -49px !important; }
 
-.mt-6 {
-  margin-top: 6px !important;
-  margin-top: 0.42857rem !important; }
+.pt---56 {
+  padding-top: -4rem !important;
+  padding-top: -56px !important; }
 
-.mt-7 {
-  margin-top: 7px !important;
-  margin-top: 0.5rem !important; }
+.pt---63 {
+  padding-top: -4.5rem !important;
+  padding-top: -63px !important; }
 
-.mt-8 {
-  margin-top: 8px !important;
-  margin-top: 0.57143rem !important; }
+.pb---7 {
+  padding-bottom: -0.5rem !important;
+  padding-bottom: -7px !important; }
 
-.mt-9 {
-  margin-top: 9px !important;
-  margin-top: 0.64286rem !important; }
+.pb---14 {
+  padding-bottom: -1rem !important;
+  padding-bottom: -14px !important; }
 
-.mb--10 {
-  margin-bottom: -10px !important;
-  margin-bottom: -0.71429rem !important; }
+.pb---21 {
+  padding-bottom: -1.5rem !important;
+  padding-bottom: -21px !important; }
 
-.mb--9 {
-  margin-bottom: -9px !important;
-  margin-bottom: -0.64286rem !important; }
+.pb---28 {
+  padding-bottom: -2rem !important;
+  padding-bottom: -28px !important; }
 
-.mb--8 {
-  margin-bottom: -8px !important;
-  margin-bottom: -0.57143rem !important; }
+.pb---35 {
+  padding-bottom: -2.5rem !important;
+  padding-bottom: -35px !important; }
 
-.mb--7 {
-  margin-bottom: -7px !important;
-  margin-bottom: -0.5rem !important; }
+.pb---42 {
+  padding-bottom: -3rem !important;
+  padding-bottom: -42px !important; }
 
-.mb--6 {
-  margin-bottom: -6px !important;
-  margin-bottom: -0.42857rem !important; }
+.pb---49 {
+  padding-bottom: -3.5rem !important;
+  padding-bottom: -49px !important; }
 
-.mb--5 {
-  margin-bottom: -5px !important;
-  margin-bottom: -0.35714rem !important; }
+.pb---56 {
+  padding-bottom: -4rem !important;
+  padding-bottom: -56px !important; }
 
-.mb--4 {
-  margin-bottom: -4px !important;
-  margin-bottom: -0.28571rem !important; }
+.pb---63 {
+  padding-bottom: -4.5rem !important;
+  padding-bottom: -63px !important; }
 
-.mb--3 {
-  margin-bottom: -3px !important;
-  margin-bottom: -0.21429rem !important; }
+.pl---7 {
+  padding-left: -0.5rem !important;
+  padding-left: -7px !important; }
 
-.mb--2 {
-  margin-bottom: -2px !important;
-  margin-bottom: -0.14286rem !important; }
+.pl---14 {
+  padding-left: -1rem !important;
+  padding-left: -14px !important; }
 
-.mr-1 {
-  margin-right: 1px !important;
-  margin-right: 0.07143rem !important; }
+.pl---21 {
+  padding-left: -1.5rem !important;
+  padding-left: -21px !important; }
 
-.mr-2 {
-  margin-right: 2px !important;
-  margin-right: 0.14286rem !important; }
+.pl---28 {
+  padding-left: -2rem !important;
+  padding-left: -28px !important; }
 
-.mr-3 {
-  margin-right: 3px !important;
-  margin-right: 0.21429rem !important; }
+.pl---35 {
+  padding-left: -2.5rem !important;
+  padding-left: -35px !important; }
 
-.mr-4 {
-  margin-right: 4px !important;
-  margin-right: 0.28571rem !important; }
+.pl---42 {
+  padding-left: -3rem !important;
+  padding-left: -42px !important; }
 
-.mr-5 {
-  margin-right: 5px !important;
-  margin-right: 0.35714rem !important; }
+.pl---49 {
+  padding-left: -3.5rem !important;
+  padding-left: -49px !important; }
 
-.mr-6 {
-  margin-right: 6px !important;
-  margin-right: 0.42857rem !important; }
+.pl---56 {
+  padding-left: -4rem !important;
+  padding-left: -56px !important; }
 
-.mr-7 {
-  margin-right: 7px !important;
-  margin-right: 0.5rem !important; }
+.pl---63 {
+  padding-left: -4.5rem !important;
+  padding-left: -63px !important; }
 
-.mr-8 {
-  margin-right: 8px !important;
-  margin-right: 0.57143rem !important; }
+.pr---7 {
+  padding-right: -0.5rem !important;
+  padding-right: -7px !important; }
 
-.mr-9 {
-  margin-right: 9px !important;
-  margin-right: 0.64286rem !important; }
+.pr---14 {
+  padding-right: -1rem !important;
+  padding-right: -14px !important; }
+
+.pr---21 {
+  padding-right: -1.5rem !important;
+  padding-right: -21px !important; }
+
+.pr---28 {
+  padding-right: -2rem !important;
+  padding-right: -28px !important; }
+
+.pr---35 {
+  padding-right: -2.5rem !important;
+  padding-right: -35px !important; }
+
+.pr---42 {
+  padding-right: -3rem !important;
+  padding-right: -42px !important; }
+
+.pr---49 {
+  padding-right: -3.5rem !important;
+  padding-right: -49px !important; }
+
+.pr---56 {
+  padding-right: -4rem !important;
+  padding-right: -56px !important; }
+
+.pr---63 {
+  padding-right: -4.5rem !important;
+  padding-right: -63px !important; }
+
+.mt---7 {
+  margin-top: -0.5rem !important;
+  margin-top: -7px !important; }
+
+.mt---14 {
+  margin-top: -1rem !important;
+  margin-top: -14px !important; }
+
+.mt---21 {
+  margin-top: -1.5rem !important;
+  margin-top: -21px !important; }
+
+.mt---28 {
+  margin-top: -2rem !important;
+  margin-top: -28px !important; }
+
+.mt---35 {
+  margin-top: -2.5rem !important;
+  margin-top: -35px !important; }
+
+.mt---42 {
+  margin-top: -3rem !important;
+  margin-top: -42px !important; }
+
+.mt---49 {
+  margin-top: -3.5rem !important;
+  margin-top: -49px !important; }
+
+.mt---56 {
+  margin-top: -4rem !important;
+  margin-top: -56px !important; }
+
+.mt---63 {
+  margin-top: -4.5rem !important;
+  margin-top: -63px !important; }
+
+.mb---7 {
+  margin-bottom: -0.5rem !important;
+  margin-bottom: -7px !important; }
+
+.mb---14 {
+  margin-bottom: -1rem !important;
+  margin-bottom: -14px !important; }
+
+.mb---21 {
+  margin-bottom: -1.5rem !important;
+  margin-bottom: -21px !important; }
+
+.mb---28 {
+  margin-bottom: -2rem !important;
+  margin-bottom: -28px !important; }
+
+.mb---35 {
+  margin-bottom: -2.5rem !important;
+  margin-bottom: -35px !important; }
+
+.mb---42 {
+  margin-bottom: -3rem !important;
+  margin-bottom: -42px !important; }
+
+.mb---49 {
+  margin-bottom: -3.5rem !important;
+  margin-bottom: -49px !important; }
+
+.mb---56 {
+  margin-bottom: -4rem !important;
+  margin-bottom: -56px !important; }
+
+.mb---63 {
+  margin-bottom: -4.5rem !important;
+  margin-bottom: -63px !important; }
+
+.ml---7 {
+  margin-left: -0.5rem !important;
+  margin-left: -7px !important; }
+
+.ml---14 {
+  margin-left: -1rem !important;
+  margin-left: -14px !important; }
+
+.ml---21 {
+  margin-left: -1.5rem !important;
+  margin-left: -21px !important; }
+
+.ml---28 {
+  margin-left: -2rem !important;
+  margin-left: -28px !important; }
+
+.ml---35 {
+  margin-left: -2.5rem !important;
+  margin-left: -35px !important; }
+
+.ml---42 {
+  margin-left: -3rem !important;
+  margin-left: -42px !important; }
+
+.ml---49 {
+  margin-left: -3.5rem !important;
+  margin-left: -49px !important; }
+
+.ml---56 {
+  margin-left: -4rem !important;
+  margin-left: -56px !important; }
+
+.ml---63 {
+  margin-left: -4.5rem !important;
+  margin-left: -63px !important; }
+
+.mr---7 {
+  margin-right: -0.5rem !important;
+  margin-right: -7px !important; }
+
+.mr---14 {
+  margin-right: -1rem !important;
+  margin-right: -14px !important; }
+
+.mr---21 {
+  margin-right: -1.5rem !important;
+  margin-right: -21px !important; }
+
+.mr---28 {
+  margin-right: -2rem !important;
+  margin-right: -28px !important; }
+
+.mr---35 {
+  margin-right: -2.5rem !important;
+  margin-right: -35px !important; }
+
+.mr---42 {
+  margin-right: -3rem !important;
+  margin-right: -42px !important; }
+
+.mr---49 {
+  margin-right: -3.5rem !important;
+  margin-right: -49px !important; }
+
+.mr---56 {
+  margin-right: -4rem !important;
+  margin-right: -56px !important; }
+
+.mr---63 {
+  margin-right: -4.5rem !important;
+  margin-right: -63px !important; }
+
+.p-1 {
+  padding: 0.07143rem !important;
+  padding: 1px !important; }
+
+.p-2 {
+  padding: 0.14286rem !important;
+  padding: 2px !important; }
+
+.p-3 {
+  padding: 0.21429rem !important;
+  padding: 3px !important; }
+
+.p-4 {
+  padding: 0.28571rem !important;
+  padding: 4px !important; }
+
+.p-5 {
+  padding: 0.35714rem !important;
+  padding: 5px !important; }
+
+.p-6 {
+  padding: 0.42857rem !important;
+  padding: 6px !important; }
+
+.p-7 {
+  padding: 0.5rem !important;
+  padding: 7px !important; }
+
+.p-8 {
+  padding: 0.57143rem !important;
+  padding: 8px !important; }
+
+.p-9 {
+  padding: 0.64286rem !important;
+  padding: 9px !important; }
+
+.m-1 {
+  margin: 0.07143rem !important;
+  margin: 1px !important; }
+
+.m-2 {
+  margin: 0.14286rem !important;
+  margin: 2px !important; }
+
+.m-3 {
+  margin: 0.21429rem !important;
+  margin: 3px !important; }
+
+.m-4 {
+  margin: 0.28571rem !important;
+  margin: 4px !important; }
+
+.m-5 {
+  margin: 0.35714rem !important;
+  margin: 5px !important; }
+
+.m-6 {
+  margin: 0.42857rem !important;
+  margin: 6px !important; }
+
+.m-7 {
+  margin: 0.5rem !important;
+  margin: 7px !important; }
+
+.m-8 {
+  margin: 0.57143rem !important;
+  margin: 8px !important; }
+
+.m-9 {
+  margin: 0.64286rem !important;
+  margin: 9px !important; }
 
 .pt-1 {
-  padding-top: 1px !important;
-  padding-top: 0.07143rem !important; }
+  padding-top: 0.07143rem !important;
+  padding-top: 1px !important; }
 
 .pt-2 {
-  padding-top: 2px !important;
-  padding-top: 0.14286rem !important; }
+  padding-top: 0.14286rem !important;
+  padding-top: 2px !important; }
 
 .pt-3 {
-  padding-top: 3px !important;
-  padding-top: 0.21429rem !important; }
+  padding-top: 0.21429rem !important;
+  padding-top: 3px !important; }
 
 .pt-4 {
-  padding-top: 4px !important;
-  padding-top: 0.28571rem !important; }
+  padding-top: 0.28571rem !important;
+  padding-top: 4px !important; }
 
 .pt-5 {
-  padding-top: 5px !important;
-  padding-top: 0.35714rem !important; }
+  padding-top: 0.35714rem !important;
+  padding-top: 5px !important; }
 
 .pt-6 {
-  padding-top: 6px !important;
-  padding-top: 0.42857rem !important; }
+  padding-top: 0.42857rem !important;
+  padding-top: 6px !important; }
 
 .pt-7 {
-  padding-top: 7px !important;
-  padding-top: 0.5rem !important; }
+  padding-top: 0.5rem !important;
+  padding-top: 7px !important; }
 
 .pt-8 {
-  padding-top: 8px !important;
-  padding-top: 0.57143rem !important; }
+  padding-top: 0.57143rem !important;
+  padding-top: 8px !important; }
 
 .pt-9 {
-  padding-top: 9px !important;
-  padding-top: 0.64286rem !important; }
+  padding-top: 0.64286rem !important;
+  padding-top: 9px !important; }
 
 .pb-1 {
-  padding-bottom: 1px !important;
-  padding-bottom: 0.07143rem !important; }
+  padding-bottom: 0.07143rem !important;
+  padding-bottom: 1px !important; }
 
 .pb-2 {
-  padding-bottom: 2px !important;
-  padding-bottom: 0.14286rem !important; }
+  padding-bottom: 0.14286rem !important;
+  padding-bottom: 2px !important; }
 
 .pb-3 {
-  padding-bottom: 3px !important;
-  padding-bottom: 0.21429rem !important; }
+  padding-bottom: 0.21429rem !important;
+  padding-bottom: 3px !important; }
 
 .pb-4 {
-  padding-bottom: 4px !important;
-  padding-bottom: 0.28571rem !important; }
+  padding-bottom: 0.28571rem !important;
+  padding-bottom: 4px !important; }
 
 .pb-5 {
-  padding-bottom: 5px !important;
-  padding-bottom: 0.35714rem !important; }
+  padding-bottom: 0.35714rem !important;
+  padding-bottom: 5px !important; }
+
+.pb-6 {
+  padding-bottom: 0.42857rem !important;
+  padding-bottom: 6px !important; }
+
+.pb-7 {
+  padding-bottom: 0.5rem !important;
+  padding-bottom: 7px !important; }
+
+.pb-8 {
+  padding-bottom: 0.57143rem !important;
+  padding-bottom: 8px !important; }
+
+.pb-9 {
+  padding-bottom: 0.64286rem !important;
+  padding-bottom: 9px !important; }
+
+.pl-1 {
+  padding-left: 0.07143rem !important;
+  padding-left: 1px !important; }
+
+.pl-2 {
+  padding-left: 0.14286rem !important;
+  padding-left: 2px !important; }
+
+.pl-3 {
+  padding-left: 0.21429rem !important;
+  padding-left: 3px !important; }
+
+.pl-4 {
+  padding-left: 0.28571rem !important;
+  padding-left: 4px !important; }
+
+.pl-5 {
+  padding-left: 0.35714rem !important;
+  padding-left: 5px !important; }
+
+.pl-6 {
+  padding-left: 0.42857rem !important;
+  padding-left: 6px !important; }
+
+.pl-7 {
+  padding-left: 0.5rem !important;
+  padding-left: 7px !important; }
+
+.pl-8 {
+  padding-left: 0.57143rem !important;
+  padding-left: 8px !important; }
+
+.pl-9 {
+  padding-left: 0.64286rem !important;
+  padding-left: 9px !important; }
+
+.pr-1 {
+  padding-right: 0.07143rem !important;
+  padding-right: 1px !important; }
+
+.pr-2 {
+  padding-right: 0.14286rem !important;
+  padding-right: 2px !important; }
+
+.pr-3 {
+  padding-right: 0.21429rem !important;
+  padding-right: 3px !important; }
+
+.pr-4 {
+  padding-right: 0.28571rem !important;
+  padding-right: 4px !important; }
+
+.pr-5 {
+  padding-right: 0.35714rem !important;
+  padding-right: 5px !important; }
+
+.pr-6 {
+  padding-right: 0.42857rem !important;
+  padding-right: 6px !important; }
+
+.pr-7 {
+  padding-right: 0.5rem !important;
+  padding-right: 7px !important; }
+
+.pr-8 {
+  padding-right: 0.57143rem !important;
+  padding-right: 8px !important; }
+
+.pr-9 {
+  padding-right: 0.64286rem !important;
+  padding-right: 9px !important; }
+
+.mt-1 {
+  margin-top: 0.07143rem !important;
+  margin-top: 1px !important; }
+
+.mt-2 {
+  margin-top: 0.14286rem !important;
+  margin-top: 2px !important; }
+
+.mt-3 {
+  margin-top: 0.21429rem !important;
+  margin-top: 3px !important; }
+
+.mt-4 {
+  margin-top: 0.28571rem !important;
+  margin-top: 4px !important; }
+
+.mt-5 {
+  margin-top: 0.35714rem !important;
+  margin-top: 5px !important; }
+
+.mt-6 {
+  margin-top: 0.42857rem !important;
+  margin-top: 6px !important; }
+
+.mt-7 {
+  margin-top: 0.5rem !important;
+  margin-top: 7px !important; }
+
+.mt-8 {
+  margin-top: 0.57143rem !important;
+  margin-top: 8px !important; }
+
+.mt-9 {
+  margin-top: 0.64286rem !important;
+  margin-top: 9px !important; }
+
+.mb-1 {
+  margin-bottom: 0.07143rem !important;
+  margin-bottom: 1px !important; }
+
+.mb-2 {
+  margin-bottom: 0.14286rem !important;
+  margin-bottom: 2px !important; }
+
+.mb-3 {
+  margin-bottom: 0.21429rem !important;
+  margin-bottom: 3px !important; }
+
+.mb-4 {
+  margin-bottom: 0.28571rem !important;
+  margin-bottom: 4px !important; }
+
+.mb-5 {
+  margin-bottom: 0.35714rem !important;
+  margin-bottom: 5px !important; }
+
+.mb-6 {
+  margin-bottom: 0.42857rem !important;
+  margin-bottom: 6px !important; }
+
+.mb-7 {
+  margin-bottom: 0.5rem !important;
+  margin-bottom: 7px !important; }
+
+.mb-8 {
+  margin-bottom: 0.57143rem !important;
+  margin-bottom: 8px !important; }
+
+.mb-9 {
+  margin-bottom: 0.64286rem !important;
+  margin-bottom: 9px !important; }
+
+.ml-1 {
+  margin-left: 0.07143rem !important;
+  margin-left: 1px !important; }
+
+.ml-2 {
+  margin-left: 0.14286rem !important;
+  margin-left: 2px !important; }
+
+.ml-3 {
+  margin-left: 0.21429rem !important;
+  margin-left: 3px !important; }
+
+.ml-4 {
+  margin-left: 0.28571rem !important;
+  margin-left: 4px !important; }
+
+.ml-5 {
+  margin-left: 0.35714rem !important;
+  margin-left: 5px !important; }
+
+.ml-6 {
+  margin-left: 0.42857rem !important;
+  margin-left: 6px !important; }
+
+.ml-7 {
+  margin-left: 0.5rem !important;
+  margin-left: 7px !important; }
+
+.ml-8 {
+  margin-left: 0.57143rem !important;
+  margin-left: 8px !important; }
+
+.ml-9 {
+  margin-left: 0.64286rem !important;
+  margin-left: 9px !important; }
+
+.mr-1 {
+  margin-right: 0.07143rem !important;
+  margin-right: 1px !important; }
+
+.mr-2 {
+  margin-right: 0.14286rem !important;
+  margin-right: 2px !important; }
+
+.mr-3 {
+  margin-right: 0.21429rem !important;
+  margin-right: 3px !important; }
+
+.mr-4 {
+  margin-right: 0.28571rem !important;
+  margin-right: 4px !important; }
+
+.mr-5 {
+  margin-right: 0.35714rem !important;
+  margin-right: 5px !important; }
+
+.mr-6 {
+  margin-right: 0.42857rem !important;
+  margin-right: 6px !important; }
+
+.mr-7 {
+  margin-right: 0.5rem !important;
+  margin-right: 7px !important; }
+
+.mr-8 {
+  margin-right: 0.57143rem !important;
+  margin-right: 8px !important; }
+
+.mr-9 {
+  margin-right: 0.64286rem !important;
+  margin-right: 9px !important; }
 
 .btn-custom {
   padding: 7px !important;
@@ -4963,30 +5451,30 @@ body {
     min-width: 189px !important;
     font-size: 20px !important;
     padding: 3px !important; }
-    @media only screen and (max-width: 992px) {
+    @media only print and (max-width: 992px) {
       .btn-custom.wide {
         min-width: 126px !important;
         font-size: 16px !important; } }
-    @media only screen and (max-width: 480px) {
+    @media only print and (max-width: 480px) {
       .btn-custom.wide {
         min-width: 95px !important; } }
   .btn-custom.wide-full {
     width: 100% !important;
     font-size: 20px !important;
     padding: 3px !important; }
-    @media only screen and (max-width: 992px) {
+    @media only print and (max-width: 992px) {
       .btn-custom.wide-full {
         width: 100% !important;
         font-size: 16px !important; } }
-    @media only screen and (max-width: 480px) {
+    @media only print and (max-width: 480px) {
       .btn-custom.wide-full {
         width: 100% !important; } }
   .btn-custom.lg {
     font-size: 22px !important; }
-    @media only screen and (max-width: 992px) {
+    @media only print and (max-width: 992px) {
       .btn-custom.lg {
         font-size: 18px !important; } }
-    @media only screen and (max-width: 480px) {
+    @media only print and (max-width: 480px) {
       .btn-custom.lg {
         font-size: 14px !important; } }
 
@@ -5010,18 +5498,18 @@ body {
 /*========================================
 =            h2ww               =
 ========================================*/
-@media only screen and (max-width: 1200px) and (orientation: portrait) {
+@media only print and (max-width: 1200px) and (orientation: portrait) {
   h2 {
-    font-size: 16px !important;
-    font-size: 1.14286rem !important; } }
-@media only screen and (max-width: 1200px) and (orientation: landscape) {
+    font-size: 22px !important;
+    font-size: 1.57143rem !important; } }
+@media only print and (max-width: 1200px) and (orientation: landscape) {
   h2 {
-    font-size: 16px !important;
-    font-size: 1.14286rem !important; } }
+    font-size: 22px !important;
+    font-size: 1.57143rem !important; } }
 
 .panel {
   position: relative; }
-  @media only screen and (max-width: 768px) {
+  @media only print and (max-width: 768px) {
     .panel {
       margin-top: 21px !important; } }
   .panel .panel-head {
@@ -5047,34 +5535,34 @@ body {
       background-repeat: no-repeat;
       background-position: center;
       float: right; }
-      @media only screen and (max-width: 992px) {
+      @media only print and (max-width: 992px) {
         .panel .panel-head .panel-head-link {
           height: 24px;
           width: 24px;
           margin: 7px; } }
-      @media only screen and (max-width: 992px) and (orientation: portrait) {
+      @media only print and (max-width: 992px) and (orientation: portrait) {
         .panel .panel-head .panel-head-link {
           height: 20px;
           width: 20px;
           margin: 3px; } }
       .panel .panel-head .panel-head-link.danger {
         background-image: url("../assets/img/red_arrow_normal.png"); }
-        @media only screen and (max-width: 992px) {
+        @media only print and (max-width: 992px) {
           .panel .panel-head .panel-head-link.danger {
             background-image: url("../assets/img/red_arrow_normal_tiny.png"); } }
         .panel .panel-head .panel-head-link.danger:hover {
           background-image: url("../assets/img/red_arrow_hover.png"); }
-          @media only screen and (max-width: 992px) {
+          @media only print and (max-width: 992px) {
             .panel .panel-head .panel-head-link.danger:hover {
               background-image: url("../assets/img/red_arrow_hover_tiny.png"); } }
       .panel .panel-head .panel-head-link.info {
         background-image: url("../assets/img/info_arrow_normal.png"); }
-        @media only screen and (max-width: 992px) {
+        @media only print and (max-width: 992px) {
           .panel .panel-head .panel-head-link.info {
             background-image: url("../assets/img/info_arrow_normal_tiny.png"); } }
         .panel .panel-head .panel-head-link.info:hover {
           background-image: url("../assets/img/info_arrow_hover.png"); }
-          @media only screen and (max-width: 992px) {
+          @media only print and (max-width: 992px) {
             .panel .panel-head .panel-head-link.info:hover {
               background-image: url("../assets/img/info_arrow_hover_tiny.png"); } }
   .panel .panel-body.canales {
@@ -5166,7 +5654,7 @@ body {
             font-size: 14px;
             text-align: center;
             text-transform: uppercase; }
-            @media only screen and (max-width: 1200px) {
+            @media only print and (max-width: 1200px) {
               .panel .panel-body .panel-body-head-table .tr li div span {
                 font-size: 0.78571rem;
                 font-size: 11px; } }
@@ -5188,12 +5676,11 @@ body {
     .panel .panel-body .panel-table.mis-cursos-content ul li {
       padding-bottom: 7px !important;
       background: white; }
-      .panel .panel-body .panel-table.mis-cursos-content ul li.col-xs-2 {
-        display: none; }
+      .panel .panel-body .panel-table.mis-cursos-content ul li.curso-faltas, .panel .panel-body .panel-table.mis-cursos-content ul li.curso-promedio {
+        display: none;
+        cursor: pointer !important; }
       .panel .panel-body .panel-table.mis-cursos-content ul li.show-curso-detail {
         cursor: pointer !important; }
-      .panel .panel-body .panel-table.mis-cursos-content ul li.curso-promedio div {
-        border-right: none; }
   .panel .panel-body .panel-table.pagos {
     padding: 7px;
     background: white; }
@@ -5262,7 +5749,7 @@ body {
         padding: 0 6px; }
         .panel .panel-body .panel-table .tr li > div.nrb {
           border: none; }
-        @media only screen and (min-width: 768px) and (max-width: 992px) {
+        @media only print and (min-width: 768px) and (max-width: 992px) {
           .panel .panel-body .panel-table .tr li > div {
             min-height: 49px; } }
         .panel .panel-body .panel-table .tr li > div span {
@@ -5605,7 +6092,7 @@ input[type="submit"].btn.btn-white.btn-custom {
     background-color: white;
     height: 40px !important; }
     .site-header .container-fluid .header-global .pull-left.crisol {
-      width: 5.5%; }
+      width: 79px; }
   .site-header .container-fluid .header-iframe {
     background-image: url("../assets/img/trama.png");
     background-position: 7% 80%;
@@ -5696,7 +6183,7 @@ input[type="submit"].btn.btn-white.btn-custom {
   margin-top: 0px;
   padding-bottom: 0px;
   padding-top: 120px; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .site-content.login {
       padding-top: 77px;
       padding-bottom: 0px; } }
@@ -5734,10 +6221,10 @@ input[type="submit"].btn.btn-white.btn-custom {
 
 .welcome {
   padding: 0 91px; }
-  @media only screen and (max-width: 1200px) {
+  @media only print and (max-width: 1200px) {
     .welcome {
       padding: 0 21px; } }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .welcome {
       margin-top: 49px; } }
   .welcome .usuario-container {
@@ -5765,7 +6252,7 @@ input[type="submit"].btn.btn-white.btn-custom {
   padding-left: 14px;
   padding-right: 14px;
   padding-bottom: 56px; }
-  @media only screen and (max-width: 480px) {
+  @media only print and (max-width: 480px) {
     .mis-reservas-reservar .section-content .reservas-select-group form .row {
       padding-left: 14px !important; } }
   .mis-reservas-reservar .section-content .reservas-select-group form .row .col-xs-8 {
@@ -5785,7 +6272,7 @@ input[type="submit"].btn.btn-white.btn-custom {
       background: url(../assets/img/select_black.png) no-repeat right; }
     .mis-reservas-reservar .section-content .reservas-select-group .reservas-select.calendar {
       background: url(../assets/img/calendario_black.png) no-repeat right; }
-@media only screen and (max-width: 480px) {
+@media only print and (max-width: 480px) {
   .mis-reservas-reservar .section-content .col-sm-6.disponibilidad {
     padding-right: 35px !important;
     margin-top: 42px !important; } }
@@ -5820,3 +6307,17 @@ label.error {
   margin-top: -15px; }
 
 /*# sourceMappingURL=main.css.map */
+.site-wrapper {
+  /*width: 1000px !important;*/
+  page-break-after: always; 
+  page-break-inside: avoid;
+  background-color: gray;
+}
+/*@page {
+    size: A3;
+    margin-left: -5cm;
+    margin-right: -5cm;
+}*/
+
+}
+
