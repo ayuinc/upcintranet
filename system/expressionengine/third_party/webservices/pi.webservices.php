@@ -3045,7 +3045,7 @@ class Webservices
         
         for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
           $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
-          $hora_inicio_sol = substr($horaini,0,2);
+          $hora_inicio_sol = substr($HoraIni,0,2);
           var_dump($hora_inicio_sol);
           var_dump($hora_inicio_disp);
           if($hora_inicio_sol <= $hora_inicio_disp){
