@@ -7,77 +7,78 @@
 {embed="includes/header"}
 {embed="includes/header_movil"}
 {embed="includes/sidebar"}
-    <div class="site-content container">
+    <div class="site-content">
+      <div class="container-fluid">
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="18" }
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-        </div>
-      </div> 
-      {/exp:channel:entries}  
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-3">
-            <div class="panel">
-              <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  <h2>Filtrar por categoría</h2>
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div> 
+        {/exp:channel:entries}  
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3">
+              <div class="panel">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h2>Filtrar por categoría</h2>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  {embed="includes/temas-ayuda"}
                 </div>
               </div>
-              <div class="panel-body">
-                {embed="includes/temas-ayuda"}
-              </div>
             </div>
-          </div>
-          <div class="col-sm-8 pt-0">
-            <h2 class="serif-book mt-7">Talleres Disponibles</h2>
-            <div class="row">
-	            {exp:channel:entries channel="talleres" limit="10" disable="member_data" dynamic="off" category="{last_segment_category_id}"}
-              <div class="col-sm-6">
-                <div class="panel">
-                  <div class="panel-body canales">
-                    <div class="panel-body-head left tall">
-                      <h3>{title}</h3>
-                    </div>  
-                    <div class="panel-table">
-                      <ul class="tr">
-                        <p class="p-14 helvetica-16">{intrudccion-referencia}</p>
-                        {if fecha-referencia}
-                        <p class="helvetica-bold-14 p-14">
-                        {fecha-referencia  format="%d %F"}, {hora-referencia}, Aula {aula-referencia}
-                        </p>
-                        {/if}    
-                      </ul>
-                    </div>
-                    <div class="panel-footer">
-                      {if archivo-referencia}
-                        <a class="sb-link p-14 zizou-14" href="{archivo-referencia}">
-                      {/if}  
-                      {if link-referencia}
-                        <a class="sb-link p-14 zizou-14" href="{link-referencia}">
-                      {/if}                                                     
-                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
-                      {if archivo-referencia}
-                        </a>
-                      {/if}  
-                      {if link-referencia}
-                        </a>
-                      {/if}
+            <div class="col-sm-8 pt-0">
+              <h2 class="serif-book mt-7">Talleres Disponibles</h2>
+              <div class="row">
+  	            {exp:channel:entries channel="talleres" limit="10" disable="member_data" dynamic="off" category="{last_segment_category_id}"}
+                <div class="col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body canales">
+                      <div class="panel-body-head left tall">
+                        <h3>{title}</h3>
+                      </div>  
+                      <div class="panel-table">
+                        <ul class="tr">
+                          <p class="p-14 helvetica-16">{intrudccion-referencia}</p>
+                          {if fecha-referencia}
+                          <p class="helvetica-bold-14 p-14">
+                          {fecha-referencia  format="%d %F"}, {hora-referencia}, Aula {aula-referencia}
+                          </p>
+                          {/if}    
+                        </ul>
+                      </div>
+                      <div class="panel-footer">
+                        {if archivo-referencia}
+                          <a class="sb-link p-14 zizou-14" href="{archivo-referencia}">
+                        {/if}  
+                        {if link-referencia}
+                          <a class="sb-link p-14 zizou-14" href="{link-referencia}">
+                        {/if}                                                     
+                          <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
+                        {if archivo-referencia}
+                          </a>
+                        {/if}  
+                        {if link-referencia}
+                          </a>
+                        {/if}
+                      </div>
                     </div>
                   </div>
                 </div>
+  							{/exp:channel:entries}
               </div>
-							{/exp:channel:entries}
             </div>
           </div>
         </div>
       </div>
- 
-      </div>
+    </div>
 {embed="includes/footer"}   

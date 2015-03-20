@@ -8,33 +8,35 @@
 {embed="includes/header_movil"}
 {embed="includes/sidebar"}
 
-    <div class="site-content container">
+    <div class="site-content">
+      <div class="container-fluid">
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}" entry_id="28"}
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Mis Trámites</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-        </div>
-      </div>  
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-3 section-desc">
-            <span class="zizou-14">{introduccion-seccion}</span>
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Mis Trámites</span></div>
           </div>
-      {/exp:channel:entries}     
-          <div class="col-sm-8 pt-0">
-            <div class="panel">
-              <div class="panel-head no-bg">
-                <div class="panel-title">
-                  <h2>Trámites en proceso</h2>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div>  
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3 section-desc">
+              <span class="zizou-14">{introduccion-seccion}</span>
+            </div>
+        {/exp:channel:entries}     
+            <div class="col-sm-8 pt-0">
+              <div class="panel">
+                <div class="panel-head no-bg">
+                  <div class="panel-title">
+                    <h2>Trámites en proceso</h2>
+                  </div>
                 </div>
+                {exp:webservices:tramites_realizados_por_alumno}
               </div>
-              {exp:webservices:tramites_realizados_por_alumno}
             </div>
           </div>
         </div>
