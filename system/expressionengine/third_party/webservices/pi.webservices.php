@@ -542,7 +542,6 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
       $json = json_decode($result, true);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError']; 
@@ -569,7 +568,7 @@ class Webservices
       
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
-      $flag = 0;
+      $flag = TRUE;
       //Loop basado en el HorarioDia
       for ($i=0; $i<$tamano; $i++) {
         $result.= '<div class="panel-table">';
@@ -577,7 +576,6 @@ class Webservices
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
         $dia_actual = date('w');
-        
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
@@ -599,8 +597,7 @@ class Webservices
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
-              var_dump("adsadasdas");
-              $flag = 1;
+              $flag = FALSE;
               $result .= '<ul class="tr">';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
@@ -620,9 +617,7 @@ class Webservices
                 $disponibles++;
               } 
             } else {
-              if($b == 22 && $flag == 0){
-                var_dump($b);
-                var_dump($flag);
+              if($b == 22 && $flag){
                 $result = '<div class="panel-body">';
                 $result .= '<div class="panel-table pb-7">';
                 $result .= '<ul class="tr">';
@@ -1631,7 +1626,7 @@ class Webservices
       
       $result .= '<ul class="tr">';
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<a class="curso-link" data-curso-id="'.$i.'">';
+        $result .= '<a href="#curso-'.$i.'" class="curso-link">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
         $result .= '<span class="zizou-16">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
@@ -1894,7 +1889,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black-text text-right go-to-top">';
+        $result .= '<a class="black-text curso-link text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
