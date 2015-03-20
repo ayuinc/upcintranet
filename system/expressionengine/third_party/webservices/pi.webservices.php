@@ -613,6 +613,7 @@ class Webservices
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
+              var_dump("adsadasdas")
               $flag = 1;
               $result .= '<ul class="tr">';
               $result .= '<li class="col-xs-2">';
