@@ -5,6 +5,10 @@ body {
 	color: $gray-main;
 }
 
+.grid-bg {
+	background-image:url("../assets/img/trama_xs.png");
+}
+
 .container {
 	padding-right: 35px;
 }
@@ -20,15 +24,16 @@ body {
 
 .site-wrapper {
 	position: relative;
-	background-image:url("../assets/img/trama_xs.png");
 }
 
+$site-menu-width: 79px;
 .site-menu {
 	background: white;
-	width: 79px;
+	width: $site-menu-width;
 	z-index: 10;
 	position: relative;
-	top: 140px;
+	padding-top: 140px;
+	float: left;
 	@media #{$portrait} {
 		top: 86px;
 		min-height: 880px;
@@ -102,25 +107,22 @@ body {
 }
 
 .site-content {
-	position: absolute;
-	top: 0;
-	background-image:url("../assets/img/trama_xs.png");
-	width: 100%;
+	@media #{$md-up} {
+		@include calc(width, "100% - #{$site-menu-width}");
+	}
 	padding-top: 175px;
-	padding-left: 0px;
-	padding-bottom: 14px;
-	@media #{$xs-only} {
-		margin-top: 56px !important;
-		padding-top: 7px;
-	}
-	@media #{$lg-down} {
-		padding-left: 28px !important;
-		padding-right: 28px !important;
-	}
-	@media #{$portrait} {
-		top: 56px;
+	@media #{$sm-down} {
+		width: 100% !important;
 		padding-top: 70px;
 	}
+	&.login {
+		width: 100% !important;
+		padding-bottom: 98px !important;
+	}
+	background-image:url("../assets/img/trama_xs.png");
+	float: left;
+	padding-left: 0px;
+	padding-bottom: 21px;
 	&.iframe {
 		background: none;
 	}
@@ -159,13 +161,6 @@ body {
 			}
 		}
 	}
-	// .internal-header {
-	// 	&.fixed {
-	// 		position: fixed;
-	// 		margin-left: 0px;
-	// 		width: 100%;
-	// 	}
-	// }
 }
 
 .section-content {
@@ -178,7 +173,6 @@ body {
 			font-size: 26px;
 			font-size: rem(26);
 			margin-top: 0;
-			// margin-left: -14px;
 			@media #{$sm-down} {
 				margin-left: 0px;
 				font-size: 22px;
