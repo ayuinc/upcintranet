@@ -1,3 +1,4 @@
 # Untracked files:
 *.sass-cache/
 system/expressionengine/config
+.DS_Store

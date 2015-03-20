@@ -525,9 +525,6 @@ class Webservices
     
     //HORARIO DEL ALUMNO
     public function horario_alumno(){
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-      
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -3206,7 +3203,7 @@ class Webservices
       $HoraFin = intval($HoraIni) + intval($canhoras);
       //$HoraFin = ee()->TMPL->fetch_param('HoraFin');
       //var_dump($HoraIni);
-      $HoraIni = intval($HoraIni);
+      $HoraIni = intval($HoraIni);  
       
       if($HoraIni < 10){
         $HoraIni = '0'.$HoraIni.'00';
@@ -3222,7 +3219,8 @@ class Webservices
         $HoraFin = $HoraFin.'00';
       }
   
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local='.$CodSede.'&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local='.$CodSede.'&FecIni='.$fecini.'%20'.$HoraIni.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'%20'.$HoraFin.'&CodAlumno='.$codigo.'&Token='.$token;
+      //var_dump($url);
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
       //var_dump($url);
       $ch = curl_init($url);
