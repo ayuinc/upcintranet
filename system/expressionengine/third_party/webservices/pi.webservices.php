@@ -1642,7 +1642,7 @@ class Webservices
       
       $result .= '<ul class="tr">';
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<a href="#curso-'.$i.'" class="curso-link">';
+        $result .= '<a class="curso-link" data-curso-id="'.$i.'">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
         $result .= '<span class="zizou-16">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
@@ -1905,7 +1905,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black-text curso-link text-right" href="#top">';
+        $result .= '<a class="black-text text-right go-to-top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
