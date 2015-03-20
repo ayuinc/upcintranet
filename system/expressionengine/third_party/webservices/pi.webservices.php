@@ -570,8 +570,9 @@ class Webservices
       $tamano = count($json['HorarioDia']);
       $flag = TRUE;
       //Loop basado en el HorarioDia
+      $result.= '<div class="panel-table">';
       for ($i=0; $i<$tamano; $i++) {
-        $result.= '<div class="panel-table">';
+        
         
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
@@ -632,10 +633,10 @@ class Webservices
             }   
           } 
         } 
-        $result .= '</div>';
-        $result .= '</div>'; 
+        
       }
-      
+      $result .= '</div>';
+        $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
         $result = '<div class="panel-body">';
