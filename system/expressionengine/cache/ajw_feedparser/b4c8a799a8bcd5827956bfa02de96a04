@@ -5,15 +5,6 @@
     <description></description>
     <language>es</language>
           <item>
-    <title>MECÁNICA AUTOMOTRIZ BÁSICA</title>
-    <link>http://betablogs.upc.edu.pe//vida-universitaria/talleres-monterrico/mecanica-automotriz-basica</link>
-    <description>Créditos: 1
-Costo: S/. 200</description>
-     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
- <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">6487</guid>
-  </item>
-  <item>
     <title>HIP HOP</title>
     <link>http://betablogs.upc.edu.pe//vida-universitaria/talleres-monterrico/hip-hop</link>
     <description>Créditos: 1
@@ -21,6 +12,15 @@ Costo: 200 soles</description>
      <pubDate>Jueves 19 de Marzo del 2015</pubDate>
  <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
  <guid isPermaLink="false">6452</guid>
+  </item>
+  <item>
+    <title>MECÁNICA AUTOMOTRIZ BÁSICA</title>
+    <link>http://betablogs.upc.edu.pe//vida-universitaria/talleres-monterrico/mecanica-automotriz-basica</link>
+    <description>Créditos: 1
+Costo: S/. 200</description>
+     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
+ <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
+ <guid isPermaLink="false">6487</guid>
   </item>
   <item>
     <title>BÁSQUET VARONES</title>
@@ -86,13 +86,13 @@ Costo: S/. 300</description>
  <guid isPermaLink="false">6457</guid>
   </item>
   <item>
-    <title>TALLER DE ITALIANO</title>
-    <link>http://betablogs.upc.edu.pe//vida-universitaria/talleres-monterrico/taller-de-italiano</link>
-    <description>Créditos:  2
-Costo: S/. 270</description>
+    <title>FOTOGRAFÍA INTERMEDIA</title>
+    <link>http://betablogs.upc.edu.pe//vida-universitaria/talleres-monterrico/fotografia-intermedia</link>
+    <description>Créditos:  1
+Costo: S/. 220</description>
      <pubDate>Jueves 19 de Marzo del 2015</pubDate>
  <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">6484</guid>
+ <guid isPermaLink="false">6449</guid>
   </item>
   </channel>
 </rss>

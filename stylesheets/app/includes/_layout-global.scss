@@ -107,7 +107,11 @@ $site-menu-width: 79px;
 }
 
 .site-content {
-	@media #{$xs-only} {
+	@media #{$md-up} {
+		@include calc(width, "100% - #{$site-menu-width}");
+	}
+	padding-top: 175px;
+	@media #{$sm-down} {
 		width: 100% !important;
 		padding-top: 70px;
 	}
@@ -115,13 +119,8 @@ $site-menu-width: 79px;
 		width: 100% !important;
 		padding-bottom: 98px !important;
 	}
-	height:  100%;
 	background-image:url("../assets/img/trama_xs.png");
-	@media #{$md-up} {
-		@include calc(width, "100% - #{$site-menu-width}");
-	}
 	float: left;
-	padding-top: 175px;
 	padding-left: 0px;
 	padding-bottom: 21px;
 	&.iframe {
