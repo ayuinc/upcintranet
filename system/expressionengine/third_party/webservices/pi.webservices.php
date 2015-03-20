@@ -3203,7 +3203,7 @@ class Webservices
       $HoraFin = intval($HoraIni) + intval($canhoras);
       //$HoraFin = ee()->TMPL->fetch_param('HoraFin');
       //var_dump($HoraIni);
-      $HoraIni = intval($HoraIni); 2000
+      $HoraIni = intval($HoraIni); 
       
       if($HoraIni < 10){
         $HoraIni = '0'.$HoraIni.'00';
