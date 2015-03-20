@@ -1220,7 +1220,7 @@ class Webservices
           
           $result .= '<div class="borderless text-center"><span>'.$nota.'</span></div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="red zizou-12"><img class="mr-7" src="/assets/img/red_eye.png">Ver más</span></div></li>';
+          $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="red zizou-12"><img class="mr-7" src="/assets/img/red_eye.png">Mostrar</span></div></li>';
           $result .= '</ul>';
         }
       }     
@@ -1464,12 +1464,12 @@ class Webservices
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-9 helvetica-14">';
+        $result .= '<li class="col-xs-8 helvetica-14">';
         $result .= '<div>';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-3 text-center helvetica-bold-14">';
+        $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
 
           $codcurso = $json['Inasistencias'][$i]['CodCurso'];
           

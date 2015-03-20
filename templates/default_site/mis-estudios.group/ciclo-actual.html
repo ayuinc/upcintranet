@@ -5,62 +5,63 @@
 {embed="includes/header_movil"}
 {embed="includes/sidebar"}
 
-    <div class="site-content container">
-    {exp:channel:entries channel="seccion" limit="1" entry_id="20"}
-      <div class="internal-header">
-          <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
-          </div>
-          <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-          </div>
-      </div>  
-      <div class="section-content pb-70">
-          <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">
-              <div class="panel">
-                <div class="panel-head no-bg">
-                  <div class="panel-title left">
-                    <h2>Mis Cursos</h2>
-                  </div>
-                </div>
-                <div class="panel-body mt-7">
-                  <div class="panel-body-head-table">
-                    <ul class="tr">
-                      <li class="col-xs-9">
-                        <div class=""><span>Curso</span></div>
-                      </li>
-                      <li class="col-xs-3">
-                        <div class=""><span>Promedio</span></div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="panel-table no-bg">
-                   {exp:webservices:curos_que_lleva_un_alumno}
-                  </div>
-                </div>
-              </div>
-              {if otras-actividades-seccion=='Activar'}
-              	{embed="includes/otras-acciones"}
-              {/if}
+    <div class="site-content">
+      <div class="container-fluid">
+        {exp:channel:entries channel="seccion" limit="1" entry_id="20"}
+        <div class="internal-header">
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
             </div>
-    {/exp:channel:entries}        
-            <div class="col-sm-8">
-              <div class="panel">
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+            </div>
+        </div>  
+        <div class="section-content pb-70">
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-3">
+                <div class="panel">
                   <div class="panel-head no-bg">
                     <div class="panel-title left">
-                      <h2>Mi Horario Semanal</h2>
+                      <h2>Mis Cursos</h2>
                     </div>
                   </div>
-                  {exp:webservices:horario_ciclo_actual_alumno}
+                  <div class="panel-body mt-7">
+                    <div class="panel-body-head-table">
+                      <ul class="tr">
+                        <li class="col-xs-8">
+                          <div class=""><span>Curso</span></div>
+                        </li>
+                        <li class="col-xs-4">
+                          <div class=""><span>Promedio</span></div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="panel-table no-bg">
+                     {exp:webservices:curos_que_lleva_un_alumno}
+                    </div>
+                  </div>
+                </div>
+                {if otras-actividades-seccion=='Activar'}
+                	{embed="includes/otras-acciones"}
+                {/if}
               </div>
-            </div>
-        </div>
+      {/exp:channel:entries}        
+              <div class="col-sm-8">
+                <div class="panel">
+                    <div class="panel-head no-bg">
+                      <div class="panel-title left">
+                        <h2>Mi Horario Semanal</h2>
+                      </div>
+                    </div>
+                    {exp:webservices:horario_ciclo_actual_alumno}
+                </div>
+              </div>
+          </div>
+      </div>
     </div>
-   
   </div>
 
 {embed="includes/footer"}   
