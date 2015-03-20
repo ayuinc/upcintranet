@@ -634,6 +634,8 @@ class Webservices
               } 
             } else {
               if($b == 22 && $flag == 0){
+                var_dump($b);
+                var_dump($flag);
                 $result = '<div class="panel-body">';
                 $result .= '<div class="panel-table pb-7">';
                 $result .= '<ul class="tr">';
