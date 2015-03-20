@@ -1,11 +1,12 @@
-{exp:pdf_press:parse_pdf}
-    <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>Parse Test</title>
-    </head>
-    <body>
-        <p>Lima!</p>
-    </body>
-    </html>
+{exp:pdf_press:parse_pdf parse="inward"}
+    {embed="includes/head"}
+    {exp:webservices:iniciar_session}
+    {exp:webservices:verificar_usuario}
+    {embed="includes/header"}
+    {embed="includes/header_movil"}
+    {embed="includes/sidebar"}
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim reiciendis sunt, eos alias rerum obcaecati dolore iure impedit a eligendi, distinctio, aspernatur, architecto ab hic ea ipsum consectetur error adipisci.</p>
+        </div>
+    {embed="includes/footer"}
 {/exp:pdf_press:parse_pdf}
