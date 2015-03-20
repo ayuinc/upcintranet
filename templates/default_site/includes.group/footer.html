@@ -16,6 +16,10 @@
   <script src="{site_url}js/app/src/dashboard.js"></script>
   {/if}
   {if segment_1 == 'mis-estudios' && segment_2 == 'notas-detalladas'}
+  <script src="{site_url}js/app/vendor/smooth-scroll.min.js"></script>
+  <script>
+    smoothScroll.init();
+  </script>
   <script src="{site_url}js/app/src/notas-detalladas.js"></script>
   {/if}
   {if segment_2 == 'salir'}
@@ -30,6 +34,7 @@
   <script src="{site_url}js/app/src/print.js"></script>
 
 	<script>
+
 
 		$( document ).ready(function() {
 			// var validNavigation = false;

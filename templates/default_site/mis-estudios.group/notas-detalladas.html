@@ -6,48 +6,49 @@
 {embed="includes/sidebar"}
 
 		{exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination"  category="{segment_1_category_id}" entry_id="21"}
-    <div class="site-content container notas-detalladas">
-      <div class="internal-header">
+    <div class="site-content notas-detalladas">
+      <div class="container-fluid">
+        <div class="internal-header">
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4"><span id="top" class="uppercase bold xl">{title}</span></div>
+            </div>
+        </div>  
+        <div class="section-content pb-70">
           <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
-          </div>
-          <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span id="top" class="uppercase bold xl">{title}</span></div>
-          </div>
-      </div>  
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>        
-          <div class="col-sm-3">
+            <div class="col-sm-0-5"></div>        
+            <div class="col-sm-3">
+                <div class="panel">
+                  <div class="panel-head no-bg">
+                    <div class="panel-title left">
+                      <h2>Saltar a un curso</h2>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="panel-table otras-acciones">
+  	                  {exp:webservices:todos_los_curos_que_lleva_un_alumno}
+                    </div>
+                  </div>
+                </div>
+  							{embed="includes/otras-acciones-notas"}
+            </div>
+           {/exp:channel:entries} 
+            <div class="col-sm-8">
               <div class="panel">
                 <div class="panel-head no-bg">
                   <div class="panel-title left">
-                    <h2>Saltar a un curso</h2>
+                    <h2>Notas por Curso</h2>
                   </div>
                 </div>
-                <div class="panel-body">
-                  <div class="panel-table otras-acciones">
-	                  {exp:webservices:todos_los_curos_que_lleva_un_alumno}
-                  </div>
-                </div>
-              </div>
-							{embed="includes/otras-acciones-notas"}
+                {exp:webservices:notas_alumno_por_curso}
+              </div>  
+            </div>
           </div>
-         {/exp:channel:entries} 
-          <div class="col-sm-8">
-            <div class="panel">
-              <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  <h2>Notas por Curso</h2>
-                </div>
-              </div>
-              {exp:webservices:notas_alumno_por_curso}
-            </div>  
-          </div>
-        </div>
+      </div>
     </div>
- 
   </div>
 {embed="includes/footer"}   
