@@ -3220,7 +3220,7 @@ class Webservices
       }
   
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local='.$CodSede.'&FecIni='.$fecini.'%20'.$HoraIni.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'%20'.$HoraFin.'&CodAlumno='.$codigo.'&Token='.$token;
-      var_dump($url);
+      //var_dump($url);
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
       //var_dump($url);
       $ch = curl_init($url);
