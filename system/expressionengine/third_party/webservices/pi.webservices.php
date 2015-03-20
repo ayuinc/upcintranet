@@ -634,7 +634,7 @@ class Webservices
                 $disponibles++;
               } 
             } else {
-              if($b == 22 && $flag == 0){
+              /*if($b == 22 && $flag == 0){
                 var_dump($b);
                 var_dump($flag);
                 $result = '<div class="panel-body">';
@@ -647,7 +647,7 @@ class Webservices
                 $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
                 $result .= '</li>';
                 $result .= '</ul>';
-              }
+              }*/
             }   
           } 
         } 
