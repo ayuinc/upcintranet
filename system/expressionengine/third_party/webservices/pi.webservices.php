@@ -577,21 +577,7 @@ class Webservices
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
         $dia_actual = date('w');
-        if($json['HorarioDia'][$i][$dia_actual] == NULL){
-          $result = '<div class="panel-body">';
-          $result .= '<div class="panel-table pb-7">';
-          $result .= '<ul class="tr">';
-          $result .= '<li class="col-xs-3 p-7">';
-          $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
-          $result .= '</li>';
-          $result .= '<li class="text-center col-xs-8 p-14">';
-          $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
-          $result .= '</li>';
-          $result .= '</ul>';
-          $result .= '</div>';
-          $result .= '</div>'; 
-          break;
-        }
+        
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
@@ -634,7 +620,7 @@ class Webservices
                 $disponibles++;
               } 
             } else {
-              /*if($b == 22 && $flag == 0){
+              if($b == 22 && $flag == 0){
                 var_dump($b);
                 var_dump($flag);
                 $result = '<div class="panel-body">';
@@ -647,7 +633,7 @@ class Webservices
                 $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
                 $result .= '</li>';
                 $result .= '</ul>';
-              }*/
+              }
             }   
           } 
         } 
