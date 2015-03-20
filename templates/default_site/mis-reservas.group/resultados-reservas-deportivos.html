@@ -61,17 +61,16 @@
                     }
                 </div>
                 {if:else}
-                    {embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
-                    {exp:webservices:reserva_espacios_deportivos 
-                      codsede="{post:CodSede}" 
-                      coded="{post:CodED}" 
-                      codactiv="{post:CodActiv}"
-                      numhoras="{post:NumHoras}" 
-                      fecha="{post:Fecha}" 
-                      horaini="{post:HoraIni}"
-                      horafin="{post:HoraFin}"
-                      detalles="{post:Detalles}"
-                    }
+                  {embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
+                  {exp:webservices:disponibilidad_espacios_deportivos 
+                    codsede="{post:CodSede}" 
+                    coded="{post:CodED}" 
+                    codactiv="{post:CodActiv}"
+                    numhoras="{post:NumHoras}"
+                    HoraIni="{post:HoraIni}"
+                    fechaini="{post:FechaIni}" 
+                    fechafin="{post:FechaFin}"
+                    segmento="{segment_1}"
                 {/if}
               </div>
             </div>

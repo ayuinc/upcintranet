@@ -3028,7 +3028,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      // var_dump($result);
+      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -3044,53 +3044,55 @@ class Webservices
         // $result .='<div class="row">';
         
         for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
-          
-          if ($a == 0) {
-            $result .= '<div class="row pt-0 pl-14">'; // apertura
-          }
-          if ($a == 2) {
-            $result .= '<div class="row mt-14 pl-14">'; // apertura
-          }
-          $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
-          $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
-          $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
-          $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
-          $result .= '<input type="hidden" value="1" name="Flag">';
-          $result .= '<input type="hidden" value="'.$codsede.'" name="CodSede">';
-          $result .= '<input type="hidden" value="'.$coded.'" name="CodED">';
-          $result .= '<input type="hidden" value="'.$codactiv.'" name="CodActiv">';
-          $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
-          $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
-          $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
-          $a++;
-          $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
-          $a--;
-          $result .= '<span class="zizou-16">';
-          $result .= 'Fecha: '.$fecha.'<br>';
-          $result .= '</span>';
-          $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
-          $HoraInicio = ltrim($HoraInicio,'0');
-          $HoraFin = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'], 0, 2);
-          $HoraFin = ltrim($HoraFin,'0');
-          $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
-          $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
-          $result .= '<span class="zizou-16">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
-          if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
-          $result .= '<div class="zizou-16">Sede: Complejo Alamos</div>';
-          } else {
-          $result .= '<div class="zizou-16">Sede: Campus Villa</div>';
-          }
-          $result .= '<input type="submit"  class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
-          $result .= '</form>';
-          $result .= '</div>';
-          if ($a == 0 || $a == 2) {
-            $result .= '<div class="col-sm-1"></div>'; // apertura
-          }
-          if ($a == 1 || $a == 3) {
-            $result .= '</div>'; // apertura
-          }
-        }  
-        
+          $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
+          $hora_inicio_sol = substr($HoraIni,0,2);
+          if($hora_inicio_sol <= $hora_inicio_disp){
+            if ($a == 0) {
+              $result .= '<div class="row pt-0 pl-14">'; // apertura
+            }
+            if ($a == 2) {
+              $result .= '<div class="row mt-14 pl-14">'; // apertura
+            }
+            $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
+            $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
+            $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
+            $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
+            $result .= '<input type="hidden" value="1" name="Flag">';
+            $result .= '<input type="hidden" value="'.$codsede.'" name="CodSede">';
+            $result .= '<input type="hidden" value="'.$coded.'" name="CodED">';
+            $result .= '<input type="hidden" value="'.$codactiv.'" name="CodActiv">';
+            $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
+            $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
+            $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
+            $a++;
+            $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
+            $a--;
+            $result .= '<span class="zizou-16">';
+            $result .= 'Fecha: '.$fecha.'<br>';
+            $result .= '</span>';
+            $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
+            $HoraInicio = ltrim($HoraInicio,'0');
+            $HoraFin = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'], 0, 2);
+            $HoraFin = ltrim($HoraFin,'0');
+            $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
+            $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
+            $result .= '<span class="zizou-16">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
+            if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
+            $result .= '<div class="zizou-16">Sede: Complejo Alamos</div>';
+            } else {
+            $result .= '<div class="zizou-16">Sede: Campus Villa</div>';
+            }
+            $result .= '<input type="submit"  class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
+            $result .= '</form>';
+            $result .= '</div>';
+            if ($a == 0 || $a == 2) {
+              $result .= '<div class="col-sm-1"></div>'; // apertura
+            }
+            if ($a == 1 || $a == 3) {
+              $result .= '</div>'; // apertura
+            }
+          }  
+        }
         // $result .= '</div>';              
       }        
       
