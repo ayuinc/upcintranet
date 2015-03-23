@@ -181,8 +181,8 @@ class Webservices
       }
       
       if (strval($TipoUser)=='PROFESOR') {
-        $result .= '<div class="col-sm-4"></div>';
-        $result .= '<div class="col-sm-4 welcome">';
+        $result .= '<div class="col-sm-4 col-xs-2"></div>';
+        $result .= '<div class="col-sm-4 col-xs-8 welcome">';
         $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt=""></div><div class="zizou-28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
         $result .= '<div class="zizou-18 text-center gray-light">Elige el perfil que deseas utilizar</div>';
         $result .= '<div class="pt-35 pl-21 zizou-16">';
@@ -3638,10 +3638,10 @@ class Webservices
         
         $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-8">';
+        $result .= '<li class="col-xs-7">';
         $result .= '<div class="pl-7"><span class="helv-neue-light-14 text-left">CURSO</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-4">';
+        $result .= '<li class="col-xs-5">';
         $result .= '<div><span class="helv-neue-light-14 text-center">ALUMNOS</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
@@ -3653,12 +3653,12 @@ class Webservices
         
         for ($a=0; $a<$tamano; $a++) {
           $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-xs-8 helvetica-12 pb-0">';
+          $result .= '<li class="col-xs-7 helvetica-12 pb-0">';
           $result .= '<div>';
           $result .= '<span class="prueba">'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-4">';
+          $result .= '<li class="col-xs-5">';
           $result .= '<div class="text-center">';
           $result .= '<form action="{site_url}index.php/mi-docencia/cursos-detallados" method="post" id="form-'.$i.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
