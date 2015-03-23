@@ -29,6 +29,9 @@
                   <div class="solano-bold-20 black-text">{title}</div>
                   <div class="helvetica-16">
                     {contenido_generico}
+                    {imagenes_generico limit="1"}
+                      <img src="{image:url:medium}" alt="{image:title}">
+                    {/imagenes_generico}
                   </div> 
                 </div>
     						{/exp:channel:entries} 		            

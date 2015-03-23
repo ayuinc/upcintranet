@@ -20,16 +20,13 @@
       {/exp:channel:entries}    
       <div class="section-content pb-70">
         <div class="row">
-	        <div class="col-sm-1"></div>
+          <div class="col-sm-1"></div>
           <div class="col-sm-3"><span><a href="{site_url}ayuda">Regresar</a></span></div>
           <div class="col-sm-8 resultados">
               {exp:channel:entries channel="ayuda" limit="1" disable="member_data"}
               <h3>{title}</h3>
-              <p>{contenido-noticia}</p>
-              {imagenes_generico limit="1"}
-                <img src="{image:url:medium}" alt="{image:title}">
-              {/imagenes_generico}
-  						{/exp:channel:entries} 		            
+              <p>{contenido-noticia}</p>                
+              {/exp:channel:entries}    
           </div>
         </div>
       </div>
