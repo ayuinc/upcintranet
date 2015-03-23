@@ -204,8 +204,6 @@ $site-menu-width: 79px;
 // Dropdowns
 .dropdown {
 	ul.dropdown-menu {
-		// left: -84px !important;
-		// top: 100px;
 		-webkit-box-shadow: none !important;
 		box-shadow: none !important;
 		border: none;
@@ -235,6 +233,7 @@ $site-menu-width: 79px;
 		} 
 		@include book;
 		li {
+			cursor: pointer;
 			&.dditem {
 				padding-top: 3px;
 				padding-bottom: 3px;
