@@ -4,36 +4,41 @@
 {embed="includes/header"}
 {embed="includes/header-movil"}
 {embed="includes/sidebar"}
-    <div class="site-content container">
-      <div class="internal-header">
-          <div class="row first-line">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span class="zizou-16"></span></div>
-          </div>
-          <div class="row second-line pb-14">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4">
-	            <span class="uppercase bold xl">{title}</span>
+    {exp:channel:entries channel="generico" limit="1" disable="member_data"}
+    <div class="site-content">
+      <div class="container-fluid">
+        <div class="internal-header">
+            <div class="row first-line">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4"><span class="zizou-16"></span></div>
             </div>
-          </div>
-      </div> 
-      <div class="section-content pb-70">
-        <div class="row">
-	        <div class="col-sm-1"></div>
-          <div class="col-sm-3"><span><a href="{site_url}ayuda">Regresar</a></span></div>
-          <div class="col-sm-8 resultados">
-            <div class="resultados-busqueda">
-              {exp:channel:entries channel="generico" limit="1" disable="member_data"}
-              <div class="panel-body p-14">
-                <div class="solano-bold-20 black-text">{title}</div>
-                <div class="helvetica-16">
-                  {contenido_generico}
-                </div> 
+            <div class="row second-line pb-14">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4">
+                <span class="uppercase bold xl">{title}</span>
               </div>
-  						{/exp:channel:entries} 		            
+            </div>
+        </div> 
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-8 resultados">
+              <div class="resultados-busqueda red-line bg-muted">
+                <div class="panel-body p-14">
+                  <div class="solano-bold-20 black-text">{title}</div>
+                  <div class="helvetica-16">
+                    {contenido_generico}
+                    {imagenes_generico limit="1"}
+                      <img src="{image:url:medium}" alt="{image:title}">
+                    {/imagenes_generico}
+                  </div> 
+                </div>
+    						{/exp:channel:entries} 		            
+              </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
+    </div>
 {embed="includes/footer"}   

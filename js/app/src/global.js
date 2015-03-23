@@ -14,11 +14,6 @@ $(document).ready(function(){
     $('.search-trigger').click(function(){
         $('.search-bar').toggleClass('hidden');
     })
-    // // dropdown trigger
-    // $('#dropdownTrigger').click(function(){
-    //     // $(".dropdown").click();
-    //     $('.dropdown-toggle').dropdown();
-    // })
 
     function delCokkies (){
         var cookies = document.cookie.split(";");
@@ -30,4 +25,6 @@ $(document).ready(function(){
             document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
         }
     }
+    //tutorial
+    
 });

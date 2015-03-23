@@ -33,6 +33,7 @@
 									  border: 0px !important;
 									  background-color: $gray-lighter;
 									  color: black !important;
+									  font-family: "zizou-slab-regular" !important;
 									}
 								}
 							}
@@ -65,6 +66,7 @@
 	width: 100%;
 	background-color: $gray-lighter;
 	.row {
+		font-family: "zizou-slab-regular" !important;
 		.col-xs-7 {
 			padding-top: 28px;
 			@media #{$xs-only} {
@@ -91,6 +93,9 @@
 			top: -35px;
 			img {
 				width: 105px;
+				@media #{$xs-only} {
+				width: 91px;					
+				}
 				height: auto;
 				border: 2px solid $brand-info;
 				background-color: $brand-info;

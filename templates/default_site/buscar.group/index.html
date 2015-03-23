@@ -6,64 +6,66 @@
 {embed="includes/header"}
 {embed="includes/header_movil"}
 {embed="includes/sidebar"}
-    <div class="site-content container">
+    <div class="site-content">
+      <div class="container-fluid">
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="91" }
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Búsqueda</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-        </div>
-      </div>  
-      {/exp:channel:entries}  
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-3 que-buscas">
-            <span class="zizou-26">¿Qué buscas?</span>
-            {exp:search:simple_form form_class="clearfix" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" result_page="buscar/index"}
-            <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco...">
-            <button type="button" class="btn btn-custom black-btn" id="buscar-phr">BUSCAR</button>
-            <input type="submit" value="submit" id="search-nh-submit" class="submit hidden">
-            {/exp:search:simple_form}
-          </div>  
-          <div class="col-sm-8 resultados">
-            <span class="zizou-26">Se han encontrado {exp:search:total_results} resultados para "{exp:search:keywords}"</span>
-            <div class="resultados-busqueda red-line bg-muted">
-              <script>
-                ga('send', 'pageview', '/buscar?q={exp:search:keywords}');
-              </script>
-              {exp:search:search_results}
-              <div class="panel-body p-14">
-                <div class="solano-bold-20 black-text">{count}.&nbsp;{title}</div>   
-                <div class="helvetica-16">
-                  {if intrudccion-referencia}
-                  	{intrudccion-referencia}
-                  {/if}
-                  {if intro-noticia}
-                  	{intro-noticia}
-                  {/if}
-                </div>     
-                {if link-referencia}
-                  {if tipo-referencia=='Socrates'}
-                  <a class="danger-link zizou-16" target="_blank" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Búsqueda</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div>  
+        {/exp:channel:entries}  
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3 que-buscas">
+              <span class="zizou-26">¿Qué buscas?</span>
+              {exp:search:simple_form form_class="clearfix" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" result_page="buscar/index"}
+              <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco...">
+              <button type="button" class="btn btn-custom black-btn" id="buscar-phr">BUSCAR</button>
+              <input type="submit" value="submit" id="search-nh-submit" class="submit hidden">
+              {/exp:search:simple_form}
+            </div>  
+            <div class="col-sm-8 resultados">
+              <p class="zizou-26">Se han encontrado {exp:search:total_results} resultados para <span class="black-text">"{exp:search:keywords}"</span></p>
+              <div class="resultados-busqueda red-line bg-muted">
+                <script>
+                  ga('send', 'pageview', '/buscar?q={exp:search:keywords}');
+                </script>
+                {exp:search:search_results}
+                <div class="panel-body p-14">
+                  <div class="solano-bold-20 black-text">{count}.&nbsp;{title}</div>   
+                  <div class="helvetica-16">
+                    {if intrudccion-referencia}
+                    	{intrudccion-referencia}
+                    {/if}
+                    {if intro-noticia}
+                    	{intro-noticia}
+                    {/if}
+                  </div>     
+                  {if link-referencia}
+                    {if tipo-referencia=='Socrates'}
+                    <a class="danger-link zizou-16" target="_blank" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+                    {/if} 
+                    {if tipo-referencia=='Externa'}
+                    <a class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
+                    {/if}   
                   {/if} 
-                  {if tipo-referencia=='Externa'}
-                  <a class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
-                  {/if}   
-                {/if} 
-                {paginate}
-                  <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-                {/paginate}
+                  {paginate}
+                    <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+                  {/paginate}
+                </div>
+                {if count != total_results}
+                <div class="dotted-line"></div>
+                {/if}
+                {/exp:search:search_results}                
               </div>
-              {if count != total_results}
-              <div class="dotted-line"></div>
-              {/if}
-              {/exp:search:search_results}                
-            </div>
+              </div>
             </div>
           </div>
         </div>

@@ -5,30 +5,31 @@
 {embed="includes/sidebar-docente"}
 {embed="includes/header-movil-docentes"}
  
-    <div class="site-content container">
-     <div class="row mensaje pb-21"></div>
-     <div class="row">
-      <div class="col-sm-1"></div>
-      <div class="col-sm-4">
-       <div class="panel">
-        <div class="panel-head">
-          <div class="panel-title">
-            <h2>Mi Horario: <span class="gray-light">{current_time format="%l"}</span></h2>
+    <div class="site-content">
+      <div class="container-fluid">
+       <div class="row">
+        <div class="col-sm-0-5"></div>
+        <div class="col-sm-4">
+         <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <h2>Mi Horario: <span class="gray-light">{current_time format="%l"}</span></h2>
+            </div>
+            <a href="{site_url}mi-docencia/ciclo-actual"><div class="panel-head-link danger"></div></a>
+            <div class="panel-title-line"></div>
           </div>
-          <a href="{site_url}mi-docencia/ciclo-actual"><div class="panel-head-link danger"></div></a>
-          <div class="panel-title-line"></div>
+          {embed="includes/dashboard-horario-docente"}
+         </div>
         </div>
-        {embed="includes/dashboard-horario-docente"}
-       </div>
-      </div>
-      <div class="col-sm-4">
-        {embed="includes/dashboard-miscursos-docente"}
-        {embed="includes/dashboard-misreservas"} 
-      </div>
-      <div class="col-sm-3">
-        {embed="includes/dashboard-noticias-docentes"}
-      </div>
-      </div>
+        <div class="col-sm-4">
+          {embed="includes/dashboard-miscursos-docente"}
+          {embed="includes/dashboard-misreservas"} 
+        </div>
+        <div class="col-sm-3">
+          {embed="includes/dashboard-noticias-docentes"}
+        </div>
+        </div>
+      </div>  
     </div>
     
  
