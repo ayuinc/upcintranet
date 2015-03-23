@@ -1268,17 +1268,17 @@ class Webservices
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-xs-8 helvetica-14 pb-0">';
+        $result .= '<li class="col-xs-7 helvetica-14 pb-0">';
         $result .= '<div>';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-2 helvetica-bold-14">';
+        $result .= '<li class="col-xs-2 ronnia-18">';
         $result .= '<div class="text-center">';
         $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-2 helvetica-bold-14">';
+        $result .= '<li class="col-xs-3 ronnia-18">';
 
         $codcurso = $json['Inasistencias'][$i]['CodCurso'];
         
@@ -1306,7 +1306,7 @@ class Webservices
         //Cambia el formato a 2 decimales
         $nota = number_format($nota, 2, '.', '');
         
-        $result .= '<div class="text-center"><span>'.$nota.'</span></div>';
+        $result .= '<div class="text-center borderless"><span>'.$nota.'</span></div>';
         $result .= '</li>';
       }     
       

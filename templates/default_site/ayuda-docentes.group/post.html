@@ -26,6 +26,9 @@
               {exp:channel:entries channel="ayuda" limit="1" disable="member_data"}
               <h3>{title}</h3>
               <p>{contenido-noticia}</p>
+              {imagenes_generico limit="1"}
+                <img src="{image:url:medium}" alt="{image:title}">
+              {/imagenes_generico}
   						{/exp:channel:entries} 		            
           </div>
         </div>
