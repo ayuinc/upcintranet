@@ -66,6 +66,7 @@
 	width: 100%;
 	background-color: $gray-lighter;
 	.row {
+		font-family: "zizou-slab-regular" !important;
 		.col-xs-7 {
 			padding-top: 28px;
 			@media #{$xs-only} {
