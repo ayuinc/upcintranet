@@ -3566,17 +3566,17 @@ class Webservices
         
         for ($a=0; $a<$tamano_int; $a++) {
           $result .= '<ul class="tr">';
-          $result .= '<li class="col-xs-8 helvetica-12">';
+          $result .= '<li class="col-xs-8 helvetica-14">';
           $result .= '<div>';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2 helvetica-12">';
+          $result .= '<li class="col-xs-2 helvetica-14">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2 helvetica-12">';
+          $result .= '<li class="col-xs-2 helvetica-14">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'</span>';
           $result .= '</div>';
@@ -3584,8 +3584,8 @@ class Webservices
           $result .= '</ul>';
         }
         
-        $result .= '</div>';
       } 
+        $result .= '</div>';
       
       //Control de errores
       if ($error!='00000') {

@@ -1,0 +1,5 @@
+.noticias-widget {
+	@media #{$md-down} and (orientation: landscape) {
+		margin-bottom: 14px;
+	}
+}
