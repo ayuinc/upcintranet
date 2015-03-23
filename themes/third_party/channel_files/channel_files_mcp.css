@@ -1,0 +1,21 @@
+#DownloadLog_wrapper {}
+#DownloadLog_wrapper .dataTables_length {float:left; width:40%; padding:3px 5px 0 5px;}
+#DownloadLog_wrapper .dataTables_filter {float:right; text-align:right; width:50%;}
+#DownloadLog_wrapper .dataTables_filter input {width:50%}
+#DownloadLog_processing {background:url(img/spinner.gif) no-repeat center; padding:0 0 0 20px;}
+#DownloadLog {clear:both; margin:0 !important}
+#DownloadLog tfoot input {width:95%}
+#DownloadLog_info {float:left; width:40%; padding:3px;}
+#DownloadLog_paginate {float:right; text-align:right; width:50%; padding:3px;}
+#DownloadLog_paginate .ui-button {cursor:pointer !important; background:none !important; border:0 !important; padding:2px;}
+
+.css_right {float:right;}
+.css_left {float:left;}
+
+.clearfix:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; } /* Hides from IE-mac \*/
+.clearfix { display: block; }
+
+
+.hidden {display:none}
