@@ -3329,6 +3329,7 @@ class Webservices
 
         //mensaje de exito
         if (strpos($error_mensaje, 'realizado') !== false || strpos($error_mensaje, 'reservado') !== false) {
+          $formato_fecha = substr($json['MsgError'], );
           $result .= '<div class="resultados-busqueda info-border bg-muted">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
@@ -4629,6 +4630,7 @@ class Webservices
     //INICIAR SESION
     public function verificar_usuario() {
       //$token = $_SESSION["Token"];
+      $segment_2 = ee()->TMPL->fetch_param('tipo_de_vista');
       $codigo =  $_COOKIE["Codigo"];
       $_COOKIE["Codigo"] = $codigo;
       setcookie("Codigo",$codigo, time() + (1800), "/");
@@ -4638,13 +4640,24 @@ class Webservices
 
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
+        $tipouser = $row->tipouser;
       }
+
       $redireccion = current_url();
       $_SESSION["Redireccion"] = $redireccion;
       
       if ($codigo=='') {
         redirect('/login/no-es-usuario');
-      } 
+      }
+      else if ($segment_2 != $tipouser ) {
+        if ($tipouser == 'PROFESOR'){
+          redirect('/dashboard/docente');
+        }
+        if ($tipouser == 'ALUMNO'){
+          redirect('/dashboard/estudiante');
+        }
+      }
+
     }    
     
     //BOTON INICIO
