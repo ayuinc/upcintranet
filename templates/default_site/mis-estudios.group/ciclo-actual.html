@@ -25,7 +25,7 @@
                 <div class="panel">
                   <div class="panel-head no-bg">
                     <div class="panel-title left">
-                      <h2>Mis Cursos</h2>
+                      <h3>Mis Cursos</h3>
                     </div>
                   </div>
                   <div class="panel-body mt-7">
@@ -53,7 +53,7 @@
                 <div class="panel">
                     <div class="panel-head no-bg">
                       <div class="panel-title left">
-                        <h2>Mi Horario Semanal</h2>
+                        <h3>Mi Horario Semanal</h3>
                       </div>
                     </div>
                     {exp:webservices:horario_ciclo_actual_alumno}
@@ -63,5 +63,5 @@
       </div>
     </div>
   </div>
-  <a href="{path='mis-estudios/ciclo-actual-pdf'}" target="_blanks">Download PDF</a>
+  <a href="{exp:pdf_press:save_to_pdf path='mis-estudios/ciclo-actual-pdf' attachment='0' filename='projects.pdf'}" target="_blank">Download PDF</a>
 {embed="includes/footer"}   

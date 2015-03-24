@@ -5,40 +5,38 @@
 {embed="includes/sidebar-padres"}
 {embed="includes/header-movil-padres"} 
 
-    <div class="site-content container">
-      <div class="row mensaje pb-21">
-
-      </div>
-     <div class="row">
-      <div class="col-sm-1"></div>
-      <div class="col-sm-4">
-       <div class="panel">
-        <div class="panel-head">
-          <div class="panel-title">
-            <h2>Su Horario</h2>
+    <div class="site-content">
+      <div class="container-fluid">
+       <div class="row">
+        <div class="col-sm-0-5"></div>
+        <div class="col-sm-4">
+         <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <h2>Su Horario</h2>
+            </div>
+            <a href=""><div class="panel-head-link danger"></div></a>
+            <div class="panel-title-line"></div>
           </div>
-          <a href=""><div class="panel-head-link danger"></div></a>
-          <div class="panel-title-line"></div>
+          {embed="includes/dashboard-padre-suhorario" codigo_alumno="{segment_4}"}
+         </div>
         </div>
-        {embed="includes/dashboard-padre-suhorario" codigo_alumno="{segment_4}"}
-       </div>
-      </div>
-      <div class="col-sm-4">
-        {embed="includes/dashboard-padre-suscursos" codigo_alumno="{segment_4}"}
-      </div>
+        <div class="col-sm-4">
+          {embed="includes/dashboard-padre-suscursos" codigo_alumno="{segment_4}"}
+        </div>
 
-      <div class="col-sm-3">
-        <!-- INICIO MIS PAGOS-->
-        {embed="includes/dashboard-padre-mispagos" codigo_alumno="{segment_4}"}
-        <!-- FIN MIS PAGOS-->
-        <!-- INICIO DE NOTICIAS -->
-        {embed="includes/rss-vida-universitaria"}
-        <!-- FIN DE NOTICIAS-->
-        <!-- INICIO DE BOLSA DE TRABAJO -->
-        {embed="includes/rss-noticias"}
-        <!-- FIN DE BOLSA DE TRABAJO-->
+        <div class="col-sm-3">
+          <!-- INICIO MIS PAGOS-->
+          {embed="includes/dashboard-padre-mispagos" codigo_alumno="{segment_4}"}
+          <!-- FIN MIS PAGOS-->
+          <!-- INICIO DE NOTICIAS -->
+          {embed="includes/rss-vida-universitaria"}
+          <!-- FIN DE NOTICIAS-->
+          <!-- INICIO DE BOLSA DE TRABAJO -->
+          {embed="includes/rss-noticias"}
+          <!-- FIN DE BOLSA DE TRABAJO-->
+        </div>
+        </div>
       </div>
-      </div>
- 
     </div>
 {embed="includes/footer"}

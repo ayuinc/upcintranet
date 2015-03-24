@@ -1,0 +1,51 @@
+.ChannelFilesField .cfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.ChannelFilesField .cfix {display:inline-block; }
+/* required comment for clearfix to work in Opera \*/
+* html .ChannelFilesField .cfix { height:1%; }
+.ChannelFilesField .cfix {display:block; }
+/* end clearfix */
+
+.ChannelFilesField {}
+
+/* TABS: jQuery UI Reset! */
+.ChannelFilesField .ChannelFilesTabs {padding:0; margin:0; background:none; border:0; border-radius:0;}
+.ChannelFilesField .ChannelFilesTabs li {background:none; padding:0; margin:0; border:0; border-radius:0;}
+.ChannelFilesField .ChannelFilesTabs li a {background:none; padding:0; margin:0; border:0; border-radius:0;}
+.ChannelFilesField .ui-tabs-panel {padding:10px 5px;}
+
+/* TABS: Normal Style */
+.ChannelFilesField .ChannelFilesTabs {border-bottom:1px solid #B8B8B8;}
+.ChannelFilesField .ChannelFilesTabs li {margin-left:5px; margin-bottom: -1px; height:22px; background:url(img/tab_inactive_bg.gif) repeat-x; border:1px solid #B8B8B8; border-top-left-radius:2px; border-top-right-radius:2px; line-height:22px;}
+.ChannelFilesField .ChannelFilesTabs li a {color:#646464; padding:0 5px; font-size:11px; font-weight:bold; float:left; text-decoration:none; outline:none;}
+.ChannelFilesField .ChannelFilesTabs li.ui-tabs-selected {border-bottom:none;}
+.ChannelFilesField .ChannelFilesTabs li.ui-tabs-selected a {color:#B22447;}
+.ChannelFilesField .ChannelFilesTabsHolder {background:#FFFFFF; border-bottom:1px solid #B8B8B8; border-left:1px solid #B8B8B8; border-right:1px solid #B8B8B8;}
+ 
+/* TABLE */
+.ChannelFilesField .ChannelFilesTable {width:100%; border:1px solid #b6c0c2; border-radius:3px; -webkit-border-radius: 3px; -moz-border-radius:4px;}
+.ChannelFilesField .ChannelFilesTable thead {background:none !important}
+.ChannelFilesField .ChannelFilesTable th {text-align:left; font-size:12px; color:#505050 !important; line-height:13px; background:#fff url(img/thead_bg.png) repeat-x 0 1px !important; background: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(rgba(0,0,0,0.06))) !important; background:-moz-linear-gradient(top, transparent, rgba(0,0,0,0.06)) !important; border-bottom:1px solid #BBB !important; text-shadow:0 1px #fff; padding:5px 10px 6px 10px !important; border-left:0 !important; border-top:0 !important; cursor:default !important; text-shadow: none !important;}
+.ChannelFilesField .ChannelFilesTable th:first-child {border-right:1px solid #ccc; border-right-color:rgba(0,0,0,0.1) !important; }
+.ChannelFilesField .ChannelFilesTable th:last-child {border-right:none !important;}
+.ChannelFilesField .ChannelFilesTable th h4 {font-size:14px; color:#37444D; margin:0 !important;}
+.ChannelFilesField .ChannelFilesTable th h4 small {font-size:10px; font-family:Helvetica,Arial,sans-serif; color:#37444D; font-weight:normal;}
+.ChannelFilesField .ChannelFilesTable td {padding:5px 8px; font-size:11px; background:#fff; border:solid #e3e3e3; border-width:1px 0 0 0;}
+.ChannelFilesField .ChannelFilesTable td:first-child {border-right-width:1px}
+.ChannelFilesField .ChannelFilesTable td:last-child {border-right:none !important;}
+.ChannelFilesField .ChannelFilesTable td input[type=text] {border:0; padding:3px;}
+.ChannelFilesField .ChannelFilesTable td input[type=text]:focus {padding:3px;}
+.ChannelFilesField .ChannelFilesTable td input[type=password] {border:0; padding:3px;}
+.ChannelFilesField .ChannelFilesTable td input[type=password]:focus {padding:3px;}
+.ChannelFilesField .ChannelFilesTable td select {padding:3px 5px; border:1px solid #ccc;}
+.ChannelFilesField .ChannelFilesTable td select option {padding:0 3px;}
+.ChannelFilesField .ChannelFilesTable td small {display:block; margin:2px 0 0 0;}
+.ChannelFilesField .ChannelFilesTable tr.odd td {background:#fff;}
+.ChannelFilesField .ChannelFilesTable tbody tr:last-child td:last-child {border-bottom-right-radius:4px; -webkit-border-bottom-right-radius: 4px;}
+.ChannelFilesField .ChannelFilesTable tbody tr:last-child td:first-child {border-bottom-left-radius:4px; -webkit-border-bottom-left-radius: 4px;}
+.ChannelFilesField .ChannelFilesTable tfoot {background:none !important}
+.ChannelFilesField .ChannelFilesTable tfoot td {text-align:left; font-size:12px; color:#505050 !important; line-height:13px; background:#fff url(img/thead_bg.png) repeat-x 0 1px !important; background: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(rgba(0,0,0,0.06))) !important; background:-moz-linear-gradient(top, transparent, rgba(0,0,0,0.06)) !important; border-bottom:1px solid #BBB; text-shadow:0 1px #fff; padding:5px 10px 6px 10px !important; border-left:0 !important; cursor:default !important;}
+
+.ChannelFilesField h3 {color:#37444D; font-size:16px; font-family:Helvetica,Arial,sans-serif; margin:0; margin-bottom:10px !important; padding:0;}
+.ChannelFilesField h3 small {display:block; font-size:11px; font-weight:normal; padding:5px 0 0;}
+
+.ChannelFilesField .TestLocation {padding:0 0 0 20px; height:16px; display:block; background:url(img/test.png) no-repeat; line-height:16px; font-size:13px; font-weight:bold;}

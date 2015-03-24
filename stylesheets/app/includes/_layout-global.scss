@@ -18,10 +18,6 @@ body {
 	height: 100%;
 }
 
-// .site-menu {
-// 	min-height: 87%;
-// }
-
 .site-wrapper {
 	position: relative;
 }
@@ -73,36 +69,6 @@ $site-menu-width: 79px;
 				margin-bottom: 3px;
 			}
 		} 
-	}
-}
-
-#collapseMobile {
-	ul.mobile-menu {
-		> li {
-			padding-left: 21px !important;
-			padding-top: 3px;
-			padding-bottom: 3px;
-			a, span {
-				@include book;
-				color: white !important;
-				font-size: 20px !important;
-				text-transform: uppercase;
-			}
-			&:nth-child(even) {
-				background: $gray-light;
-			}
-			&:nth-child(odd) {
-				background: $gray-lighter;
-				a, span {
-				color: $gray-main !important;
-				}
-			}
-			@include serif-book;
-			font-size: 14px;
-		}
-	}
-	.child li {
-		padding-left: 21px !important;
 	}
 }
 
@@ -203,8 +169,6 @@ $site-menu-width: 79px;
 // Dropdowns
 .dropdown {
 	ul.dropdown-menu {
-		// left: -84px !important;
-		// top: 100px;
 		-webkit-box-shadow: none !important;
 		box-shadow: none !important;
 		border: none;
@@ -232,8 +196,8 @@ $site-menu-width: 79px;
 			border-width: 15px;
 			margin-left: -15px;
 		} 
-		@include book;
 		li {
+			cursor: pointer;
 			&.dditem {
 				padding-top: 3px;
 				padding-bottom: 3px;
@@ -256,7 +220,6 @@ $site-menu-width: 79px;
 	&.avatar-hijo {
 		.dropdown-toggle {
 			.avatar-container {
-				// border-radius: 50px;
 				cursor: pointer;
 				img {
 					border: 2px solid white;
@@ -267,9 +230,6 @@ $site-menu-width: 79px;
 					border: 2px solid $brand-danger;
 					background-color: $brand-danger;
 				}
-				// padding: 3px;
-				// background-color: $gray-light;
-				// width: 50px !important;
 			}
 		}
 		.dropdown-menu {

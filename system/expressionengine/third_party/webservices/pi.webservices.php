@@ -181,8 +181,8 @@ class Webservices
       }
       
       if (strval($TipoUser)=='PROFESOR') {
-        $result .= '<div class="col-sm-4"></div>';
-        $result .= '<div class="col-sm-4 welcome">';
+        $result .= '<div class="col-sm-4 col-xs-2"></div>';
+        $result .= '<div class="col-sm-4 col-xs-8 welcome">';
         $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt=""></div><div class="zizou-28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
         $result .= '<div class="zizou-18 text-center gray-light">Elige el perfil que deseas utilizar</div>';
         $result .= '<div class="pt-35 pl-21 zizou-16">';
@@ -1268,17 +1268,17 @@ class Webservices
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<ul class="tr bg-muted">';
-        $result .= '<li class="col-xs-8 helvetica-14 pb-0">';
+        $result .= '<li class="col-xs-7 helvetica-14 pb-0">';
         $result .= '<div>';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-2 helvetica-bold-14">';
+        $result .= '<li class="col-xs-2 ronnia-18">';
         $result .= '<div class="text-center">';
         $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-2 helvetica-bold-14">';
+        $result .= '<li class="col-xs-3 ronnia-18">';
 
         $codcurso = $json['Inasistencias'][$i]['CodCurso'];
         
@@ -1306,7 +1306,7 @@ class Webservices
         //Cambia el formato a 2 decimales
         $nota = number_format($nota, 2, '.', '');
         
-        $result .= '<div class="text-center"><span>'.$nota.'</span></div>';
+        $result .= '<div class="text-center borderless"><span>'.$nota.'</span></div>';
         $result .= '</li>';
       }     
       
@@ -1627,7 +1627,7 @@ class Webservices
       
       $result .= '<ul class="tr">';
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<a href="#curso-'.$i.'" class="curso-link">';
+        $result .= '<a data-curso-id="'.$i.'" class="curso-link">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
         $result .= '<span class="zizou-16">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
@@ -1890,7 +1890,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black-text curso-link text-right" href="#top">';
+        $result .= '<a class="black-text go-to-top text-right">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
@@ -3567,17 +3567,17 @@ class Webservices
         
         for ($a=0; $a<$tamano_int; $a++) {
           $result .= '<ul class="tr">';
-          $result .= '<li class="col-xs-8 helvetica-12">';
+          $result .= '<li class="col-xs-8 helvetica-14">';
           $result .= '<div>';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2 helvetica-12">';
+          $result .= '<li class="col-xs-2 helvetica-14">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2 helvetica-12">';
+          $result .= '<li class="col-xs-2 helvetica-14">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'</span>';
           $result .= '</div>';
@@ -3585,8 +3585,8 @@ class Webservices
           $result .= '</ul>';
         }
         
-        $result .= '</div>';
       } 
+        $result .= '</div>';
       
       //Control de errores
       if ($error!='00000') {
@@ -3639,10 +3639,10 @@ class Webservices
         
         $result .= '<div class="panel-body-head-table white">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-8">';
+        $result .= '<li class="col-xs-7">';
         $result .= '<div class="pl-7"><span class="helv-neue-light-14 text-left">CURSO</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-4">';
+        $result .= '<li class="col-xs-5">';
         $result .= '<div><span class="helv-neue-light-14 text-center">ALUMNOS</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
@@ -3654,12 +3654,12 @@ class Webservices
         
         for ($a=0; $a<$tamano; $a++) {
           $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-xs-8 helvetica-12 pb-0">';
+          $result .= '<li class="col-xs-7 helvetica-12 pb-0">';
           $result .= '<div>';
           $result .= '<span class="prueba">'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-4">';
+          $result .= '<li class="col-xs-5">';
           $result .= '<div class="text-center">';
           $result .= '<form action="{site_url}index.php/mi-docencia/cursos-detallados" method="post" id="form-'.$i.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
