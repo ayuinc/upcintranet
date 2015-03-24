@@ -4655,6 +4655,9 @@ class Webservices
         if ($tipouser == 'ALUMNO'){
           redirect('/dashboard/estudiante');
         }
+        if ($tipouser == 'PADRE'){
+          redirect('/index.php/login/usuario');
+        }
       }
 
     }    
