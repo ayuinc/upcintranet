@@ -72,37 +72,6 @@ $site-menu-width: 79px;
 	}
 }
 
-#collapseMobile {
-	ul.mobile-menu {
-		> li {
-			cursor: pointer;
-			padding-left: 21px !important;
-			padding-top: 3px;
-			padding-bottom: 3px;
-			a, span {
-				@include book;
-				color: white !important;
-				font-size: 20px !important;
-				text-transform: uppercase;
-			}
-			&:nth-child(even) {
-				background: $gray-light;
-			}
-			&:nth-child(odd) {
-				background: $gray-lighter;
-				a, span {
-				color: $gray-main !important;
-				}
-			}
-			@include serif-book;
-			font-size: 14px;
-		}
-	}
-	.child li {
-		padding-left: 21px !important;
-	}
-}
-
 .site-content {
 	@media #{$md-up} {
 		@include calc(width, "100% - #{$site-menu-width}");

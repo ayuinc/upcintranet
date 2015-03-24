@@ -3,32 +3,34 @@
 {exp:webservices:verificar_usuario}
 {embed="includes/header"}
 {embed="includes/sidebar"}
-    <div class="site-content container">
-	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="93" dynamic="off"}
-      <div class="internal-header">
-          <div class="row first-line">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span>Necesitas</span></div>
-          </div>
-          <div class="row second-line pb-14">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4">
-	            <span>{title}</span>
+    <div class="site-content">
+  	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="93" dynamic="off"}
+      <div class="container-fluid">
+        <div class="internal-header">
+            <div class="row first-line">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4"><span>Necesitas</span></div>
+            </div>
+            <div class="row second-line pb-14">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4">
+  	            <span>{title}</span>
+              </div>
+            </div>
+        </div> 
+        {/exp:channel:entries}    
+        <div class="section-content pb-70">
+          <div class="row">
+  	        <div class="col-sm-0-5"></div>
+            <div class="col-sm-3"><span><a href="{site_url}ayuda">Regresar</a></span></div>
+            <div class="col-sm-8 resultados">
+                {exp:channel:entries channel="ayuda" limit="1" disable="member_data"}
+                <h3>{title}</h3>
+                <p>{contenido-noticia}</p>
+    						{/exp:channel:entries} 		            
             </div>
           </div>
-      </div> 
-      {/exp:channel:entries}    
-      <div class="section-content pb-70">
-        <div class="row">
-	        <div class="col-sm-1"></div>
-          <div class="col-sm-3"><span><a href="{site_url}ayuda">Regresar</a></span></div>
-          <div class="col-sm-8 resultados">
-              {exp:channel:entries channel="ayuda" limit="1" disable="member_data"}
-              <h3>{title}</h3>
-              <p>{contenido-noticia}</p>
-  						{/exp:channel:entries} 		            
-          </div>
         </div>
-      </div>
-      </div>
+      </div>  
+    </div>
 {embed="includes/footer"}   
