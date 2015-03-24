@@ -4646,10 +4646,10 @@ class Webservices
       $redireccion = current_url();
       $_SESSION["Redireccion"] = $redireccion;
       
-      if ($codigo=='') {
+      if ($codigo == '') {
         redirect('/login/no-es-usuario');
       }
-      else if ($segment_2 != $tipouser ) {
+      elseif ($segment_2 != $tipouser ) {
         if ($tipouser == 'PROFESOR'){
           redirect('/dashboard/docente');
         }
