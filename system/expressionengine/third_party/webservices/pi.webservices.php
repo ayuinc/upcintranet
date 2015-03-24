@@ -4656,7 +4656,15 @@ class Webservices
           redirect('/dashboard/estudiante');
         }
         if ($tipouser == 'PADRE'){
-          redirect('/index.php/login/usuario');
+          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+          $ch = curl_init($url);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_URL,$url);
+          $hijosWebService=curl_exec($ch);
+          $json = json_decode($hijosWebService, true);
+          
+          redirect('/dashboard/padre/hijos/'.$json["hijos"][0]["codigo"]);
         }
       }
 
