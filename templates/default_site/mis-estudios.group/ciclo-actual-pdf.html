@@ -1,30 +1,7 @@
-{exp:webservices:iniciar_session}
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=8"> -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta charset="utf-8">
-    <title>INTRANET UPC</title>
-
-    <!-- FAVICON -->
-    <link rel="shortcut icon" href="{site_url}assets/img/favicon.ico">
-
-    <!-- WebFonts -->
-    <script src="//use.typekit.net/atd7fhw.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
-
-    <!-- print -->
-    <link rel="stylesheet" href="{site_url}stylesheets/main_print.css" media="print">
-    <!-- regular -->
-    <link rel="stylesheet" href="{site_url}stylesheets/main.min.css">
-    <link href="https://s3-sa-east-1.amazonaws.com/webfontsupc/fuentes.css" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="https://s3-sa-east-1.amazonaws.com/webfontsupc/fuentes.css">
-
-  </head>
-  <body>
-
-  <div class="site-wrapper clearfix">
+{exp:pdf_press:parse_pdf orientation="landscape"}
+    {embed="includes/head"}
+    {exp:webservices:iniciar_session}
+    {exp:webservices:verificar_usuario}
           <div class="site-content">
             <div class="container-fluid">
               {exp:channel:entries channel="seccion" limit="1" entry_id="20"}
@@ -60,7 +37,7 @@
                             </ul>
                           </div>
                           <div class="panel-table no-bg">
-                           {get:cursos_alumno}
+                           {exp:webservices:curos_que_lleva_un_alumno}
                           </div>
                         </div>
                       </div>
@@ -83,6 +60,5 @@
             </div>
           </div>
         </div>
-    </div> <!-- site wrapper  -->
-</body> 
-</html>
+    {embed="includes/footer"}
+{/exp:pdf_press:parse_pdf}
