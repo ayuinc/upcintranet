@@ -3332,7 +3332,8 @@ class Webservices
           $result .= '<div class="resultados-busqueda info-border bg-muted">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
-          $result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
+          //$result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
+          $result .= '<span class="helvetica-16 text-info"> Estimado(a) alumno(a): Se ha reservado el recurso'.$nomrecurso.'para el dia'.substr($fechafin, 0,2).'/'.substr($fechafin, 2,2).'/'.substr($fechafin, 4,4).', a las '.substr($horaini, 0,2).':'.substr($horaini, 2,2).' horas.</span>';
           $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33">';
           $result .= '<div class="bg-muted p-7 mb-7">';
           $result .= '<div class="row">';  
