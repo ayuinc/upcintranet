@@ -1,0 +1,7 @@
+.buscar {
+	.resultados {
+		@media #{$xs-only} {
+			padding-top: 28px;
+		}
+	}
+}
