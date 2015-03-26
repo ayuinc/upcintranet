@@ -3332,7 +3332,8 @@ class Webservices
           $result .= '<div class="resultados-busqueda info-border bg-muted">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
-          $result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
+          //$result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
+          $result .= '<span class="helvetica-16 text-info"> Estimado(a) alumno(a): Se ha reservado el recurso'.$nomrecurso.'para el dia'.substr($fechafin, 0,2).'/'.substr($fechafin, 2,2).'/'.substr($fechafin, 4,4).', a las '.substr($horaini, 0,2).':'.substr($horaini, 2,2).' horas.</span>';
           $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33">';
           $result .= '<div class="bg-muted p-7 mb-7">';
           $result .= '<div class="row">';  
@@ -4629,6 +4630,7 @@ class Webservices
     //INICIAR SESION
     public function verificar_usuario() {
       //$token = $_SESSION["Token"];
+      $segment_2 = ee()->TMPL->fetch_param('tipo_de_vista');
       $codigo =  $_COOKIE["Codigo"];
       $_COOKIE["Codigo"] = $codigo;
       setcookie("Codigo",$codigo, time() + (1800), "/");
@@ -4638,13 +4640,35 @@ class Webservices
 
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
+        $tipouser = $row->tipouser;
       }
+
       $redireccion = current_url();
       $_SESSION["Redireccion"] = $redireccion;
       
-      if ($codigo=='') {
+      if ($codigo == '') {
         redirect('/login/no-es-usuario');
-      } 
+      }
+      elseif ($segment_2 != $tipouser ) {
+        if ($tipouser == 'PROFESOR'){
+          redirect('/dashboard/docente');
+        }
+        if ($tipouser == 'ALUMNO'){
+          redirect('/dashboard/estudiante');
+        }
+        if ($tipouser == 'PADRE'){
+          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+          $ch = curl_init($url);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_URL,$url);
+          $hijosWebService=curl_exec($ch);
+          $json = json_decode($hijosWebService, true);
+          
+          redirect('/dashboard/padre/hijos/'.$json["hijos"][0]["codigo"]);
+        }
+      }
+
     }    
     
     //BOTON INICIO
