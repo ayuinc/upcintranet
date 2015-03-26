@@ -129,10 +129,26 @@ $site-menu-width: 79px;
 	}
 }
 
+.section-desc {
+	padding-top: 5px;
+	@include serif-book;
+	font-size: 18px;
+	font-size: rem(18);
+}
+
+button#buscar-phr {
+	// float: right;
+	width: 100%;
+	margin-top: 7px;
+	background-color: $gray-main;
+	border-radius: 0px;
+	color: white;
+	@include bold;
+	font-size: 22px;
+	padding: 3px 49px !important;
+}
+
 .section-content {
-	.section-desc {
-		padding-top: 9px;
-	}
 	.row {
 		.zizou-26 {
 			@include serif-book;
@@ -145,18 +161,6 @@ $site-menu-width: 79px;
 				font-size: rem(22);
 			}
 			padding: 0;
-		}
-		.col-sm-3 {
-			button {
-				float: right;
-				margin-top: 7px;
-				background-color: $gray-main;
-				border-radius: 0px;
-				color: white;
-				@include book;
-				font-size: 22px;
-				padding: 3px 49px !important;
-			}
 		}
 		.col-sm-8 {
 			.row {

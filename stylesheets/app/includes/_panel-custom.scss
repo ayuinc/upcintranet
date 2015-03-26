@@ -8,7 +8,7 @@
 		background-color: white;
 		@include clearfix;
 		.panel-title {
-			padding: 7px !important;
+			padding: 7px;
 			&.left {
 				padding: 7px 0 !important;
 			}
@@ -25,10 +25,17 @@
 			margin: 7px;
 			background-repeat: no-repeat;
 			background-position: center;
+			&.vida {
+				@media #{$md-down} {
+					margin-left: 0px;
+  				margin-right: 1px;
+  				margin-top: 5px;
+				}
+			}
 			@media #{$md-down} {
 				height: 24px;
 				width: 24px;
-				margin: 7px;
+				margin: 3px;
 			}
 			@media #{$md-down} and (orientation: portrait) {
 				height: 20px;
