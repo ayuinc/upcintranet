@@ -3,3 +3,14 @@
 		margin-bottom: 14px;
 	}
 }
+
+.vida-universitaria {
+	display: inline-block;
+	@media only screen and (width: 1024px) {
+		display: block;
+	}
+	@media only screen and (width: 768px) {
+		display: block;
+	}
+}
+

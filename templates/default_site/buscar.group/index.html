@@ -25,7 +25,7 @@
             <div class="col-sm-0-5"></div>
             <div class="col-sm-3 que-buscas">
               <span class="zizou-26">¿Qué buscas?</span>
-              {exp:search:simple_form form_class="clearfix" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" result_page="buscar/index"}
+              {exp:search:simple_form form_class="clearfix" sort_by="date" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" search_in="everywhere" where="any" result_page="buscar/index"}
               <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco...">
               <button type="button" class="btn btn-custom black-btn" id="buscar-phr">BUSCAR</button>
               <input type="submit" value="submit" id="search-nh-submit" class="submit hidden">
@@ -50,10 +50,17 @@
                   </div>     
                   {if link-referencia}
                     {if tipo-referencia=='Socrates'}
+<<<<<<< HEAD
                     <a class="danger-link zizou-16" target="_blank" href="{site_url}socrates/{url_title}">Ver más</a>
                     {/if} 
                     {if tipo-referencia=='Externa'}
                     <a class="sb-link zizou-16" target="_blank" href="{link-referencia}">Ver más</a>                          
+=======
+                    <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+                    {/if} 
+                    {if tipo-referencia=='Externa'}
+                    <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
+>>>>>>> 1bd7dcdb77c6a849d315ab475f790b7e92315c4f
                     {/if}   
                   {/if} 
                   {paginate}
