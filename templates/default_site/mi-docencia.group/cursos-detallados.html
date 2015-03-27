@@ -5,67 +5,68 @@
 {embed="includes/header-movil-docentes"}
 {embed="includes/sidebar-docente"}
 
-    <div class="site-content container ciclo-actual">
+    <div class="site-content ciclo-actual">
+      <div class="container-fluid">
     {exp:channel:entries channel="seccion" limit="1" entry_id="99"}
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Mi Docencia</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-        </div>
-      </div> 
-      <div class="section-content pb-70">
+        <div class="internal-header">
           <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">
-              <div class="panel">
-                <div class="panel-head no-bg">
-                  <div class="panel-title left">
-                    <h2>Mis Cursos</h2>
-                  </div>
-                </div>
-                <div class="panel-body">
-
-                   {exp:webservices:lista_cursos_dictados_link_alumnos_profesor}
-
-                </div>
-              </div>
-              	{embed="includes/otras-acciones-docentes"}
-            </div>
-    {/exp:channel:entries}        
-            <div class="col-sm-8">
-              <div class="panel">
-                {if post:Flag=='buscar-curso'}                 
-									{exp:webservices:lista_alumnos_matriculados_en_curso_por_profesor
-										modalidad="{post:Modalidad}"
-										periodo="{post:Periodo}"
-										curso="{post:Curso}"
-										seccion="{post:Seccion}"
-										grupo="{post:Grupo}"
-									}         
-								{/if}
-								{if post:Flag=='notas'}
-									{exp:webservices:consulta_notas_alumno_por_un_profesor codalumno="{post:codalumno}" cursoid="{post:cursoid}" nombrealumno="{post:nombrealumno}"}
-                {/if}
-                {if post:Flag!='buscar-curso' && post:Flag!='notas'}
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Mi Docencia</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div> 
+        <div class="section-content pb-70">
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-3">
+                <div class="panel">
                   <div class="panel-head no-bg">
                     <div class="panel-title left">
-                      <h3>Listado de Alumnos</h3>
+                      <h2>Mis Cursos</h2>
                     </div>
                   </div>
-                  <div class="panel-body mt-7">
-                    <div class="panel-body-content p-28 text-left red-line">
-                      <div class="helvetica-18">Elige un curso para poder ver el listado de alumnos correspondiente.</div>   
-                    </div>
+                  <div class="panel-body">
+
+                     {exp:webservices:lista_cursos_dictados_link_alumnos_profesor}
+
                   </div>
-								{/if}
+                </div>
+                	{embed="includes/otras-acciones-docentes"}
               </div>
-            </div>
-        </div>
+      {/exp:channel:entries}        
+              <div class="col-sm-8">
+                <div class="panel">
+                  {if post:Flag=='buscar-curso'}                 
+  									{exp:webservices:lista_alumnos_matriculados_en_curso_por_profesor
+  										modalidad="{post:Modalidad}"
+  										periodo="{post:Periodo}"
+  										curso="{post:Curso}"
+  										seccion="{post:Seccion}"
+  										grupo="{post:Grupo}"
+  									}         
+  								{/if}
+  								{if post:Flag=='notas'}
+  									{exp:webservices:consulta_notas_alumno_por_un_profesor codalumno="{post:codalumno}" cursoid="{post:cursoid}" nombrealumno="{post:nombrealumno}"}
+                  {/if}
+                  {if post:Flag!='buscar-curso' && post:Flag!='notas'}
+                    <div class="panel-head no-bg">
+                      <div class="panel-title left">
+                        <h3>Listado de Alumnos</h3>
+                      </div>
+                    </div>
+                    <div class="panel-body mt-7">
+                      <div class="panel-body-content p-28 text-left red-line">
+                        <div class="helvetica-18">Elige un curso para poder ver el listado de alumnos correspondiente.</div>   
+                      </div>
+                    </div>
+  								{/if}
+                </div>
+              </div>
+          </div>
+      </div>
     </div>
-    
   </div>
 {embed="includes/footer"}   
