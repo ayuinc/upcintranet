@@ -5,46 +5,48 @@
 {embed="includes/header-movil-docentes"}
 {embed="includes/sidebar-docente"}
 
-    <div class="site-content container">
+    <div class="site-content">
+      <div class="container-fluid">
     {exp:channel:entries channel="seccion" limit="1" entry_id="98"}
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Mi Docencia</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-        </div>
-      </div> 
-      <div class="section-content pb-70">
+        <div class="internal-header">
           <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">
-              <div class="panel">
-                <div class="panel-head no-bg">
-                  <div class="panel-title left">
-                    <h2>Mis Cursos</h2>
-                  </div>
-                </div>
-                <div class="panel-body mt-7">
-                   {exp:webservices:lista_cursos_dictados_profesor}
-                </div>
-              </div>
-              	{embed="includes/otras-acciones-docentes"}
-            </div>
-    {/exp:channel:entries}        
-            <div class="col-sm-8">
-              <div class="panel">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Mi Docencia</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div> 
+        <div class="section-content pb-70">
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-3">
+                <div class="panel">
                   <div class="panel-head no-bg">
                     <div class="panel-title left">
-                      <h2>Mi Horario Semanal</h2>
+                      <h2>Mis Cursos</h2>
                     </div>
                   </div>
-                  {exp:webservices:horario_profesor_ciclo_actual}
+                  <div class="panel-body mt-7">
+                     {exp:webservices:lista_cursos_dictados_profesor}
+                  </div>
+                </div>
+                	{embed="includes/otras-acciones-docentes"}
               </div>
-            </div>
-        </div>
+      {/exp:channel:entries}        
+              <div class="col-sm-8">
+                <div class="panel">
+                    <div class="panel-head no-bg">
+                      <div class="panel-title left">
+                        <h2>Mi Horario Semanal</h2>
+                      </div>
+                    </div>
+                    {exp:webservices:horario_profesor_ciclo_actual}
+                </div>
+              </div>
+          </div>
+      </div>
     </div>
   </div>
     

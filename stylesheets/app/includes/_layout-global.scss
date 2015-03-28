@@ -51,27 +51,6 @@ $site-menu-width: 79px;
 	z-index: 100;
 }
 
-// .internal-header {
-// 	margin-bottom: 7px;
-// }
-
-#mobile-nav {
-	background-color: white;
-	.col-xs-4 {
-		padding-left: 0;
-	}
-	.col-xs-6 {
-		div.btn {
-			margin: 7px !important;
-			img {
-				height: 14px;
-				margin-right: 3px;
-				margin-bottom: 3px;
-			}
-		} 
-	}
-}
-
 .site-content {
 	@media #{$md-up} {
 		@include calc(width, "100% - #{$site-menu-width}");
