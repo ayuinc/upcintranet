@@ -548,29 +548,14 @@ class Webservices
       
       //limpio la variable para reutilizarla
       $result = '<div class="panel-body">';
-      $result .= '<div class="panel-body-head-table">';
-      $result .= '  <ul class="tr">';
-      $result .= '    <li class="col-xs-2">';
-      $result .= '      <div class="fecha"><span>Hora</span></div>';
-      $result .= '    </li>';
-      $result .= '    <li class="col-xs-2">';
-      $result .= '      <div class=""><span>Campus</span></div>';
-      $result .= '    </li>';
-      $result .= '    <li class="col-xs-6">';
-      $result .= '      <div class=""><span>Curso</span></div>';
-      $result .= '    </li>';
-      $result .= '    <li class="col-xs-2">';
-      $result .= '      <div class=""><span>Aula</span></div>';
-      $result .= '    </li>';
-      $result .= '  </ul>';
-      $result .= '</div>';
+      
 
       
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
       $flag = TRUE;
       //Loop basado en el HorarioDia
-      $result.= '<div class="panel-table">';
+
       for ($i=0; $i<$tamano; $i++) {
         
         
@@ -580,7 +565,26 @@ class Webservices
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
+          if($i == 0){
+            $result .= '<div class="panel-body-head-table">';
+            $result .= '  <ul class="tr">';
+            $result .= '    <li class="col-xs-2">';
+            $result .= '      <div class="fecha"><span>Hora</span></div>';
+            $result .= '    </li>';
+            $result .= '    <li class="col-xs-2">';
+            $result .= '      <div class=""><span>Campus</span></div>';
+            $result .= '    </li>';
+            $result .= '    <li class="col-xs-6">';
+            $result .= '      <div class=""><span>Curso</span></div>';
+            $result .= '    </li>';
+            $result .= '    <li class="col-xs-2">';
+            $result .= '      <div class=""><span>Aula</span></div>';
+            $result .= '    </li>';
+            $result .= '  </ul>';
+            $result .= '</div>';
+          }
 
+            $result.= '<div class="panel-table">';
           //Loop de las clases diponibles
           for ($b=0; $b<$tamano_1; $b++) {
             $HoraInicio[$b] = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
@@ -684,22 +688,6 @@ class Webservices
       
       //limpio la variable para reutilizarla
       $result = '<div class="panel-body">';
-      $result .= '<div class="panel-body-head-table">';
-      $result .= '  <ul class="tr">';
-      $result .= '    <li class="col-xs-2">';
-      $result .= '      <div class="fecha"><span>Hora</span></div>';
-      $result .= '    </li>';
-      $result .= '    <li class="col-xs-2">';
-      $result .= '      <div class=""><span>Campus</span></div>';
-      $result .= '    </li>';
-      $result .= '    <li class="col-xs-6">';
-      $result .= '      <div class=""><span>Curso</span></div>';
-      $result .= '    </li>';
-      $result .= '    <li class="col-xs-2">';
-      $result .= '      <div class=""><span>Aula</span></div>';
-      $result .= '    </li>';
-      $result .= '  </ul>';
-      $result .= '</div>';
 
       
       //genera el tamano del array
@@ -707,7 +695,6 @@ class Webservices
       $flag = TRUE;
       //Loop basado en el HorarioDia
       for ($i=0; $i<$tamano; $i++) {
-        $result.= '<div class="panel-table">';
         
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
@@ -730,7 +717,25 @@ class Webservices
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
-
+          if($i == 0){
+            $result .= '<div class="panel-body-head-table">';
+            $result .= '  <ul class="tr">';
+            $result .= '    <li class="col-xs-2">';
+            $result .= '      <div class="fecha"><span>Hora</span></div>';
+            $result .= '    </li>';
+            $result .= '    <li class="col-xs-2">';
+            $result .= '      <div class=""><span>Campus</span></div>';
+            $result .= '    </li>';
+            $result .= '    <li class="col-xs-6">';
+            $result .= '      <div class=""><span>Curso</span></div>';
+            $result .= '    </li>';
+            $result .= '    <li class="col-xs-2">';
+            $result .= '      <div class=""><span>Aula</span></div>';
+            $result .= '    </li>';
+            $result .= '  </ul>';
+            $result .= '</div>';
+          }
+          $result.= '<div class="panel-table">';
           //Loop de las clases diponibles
           for ($b=0; $b<$tamano_1; $b++) {
             $HoraInicio[$b] = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
