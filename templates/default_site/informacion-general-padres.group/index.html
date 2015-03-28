@@ -6,6 +6,12 @@
 {embed="includes/sidebar-padres"}
 
     <div class="site-content container">
+      {exp:channel:entries 
+        channel="seccion" 
+        limit="1" 
+        disable="member_data|pagination"  
+        category="24"
+      }
       <div class="internal-header">
         <div class="row">
           <div class="col-sm-1"></div>
@@ -19,7 +25,9 @@
       <div class="section-content pb-70">
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-3">
+          <div class="col-sm-3 section-desc">
+            <span class="zizou-14">{introduccion-seccion}</span> 
+            {/exp:channel:entries}
             <div class="panel">
               <div class="panel-head no-bg">
                 <div class="panel-title left">
