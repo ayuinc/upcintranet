@@ -1540,18 +1540,18 @@ class Webservices
       $result = '';
       
       //genera el tamano del array
-      $tamano = count($json['Inasistencias']);
+      $tamano = count($json['Cursos']);
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-8 helvetica-14">';
         $result .= '<div>';
-        $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+        $result .= '<span>'.$json['Cursos'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
 
-          $codcurso = $json['Inasistencias'][$i]['CodCurso'];
+          $codcurso = $json['Cursos'][$i]['CodCurso'];
           
           //Loop interno para calcular notas segun curso
           $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
