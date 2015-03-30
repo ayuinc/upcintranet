@@ -1520,7 +1520,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadres/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1609,7 +1609,7 @@ class Webservices
         $token = $row->token;
       }
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadres/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
 
       $ch = curl_init($url);
