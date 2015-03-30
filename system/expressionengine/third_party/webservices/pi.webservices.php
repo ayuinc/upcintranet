@@ -204,22 +204,26 @@ class Webservices
         $hijosWebService=curl_exec($ch);
         $json = json_decode($hijosWebService, true);
 
-        $result .= '<div class="col-sm-3"></div>';
-        $result .= '<div class="col-sm-6 welcome">';
+        $result .= '<div class="col-xs-3"></div>';
+        $result .= '<div class="col-xs-6 welcome">';
         $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt=""></div><div class="zizou-28 mt--28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
         $result .= '<div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>';
-        $result .= '<ul class="grid-list mt-14 grid-list-3 grid-list-centered">';
+        $result .= '<div class="row pt-21">';
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
-        $result .= '<li>';
+          if ($i%2 == 0) {
+            $result .= '<div class="col-xs-offset-2 col-xs-4">';
+          } elseif ($i%2 == 1) {
+            $result .= '<div class="col-xs-4">';    
+          }
         $result .= '<a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">';
         $result .= '<div class="children-avatar text-center">';
         $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';
         $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
-        $result .= '</li>';
+        $result .= '</div>';
         }
-        $result .= '</ul>';
+        $result .= '</div>';
         return $result;             
       }  
                     
