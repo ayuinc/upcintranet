@@ -7,19 +7,22 @@
 
     <div class="site-content container notas-detalladas">
       <div class="internal-header">
+          {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" entry_id="274"}
           <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-4"><span class="zizou-16">Sus Estudios</span></div>
           </div>
           <div class="row">
             <div class="col-sm-1"></div>
-            <div class="col-sm-4"><span id="top" class="uppercase bold xl">Notas Detalladas</span></div>
+            <div class="col-sm-4"><span id="top" class="uppercase bold xl">{title}</span></div>
           </div>
       </div>  
       <div class="section-content pb-70">
         <div class="row">
           <div class="col-sm-1"></div>        
           <div class="col-sm-3">
+              <span class="zizou-14">{introduccion-seccion}</span>
+          {/exp:channel:entries} 
               {embed="includes/otras-acciones"}
           </div>
           <div class="col-sm-8">
