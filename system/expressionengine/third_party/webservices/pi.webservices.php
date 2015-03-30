@@ -1554,7 +1554,7 @@ class Webservices
           $codcurso = $json['Cursos'][$i]['CodCurso'];
           
           //Loop interno para calcular notas segun curso
-          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaPadre/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
