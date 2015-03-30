@@ -24,9 +24,9 @@
   @include make-sm-column(1.5)
 }
 
-// .col-sm-2-5{
-//   @include make-sm-column(2.5)
-// }
+.col-sm-3-5{
+  @include make-sm-column(3.5)
+}
 
 .col-xs-1-5{
   @include make-xs-column(1.5)

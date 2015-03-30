@@ -67,7 +67,7 @@
 							margin-right: auto;
 						}
 						span {
-							@include book;
+							@include bold;
 							font-size: 16px;
 							&:hover {
 								text-decoration: underline;
