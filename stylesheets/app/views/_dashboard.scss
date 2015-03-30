@@ -14,3 +14,8 @@
 	}
 }
 
+.quick-access {
+	@media only screen and (width: 768px) {
+		padding-bottom: 14px !important;
+	}
+}

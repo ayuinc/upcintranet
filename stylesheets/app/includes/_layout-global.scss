@@ -56,7 +56,7 @@ $site-menu-width: 79px;
 		@include calc(width, "100% - #{$site-menu-width}");
 	}
 	padding-top: 175px;
-	@media #{$sm-down} {
+	@media #{$md-down} {
 		width: 100% !important;
 		padding-top: 70px;
 	}

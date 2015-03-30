@@ -8,71 +8,73 @@
 {embed="includes/header-docentes"}
 {embed="includes/sidebar-docente"}
 
-    <div class="site-content container mis-reservas-reservar">
+    <div class="site-content mis-reservas-reservar">
+      <div class="container-fluid">
       {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Mis Reservas</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">Cubículos</span></div>
-        </div>
-      </div> 
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-3">
-            <div class="panel pt-7">
-              <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  <h3>Disponibilidad de Recursos</h3>
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Mis Reservas</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">Cubículos</span></div>
+          </div>
+        </div> 
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3-5">
+              <div class="panel pt-7">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Recursos disponibles</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="panel-body">
-                <div class="panel-body-content">
-                  {embed="includes/formulario-disponibilidad-cubiculos"}
+                <div class="panel-body">
+                  <div class="panel-body-content">
+                    {embed="includes/formulario-disponibilidad-cubiculos"}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-      {/exp:channel:entries}      
-          <div class="col-sm-8">
-            <div class="panel">
-              <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  <h3>Resultados</h3>
+        {/exp:channel:entries}      
+            <div class="col-sm-8">
+              <div class="panel">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Resultados</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="panel-body">
-                {if post:Flag!='1'}
-                  {exp:webservices:listado_recursos_disponibles 
-                    CodSede = '{post:CodSede}'
-                    TipoRecurso='{post:TipoRecurso}'
-                    FecIni='{post:FecIni}'
-                    FechaFin='{post:FechaFin}'
-                    HoraIni='{post:HoraIni}'
-                    HoraFin='{post:HoraFin}'
-                    CanHoras='{post:CanHoras}'
-                    segmento='{segment_1}'
-                  } 
-                {if:else}
-                  {exp:webservices:reserva_recursos 
-                    CodRecurso='{post:CodRecurso}'
-                    NomRecurso='{post:NomRecurso}'
-                    FecIni='{post:FecIni}'
-                    HoraIni='{post:HoraIni}'
-                    FechaFin='{post:FechaFin}'
-                    HoraFin='{post:HoraFin}'
-                    CanHoras='{post:CanHoras}'
-                  }                
-                {/if}                         
-              </div>
-            </div>  
+                <div class="panel-body">
+                  {if post:Flag!='1'}
+                    {exp:webservices:listado_recursos_disponibles 
+                      CodSede = '{post:CodSede}'
+                      TipoRecurso='{post:TipoRecurso}'
+                      FecIni='{post:FecIni}'
+                      FechaFin='{post:FechaFin}'
+                      HoraIni='{post:HoraIni}'
+                      HoraFin='{post:HoraFin}'
+                      CanHoras='{post:CanHoras}'
+                      segmento='{segment_1}'
+                    } 
+                  {if:else}
+                    {exp:webservices:reserva_recursos 
+                      CodRecurso='{post:CodRecurso}'
+                      NomRecurso='{post:NomRecurso}'
+                      FecIni='{post:FecIni}'
+                      HoraIni='{post:HoraIni}'
+                      FechaFin='{post:FechaFin}'
+                      HoraFin='{post:HoraFin}'
+                      CanHoras='{post:CanHoras}'
+                    }                
+                  {/if}                         
+                </div>
+              </div>  
+            </div>
           </div>
         </div>
-      </div>
-  </div>  
+      </div>  
+    </div>  
  
 {embed="includes/footer"}   

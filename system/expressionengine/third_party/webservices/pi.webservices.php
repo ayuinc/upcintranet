@@ -1124,7 +1124,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
+      // var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -1772,7 +1772,7 @@ class Webservices
 
         $result .= '<div class="panel curso-detalle">';
         $result .= '<div class="panel-body" id="curso-'.$i.'">';
-        $result .= '<div class="panel-body-head left">';
+        $result .= '<div class="panel-body-head pl-7 left">';
         $result .= '<ul class="tr">';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</ul>';
