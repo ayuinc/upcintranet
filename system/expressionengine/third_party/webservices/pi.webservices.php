@@ -1509,6 +1509,92 @@ class Webservices
       return $result;           
     }   
     
+    public function padre_curos_que_lleva_un_alumno_padres(){
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];     
+      
+      $codigo_alumno =  ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadres/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $result=curl_exec($ch);
+      $json = json_decode($result, true);
+      
+      $error = $json['CodError'];
+      $error_mensaje = $json['MsgError'];        
+      
+      //limpio la variable para reutilizarla
+      $result = '';
+      
+      //genera el tamano del array
+      $tamano = count($json['Inasistencias']);
+      
+      for ($i=0; $i<$tamano; $i++) {
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-xs-8 helvetica-14">';
+        $result .= '<div>';
+        $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
+
+          $codcurso = $json['Inasistencias'][$i]['CodCurso'];
+          
+          //Loop interno para calcular notas segun curso
+          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+          $ch = curl_init($url);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_URL,$url);
+          $result_int=curl_exec($ch);
+          $json_int = json_decode($result_int, true);
+        
+          //genera el tamano del array
+          $tamano_int = count($json_int['Notas']);
+          $nota = 0;
+          $porcentaje = 0;
+          
+          for ($b=0; $b<$tamano_int; $b++) {
+            $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
+            $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
+          }
+          
+          //Cambia el formato a 2 decimales
+          $nota = number_format($nota, 2, '.', '');
+        
+        $result .= '<div>';
+        $result .= '<span>'.$nota.'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '</ul>';
+      }     
+      
+      //Control de errores
+      if ($error!='00000') {
+        $result = '';
+        $result .= '<div class="panel-table">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-xs-12">';
+        $result .= '<div>'.$error_mensaje.'</div>';
+        $result .= '</li>';                
+        $result .= '</ul>';  
+        $result .= '</div>';     
+      }       
+      
+      return $result;           
+    }
 
     //CURSOS QUE LLEVA UN ALUMNO CONSULTADO POR UN PADRE
     public function padre_cursos_que_lleva_un_alumno(){
@@ -1527,7 +1613,7 @@ class Webservices
         $token = $row->token;
       }
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadres/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
 
       $ch = curl_init($url);
