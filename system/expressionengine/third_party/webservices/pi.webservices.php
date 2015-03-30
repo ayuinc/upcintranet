@@ -1509,9 +1509,9 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];     
       
-      $codigo =  ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo_alumno =  ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
-
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -1520,7 +1520,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
