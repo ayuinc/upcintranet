@@ -1422,7 +1422,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];     
       
-      $codigo =  $_COOKIE["Codigo"];
+      $codigo =  ee()->TMPL->fetch_param('codigo_alumno');
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
