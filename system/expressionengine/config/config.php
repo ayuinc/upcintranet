@@ -16,7 +16,7 @@ $admin_url  = $base_url . '/admin.php';
 
 $config['app_version'] = '281';
 $config['license_number'] = '5343-3237-2705-9088';
-$config['debug'] = "2";
+$config['debug'] = "0";
 $config['cp_url'] = 'http://upcintranet-590402458.us-east-1.elb.amazonaws.com/upc9312.php';
 $config['doc_url'] = 'http://ellislab.com/expressionengine/user-guide/';
 $config['is_system_on'] = 'y';
