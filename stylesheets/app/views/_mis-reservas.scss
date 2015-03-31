@@ -23,14 +23,24 @@
 				-moz-appearance: none !important;
 				appearance: none !important;
 				width: 100%;
+				padding-left: 7px;
 				&.arrow {
 					background: url(../assets/img/select_black.png) no-repeat right;
 				}
 				&.calendar {
 					background: url(../assets/img/calendario_black.png) no-repeat right;
 				}
-				margin-bottom: 7px;
 				height: 35px;
+				@media only screen and (width: 1024px) {
+					&.arrow {
+						background: url(../assets/img/select_black_sm.png) no-repeat right;
+					}
+					&.calendar {
+						background: url(../assets/img/calendario_black_sm.png) no-repeat right;
+					}
+					height: 28px;
+				}
+				margin-bottom: 7px;
 				border-radius: 0px !important;
 			}
 		}

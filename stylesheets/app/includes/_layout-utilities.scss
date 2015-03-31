@@ -19,6 +19,9 @@
 .col-md-0-5{
   @include make-md-column(0.5)
 }
+.col-md-3-5{
+  @include make-md-column(3.5)
+}
 
 .col-sm-1-5{
   @include make-sm-column(1.5)

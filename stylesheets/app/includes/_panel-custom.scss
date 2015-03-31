@@ -256,9 +256,9 @@
 						&.nrb {
 						border: none;	
 						}
-						@media #{$md-only} {
-							min-height: 49px;
-						}						
+						// @media only screen and (width: 1024px) {
+						// 	min-height: 49px;
+						// }						
 						span {
 							@include flex-grow(0);
 						}

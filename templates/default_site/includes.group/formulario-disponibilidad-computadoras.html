@@ -8,12 +8,9 @@
         <option value="B">CAMPUS SAN ISIDRO</option>
         <!-- <option value="F">CAMPUS SAN MIGUEL</option> -->
       </select>
+      <div class="text-left helvetica-16">Fecha Inicio</div>
+      <input type="text" name="FecIni" class="zizou-16 reservas-select form-control calendar" value="" placeholder="Selecciona" id="start-date-rec">
       <input type="hidden" name="TipoRecurso" value="CO">
-      <div class="text-left helvetica-16">Cantidad de Horas</div>
-      <select name="CanHoras" class="zizou-16 reservas-select arrow form-control">
-          <option value="1">1</option>
-          <option value="2">2</option>
-      </select>
       <div class="text-left helvetica-16">Hora de Reserva</div>
       <select name="HoraIni" class="zizou-16 reservas-select arrow form-control">
          <option value="7">7:00</option>
@@ -32,10 +29,11 @@
          <option value="20">20:00</option>
          <option value="21">21:00</option>
       </select> 
-      <div class="text-left helvetica-16">Fecha Inicio</div>
-      <input type="text" name="FecIni" class="zizou-16 reservas-select form-control calendar" value="" placeholder="Selecciona" id="start-date-rec">
-      <div class="mt-14">
-        <input type="submit" class="btn wide-full btn-custom black-btn" name="submit" value="Ver Disponibilidad">
-      </div>
+      <div class="text-left helvetica-16">Cantidad de Horas</div>
+      <select name="CanHoras" class="zizou-16 reservas-select arrow form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+      <input type="submit" class="btn wide-full btn-custom black-btn" name="submit" value="Ver Disponibilidad">
   </form>
 </div>  
