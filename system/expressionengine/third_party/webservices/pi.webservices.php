@@ -626,7 +626,7 @@ class Webservices
                 $disponibles++;
               } 
             } else {
-              if($flag == TRUE){
+              if($b == 22 && $flag){
                 $result = '<div class="panel-body">';
                 $result .= '<div class="panel-table pb-7">';
                 $result .= '<ul class="tr">';
@@ -643,7 +643,7 @@ class Webservices
         } 
         
       }
-      if($b == 22 && $flag){
+      if($flag){
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
