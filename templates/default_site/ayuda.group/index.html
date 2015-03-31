@@ -4,70 +4,72 @@
 {embed="includes/header"}
 {embed="includes/header_movil"}
 {embed="includes/sidebar"}
-    <div class="site-content container">
+    <div class="site-content">
+      <div class="container-fluid">
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="93" }
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-0-5"></div>
-          <div class="col-sm-4"><span class="zizou-16">Ayuda</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-0-5"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">¿Qué Necesitas?</span></div>
-        </div>
-      </div>   
-      {/exp:channel:entries}   
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-0-5"></div>
-          <div class="col-sm-3">
-            {embed="includes/temas-ayuda"}
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Ayuda</span></div>
           </div>
-          <div class="col-sm-8 resultados">
-            <div class="panel">
-              <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  <h3>Resultados</h3>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">¿Qué Necesitas?</span></div>
+          </div>
+        </div>   
+        {/exp:channel:entries}   
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3">
+              {embed="includes/temas-ayuda"}
+            </div>
+            <div class="col-sm-8 resultados">
+              <div class="panel">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Resultados</h3>
+                  </div>
                 </div>
-              </div>
-            </div>  
-            <div class="resultados-busqueda red-line bg-muted">
-              {if segment_2 == ""}
-                {exp:channel:entries channel="ayuda" limit="20" disable="member_data" dynamic="off"}
-                  <div class="mt-14">
-                    <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
-                    <div class="solano-bold-20 pt-3 black-text">{title}</div>   
-                  </div>
-                  <div class="pl-35 pb-7 pr-35">
-                    {intro-noticia}
-                  </div>     
-    					    {paginate}
-    					    <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-    					    {/paginate}
-                  {if count != total_results}
-                  <div class="dotted-line"></div>
-                  {/if}
-      					{/exp:channel:entries} 		      
-              {if:else}
-                {exp:channel:entries category="{segment_2}" channel="ayuda" limit="20" disable="member_data" dynamic="off"}
-                  <div class="mt-14">
-                    <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
-                    <div class="solano-bold-20 pt-3 black-text">{title}</div>   
-                  </div>
-                  <div class="pl-35 pb-7 pr-35">
-                    {intro-noticia}
-                  </div>     
-                  {paginate}
-                  <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-                  {/paginate}
-                  {if count != total_results}
-                  <div class="dotted-line"></div>
-                  {/if}
-                {/exp:channel:entries} 
-              {/if}      
-            </div>                   
+              </div>  
+              <div class="resultados-busqueda red-line bg-muted">
+                {if segment_2 == ""}
+                  {exp:channel:entries channel="ayuda" limit="20" disable="member_data" dynamic="off"}
+                    <div class="mt-14">
+                      <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
+                      <div class="solano-bold-20 pt-3 black-text">{title}</div>   
+                    </div>
+                    <div class="pl-35 pb-7 pr-35">
+                      {intro-noticia}
+                    </div>     
+      					    {paginate}
+      					    <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+      					    {/paginate}
+                    {if count != total_results}
+                    <div class="dotted-line"></div>
+                    {/if}
+        					{/exp:channel:entries} 		      
+                {if:else}
+                  {exp:channel:entries category="{segment_2}" channel="ayuda" limit="20" disable="member_data" dynamic="off"}
+                    <div class="mt-14">
+                      <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
+                      <div class="solano-bold-20 pt-3 black-text">{title}</div>   
+                    </div>
+                    <div class="pl-35 pb-7 pr-35">
+                      {intro-noticia}
+                    </div>     
+                    {paginate}
+                    <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+                    {/paginate}
+                    {if count != total_results}
+                    <div class="dotted-line"></div>
+                    {/if}
+                  {/exp:channel:entries} 
+                {/if}      
+              </div>                   
+            </div>
           </div>
         </div>
       </div>
-      </div>
+    </div>
 {embed="includes/footer"}   

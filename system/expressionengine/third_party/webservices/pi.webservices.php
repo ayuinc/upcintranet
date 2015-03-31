@@ -204,22 +204,26 @@ class Webservices
         $hijosWebService=curl_exec($ch);
         $json = json_decode($hijosWebService, true);
 
-        $result .= '<div class="col-sm-3"></div>';
-        $result .= '<div class="col-sm-6 welcome">';
+        $result .= '<div class="col-xs-3"></div>';
+        $result .= '<div class="col-xs-6 welcome">';
         $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_dark.png" alt=""></div><div class="zizou-28 mt--28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
         $result .= '<div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>';
-        $result .= '<ul class="grid-list mt-14 grid-list-3 grid-list-centered">';
+        $result .= '<div class="row pt-21">';
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
-        $result .= '<li>';
+          if ($i%2 == 0) {
+            $result .= '<div class="col-xs-offset-2 col-xs-4">';
+          } elseif ($i%2 == 1) {
+            $result .= '<div class="col-xs-4">';    
+          }
         $result .= '<a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">';
         $result .= '<div class="children-avatar text-center">';
         $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';
         $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
-        $result .= '</li>';
+        $result .= '</div>';
         }
-        $result .= '</ul>';
+        $result .= '</div>';
         return $result;             
       }  
                     
@@ -542,6 +546,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      //var_dump($result);
       $json = json_decode($result, true);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError']; 
@@ -557,8 +562,7 @@ class Webservices
       //Loop basado en el HorarioDia
 
       for ($i=0; $i<$tamano; $i++) {
-        
-        
+
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
         $dia_actual = date('w');
@@ -633,14 +637,28 @@ class Webservices
                 $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
                 $result .= '</li>';
                 $result .= '</ul>';
+                $result .= '</div>';
               }
             }   
           } 
         } 
         
       }
-      $result .= '</div>';
+      if($flag){
+        $result = '<div class="panel-body">';
+        $result .= '<div class="panel-table pb-7">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-xs-3 p-7">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+        $result .= '</li>';
+        $result .= '<li class="text-center col-xs-9 text-center p-21">';
+        $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
+        $result .= '</li>';
+        $result .= '</ul>';
         $result .= '</div>'; 
+      }
+      $result .= '</div>';
+      // $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
         $result = '<div class="panel-body">';
@@ -1129,7 +1147,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
+      // var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -1505,6 +1523,93 @@ class Webservices
       return $result;           
     }   
     
+    public function padre_curos_que_lleva_un_alumno_padres(){
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];     
+      
+      $codigo_alumno =  ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+      //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/CursoAlumnoPadre/?Codigo=UFSANGAR10&CodAlumno=U201321137&Token=af0b422650d743d5b5e2e24d785ebb5c20140325114353 
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/CursoAlumnoPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $result=curl_exec($ch);
+      //var_dump($result);
+      $json = json_decode($result, true);
+      
+      $error = $json['CodError'];
+      $error_mensaje = $json['MsgError'];        
+      
+      //limpio la variable para reutilizarla
+      $result = '';
+      
+      //genera el tamano del array
+      $tamano = count($json['Cursos']);
+      
+      for ($i=0; $i<$tamano; $i++) {
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-xs-8 helvetica-14">';
+        $result .= '<div>';
+        $result .= '<span>'.$json['Cursos'][$i]['CursoNombre'].'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
+
+          $codcurso = $json['Cursos'][$i]['CodCurso'];
+          
+          //Loop interno para calcular notas segun curso
+          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaPadre/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+          $ch = curl_init($url);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_URL,$url);
+          $result_int=curl_exec($ch);
+          $json_int = json_decode($result_int, true);
+        
+          //genera el tamano del array
+          $tamano_int = count($json_int['Notas']);
+          $nota = 0;
+          $porcentaje = 0;
+          
+          for ($b=0; $b<$tamano_int; $b++) {
+            $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
+            $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
+          }
+          
+          //Cambia el formato a 2 decimales
+          $nota = number_format($nota, 2, '.', '');
+        
+        $result .= '<div>';
+        $result .= '<span>'.$nota.'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '</ul>';
+      }     
+      
+      //Control de errores
+      if ($error!='00000') {
+        $result = '';
+        $result .= '<div class="panel-table">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-xs-12">';
+        $result .= '<div>'.$error_mensaje.'</div>';
+        $result .= '</li>';                
+        $result .= '</ul>';  
+        $result .= '</div>';     
+      }       
+      
+      return $result;           
+    }
 
     //CURSOS QUE LLEVA UN ALUMNO CONSULTADO POR UN PADRE
     public function padre_cursos_que_lleva_un_alumno(){
@@ -1523,7 +1628,7 @@ class Webservices
         $token = $row->token;
       }
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadres/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
 
       $ch = curl_init($url);
@@ -1777,7 +1882,7 @@ class Webservices
 
         $result .= '<div class="panel curso-detalle">';
         $result .= '<div class="panel-body" id="curso-'.$i.'">';
-        $result .= '<div class="panel-body-head left">';
+        $result .= '<div class="panel-body-head pl-7 left">';
         $result .= '<ul class="tr">';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</ul>';

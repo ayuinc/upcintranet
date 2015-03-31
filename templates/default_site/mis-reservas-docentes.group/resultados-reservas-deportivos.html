@@ -5,76 +5,79 @@
 {embed="includes/header-docentes"}
 {embed="includes/sidebar-docente"}
 
-    <div class="site-content container mis-reservas-reservar">
-      {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Mis Reservas</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">Espacios Deportivos</span></div>
-        </div>
-      </div>   
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-3">
-            <div class="panel pt-0">
-              <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  <h3>Disponibilidad de Recursos</h3>
+    <div class="site-content mis-reservas-reservar">
+      <div class="container-fluid">  
+        {exp:channel:entries channel="seccion" limit="1" 
+        disable="member_data|pagination" category="{segment_1_category_id}"}
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Mis Reservas</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">Espacios Deportivos</span></div>
+          </div>
+        </div>   
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3-5">
+              <div class="panel pt-0">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Recursos disponibles</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="panel-body">
-                <div class="panel-body-content">
-                  {embed="includes/formulario-disponibilidad"}
+                <div class="panel-body">
+                  <div class="panel-body-content">
+                    {embed="includes/formulario-disponibilidad"}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-      {/exp:channel:entries}      
-          <div class="col-sm-8 pt-0">
-            <div class="panel pt-0">
-              <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  <h3>Resultados</h3>
-                  {if post:Flag!=1}
-                  	{embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
-                  {/if}	
+        {/exp:channel:entries}      
+            <div class="col-sm-8 pt-0">
+              <div class="panel pt-0">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Resultados</h3>
+                    {if post:Flag!=1}
+                    	{embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
+                    {/if}	
+                  </div>
                 </div>
+                {if post:Flag!=1}
+                <div class="panel-body">
+                    {exp:webservices:disponibilidad_espacios_deportivos 
+                      codsede="{post:CodSede}" 
+                      coded="{post:CodED}" 
+                      codactiv="{post:CodActiv}"
+                      numhoras="{post:NumHoras}" 
+                      fechaini="{post:FechaIni}" 
+                      fechafin="{post:FechaFin}"
+                      segmento="{segment_1}"
+                    }
+                </div>
+                {if:else}
+                    {embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
+                    {exp:webservices:reserva_espacios_deportivos 
+                      codsede="{post:CodSede}" 
+                      coded="{post:CodED}" 
+                      codactiv="{post:CodActiv}"
+                      numhoras="{post:NumHoras}" 
+                      fecha="{post:Fecha}" 
+                      horaini="{post:HoraIni}"
+                      horafin="{post:HoraFin}"
+                      detalles="{post:Detalles}"
+                    }
+                {/if}
               </div>
-              {if post:Flag!=1}
-              <div class="panel-body">
-                  {exp:webservices:disponibilidad_espacios_deportivos 
-                    codsede="{post:CodSede}" 
-                    coded="{post:CodED}" 
-                    codactiv="{post:CodActiv}"
-                    numhoras="{post:NumHoras}" 
-                    fechaini="{post:FechaIni}" 
-                    fechafin="{post:FechaFin}"
-                    segmento="{segment_1}"
-                  }
-              </div>
-              {if:else}
-                  {embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
-                  {exp:webservices:reserva_espacios_deportivos 
-                    codsede="{post:CodSede}" 
-                    coded="{post:CodED}" 
-                    codactiv="{post:CodActiv}"
-                    numhoras="{post:NumHoras}" 
-                    fecha="{post:Fecha}" 
-                    horaini="{post:HoraIni}"
-                    horafin="{post:HoraFin}"
-                    detalles="{post:Detalles}"
-                  }
-              {/if}
+            </div>
             </div>
           </div>
-          </div>
         </div>
-      </div>
+      </div>  
   </div> 
   
 {embed="includes/footer"}   

@@ -17,9 +17,13 @@ $sizes: 10, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 	line-height: 1;	
 	color: black;
 	@include bold;
-	@media #{$md-down} {
-		font-size: 40px !important;
-		font-size: rem(40) !important;	
+	@media #{$lg-down} {
+		font-size: 36px !important;
+		font-size: rem(36) !important;	
+	}
+	@media #{$xs-only} {
+		font-size: 32px !important;
+		font-size: rem(32) !important;	
 	}
 }
 @each $fs in $sizes {

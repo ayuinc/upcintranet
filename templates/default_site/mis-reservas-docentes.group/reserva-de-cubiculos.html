@@ -5,52 +5,53 @@
 {embed="includes/header-docentes"}
 {embed="includes/sidebar-docente"}
 
-    <div class="site-content container mis-reservas-reservar">
-      {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Mis Reservas</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">Cubículos</span></div>
-        </div>
-      </div> 
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-3">
-            <div class="panel pt-0">
-              <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  <h3>Disponibilidad de Recursos</h3>
+    <div class="site-content mis-reservas-reservar">
+      <div class="container-fluid">
+        {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Mis Reservas</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">Cubículos</span></div>
+          </div>
+        </div> 
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-md-0-5"></div>
+            <div class="col-md-3">
+              <div class="panel pt-0">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Recursos disponibles</h3>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="panel-body-content">
+                    {embed="includes/formulario-disponibilidad-cubiculos"}
+                  </div>
                 </div>
               </div>
-              <div class="panel-body">
-                <div class="panel-body-content">
-                  {embed="includes/formulario-disponibilidad-cubiculos"}
+            </div>
+        {/exp:channel:entries}      
+            <div class="col-md-8">
+              <div class="panel">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Resultados</h3>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="panel-body-content p-28 text-left red-line">
+                    <div class="helvetica-18">Has tu reserva completando el formulario.</div>   
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-      {/exp:channel:entries}      
-          <div class="col-sm-8">
-            <div class="panel">
-              <div class="panel-head no-bg">
-                <div class="panel-title left">
-                  <h3>Resultados</h3>
-                </div>
-              </div>
-              <div class="panel-body">
-                <div class="panel-body-content p-28 text-left red-line">
-                  <div class="helvetica-18">Has tu reserva completando el formulario.</div>   
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
- 
+        </div>     
+    </div>
   </div>  
 {embed="includes/footer"}   

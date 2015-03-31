@@ -25,4 +25,7 @@ $(document).ready(function(){
 		$(this).parent().find(".curso-faltas").toggle();
 		$(this).hide();
 	});
+	// menu height
+	targetHeight = $('.site-content').height() + 49;
+	$('.site-menu').css("height",targetHeight + "px");
 });
