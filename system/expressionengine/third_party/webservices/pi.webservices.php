@@ -4541,13 +4541,17 @@ class Webservices
         $apellidos = $row->apellidos;
       }
 
+      $apellidos = ucwords(strtolower($apellidos));
       return $apellidos;
     }  
     
     //CODIGO DEL ALUMNO
     public function codigo_alumno(){    
       setcookie("Codigo",$codigo, time() + (1800), "/");
-      return $_COOKIE["Codigo"];
+      
+      $codigo_alumno = ucwords(strtolower($_COOKIE["Codigo"]));
+      
+      return $codigo_alumno;
     }  
     
     //MODALIDAD DEL ALUMNO
@@ -4563,6 +4567,7 @@ class Webservices
         $dscmodal = $row->dscmodal;
       }
 
+			$dscmodal = ucwords(strtolower($dscmodal));
       return $dscmodal;
     }      
     
@@ -4583,6 +4588,8 @@ class Webservices
       } else {
         $estado_result = 'Inactivo'; 
       }  
+      
+      $estado = ucwords(strtolower($estado));
       return $estado;
     }               
     
@@ -4597,7 +4604,8 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $dscsede = $row->dscsede;
       }
-
+			
+			$dscsede = ucwords(strtolower($dscsede));
       return $dscsede;
     }
     
@@ -4629,6 +4637,7 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $tipouser = $row->tipouser;
       }
+      $tipouser = ucwords(strtolower($tipouser));
       return $tipouser;
     }          
     
