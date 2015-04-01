@@ -5,64 +5,65 @@
 {embed="includes/header-movil-padres"}
 {embed="includes/sidebar-padres"}
 
-    <div class="site-content container">
+    <div class="site-content">
       {exp:channel:entries 
       	channel="seccion" 
       	limit="1" 
       	disable="member_data|pagination"  
       	entry_id="110"
       }
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Información General</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-        </div>
-      </div> 
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-3 section-desc">
-            <span class="zizou-14">{introduccion-seccion}</span> 
-          </div>        
-          
-      {/exp:channel:entries}      
-          <div class="col-sm-8 pt-0">
-            <span class="zizou-26 mb-21">Últimas Noticias de la UPC</span>
-            <div class="row">
-	            {exp:ajw_feedparser 
-						    url="http://betablogs.upc.edu.pe/blog/feed/8"
-						    cache_refresh="30"
-						    limit="10"
-							} 
-              <div class="col-sm-6">
-                <div class="panel">
-                  <div class="panel-body canales">
-                    <div class="panel-body-head left tall">
-                      <h3>{title}</h3>
-                    </div>  
-                    <div class="panel-table">
-                      <ul class="tr">
-                        <p class="p-14 helvetica-16">{description}</p>
-                        <p class="helvetica-bold-14 pl-7">{pubDate}</p>                
-                      </ul>
-                    </div>
-                    <div class="panel-footer">
-                      <a class="sb-link pl-7 zizou-14" href="{link}" target="_blank">                        
-                      <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Leer Nota Completa
-                      </a>
+      <div class="container-fluid">
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Información General</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div> 
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3 section-desc">
+              <span class="zizou-14">{introduccion-seccion}</span> 
+            </div>        
+            
+        {/exp:channel:entries}      
+            <div class="col-sm-8 pt-0">
+              <span class="zizou-26 mb-21">Últimas Noticias de la UPC</span>
+              <div class="row">
+  	            {exp:ajw_feedparser 
+  						    url="http://betablogs.upc.edu.pe/blog/feed/8"
+  						    cache_refresh="30"
+  						    limit="10"
+  							} 
+                <div class="col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body canales">
+                      <div class="panel-body-head left tall">
+                        <h3>{title}</h3>
+                      </div>  
+                      <div class="panel-table">
+                        <ul class="tr">
+                          <p class="p-14 helvetica-16">{description}</p>
+                          <p class="helvetica-bold-14 pl-7">{pubDate}</p>                
+                        </ul>
+                      </div>
+                      <div class="panel-footer">
+                        <a class="sb-link pl-7 zizou-14" href="{link}" target="_blank">                        
+                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Leer Nota Completa
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
+                {/exp:ajw_feedparser}
               </div>
-              {/exp:ajw_feedparser}
             </div>
           </div>
         </div>
       </div>
-  
   </div>
 {embed="includes/footer"}   
