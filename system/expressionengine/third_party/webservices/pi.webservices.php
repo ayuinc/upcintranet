@@ -3765,9 +3765,9 @@ class Webservices
         // var_dump($json);
         for ($a=0; $a<$tamano; $a++) {
           $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-xs-7 helvetica-12 pb-0">';
+          $result .= '<li class="col-xs-7 helvetica-11 pb-0">';
           $result .= '<div>';
-          $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].' '.$json['modalidades'][$i]['cursos'][$a]['seccion'].'</span>';
+          $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].' ('.$json['modalidades'][$i]['cursos'][$a]['seccion'].')</span>';
           $result .= '</div>';
           $result .= '</li>';
           $result .= '<li class="col-xs-5">';
