@@ -3746,32 +3746,15 @@ class Webservices
 
       for ($i=0; $i<$tamano; $i++) {
         // $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
-        if ($i==0) {
-        $result .= '<div class="panel-body-head-table white">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-7">';
-        $result .= '<div class="pl-7"><span class="helv-neue-light-14 text-left">CURSO</span></div>';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-5">';
-        $result .= '<div><span class="helv-neue-light-14 text-center">ALUMNOS</span></div>';
-        $result .= '</li>';
-        $result .= '</ul>';
-        $result .= '</div>';  
-        }
-        $result .= '<div class="panel-table">';              
+        $result .= '<div class="panel-table otras-acciones">';              
         
         //genera el tamano del array
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
         // var_dump($json);
         for ($a=0; $a<$tamano; $a++) {
-          $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-xs-7 helvetica-12 pb-0">';
+          $result .= '<ul class="tr">';
+          $result .= '<li class="col-xs-12 bg-muted mb-5">';
           $result .= '<div>';
-          $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].' ('.$json['modalidades'][$i]['cursos'][$a]['seccion'].')</span>';
-          $result .= '</div>';
-          $result .= '</li>';
-          $result .= '<li class="col-xs-5">';
-          $result .= '<div class="text-center">';
           $result .= '<form action="{site_url}index.php/mi-docencia/cursos-detallados" method="post" id="form-'.$i.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
           $result .= '<input type="hidden" name="Flag" value="buscar-curso">';
@@ -3780,7 +3763,10 @@ class Webservices
           $result .= '<input type="hidden" name="Curso" value="'.$json['modalidades'][$i]['cursos'][$a]['cursoId'].'">';
           $result .= '<input type="hidden" name="Seccion" value="'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'">';
           $result .= '<input type="hidden" name="Grupo" value="'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'">';
-          $result .= '<input type="submit" class="helvetica-12 btn-anchor" value="Ver Listado" name="submit">';
+          $result .= '<div>';
+          $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
+          $result .= '<input type="submit" class="zizou-14 btn-anchor" value="'.$json['modalidades'][$i]['cursos'][$a]['curso'].' ('.$json['modalidades'][$i]['cursos'][$a]['seccion'].')" name="submit">';
+          $result .= '</div>';
           $result .= '</form>';
           $result .= '</div>';
           $result .= '</li>';         
