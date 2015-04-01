@@ -27,6 +27,10 @@
 			height: 24px;
 			width: 24px;
 			min-height: 24px !important;
+			margin: 7px;
+			@media #{$xs-only} {
+				margin: 0px;
+			}
 	}
 	&.danger {
 		background-image:url("../assets/img/red_arrow_normal.png");

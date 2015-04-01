@@ -22,9 +22,14 @@
           <div class="col-sm-8 pt-0">
             <span class="zizou-26">¿Qué deseas hacer?</span>
             <div class="row">
-             {exp:channel:entries category="{segment_3_category_id}"   
-  
-channel="referencias" orderby="screen_name|date" sort="asc|desc"limit="20" disable="member_data" dynamic="off"}
+             {exp:channel:entries 
+             		category="{segment_3_category_id}"
+             		channel="referencias" 
+             		orderby="screen_name|date" 
+             		sort="asc|desc"limit="100" 
+             		disable="member_data" 
+             		dynamic="off"
+             	}
               <div class="col-sm-6">
                 <div class="panel">
                   <div class="panel-body canales">

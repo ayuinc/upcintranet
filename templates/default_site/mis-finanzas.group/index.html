@@ -38,9 +38,10 @@
               <div class="row">
                 <span class="hidden">{segment_2_category_id}</span>
   	            {exp:channel:entries 
-  	            	  
-  
-channel="referencias" orderby="screen_name|date" sort="asc|desc"
+  	            	channel="referencias" 
+  	            	orderby="screen_name|date" 
+  	            	sort="asc|desc"
+  	            	limit="100"
   	            	disable="member_data|pagination" 
   	            	category="{segment_2_category_id}" 
   	            	dynamic="off"

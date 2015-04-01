@@ -1,0 +1,20 @@
+.buscar {
+	.resultados {
+		@media #{$xs-only} {
+			padding-top: 28px;
+		}
+	}
+}
+.otras-acciones-arrow {
+	background-image:url("../assets/img/black_down.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	float: right;
+	height: 42px;
+	width: 49px;
+	-webkit-transition: background-image 1s;
+	&.open {
+		-webkit-transform: rotate(180deg);
+	}
+}
