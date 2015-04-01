@@ -5,14 +5,14 @@
     </div>
   </div>
   <div class="panel-body">
-    <div class="panel-table otras-acciones ">
+    <div class="panel-table otras-acciones">
     {exp:channel:categories category_group="18" class="tr"}
         <a href="{site_url}ayuda/{category_id}">
           <li class="bg-muted p-0">
             {if "{category_id}" == segment_2}
-            <div class="m-7 arrow-icon tiny danger"></div>
+            <div class="arrow-icon tiny danger"></div>
             {if:else}
-            <div class="m-7 arrow-icon tiny black"></div>
+            <div class="arrow-icon tiny black"></div>
             {/if}
             <div class="p-7 zizou-16">{category_name}</div>
           </li>

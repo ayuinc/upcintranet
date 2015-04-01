@@ -16,13 +16,52 @@
                       <a href="">
                         <li class="bg-muted p-7 mb-7">
                           <div class="custom-icon danger pdf"></div>
-                          <div class="zizou-16 borderless">Descargar en PDF {exp:printfriendly:button disable_email="yes" disable_print="yes" title=""}</div>
+                          <div class="zizou-16 borderless" id="pdf-button-trigger">Descargar en PDF {exp:printfriendly:button disable_email="yes" disable_print="yes" id="pdf-button" title=""}</div>
                         </li>
                       </a>
                       <a href="">
                         <li class="bg-muted p-7 mb-7">
                           <div class="custom-icon danger mail"></div>
-                          <div class="zizou-16 borderless">Enviar a mi Correo UPC {exp:printfriendly:button disable_pdf="yes" disable_print="yes" image_display_style="no" hide_images="yes"}</div>
+                          <div class="zizou-16 borderless" id="mail-button-trigger">Enviar a mi Correo UPC {exp:printfriendly:button disable_pdf="yes" disable_print="yes" id="mail-button" image_display_style="no" hide_images="yes"}</div>
+                        </li>
+                      </a>
+                      <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=3" target="_blank">
+                        <li class="bg-muted p-7 mb-7">
+                          <div class="arrow-icon info"></div>
+                          <div class="zizou-16 borderless">Historial de Notas</div>
+                        </li>
+                      </a>
+                    </ul>
+                  </div>
+                </div>
+              </div>  
+
+              <div class="panel mt-14 hidden-md hidden-lg">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Otras Acciones</h3>
+                    <img src="{site_url}assets/img/select_black_sm" alt="">
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="panel-table otras-acciones">
+                    <ul class="tr">
+                      <a href="">
+                        <li class="bg-muted p-7 mb-7">
+                          <div class="custom-icon print"></div>
+                          <div class="zizou-16 borderless" onclick="window.print()">Imprimir detalles</div>
+                        </li>
+                      </a>
+                      <a href="">
+                        <li class="bg-muted p-7 mb-7">
+                          <div class="custom-icon danger pdf"></div>
+                          <div class="zizou-16 borderless" id="pdf-button-trigger">Descargar en PDF {exp:printfriendly:button disable_email="yes" disable_print="yes" id="pdf-button" title=""}</div>
+                        </li>
+                      </a>
+                      <a href="">
+                        <li class="bg-muted p-7 mb-7">
+                          <div class="custom-icon danger mail"></div>
+                          <div class="zizou-16 borderless" id="mail-button-trigger">Enviar a mi Correo UPC {exp:printfriendly:button disable_pdf="yes" disable_print="yes" id="mail-button" image_display_style="no" hide_images="yes"}</div>
                         </li>
                       </a>
                       <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=3" target="_blank">

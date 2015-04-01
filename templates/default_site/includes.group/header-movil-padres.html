@@ -1,26 +1,22 @@
 {exp:webservices:verificar_usuario tipo_de_vista="PADRE"}
-<div id="mobile-nav" class="hidden-md hidden-lg row pt-7">
-  <div class="col-xs-2">
-    <img src="/assets/img/isotipo_upc.png" class="mt-7 ml-14">  
-  </div>
-  <div class="col-xs-4 mt-7">
-    <span class="solano-bold-28 uppercase">Intranet</span>
-  </div>
-  <div class="col-xs-6 pr-21">
-    <div class="btn pull-right btn-info" type="button" data-toggle="collapse" data-target="#collapseMobile" aria-expanded="false" aria-controls="collapseMobile">
-      <img src="/assets/img/bars.png" alt="">
+<div id="mobile-nav" class="hidden-md hidden-lg container-fluid">
+  <img src="/assets/img/isotipo_upc.png" class="pt-7 pull-left">  
+  <span class="solano-bold-28 pull-left pt-7 pl-7 uppercase">Intranet</span>
+  <div class="pull-right pt-3">
+    <div class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseMobile" aria-expanded="false" aria-controls="collapseMobile">
+      <img class="img-responsive inline-block pr-7" src="/assets/img/bars.png" alt="">
       <span>MENU</span>
     </div>
   </div>
 </div>
-
 <div class="collapse hidden-md hidden-lg" id="collapseMobile">
  <ul class="list-unstyled mobile-menu">
+   <li class="parent"><a href="#">Inicio</a></li>
    {exp:channel:entries channel="sidebar_padre" dynamic="off" orderby="date" sort="asc"}
-     <li class="parent">
-      <span>{title}</span>
-      {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
-     </li>
+   <li class="parent">
+    <span>{title}</span>
+    {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
+   </li>
    {/exp:channel:entries}    
    <li class="parent"><a href="{site_url}ayuda">Ayuda</a></li>
    <li><a href="{site_url}login/salir">Cerrar Sesión</a></li> 
