@@ -2,8 +2,12 @@
 {exp:webservices:iniciar_session}
   
   {exp:channel:entries   
-  
-channel="referencias" orderby="screen_name|date" sort="asc|desc"limit="1" disable="member_data|pagination" }
+  	channel="referencias" 
+  	orderby="screen_name|date" 
+  	sort="asc|desc"
+  	limit="1" 
+  	disable="member_data|pagination" 
+  }
   	{embed="includes/header-socrates" ruta="{ruta_referencia}"}
     <div class="site-content iframe">
       {if tipo-referencia=='Socrates'}

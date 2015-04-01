@@ -21,9 +21,13 @@
 	        <div class="col-sm-1"></div>
           <div class="col-sm-3"><span><a href="{site_url}mundo-upc/informacion-general">Regresar</a></span></div>
           <div class="col-sm-8 resultados">
-              {exp:channel:entries   
-  
-channel="referencias" orderby="screen_name|date" sort="asc|desc"limit="1" disable="member_data" dynamic="off"}
+              {exp:channel:entries 
+              	channel="referencias" 
+              	orderby="screen_name|date" 
+              	sort="asc|desc"limit="1" 
+              	disable="member_data" 
+              	dynamic="off"
+              }
               <h3>{title}</h3>
               <p>{contenido_interno}</p>
   						{/exp:channel:entries} 		            
