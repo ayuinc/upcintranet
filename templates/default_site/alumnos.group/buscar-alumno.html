@@ -5,65 +5,67 @@
 {embed="includes/header-movil-docentes"}
 {embed="includes/sidebar-docente"}
 
-    <div class="site-content container ciclo-actual">
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Alumnos</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">Buscar un alumno</span></div>
-        </div>
-      </div> 
-      <div class="section-content pb-70">
+    <div class="site-content ciclo-actual">
+      <div class="container-fluid">
+        <div class="internal-header">
           <div class="row">
             <div class="col-sm-1"></div>
-            <div class="col-sm-3">
-              <div class="panel">
-                <div class="panel-head no-bg">
-                  <!-- <div class="panel-head-left"> -->
-                    <div class="panel-title left">
-                      <h2 class="zizou-24">Buscar un Alumno</h2>
-                    </div>
-                  <!-- </div> -->
-                </div>
-                <div class="panel-body">
-	                <form method="post" action="{site_url}index.php/alumnos/buscar-alumno">
-	                <input type="hidden" name="XID" value="{XID_HASH}" />
-	                <input type="hidden" name="Flag" value="buscar" />
-                  <div class="buscar-alumno-container">
-  									<input type="text" id="buscar-alumno" class="zizou-22 pl-7 block mb-7" name="codalumno" value="" placeholder="Código">
-  									<input type="submit" class="wide black-btn btn btn-custom" name="submit" value="Buscar">
+            <div class="col-sm-4"><span class="zizou-16">Alumnos</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">Buscar un alumno</span></div>
+          </div>
+        </div> 
+        <div class="section-content pb-70">
+            <div class="row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-3">
+                <div class="panel">
+                  <div class="panel-head no-bg">
+                    <!-- <div class="panel-head-left"> -->
+                      <div class="panel-title left">
+                        <h2 class="zizou-24">Buscar un Alumno</h2>
+                      </div>
+                    <!-- </div> -->
                   </div>
-	                </form>
-                </div>
-              </div>
-            </div>
-      
-            <div class="col-sm-8">
-              <div class="panel">
-                <div class="panel-head no-bg">
-                  <div class="panel-title left">
-                    <h2 class="zizou-24">Resultado de la Búsqueda</h2>
-                  </div>
-                </div>
-                {if post:Flag!='buscar'}                 
                   <div class="panel-body">
-                    <div class="panel-body-content p-28 text-left red-line">
-                      <div class="helvetica-18">Inicia tu búsqueda ingresando el código del alumno</div>   
+  	                <form method="post" action="{site_url}index.php/alumnos/buscar-alumno">
+  	                <input type="hidden" name="XID" value="{XID_HASH}" />
+  	                <input type="hidden" name="Flag" value="buscar" />
+                    <div class="buscar-alumno-container">
+    									<input type="text" id="buscar-alumno" class="zizou-22 pl-7 block mb-7" name="codalumno" value="" placeholder="Código">
+    									<input type="submit" class="wide black-btn btn btn-custom" name="submit" value="Buscar">
                     </div>
-                  </div>  
-                         
-                {/if}
-                {if post:Flag=='buscar'}                 
-									{exp:webservices:buscar_curos_que_lleva_un_alumno
-										codalumno="{post:codalumno}"
-									}         
-								{/if}
+  	                </form>
+                  </div>
+                </div>
               </div>
-            </div>
-        </div>
-    </div>
+        
+              <div class="col-sm-8">
+                <div class="panel">
+                  <div class="panel-head no-bg">
+                    <div class="panel-title left">
+                      <h2 class="zizou-24">Resultado de la Búsqueda</h2>
+                    </div>
+                  </div>
+                  {if post:Flag!='buscar'}                 
+                    <div class="panel-body">
+                      <div class="panel-body-content p-28 text-left red-line">
+                        <div class="helvetica-18">Inicia tu búsqueda ingresando el código del alumno</div>   
+                      </div>
+                    </div>  
+                           
+                  {/if}
+                  {if post:Flag=='buscar'}                 
+  									{exp:webservices:buscar_curos_que_lleva_un_alumno
+  										codalumno="{post:codalumno}"
+  									}         
+  								{/if}
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>  
   </div>
 {embed="includes/footer"}   

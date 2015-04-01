@@ -5,68 +5,70 @@
 {embed="includes/header-movil-docentes"}
 {embed="includes/sidebar-docente"}
 
-    <div class="site-content container">
+    <div class="site-content">
       {exp:channel:entries 
       	channel="seccion" 
       	limit="1" 
       	disable="member_data|pagination"  
       	category="46"
       }
-      <div class="internal-header">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Información General</span></div>
+      <div class="container-fluid">
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4"><span class="zizou-16">Información General</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
         </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-        </div>
-      </div>
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-3 section-desc">
-            <span class="zizou-14">{introduccion-seccion}</span> 
-          </div>        
-          
-      {/exp:channel:entries}      
-          <div class="col-sm-8 pt-0">
-            <span class="zizou-26">Últimas Noticias de la UPC</span>
-            <div class="row">
-	            {exp:channel:entries 
-	            	channel="noticias" 
-	            	limit="10" 
-	            	disable="member_data|pagination" 
-	            	dynamic="off"
-                category="49"
-	            }
-              <div class="col-sm-6">
-                <div class="panel">
-                  <div class="panel-body canales">
-                    <div class="panel-body-head left tall">
-                      <h3>{title}</h3>
-                    </div>  
-                    <div class="panel-table">
-                      <ul class="tr">
-                        <p class="p-7 helvetica-16">{intro-noticia}</p>
-                        <p class="helvetica-bold-14 pl-7">
-                        {entry_date format="%d/%m/%Y"}
-                        </p>                
-                        <p class="sb-link pl-7 zizou-14">
-													<a class="col-xs-11 p-7" href="{site_url}noticias/{url_title}">                        
-	                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Leer Nota Completa
-	                        </a>
-	                      </p>
-                      </ul>
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3 section-desc">
+              <span class="zizou-14">{introduccion-seccion}</span> 
+            </div>        
+            
+        {/exp:channel:entries}      
+            <div class="col-sm-8 pt-0">
+              <span class="zizou-26">Últimas Noticias de la UPC</span>
+              <div class="row">
+  	            {exp:channel:entries 
+  	            	channel="noticias" 
+  	            	limit="10" 
+  	            	disable="member_data|pagination" 
+  	            	dynamic="off"
+                  category="49"
+  	            }
+                <div class="col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body canales">
+                      <div class="panel-body-head left tall">
+                        <h3>{title}</h3>
+                      </div>  
+                      <div class="panel-table">
+                        <ul class="tr">
+                          <p class="p-7 helvetica-16">{intro-noticia}</p>
+                          <p class="helvetica-bold-14 pl-7">
+                          {entry_date format="%d/%m/%Y"}
+                          </p>                
+                          <p class="sb-link pl-7 zizou-14">
+  													<a class="col-xs-11 p-7" href="{site_url}noticias/{url_title}">                        
+  	                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Leer Nota Completa
+  	                        </a>
+  	                      </p>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
+                {/exp:channel:entries}
               </div>
-              {/exp:channel:entries}
             </div>
           </div>
         </div>
-      </div>
+     </div>   
   </div>
  
 {embed="includes/footer"}   

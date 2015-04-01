@@ -16,11 +16,12 @@
 
 <div class="collapse hidden-md hidden-lg" id="collapseMobile">
    <ul class="list-unstyled mobile-menu">
+     <li class="parent"><a href="{site_url}dashboard/docente">Inicio</a></li>
      {exp:channel:entries channel="sidebar_docente" dynamic="off" orderby="date" sort="asc"}
-       <li class="parent">
-         <span>{title}</span>
-         {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
-       </li>
+     <li class="parent">
+       <span>{title}</span>
+       {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
+     </li>
      {/exp:channel:entries}    
      <li class="parent"><a href="{site_url}ayuda">Ayuda</a></li> 
      <li><a href="{site_url}login/salir">Cerrar Sesión</a></li>
