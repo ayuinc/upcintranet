@@ -14,7 +14,17 @@ $(document).ready(function(){
     $('.search-trigger').click(function(){
         $('.search-bar').toggleClass('hidden');
     })
-
+    //
+    //pdf and mail features
+    $('#pdf-button img').hide();
+    $('#mail-button img').hide();
+    $('#pdf-button-trigger').click(function() {
+        $("#pdf-button").click();
+    });
+    $('#mail-button-trigger').click(function() {
+        $("#mail-button").click();
+    });
+    //
     function delCokkies (){
         var cookies = document.cookie.split(";");
  
