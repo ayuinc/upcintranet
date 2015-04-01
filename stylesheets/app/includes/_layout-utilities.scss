@@ -97,6 +97,12 @@ $margins-paddings: ("p": "padding", "m": "margin", "pt": "padding-top", "pb": "p
 	&:hover {
 		color: white;
 	}
+	&.full-width {
+		width: 100%;
+		margin-top: 14px;
+		font-size: 20px;
+		font-size: rem(20px);
+	}
 	&.wide {
 		min-width: 189px !important;
 		font-size: 20px !important;
