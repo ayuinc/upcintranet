@@ -17,7 +17,13 @@
        <span>{title}</span>
        {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
      </li>
-     {/exp:channel:entries}    
+     {/exp:channel:entries}
+     <li class="parent">
+      <span>Mi Perfil</span>
+      <ul class="list-unstyled child">
+        <li><a href="{site_url}perfil-docente">Mis Datos</a></li>
+      </ul>
+     </li>    
      <li class="parent"><a href="{site_url}ayuda">Ayuda</a></li> 
      <li><a href="{site_url}login/salir">Cerrar Sesión</a></li>
    </ul>
