@@ -24,6 +24,13 @@ $(document).ready(function(){
     $('#mail-button-trigger').click(function() {
         $("#mail-button").click();
     });
+    //acordion
+    $('#oaCollapse').on('show.bs.collapse', function () {
+       $(".otras-acciones-arrow").addClass("open");
+    });
+    $('#oaCollapse').on('hide.bs.collapse', function () {
+       $(".otras-acciones-arrow").removeClass("open");
+    });
     //
     function delCokkies (){
         var cookies = document.cookie.split(";");
