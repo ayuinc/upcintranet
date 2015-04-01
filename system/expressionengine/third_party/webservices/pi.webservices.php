@@ -3765,7 +3765,7 @@ class Webservices
         // var_dump($json);
         for ($a=0; $a<$tamano; $a++) {
           $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-xs-7 helvetica-10 pb-0">';
+          $result .= '<li class="col-xs-7 helvetica-12 pb-0">';
           $result .= '<div>';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].' ('.$json['modalidades'][$i]['cursos'][$a]['seccion'].')</span>';
           $result .= '</div>';
@@ -3780,7 +3780,7 @@ class Webservices
           $result .= '<input type="hidden" name="Curso" value="'.$json['modalidades'][$i]['cursos'][$a]['cursoId'].'">';
           $result .= '<input type="hidden" name="Seccion" value="'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'">';
           $result .= '<input type="hidden" name="Grupo" value="'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'">';
-          $result .= '<input type="submit" class="helvetica-10 btn-anchor" value="Ver Listado" name="submit">';
+          $result .= '<input type="submit" class="helvetica-12 btn-anchor" value="Ver Listado" name="submit">';
           $result .= '</form>';
           $result .= '</div>';
           $result .= '</li>';         

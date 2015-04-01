@@ -7,7 +7,7 @@ $sans-serif: "solano";
 $alt: "helvetica";
 $alt-ab: "helv-neue";
 $alt-12: "ronnia";
-$sizes: 10, 12, 14, 16, 18, 20, 22, 24, 26, 28;
+$sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 
 
 /// fonts loops
@@ -87,8 +87,8 @@ $sizes: 10, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 		font-size: $fs + px !important;	
 		font-size: rem($fs) !important;
 		@media #{$lg-down} {
-			font-size: ($fs - 4) + px !important;
-			font-size: rem(($fs) - 4) !important;	
+			font-size: ($fs - 2) + px !important;
+			font-size: rem(($fs) - 2) !important;	
 		}	
 	}
 	.#{$alt-ab}-#{$fs} {
