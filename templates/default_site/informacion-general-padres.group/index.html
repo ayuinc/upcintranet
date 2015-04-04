@@ -35,69 +35,20 @@
                     <span class="zizou-26">Acciones Frecuentes</span>
                   </div>
                 </div>
-<<<<<<< HEAD
-              </div>
-            </div>  
-          </div>        
-          
-          <div class="col-sm-8">
-            <span class="zizou-26">¿Qué deseas hacer?</span>
-            <div class="row">
-	            {exp:channel:entries 
-	            	channel="referencias" 
-	            	orderby="screen_name|date" 
-	            	sort="asc|desc"
-	            	limit="100" 
-	            	disable="member_data|pagination" 
-	            	category="{segment_2_category_id}" 
-	            	dynamic="off"
-	            }
-              <div class="col-sm-6">
-                <div class="panel">
-                  <div class="panel-body canales">
-                    <div class="panel-body-head left tall">
-                      <h3>{title}</h3>
-                    </div>  
-                    <div class="panel-table">
-                      <ul class="tr">
-                        <p class="p-14 helvetica-16">{intrudccion-referencia}</p>
-                        {if fecha-referencia}
-                        <p class="helvetica-bold-14 pl-7">
-                        {fecha-referencia}, de {hora-referencia}, Aula {aula-referencia}
-                        </p>
-                        {/if}                 
-                      </ul>
-                    </div>
-                    <div class="panel-footer">
-                      {if archivo-referencia}
-                      <a class="sb-link pl-7 zizou-14" target="_blank" href="{archivo-referencia}">
-                      {/if}  
-                      {if link-referencia}
-                        {if tipo-referencia=='Socrates'}
-                        <a class="sb-link pl-7 zizou-14" target="_blank" href="{site_url}socrates/{url_title}">
-                        {/if} 
-                        {if tipo-referencia=='Externa'}
-                        <a class="sb-link pl-7 zizou-14" target="_blank" href="{link-referencia}">
-                        {/if}                             
-                      {/if}                                                     
-                      <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
-                      {if archivo-referencia}
-=======
                 <div class="panel-body">
                   <div class="panel-table otras-acciones ">
                     <ul class="tr">
                       <a class="sb-link" href="">
                         <li class="bg-muted p-7 mb-7 mr-7">
                           <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Buscar un libro
+                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Renovar un libro
                           </span>
                         </li>
->>>>>>> a5f1a26c1fc07e25b77b29b230f8eb39ce802106
                       </a>
                       <a class="sb-link" href="">
                         <li class="bg-muted p-7 mb-7 mr-7">
                           <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Renovar un libro
+                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Buscar un libro
                           </span>
                         </li>
                       </a>
