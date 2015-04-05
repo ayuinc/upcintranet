@@ -34,31 +34,33 @@
             <span class="zizou-26">Se han encontrado {exp:search:total_results} resultados para "{exp:search:keywords}"</span>
             <div class="resultados-busqueda red-line bg-muted">
               {exp:search:search_results}
-              <div class="panel-body p-14">
-                <div class="solano-bold-20 black-text">{title}</div>   
-                <div class="helvetica-16">
-                  {if intrudccion-referencia}
-                  	{intrudccion-referencia}
-                  {/if}
-                  {if intro-noticia}
-                  	{intro-noticia}
-                  {/if}
-                </div>     
-                {if link-referencia}
-                  {if tipo-referencia=='Socrates'}
-                  <a class="danger-link zizou-16" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
-                  {/if} 
-                  {if tipo-referencia=='Externa'}
-                  <a class="sb-link zizou-16" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
-                  {/if}   
-                {/if} 
-                {paginate}
-                  <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-                {/paginate}
-              </div>
-              {if count != total_results}
-              <div class="dotted-line"></div>
-              {/if}
+	              {if buscar_docentes_referencia=='si'}
+		              <div class="panel-body p-14">
+		                <div class="solano-bold-20 black-text">{title}</div>   
+		                <div class="helvetica-16">
+		                  {if intrudccion-referencia}
+		                  	{intrudccion-referencia}
+		                  {/if}
+		                  {if intro-noticia}
+		                  	{intro-noticia}
+		                  {/if}
+		                </div>     
+		                {if link-referencia}
+		                  {if tipo-referencia=='Socrates'}
+		                  <a class="danger-link zizou-16" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+		                  {/if} 
+		                  {if tipo-referencia=='Externa'}
+		                  <a class="sb-link zizou-16" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
+		                  {/if}   
+		                {/if} 
+		                {paginate}
+		                  <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+		                {/paginate}
+		              </div>
+		              {if count != total_results}
+		              <div class="dotted-line"></div>
+		              {/if}
+	              {/if}
               {/exp:search:search_results}                
             </div>
           </div>
