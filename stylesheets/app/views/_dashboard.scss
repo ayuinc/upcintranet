@@ -9,7 +9,13 @@
 	@media only screen and (width: 1024px) {
 		display: block;
 	}
+	@media only screen and (width: 960px) {
+		display: block;
+	}
 	@media only screen and (width: 768px) {
+		display: block;
+	}
+	@media only screen and (min-width: 1025px) {
 		display: block;
 	}
 }

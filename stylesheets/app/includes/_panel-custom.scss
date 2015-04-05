@@ -245,6 +245,10 @@
 					}
 					span {
 						@include flex-grow(0);
+						@media #{$xs-only} {
+							font-size: rem(11px);
+							font-size: 11px;
+						}
 					}
 					>div {
 						@include display(flex);
@@ -277,7 +281,9 @@
 	}
 	.panel-footer {
 		background-color: white;
-		padding-bottom: 14px;
-		padding-left: 7px;
+		padding-bottom: 7px;
+		.pull-left {
+			min-height: 49px;
+		}
 	}
 }

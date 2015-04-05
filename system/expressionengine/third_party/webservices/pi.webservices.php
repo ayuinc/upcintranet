@@ -211,9 +211,9 @@ class Webservices
         $result .= '<div class="row pt-21">';
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
           if ($i%2 == 0) {
-            $result .= '<div class="col-xs-offset-2 col-xs-4">';
+            $result .= '<div class="col-sm-offset-2 col-xs-offset-1 col-xs-5 col-sm-4">';
           } elseif ($i%2 == 1) {
-            $result .= '<div class="col-xs-4">';    
+            $result .= '<div class="col-sm-4 col-xs-5 ">';    
           }
         $result .= '<a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">';
         $result .= '<div class="children-avatar text-center">';
@@ -658,7 +658,7 @@ class Webservices
         $result .= '</div>'; 
       }
       $result .= '</div>';
-      // $result .= '</div>'; 
+      $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
         $result = '<div class="panel-body">';
@@ -3834,7 +3834,7 @@ class Webservices
         // return $nombre_curso_lc;
         $result .= '<div class="panel-head no-bg">';
         $result .= '<div class="panel-title left">';
-        $result .= '<h2 class="black-text"><span class="gray-main"> Lista de Alumnos: </span>'.$nombre_curso_lc.'</h2>';
+        $result .= '<h3 class="black-text"><span class="gray-main"> Lista de Alumnos: </span>'.$nombre_curso_lc.'</h3>';
         // $result .= '<h3>Lista de Alumnos: '.$json['Cursos'][$i]['curso'].'</h3>';
         $result .= '</div>';
         $result .= '</div>';
@@ -3871,12 +3871,12 @@ class Webservices
         for ($a=0; $a<$tamano_int; $a++) {
           $result .= '<div class="panel-table">';
           $result .= '<ul class="tr">';
-          $result .= '<li class="col-xs-2 helvetica-14">';
+          $result .= '<li class="col-xs-3 col-sm-2 helvetica-14">';
           $result .= '<div class="text-center borderless">';
-          $result .= '<img src="'.$json['Cursos'][$i]['alumnos'][$a]['url_foto'].'" width="55" class="pt-7 pb-7">';
+          $result .= '<img src="'.$json['Cursos'][$i]['alumnos'][$a]['url_foto'].'" width="55" class="img-center pt-7 pb-7">';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-10 helvetica-14">';
+          $result .= '<li class="col-xs-9 col-sm-10 helvetica-14">';
           $result .= '<span class="helvetica-bold-14">';
           $result .= $json['Cursos'][$i]['alumnos'][$a]['nombre_completo'];       
           $result .= '</span>';
