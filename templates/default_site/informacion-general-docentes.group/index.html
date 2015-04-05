@@ -71,7 +71,7 @@
             </div>        
             
         {/exp:channel:entries}      
-            <div class="col-sm-8 pt-0">
+            <div class="col-sm-8 pt-7">
               <span class="zizou-26">¿Qué deseas hacer?</span>
               <div class="row">
   	            {exp:channel:entries 
@@ -103,10 +103,10 @@
   		                      {/if}  
   													{if link-referencia}
   														{if tipo-referencia=='Socrates'}
-  														<a class="col-xs-11 p-7" target="_blank" href="{site_url}socrates/{url_title}">
+  														<a class="col-xs-11 p-7 sb-link" target="_blank" href="{site_url}socrates/{url_title}">
   														{/if}	
   														{if tipo-referencia=='Externa'}
-  														<a class="col-xs-11 p-7" target="_blank" href="{link-referencia}">
+  														<a class="col-xs-11 p-7 black-link" target="_blank" href="{link-referencia}">
   														{/if}															
   		                      {/if}  		                       	                        
   	                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}

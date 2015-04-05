@@ -95,7 +95,7 @@
 			img {
 				width: 105px;
 				@media #{$xs-only} {
-				width: 91px;					
+				width: 77px;					
 				}
 				height: auto;
 				border: 2px solid $brand-info;
@@ -108,6 +108,9 @@
 				background-color: $gray-main;
 				width: 77px;
 				height: auto;
+				@media #{$xs-only} {
+					padding: 1px;					
+				}
 				&:hover {
 					border: 2px solid $brand-danger;
 					background-color: $brand-danger;
