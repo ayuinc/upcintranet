@@ -655,9 +655,9 @@ class Webservices
         $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
         $result .= '</li>';
         $result .= '</ul>';
+        $result .= '</div>';
         $result .= '</div>'; 
       }
-      $result .= '</div>';
       $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
