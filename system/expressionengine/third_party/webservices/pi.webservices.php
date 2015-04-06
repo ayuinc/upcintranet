@@ -657,7 +657,7 @@ class Webservices
         $result .= '</ul>';
       }
       $result .= '</div>';
-      $result .= '</div>'; 
+      // $result .= '</div>'; 
       //Control de errores
       if ($error!='00000') {
         $result = '<div class="panel-body">';
