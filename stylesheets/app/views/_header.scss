@@ -24,6 +24,12 @@
 				padding-top: 7px;
 				height: 100%;
 				width: 163px;
+				@media #{$md-down} {
+					width: 132px;
+				}
+				@media #{$xs-only} {
+					width: 113px;
+				}
 			}
 		}
 		.header-no-global {
