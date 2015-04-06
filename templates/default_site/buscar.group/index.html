@@ -51,7 +51,10 @@
                 </script>
                 {exp:search:search_results}
 	                {if buscar_alumnos_referencia=='si'}
-		                <div class="panel-body p-14">
+		                 <?php 
+                        $var = "{buscar_alumnos_referencia}" ;
+                    ?>
+                    <div class="panel-body p-14">
 		                  <div class="solano-bold-20 black-text">{count}.&nbsp;{title}</div>   
 		                  <div class="helvetica-16">
 		                    {if intrudccion-referencia}
@@ -80,6 +83,7 @@
                 {/exp:search:search_results}      
                 <?php 
                         echo $contador ;
+                        echo $var ; 
                     ?>          
               </div>
               </div>
