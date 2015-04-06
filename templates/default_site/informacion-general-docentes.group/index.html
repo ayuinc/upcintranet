@@ -27,47 +27,7 @@
           <div class="row">
             <div class="col-sm-0-5"></div>
             <div class="col-sm-3">
-              <div class="panel">
-                <div class="panel-head no-bg">
-                  <div class="panel-title left">
-                    <span class="zizou-26">Acciones Frecuentes</span>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <div class="panel-table otras-acciones">
-                    <ul class="tr">
-                      <a class="sb-link" href="">
-                        <li class="bg-muted p-7 mb-7 mr-7">
-                          <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Buscar un libro
-                          </span>
-                        </li>
-                      </a>
-                      <a class="sb-link" href="">
-                        <li class="bg-muted p-7 mb-7 mr-7">
-                          <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Renovar un libro
-                          </span>
-                        </li>
-                      </a>
-                      <a class="sb-link" href="">
-                        <li class="bg-muted p-7 mr-7 mb-7">
-                          <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Consultar Bibliografías
-                          </span>
-                        </li>
-                      </a>
-                      <a class="sb-link" href="">
-                        <li class="bg-muted p-7 mr-7 mb-7">
-                          <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Comprar E-Books
-                          </span>
-                        </li>
-                      </a>                                                                  
-                    </ul>
-                  </div>
-                </div>
-              </div>  
+              {embed="includes/otras-acciones-info-gral-dcts"}
             </div>        
             
         {/exp:channel:entries}      
@@ -91,35 +51,36 @@
                       </div>  
                       <div class="panel-table">
                         <ul class="tr">
-                          <p class="p-7 helvetica-16">{intrudccion-referencia}</p>
+                          <p class="p-14 helvetica-16">{intrudccion-referencia}</p>
                           {if fecha-referencia}
                           <p class="helvetica-bold-14 pl-7">
                           {fecha-referencia}, de {hora-referencia}, Aula {aula-referencia}
                           </p>
-                          {/if}                 
-                          <p class="sb-link pl-7 zizou-14">
-  													{if archivo-referencia}
-  	                        <a class="col-xs-11 p-7" target="_blank" href="{archivo-referencia}">
-  		                      {/if}  
-  													{if link-referencia}
-  														{if tipo-referencia=='Socrates'}
-  														<a class="col-xs-11 p-7 sb-link" target="_blank" href="{site_url}socrates/{url_title}">
-  														{/if}	
-  														{if tipo-referencia=='Externa'}
-  														<a class="col-xs-11 p-7 black-link" target="_blank" href="{link-referencia}">
-  														{/if}															
-  		                      {/if}  		                       	                        
-  	                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
-  	                      	{if archivo-referencia}
-  	                        </a>
-  		                      {/if}  
-  													{if link-referencia}
-  	                        </a>
-  		                      {/if} 
-  	                      </p>
+                          {/if}  
                         </ul>
                       </div>
-                    </div>
+                      <div class="panel-footer">
+                        {if archivo-referencia}
+                        <a class="sb-link pl-7 zizou-16" target="_blank" href="{archivo-referencia}">
+                        {/if}  
+                        {if link-referencia}
+                          {if tipo-referencia=='Socrates'}
+                          <a class="sb-link pl-7 zizou-16" target="_blank" href="{site_url}socrates/{url_title}">
+                          <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png"><span>{nombre-referencia}</span>
+                          {/if} 
+                          {if tipo-referencia=='Externa'}
+                          <a class="black-link pl-7 zizou-16" target="_blank" href="{link-referencia}">
+                          <img class="pr-7" src="{site_url}assets/img/red_arrow_small.png"><span>{nombre-referencia}</span>
+                          {/if}   
+                        {/if}                                                     
+                        {if archivo-referencia}
+                        </a>
+                        {/if}  
+                        {if link-referencia}
+                        </a>
+                        {/if} 
+                      </div>  
+                    </div>  
                   </div>
                 </div>
                 {/exp:channel:entries}
