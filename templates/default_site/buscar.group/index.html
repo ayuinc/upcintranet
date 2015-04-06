@@ -1,3 +1,6 @@
+<?php 
+    $contador = 0;
+?> 
 {exp:search:search_results}
 {embed="includes/head" keywords="{exp:search:total_results} resultados para {exp:search:keywords}"}
 {/exp:search:search_results}
@@ -32,13 +35,18 @@
               {/exp:search:simple_form}
             </div>  
             <div class="col-sm-8 resultados">
-              <p class="zizou-26 encontrado">Se han encontrado {exp:search:total_results} resultados para <span class="black-text">"{exp:search:keywords}"</span></p>
+              <p class="zizou-26 encontrado">Se han encontrado <?php 
+                        echo $contador ;
+                    ?> - {exp:search:total_results} resultados para <span class="black-text">"{exp:search:keywords}"</span></p>
               <div class="resultados-busqueda red-line bg-muted">
                 <script>
                   ga('send', 'pageview', '/buscar?q={exp:search:keywords}');
                 </script>
                 {exp:search:search_results}
 	                {if buscar_alumnos_referencia=='si'}
+                    <?php 
+                        $contador++;
+                    ?>
 		                <div class="panel-body p-14">
 		                  <div class="solano-bold-20 black-text">{count}.&nbsp;{title}</div>   
 		                  <div class="helvetica-16">
