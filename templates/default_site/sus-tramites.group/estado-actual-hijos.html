@@ -5,40 +5,41 @@
 {embed="includes/header-movil-padres"}
 {embed="includes/sidebar-padres"}
 
-    <div class="site-content container">
-      <div class="internal-header">
-        {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" entry_id="279"}
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Sus Trámites</span></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-        </div>
-      </div>  
-      <div class="section-content pb-70">
-        <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-3 section-desc">
-            <span class="zizou-14">{introduccion-seccion}</span>
+    <div class="site-content">
+      <div class="container-fluid">
+        <div class="internal-header">
+          {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" entry_id="279"}
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Sus Trámites</span></div>
           </div>
-          {/exp:channel:entries} 
-          <div class="col-sm-8 pt-0">
-            <div class="panel">
-              <div class="panel-head no-bg">
-                <div class="panel-title">
-                  <h2>Trámites en proceso</h2>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div>  
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3 section-desc">
+              <span>{introduccion-seccion}</span>
+            </div>
+            {/exp:channel:entries} 
+            <div class="col-sm-8 pt-0">
+              <div class="panel">
+                <div class="panel-head no-bg">
+                  <div class="panel-title">
+                    <h2>Trámites en proceso</h2>
+                  </div>
                 </div>
-              </div>
-              <div class="panel-body bg-muted info-border">
-                {exp:webservices:padre_tramites_realizados_por_alumno codigo_alumno="{last_segment}"}
+                <div class="panel-body bg-muted info-border">
+                  {exp:webservices:padre_tramites_realizados_por_alumno codigo_alumno="{last_segment}"}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      </div>
+      </div>  
   </div>
  
 {embed="includes/footer"}   

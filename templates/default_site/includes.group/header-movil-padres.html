@@ -17,8 +17,16 @@
     <span>{title}</span>
     {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
    </li>
-   {/exp:channel:entries}    
-   <li class="parent"><a href="{site_url}ayuda">Ayuda</a></li>
+   {/exp:channel:entries}
+   <li class="parent">
+    <span>Mi Perfil</span>
+    <ul class="list-unstyled child">
+      <li><a href="{site_url}perfil-padre">Mis Datos</a></li>
+      <li><a data-toggle="modal" data-target="#myModal">Ver tutorial</a></li>
+      <li><a href="{exp:webservices:boton_inicio}?utm_source=opciones_usuario_cambiar_perfil&utm_medium=link&utm_campaign=opciones_usuario_ultranet">Cambiar de perfil</a></li>
+    </ul>
+   </li>    
    <li><a href="{site_url}login/salir">Cerrar Sesión</a></li> 
  </ul>
 </div>
+{embed="includes/tutorial"}
