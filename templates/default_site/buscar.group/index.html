@@ -1,9 +1,16 @@
 <?php 
-    $contador = 0;
-?> 
+    $contador=0;
+?>
 {exp:search:search_results}
 {embed="includes/head" keywords="{exp:search:total_results} resultados para {exp:search:keywords}"}
 {/exp:search:search_results}
+{exp:search:search_results}
+  {if buscar_alumnos_referencia=='si'}
+    <?php 
+        $contador++;
+    ?>
+  {/if}
+{/exp:search:search_results} 
 {exp:webservices:iniciar_session}
   
 {embed="includes/header"}
@@ -44,9 +51,6 @@
                 </script>
                 {exp:search:search_results}
 	                {if buscar_alumnos_referencia=='si'}
-                    <?php 
-                        $contador++;
-                    ?>
 		                <div class="panel-body p-14">
 		                  <div class="solano-bold-20 black-text">{count}.&nbsp;{title}</div>   
 		                  <div class="helvetica-16">
