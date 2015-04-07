@@ -75,12 +75,13 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      $result='{"Codigo":null,"CodigoAlumno":null,"Nombres":null,"Apellidos":null,"Genero":null,"EsAlumno":null,"Estado":null,"TipoUser":null,"Token":null,"Datos":null,"CodError":"null","MsgError":"Usuario y\/o contraseña incorrectos."}';
       $json = json_decode($result, true);
       setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
       $_SESSION["CodError"] = $json['CodError'];
       $_SESSION["MsgError"] = $json['MsgError'];
       
-      if (strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
+      if ($json['CodError']==NULL || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
         redirect('/login/error_login');
       }
 
