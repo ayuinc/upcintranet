@@ -74,6 +74,14 @@ $site-menu-width: 79px;
 	&.shorter {
 		min-height: 822px;
 	}
+	.container-fluid {
+		.row .col-sm-8 {
+			padding-top: 0;
+			@media #{$md-down} {
+				padding-top: 14px;
+			}
+		}
+	}
 }
 
 .section-desc {
