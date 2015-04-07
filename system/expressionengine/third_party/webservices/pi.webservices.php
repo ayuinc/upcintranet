@@ -4004,14 +4004,9 @@ class Webservices
       //Loop basado en el HorarioDia
       for ($i=0; $i<$tamano; $i++) {
         $result.= '<div class="panel-table">';
-        
-        //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
         $dia_actual = date('w');
-        //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
-          var_dump($json['HorarioDia'][$i]['Clases']);
-          //Loop de las clases diponibles
           for ($b=0; $b<$tamano_1; $b++) {
             $HoraInicio[$b] = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
             $HoraInicio[$b] = ltrim($HoraInicio[$b],'0');
@@ -4022,12 +4017,7 @@ class Webservices
           
           $tamano_2 = count($HoraInicio);
           $disponibles = 0;
-          
-          //Loop generador de horas
           for ($b=0; $b<=$tamano_1-1; $b++) {
-            
-            //Compara si en el arreglo construido la hora es igual al counter del loop
-            //if ($HoraInicio[$b]==$b) {
               $result .= '<ul class="tr">';
               $result .= '<li class="col-sm-2 helvetica-bold-14">';
               $result .= '<div class="text-center"><span>'.$HoraInicio[$b].':00</span></div>';
@@ -4043,11 +4033,6 @@ class Webservices
               $result .= '</li>';
               $result .= '</ul>';    
               $disponibles++;
-              //Controla que ya no recorra mas el arreglo 
-              if ($disponibles != $tamano_2-1) {
-                $disponibles++;
-              } 
-            //} 
           } 
         } 
         $result .= '</div>'; 
