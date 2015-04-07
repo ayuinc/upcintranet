@@ -4010,7 +4010,7 @@ class Webservices
         $dia_actual = date('w');
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
-          var_dump($json['HorarioDia'][$i]['CodDia'][''])
+          var_dump($json['HorarioDia'][$i]['CodDia']['Clases']);
           //Loop de las clases diponibles
           for ($b=0; $b<$tamano_1; $b++) {
             $HoraInicio[$b] = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
