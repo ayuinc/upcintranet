@@ -27,51 +27,9 @@
           <div class="row">
             <div class="col-sm-0-5"></div>
             <div class="col-sm-3 section-desc">
-              <span class="zizou-14">{introduccion-seccion}</span> 
-              {/exp:channel:entries}
-              <div class="panel">
-                <div class="panel-head no-bg">
-                  <div class="panel-title left">
-                    <span class="zizou-26">Acciones Frecuentes</span>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <div class="panel-table otras-acciones ">
-                    <ul class="tr">
-                      <a class="sb-link" href="">
-                        <li class="bg-muted p-7 mb-7 mr-7">
-                          <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Renovar un libro
-                          </span>
-                        </li>
-                      </a>
-                      <a class="sb-link" href="">
-                        <li class="bg-muted p-7 mb-7 mr-7">
-                          <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Buscar un libro
-                          </span>
-                        </li>
-                      </a>
-                      <a class="sb-link" href="">
-                        <li class="bg-muted p-7 mb-7 mr-7">
-                          <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Consultar Bibliografías
-                          </span>
-                        </li>
-                      </a>
-                      <a class="sb-link" href="">
-                        <li class="bg-muted p-7 mb-7 mr-7">
-                          <span class="zizou-16">
-                          	<img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Comprar E-Books
-                          </span>
-                        </li>
-                      </a>                                                                  
-                    </ul>
-                  </div>
-                </div>
-              </div>  
+              <span>{introduccion-seccion}</span> 
+              {/exp:channel:entries} 
             </div>        
-            
             <div class="col-sm-8">
               <span class="zizou-26">¿Qué deseas hacer?</span>
               <div class="row">
@@ -112,7 +70,7 @@
                           <a class="sb-link pl-7 zizou-14" target="_blank" href="{link-referencia}">
                           {/if}                             
                         {/if}                                                     
-                        <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
+                        <img class="p-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
                         {if archivo-referencia}
                         </a>
                         {/if}  
