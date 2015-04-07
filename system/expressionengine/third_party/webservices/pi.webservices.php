@@ -778,16 +778,17 @@ class Webservices
           } 
         }  
       }
+      var_dump($flag);
      if($flag){
-              $result = '<ul class="tr">';
-              $result .= '<li class="col-xs-3">';
-              $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
-              $result .= '</li>';
-              $result .= '<li class="text-center col-xs-8 pt-21">';
-              $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
-              $result .= '</li>';
-              $result = '</ul>';
-            }
+        $result = '<ul class="tr">';
+        $result .= '<li class="col-xs-3">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+        $result .= '</li>';
+        $result .= '<li class="text-center col-xs-8 pt-21">';
+        $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
+        $result .= '</li>';
+        $result = '</ul>';
+      }
       //Control de errores
       if ($error!='00000') {
         $result = '<ul class="tr">';
