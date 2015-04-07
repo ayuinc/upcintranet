@@ -4008,7 +4008,7 @@ class Webservices
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
         $dia_actual = date('w');
-        if($json['HorarioDia'][$i][$dia_actual] == NULL){
+        /*if($json['HorarioDia'][$i][$dia_actual] == NULL){
           $result = '<div class="panel-body">';
           $result .= '<div class="panel-table pb-7">';
           $result .= '<ul class="tr">';
@@ -4022,7 +4022,7 @@ class Webservices
           $result .= '</div>';
           $result .= '</div>'; 
           break;
-        }
+        }*/
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
