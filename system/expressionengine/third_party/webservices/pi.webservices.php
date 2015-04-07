@@ -775,6 +775,7 @@ class Webservices
                 $disponibles++;
               } 
             } else {
+              var_dump($flag);
               if($flag){
                 $result = '<ul class="tr">';
                 $result .= '<li class="col-xs-3">';
