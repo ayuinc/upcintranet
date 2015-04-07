@@ -4024,22 +4024,22 @@ class Webservices
           $disponibles = 0;
           
           //Loop generador de horas
-          for ($b=7; $b<=22; $b++) {
+          for ($b=0; $b<=$tamano_1; $b++) {
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
-            if ($HoraInicio[$disponibles]==$b) {
+            if ($HoraInicio[$b]==$b) {
               $result .= '<ul class="tr">';
               $result .= '<li class="col-sm-2 helvetica-bold-14">';
-              $result .= '<div class="text-center"><span>'.$HoraInicio[$disponibles].':00</span></div>';
+              $result .= '<div class="text-center"><span>'.$HoraInicio[$b].':00</span></div>';
               $result .= '</li>';
               $result .= '<li class="col-sm-2 helvetica-bold-14">';
-              $result .= '<div class="text-center"><span>'.$Sede[$disponibles].'</span></div>';
+              $result .= '<div class="text-center"><span>'.$Sede[$b].'</span></div>';
               $result .= '</li>';
               $result .= '<li class="col-sm-6 helvetica-12">';
-              $result .= '<div><span>'.$CursoNombre[$disponibles].'</span></div>';
+              $result .= '<div><span>'.$CursoNombre[$b].'</span></div>';
               $result .= '</li>';
               $result .= '<li class="col-sm-2 helvetica-bold-14">';
-              $result .= '<div class="text-center"><span>'.$Salon[$disponibles].'</span></div>';
+              $result .= '<div class="text-center"><span>'.$Salon[$b].'</span></div>';
               $result .= '</li>';
               $result .= '</ul>';    
               $disponibles++;
