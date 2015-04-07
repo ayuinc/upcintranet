@@ -756,17 +756,17 @@ class Webservices
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
               $flag = FALSE;
-              $result .= '<ul class="tr">';
-              $result .= '<li class="col-xs-2">';
-              $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
+              $result .= '<ul class="tr list-unstyled clearfix bg-muted">';
+              $result .= '<li class="p-7 col-xs-2">';
+              $result .= '<div class="text-center br-gl"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
               $result .= '</li>';
-              $result .= '<li class="col-xs-2">';
-              $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$Sede[$disponibles].'</span></div>';
+              $result .= '<li class="p-7 col-xs-2">';
+              $result .= '<div class="text-center br-gl"><span class="helvetica-bold-16">'.$Sede[$disponibles].'</span></div>';
               $result .= '</li>';
-              $result .= '<li class="col-xs-6">';
-              $result .= '<div><span class="helvetica-14">'.$CursoNombre[$disponibles].'</span></div>';
+              $result .= '<li class="p-7 col-xs-6">';
+              $result .= '<div class="br-gl"><span class="helvetica-14">'.$CursoNombre[$disponibles].'</span></div>';
               $result .= '</li>';
-              $result .= '<li class="col-xs-2">';
+              $result .= '<li class="p-7 col-xs-2">';
               $result .= '<div class="text-center"><span class="solano-bold-18">'.$Salon[$disponibles].'</span></div>';
               $result .= '</li>';
               $result .= '</ul>';    
