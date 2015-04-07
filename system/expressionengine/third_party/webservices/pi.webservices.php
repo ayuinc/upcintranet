@@ -779,7 +779,7 @@ class Webservices
         }  
       }
       var_dump($flag);
-     if($flag){
+     if($flag == true){
         $result = '<ul class="tr">';
         $result .= '<li class="col-xs-3">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
