@@ -4042,7 +4042,7 @@ class Webservices
               $result .= '<div class="text-center"><span>'.$Salon[$disponibles].'</span></div>';
               $result .= '</li>';
               $result .= '</ul>';    
-              
+              $disponibles++;
               //Controla que ya no recorra mas el arreglo 
               if ($disponibles != $tamano_2-1) {
                 $disponibles++;
