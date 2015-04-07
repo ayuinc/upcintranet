@@ -775,7 +775,7 @@ class Webservices
                 $disponibles++;
               } 
             } else {
-              if($b == 22 && $flag){
+              if($flag){
                 $result = '<ul class="tr">';
                 $result .= '<li class="col-xs-3">';
                 $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
