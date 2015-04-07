@@ -1,10 +1,41 @@
-<div class="panel mt-14 hidden-sm hidden-xs">
+<div class="panel mt-14 hidden-xs">
   <div class="panel-head no-bg">
     <div class="panel-title left">
       <h3>Otras Acciones</h3>
     </div>
   </div>
   <div class="panel-body">
+    <div class="panel-table otras-acciones">
+      <ul class="tr">
+        <a href="">
+          <li class="bg-muted p-7 mb-7">
+            <div class="custom-icon print"></div>
+            <div class="zizou-16 borderless" onclick="window.print()">Imprimir detalles</div>
+          </li>
+        </a>
+        <a href="">
+          <li class="bg-muted p-7 mb-7">
+            <div class="custom-icon danger pdf"></div>
+            <div class="zizou-16 borderless" id="pdf-button-trigger">Descargar en PDF {exp:printfriendly:button disable_email="yes" disable_print="yes" id="pdf-button" title=""}</div>
+          </li>
+        </a>
+        <a href="">
+          <li class="bg-muted p-7 mb-7">
+            <div class="custom-icon danger mail"></div>
+            <div class="zizou-16 borderless" id="mail-button-trigger">Enviar a mi Correo UPC {exp:printfriendly:button disable_pdf="yes" disable_print="yes" id="mail-button" image_display_style="no" hide_images="yes"}</div>
+          </li>
+        </a>
+      </ul>
+    </div>
+  </div>
+</div>  
+<!-- movil -->
+<div class="panel mt-14 hidden-sm hidden-md hidden-lg">
+  <div class="panel-head pl-14" data-toggle="collapse" href="#oaCollapse">
+    <h3 class="pull-left mt-14">Otras Acciones</h3>
+    <div class="otras-acciones-arrow"></div>
+  </div>
+  <div class="panel-body mt-7 collapse" id="oaCollapse">
     <div class="panel-table otras-acciones">
       <ul class="tr">
         <a href="">
