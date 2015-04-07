@@ -778,7 +778,7 @@ class Webservices
           } 
         }  
       }
-      var_dump($flag);
+      //var_dump($flag);
      if($flag == TRUE){
         $result = '<ul class="tr">';
         $result .= '<li class="col-xs-3">';
