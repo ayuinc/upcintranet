@@ -719,25 +719,25 @@ class Webservices
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
-         /* if($i == 0){
-            $result .= '<div class="panel-body-head-table">';
-            $result .= '  <ul class="tr">';
-            $result .= '    <li class="col-xs-2">';
-            $result .= '      <div class="fecha"><span>Hora</span></div>';
-            $result .= '    </li>';
-            $result .= '    <li class="col-xs-2">';
-            $result .= '      <div class=""><span>Campus</span></div>';
-            $result .= '    </li>';
-            $result .= '    <li class="col-xs-6">';
-            $result .= '      <div class=""><span>Curso</span></div>';
-            $result .= '    </li>';
-            $result .= '    <li class="col-xs-2">';
-            $result .= '      <div class=""><span>Aula</span></div>';
-            $result .= '    </li>';
-            $result .= '  </ul>';
-            $result .= '</div>';
+         if($i == 0){
+            $result .= '  <div class="panel-body-head-table">
+                          <ul class="tr">
+                            <li class="col-xs-2">
+                              <div class="fecha"><span>Hora</span></div>
+                            </li>
+                            <li class="col-xs-2">
+                              <div class=""><span>Campus</span></div>
+                            </li>
+                            <li class="col-xs-6">
+                              <div class=""><span>Curso</span></div>
+                            </li>
+                            <li class="col-xs-2">
+                              <div class=""><span>Salón</span></div>
+                            </li>
+                          </ul>
+                        </div>';
           }
-          $result.= '<div class="panel-table">';*/
+          //$result.= '<div class="panel-table">';
           //Loop de las clases diponibles
           for ($b=0; $b<$tamano_1; $b++) {
             $HoraInicio[$b] = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
