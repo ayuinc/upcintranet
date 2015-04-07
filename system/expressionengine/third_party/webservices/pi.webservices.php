@@ -4765,7 +4765,7 @@ class Webservices
         return '{site_url}dashboard/docente'; 
       } 
       if (strval($tipouser)=='PADRE') {
-        return '{site_url}dashboard/elige_tu_hijo'; 
+        return '{site_url}dashboard/padre/hijos/{last_segment}'; 
       }             
     }    
     
