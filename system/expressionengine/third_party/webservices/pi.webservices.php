@@ -3974,7 +3974,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
+      //var_dump($result);
       $json = json_decode($result, true);
 
       $error = $json['CodError'];
@@ -4010,7 +4010,7 @@ class Webservices
         $dia_actual = date('w');
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
-          var_dump($json['HorarioDia'][$i]['CodDia']['Clases']);
+          var_dump($json['HorarioDia'][$i]['Clases']);
           //Loop de las clases diponibles
           for ($b=0; $b<$tamano_1; $b++) {
             $HoraInicio[$b] = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
