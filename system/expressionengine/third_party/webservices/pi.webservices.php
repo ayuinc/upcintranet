@@ -4024,7 +4024,7 @@ class Webservices
           $disponibles = 0;
           
           //Loop generador de horas
-          for ($b=0; $b<=$tamano_1; $b++) {
+          for ($b=0; $b<=$tamano_1-1; $b++) {
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
             //if ($HoraInicio[$b]==$b) {
