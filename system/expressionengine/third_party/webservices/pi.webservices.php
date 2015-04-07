@@ -4027,7 +4027,7 @@ class Webservices
           for ($b=0; $b<=$tamano_1; $b++) {
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
-            if ($HoraInicio[$b]==$b) {
+            //if ($HoraInicio[$b]==$b) {
               $result .= '<ul class="tr">';
               $result .= '<li class="col-sm-2 helvetica-bold-14">';
               $result .= '<div class="text-center"><span>'.$HoraInicio[$b].':00</span></div>';
@@ -4047,7 +4047,7 @@ class Webservices
               if ($disponibles != $tamano_2-1) {
                 $disponibles++;
               } 
-            } 
+            //} 
           } 
         } 
         $result .= '</div>'; 
