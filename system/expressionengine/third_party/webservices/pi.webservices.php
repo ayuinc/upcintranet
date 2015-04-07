@@ -787,8 +787,9 @@ class Webservices
               }
             }   
           } 
-        }
-        $result .= '</div>'; 
+        } 
+        //$result .= '</div>';
+        //$result .= '</div>'; 
       }
       
       //Control de errores
