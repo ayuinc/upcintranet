@@ -716,6 +716,8 @@ class Webservices
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
         $dia_actual = date('w');
+        
+        //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
           if($i == 0){
             $result .= '<div class="panel-body-head-table">';
@@ -789,7 +791,7 @@ class Webservices
           } 
         } 
         //$result .= '</div>';
-        //$result .= '</div>'; 
+        $result .= '</div>'; 
       }
       
       //Control de errores
@@ -983,7 +985,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
+      var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
