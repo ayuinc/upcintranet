@@ -3974,7 +3974,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
+      //var_dump($result);
       $json = json_decode($result, true);
 
       $error = $json['CodError'];
@@ -4008,6 +4008,7 @@ class Webservices
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
         $dia_actual = date('w');
+        var_dump($json['HorarioDia'][$i][$dia_actual]);
         /*if($json['HorarioDia'][$i][$dia_actual] == NULL){
           $result = '<div class="panel-body">';
           $result .= '<div class="panel-table pb-7">';
@@ -4063,16 +4064,7 @@ class Webservices
               if ($disponibles != $tamano_2-1) {
                 $disponibles++;
               } 
-            } else {
-              $result .= '<ul class="tr">';
-              $result .= '<li class="col-sm-2">';
-              $result .= '<div class="text-center"><span>'.$b.':00</span></div>';
-              $result .= '</li>';                
-              $result .= '<li class="col-sm-10">';
-              $result .= '<div class="text-center"></div>';
-              $result .= '</li>';
-              $result .= '</ul>';
-            }   
+            } 
           } 
         } 
         $result .= '</div>'; 
