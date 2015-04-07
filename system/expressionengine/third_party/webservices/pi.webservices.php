@@ -704,7 +704,7 @@ class Webservices
       $error_mensaje = $json['MsgError']; 
       
       //limpio la variable para reutilizarla
-      $result = '<div class="panel-body">';
+      $result = '';
 
       
       //genera el tamano del array
@@ -719,7 +719,7 @@ class Webservices
         
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
-          if($i == 0){
+         /* if($i == 0){
             $result .= '<div class="panel-body-head-table">';
             $result .= '  <ul class="tr">';
             $result .= '    <li class="col-xs-2">';
@@ -737,7 +737,7 @@ class Webservices
             $result .= '  </ul>';
             $result .= '</div>';
           }
-          $result.= '<div class="panel-table">';
+          $result.= '<div class="panel-table">';*/
           //Loop de las clases diponibles
           for ($b=0; $b<$tamano_1; $b++) {
             $HoraInicio[$b] = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
@@ -776,38 +776,30 @@ class Webservices
               } 
             } else {
               if($b == 22 && $flag){
-                $result = '<div class="panel-body">';
-                $result .= '<div class="panel-table pb-7">';
-                $result .= '<ul class="tr">';
+                $result = '<ul class="tr">';
                 $result .= '<li class="col-xs-3">';
                 $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
                 $result .= '</li>';
                 $result .= '<li class="text-center col-xs-8 pt-21">';
                 $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
                 $result .= '</li>';
-                $result .= '</ul>';
+                $result = '</ul>';
               }
             }   
           } 
-        } 
-        $result .= '</div>';
-        $result .= '</div>'; 
+        }  
       }
       
       //Control de errores
       if ($error!='00000') {
-        $result = '<div class="panel-body">';
-        $result .= '<div class="panel-table pb-7">';
-        $result .= '<ul class="tr">';
+        $result = '<ul class="tr">';
         $result .= '<li class="col-xs-3">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
         $result .= '</li>';
         $result .= '<li class="col-xs-8 pt-21">';
         $result .= '<p>'.$error_mensaje.'</p>';                
         $result .= '</li>';
-        $result .= '</ul>';
-        $result .= '</div>';
-        $result .= '</div>';    
+        $result .= '</ul>';  
       } 
       
       return $result;             
