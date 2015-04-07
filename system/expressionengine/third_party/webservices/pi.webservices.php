@@ -81,7 +81,7 @@ class Webservices
       $_SESSION["CodError"] = $json['CodError'];
       $_SESSION["MsgError"] = $json['MsgError'];
       
-      if ($json['CodError']==NULL || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
+      if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
         redirect('/login/error_login');
       }
 
