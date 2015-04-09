@@ -1,7 +1,8 @@
 $(document).ready(function(){
-	$( "#start-date-rec" ).datepicker({
+	$(".datepicker").datepicker({
 		dateFormat: 'dd/mm/yy',
 		minDate: new Date(),
+    maxDate: '+1D',
 	});
 	$("#deportivos-form").validate({
 	  // Specify the validation rules

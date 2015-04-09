@@ -5,33 +5,6 @@
     <description></description>
     <language>es</language>
           <item>
-    <title>CAPOEIRA</title>
-    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/capoeira</link>
-    <description>Créditos: 1
-Costo: S/. 200</description>
-     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
- <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">6469</guid>
-  </item>
-  <item>
-    <title>PILATES</title>
-    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/pilates</link>
-    <description>Créditos: 1
-Costo: S/. 230</description>
-     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
- <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">6461</guid>
-  </item>
-  <item>
-    <title>VÓLEY DAMAS</title>
-    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/voley-damas</link>
-    <description>Créditos: 1
-Costo: S/. 260</description>
-     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
- <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">6494</guid>
-  </item>
-  <item>
     <title>HIP HOP</title>
     <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/hip-hop</link>
     <description>Créditos: 1
@@ -93,6 +66,33 @@ Costo: S/. 200</description>
      <pubDate>Jueves 19 de Marzo del 2015</pubDate>
  <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
  <guid isPermaLink="false">6466</guid>
+  </item>
+  <item>
+    <title>MANUALIDADES (SCRAPPING Y PINTURA)</title>
+    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/manualidades-scrapping-y-pintura</link>
+    <description>Créditos: 1
+Costo: S/. 300</description>
+     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
+ <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
+ <guid isPermaLink="false">6457</guid>
+  </item>
+  <item>
+    <title>SALSA</title>
+    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/salsa</link>
+    <description>Créditos:  1
+Costo: S/. 200</description>
+     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
+ <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
+ <guid isPermaLink="false">6491</guid>
+  </item>
+  <item>
+    <title>FOTOGRAFÍA INTERMEDIA</title>
+    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/fotografia-intermedia</link>
+    <description>Créditos:  1
+Costo: S/. 220</description>
+     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
+ <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
+ <guid isPermaLink="false">6449</guid>
   </item>
   </channel>
 </rss>

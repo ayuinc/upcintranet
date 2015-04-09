@@ -1,5 +1,11 @@
 .mis-reservas-reservar {
 	.section-content {
+		.col-md-8 {
+			padding-right: 70px;
+			@media #{$md-down} {
+				padding-right: 14px;
+			}
+		}
 		.reservas-select-group {
 			padding-left: 14px;
 			padding-right: 14px;
