@@ -719,7 +719,7 @@ class Webservices
         $dia_actual = date('w');
         //var_dump($dia_actual);
         //Despliega solo las clases del dia
-         if ($json['HorarioDia'][$i]['CodDia']==7) {
+         if ($json['HorarioDia'][$i]['CodDia']== date('w')) { // para provocar el error colocar en lugar de  date('w') -> 7
             $result .= '  <div class="panel-body-head-table">
                           <ul class="tr">
                             <li class="col-xs-2">
