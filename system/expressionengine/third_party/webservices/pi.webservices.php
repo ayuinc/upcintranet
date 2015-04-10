@@ -755,14 +755,14 @@ class Webservices
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
               $flag = FALSE;
-              $result .= '<ul class="tr">';
-              $result .= '<li class="col-xs-2">';
+              $result .= '<ul class="tr list-unstyled clearfix bg-muted">';
+              $result .= '<li class="col-xs-2 br-gl">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
               $result .= '</li>';
-              $result .= '<li class="col-xs-2">';
+              $result .= '<li class="col-xs-2 br-gl">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$Sede[$disponibles].'</span></div>';
               $result .= '</li>';
-              $result .= '<li class="col-xs-6">';
+              $result .= '<li class="col-xs-6 br-gl">';
               $result .= '<div><span class="helvetica-14">'.$CursoNombre[$disponibles].'</span></div>';
               $result .= '</li>';
               $result .= '<li class="col-xs-2">';
@@ -1767,7 +1767,9 @@ class Webservices
       
       $tamano = count($json['Cursos']);
       $result = '';
-      
+      $result .= '<div class="panel">';
+      $result .= '<div class="panel-body">';
+      $result .= '<div class="panel-table otras-acciones">';
       $result .= '<ul class="tr">';
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<a data-curso-id="'.$i.'" class="curso-link">';
@@ -1780,6 +1782,9 @@ class Webservices
         $result .= '</a>';
       }
       $result .= '</ul>'; 
+      $result .= '</div>'; 
+      $result .= '</div>'; 
+      $result .= '</div>'; 
       
           
       //Control de errores
