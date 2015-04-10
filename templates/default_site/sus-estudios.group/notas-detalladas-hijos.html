@@ -24,6 +24,7 @@
             <div class="col-sm-3 section-des">
                 <span>{introduccion-seccion}</span>
             {/exp:channel:entries} 
+                {exp:webservices:padre_todos_los_curos_que_lleva_un_alumno codigo_alumno="{segment_3}"}
                 {embed="includes/otras-acciones"}
             </div>
             <div class="col-sm-8">
@@ -33,7 +34,7 @@
                     <h2>Notas por Curso</h2>
                   </div>
                 </div>
-                {exp:webservices:padre_notas_alumno_por_curso codigo_alumno="{last_segment}"}
+                {exp:webservices:padre_notas_alumno_por_curso codigo_alumno="{segment_3}"}
               </div>  
             </div>
           </div>
