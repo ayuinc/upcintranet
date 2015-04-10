@@ -1,0 +1,46 @@
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+  
+{embed="includes/verificacion"}
+{embed="includes/header"}
+{embed="includes/header_movil"}
+{embed="includes/sidebar"}
+
+  <div class="site-content">
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-0-5"></div>
+      <div class="col-sm-4"><span class="zizou-16">Buscar</span></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-0-5"></div>
+      <div class="col-sm-4"><span class="uppercase bold xl">Búsqueda</span></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-0-5"></div>
+      <div class="col-sm-3 que-buscas">
+        <span class="zizou-26">¿Qué buscas?</span>
+        {exp:search:simple_form form_class="clearfix" sort_by="date" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|" search_in="everywhere" where="any" result_page="buscar/index"}
+        <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco...">
+        <!--<button type="button" class="btn btn-custom black-btn" id="buscar-phr">BUSCAR</button>-->
+      <input type="submit" value="BUSCAR" id="search-nh-submit" class="btn full-width btn-custom black-btn">
+        {/exp:search:simple_form}
+      </div>      
+  		<div class="col-sm-8">
+  		  <div class="panel">
+  		    <div class="panel-head no-bg">
+  		      <div class="panel-title left">
+  		        <h3>Resultados</h3>
+  		      </div>
+  		    </div>
+  		    <div class="panel-body">
+  		      <div class="panel-body-content p-28 text-left red-line">
+  		        <div class="helvetica-18">Ingresa tu búsqueda.</div>
+  		      </div>
+  		    </div>
+  		  </div>
+  		</div>
+    </div>
+   </div>
+  </div>
+{embed="includes/footer"}   
