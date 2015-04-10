@@ -710,7 +710,7 @@ class Webservices
       
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
-      $flag = TRUE;
+      $flag = 0;
       //Loop basado en el HorarioDia
       for ($i=0; $i<$tamano; $i++) {
         
@@ -754,7 +754,7 @@ class Webservices
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
-              $flag = FALSE;
+              $flag = 1;
               $result .= '<ul class="tr">';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
@@ -777,8 +777,8 @@ class Webservices
           } 
         }  
       }
-      //var_dump($flag);
-     if($flag == TRUE){
+    var_dump($flag);
+     if($flag == 0){
         $result = '<ul class="tr">';
         $result .= '<li class="col-xs-3">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
