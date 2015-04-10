@@ -1768,11 +1768,18 @@ class Webservices
       $tamano = count($json['Cursos']);
       $result = '';
       $result .= '<div class="panel">';
+      $result .= '<div class="panel-head no-bg">
+        <div class="panel-title left">
+          <h3>Saltar a un curso</h3>
+        </div>
+      </div>';
       $result .= '<div class="panel-body">';
       $result .= '<div class="panel-table otras-acciones">';
       $result .= '<ul class="tr">';
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<a data-curso-id="'.$i.'" class="curso-link">';
+        $curso = $json['Cursos'][$i]['CursoNombre'];
+        $curso_min = str_replace(" ","",mb_convert_case($curso, MB_CASE_LOWER, "UTF-8"));
+        $result .= '<a data-curso-id="'.$curso_min.'" class="curso-link-padres">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
         $result .= '<span class="zizou-16">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
@@ -2037,7 +2044,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black-text go-to-top text-right">';
+        $result .= '<a class="black-text go-to-top text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
@@ -2103,9 +2110,10 @@ class Webservices
       $tamano = count($json['Inasistencias']);
       
       for ($i=0; $i<$tamano; $i++) {
-
+        $curso = $json['Inasistencias'][$i]['CursoNombre'];
+        $curso_min = str_replace(" ","",mb_convert_case($curso, MB_CASE_LOWER, "UTF-8"));
         $result .= '<div class="panel curso-detalle">';
-        $result .= '<div class="panel-body" id="curso-'.$i.'">';
+        $result .= '<div class="panel-body" id="'.$curso_min.'">';
         $result .= '<div class="panel-body-head left">';
         $result .= '<ul class="tr">';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
@@ -2227,7 +2235,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black-text curso-link text-right" href="#top">';
+        $result .= '<a class="black-text go-to-top text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';

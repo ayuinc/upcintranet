@@ -12,4 +12,12 @@ $(document).ready(function(){
 	      scrollTop: target
 	  }, 200);
 	});
+	// PADRES
+	$(".curso-link-padres").click(function() {
+		var id = $(this).attr('data-curso-id');
+	  var target = $("#" + id).offset().top - 150;
+	  $('html, body').animate({
+	      scrollTop: target
+	  }, 200);
+	});
 });
