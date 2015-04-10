@@ -6037,7 +6037,7 @@
         background-color: #3298FF !important;
         border-top: 2px solid #E42322; }
       .panel .panel-body .panel-table.otras-acciones {
-        background: none !important; }
+        display: none !important; }
     .panel .panel-body .panel-body-head {
       text-transform: uppercase;
       background: white;
@@ -6658,6 +6658,7 @@
               width: 100%; }
 
   #mobile-nav {
+    display: none !important;
     position: fixed;
     background-color: white;
     z-index: 31;

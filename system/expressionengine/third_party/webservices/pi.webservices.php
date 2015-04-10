@@ -3996,16 +3996,16 @@ class Webservices
           $disponibles = 0;
           for ($b=0; $b<=$tamano_1-1; $b++) {
               $result .= '<ul class="tr">';
-              $result .= '<li class="col-sm-2 helvetica-bold-14">';
+              $result .= '<li class="col-xs-2 helvetica-bold-14">';
               $result .= '<div class="text-center"><span>'.$HoraInicio[$b].':00</span></div>';
               $result .= '</li>';
-              $result .= '<li class="col-sm-2 helvetica-bold-14">';
+              $result .= '<li class="col-xs-2 helvetica-bold-14">';
               $result .= '<div class="text-center"><span>'.$Sede[$b].'</span></div>';
               $result .= '</li>';
-              $result .= '<li class="col-sm-6 helvetica-12">';
+              $result .= '<li class="col-xs-6 helvetica-12">';
               $result .= '<div><span>'.$CursoNombre[$b].'</span></div>';
               $result .= '</li>';
-              $result .= '<li class="col-sm-2 helvetica-bold-14">';
+              $result .= '<li class="col-xs-2 helvetica-bold-14">';
               $result .= '<div class="text-center"><span>'.$Salon[$b].'</span></div>';
               $result .= '</li>';
               $result .= '</ul>';    
@@ -4020,7 +4020,7 @@ class Webservices
         $result = '';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-12">';
+        $result .= '<li class="col-xs-12">';
         $result .= '<div>'.$error_mensaje.'</div>';
         $result .= '</li>';                
         $result .= '</ul>';  
