@@ -681,7 +681,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
-      $flag = 0;
+      $flag = TRUE;
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -717,7 +717,7 @@ class Webservices
         //genera el tamano del array
         $tamano_1 = count($json['HorarioDia'][$i]['Clases']);
         $dia_actual = date('w');
-        var_dump($dia_actual);
+        //var_dump($dia_actual);
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==7) {
             $result .= '  <div class="panel-body-head-table">
@@ -754,7 +754,7 @@ class Webservices
             
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
-              $flag = 1;
+              $flag = FALSE;
               $result .= '<ul class="tr">';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
@@ -777,7 +777,7 @@ class Webservices
           } 
         }  
       }
-     if($flag == '0'){
+     if($flag == TRUE){
         $result = '<ul class="tr">';
         $result .= '<li class="col-xs-3">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
@@ -785,7 +785,7 @@ class Webservices
         $result .= '<li class="text-center col-xs-8 pt-21">';
         $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
         $result .= '</li>';
-        $result = '</ul>';
+        $result .= '</ul>';
       }
       //Control de errores
       if ($error!='00000') {
