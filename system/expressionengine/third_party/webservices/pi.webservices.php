@@ -681,7 +681,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
-
+      $flag = 0;
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -710,7 +710,7 @@ class Webservices
       
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
-      $flag = 0;
+      
       //Loop basado en el HorarioDia
       for ($i=0; $i<$tamano; $i++) {
         
