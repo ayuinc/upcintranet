@@ -1765,7 +1765,7 @@ class Webservices
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];       
       
-      $tamano = count($json['Inasistencias']);
+      $tamano = count($json['Cursos']);
       $result = '';
       
       $result .= '<ul class="tr">';
@@ -1774,7 +1774,7 @@ class Webservices
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
         $result .= '<span class="zizou-16">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
-        $result .= $json['Inasistencias'][$i]['CursoNombre'];
+        $result .= $json['Cursos'][$i]['CursoNombre'];
         $result .= '</span>';
         $result .= '</li>';
         $result .= '</a>';
@@ -1826,13 +1826,13 @@ class Webservices
       $result = '';
       
       //genera el tamano del array
-      $tamano = count($json['Inasistencias']);
+      $tamano = count($json['Cursos']);
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<ul class="tr bg-muted">';
         $result .= '<li class="col-sm-8 helvetica-12 pb-0">';
         $result .= '<div>';
-        $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+        $result .= '<span>'.$json['Cursos'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-sm-2 helvetica-bold-14 curso-faltas">';
