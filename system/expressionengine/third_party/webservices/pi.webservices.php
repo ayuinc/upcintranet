@@ -3401,13 +3401,13 @@ class Webservices
             $result .= '<input type="hidden" name="HoraIni" value="'.$HoraIni.'" />';
             $result .= '<input type="hidden" name="HoraFin" value="'.$HoraFin.'" />';
             $result .= '<input type="hidden" name="Flag" value="1" />';       
-            $i++;
-            $result .= '<div class="solano-bold-24 black-text"> Opción '.$i.'</div>';
-            $i--;
+            // $i++;
+            // $result .= '<div class="solano-bold-24 black-text"> Opción '.$i.'</div>';
+            // $i--;
+            $result .= '<div class="solano-bold-24 black-text">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['Local'].'</div>';
             $result .= '<div class="zizou-16">'.$fecha.'</div>';
             $result .= '<div class="zizou-16">'.substr($json['Recursos'][$i]['HoraIni'], 0,2).':'.substr($json['Recursos'][$i]['HoraIni'], 2,2).' - '.substr($json['Recursos'][$i]['HoraFin'], 0,2).':'.substr($json['Recursos'][$i]['HoraFin'], 2,2).'</div>';
-            $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
             $result .= '<input type="submit" class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
             $result .= '</form>'; 
             $result .= '</div>';
