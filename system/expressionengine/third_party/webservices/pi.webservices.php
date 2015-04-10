@@ -1780,7 +1780,7 @@ class Webservices
         $curso = $json['Cursos'][$i]['CursoNombre'];
         $curso_min = str_replace(" ","",mb_convert_case($curso, MB_CASE_LOWER, "UTF-8"));
         $result .= '<a data-curso-id="'.$curso_min.'" class="curso-link-padres">';
-        $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
+        $result .= '<li class="clickeable bg-muted pl-7 col-sm-12 mb-5">';
         $result .= '<span class="zizou-16">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
         $result .= $json['Cursos'][$i]['CursoNombre'];
