@@ -3202,9 +3202,9 @@ class Webservices
             $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
             $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
             $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
-            $a++;
-            $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
-            $a--;
+            // $a++;
+            // $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
+            // $a--;
             $result .= '<span class="zizou-16">';
             $result .= 'Fecha: '.$fecha.'<br>';
             $result .= '</span>';
