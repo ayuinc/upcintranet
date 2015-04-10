@@ -1752,13 +1752,14 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-      
+
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/CursoAlumnoPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
+      var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
