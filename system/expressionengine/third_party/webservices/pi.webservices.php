@@ -1738,6 +1738,64 @@ class Webservices
     
     } 
     
+    public function padre_todos_los_curos_que_lleva_un_alumno(){
+      //$codigo = $_SESSION["Codigo"];
+      //$token = $_SESSION["Token"];
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo =  $_COOKIE["Codigo"];
+      setcookie("Codigo",$codigo, time() + (1800), "/");
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+      
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/CursoAlumnoPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_URL,$url);
+      $result=curl_exec($ch);
+      $json = json_decode($result, true);
+      
+      $error = $json['CodError'];
+      $error_mensaje = $json['MsgError'];       
+      
+      $tamano = count($json['Inasistencias']);
+      $result = '';
+      
+      $result .= '<ul class="tr">';
+      for ($i=0; $i<$tamano; $i++) {
+        $result .= '<a data-curso-id="'.$i.'" class="curso-link">';
+        $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
+        $result .= '<span class="zizou-16">';
+        $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
+        $result .= $json['Inasistencias'][$i]['CursoNombre'];
+        $result .= '</span>';
+        $result .= '</li>';
+        $result .= '</a>';
+      }
+      $result .= '</ul>'; 
+      
+          
+      //Control de errores
+      if ($error!='00000') {
+        $result = '';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5 pr-7">';
+        $result .= '<span class="zizou-16">';
+        $result .= $error_mensaje;
+        $result .= '</span>';
+        $result .= '</li>';                
+        $result .= '</ul>';     
+      }       
+      
+      return $result;
+    
+    } 
     
     //DETALLE DE CURSOS POR ALUMNO
     public function detalle_de_curos_por_alumno(){
