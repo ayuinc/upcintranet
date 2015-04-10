@@ -699,7 +699,7 @@ class Webservices
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      var_dump($result);
+      //var_dump($result);
       $json = json_decode($result, true);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError']; 
@@ -778,14 +778,12 @@ class Webservices
         }  
       }
      if($flag == TRUE){
-         $result = '<div class="panel-body">';
-        $result .= '<div class="panel-table pb-7">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-3 p-7">';
+        $result = '<ul class="tr">';
+        $result .= '<li class="col-xs-3">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
         $result .= '</li>';
-        $result .= '<li class="text-center col-xs-9 text-center p-21">';
-        $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
+        $result .= '<li class="text-center col-xs-8 pt-21">';
+        $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
         $result .= '</li>';
         $result .= '</ul>';
       }
