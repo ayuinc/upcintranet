@@ -132,4 +132,8 @@
   array (
     'normal' => DOMPDF_FONT_DIR . '6850b7477778b66bd5e3ac69a8d17ed7',
   ),
+  'flexslider-icon' => 
+  array (
+    'normal' => DOMPDF_FONT_DIR . '2cc19b079bba210ead4cb807c2d41008',
+  ),
 ) ?>
