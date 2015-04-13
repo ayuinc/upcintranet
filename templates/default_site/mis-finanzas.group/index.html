@@ -63,12 +63,8 @@
                         </ul>
                       </div>
                       <div class="panel-footer">
-                        <span class="prueba">{archivo_referencia}</span>
-                        {exp:channel_files:files entry_id="{entry_id}"}
-                          <a href="{file:locked_url}" title="{file:title}">{nombre-referencia}</a>
-                        {/exp:channel_files:files}
-                        {if archivo_referencia}
-                        <a class="sb-link pl-7 zizou-14" target="_blank" href="{archivo_referencia}">{nombre-referencia}
+                        {if archivo-referencia}
+                        <a class="sb-link pl-7 zizou-14" target="_blank" href="{archivo-referencia}">{nombre-referencia}
                         {/if}  
                         {if link-referencia}
                           {if tipo-referencia=='Socrates'}
@@ -80,7 +76,7 @@
                           <img class="pr-7" src="{site_url}assets/img/red_arrow_small.png"><span>{nombre-referencia}</span>
                           {/if}   
                         {/if}  
-                        {if archivo_referencia}
+                        {if archivo-referencia}
                         </a>
                         {/if}  
                         {if link-referencia}
