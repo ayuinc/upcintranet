@@ -1,5 +1,5 @@
   </div> <!-- site wrapper  -->
-  </body> 
+
   <script src="{site_url}js/b3/transition.js"></script>
   <script src="{site_url}js/b3/dropdown.js"></script>
   <script src="{site_url}js/b3/modal.js"></script>
@@ -41,39 +41,6 @@
 
 		$(document).ready(function() {
 			$("#query_results").html($('.result_query').length);
-			// var validNavigation = false;
-
-		 //    function wireUpEvents() {
-		      
-		 //       $(document).bind('keypress', function(e) {
-		 //         if (e.keyCode == 116){
-		 //           validNavigation = true;
-		 //         }
-		 //       });
-		      
-		 //       $("a").bind("click", function() {
-		 //         validNavigation = true;
-		 //         console.log("CLICK!!!!!");
-		 //       });
-		      
-		 //       $("form").bind("submit", function() {
-		 //         validNavigation = true;
-		 //       });
-		      
-		 //       $("input[type=submit]").bind("click", function() {
-		 //         validNavigation = true;
-		 //       });
-		        
-		 //        window.onunload = function() {
-		 //           if (!validNavigation) {
-		 //           	  console.log(validNavigation, "adentro del ifff");
-		 //           	  window.location.replace("http://upcintranet-590402458.us-east-1.elb.amazonaws.com/login/salir");
-		 //              //document.cookie = "Codigo=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-		 //           }
-		 //       } 
-		 //     }
-		 //     // console.log(validNavigation);
-		 //    wireUpEvents();  
 
 		    $('#sede-L').hide();
 		    $('#sede-L').attr('name', 'CodED1');
@@ -497,32 +464,6 @@
 		    $('#actividad-190').attr('name','CodActiv');	  	
 		  }			  		  
 		});		
-	</script>  
-
-	<script>
-		function PrintElem(elem)
-		{	
-		    Popup($(elem).html());
-		}
-
-		function Popup(data) 
-		{
-		    var mywindow = window.open('', 'Imprimir', 'height=800,width=1200');
-		    mywindow.document.write('<html><head><title>Imprimir página - INTRANET UPC</title>');
-		    mywindow.document.write('<link rel="stylesheet" href="{site_url}stylesheets/main.min.css">');
-		    mywindow.document.write('<link rel="stylesheet" type="text/css" href="https://s3-sa-east-1.amazonaws.com/webfontsupc/fuentes.css">');
-		    mywindow.document.write('</head><body style="background-image: url({site_url}assets/img/trama_xs.png)">');
-		    mywindow.document.write(data);
-		    mywindow.document.write('</body></html>');
-
-		    mywindow.document.close(); // necessary for IE >= 10
-		    mywindow.focus(); // necessary for IE >= 10
-		    console.log("mywindow", mywindow);
-		    // mywindow.print();
-		    // mywindow.close();
-
-		    return true;
-		}
 	</script>
-
+ </body> 
 </html>
