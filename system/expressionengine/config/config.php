@@ -41,6 +41,7 @@ $config['photo_path'] = $config['server_path']."/uploads/system/member_photos/";
 $config['sig_img_url'] = $base_url."/uploads/system/signature_attachments/";
 $config['sig_img_path'] = $config['server_path']."/uploads/system/signature_attachments/";
 $config['prv_msg_upload_path'] = $config['server_path']."/uploads/system/pm_attachments/";
+$config['encryption_key'] = "6bs44HpULAX6TLjueaS48F95PM2mpsVx";
 
 /*
 |--------------------------------------------------------------------------
