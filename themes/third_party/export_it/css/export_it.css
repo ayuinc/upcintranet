@@ -1,0 +1,31 @@
+#m62_system_error
+{
+	border:1px solid #bf0012;
+	background:#ffbc9f url(../images/export_it_logo.png) no-repeat right top;	
+	padding:15px 45px 15px 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	color:#18362D;
+	font-size:18px;
+	margin:0 0 10px 0;
+}
+#m62_system_error a{
+	color:#a10a0a;
+	font-size:14px;
+}
+
+#basic-modal-content {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000;}
+
+/* Container */
+#simplemodal-container {height:350px; width:75%; color:#bbb; background-color:#fff; border:2px solid #444; padding:5px; }
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg { background:url(../images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#simplemodal-container h3 {color:#84b8d9;}
+
+.ct_admin_error { color: #FF0000; padding:5px; }
+.ct_admin_message_success { color: #008000; padding:0 0 10px 10px; }
+.ct_admin_package_sub_item { padding-left:20px; background:url(../images/line_break.png) no-repeat; }
