@@ -180,7 +180,9 @@ h2 {
 .absolute {
 	position: absolute;
 }
-
+li.clickeable .zizou-16:hover {
+	text-decoration: underline;
+}
 .clickeable {
 	cursor: pointer;
 }

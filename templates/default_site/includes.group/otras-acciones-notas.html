@@ -13,12 +13,10 @@
                           <div class="zizou-16 borderless" onclick="window.print()">Imprimir detalles</div>
                         </li>
                       </a>
-                      <a href="">
-                        <li class="bg-muted clickable p-7 mb-7">
-                          <div class="custom-icon danger pdf borderless"></div>
-                          <div class="zizou-16 borderless" id="pdf-button-trigger">Descargar en PDF</div>
-                        </li>
-                      </a>
+                      <li class="bg-muted p-7 mb-7 clickeable">
+                        <div class="custom-icon danger pdf borderless"></div>
+                        <div class="zizou-16 borderless" data-toggle="modal" data-target="#pdfModal">Generar PDF</div>
+                      </li>
                       <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=3" target="_blank">
                         <li class="bg-muted p-7 mb-7">
                           <div class="arrow-icon info"></div>
@@ -44,12 +42,10 @@
                           <div class="zizou-16 borderless" onclick="window.print()">Imprimir detalles</div>
                         </li>
                       </a>
-                      <a href="">
-                        <li class="bg-muted p-7 mb-7">
-                          <div class="custom-icon danger pdf"></div>
-                          <div class="zizou-16 borderless" id="pdf-button-trigger">Descargar en PDF</div>
-                        </li>
-                      </a>
+                      <li class="bg-muted p-7 mb-7 clickeable">
+                        <div class="custom-icon danger pdf borderless"></div>
+                        <div class="zizou-16 borderless" data-toggle="modal" data-target="#pdfModal">Generar PDF</div>
+                      </li>
                       <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=3" target="_blank">
                         <li class="bg-muted p-7 mb-7">
                           <div class="arrow-icon info"></div>
@@ -60,3 +56,5 @@
                   </div>
                 </div>
               </div>  
+
+              {embed="includes/pdf-modal"}
