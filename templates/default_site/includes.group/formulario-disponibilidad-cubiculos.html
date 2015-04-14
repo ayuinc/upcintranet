@@ -2,17 +2,28 @@
   <form action="{site_url}index.php/{segment_1}/resultados-reserva-de-cubiculos" id="cubiculos-form" method="post">
     <input type="hidden" name="XID" value="{XID_HASH}" /> 
     	<div class="text-left helvetica-16 gray-main">Sede</div>
-      <select name="CodSede" id="CodSede" class="zizou-16 reservas-select arrow form-control">
+      <!--[if IE 9]>
+        <div class="select-over-case">
+          <div class="select-over" id="codSedeTrigger"></div>
+      <![endif]--> 
+      <select name="CodSede" id="CodSede" class="zizou-16 relative reservas-select arrow form-control">
         <option value="A">CAMPUS MONTERRICO</option>
         <option value="R">CAMPUS VILLA</option>
         <option value="B">CAMPUS SAN ISIDRO</option>
         <!-- <option value="F">CAMPUS SAN MIGUEL</option> -->
       </select> 
+      <!--[if IE 9]>
+        </div>  
+      <![endif]--> 
       <input type="hidden" name="TipoRecurso" value="CU">
       <div class="text-left helvetica-16 gray-main">Día de Reserva</div>
       <input type="text" name="FecIni" class="zizou-16 reservas-select form-control calendar datepicker" value="" placeholder="Selecciona" id="start-date-rec"> 
       <div class="text-left helvetica-16 gray-main">Hora de reserva</div>
-      <select name="HoraIni" class="zizou-16 reservas-select arrow form-control">
+      <!--[if IE 9]>
+        <div class="select-over-case">
+          <div class="select-over"></div>
+      <![endif]--> 
+      <select name="HoraIni" class="zizou-16 select-override reservas-select arrow form-control">
          <option value="7">7:00</option>
          <option value="8">8:00</option>
          <option value="9">9:00</option>
@@ -28,12 +39,22 @@
          <option value="19">19:00</option>
          <option value="20">20:00</option>
          <option value="21">21:00</option>
-      </select>   
+      </select>
+      <!--[if IE 9]>
+        </div>  
+      <![endif]-->    
       <div class="text-left helvetica-16 gray-main">Cantidad de horas</div>
+      <!--[if IE 9]>
+        <div class="select-over-case">
+          <div class="select-over"></div>
+      <![endif]--> 
       <select name="CanHoras" class="zizou-16 reservas-select arrow form-control">
           <option value="1">1</option>
           <option value="2">2</option>
-      </select>   
+      </select>
+      <!--[if IE 9]>
+        </div>  
+      <![endif]-->      
       <div class="mt-14">
         <input type="submit" class="btn wide-full btn-custom black-btn" name="submit" value="Ver Disponibilidad">
       </div>

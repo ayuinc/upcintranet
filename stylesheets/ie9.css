@@ -1,0 +1,14 @@
+/*.select-over-case {
+	position: relative;
+}
+
+.select-over {
+	position: absolute;
+	background: url(../assets/img/select_black_tiny.png) no-repeat center;
+	background-color: red;
+	width: 18px;
+	height: 25px;
+	right: 12px;
+	top: 6px;
+	z-index: 10;
+}*/
