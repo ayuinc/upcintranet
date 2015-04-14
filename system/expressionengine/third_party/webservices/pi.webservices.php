@@ -217,7 +217,6 @@ class Webservices
           }
         $result .= '<a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">';
         $result .= '<div class="children-avatar text-center">';
-        $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';
         $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
@@ -434,12 +433,12 @@ class Webservices
         $result .=  '<div class="dropdown avatar-hijo">';
         $result .=  '<div class="dropdown-toggle" id="dropdownMenuA" data-toggle="dropdown">';
         if($codigo_alumno == $json["hijos"][$i]["codigo"]){
-          $result .=  '<div class="avatar-container active-child">';
+          $result .=  '<div class="avatar-container active">';
         }
         else{
           $result .=  '<div class="avatar-container">';
         }
-        $result .=  '<img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_gray.png">';
+        // $result .=  '<div class="children-avatar"></div>';
         $result .=  '</div>';
         $result .=  '</div>';
         $result .=  '<span>'.$nombre_hijo.'</span>';

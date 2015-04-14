@@ -101,18 +101,13 @@
 			}
 		}
 		.children-avatar {
-			img {
-				border: 2px solid $gray-main;
-				background-color: $gray-main;
-				width: 77px;
-				height: auto;
-				@media #{$xs-only} {
-					padding: 1px;					
-				}
-				&:hover {
-					border: 2px solid $brand-danger;
-					background-color: $brand-danger;
-				}
+			width: 70px;
+			height: 70px;
+			background-image:url("../assets/img/child_avatar.png");
+			background-repeat: no-repeat;
+			margin: 0 auto;
+			&:hover, .active {
+				background-image:url("../assets/img/child_avatar_hover.png");
 			}
 		}
 	}

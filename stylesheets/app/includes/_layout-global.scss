@@ -180,14 +180,13 @@ button#buscar-phr {
 		.dropdown-toggle {
 			.avatar-container {
 				cursor: pointer;
-				img {
-					border: 2px solid white;
-					background-color: white;
-					height: 56px !important;
-				}
-				&.active-child img {
-					border: 2px solid $brand-danger;
-					background-color: $brand-danger;
+				background-image:url("../assets/img/child_avatar_sm.png");
+				background-repeat: no-repeat;
+				margin: 0 auto;
+				width: 60px;
+				height: 60px;
+				&.active {
+					background-image:url("../assets/img/child_avatar_hover_sm.png");
 				}
 			}
 		}
