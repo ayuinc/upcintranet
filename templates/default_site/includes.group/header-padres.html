@@ -48,7 +48,7 @@
 				</ul>
 	    </div>
 	    <div class="pull-right">
-		    <div class="text-center pull-left p-21">
+		    <div class="text-center pull-left pt-28 pr-21">
 		      <span class="text-muted zizou-22 hidden-sm">
 		      {if segment_1 == 'dashboard'}
 		        Hola 
@@ -56,17 +56,9 @@
 		      {exp:webservices:nombre_alumno}</span>
 		    </div>
         <div class="dropdown pt-7 inline-block">
-	        <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-	        <!--[if !IE]><!--> 
-	          <img class="img-circle user img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
-	          <img style="background:none;" src="{site_url}assets/img/white_arrow_down.png" alt="">
-	        <!--<![endif]--> 
-	        <!--[if gt IE 8]>  
-	          <img class="img-circle img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
-	        <![endif]-->  
-	        <!--[if lt IE 9]>  
-	          <img src="{site_url}assets/img/user_ie8_white.png" class="ie8" style="width:77px" alt="">
-	        <![endif]-->  
+	        <div class="dropdown-toggle relative" id="dropdownMenu1" data-toggle="dropdown">
+	        	<div id="ie-avatar"></div> 
+	        	<img class="absolute" src="{site_url}assets/img/white_arrow_down.png" alt=""> 
 	        </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="#">Mi perfil</a></li>

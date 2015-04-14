@@ -67,7 +67,7 @@
             </ul>
           </div>
           <div class="pull-right">
-            <div class="text-center pull-left p-21">
+            <div class="text-center pull-left pt-28 pr-21">
               <span class="text-muted zizou-22 hidden-sm">
               {if segment_1 == 'dashboard'}
                 Hola 
@@ -75,14 +75,9 @@
               {exp:webservices:nombre_alumno}</span>
             </div>
             <div class="dropdown avatar pt-7 pull-left">
-              <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-              <!--[if !IE]><!-->
-                <img class="img-circle user img-thumbnail img-responsive" src="{site_url}assets/img/user_dark.png">
-                <img style="background:none;" src="{site_url}assets/img/white_arrow_down.png" alt="">
-              <!--<![endif]-->  
-              <!--[if IE]>  
+              <div class="dropdown-toggle relative" id="dropdownMenu1" data-toggle="dropdown">
                 <div id="ie-avatar"></div> 
-              <![endif]-->  
+                <img class="absolute" src="{site_url}assets/img/white_arrow_down.png" alt="">
               </div>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <li class="dditem" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil">Mis Datos</a></li>

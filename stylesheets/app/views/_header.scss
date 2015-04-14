@@ -97,9 +97,6 @@
 					#dropdownMenu1 {
 						img {
 							border: none;
-							&:not(.ie8):hover, &:not(.ie8).open {
-								background-color: $brand-info;
-							}
 							&.user {
 								width: 65px;
 							}

@@ -1,7 +1,7 @@
-#ie-avatar {
+/*#ie-avatar {
 	background-image:url("../assets/img/user_ie8_white.png");
 	background-repeat: no-repeat;
-	/*background-size: cover;*/
+	background-size: cover;
 	width: 77px;
 	height: 77px;
 }
@@ -12,4 +12,4 @@
 
 #ie-avatar.open {
 	background-image:url("../assets/img/user_ie8_info.png");
-}
+}*/

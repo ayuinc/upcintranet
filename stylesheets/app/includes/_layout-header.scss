@@ -1,0 +1,15 @@
+.dropdown-toggle.relative {
+	#ie-avatar {
+		background-image:url("../assets/img/user_ie8_white.png");
+		background-repeat: no-repeat;
+		width: 77px;
+		height: 77px;
+		&:hover, &.open {
+			background-image:url("../assets/img/user_ie8_info.png");
+		}
+	}
+	img.absolute {
+		right: -5px;
+  	top: 50%;
+	}
+}
