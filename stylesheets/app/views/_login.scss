@@ -93,13 +93,11 @@
 			position: relative;
 			top: -35px;
 			img {
-				width: 105px;
+				width: 98px;
 				@media #{$xs-only} {
 				width: 77px;					
 				}
 				height: auto;
-				border: 2px solid $brand-info;
-				background-color: $brand-info;
 			}
 		}
 		.children-avatar {
