@@ -933,13 +933,18 @@ class Webservices
         $result = '';
         $result .= '<div>';
         $result .= '<div class="panel-body mb-35">';
-        $result .= '<div class="panel-table">';
+        $result .= '<div class="panel-table red-line">';
         $result .= '<ul class="tr mis-cursos-row">';
-        $result .= '<li class="col-xs-12">';
-        $result .= '<span>'.$error_mensaje.'</span>';
+        $result .= '<li class="col-sm-2 col-xs-12">';
+        $result .= '<img src="/assets/img/reloj.png" class="img-center">';
         $result .= '</li>';    
-        $result .= '<li class="col-xs-12">';
-        $result .= '<span>'.$error_mensaje.'</span>';
+        $result .= '<li class="col-sm-10 col-xs-12">';
+        $result .= '<span class="block zizou-bold-18">Tiempo de Innovar</span>';
+        if (strpos($error_mensaje,"Ud. no tiene clases programadas para esta semana.") !== false) {
+        $result .= '<span class="helvetica-16 gray-main">No tienes ningún curso esta semana.</span>';
+        } else {
+        $result .= '<span class="helvetica-16 gray-main">'.$error_mensaje.'</span>';
+        }
         $result .= '</li>';                
         $result .= '</ul>';  
         $result .= '</div>';

@@ -11,3 +11,20 @@
 .go-to-top, .curso-link {
 	cursor: pointer;
 }
+
+//ciclo actual
+.ciclo-actual {
+	.panel-table.red-line {
+		.col-sm-10 {
+			padding-top: 21px !important;
+			@media #{$xs-only} {
+				padding-top: 7px !important;
+			} 
+		}
+		.col-xs-12 {
+			@media #{$xs-only} {
+				text-align: center;
+			} 
+		}
+	}	
+}
