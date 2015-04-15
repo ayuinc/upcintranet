@@ -10,6 +10,7 @@ $(document).ready(function(){
       FechaIni: "required",
       CodSede: "required",
       CodEd: "required",
+      CodActiv: "required",
     },
     // Specify the validation error messages
     messages: {

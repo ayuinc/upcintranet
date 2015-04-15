@@ -3,9 +3,9 @@ $(document).ready(function(){
 	$menuWidthPx = $menuWidth + "px";
 	$('.site-content').css('width', '100%').css('width', "-=" + $menuWidthPx);
 	//user-avatar
-	var $dropdown = $('.dropdown-menu > li.dditem');
-	$dropdown.hover(function(){
-	    $('#ie-avatar').toggleClass('open');
-	});
+	// var $dropdown = $('.dropdown-menu > li.dditem');
+	// $dropdown.hover(function(){
+	//     $('#ie-avatar').toggleClass('open');
+	// });
 	//
 });

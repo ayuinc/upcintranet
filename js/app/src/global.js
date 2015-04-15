@@ -1,9 +1,10 @@
 $(document).ready(function(){
-    // dropdown in header
+    //user-avatar
     var $dropdown = $('.dropdown-menu > li.dditem');
     $dropdown.hover(function(){
-        $('.dropdown-toggle img').toggleClass('open');
+        $('#ie-avatar').toggleClass('open');
     });
+    //
     // mobile menu
     $('.child').hide();
     $('.parent').click(function() {
