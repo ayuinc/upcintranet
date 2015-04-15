@@ -572,16 +572,16 @@ class Webservices
             $result .= '<div class="panel-body-head-table">';
             $result .= '  <ul class="tr">';
             $result .= '    <li class="col-xs-2">';
-            $result .= '      <div class="fecha"><span>Hora</span></div>';
+            $result .= '      <div class="text-center fecha"><span>Hora</span></div>';
             $result .= '    </li>';
             $result .= '    <li class="col-xs-2">';
-            $result .= '      <div class=""><span>Campus</span></div>';
+            $result .= '      <div class="text-center"><span>Campus</span></div>';
             $result .= '    </li>';
             $result .= '    <li class="col-xs-6">';
-            $result .= '      <div class=""><span>Curso</span></div>';
+            $result .= '      <div class="text-center"><span>Curso</span></div>';
             $result .= '    </li>';
             $result .= '    <li class="col-xs-2">';
-            $result .= '      <div class=""><span>Aula</span></div>';
+            $result .= '      <div class="text-center"><span>Aula</span></div>';
             $result .= '    </li>';
             $result .= '  </ul>';
             $result .= '</div>';
@@ -941,9 +941,9 @@ class Webservices
         $result .= '<li class="col-sm-10 col-xs-12">';
         $result .= '<span class="block zizou-bold-18">Tiempo de Innovar</span>';
         if (strpos($error_mensaje,"Ud. no tiene clases programadas para esta semana.") !== false) {
-        $result .= '<span class="helvetica-16 gray-main">No tienes ningún curso esta semana.</span>';
+        $result .= '<span class="helvetica-16">No tienes ningún curso</span>';
         } else {
-        $result .= '<span class="helvetica-16 gray-main">'.$error_mensaje.'</span>';
+        $result .= '<span class="helvetica-16">'.$error_mensaje.'</span>';
         }
         $result .= '</li>';                
         $result .= '</ul>';  
