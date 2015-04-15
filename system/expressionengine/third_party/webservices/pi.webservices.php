@@ -937,6 +937,9 @@ class Webservices
         $result .= '<ul class="tr mis-cursos-row">';
         $result .= '<li class="col-xs-12">';
         $result .= '<span>'.$error_mensaje.'</span>';
+        $result .= '</li>';    
+        $result .= '<li class="col-xs-12">';
+        $result .= '<span>'.$error_mensaje.'</span>';
         $result .= '</li>';                
         $result .= '</ul>';  
         $result .= '</div>';
