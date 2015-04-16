@@ -137,6 +137,7 @@
 						@include display(flex);
 						@include flex-direction(column);
 						@include justify-content(center);
+						// text-align: center;
 						//
 						span {
 							@include flex-grow(0);
