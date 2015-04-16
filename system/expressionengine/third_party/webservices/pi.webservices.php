@@ -1183,7 +1183,7 @@ class Webservices
           $codcurso = $json['Inasistencias'][$i]['CodCurso'];
           
           //Loop interno para calcular notas segun curso
-          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token=1'.$token.'&CodCurso='.$codcurso;
+          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1198,7 +1198,7 @@ class Webservices
           
           for ($b=0; $b<$tamano_int; $b++) {
             $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
-            $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
+            $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100.0 + $nota; 
           }
             
           //Cambia el formato a 2 decimales
@@ -1954,7 +1954,6 @@ class Webservices
         $tamano_int = count($json_int['Notas']);
         $nota = 0;
         $porcentaje = 0;
-
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-2 col-xs-3">';
@@ -3408,7 +3407,7 @@ class Webservices
             $result .= '<input type="hidden" name="HoraIni" value="'.$HoraIni.'" />';
             $result .= '<input type="hidden" name="HoraFin" value="'.$HoraFin.'" />';
             $result .= '<input type="hidden" name="Flag" value="1" />';       
-            // $i++;
+            // $i++; 
             // $result .= '<div class="solano-bold-24 black-text"> Opción '.$i.'</div>';
             // $i--;
             $result .= '<div class="solano-bold-24 black-text">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
