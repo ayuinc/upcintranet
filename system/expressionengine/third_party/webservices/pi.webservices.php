@@ -936,7 +936,7 @@ class Webservices
         $result .= '<div class="panel-table red-line">';
         $result .= '<ul class="tr mis-cursos-row">';
         $result .= '<li class="col-sm-2 col-xs-12">';
-        $result .= '<img src="/assets/img/reloj.png" class="img-center">';
+        $result .= '<img src="/assets/img/brain.png" class="img-center">';
         $result .= '</li>';    
         $result .= '<li class="col-sm-10 col-xs-12">';
         $result .= '<span class="block zizou-bold-18">Tiempo de Innovar</span>';
