@@ -181,15 +181,16 @@ class Webservices
       }
       
       if (strval($TipoUser)=='PROFESOR') {
-        $result .= '<div class="col-sm-4 col-xs-2"></div>';
-        $result .= '<div class="col-sm-4 col-xs-8 welcome">';
-        $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-responsive img-center" src="{site_url}assets/img/user_ie8_info.png" alt=""></div><div class="zizou-28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
-        $result .= '<div class="zizou-18 text-center gray-light">Elige el perfil que deseas utilizar</div>';
-        $result .= '<div class="pt-35 pl-21 zizou-16">';
-        $result .= '<a href="{site_url}dashboard/docente">';
-        $result .= '<img class="pr-7" src="{site_url}assets/img/red_arrow_normal_tiny.png">Ingrese como Profesor';
-        $result .= '</a>';
-        $result .= '</div>';
+        $result .= '{redirect="dashboard/docente" status_code="301"}';
+        // $result .= '<div class="col-sm-4 col-xs-2"></div>';
+        // $result .= '<div class="col-sm-4 col-xs-8 welcome">';
+        // $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-responsive img-center" src="{site_url}assets/img/user_ie8_info.png" alt=""></div><div class="zizou-28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
+        // $result .= '<div class="zizou-18 text-center gray-light">Elige el perfil que deseas utilizar</div>';
+        // $result .= '<div class="pt-35 pl-21 zizou-16">';
+        // $result .= '<a href="{site_url}dashboard/docente">';
+        // $result .= '<img class="pr-7" src="{site_url}assets/img/red_arrow_normal_tiny.png">Ingrese como Profesor';
+        // $result .= '</a>';
+        // $result .= '</div>';
         
         return $result;             
       }

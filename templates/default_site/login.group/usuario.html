@@ -1,15 +1,19 @@
-{embed="includes/head"}
-{exp:webservices:iniciar_session}
-{exp:webservices:generador_token codigo="{post:codigo}" contrasena="{post:contrasena}" plataforma="{post:plataforma}"}
-{embed="includes/header-global-only"}
+{if post:contrasena}
+	{embed="includes/head"}
+	{exp:webservices:iniciar_session}
+	{exp:webservices:generador_token codigo="{post:codigo}" contrasena="{post:contrasena}" plataforma="{post:plataforma}"}
+	{embed="includes/header-global-only"}
 
-<div class="site-content login">
-	<div class="container-fluid">
-	  <div class="section-content pb-70">
-		  <div class="row">
-			   		{exp:webservices:consultar_alumno}
+	<div class="site-content login">
+		<div class="container-fluid">
+		  <div class="section-content pb-70">
+			  <div class="row">
+				   		{exp:webservices:consultar_alumno}
+			  </div>
 		  </div>
-	  </div>
+		</div>
 	</div>
-</div>
-<script src="{site_url}js/app/src/login.js"></script>
+	<script src="{site_url}js/app/src/login.js"></script>
+{if:else}
+	{redirect="/"}
+{/if}
