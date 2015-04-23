@@ -18,7 +18,7 @@ $(document).ready(function(){
           required: "Debes ingresar tu código de usuario",
       },
       contrasena: {
-          required: "Debes ingresa tu contraseña",
+          required: "Debes ingresar tu contraseña",
       },
     },
 	});
