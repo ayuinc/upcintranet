@@ -15,7 +15,7 @@ $(document).ready(function(){
     // Specify the validation error messages
     messages: {
       codigo: {
-          required: "Debes ingresar tu código",
+          required: "Debes ingresar tu código de usuario",
       },
       contrasena: {
           required: "Debes ingresa tu contraseña",
