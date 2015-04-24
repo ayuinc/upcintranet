@@ -10,13 +10,15 @@
       <div class="panel-body">
         <div class="panel-table pb-14">
           <ul class="tr">
-            <a class="sb-link" target="_blank" href="http://biblio.upc.edu.pe/SIGSI/reserva/reserapi.asp">
+	          {exp:channel:entries channel="accesos_rapidos" limit="5" categories="104"}
+            <a class="sb-link" target="_blank" href="{acceso_rapido_link}">
               <li class="bg-muted pl-7 pb-0">
                 <div class="arrow-icon info"></div>
-                <div class="zizou-18 quick-access">Reserva de libros</div>
+                <div class="zizou-18 quick-access">{title}</div>
               </li>
             </a>
-            <a class="sb-link" target="_blank" href="http://ci.upc.edu.pe/0/centro-informacion.aspx/acerca-de-las-colecciones/biblioteca-virtual">
+            {/exp:channel:entries}
+            <!--<a class="sb-link" target="_blank" href="http://ci.upc.edu.pe/0/centro-informacion.aspx/acerca-de-las-colecciones/biblioteca-virtual">
               <li class="bg-muted pl-7 pb-0">
                 <div class="arrow-icon info"></div>
                 <div class="zizou-18 quick-access">Ir a la Biblioteca Virtual</div>
@@ -33,7 +35,7 @@
                 <div class="arrow-icon info"></div>
                 <div class="zizou-18 quick-access">Ir a Tienda UPC</div>
               </li>
-            </a>
+            </a>-->
           </ul>
         </div>
       </div>   
