@@ -210,6 +210,13 @@ class Webservices
         $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-center img-responsive" src="{site_url}assets/img/user_ie8_info.png" alt=""></div><div class="zizou-28 mt--28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
         $result .= '<div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>';
         $result .= '<div class="row pt-21">';
+
+        // si tiene un sólo hijo redirige directamente
+        if(count($json["hijos"])==1){
+          $result .= '{redirect="dashboard/padre/hijos/'.$json["hijos"][0]["codigo"].'"}';
+          return $result; 
+        }
+
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
           if ($i%2 == 0) {
             $result .= '<div class="col-sm-offset-2 col-xs-offset-1 col-xs-5 col-sm-4">';
