@@ -130,7 +130,8 @@ mark,
 
 @include bg-variant('.bg-success', $state-success-bg);
 
-@include bg-variant('.bg-info', $state-info-bg);
+// @include bg-variant('.bg-info', $state-info-bg);
+@include bg-variant('.bg-info', $brand-info);
 
 @include bg-variant('.bg-warning', $state-warning-bg);
 
