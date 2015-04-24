@@ -60,7 +60,7 @@ $site-menu-width: 79px;
 		width: 100% !important;
 		padding-top: 70px;
 	}
-	&.login {
+	&.login, &.error-404 {
 		width: 100% !important;
 		padding-bottom: 98px !important;
 	}
