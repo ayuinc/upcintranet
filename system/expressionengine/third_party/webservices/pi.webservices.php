@@ -211,12 +211,6 @@ class Webservices
         $result .= '<div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>';
         $result .= '<div class="row pt-21">';
 
-        // si tiene un sólo hijo redirige directamente
-        if(count($json["hijos"])==1){
-          $result .= '{redirect="dashboard/padre/hijos/'.$json["hijos"][0]["codigo"].'"}';
-          return $result; 
-        }
-
         for ($i=0; $i < count($json["hijos"])  ; $i++) { 
           if ($i%2 == 0) {
             $result .= '<div class="col-sm-offset-2 col-xs-offset-1 col-xs-5 col-sm-4">';
@@ -4103,14 +4097,11 @@ class Webservices
         $result = '';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-3 p-7">';
-        $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
-        $result .= '</li>';
-        $result .= '<li class="text-center col-xs-9 text-center p-21">';
-        $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
-        $result .= '</li>';                       
+        $result .= '<li class="col-xs-12">';
+        $result .= '<div>'.$error_mensaje.'</div>';
+        $result .= '</li>';                
         $result .= '</ul>';  
-        $result .= '</div>'; 
+        $result .= '</div>';     
       } 
       
       return $result;              
