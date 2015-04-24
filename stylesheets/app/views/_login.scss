@@ -1,9 +1,10 @@
 .site-content {
 	&.login {
 		margin-top: 0px;
+		// margin-bottom: 70px;
 		padding-bottom: 0px;
 		padding-top: 120px;
-		height: 700px !important; 
+		height: 780px !important; 
 		// min-height: 50px;
 		@media #{$xs-only} {
 			padding-top: 77px;
@@ -11,8 +12,6 @@
 			// min-height: 610px;
 		} 
 		.row {
-			margin-left: -14px;
-			margin-right: -14px !important;
 			.col-sm-10 {
 				.row {
 					.col-sm-5 {
@@ -45,9 +44,11 @@
 					}
 					&.aviso {
 						margin-top: -7px !important;
-						.col-xs-7 {
-							padding-top: 35px !important;
-							padding-bottom: 35px !important;
+						.col-sm-7 {
+							border-top: 4px solid $brand-danger; 
+						}
+						.col-xs-2, .col-xs-10 {
+							padding: 21px 0;
 						}
 						img {
 							margin: 0 auto;
