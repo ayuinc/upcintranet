@@ -4032,6 +4032,7 @@ class Webservices
 
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError']; 
+      $error = '00001';
       
       //limpio la variable para reutilizarla
       $result = '<div class="panel-body-head-table">';
@@ -4054,6 +4055,7 @@ class Webservices
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
       
+      if ($error=='00000') {
       //Loop basado en el HorarioDia
       for ($i=0; $i<$tamano; $i++) {
         $result.= '<div class="panel-table">';
@@ -4089,6 +4091,7 @@ class Webservices
           } 
         } 
         $result .= '</div>'; 
+      }
       }
       
       //Control de errores
