@@ -778,26 +778,51 @@ class Webservices
         }  
       }
      if($flag == TRUE){
-        $result = '<ul class="tr">';
+        /*$result = '<ul class="tr">';
         $result .= '<li class="col-xs-3">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
         $result .= '</li>';
         $result .= '<li class="text-center col-xs-8 pt-21">';
         $result .= '<p>No tienes ninguna clase programada para el día de hoy</p>';                
         $result .= '</li>';
-        $result .= '</ul>';
+        $result .= '</ul>';*/
+
+        $result .= '<div class="panel-table">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-xs-3 p-7">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+        $result .= '</li>';
+        $result .= '<li class="text-center col-xs-9 text-center p-21">';
+        $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
+        $result .= '</li>';                       
+        $result .= '</ul>';  
+        $result .= '</div>';         
       }
       //Control de errores
       if ($error!='00000') {
-        $result = '<ul class="tr">';
+        /*$result = '<ul class="tr">';
         $result .= '<li class="col-xs-3">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
         $result .= '</li>';
         $result .= '<li class="col-xs-8 pt-21">';
         $result .= '<p>'.$error_mensaje.'</p>';                
         $result .= '</li>';
+        $result .= '</ul>';*/
+          
+        $result .= '<div class="panel-table">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-xs-3 p-7">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+        $result .= '</li>';
+        $result .= '<li class="text-center col-xs-9 text-center p-21">';
+        $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
+        $result .= '</li>';                       
         $result .= '</ul>';  
+        $result .= '</div>';         
       } 
+      
+      
+      
       
       return $result;             
     }    
