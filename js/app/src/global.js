@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //user-avatar
-    var $dropdown = $('.dropdown-menu > li.dditem');
+    var $dropdown = $('.dropdown-menu > li.dditem.ddmain');
     $dropdown.hover(function(){
         $('#ie-avatar').toggleClass('open');
     });
