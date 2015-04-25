@@ -1,3 +1,12 @@
+.msge-container {
+	background-color: $brand-info;
+	border-bottom: 2px solid $brand-danger;
+	color:white;
+	.msge-text {
+		padding-top: 21px;
+	}
+}
+
 .noticias-widget {
 	@media #{$md-down} and (orientation: landscape) {
 		margin-bottom: 14px;

@@ -7,6 +7,24 @@
 
 <div class="site-content dashboard">
   <div class="container-fluid">
+    <div class="row pb-21">
+      <div class="col-xs-0-5"></div>
+      <div class="col-xs-11">
+      {exp:channel:entries channel="avisos_dashboard" orderby="date" sort="desc" limit="1" disable="member_data" dynamic="off"}
+        <div class="msge-container clearfix">
+          <div class="pull-left p-14">
+            <img class="img-center" src="{site_url}assets/img/bell_sm.png" alt="">
+          </div>
+          <div class="pull-left msge-text">
+            <span class="zizou-bold-16">Aviso importante:&nbsp;</span><span class="helvetica-16">{mensaje_aviso_dashboard}</span>
+          </div>
+          <div class="pull-right pt-3 pr-7">
+            <span class="helvetica-16">X</span>
+          </div>
+        </div>
+      {/exp:channel:entries}   
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-0-5"></div>
       <div class="col-sm-4">
