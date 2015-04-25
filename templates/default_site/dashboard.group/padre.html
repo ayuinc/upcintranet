@@ -7,7 +7,7 @@
 
     <div class="site-content">
       <div class="container-fluid">
-       <div class="row pb-21">
+       <div class="row pb-21 msge-row">
          <div class="col-xs-0-5"></div>
          <div class="col-xs-11">
          {exp:channel:entries channel="avisos_dashboard" orderby="date" sort="desc" category="21" limit="1" disable="member_data" dynamic="off"}
@@ -19,7 +19,7 @@
                <span class="zizou-bold-16">Aviso importante:&nbsp;</span><span class="helvetica-16">{mensaje_aviso_dashboard}</span>
              </div>
              <div class="pull-right pt-3 pr-7">
-               <span class="helvetica-16">X</span>
+               <div class="msge-row-x clickeable helvetica-16">X</div id="msge-alumno-x">
              </div>
            </div>
          {/exp:channel:entries}   
