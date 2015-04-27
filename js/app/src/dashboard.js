@@ -1,8 +1,12 @@
 $(document).ready(function(){
 	//mensaje
-	$(".msge-row-x").click(function(){
-		$(".msge-row").hide();
-	})
+	localStorage.setItem("dismiss", false);
+	if (localStorage[dismiss] == false) {
+		$(".msge-row-x").click(function(){
+			$(".msge-row").hide();
+			localStorage.setItem("dismiss", true);
+		})
+	}
 	//deudas
 	var debts = $('#pagos-pdtes');
 	var debtsPlaceholder = $("#pagos-placeholder");
