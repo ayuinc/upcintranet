@@ -2,7 +2,7 @@ $(document).ready(function(){
 	//mensaje
 	localStorage.setItem("dismiss", false);
 	$(".msge-row-x").click(function(){
-		if (localStorage[dismiss] == false) {
+		if (localStorage['dismiss'] == false) {
 			$(".msge-row").hide();
 			localStorage.setItem("dismiss", true);
 		}
