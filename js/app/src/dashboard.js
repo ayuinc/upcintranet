@@ -7,7 +7,7 @@ $(document).ready(function(){
 		}
 	})
 	if (localStorage['dismiss'] == 'closeit') {
-		$('msge-row').addClass('hidden');
+		$('.msge-row').addClass('hidden');
 	}
 	//deudas
 	var debts = $('#pagos-pdtes');
