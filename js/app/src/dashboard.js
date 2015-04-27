@@ -1,13 +1,12 @@
 $(document).ready(function(){
 	//mensaje
-	localStorage.setItem("dismiss", false);
 	$(".msge-row-x").click(function(){
-		if (localStorage['dismiss'] == 'false') {
+		if (localStorage['dismiss'] !== 'closeit') {
 			$(".msge-row").hide();
-			localStorage.setItem("dismiss", true);
+			localStorage.setItem("dismiss", 'closeit');
 		}
 	})
-	if (localStorage['dismiss'] == 'true') {
+	if (localStorage['dismiss'] == 'closeit') {
 		$('msge-row').addClass('hidden');
 	}
 	//deudas
