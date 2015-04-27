@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	//mensaje
 	$(".msge-row-x").click(function(){
-		if (localStorage['dismiss'] !== 'closeit') {
+		if (sessionStorage['dismiss'] !== 'closeit') {
 			$(".msge-row").hide();
-			localStorage.setItem("dismiss", 'closeit');
+			sessionStorage.setItem("dismiss", 'closeit');
 		}
 	})
-	if (localStorage['dismiss'] == 'closeit') {
+	if (sessionStorage['dismiss'] == 'closeit') {
 		$('.msge-row').addClass('hidden');
 	}
 	//deudas
