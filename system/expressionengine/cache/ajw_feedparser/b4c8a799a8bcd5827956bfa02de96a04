@@ -5,15 +5,6 @@
     <description></description>
     <language>es</language>
           <item>
-    <title>ESCRITURA CREATIVA: LA AVENTURA DE CREAR FICCIONES</title>
-    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/escritura-creativa-la-aventura-de-crear-ficciones</link>
-    <description>Créditos: 1
-Costo: S/. 200</description>
-     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
- <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">6477</guid>
-  </item>
-  <item>
     <title>FOTOGRAFÍA BÁSICA</title>
     <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-villa/fotografia-basica</link>
     <description>Créditos: 1
@@ -23,13 +14,13 @@ Costo: S/.220</description>
  <guid isPermaLink="false">6441</guid>
   </item>
   <item>
-    <title>COCINA</title>
-    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/cocina</link>
-    <description>Créditos: 2
-Costo: S/.420 * Materiales incluidos</description>
+    <title>ESCRITURA CREATIVA: LA AVENTURA DE CREAR FICCIONES</title>
+    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/escritura-creativa-la-aventura-de-crear-ficciones</link>
+    <description>Créditos: 1
+Costo: S/. 200</description>
      <pubDate>Jueves 19 de Marzo del 2015</pubDate>
  <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">6470</guid>
+ <guid isPermaLink="false">6477</guid>
   </item>
   <item>
     <title>MARINERA NORTEÑA</title>
@@ -39,6 +30,15 @@ Costo: S/. 200</description>
      <pubDate>Jueves 19 de Marzo del 2015</pubDate>
  <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
  <guid isPermaLink="false">6434</guid>
+  </item>
+  <item>
+    <title>COCINA</title>
+    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/cocina</link>
+    <description>Créditos: 2
+Costo: S/.420 * Materiales incluidos</description>
+     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
+ <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
+ <guid isPermaLink="false">6470</guid>
   </item>
   <item>
     <title>PRIMEROS AUXILIOS</title>
@@ -68,15 +68,6 @@ Costo: S/. 420 * Materiales incluidos</description>
  <guid isPermaLink="false">6488</guid>
   </item>
   <item>
-    <title>GUITARRA ELÉCTRICA, ARMONÍA Y COMPOSICIÓN</title>
-    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/guitarra-electrica-armonia-y-composicion</link>
-    <description>Créditos: 2
-Costo: S/. 260</description>
-     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
- <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">6481</guid>
-  </item>
-  <item>
     <title>COCINA ORIENTAL</title>
     <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/cocina-oriental</link>
     <description>Créditos: 2
@@ -86,13 +77,22 @@ Costo: S/. 420 * Materiales incluidos</description>
  <guid isPermaLink="false">6446</guid>
   </item>
   <item>
-    <title>DANZAS ÁRABES</title>
-    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/danzas-arabes</link>
-    <description>Créditos: 1
-Costo: S/. 200</description>
+    <title>GUITARRA ELÉCTRICA, ARMONÍA Y COMPOSICIÓN</title>
+    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-monterrico/guitarra-electrica-armonia-y-composicion</link>
+    <description>Créditos: 2
+Costo: S/. 260</description>
      <pubDate>Jueves 19 de Marzo del 2015</pubDate>
  <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
- <guid isPermaLink="false">6474</guid>
+ <guid isPermaLink="false">6481</guid>
+  </item>
+  <item>
+    <title>LIDERAZGO TRANSFORMACIONAL</title>
+    <link>http://betablogs.upc.edu.pe/vida-universitaria/talleres-villa/liderazgo-transformacional</link>
+    <description>Créditos: 1
+Costo: S/.200</description>
+     <pubDate>Jueves 19 de Marzo del 2015</pubDate>
+ <dc:creator>&lt;a href=&quot;/users/bflores&quot; title=&quot;Ver perfil del usuario.&quot; class=&quot;username&quot; xml:lang=&quot;&quot; about=&quot;/users/bflores&quot; typeof=&quot;sioc:UserAccount&quot; property=&quot;foaf:name&quot; datatype=&quot;&quot;&gt;bflores&lt;/a&gt;</dc:creator>
+ <guid isPermaLink="false">6438</guid>
   </item>
   </channel>
 </rss>
