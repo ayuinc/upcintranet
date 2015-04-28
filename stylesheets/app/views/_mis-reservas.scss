@@ -29,16 +29,48 @@
 				-moz-appearance: none !important;
 				appearance: none !important;
 				width: 100%;
-				padding-left: 7px;
-				&.arrow {
+				&.form-control {
+					font-size: 16px !important;
+					font-size: rem(16px) !important;
+				}
+				.caret {
 					background: url(../assets/img/select_black.png) no-repeat right;
+					width: 42px;
+					height: 98%;
+					top: 3px;
+					right: 0;
+					border: none;
+					@media only screen and (width: 1024px) {
+						top: 0;
+						height: 30px;
+					}
+					@media only screen and (width: 768px) {
+						height: 33px;
+					}
+					@media only screen and (width: 600px) {
+						height: 33px;
+					}
+				}
+				.btn {
+					border-radius: 0;
+					font-size: 16px;
+					font-size: rem(16px);
+					color: $gray-main;
+					padding-bottom: 4px;
+					height: 35px;
+					@media only screen and (width: 1024px) {
+						padding-bottom: 0;
+						font-size: 14px;
+						font-size: rem(14px);
+						height: 28px;
+					}
 				}
 				&.calendar {
 					background: url(../assets/img/calendario_black.png) no-repeat right;
 				}
 				height: 35px;
 				@media only screen and (width: 1024px) {
-					&.arrow {
+					.caret {
 						background: url(../assets/img/select_black_sm.png) no-repeat right;
 					}
 					&.calendar {
