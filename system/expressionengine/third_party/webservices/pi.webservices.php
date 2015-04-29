@@ -631,11 +631,11 @@ class Webservices
                 $result = '<div class="panel-body">';
                 $result .= '<div class="panel-table pb-7">';
                 $result .= '<ul class="tr">';
-                $result .= '<li class="col-xs-3 p-7">';
+                $result .= '<li class="col-xs-4 p-7">';
                 $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
                 $result .= '</li>';
-                $result .= '<li class="text-center col-xs-9 p-21">';
-                $result .= '<p class="zizou-bold-14">Tiempo de Innovar</p>';                
+                $result .= '<li class="col-xs-8 pt-28">';
+                $result .= '<p class="zizou-bold-16 m-0">Tiempo de Innovar</p>';                
                 $result .= '<p class="helvetica-14">No tienes ningún curso el día de hoy</p>';                
                 $result .= '</li>';
                 $result .= '</ul>';
@@ -650,11 +650,11 @@ class Webservices
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-3 p-7">';
+        $result .= '<li class="col-xs-4 p-7">';
         $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
         $result .= '</li>';
-        $result .= '<li class="text-center col-xs-9 text-center p-21">';
-        $result .= '<p class="zizou-bold-14">Tiempo de Innovar</p>';                
+        $result .= '<li class="col-xs-8 pt-28">';
+        $result .= '<p class="zizou-bold-16 m-0">Tiempo de Innovar</p>';                
         $result .= '<p class="helvetica-14">No tienes ningún curso el día de hoy</p>';                
         $result .= '</li>';
         $result .= '</ul>';
@@ -667,7 +667,7 @@ class Webservices
         $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-3 p-7">';
-        $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
         $result .= '</li>';
         $result .= '<li class="col-xs-9 text-center p-21">';
         $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';                
