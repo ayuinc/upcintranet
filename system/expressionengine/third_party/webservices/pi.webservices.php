@@ -634,7 +634,7 @@ class Webservices
                 $result .= '<li class="col-xs-4 p-7">';
                 $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
                 $result .= '</li>';
-                $result .= '<li class="col-xs-8 pt-28">';
+                $result .= '<li class="col-xs-8 pt-28 pr-21">';
                 $result .= '<p class="zizou-bold-16 m-0">Tiempo de Innovar</p>';                
                 $result .= '<p class="helvetica-14">No tienes ningún curso el día de hoy</p>';                
                 $result .= '</li>';
@@ -653,7 +653,7 @@ class Webservices
         $result .= '<li class="col-xs-4 p-7">';
         $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
         $result .= '</li>';
-        $result .= '<li class="col-xs-8 pt-28">';
+        $result .= '<li class="col-xs-8 pt-28 pr-21">';
         $result .= '<p class="zizou-bold-16 m-0">Tiempo de Innovar</p>';                
         $result .= '<p class="helvetica-14">No tienes ningún curso el día de hoy</p>';                
         $result .= '</li>';
@@ -669,7 +669,7 @@ class Webservices
         $result .= '<li class="col-xs-4 p-7">';
         $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
         $result .= '</li>';
-        $result .= '<li class="col-xs-8 pt-28">';
+        $result .= '<li class="col-xs-8 pt-28 pr-21">';
         $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';                
         $result .= '</li>';
         $result .= '</ul>';
@@ -1189,7 +1189,8 @@ class Webservices
          $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
          $result .= '</li>';
          $result .= '<li class="col-xs-7 text-center p-14">';
-         $result .= '<p class="helvetica-14">No te encuentras matriculado en ningun curso en este ciclo</p>';
+         $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
+         $result .= '<p class="helvetica-14">Entérate de <a href="#" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reinicia tu cursada</a></p>';
          $result .= '</li>';
          $result .= '</ul>';
          $result .= '</div>';
