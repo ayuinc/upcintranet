@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	//mensaje
+	$(".msge-row-x").click(function(){
+		$(".msge-row").hide();
+	})
+	//deudas
 	var debts = $('#pagos-pdtes');
 	var debtsPlaceholder = $("#pagos-placeholder");
 	debtsPlaceholder.click(function(){
@@ -14,11 +19,11 @@ $(document).ready(function(){
 		$(this).parent().find(".curso-promedio").toggle();
 		$(this).hide();
 	});
+	//faltas
 	$('.curso-faltas').click(function () {
 		$(this).parent().find(".show-curso-detail").toggle();
 		$(this).parent().find(".curso-promedio").toggle();
 		$(this).hide();
-		// $(this).parent().find(".col-xs-2").toggle();
 	});
 	$('.curso-promedio').click(function () {
 		$(this).parent().find(".show-curso-detail").toggle();

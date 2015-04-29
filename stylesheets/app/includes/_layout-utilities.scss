@@ -12,7 +12,6 @@
 .col-sm-0-8{
   @include make-sm-column(0.8)
 }
-
 .col-sm-0-5{
   @include make-sm-column(0.5)
 }
@@ -23,6 +22,10 @@
   @include make-md-column(3.5)
 }
 
+.col-sm-0-5{
+  @include make-sm-column(0.5)
+}
+
 .col-sm-1-5{
   @include make-sm-column(1.5)
 }
@@ -30,23 +33,30 @@
 .col-sm-3-5{
   @include make-sm-column(3.5)
 }
-
-.col-xs-3-5{
-  @include make-xs-column(3.5)
-}
-
-
-.col-xs-1-5{
-  @include make-xs-column(1.5)
-}
-
-.col-xs-4-5{
-  @include make-xs-column(4.5)
-}
-
 .col-sm-7-5{
   @include make-sm-column(7.5)
 }
+.col-sm-10-5{
+  @include make-sm-column(10.5)
+}
+
+
+.col-xs-0-5{
+  @include make-xs-column(0.5)
+}
+.col-xs-1-5{
+  @include make-xs-column(1.5)
+}
+.col-xs-3-5{
+  @include make-xs-column(3.5)
+}
+.col-xs-4-5{
+  @include make-xs-column(4.5)
+}
+.col-xs-10-5{
+  @include make-xs-column(10.5)
+}
+
 // Custom Margins & Paddings
 .m-auto {
 	margin: auto !important;

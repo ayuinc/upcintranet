@@ -631,11 +631,12 @@ class Webservices
                 $result = '<div class="panel-body">';
                 $result .= '<div class="panel-table pb-7">';
                 $result .= '<ul class="tr">';
-                $result .= '<li class="col-xs-3 p-7">';
-                $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+                $result .= '<li class="col-xs-4 p-7">';
+                $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
                 $result .= '</li>';
-                $result .= '<li class="text-center col-xs-9 text-center p-21">';
-                $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
+                $result .= '<li class="col-xs-8 pt-28 pr-21">';
+                $result .= '<p class="zizou-bold-16 m-0">Tiempo de Innovar</p>';                
+                $result .= '<p class="helvetica-14">No tienes ningún curso el día de hoy</p>';                
                 $result .= '</li>';
                 $result .= '</ul>';
                 $result .= '</div>';
@@ -649,11 +650,12 @@ class Webservices
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-3 p-7">';
-        $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+        $result .= '<li class="col-xs-4 p-7">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
         $result .= '</li>';
-        $result .= '<li class="text-center col-xs-9 text-center p-21">';
-        $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
+        $result .= '<li class="col-xs-8 pt-28 pr-21">';
+        $result .= '<p class="zizou-bold-16 m-0">Tiempo de Innovar</p>';                
+        $result .= '<p class="helvetica-14">No tienes ningún curso el día de hoy</p>';                
         $result .= '</li>';
         $result .= '</ul>';
       }
@@ -664,10 +666,10 @@ class Webservices
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-3 p-7">';
-        $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
+        $result .= '<li class="col-xs-4 p-7">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
         $result .= '</li>';
-        $result .= '<li class="col-xs-9 text-center p-21">';
+        $result .= '<li class="col-xs-8 pt-28 pr-21">';
         $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';                
         $result .= '</li>';
         $result .= '</ul>';
@@ -1183,11 +1185,12 @@ class Webservices
          $result = '<div class="panel-body-head-table">';
          $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
          $result .= '<ul class="tr">';
-         $result .= '<li class="col-xs-4">';
-         $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
+         $result .= '<li class="col-sm-4">';
+         $result .= '<img class="img-center" src="{site_url}assets/img/no_courses_new.png">';
          $result .= '</li>';
-         $result .= '<li class="col-xs-7 text-center p-14">';
-         $result .= '<p class="helvetica-14">No te encuentras matriculado en ningun curso en este ciclo</p>';
+         $result .= '<li class="col-sm-8 pt-28 pr-21">';
+         $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
+         $result .= '<p class="helvetica-14">Entérate de <a href="#" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reinicia tu cursada</a></p>';
          $result .= '</li>';
          $result .= '</ul>';
          $result .= '</div>';
@@ -1243,11 +1246,16 @@ class Webservices
         $result = '<div class="panel-body-head-table">';
         $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-4">';
-        $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
+        $result .= '<li class="col-sm-4">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_courses_new.png">';
         $result .= '</li>';
-        $result .= '<li class="col-xs-7 text-center p-14">';
+        $result .= '<li class="col-sm-8 pt-28 pr-21">';
+        if ($error_mensaje == "Ud. no se encuentra matriculado en el presente ciclo.") {
+        $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
+        $result .= '<p class="helvetica-14">Entérate de <a href="#" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reinicia tu cursada</a></p>';
+        } else {
         $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';
+        }
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';
@@ -3659,10 +3667,19 @@ class Webservices
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-4">';
-        $result .= '<img class="img-center" src="{site_url}assets/img/no_bookings.png">';
+        $result .= '<li class="col-sm-4">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_bookings_new.png">';
         $result .= '</li>';
-        $result .= '<li class="col-xs-6 text-center pt-21"><p class="helvetica-14">'.$error_mensaje.'</p></li>'; 
+        if ($error_mensaje == "No se han registrado reservas durante esta semana.") {
+          if (strval($tipouser)=='ALUMNO') {
+            $result .= '<li class="col-sm-8 pt-21 pr-21"><p class="helvetica-14">Reserva de <a href="http://upcintranet-590402458.us-east-1.elb.amazonaws.com/mis-reservas/reserva-de-cubiculos" target="_blank" class="danger-link">cubículos, </a><a href="http://upcintranet-590402458.us-east-1.elb.amazonaws.com/mis-reservas/reserva-de-computadoras" target="_blank" class="danger-link">computadoras</a> o <a href="http://upcintranet-590402458.us-east-1.elb.amazonaws.com/mis-reservas/reserva-espacios-deportivos" target="_blank" class="danger-link">espacios deportivos</a></p></li>';         
+          } 
+          if (strval($tipouser)=='PROFESOR') {
+            $result .= '<li class="col-sm-8 pt-21 pr-21"><p class="helvetica-14">Reserva de <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
+          } 
+        } else {
+        $result .= '<li class="col-sm-8 pt-28 pr-21"><p class="helvetica-14">'.$error_mensaje.'</p></li>'; 
+        }
         $result .= '</ul>';
         $result .= '</div>';
         $result .= '</div>'; 

@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  //selects
+  // $('.selectpicker').selectpicker();
+  //dropdowns
 	$(".datepicker").datepicker({
 		dateFormat: 'dd/mm/yy',
 		minDate: new Date(),

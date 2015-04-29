@@ -9,10 +9,6 @@ body {
 	background-image:url("../assets/img/trama_xs.png");
 }
 
-.container {
-	padding-right: 35px;
-}
-
 .site-wrapper {
 	min-height: 100%;
 	height: 100%;
@@ -60,9 +56,12 @@ $site-menu-width: 79px;
 		width: 100% !important;
 		padding-top: 70px;
 	}
-	&.login {
+	&.login, &.error-404 {
 		width: 100% !important;
 		padding-bottom: 98px !important;
+	}
+	&.error-404 {
+		height: 100%;
 	}
 	background-image:url("../assets/img/trama_xs.png");
 	float: left;
