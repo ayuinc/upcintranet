@@ -1186,7 +1186,7 @@ class Webservices
          $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
          $result .= '<ul class="tr">';
          $result .= '<li class="col-xs-4">';
-         $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
+         $result .= '<img class="img-center" src="{site_url}assets/img/no_courses_new.png">';
          $result .= '</li>';
          $result .= '<li class="col-xs-7 text-center p-14">';
          $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
@@ -1247,7 +1247,7 @@ class Webservices
         $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-4">';
-        $result .= '<img class="img-center" src="{site_url}assets/img/no_courses.png">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/no_courses_new.png">';
         $result .= '</li>';
         $result .= '<li class="col-xs-7 text-center p-14">';
         $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';
