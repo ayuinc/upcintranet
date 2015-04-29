@@ -3662,11 +3662,11 @@ class Webservices
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-5">';
+        $result .= '<li class="col-xs-4">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_bookings_new.png">';
         $result .= '</li>';
         if ($error_mensaje == "No se han registrado reservas durante esta semana.") {
-        $result .= '<li class="col-xs-7 pt-28 pr-21"><p class="helvetica-14">Reserva de <a href="#" class="danger-link">cubículos,</a><a href="#" class="danger-link">computadoras</a> o <a href="#" class="danger-link">espacios deportivos</a></p></li>'; 
+        $result .= '<li class="col-xs-8 pt-21 pr-21"><p class="helvetica-14">Reserva de <a href="#" class="danger-link">cubículos,</a><a href="#" class="danger-link">computadoras</a> o <a href="#" class="danger-link">espacios deportivos</a></p></li>'; 
         } else {
         $result .= '<li class="col-xs-8 pt-28 pr-21"><p class="helvetica-14">'.$error_mensaje.'</p></li>'; 
         }
