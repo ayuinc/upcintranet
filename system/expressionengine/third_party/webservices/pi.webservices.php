@@ -132,6 +132,7 @@ class Webservices
       unset($_COOKIE["TipoUser"]);
       setcookie("TipoUser", NULL);
       setcookie("MsgError",NULL);
+      setcookie("closed-alert", NULL);
       $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
