@@ -113,6 +113,8 @@ class Webservices
         setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
         $_SESSION["Codigo"] = $json['Codigo'];
         $_SESSION["TipoUser"] = $json['TipoUser'];
+        setcookie("TipoUser", $json['TipoUser'], time() + (1800), "/");
+        $_COOKIE["TipoUser"] = $json['TipoUser'];
         $_SESSION["Nombres"] = $json['Nombres'];
         $_SESSION["Apellidos"] = $json['Apellidos'];
         $_SESSION["Estado"] = $json['Estado'];
@@ -127,6 +129,8 @@ class Webservices
       session_start();
       unset($_COOKIE["Codigo"]);
       setcookie("Codigo",NULL);
+      unset($_COOKIE["TipoUser"]);
+      setcookie("TipoUser", NULL);
       setcookie("MsgError",NULL);
       $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
