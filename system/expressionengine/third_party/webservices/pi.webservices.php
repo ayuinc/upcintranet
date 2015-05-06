@@ -1261,7 +1261,12 @@ class Webservices
         $result .= '<li class="col-sm-8 pt-28 pr-21">';
         if ($error_mensaje == "Ud. no se encuentra matriculado en el presente ciclo.") {
         $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
-        $result .= '<p class="helvetica-14">Entérate de <a href="#" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reinicia tu cursada</a></p>';
+          if ($_COOKIE["TipoUser"] =='ALUMNO') {
+          $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reincorpórate</a></p>';
+          }
+          if ($_COOKIE["TipoUser"] =='PROFESOR') {
+          $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar</p>';
+          }
         } else {
         $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';
         }
