@@ -46,6 +46,7 @@
 						margin-top: -7px !important;
 						.col-sm-7 {
 							border-top: 4px solid $brand-danger; 
+							margin-top: -1px;
 							@media #{$sm-down} {
 								border-top: none;
 							}
