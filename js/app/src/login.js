@@ -21,5 +21,18 @@ $(document).ready(function(){
           required: "Debes ingresar tu contraseña",
       },
     },
+    submitHandler: function($this) {
+    // do other things for a valid form
+    document.cookie = "onLogin=true; ";
+    form.submit();
+  }
 	});
 });
+
+
+function validateSource(){
+  if(getCookie("onLogin")==false){
+    var url = "/";    
+    $(location).attr('href',url);
+  }
+}

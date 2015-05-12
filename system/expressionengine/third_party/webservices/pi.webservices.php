@@ -74,6 +74,8 @@ class Webservices
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
+      curl_setopt($ch, CURLOPT_FORBID_REUSE, 1); 
+      curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1); 
       $result=curl_exec($ch);
       $json = json_decode($result, true);
       setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
@@ -133,6 +135,7 @@ class Webservices
       setcookie("TipoUser", NULL);
       setcookie("MsgError",NULL);
       setcookie("closed-alert", NULL);
+      setcookie("onLogin", NULL);
       $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
@@ -145,6 +148,7 @@ class Webservices
       unset($_SESSION["Token"]);
       unset($_SESSION["CodError"]);
       unset($_SESSION["MsgError"]);
+      unset($_SESSION["onLogin"]);
       unset($_SESSION["Redireccion"]);     
       session_destroy();
     }
@@ -207,6 +211,8 @@ class Webservices
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_FORBID_REUSE, 1); 
+        curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1); 
         $hijosWebService=curl_exec($ch);
         $json = json_decode($hijosWebService, true);
 
@@ -4886,6 +4892,7 @@ class Webservices
       unset($_COOKIE["Codigo"]);        
       session_destroy();
       redirect('/');
+
     }
     
         
