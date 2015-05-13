@@ -1775,8 +1775,8 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<a data-curso-id="'.$i.'" class="curso-link">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
-        $result .= '<span class="zizou-16">';
-        $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
+        $result .= '<img src="{site_url}assets/img/black_arrow_tiny.png">';
+        $result .= '<span class="zizou-16 col-sm-11 pr-0 pl-7 pull-right">';
         $result .= $json['Inasistencias'][$i]['CursoNombre'];
         $result .= '</span>';
         $result .= '</li>';
