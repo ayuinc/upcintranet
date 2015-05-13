@@ -3693,7 +3693,7 @@ class Webservices
         $result .= '</li>';
         if ($error_mensaje == "No se han registrado reservas durante esta semana.") {
           if ($_COOKIE["TipoUser"] =='ALUMNO') {
-            $result .= '<li class="col-sm-8 pt-21 pr-21"><p class="helvetica-14">Reserva de <a href="{site_url}mis-reservas/reserva-de-cubiculos" target="_blank" class="danger-link">cubículos, </a><a href="{site_url}mis-reservas/reserva-de-computadoras" target="_blank" class="danger-link">computadoras</a> o <a href="{site_url}mis-reservas/reserva-espacios-deportivos" target="_blank" class="danger-link">espacios deportivos</a></p></li>';         
+            $result .= '<li class="col-sm-8 pt-21 pr-21"><p class="helvetica-14">Reserva de <a href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a></p></li>';         
           } 
           if ($_COOKIE["TipoUser"] =='PROFESOR') {
             $result .= '<li class="col-sm-8 pt-21 pr-21"><p class="helvetica-14">Reserva de <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
