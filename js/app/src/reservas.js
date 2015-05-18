@@ -8,12 +8,18 @@ $(document).ready(function(){
     maxDate: '+1D',
 	});
 	$("#deportivos-form").validate({
+    // Ignore not visible fields 
+    ignore:":not(:visible)",
+
 	  // Specify the validation rules
     rules: {
       FechaIni: "required",
       CodSede: "required",
-      CodEd: "required",
+      CodED: "required",
+      CodED1: "required",
+      CodED2: "required",
       CodActiv: "required",
+
     },
     // Specify the validation error messages
     messages: {
@@ -23,9 +29,16 @@ $(document).ready(function(){
         CodSede: {
             required: "Debes seleccionar una sede",
         },
-        CodEd: {
+        CodED: {
             required: "Debes seleccionar un espacio",
         },
+        CodED1: {
+            required: "Debes seleccionar un espacio",
+        },
+        CodED2: {
+            required: "Debes seleccionar un espacio",
+        },
+
     },
 	});
 	$("#computadoras-form").validate({
