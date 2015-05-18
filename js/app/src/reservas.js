@@ -15,9 +15,9 @@ $(document).ready(function(){
     rules: {
       FechaIni: "required",
       CodSede: "required",
-      CodED: "required",
-      CodED1: "required",
-      CodED2: "required",
+      CodED: {require_from_group:[1, 'data-id^=CodED']}
+      CodED1:{require_from_group:[1, 'data-id^=CodED']}
+      CodED2: {require_from_group:[1, 'data-id^=CodED']}
       CodActiv: "required",
 
     },
@@ -45,12 +45,14 @@ $(document).ready(function(){
         shadowElement = $('[data-id="'+element.attr('id')+'"]').parent();
         if(shadowElement.is(':visible')){
           error.insertAfter(shadowElement); 
+        }else{
+         return;
         }
       }else if(element.is(':visible')){
          error.insertAfter(element);
       }
-      return error;
-    },
+      return;
+    }
 	});
 	$("#computadoras-form").validate({
 		// Specify the validation rules
