@@ -9,8 +9,8 @@ $(document).ready(function(){
 	});
 	$("#deportivos-form").validate({
     // Ignore not visible fields 
-    ignore:":not(:visible)",
-
+    // ignore:":not(:visible)",
+      ignore : [],
 	  // Specify the validation rules
     rules: {
       FechaIni: "required",
@@ -39,6 +39,17 @@ $(document).ready(function(){
             required: "Debes seleccionar un espacio",
         },
 
+    },
+    errorPlacement: function(error, element) {
+      if(element.hasClass('selectpicker')){
+        shadowElement = $('[data-id="'+element.attr('id')+'"]').parent();
+        if(shadowElement.is(':visible')){
+          error.insertAfter(shadowElement); 
+        }
+      }else if(element.is(':visible')){
+         error.insertAfter(element);
+      }
+      return error;
     },
 	});
 	$("#computadoras-form").validate({

@@ -3072,7 +3072,7 @@ class Webservices
       
       $tamano = count($json['Sedes']);
       $result .= '<div class="text-left helvetica-16 gray-main">Sede</div>';
-      $result .= '<select name="CodSede" id="CodSede" class="reservas-select arrow form-control">';
+      $result .= '<select name="CodSede" id="CodSede" class="reservas-select selectpicker relative arrow form-control">';
       $result .= '<option value="" disabled selected>Selecciona una sede</option>';      
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<option value="'.$json['Sedes'][$i]['key'].'">';
@@ -3115,7 +3115,7 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
 
         $tamano_int = count($json['Sedes'][$i]['espacios']);
-        $result .= '<select name="CodED" class="reservas-select arrow form-control" id="sede-'.$json['Sedes'][$i]['key'].'">';
+        $result .= '<select name="CodED" class="reservas-select selectpicker relative arrow form-control" id="sede-'.$json['Sedes'][$i]['key'].'">';
 
         $result .= '<option value="" disabled selected>Seleccionar espacio</option>'; 
           for ($a=0; $a<$tamano_int; $a++) {
@@ -3164,7 +3164,7 @@ class Webservices
         for ($a=0; $a<$tamano_int; $a++) {
 
           $tamano_fin = count($json['Sedes'][$i]['espacios'][$a]['actividades']);
-          $result .= '<select class="reservas-select arrow form-control" name="CodActiv" id="actividad-'.$json['Sedes'][$i]['espacios'][$a]['codigo'].'">';
+          $result .= '<select class="reservas-select selectpicker relative arrow form-control" name="CodActiv" id="actividad-'.$json['Sedes'][$i]['espacios'][$a]['codigo'].'">';
           //$result .= '<option>Selecciona una actividad</option>';   
             for ($b=0; $b<$tamano_fin; $b++) {
               $result .= '<option value="'.$json['Sedes'][$i]['espacios'][$a]['actividades'][$b]['codigo'].'">';
@@ -3253,6 +3253,10 @@ class Webservices
             if ($a == 2) {
               $result .= '<div class="row mt-14 pl-14">'; // apertura
             }
+            if($a > 3 && ($a % 2) == 0){
+               $result .= '<div class="row mt-14 pl-14">'; 
+            } 
+
             $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
             $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
             $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
@@ -3285,11 +3289,16 @@ class Webservices
             $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
             $result .= '</form>';
             $result .= '</div>';
-            if ($a == 0 || $a == 2) {
+            if ($a == 0 || $a == 2 ) {
               $result .= '<div class="col-sm-1"></div>'; // apertura
             }
             if ($a == 1 || $a == 3) {
               $result .= '</div>'; // apertura
+            }
+            if($a > 3 && ($a % 2) == 0){
+              $result .= '<div class="col-sm-1"></div>'; 
+            }else if($a>3 && ($a % 2)){
+               $result .= '</div>';
             }
           }  
         }
