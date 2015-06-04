@@ -3874,9 +3874,10 @@ class Webservices
         $result .= '<div class="panel-table otras-acciones">';              
         
         //genera el tamano del array
-        $tamano_int = count($json['modalidades'][$i]['cursos']);        
+        $tamano_int = count($json['modalidades'][$i]['cursos']);    
+        // $result .= '<span>Tamaño Int '.$tamano_int.' Tamaño '.$tamano;    
         // var_dump($json);
-        for ($a=0; $a<$tamano; $a++) {
+        for ($a=0; $a<$tamano_int; $a++) {
           $result .= '<ul class="tr">';
           $result .= '<li class="col-xs-12 bg-muted mb-5">';
           $result .= '<div>';
