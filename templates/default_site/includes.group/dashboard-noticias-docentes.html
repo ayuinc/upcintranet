@@ -1,29 +1,22 @@
-<div class="panel">
+<div class="panel noticias-widget">
   <div class="panel-head">
     <div class="panel-title">
       <h3>Noticias</h3>
     </div>
+    <a target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
+    <div class="panel-title-line"></div>
   </div>
-  <div class="panel-body">
-    <div class="panel-body-head-table">
-      <ul class="tr">
-        <li class="col-xs-12">
-          <div><span>{current_time format="%d de %F del %Y"}</span></div>
-        </li>
-      </ul>
+  {exp:ajw_feedparser 
+      url="http://betablogs.upc.edu.pe/blog/feed/8"
+      cache_refresh="30"
+      limit="2"
+  }  
+  <div class="panel-body p-14 bg-muted">
+    <div>
+      <span class="zizou-16">{pubDate}</span>
     </div>
-    {exp:channel:entries channel="noticias" limit="2"}
-    <div class="panel-table">
-      <ul class="tr">
-        <li class="col-xs-12">
-          <div>     
-            <p class="noticia-heading zizou-20">{title}</p>
-            <p class="noticia-body helvetica-12">{intro-noticia}</p>
-            <p class="keep-reading zizou-18"><img class="pr-7" src="/assets/img/skyblue_arrow.png">Seguir Leyendo</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    {/exp:channel:entries}
+    <p class="solano-bold-20 lh-1-1 black-text uppercase">{title}</p>
+    <p class="zizou-16"><a class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
   </div>
-</div>
+  {/exp:ajw_feedparser} 
+</div> 
