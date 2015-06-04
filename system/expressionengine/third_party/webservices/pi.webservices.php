@@ -3890,7 +3890,7 @@ class Webservices
           $result .= '<input type="hidden" name="Grupo" value="'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'">';
           $result .= '<div>';
           $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
-          $result .= '<input type="submit" class="zizou-14 btn-anchor" value="'.$json['modalidades'][$i]['cursos'][$a]['curso'].' ('.$json['modalidades'][$i]['cursos'][$a]['seccion'].')" name="submit">';
+          $result .= '<input type="submit" class="zizou-14 btn-anchor curso-detallado-submit" value="'.$json['modalidades'][$i]['cursos'][$a]['curso'].' ('.$json['modalidades'][$i]['cursos'][$a]['seccion'].')" name="submit">';
           $result .= '</div>';
           $result .= '</form>';
           $result .= '</div>';
