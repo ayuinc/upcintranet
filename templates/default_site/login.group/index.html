@@ -14,31 +14,31 @@
               <!-- -->
               <div class="col-sm-7 pt-35 col-xs-12 bg-muted">
                 <div class="row">
-                  <div class="col-xs-2"></div>
-                  <div class="col-xs-4 pt-28"><span class="uppercase xl">Intranet</span></div>
-                  <div class="col-xs-6"><img class="logo img-center" src="{site_url}assets/img/logo_upc_red.png" alt=""></div>
+                  <div class="col-xs-1 col-md-2"></div>
+                  <div class="col-xs-5 pt-28 col-md-4"><span class="uppercase xl">Intranet</span></div>
+                  <div class="col-xs-5 col-md-4"><img class="logo img-center" src="{site_url}assets/img/logo_upc_red.png" alt=""></div>
                 </div>
                 <form action="{site_url}index.php/login/usuario" method="post" name="login_form" class="login-form" autocomplete="off">
                   <input type="hidden" name="XID" value="{XID_HASH}"> 
                   <input type="hidden" name="plataforma" value="C">
                   <div class="row mt-56">
-                    <div class="col-xs-2"></div>
-                    <div class="col-xs-8">
+                    <div class="col-xs-1 col-md-2"></div>
+                    <div class="col-xs-10 col-md-8">
                       <input class="form-control zizou-12" type="text" name="codigo" value="" maxlength="32" class="input" size="25"  placeholder="Nombre de Usuario*" autocomplete="off" >
                     </div>
                   </div>  
                   <div class="row mt-14">
-                    <div class="col-xs-2"></div>
-                    <div class="col-xs-8">
+                    <div class="col-xs-1 col-md-2"></div>
+                    <div class="col-xs-10 col-md-8">
                       <input type="password" name="contrasena" value="" maxlength="32" class="zizou-12 input form-control" size="25" placeholder="Contraseña*" autocomplete="off">
                     </div>
                   </div>
                   <div class="row mt-21">
-                    <div class="col-xs-2"></div>
-                    <div class="col-xs-4">
+                    <div class="col-xs-1 col-md-2"></div>
+                    <div class="col-xs-5 col-md-4">
                       <a href="http://intranet.upc.edu.pe/LoginIntranet/ResetPassword.aspx" target="_blank" class="pt-14 block zizou-14">¿No puedes acceder a tu cuenta?</a>
                     </div>
-                    <div class="col-xs-4 text-right">
+                    <div class="col-xs-5 col-md-4 text-right">
                       <button type="submit" value="Send" class="btn btn-custom black-btn wide lg">Iniciar Sesión</button>
                     </div>
                   </div>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-xs-10">
                       <div class="text-muted solano-bold-24">{title}</div>
-                      <div class="mt-14"><span class="zizou-16 text-muted">{mensaje_aviso_intranet}</span></div>
+                      <div class="mt-14 mr-14"><span class="zizou-16 text-muted">{mensaje_aviso_intranet}</span></div>
                     </div>
                   </div>
                 </div>
@@ -73,9 +73,9 @@
     </div>
     <div class="footer">
       <div class="row">
-        <div class="col-xs-1-5"></div>
-        <div class="col-xs-3"><img src="{site_url}assets/img/laureate.png" alt=""></div>
-        <div class="col-xs-7 text-center"><span class="zizou-16">COPYRIGHT UPC 2015</span></div>
+        <div class="col-xs-1-5 hidden-xs"></div>
+        <div class="col-xs-6 col-md-3"><img src="{site_url}assets/img/laureate.png" alt=""></div>
+        <div class="col-xs-6 text-center col-md-7"><span class="zizou-16">COPYRIGHT UPC 2015</span></div>
       </div>
     </div>
 {embed="includes/footer"}

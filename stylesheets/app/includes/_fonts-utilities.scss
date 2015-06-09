@@ -21,9 +21,9 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 		font-size: 36px !important;
 		font-size: rem(36) !important;	
 	}
-	@media #{$xs-only} {
-		font-size: 32px !important;
-		font-size: rem(32) !important;	
+	@media #{$md-down} {
+		font-size: 34px !important;
+		font-size: rem(40) !important;	
 	}
 }
 @each $fs in $sizes {
@@ -35,6 +35,10 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 			font-size: ($fs - 2) + px !important;
 			font-size: rem(($fs) - 2) !important;	
 		}	
+		@media #{$md-down}{
+			font-size: ($fs +1) + px !important;
+			font-size: rem(($fs +1)) + px !important; 
+		}
 	}
 	.#{$sans-serif}-bold-#{$fs} {
 		@include bold;	
@@ -44,6 +48,10 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 			font-size: ($fs - 2) + px !important;
 			font-size: rem(($fs) - 2) !important;	
 		}	
+		@media #{$md-down}{
+			font-size: ($fs) + px !important;
+			font-size: rem(($fs)) !important; 
+		}
 	}
 	.#{$serif}-thin-#{$fs} {
 		@include serif-thin;	
@@ -57,7 +65,11 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 		@media #{$lg-down} {
 			font-size: ($fs - 2) + px !important;
 			font-size: rem(($fs) - 2) !important;	
-		}		
+		}	
+		@media #{$md-down}{
+			font-size: ($fs) + px !important;
+			font-size: rem(($fs)) !important; 
+		}	
 	}
 	.#{$serif}-bold-#{$fs} {
 		@include serif-bold;	
@@ -72,6 +84,10 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 			font-size: ($fs - 2) + px !important;
 			font-size: rem(($fs) - 2) !important;	
 		}	
+		@media #{$md-down}{
+			font-size: ($fs) + px !important;
+			font-size: rem(($fs)) !important; 
+		}
 	}
 	.#{$alt}-light-#{$fs} {
 		@include alt-light;	
@@ -86,6 +102,10 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 			font-size: ($fs - 2) + px !important;
 			font-size: rem(($fs) - 2) !important;	
 		}	
+		@media #{$md-down}{
+			font-size: ($fs) + px !important;
+			font-size: rem(($fs))!important; 
+		}
 	}
 	.#{$alt-ab}-#{$fs} {
 		@include alt-ab-book;	
@@ -94,6 +114,10 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 		@media #{$lg-down} {
 			font-size: ($fs - 2) + px !important;
 			font-size: rem(($fs) - 2) !important;	
+		}
+		@media #{$md-down}{
+			font-size: ($fs) + px !important;
+			font-size: rem(($fs)) !important; 
 		}
 	}
 	.#{$alt-ab}-light-#{$fs} {
@@ -104,6 +128,10 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 			font-size: ($fs - 2) + px !important;
 			font-size: rem(($fs) - 2) !important;	
 		}
+		@media #{$md-down}{
+			font-size: ($fs) + px !important;
+			font-size: rem(($fs)) !important; 
+		}
 	}
 	.#{$alt-12}-#{$fs} {
 		@include alt-12-book;	
@@ -113,6 +141,10 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 			font-size: ($fs - 2) + px !important;
 			font-size: rem(($fs) - 2) !important;	
 		}	
+		@media #{$md-down}{
+			font-size: ($fs) + px !important;
+			font-size: rem(($fs)) !important; 
+		}
 	}
 	.#{$alt}-bold-#{$fs} {
 		@include alt-bold;	
@@ -121,6 +153,10 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 		@media #{$lg-down} {
 			font-size: ($fs - 4) + px !important;
 			font-size: rem(($fs) - 4) !important;	
+		}
+		@media #{$md-down}{
+			font-size: ($fs) + px !important;
+			font-size: rem(($fs))!important; 
 		}
 	}
 }
@@ -134,6 +170,10 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 		font-size: 13px !important; 
 		font-size: rem(13) !important;
 	} 
+	@media #{$md-down}{
+		font-size: 16px !important;
+		font-size: 16px !important; 
+	}
 }
 
 .black-text {

@@ -3506,7 +3506,7 @@ html {
         margin-bottom: 0.71429rem; } }
   @media only screen and (max-width: 480px) {
     html {
-      font-size: 11px; }
+      font-size: 14px; }
       html h1, html h2, html h3, html h4, html h5, html h6,
       html .h1, html .h2, html .h3, html .h4, html .h5, html .h6 {
         line-height: 0.9; }
@@ -4276,8 +4276,8 @@ button#buscar-phr {
   @media only screen and (max-width: 768px) {
     .section-content .row .zizou-26 {
       margin-left: 0px;
-      font-size: 22px;
-      font-size: 1.57143rem; } }
+      font-size: 26px;
+      font-size: 1.85714rem; } }
 .section-content .row .col-sm-8 .row {
   padding-top: 7px; }
 
@@ -4369,10 +4369,10 @@ button#buscar-phr {
     .xl {
       font-size: 36px !important;
       font-size: 2.57143rem !important; } }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 992px) {
     .xl {
-      font-size: 32px !important;
-      font-size: 2.28571rem !important; } }
+      font-size: 34px !important;
+      font-size: 2.85714rem !important; } }
 
 .solano-10 {
   font-family: "sgothic-rgcap" !important;
@@ -4381,8 +4381,12 @@ button#buscar-phr {
   font-size: 0.71429rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-10 {
-      font-size: 6px !important;
-      font-size: 0.42857rem !important; } }
+      font-size: 8px !important;
+      font-size: 0.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-10 {
+      font-size: 11px !important;
+      font-size: 0.78571rempx !important; } }
 
 .solano-bold-10 {
   font-family: "sgothic-bdcap" !important;
@@ -4391,8 +4395,12 @@ button#buscar-phr {
   font-size: 0.71429rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-10 {
-      font-size: 6px !important;
-      font-size: 0.42857rem !important; } }
+      font-size: 8px !important;
+      font-size: 0.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-10 {
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
 
 .zizou-thin-10 {
   font-family: "zizou-slab-regular" !important;
@@ -4408,8 +4416,12 @@ button#buscar-phr {
   font-size: 0.71429rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-10 {
-      font-size: 6px !important;
-      font-size: 0.42857rem !important; } }
+      font-size: 8px !important;
+      font-size: 0.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-10 {
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
 
 .zizou-bold-10 {
   font-family: "zizou-slab-bold" !important;
@@ -4426,6 +4438,10 @@ button#buscar-phr {
     .zizou-10 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-10 {
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
 
 .helvetica-light-10 {
   font-family: "nimbus-sans" !important;
@@ -4444,6 +4460,10 @@ button#buscar-phr {
     .helvetica-10 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-10 {
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
 
 .helv-neue-10 {
   font-family: "ronnia-condensed" !important;
@@ -4455,6 +4475,10 @@ button#buscar-phr {
     .helv-neue-10 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-10 {
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
 
 .helv-neue-light-10 {
   font-family: "ronnia-condensed" !important;
@@ -4466,6 +4490,10 @@ button#buscar-phr {
     .helv-neue-light-10 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-10 {
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
 
 .ronnia-10 {
   font-family: "pragmatica-web-condensed" !important;
@@ -4477,6 +4505,10 @@ button#buscar-phr {
     .ronnia-10 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-10 {
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
 
 .helvetica-bold-10 {
   font-family: "nimbus-sans" !important;
@@ -4488,6 +4520,10 @@ button#buscar-phr {
     .helvetica-bold-10 {
       font-size: 6px !important;
       font-size: 0.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-10 {
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
 
 .solano-11 {
   font-family: "sgothic-rgcap" !important;
@@ -4496,8 +4532,12 @@ button#buscar-phr {
   font-size: 0.78571rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-11 {
-      font-size: 7px !important;
-      font-size: 0.5rem !important; } }
+      font-size: 9px !important;
+      font-size: 0.64286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-11 {
+      font-size: 12px !important;
+      font-size: 0.85714rempx !important; } }
 
 .solano-bold-11 {
   font-family: "sgothic-bdcap" !important;
@@ -4506,8 +4546,12 @@ button#buscar-phr {
   font-size: 0.78571rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-11 {
-      font-size: 7px !important;
-      font-size: 0.5rem !important; } }
+      font-size: 9px !important;
+      font-size: 0.64286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-11 {
+      font-size: 11px !important;
+      font-size: 0.78571rem !important; } }
 
 .zizou-thin-11 {
   font-family: "zizou-slab-regular" !important;
@@ -4523,8 +4567,12 @@ button#buscar-phr {
   font-size: 0.78571rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-11 {
-      font-size: 7px !important;
-      font-size: 0.5rem !important; } }
+      font-size: 9px !important;
+      font-size: 0.64286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-11 {
+      font-size: 11px !important;
+      font-size: 0.78571rem !important; } }
 
 .zizou-bold-11 {
   font-family: "zizou-slab-bold" !important;
@@ -4541,6 +4589,10 @@ button#buscar-phr {
     .zizou-11 {
       font-size: 9px !important;
       font-size: 0.64286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-11 {
+      font-size: 11px !important;
+      font-size: 0.78571rem !important; } }
 
 .helvetica-light-11 {
   font-family: "nimbus-sans" !important;
@@ -4559,6 +4611,10 @@ button#buscar-phr {
     .helvetica-11 {
       font-size: 9px !important;
       font-size: 0.64286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-11 {
+      font-size: 11px !important;
+      font-size: 0.78571rem !important; } }
 
 .helv-neue-11 {
   font-family: "ronnia-condensed" !important;
@@ -4570,6 +4626,10 @@ button#buscar-phr {
     .helv-neue-11 {
       font-size: 9px !important;
       font-size: 0.64286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-11 {
+      font-size: 11px !important;
+      font-size: 0.78571rem !important; } }
 
 .helv-neue-light-11 {
   font-family: "ronnia-condensed" !important;
@@ -4581,6 +4641,10 @@ button#buscar-phr {
     .helv-neue-light-11 {
       font-size: 9px !important;
       font-size: 0.64286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-11 {
+      font-size: 11px !important;
+      font-size: 0.78571rem !important; } }
 
 .ronnia-11 {
   font-family: "pragmatica-web-condensed" !important;
@@ -4592,6 +4656,10 @@ button#buscar-phr {
     .ronnia-11 {
       font-size: 9px !important;
       font-size: 0.64286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-11 {
+      font-size: 11px !important;
+      font-size: 0.78571rem !important; } }
 
 .helvetica-bold-11 {
   font-family: "nimbus-sans" !important;
@@ -4603,6 +4671,10 @@ button#buscar-phr {
     .helvetica-bold-11 {
       font-size: 7px !important;
       font-size: 0.5rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-11 {
+      font-size: 11px !important;
+      font-size: 0.78571rem !important; } }
 
 .solano-12 {
   font-family: "sgothic-rgcap" !important;
@@ -4611,8 +4683,12 @@ button#buscar-phr {
   font-size: 0.85714rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-12 {
-      font-size: 8px !important;
-      font-size: 0.57143rem !important; } }
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-12 {
+      font-size: 13px !important;
+      font-size: 0.92857rempx !important; } }
 
 .solano-bold-12 {
   font-family: "sgothic-bdcap" !important;
@@ -4621,8 +4697,12 @@ button#buscar-phr {
   font-size: 0.85714rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-12 {
-      font-size: 8px !important;
-      font-size: 0.57143rem !important; } }
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-12 {
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
 
 .zizou-thin-12 {
   font-family: "zizou-slab-regular" !important;
@@ -4638,8 +4718,12 @@ button#buscar-phr {
   font-size: 0.85714rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-12 {
-      font-size: 8px !important;
-      font-size: 0.57143rem !important; } }
+      font-size: 10px !important;
+      font-size: 0.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-12 {
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
 
 .zizou-bold-12 {
   font-family: "zizou-slab-bold" !important;
@@ -4656,6 +4740,10 @@ button#buscar-phr {
     .zizou-12 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-12 {
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
 
 .helvetica-light-12 {
   font-family: "nimbus-sans" !important;
@@ -4674,6 +4762,10 @@ button#buscar-phr {
     .helvetica-12 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-12 {
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
 
 .helv-neue-12 {
   font-family: "ronnia-condensed" !important;
@@ -4685,6 +4777,10 @@ button#buscar-phr {
     .helv-neue-12 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-12 {
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
 
 .helv-neue-light-12 {
   font-family: "ronnia-condensed" !important;
@@ -4696,6 +4792,10 @@ button#buscar-phr {
     .helv-neue-light-12 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-12 {
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
 
 .ronnia-12 {
   font-family: "pragmatica-web-condensed" !important;
@@ -4707,6 +4807,10 @@ button#buscar-phr {
     .ronnia-12 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-12 {
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
 
 .helvetica-bold-12 {
   font-family: "nimbus-sans" !important;
@@ -4718,6 +4822,10 @@ button#buscar-phr {
     .helvetica-bold-12 {
       font-size: 8px !important;
       font-size: 0.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-12 {
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
 
 .solano-14 {
   font-family: "sgothic-rgcap" !important;
@@ -4726,8 +4834,12 @@ button#buscar-phr {
   font-size: 1rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-14 {
-      font-size: 10px !important;
-      font-size: 0.71429rem !important; } }
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-14 {
+      font-size: 15px !important;
+      font-size: 1.07143rempx !important; } }
 
 .solano-bold-14 {
   font-family: "sgothic-bdcap" !important;
@@ -4736,8 +4848,12 @@ button#buscar-phr {
   font-size: 1rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-14 {
-      font-size: 10px !important;
-      font-size: 0.71429rem !important; } }
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-14 {
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
 
 .zizou-thin-14 {
   font-family: "zizou-slab-regular" !important;
@@ -4753,8 +4869,12 @@ button#buscar-phr {
   font-size: 1rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-14 {
-      font-size: 10px !important;
-      font-size: 0.71429rem !important; } }
+      font-size: 12px !important;
+      font-size: 0.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-14 {
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
 
 .zizou-bold-14 {
   font-family: "zizou-slab-bold" !important;
@@ -4771,6 +4891,10 @@ button#buscar-phr {
     .zizou-14 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-14 {
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
 
 .helvetica-light-14 {
   font-family: "nimbus-sans" !important;
@@ -4789,6 +4913,10 @@ button#buscar-phr {
     .helvetica-14 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-14 {
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
 
 .helv-neue-14 {
   font-family: "ronnia-condensed" !important;
@@ -4800,6 +4928,10 @@ button#buscar-phr {
     .helv-neue-14 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-14 {
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
 
 .helv-neue-light-14 {
   font-family: "ronnia-condensed" !important;
@@ -4811,6 +4943,10 @@ button#buscar-phr {
     .helv-neue-light-14 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-14 {
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
 
 .ronnia-14 {
   font-family: "pragmatica-web-condensed" !important;
@@ -4822,6 +4958,10 @@ button#buscar-phr {
     .ronnia-14 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-14 {
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
 
 .helvetica-bold-14 {
   font-family: "nimbus-sans" !important;
@@ -4833,6 +4973,10 @@ button#buscar-phr {
     .helvetica-bold-14 {
       font-size: 10px !important;
       font-size: 0.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-14 {
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
 
 .solano-16 {
   font-family: "sgothic-rgcap" !important;
@@ -4841,8 +4985,12 @@ button#buscar-phr {
   font-size: 1.14286rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-16 {
-      font-size: 12px !important;
-      font-size: 0.85714rem !important; } }
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-16 {
+      font-size: 17px !important;
+      font-size: 1.21429rempx !important; } }
 
 .solano-bold-16 {
   font-family: "sgothic-bdcap" !important;
@@ -4851,8 +4999,12 @@ button#buscar-phr {
   font-size: 1.14286rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-16 {
-      font-size: 12px !important;
-      font-size: 0.85714rem !important; } }
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-16 {
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
 
 .zizou-thin-16 {
   font-family: "zizou-slab-regular" !important;
@@ -4868,8 +5020,12 @@ button#buscar-phr {
   font-size: 1.14286rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-16 {
-      font-size: 12px !important;
-      font-size: 0.85714rem !important; } }
+      font-size: 14px !important;
+      font-size: 1rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-16 {
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
 
 .zizou-bold-16 {
   font-family: "zizou-slab-bold" !important;
@@ -4886,6 +5042,10 @@ button#buscar-phr {
     .zizou-16 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-16 {
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
 
 .helvetica-light-16 {
   font-family: "nimbus-sans" !important;
@@ -4904,6 +5064,10 @@ button#buscar-phr {
     .helvetica-16 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-16 {
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
 
 .helv-neue-16 {
   font-family: "ronnia-condensed" !important;
@@ -4915,6 +5079,10 @@ button#buscar-phr {
     .helv-neue-16 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-16 {
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
 
 .helv-neue-light-16 {
   font-family: "ronnia-condensed" !important;
@@ -4926,6 +5094,10 @@ button#buscar-phr {
     .helv-neue-light-16 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-16 {
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
 
 .ronnia-16 {
   font-family: "pragmatica-web-condensed" !important;
@@ -4937,6 +5109,10 @@ button#buscar-phr {
     .ronnia-16 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-16 {
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
 
 .helvetica-bold-16 {
   font-family: "nimbus-sans" !important;
@@ -4948,6 +5124,10 @@ button#buscar-phr {
     .helvetica-bold-16 {
       font-size: 12px !important;
       font-size: 0.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-16 {
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
 
 .solano-18 {
   font-family: "sgothic-rgcap" !important;
@@ -4956,8 +5136,12 @@ button#buscar-phr {
   font-size: 1.28571rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-18 {
-      font-size: 14px !important;
-      font-size: 1rem !important; } }
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-18 {
+      font-size: 19px !important;
+      font-size: 1.35714rempx !important; } }
 
 .solano-bold-18 {
   font-family: "sgothic-bdcap" !important;
@@ -4966,8 +5150,12 @@ button#buscar-phr {
   font-size: 1.28571rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-18 {
-      font-size: 14px !important;
-      font-size: 1rem !important; } }
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-18 {
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
 
 .zizou-thin-18 {
   font-family: "zizou-slab-regular" !important;
@@ -4983,8 +5171,12 @@ button#buscar-phr {
   font-size: 1.28571rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-18 {
-      font-size: 14px !important;
-      font-size: 1rem !important; } }
+      font-size: 16px !important;
+      font-size: 1.14286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-18 {
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
 
 .zizou-bold-18 {
   font-family: "zizou-slab-bold" !important;
@@ -5001,6 +5193,10 @@ button#buscar-phr {
     .zizou-18 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-18 {
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
 
 .helvetica-light-18 {
   font-family: "nimbus-sans" !important;
@@ -5019,6 +5215,10 @@ button#buscar-phr {
     .helvetica-18 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-18 {
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
 
 .helv-neue-18 {
   font-family: "ronnia-condensed" !important;
@@ -5030,6 +5230,10 @@ button#buscar-phr {
     .helv-neue-18 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-18 {
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
 
 .helv-neue-light-18 {
   font-family: "ronnia-condensed" !important;
@@ -5041,6 +5245,10 @@ button#buscar-phr {
     .helv-neue-light-18 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-18 {
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
 
 .ronnia-18 {
   font-family: "pragmatica-web-condensed" !important;
@@ -5052,6 +5260,10 @@ button#buscar-phr {
     .ronnia-18 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-18 {
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
 
 .helvetica-bold-18 {
   font-family: "nimbus-sans" !important;
@@ -5063,6 +5275,10 @@ button#buscar-phr {
     .helvetica-bold-18 {
       font-size: 14px !important;
       font-size: 1rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-18 {
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
 
 .solano-20 {
   font-family: "sgothic-rgcap" !important;
@@ -5071,8 +5287,12 @@ button#buscar-phr {
   font-size: 1.42857rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-20 {
-      font-size: 16px !important;
-      font-size: 1.14286rem !important; } }
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-20 {
+      font-size: 21px !important;
+      font-size: 1.5rempx !important; } }
 
 .solano-bold-20 {
   font-family: "sgothic-bdcap" !important;
@@ -5081,8 +5301,12 @@ button#buscar-phr {
   font-size: 1.42857rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-20 {
-      font-size: 16px !important;
-      font-size: 1.14286rem !important; } }
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-20 {
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
 
 .zizou-thin-20 {
   font-family: "zizou-slab-regular" !important;
@@ -5098,8 +5322,12 @@ button#buscar-phr {
   font-size: 1.42857rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-20 {
-      font-size: 16px !important;
-      font-size: 1.14286rem !important; } }
+      font-size: 18px !important;
+      font-size: 1.28571rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-20 {
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
 
 .zizou-bold-20 {
   font-family: "zizou-slab-bold" !important;
@@ -5116,6 +5344,10 @@ button#buscar-phr {
     .zizou-20 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-20 {
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
 
 .helvetica-light-20 {
   font-family: "nimbus-sans" !important;
@@ -5134,6 +5366,10 @@ button#buscar-phr {
     .helvetica-20 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-20 {
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
 
 .helv-neue-20 {
   font-family: "ronnia-condensed" !important;
@@ -5145,6 +5381,10 @@ button#buscar-phr {
     .helv-neue-20 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-20 {
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
 
 .helv-neue-light-20 {
   font-family: "ronnia-condensed" !important;
@@ -5156,6 +5396,10 @@ button#buscar-phr {
     .helv-neue-light-20 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-20 {
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
 
 .ronnia-20 {
   font-family: "pragmatica-web-condensed" !important;
@@ -5167,6 +5411,10 @@ button#buscar-phr {
     .ronnia-20 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-20 {
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
 
 .helvetica-bold-20 {
   font-family: "nimbus-sans" !important;
@@ -5178,6 +5426,10 @@ button#buscar-phr {
     .helvetica-bold-20 {
       font-size: 16px !important;
       font-size: 1.14286rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-20 {
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
 
 .solano-22 {
   font-family: "sgothic-rgcap" !important;
@@ -5186,8 +5438,12 @@ button#buscar-phr {
   font-size: 1.57143rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-22 {
-      font-size: 18px !important;
-      font-size: 1.28571rem !important; } }
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-22 {
+      font-size: 23px !important;
+      font-size: 1.64286rempx !important; } }
 
 .solano-bold-22 {
   font-family: "sgothic-bdcap" !important;
@@ -5196,8 +5452,12 @@ button#buscar-phr {
   font-size: 1.57143rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-22 {
-      font-size: 18px !important;
-      font-size: 1.28571rem !important; } }
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-22 {
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
 
 .zizou-thin-22 {
   font-family: "zizou-slab-regular" !important;
@@ -5213,8 +5473,12 @@ button#buscar-phr {
   font-size: 1.57143rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-22 {
-      font-size: 18px !important;
-      font-size: 1.28571rem !important; } }
+      font-size: 20px !important;
+      font-size: 1.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-22 {
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
 
 .zizou-bold-22 {
   font-family: "zizou-slab-bold" !important;
@@ -5231,6 +5495,10 @@ button#buscar-phr {
     .zizou-22 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-22 {
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
 
 .helvetica-light-22 {
   font-family: "nimbus-sans" !important;
@@ -5249,6 +5517,10 @@ button#buscar-phr {
     .helvetica-22 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-22 {
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
 
 .helv-neue-22 {
   font-family: "ronnia-condensed" !important;
@@ -5260,6 +5532,10 @@ button#buscar-phr {
     .helv-neue-22 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-22 {
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
 
 .helv-neue-light-22 {
   font-family: "ronnia-condensed" !important;
@@ -5271,6 +5547,10 @@ button#buscar-phr {
     .helv-neue-light-22 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-22 {
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
 
 .ronnia-22 {
   font-family: "pragmatica-web-condensed" !important;
@@ -5282,6 +5562,10 @@ button#buscar-phr {
     .ronnia-22 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-22 {
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
 
 .helvetica-bold-22 {
   font-family: "nimbus-sans" !important;
@@ -5293,6 +5577,10 @@ button#buscar-phr {
     .helvetica-bold-22 {
       font-size: 18px !important;
       font-size: 1.28571rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-22 {
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
 
 .solano-24 {
   font-family: "sgothic-rgcap" !important;
@@ -5301,8 +5589,12 @@ button#buscar-phr {
   font-size: 1.71429rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-24 {
-      font-size: 20px !important;
-      font-size: 1.42857rem !important; } }
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-24 {
+      font-size: 25px !important;
+      font-size: 1.78571rempx !important; } }
 
 .solano-bold-24 {
   font-family: "sgothic-bdcap" !important;
@@ -5311,8 +5603,12 @@ button#buscar-phr {
   font-size: 1.71429rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-24 {
-      font-size: 20px !important;
-      font-size: 1.42857rem !important; } }
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-24 {
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
 
 .zizou-thin-24 {
   font-family: "zizou-slab-regular" !important;
@@ -5328,8 +5624,12 @@ button#buscar-phr {
   font-size: 1.71429rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-24 {
-      font-size: 20px !important;
-      font-size: 1.42857rem !important; } }
+      font-size: 22px !important;
+      font-size: 1.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-24 {
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
 
 .zizou-bold-24 {
   font-family: "zizou-slab-bold" !important;
@@ -5346,6 +5646,10 @@ button#buscar-phr {
     .zizou-24 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-24 {
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
 
 .helvetica-light-24 {
   font-family: "nimbus-sans" !important;
@@ -5364,6 +5668,10 @@ button#buscar-phr {
     .helvetica-24 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-24 {
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
 
 .helv-neue-24 {
   font-family: "ronnia-condensed" !important;
@@ -5375,6 +5683,10 @@ button#buscar-phr {
     .helv-neue-24 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-24 {
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
 
 .helv-neue-light-24 {
   font-family: "ronnia-condensed" !important;
@@ -5386,6 +5698,10 @@ button#buscar-phr {
     .helv-neue-light-24 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-24 {
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
 
 .ronnia-24 {
   font-family: "pragmatica-web-condensed" !important;
@@ -5397,6 +5713,10 @@ button#buscar-phr {
     .ronnia-24 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-24 {
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
 
 .helvetica-bold-24 {
   font-family: "nimbus-sans" !important;
@@ -5408,6 +5728,10 @@ button#buscar-phr {
     .helvetica-bold-24 {
       font-size: 20px !important;
       font-size: 1.42857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-24 {
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
 
 .solano-26 {
   font-family: "sgothic-rgcap" !important;
@@ -5416,8 +5740,12 @@ button#buscar-phr {
   font-size: 1.85714rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-26 {
-      font-size: 22px !important;
-      font-size: 1.57143rem !important; } }
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-26 {
+      font-size: 27px !important;
+      font-size: 1.92857rempx !important; } }
 
 .solano-bold-26 {
   font-family: "sgothic-bdcap" !important;
@@ -5426,8 +5754,12 @@ button#buscar-phr {
   font-size: 1.85714rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-26 {
-      font-size: 22px !important;
-      font-size: 1.57143rem !important; } }
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-26 {
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
 
 .zizou-thin-26 {
   font-family: "zizou-slab-regular" !important;
@@ -5443,8 +5775,12 @@ button#buscar-phr {
   font-size: 1.85714rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-26 {
-      font-size: 22px !important;
-      font-size: 1.57143rem !important; } }
+      font-size: 24px !important;
+      font-size: 1.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-26 {
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
 
 .zizou-bold-26 {
   font-family: "zizou-slab-bold" !important;
@@ -5461,6 +5797,10 @@ button#buscar-phr {
     .zizou-26 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-26 {
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
 
 .helvetica-light-26 {
   font-family: "nimbus-sans" !important;
@@ -5479,6 +5819,10 @@ button#buscar-phr {
     .helvetica-26 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-26 {
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
 
 .helv-neue-26 {
   font-family: "ronnia-condensed" !important;
@@ -5490,6 +5834,10 @@ button#buscar-phr {
     .helv-neue-26 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-26 {
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
 
 .helv-neue-light-26 {
   font-family: "ronnia-condensed" !important;
@@ -5501,6 +5849,10 @@ button#buscar-phr {
     .helv-neue-light-26 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-26 {
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
 
 .ronnia-26 {
   font-family: "pragmatica-web-condensed" !important;
@@ -5512,6 +5864,10 @@ button#buscar-phr {
     .ronnia-26 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-26 {
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
 
 .helvetica-bold-26 {
   font-family: "nimbus-sans" !important;
@@ -5523,6 +5879,10 @@ button#buscar-phr {
     .helvetica-bold-26 {
       font-size: 22px !important;
       font-size: 1.57143rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-26 {
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
 
 .solano-28 {
   font-family: "sgothic-rgcap" !important;
@@ -5531,8 +5891,12 @@ button#buscar-phr {
   font-size: 2rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-28 {
-      font-size: 24px !important;
-      font-size: 1.71429rem !important; } }
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-28 {
+      font-size: 29px !important;
+      font-size: 2.07143rempx !important; } }
 
 .solano-bold-28 {
   font-family: "sgothic-bdcap" !important;
@@ -5541,8 +5905,12 @@ button#buscar-phr {
   font-size: 2rem !important; }
   @media only screen and (max-width: 1200px) {
     .solano-bold-28 {
-      font-size: 24px !important;
-      font-size: 1.71429rem !important; } }
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .solano-bold-28 {
+      font-size: 28px !important;
+      font-size: 2rem !important; } }
 
 .zizou-thin-28 {
   font-family: "zizou-slab-regular" !important;
@@ -5558,8 +5926,12 @@ button#buscar-phr {
   font-size: 2rem !important; }
   @media only screen and (max-width: 1200px) {
     .zizou-light-28 {
-      font-size: 24px !important;
-      font-size: 1.71429rem !important; } }
+      font-size: 26px !important;
+      font-size: 1.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-light-28 {
+      font-size: 28px !important;
+      font-size: 2rem !important; } }
 
 .zizou-bold-28 {
   font-family: "zizou-slab-bold" !important;
@@ -5576,6 +5948,10 @@ button#buscar-phr {
     .zizou-28 {
       font-size: 26px !important;
       font-size: 1.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .zizou-28 {
+      font-size: 28px !important;
+      font-size: 2rem !important; } }
 
 .helvetica-light-28 {
   font-family: "nimbus-sans" !important;
@@ -5594,6 +5970,10 @@ button#buscar-phr {
     .helvetica-28 {
       font-size: 26px !important;
       font-size: 1.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-28 {
+      font-size: 28px !important;
+      font-size: 2rem !important; } }
 
 .helv-neue-28 {
   font-family: "ronnia-condensed" !important;
@@ -5605,6 +5985,10 @@ button#buscar-phr {
     .helv-neue-28 {
       font-size: 26px !important;
       font-size: 1.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-28 {
+      font-size: 28px !important;
+      font-size: 2rem !important; } }
 
 .helv-neue-light-28 {
   font-family: "ronnia-condensed" !important;
@@ -5616,6 +6000,10 @@ button#buscar-phr {
     .helv-neue-light-28 {
       font-size: 26px !important;
       font-size: 1.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helv-neue-light-28 {
+      font-size: 28px !important;
+      font-size: 2rem !important; } }
 
 .ronnia-28 {
   font-family: "pragmatica-web-condensed" !important;
@@ -5627,6 +6015,10 @@ button#buscar-phr {
     .ronnia-28 {
       font-size: 26px !important;
       font-size: 1.85714rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .ronnia-28 {
+      font-size: 28px !important;
+      font-size: 2rem !important; } }
 
 .helvetica-bold-28 {
   font-family: "nimbus-sans" !important;
@@ -5638,6 +6030,10 @@ button#buscar-phr {
     .helvetica-bold-28 {
       font-size: 24px !important;
       font-size: 1.71429rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .helvetica-bold-28 {
+      font-size: 28px !important;
+      font-size: 2rem !important; } }
 
 .form-control {
   font-size: 18px !important;
@@ -5646,6 +6042,10 @@ button#buscar-phr {
     .form-control {
       font-size: 13px !important;
       font-size: 0.92857rem !important; } }
+  @media only screen and (max-width: 992px) {
+    .form-control {
+      font-size: 16px !important;
+      font-size: 16px !important; } }
 
 .black-text {
   color: black !important; }
@@ -6732,6 +7132,8 @@ li.clickeable .zizou-16:hover {
       text-align: left !important; }
     .panel .panel-body .panel-body-head h1, .panel .panel-body .panel-body-head h2, .panel .panel-body .panel-body-head h3, .panel .panel-body .panel-body-head h4, .panel .panel-body .panel-body-head h5, .panel .panel-body .panel-body-head h6 {
       margin: 0; }
+    .panel .panel-body .panel-body-head h3 {
+      min-height: 3.7rem; }
     .panel .panel-body .panel-body-head ul {
       padding: 7px !important;
       margin: 0 !important; }
@@ -6795,6 +7197,10 @@ li.clickeable .zizou-16:hover {
               .panel .panel-body .panel-body-head-table .tr li div span {
                 font-size: 0.78571rem;
                 font-size: 11px; } }
+            @media only screen and (max-width: 992px) {
+              .panel .panel-body .panel-body-head-table .tr li div span {
+                font-size: 1rem;
+                font-size: 14px; } }
             .panel .panel-body .panel-body-head-table .tr li div span.curso {
               text-align: left;
               padding-left: 7px; }
@@ -6857,10 +7263,10 @@ li.clickeable .zizou-16:hover {
         -moz-flex-grow: 0;
         flex-grow: 0;
         -ms-flex-positive: 0; }
-        @media only screen and (max-width: 480px) {
+        @media only screen and (max-width: 992px) {
           .panel .panel-body .panel-table .tr li span {
-            font-size: 0.78571rem;
-            font-size: 11px; } }
+            font-size: 1rem;
+            font-size: 14px; } }
       .panel .panel-body .panel-table .tr li > div {
         display: -webkit-box;
         display: -moz-box;
@@ -6902,7 +7308,7 @@ li.clickeable .zizou-16:hover {
   .panel .panel-footer {
     background-color: white;
     padding-bottom: 7px;
-    min-height: 28px; }
+    min-height: 31px; }
     .panel .panel-footer .pull-left {
       min-height: 49px; }
 
@@ -7387,9 +7793,9 @@ input[type="submit"].btn.btn-white.btn-custom {
   padding-bottom: 0px;
   padding-top: 120px;
   height: 780px !important; }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 992px) {
     .site-content.login {
-      padding-top: 77px;
+      padding-top: 44px;
       padding-bottom: 0px; } }
   .site-content.login .row .col-sm-10 .row .col-sm-5 img {
     margin: 0 auto; }
@@ -7398,7 +7804,8 @@ input[type="submit"].btn.btn-white.btn-custom {
   .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted {
     padding-bottom: 77px !important;
     border-bottom: 2px solid #E42322; }
-    .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-xs-8 input.form-control {
+    .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-xs-8 input.form-control,
+    .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted form.login-form .row .col-xs-10 input.form-control {
       border-radius: 0px !important;
       border: 0px !important;
       background-color: #E3E3E3;
@@ -7406,6 +7813,9 @@ input[type="submit"].btn.btn-white.btn-custom {
       font-family: "zizou-slab-regular" !important; }
     .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted .pwd-mismatch {
       margin-top: 28px !important; }
+    @media only screen and (max-width: 992px) {
+      .site-content.login .row .col-sm-10 .row .col-sm-7.bg-muted {
+        padding-bottom: 44px !important; } }
   .site-content.login .row .col-sm-10 .row.aviso {
     margin-top: -7px !important; }
     .site-content.login .row .col-sm-10 .row.aviso .col-sm-7 {
@@ -7419,6 +7829,10 @@ input[type="submit"].btn.btn-white.btn-custom {
     .site-content.login .row .col-sm-10 .row.aviso img {
       margin: 0 auto;
       display: block; }
+  @media only screen and (max-width: 992px) {
+    .site-content.login .row .col-sm-10 .row.mt-56 {
+      margin-top: 35px !important;
+      margin-top: 2rem !important; } }
 
 .footer {
   line-height: 1;
@@ -7429,11 +7843,16 @@ input[type="submit"].btn.btn-white.btn-custom {
   background-color: #E3E3E3; }
   .footer .row {
     font-family: "zizou-slab-regular" !important; }
-    .footer .row .col-xs-7 {
+    .footer .row .col-xs-7,
+    .footer .row .col-md-7 {
       padding-top: 28px; }
       @media only screen and (max-width: 480px) {
-        .footer .row .col-xs-7 {
+        .footer .row .col-xs-7,
+        .footer .row .col-md-7 {
           padding-top: 7px; } }
+    @media only screen and (max-width: 480px) {
+      .footer .row .col-xs-6 img {
+        width: 100px; } }
 
 .welcome {
   padding: 0 91px; }

@@ -28,8 +28,8 @@
 			&.vida {
 				@media #{$md-down} {
 					margin-left: 0px;
-  				margin-right: 1px;
-  				margin-top: 5px;
+	  				margin-right: 1px;
+	  				margin-top: 5px;
 				}
 			}
 			@media #{$md-down} {
@@ -152,6 +152,10 @@
 								font-size: rem(11px);
 								font-size: 11px;
 							}
+							@media #{$md-down} {
+								font-size: rem(14px);
+								font-size: 14px;
+							}
 							text-align: center;
 							text-transform: uppercase;
 							&.curso {
@@ -249,9 +253,10 @@
 					}
 					span {
 						@include flex-grow(0);
-						@media #{$xs-only} {
-							font-size: rem(11px);
-							font-size: 11px;
+					
+						@media #{$md-down} {
+							font-size: rem(14px);
+							font-size: 14px;
 						}
 					}
 					>div {

@@ -6,8 +6,8 @@
 		padding-top: 120px;
 		height: 780px !important; 
 		// min-height: 50px;
-		@media #{$xs-only} {
-			padding-top: 77px;
+		@media #{$md-down} {
+			padding-top: 44px;
 			padding-bottom: 0px;
 			// min-height: 610px;
 		} 
@@ -27,19 +27,27 @@
 						border-bottom: 2px solid $brand-danger; 
 						form.login-form {
 							.row {
-								.col-xs-8 {
+								.col-xs-8,
+								.col-xs-10 {
 									input.form-control {
 									  border-radius: 0px !important;
 									  border: 0px !important;
 									  background-color: $gray-lighter;
 									  color: black !important;
 									  font-family: "zizou-slab-regular" !important;
+
+																		  
+
 									}
+
 								}
 							}
 						}
 						.pwd-mismatch {
 							margin-top: 28px !important;
+						}
+						@media #{$md-down} {
+							padding-bottom: 44px!important;
 						}
 					}
 					&.aviso {
@@ -59,6 +67,12 @@
 							display: block;
 						}
 					}
+					@media #{$md-down} {
+						&.mt-56 {
+					 	 	margin-top: 35px!important;
+					 	 	margin-top: 2rem!important;
+					 	}
+					} 
 				}
 			}
 		}
@@ -73,11 +87,20 @@
 	background-color: $gray-lighter;
 	.row {
 		font-family: "zizou-slab-regular" !important;
-		.col-xs-7 {
+		.col-xs-7,
+		.col-md-7{
 			padding-top: 28px;
 			@media #{$xs-only} {
 				padding-top: 7px;
 			}
+		}
+		.col-xs-6{
+			img{
+				@media #{$xs-only} {
+				 width: 100px;
+				}
+			}
+			
 		}
 	}
 }
