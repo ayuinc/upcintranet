@@ -185,12 +185,21 @@ class Webservices
       }    
       $result = '';
       if (strval($TipoUser)=='ALUMNO') {
-        $result .= '{redirect="dashboard/estudiante" status_code="301"}';
+        if(strcmp($_COOKIE["Redireccion"], "")!=0 ){
+          $result .= '{redirect="'.$_COOKIE["Redireccion"].'" status_code="301"}';
+        }else{
+          $result .= '{redirect="dashboard/estudiante" status_code="301"}';
+        }
         return $result;     
-      }
+      }   
       
       if (strval($TipoUser)=='PROFESOR') {
-        $result .= '{redirect="dashboard/docente" status_code="301"}';
+        if(strcmp($_COOKIE["Redireccion"], "")!=0){
+          $result .= '{redirect="'.$_COOKIE["Redireccion"].'" status_code="301"}';
+        }else{
+          $result .= '{redirect="dashboard/docente" status_code="301"}';
+        }
+        return $result;  
         // $result .= '<div class="col-sm-4 col-xs-2"></div>';
         // $result .= '<div class="col-sm-4 col-xs-8 welcome">';
         // $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-responsive img-center" src="{site_url}assets/img/user_ie8_info.png" alt=""></div><div class="zizou-28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
@@ -200,8 +209,7 @@ class Webservices
         // $result .= '<img class="pr-7" src="{site_url}assets/img/red_arrow_normal_tiny.png">Ingrese como Profesor';
         // $result .= '</a>';
         // $result .= '</div>';
-        
-        return $result;             
+          
       }
       
       if (strval($TipoUser)=='PADRE') {
@@ -4831,18 +4839,22 @@ class Webservices
         $tipouser = $row->tipouser;
       }
 
-      $redireccion = current_url();
-      $_SESSION["Redireccion"] = $redireccion;
-      
+
       if ($codigo == '') {
+
+        $redireccion = uri_string();
+        $_COOKIE["Redireccion"] = $redireccion;
+        //$_SESSION["Redireccion"] = $redireccion;
+       
         redirect('/login/no-es-usuario');
       }
       elseif ($segment_2 != $tipouser ) {
+         $_COOKIE["Redireccion"]= "";
         if ($tipouser == 'PROFESOR'){
-          redirect('/dashboard/docente');
+          redirect( $_SESSION["Redireccion"]);
         }
         if ($tipouser == 'ALUMNO'){
-          redirect('/dashboard/estudiante');
+          redirect( $_COOKIE["Redireccion"]);
         }
         if ($tipouser == 'PADRE'){
           $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
