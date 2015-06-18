@@ -3,12 +3,13 @@
 $active_group = 'expressionengine';
 $active_record = TRUE;
 
-$db['expressionengine']['hostname'] = 'ip-172-31-52-134.ec2.internal';
- // $db['expressionengine']['hostname'] = '127.0.0.1';
-$db['expressionengine']['username'] = 'ayuinc';
+//$db['expressionengine']['hostname'] = 'ip-172-31-52-134.ec2.internal';
+$db['expressionengine']['hostname'] = 'localhost';
+//$db['expressionengine']['username'] = 'ayuinc';
  // $db['expressionengine']['username'] = 'upc_r';
-$db['expressionengine']['password'] = 'ayuinc2014';
-// $db['expressionengine']['password'] = 'JKPQiUAb8f';
+$db['expressionengine']['username'] = 'root';
+//$db['expressionengine']['password'] = 'ayuinc2014';
+$db['expressionengine']['password'] = 'root';
 $db['expressionengine']['database'] = 'upc';
 $db['expressionengine']['dbdriver'] = 'mysql';
 $db['expressionengine']['pconnect'] = FALSE;

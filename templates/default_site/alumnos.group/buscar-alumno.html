@@ -1,3 +1,10 @@
+
+
+{if segment_2 != 'buscar-alumno'}
+  {404-segment-last}
+{if:else}
+  {404-segment-2-only}
+{/if}
 {embed="includes/head"}
 {exp:webservices:iniciar_session}
   

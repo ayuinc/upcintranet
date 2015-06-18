@@ -3371,7 +3371,7 @@ class Webservices
         $result .= '<div class="resultados-busqueda info-border bg-muted">';
         $result .= '<div class="panel-body p-28">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
-        $result .= '<span class="helvetica-16 text-info">'.$error_mensaje.'</span>';
+        $result .= '<span class="helvetica-16 text-info">'.$error_mensaje.$fechaini.$fechafin.'</span>';
         $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=506">';
         $result .= '<div class="bg-muted p-7 mb-7">';  
         $result .= '<div class="arrow-icon info"></div>';  
@@ -3384,7 +3384,7 @@ class Webservices
         $result .= '<div class="resultados-busqueda red-line bg-muted">';
         $result .= '<div class="panel-body p-28">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-        $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
+        $result .= '<span class="helvetica-16 red">'.$error_mensaje.$fechaini.$fechafin.'</span>';
         $result .= '</div>';
         $result .= '</div>';
       }  

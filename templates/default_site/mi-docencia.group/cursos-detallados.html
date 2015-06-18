@@ -1,3 +1,8 @@
+{if segment_2 != 'cursos-detallados'}
+  {404-segment-last}
+{if:else}
+  {404-segment-2-only}
+{/if}
 {embed="includes/head"}
 {exp:webservices:iniciar_session}
   
