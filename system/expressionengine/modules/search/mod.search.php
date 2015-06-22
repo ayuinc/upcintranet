@@ -132,7 +132,7 @@ class Search {
 			{
 				$sql .= "ip_address='".ee()->db->escape_str(ee()->input->ip_address())."'";
 			}
-
+			;
 			$query = ee()->db->query($sql);
 
 			$text = str_replace("%x", ee()->session->userdata['search_flood_control'], lang('search_time_not_expired'));
@@ -1154,7 +1154,7 @@ class Search {
 		}
 
 		$sql = substr($sql, 0, -1).') '.$end;
-
+		
 		return $sql;
 	}
 
