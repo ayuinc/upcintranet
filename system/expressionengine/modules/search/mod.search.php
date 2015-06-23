@@ -78,7 +78,7 @@ class Search {
 			$_POST['exact_match'] 	= 'y';
 			$_POST['exact_keyword'] = 'n';
 		}
-
+		
 		// RP can be used in a query string,
 		// so we need to clean it a bit
 
@@ -134,7 +134,7 @@ class Search {
 			}
 			;
 			$query = ee()->db->query($sql);
-
+			
 			$text = str_replace("%x", ee()->session->userdata['search_flood_control'], lang('search_time_not_expired'));
 
 			if ($query->num_rows() > 0)
@@ -142,7 +142,7 @@ class Search {
 				return ee()->output->show_user_error('general', array($text));
 			}
 		}
-
+		
 		/** ----------------------------------------
 		/**  Did the user submit any keywords?
 		/** ----------------------------------------*/
