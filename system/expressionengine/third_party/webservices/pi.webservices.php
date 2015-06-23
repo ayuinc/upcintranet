@@ -4916,8 +4916,8 @@ class Webservices
       unset($_SESSION["Redireccion"]);
       unset($_COOKIE["Codigo"]);        
       session_destroy();
-      redirect('/');
-
+	$site_url = ee()->config->item('site_url');
+        redirect($site_url);
     }
     
         
