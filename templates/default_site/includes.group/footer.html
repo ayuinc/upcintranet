@@ -59,10 +59,12 @@
 		$(document).ready(function() {
 			$("#query_results").html($('.result_query').length);
 			title = $("title").html();
-			currentNumber = title.match(/\d+/);
-			if (currentNumber != null) {
-				if (currentNumber.length > 0) {
-					$("title").html(title.replace(currentNumber[0], $('.result_query').length));
+			if (typeof title !== 'undefined') {
+				currentNumber = title.match(/\d+/);
+				if (currentNumber != null) {
+					if (currentNumber.length > 0) {
+						$("title").html(title.replace(currentNumber[0], $('.result_query').length));
+					};
 				};
 			};
 			

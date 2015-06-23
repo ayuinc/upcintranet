@@ -1,7 +1,7 @@
 'use strict';
 
-var mobileNavScript = '/js/app/src/nav-mobile.js',
-		desktopNavScript = '/js/app/src/nav-desktop.js';
+var mobileNavScript = 'js/app/src/nav-mobile.js',
+		desktopNavScript = 'js/app/src/nav-desktop.js';
 
 if (WURFL.is_mobile) {
 	addScript(mobileNavScript);
