@@ -2,3 +2,40 @@
 *.sass-cache/
 system/expressionengine/config
 .DS_Store
+.htaccess
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Expression Engine
+# Images
+# images/avatars/
+# images/captchas/
+# images/smileys/
+# images/member_photos/
+# images/signature_attachments/
+# images/pm_attachments/
+
+# For security do not publish the following files
+system/expressionengine/config/database.php
+system/expressionengine/config/config.php
+
+.htaccess
+
+# Caches
+sized/
+thumbs/
+_thumbs/
+*/expressionengine/cache/*
