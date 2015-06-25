@@ -83,7 +83,14 @@ class Webservices
       $_SESSION["MsgError"] = $json['MsgError'];
       
       if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
+<<<<<<< HEAD
+	$site_url = ee()->config->item('site_url');
+	$site_url .= 'login/error_login';
+	
+        redirect($site_url);
+=======
         redirect('login/error_login');
+>>>>>>> a13da47cf7832a92652b9ef4b97a3cdcfd8fde2c
       }
 
       else {
@@ -4913,8 +4920,8 @@ class Webservices
       unset($_SESSION["Redireccion"]);
       unset($_COOKIE["Codigo"]);        
       session_destroy();
-      redirect('/');
-
+	$site_url = ee()->config->item('site_url');
+        redirect($site_url);
     }
     
         
