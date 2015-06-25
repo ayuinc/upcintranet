@@ -4847,8 +4847,7 @@ class Webservices
 
         $redireccion = uri_string();
         $_COOKIE["Redireccion"] = $redireccion;
-        //$_SESSION["Redireccion"] = $redireccion;
-       
+        setcookie("Redireccion",$redireccion, time() + (1800), "/");
         redirect('/login/no-es-usuario');
       }
       elseif ($segment_2 != $tipouser ) {
