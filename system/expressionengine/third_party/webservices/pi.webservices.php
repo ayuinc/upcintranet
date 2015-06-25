@@ -4848,7 +4848,9 @@ class Webservices
         $redireccion = uri_string();
         $_COOKIE["Redireccion"] = $redireccion;
         setcookie("Redireccion",$redireccion, time() + (1800), "/");
-        redirect('/login/no-es-usuario');
+        $site_url = ee()->config->item('site_url');
+        $site_url .= 'login/no-es-usuario';
+        redirect($site_url);
       }
       elseif ($segment_2 != $tipouser ) {
          $_COOKIE["Redireccion"]= "";
