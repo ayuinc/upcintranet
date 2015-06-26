@@ -1,21 +1,19 @@
 {embed="includes/head"}
-{embed="includes/header-no-global-core"}
-
+{embed="includes/header_a"}
 <div class="site-content error-404">
 	<div class="container-fluid">
 		<div class="internal-header">
 		  <div class="row">
 		    <div class="col-sm-1"></div>
 		    <div class="col-sm-4"><span class="zizou-16"></span></div>
-		  </div>
+		  </div>  
 		  <div class="row">
-		    <div class="col-sm-1"></div>
-		    <div class="col-sm-4"><span class="uppercase bold xl">Error 404</span></div>
+		    <div class="col-sm-3"></div>
+		    <div class="col-sm-7"><span class="uppercase bold xl">Error 404</span></div>
 		  </div>
 		</div>	
     <div class="section-content buscar pb-70">
       <div class="row">
-        <div class="col-sm-1"></div>
         <div class="col-sm-3 que-buscas">
           <span class="zizou-26"></span>
         </div>  
@@ -23,8 +21,12 @@
           <p class="zizou-26 encontrado">
           <div class="resultados-busqueda red-line bg-muted">
           	<div class="panel-body p-14 result_query">
-          		<div class="helvetica-16">Página no encontrada</div>
-          		<span class="helvetica-16"><a href='javascript:history.go(-1)'><?=lang('back')?>Haz click aquí para regresar a la página anterior</a></span>
+          		<div class="helvetica-16">No encontramos la página que busca.</div>
+          		
+              
+              <p class="helvetica-16">Será redirigido en <span id="timeshift">5</span> segundos...
+              </p>
+              <p class="helvetica-16">O haz click <a href='javascript:history.go(-1)'>aquí</a> para regresar a la página anterior</p>
           	</div>
           </div>
         </div>
@@ -32,3 +34,19 @@
 		</div>
 	</div>
 </div>
+
+<script>
+var interval = setInterval(function() {
+    var seconds = $('#timeshift').html();
+    seconds = seconds - 1;
+    if (seconds < 10 && length.seconds != 2) seconds = seconds;
+      $('#timeshift').html(seconds);
+    
+    
+    if ( seconds == 0){
+        clearInterval(interval);
+        javascript:history.go(-1);
+    }
+}, 1000);
+  
+</script>

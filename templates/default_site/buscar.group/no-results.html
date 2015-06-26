@@ -17,8 +17,11 @@
                       <input type="submit" value="BUSCAR" id="search-nh-submit" class="submit btn full-width btn-custom black-btn">
                       {/exp:search:simple_form}
                     </div> 
+                   
                     <div class="col-sm-8 resultados">
-                      <p class="zizou-26 encontrado">Se han encontrado <span id="query_results"></span> resultados para <span class="black-text">"{exp:search:keywords}"</span></p>
+                      <p class="zizou-26 encontrado">Se han encontrado 
+                        <span id="query_results"></span> resultados para <span class="black-text">"{exp:search:keywords}{exp:search:keywords}{/exp:search:keywords}"</span>
+                      </p>
                       <div class="resultados-busqueda red-line bg-muted">
                         <script>
                           ga('send', 'pageview', '/buscar?q={exp:search:keywords}');
@@ -28,7 +31,8 @@
                                 Por favor, ingrese una nueva búsqueda.
                              </div>
                           </div>
-                        </div>
+                      </div>
+
               </div>
               </div>
         </div>
