@@ -1519,7 +1519,7 @@ class Webservices
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-8 helvetica-14">';
         $result .= '<div>';
-        $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+        $result .= '<span class="pr-7 pl-7">'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
@@ -1786,8 +1786,10 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<a data-curso-id="'.$i.'" class="curso-link">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
-        $result .= '<img src="{site_url}assets/img/black_arrow_tiny.png">';
-        $result .= '<span class="zizou-16 col-sm-11 pr-0 pl-7 pull-right">';
+        $result .= '<span class="zizou-16 col-sm-1 pr-0 pl-0">';
+        $result .= '<img  src="{site_url}assets/img/black_arrow_tiny.png">';
+        $result .= '</span>';
+        $result .= '<span class="zizou-16 col-sm-11 pr-0 pl-7">';
         $result .= $json['Inasistencias'][$i]['CursoNombre'];
         $result .= '</span>';
         $result .= '</li>';
@@ -2038,13 +2040,13 @@ class Webservices
         $result .= '<div class="panel-body-head-table pb-7 black-border-top">';
 
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-1 col-xs-2">';
+        $result .= '<li class="col-sm-1 hidden-xs">';
         $result .= '<div class="br-gl"><span>Tipo</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-2 col-xs-2">';
+        $result .= '<li class="col-sm-2 hidden-xs">';
         $result .= '<div class="br-gl"><span>Número</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-5 col-xs-4">';
+        $result .= '<li class="col-sm-5 col-xs-8">';
         $result .= '<div class="br-gl"><span>Evaluación</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-sm-2 col-xs-2">';
@@ -2063,19 +2065,24 @@ class Webservices
           $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
           $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
             
-          $result .= '<li class="col-sm-1 col-xs-2">';
+          $result .= '<li class="col-sm-1 hidden-xs">';
           $result .= '<div class="text-center">';
           $result .= '<span class="helv-neue-16">'.$json_int['Notas'][$b]['NombreCorto'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-2 col-xs-2">';
+          $result .= '<li class="col-sm-2 hidden-xs">';
           $result .= '<div class="text-center">';
           $result .= '<span class="ronnia-16">'.$json_int['Notas'][$b]['NroEvaluacion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-5 col-xs-4">';
+          $result .= '<li class="col-sm-5 hidden-xs">';
           $result .= '<div>';
           $result .= '<span class="helvetica-16">'.$json_int['Notas'][$b]['NombreEvaluacion'].'</span>';
+          $result .= '</div>';
+          $result .= '</li>';
+          $result .= '<li class="hidden-sm hidden-md hidden-lg col-xs-8">';
+          $result .= '<div>';
+          $result .= '<span class="helvetica-16">'.$json_int['Notas'][$b]['NombreCorto'].$json_int['Notas'][$b]['NroEvaluacion'].' '.$json_int['Notas'][$b]['NombreEvaluacion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
           $result .= '<li class="col-sm-2 col-xs-2">';
