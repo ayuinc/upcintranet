@@ -4347,6 +4347,10 @@ button#buscar-phr {
   right: -5px;
   top: 50%; }
 
+.internal-header {
+  padding-bottom: 14px;
+}
+
 .internal-footer {
   background-color: #E3E3E3;
   position: absolute;
@@ -7056,7 +7060,7 @@ li.clickeable .zizou-16:hover {
       padding: 7px;
       display: inline-block; }
       .panel .panel-head .panel-title.left {
-        padding: 7px 0 !important; }
+        padding-top: 7px 0 !important; }
       .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
         margin: 0;
         font-family: "zizou-slab-regular" !important;
