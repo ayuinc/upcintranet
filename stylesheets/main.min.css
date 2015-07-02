@@ -4220,6 +4220,7 @@ body {
   z-index: 100; }
 
 .site-content {
+  height: auto !important;
   padding-top: 175px;
   background-image: url("../assets/img/trama_xs.png");
   float: left;
@@ -7104,7 +7105,8 @@ li.clickeable .zizou-16:hover {
             .panel .panel-head .panel-head-link.info:hover {
               background-image: url("../assets/img/info_arrow_hover_tiny.png"); } }
   .panel .panel-body.canales {
-    padding-bottom: 28px; }
+    padding-bottom: 28px;
+    height: 320px; }
     .panel .panel-body.canales .panel-table {
       min-height: 140px !important; }
       .panel .panel-body.canales .panel-table .tr {
