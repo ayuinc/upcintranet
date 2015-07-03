@@ -48,6 +48,7 @@ $site-menu-width: 79px;
 }
 
 .site-content {
+	min-height: 100%;
 	@media #{$md-up} {
 		@include calc(width, "100% - #{$site-menu-width}");
 	}

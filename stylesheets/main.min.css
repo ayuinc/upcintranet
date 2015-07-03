@@ -4220,6 +4220,8 @@ body {
   z-index: 100; }
 
 .site-content {
+  height: auto !important;
+  min-height: 100%;
   padding-top: 175px;
   background-image: url("../assets/img/trama_xs.png");
   float: left;
@@ -4345,6 +4347,10 @@ button#buscar-phr {
 .dropdown-toggle.relative img.absolute {
   right: -5px;
   top: 50%; }
+
+.internal-header {
+  padding-bottom: 14px;
+}
 
 .internal-footer {
   background-color: #E3E3E3;
@@ -7044,6 +7050,9 @@ li.clickeable .zizou-16:hover {
   @media only screen and (max-width: 768px) {
     .panel {
       margin-top: 21px !important; } }
+    .panel .curso-detalle {
+      background-color: white;
+    }
   .panel .panel-head {
     background-color: white; }
     .panel .panel-head:before, .panel .panel-head:after {
@@ -7055,7 +7064,7 @@ li.clickeable .zizou-16:hover {
       padding: 7px;
       display: inline-block; }
       .panel .panel-head .panel-title.left {
-        padding: 7px 0 !important; }
+        padding-top: 7px 0 !important; }
       .panel .panel-head .panel-title h1, .panel .panel-head .panel-title h2, .panel .panel-head .panel-title h3, .panel .panel-head .panel-title h4, .panel .panel-head .panel-title h5, .panel .panel-head .panel-title h6 {
         margin: 0;
         font-family: "zizou-slab-regular" !important;
@@ -7103,14 +7112,18 @@ li.clickeable .zizou-16:hover {
           @media only screen and (max-width: 992px) {
             .panel .panel-head .panel-head-link.info:hover {
               background-image: url("../assets/img/info_arrow_hover_tiny.png"); } }
+  .panel .panel-body {
+    background-color: white; }
   .panel .panel-body.canales {
-    padding-bottom: 28px; }
+    padding-bottom: 28px;
+    height: 320px;
+    margin-bottom: 20px;
+    background-color: white; }
     .panel .panel-body.canales .panel-table {
       min-height: 140px !important; }
       .panel .panel-body.canales .panel-table .tr {
         border: none !important; }
-  .panel .panel-body .panel-table {
-    background-color: white !important; }
+  .panel .panel-body .panel-table { }
     .panel .panel-body .panel-table.observaciones {
       background-color: #3298FF !important;
       border-top: 2px solid #E42322; }
@@ -7118,7 +7131,6 @@ li.clickeable .zizou-16:hover {
       background: none !important; }
   .panel .panel-body .panel-body-head {
     text-transform: uppercase;
-    background: white;
     color: black;
     text-align: center;
     padding-top: 14px;
@@ -7306,9 +7318,10 @@ li.clickeable .zizou-16:hover {
       .panel .panel-body .panel-table .tr li:last-child div {
         border: none; }
   .panel .panel-footer {
-    background-color: white;
     padding-bottom: 7px;
-    min-height: 31px; }
+    min-height: 31px;
+    bottom: 5px;
+    position: absolute; }
     .panel .panel-footer .pull-left {
       min-height: 49px; }
 
@@ -8034,5 +8047,20 @@ label.error {
   white-space: normal;
   width: 80%;
   word-wrap: normal; }
+
+.wrap-text {
+  height: 125px;
+  overflow: hidden; }
+
+  @media screen and (max-width: 768px) {
+    .card-title {
+    font-size: 20px; } 
+    .logo {
+      width: 65px;
+      height: 65px; }}
+
+#btnLogin {
+  width: 100%;
+}
 
 /*# sourceMappingURL=main.min.css.map */

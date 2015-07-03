@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*////////////////FUENTES///////////*/
+
+@font-face{ 
+	font-family: 'sgothic-bdcap';
+	src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-bdcap-webfont.eot');
+	src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-bdcap-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-bdcap-webfont.woff') format('woff'),
+	     url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-bdcap-webfont.ttf') format('truetype'),
+	     url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-bdcap-webfont.svg#https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-bdcap-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face{ 
+	font-family: 'sgothic-rgcap';
+	src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-rgcap-webfont.eot');
+	src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-rgcap-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-rgcap-webfont.woff') format('woff'),
+	     url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-rgcap-webfont.ttf') format('truetype'),
+	     url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-rgcap-webfont.svg#https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-rgcap-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{ 
+	font-family: 'sgothic-stencilcap';
+	src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-stencilcap-webfont.eot');
+	src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-stencilcap-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-stencilcap-webfont.woff') format('woff'),
+	     url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-stencilcap-webfont.ttf') format('truetype'),
+	     url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-stencilcap-webfont.svg#https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-stencilcap-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'zizou-slab-regular';
+    src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-regular.eot');
+    src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-regular.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-regular.woff') format('woff'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-regular.ttf') format('truetype'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-regular.svg#https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'zizou-slab-bold';
+    src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-bold.eot');
+    src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-bold.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-bold.woff') format('woff'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-bold.ttf') format('truetype'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-bold.svg#https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'helvetica-neue';
+    src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/HelveticaNeueLTStd-Bd.eot');
+    src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/HelveticaNeueLTStd-Bd.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/HelveticaNeueLTStd-Bd.woff') format('woff'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/HelveticaNeueLTStd-Bd.ttf') format('truetype'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/HelveticaNeueLTStd-Bd.svg#https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
