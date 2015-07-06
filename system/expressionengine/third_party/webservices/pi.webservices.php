@@ -1849,7 +1849,7 @@ class Webservices
           <h3>Saltar a un curso</h3>
         </div>
       </div>';
-      $result .= '<div class="panel-body">';
+      $result .= '<div class="panel-body wobg">';
       $result .= '<div class="panel-table otras-acciones">';
       $result .= '<ul class="tr">';
       for ($i=0; $i<$tamano; $i++) {
