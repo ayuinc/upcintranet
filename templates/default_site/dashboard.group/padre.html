@@ -11,15 +11,17 @@
          <div class="col-sm-0-5 hidden-xs"></div>
           <div class="col-sm-11 col-xs-12">
          {exp:channel:entries channel="avisos_dashboard" orderby="date" sort="desc" category="21" limit="3" disable="member_data" dynamic="off"}
-            <div class="msge-container clearfix mb-14" style="background:#{color_de_fondo}!important; color:#{color_de_texto}!important;">
+          <div class="msge-container clearfix mb-14" style="background:#{color_de_fondo}!important; color:#{color_de_texto}!important;">
             
-            <div class="col-xs-10 col-sm-10-5 col-xs-offset-1 col-sm-offset-0-5 msge-text" >
-              <div class="col-xs-2 col-sm-1 p-14 col-xs-2">
+            <div class="col-xs-11 col-sm-11 col-sm-offset-0 msge-text" >
+              <div class="col-xs-2 col-sm-1 p-14 ">
                 <img class="img-center" src="{site_url}assets/img/bell_sm.png" alt="">
               </div>
-              <span class="zizou-bold-16">{title}:&nbsp;</span><span class="helvetica-16">{mensaje_aviso_dashboard}</span>
+              <div class="col-xs-10 col-sm-11 p-14">
+                <span class="zizou-bold-16 ">{title}:&nbsp;</span><span class="helvetica-16">{mensaje_aviso_dashboard}</span>
+              </div>
             </div>
-            <div class="col-xs-1 col-sm-0-5 pt-3 pr-7">
+            <div class="col-xs-1 col-sm-0-5 pull-right pt-3 pr-14">
               <div class="msge-row-x clickeable text-right helvetica-16">X
               </div>
             </div>
