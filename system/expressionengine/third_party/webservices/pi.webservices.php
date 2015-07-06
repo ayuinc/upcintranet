@@ -4905,6 +4905,10 @@ class Webservices
       $_SESSION["Token"] = "";
       setcookie("Codigo", NULL);
       setcookie("MsgError", NULL);
+      if (isset($_COOKIE["Codigo"])) {
+        unset($_COOKIE["Codigo"]);
+        setcookie("Codigo", null, -1, "/");
+      }
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
       unset($_SESSION["Nombres"]);
