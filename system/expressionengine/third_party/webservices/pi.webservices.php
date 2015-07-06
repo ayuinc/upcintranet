@@ -115,10 +115,10 @@ class Webservices
           ee()->db->update('exp_user_upc_data', $user_upc_update);
         }
         $_COOKIE["Codigo"] = $json['Codigo'];
-        setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
+        setcookie("Codigo", $json['Codigo'], time() + (1800), "/", ".upc.edu.pe");
         $_SESSION["Codigo"] = $json['Codigo'];
         $_SESSION["TipoUser"] = $json['TipoUser'];
-        setcookie("TipoUser", $json['TipoUser'], time() + (1800), "/");
+        setcookie("TipoUser", $json['TipoUser'], time() + (1800), "/", ".upc.edu.pe");
         $_COOKIE["TipoUser"] = $json['TipoUser'];
         $_SESSION["Nombres"] = $json['Nombres'];
         $_SESSION["Apellidos"] = $json['Apellidos'];
@@ -127,6 +127,8 @@ class Webservices
         $_SESSION["DscSede"] = $json['Datos']['DscSede'];
         $_SESSION["Ciclo"] = $json['Datos']['Ciclo'];
         $_SESSION["Token"] = $json['Token'];
+        setcookie("Token", $json['Token'], time() + (1800), "/", ".upc.edu.pe");
+        $_COOKIE["Token"] = $json['Token'];
       }               
     }
 
