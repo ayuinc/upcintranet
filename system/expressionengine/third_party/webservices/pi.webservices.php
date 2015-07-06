@@ -115,10 +115,10 @@ class Webservices
           ee()->db->update('exp_user_upc_data', $user_upc_update);
         }
         $_COOKIE["Codigo"] = $json['Codigo'];
-        setcookie("Codigo", $json['Codigo'], time() + (1800), "/");
+        setcookie("Codigo", $json['Codigo'], time() + (1800), "/", ".upc.edu.pe");
         $_SESSION["Codigo"] = $json['Codigo'];
         $_SESSION["TipoUser"] = $json['TipoUser'];
-        setcookie("TipoUser", $json['TipoUser'], time() + (1800), "/");
+        setcookie("TipoUser", $json['TipoUser'], time() + (1800), "/", ".upc.edu.pe");
         $_COOKIE["TipoUser"] = $json['TipoUser'];
         $_SESSION["Nombres"] = $json['Nombres'];
         $_SESSION["Apellidos"] = $json['Apellidos'];
@@ -127,6 +127,8 @@ class Webservices
         $_SESSION["DscSede"] = $json['Datos']['DscSede'];
         $_SESSION["Ciclo"] = $json['Datos']['Ciclo'];
         $_SESSION["Token"] = $json['Token'];
+        setcookie("Token", $json['Token'], time() + (1800), "/", ".upc.edu.pe");
+        $_COOKIE["Token"] = $json['Token'];
       }               
     }
 
@@ -997,7 +999,7 @@ class Webservices
         $result .= '<div class="panel-table red-line">';
         $result .= '<ul class="tr mis-cursos-row">';
         $result .= '<li class="col-sm-2 col-xs-12">';
-        $result .= '<img src="/assets/img/brain.png" class="img-center">';
+        $result .= '<img src="{site_url}assets/img/brain.png" class="img-center">';
         $result .= '</li>';    
         $result .= '<li class="col-sm-10 col-xs-12">';
         $result .= '<span class="block zizou-bold-18">Tiempo de Innovar</span>';
@@ -1859,7 +1861,7 @@ class Webservices
           <h3>Saltar a un curso</h3>
         </div>
       </div>';
-      $result .= '<div class="panel-body">';
+      $result .= '<div class="panel-body wobg">';
       $result .= '<div class="panel-table otras-acciones">';
       $result .= '<ul class="tr">';
       for ($i=0; $i<$tamano; $i++) {
@@ -1966,7 +1968,7 @@ class Webservices
         
         $result .= '<div class="text-center"><span>'.$nota.'</span></div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-4 show-curso-detail"><div class="text-center"><span><img src="/assets/img/ojo.png"></span></div></li>';
+        $result .= '<li class="col-sm-4 show-curso-detail"><div class="text-center"><span><img src="{site_url}assets/img/ojo.png"></span></div></li>';
         $result .= '</ul>';
       }     
       
@@ -4920,6 +4922,10 @@ class Webservices
       $_SESSION["Token"] = "";
       setcookie("Codigo", NULL);
       setcookie("MsgError", NULL);
+      if (isset($_COOKIE["Codigo"])) {
+        unset($_COOKIE["Codigo"]);
+        setcookie("Codigo", null, -1, "/");
+      }
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
       unset($_SESSION["Nombres"]);
