@@ -1,6 +1,4 @@
-{exp:search:search_results}
-{embed="includes/head" keywords="{exp:search:total_results} resultados para {exp:search:keywords}"}
-{/exp:search:search_results}
+{embed="includes/head" keywords="{super_search_total_results} resultados para {super_search_keywords}"}
 {exp:webservices:iniciar_session}
   
 {embed="includes/header-docentes"}
@@ -25,44 +23,61 @@
             <div class="col-sm-0-5"></div>
             <div class="col-sm-3 que-buscas">
               <span class="zizou-26">¿Qué buscas?</span>
-              {exp:search:simple_form form_class="clearfix" sort_by="date" channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" result_page="buscar-docentes/index" no_result_page="buscar-docentes/no-results" status="Docente"}
-              <input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco...">
-              <!--<button type="button" class="btn btn-custom black-btn" id="buscar-phr">BUSCAR</button>-->
-              <input type="submit" value="BUSCAR" id="search-nh-submit" class="submit btn btn-custom black-btn full-width">
-              {/exp:search:simple_form}
+                <form method="post" action="{site_url}index.php/buscar-docentes/result">
+                <input type="hidden" name="csrf_token" value="{csrf_token}" /> <!-- Important! -->
+                <input type="hidden" name="XID" value="{XID_HASH}">
+           
+               
+                    <input type="search" name="keywords" id="keywords" value="{super_search_keywords}"  size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco..."/>
+
+                    <input type="submit" name="submit" value="BUSCAR" class="submit btn full-width btn-custom black-btn"/>
+             
+            </form>
             </div>  
             <div class="col-sm-8 resultados">
-              <p class="zizou-26 encontrado">Se han encontrado <span id="query_results"></span> resultados para <span class="black-text">"{exp:search:keywords}"</span></p>
+              <p class="zizou-26 encontrado">Se han encontrado <span id="query_results">{super_search_total_results}</span> resultados para <span class="black-text">"{super_search_keywords}"</span></p>
               <div class="resultados-busqueda red-line bg-muted">
-                {exp:search:search_results}
-  	              {if buscar_docentes_referencia=='si'}
-  		              <div class="panel-body p-14 result_query">
-  		                <div class="solano-bold-20 black-text">{title}</div>   
-  		                <div class="helvetica-16">
-  		                  {if intrudccion-referencia}
-  		                  	{intrudccion-referencia}
-  		                  {/if}
-  		                  {if intro-noticia}
-  		                  	{intro-noticia}
-  		                  {/if}
-  		                </div>     
-  		                {if link-referencia}
-  		                  {if tipo-referencia=='Socrates'}
-  		                  <a class="danger-link zizou-16" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
-  		                  {/if} 
-  		                  {if tipo-referencia=='Externa'}
-  		                  <a class="sb-link zizou-16" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
-  		                  {/if}   
-  		                {/if} 
-  		                {paginate}
-  		                  <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-  		                {/paginate}
-  		              </div>
-  		              {if count != total_results}
-  		              <div class="dotted-line"></div>
-  		              {/if}
-  	              {/if}
-                {/exp:search:search_results}                
+                
+                  {exp:super_search:results
+                      paginate="both" channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title|body" where="any" keyword_search_author_name="yes" keyword_search_category_name="yes" relevance_proximity="yes" status="Docente"
+                      limit="10"
+                  }
+                        {if super_search_no_results}
+                           <div class="panel-body p-14 ">
+                               <div class="helvetica-16">
+                                  Por favor, ingrese una nueva búsqueda.
+                               </div>
+                            </div>
+                        {/if}
+                   {if buscar_docentes_referencia =='si'}
+                    <div class="panel-body p-14 result_query">
+                      <div class="solano-bold-20 black-text">{title}</div>   
+                      <div class="helvetica-16">
+                        {if intrudccion-referencia}
+                          {intrudccion-referencia}
+                          
+                        {/if}
+                        {if intro-noticia}
+                          {intro-noticia}
+                        {/if}
+                      </div>     
+                      {if link-referencia}
+                        {if tipo-referencia=='Socrates'}
+                        <a class="danger-link zizou-16" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+                        {/if} 
+                        {if tipo-referencia=='Externa'}
+                        <a class="sb-link zizou-16" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
+                        {/if}   
+                      {/if} 
+                      {paginate}
+                        <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+                      {/paginate}
+                    </div>
+                      {if count != total_results}
+                      <div class="dotted-line"></div>
+                      {/if}
+                    {/if}
+                  {/exp:super_search:results}         
               </div>
             </div>
           </div>

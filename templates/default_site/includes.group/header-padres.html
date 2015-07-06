@@ -36,13 +36,16 @@
 	        </li> 
 					<li class="ml-21 mr-21 pt-7">
 			    <!-- inicio BUSQUEDA -->
-					  {exp:search:simple_form channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre" result_page="buscar-padres/index" no_result_page="buscar-padres/no-results"}
+					
 					  <div class="search-bar hidden">
-					    <input type="text-muted" name="keywords" id="keywords" value="" size="18" maxlength="100" class="zizou-thin-12 form-control" placeholder="Introduce tu búsqueda">
-					    <input type="submit" value="submit" id="search-submit" class="hidden submit">
-					    <span>&nbsp;</span>
+					      <form method="post" action="{site_url}index.php/buscar-padres/result">
+		                    <input type="hidden" name="csrf_token" value="{csrf_token}" /> <!-- Important! -->
+		                    <input type="hidden" name="XID" value="{XID_HASH}">
+		                    <input type="text-muted" name="keywords" id="keywords" value="" size="18" value="{super_search_keywords}" maxlength="100" class="zizou-thin-12 form-control" placeholder="Introduce tu búsqueda">
+		                    <input type="submit" value="submit" id="search-submit" class="hidden submit">
+		                    <span>&nbsp;</span>
+		                  </form>
 					  </div>
-					  {/exp:search:simple_form}
 	  		  <!-- fin BUSQUEDA -->
 					</li>
 				</ul>
