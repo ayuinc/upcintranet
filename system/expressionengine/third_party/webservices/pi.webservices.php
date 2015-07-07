@@ -78,16 +78,18 @@ class Webservices
       curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1); 
       $result=curl_exec($ch);
       $json = json_decode($result, true);
-      setcookie("MsgError", $json['MsgError'], time() + (1800), "/");
       $_SESSION["CodError"] = $json['CodError'];
       $_SESSION["MsgError"] = $json['MsgError'];      
+      $cookie_name = "MsgError";
+      $cookie_value = $json["MsgError"];
+      setcookie($cookie_name, $cookie_value, time() + (1800), "/");
       if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
       	$site_url = ee()->config->item('site_url');
       	$site_url .= 'login/error_login';
         redirect($site_url);
       }
       else {
-        ee()->db->select('*');
+        ee()->db->select('id');
         ee()->db->where('codigo',$codigo);
         $query_modelo_result = ee()->db->get('exp_user_upc_data');
         if($query_modelo_result->result() == NULL){
@@ -176,45 +178,48 @@ class Webservices
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
     
     public function consultar_alumno(){
-      //$codigo = $_SESSION["Codigo"];
-      $codigo =  $_COOKIE["Codigo"];
+      $codigo = $_SESSION["Codigo"];
       $_COOKIE["Codigo"] =  $codigo;
       setcookie("Codigo",$codigo, time() + (1800), "/");
-      
-      ee()->db->select('*');
+      ee()->db->select('TipoUser, Token');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      $TipoUser = '';
+      $token = '';
       foreach($query_modelo_result->result() as $row){
-        $TipoUser = $row->tipouser;
-        $token = $row->token;
+        $TipoUser = $row->TipoUser;
+        $token = $row->Token;
       }    
       $result = '';
+
       if (strval($TipoUser)=='ALUMNO') {
-        if(strcmp($_COOKIE["Redireccion"], "")!=0 ){
-          $result .= '{redirect="'.$_COOKIE["Redireccion"].'" status_code="301"}';
-        }else{
+        if (isset($_COOKIE["Redireccion"])) {
+          if(strcmp($_COOKIE["Redireccion"], "")!=0 ){
+            $result .= '{redirect="'.$_COOKIE["Redireccion"].'" status_code="301"}';
+          }
+          else {
+            $result .= '{redirect="dashboard/estudiante" status_code="301"}';
+          }
+        }
+        else{
           $result .= '{redirect="dashboard/estudiante" status_code="301"}';
         }
         return $result;     
       }   
       
       if (strval($TipoUser)=='PROFESOR') {
-        if(strcmp($_COOKIE["Redireccion"], "")!=0){
-          $result .= '{redirect="'.$_COOKIE["Redireccion"].'" status_code="301"}';
-        }else{
+        if (isset($_COOKIE["Redireccion"])) {
+          if(strcmp($_COOKIE["Redireccion"], "")!=0){
+            $result .= '{redirect="'.$_COOKIE["Redireccion"].'" status_code="301"}';
+          }
+          else{
+            $result .= '{redirect="dashboard/docente" status_code="301"}';
+          }
+        }
+        else{
           $result .= '{redirect="dashboard/docente" status_code="301"}';
         }
-        return $result;  
-        // $result .= '<div class="col-sm-4 col-xs-2"></div>';
-        // $result .= '<div class="col-sm-4 col-xs-8 welcome">';
-        // $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-responsive img-center" src="{site_url}assets/img/user_ie8_info.png" alt=""></div><div class="zizou-28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
-        // $result .= '<div class="zizou-18 text-center gray-light">Elige el perfil que deseas utilizar</div>';
-        // $result .= '<div class="pt-35 pl-21 zizou-16">';
-        // $result .= '<a href="{site_url}dashboard/docente">';
-        // $result .= '<img class="pr-7" src="{site_url}assets/img/red_arrow_normal_tiny.png">Ingrese como Profesor';
-        // $result .= '</a>';
-        // $result .= '</div>';
-          
+        return $result;            
       }
       
       if (strval($TipoUser)=='PADRE') {
@@ -4926,6 +4931,14 @@ class Webservices
         unset($_COOKIE["Codigo"]);
         setcookie("Codigo", null, -1, "/");
       }
+      if (isset($_COOKIE["TipoUser"])) {
+        unset($_COOKIE["TipoUser"]);
+        setcookie("TipoUser", null, -1, "/");
+      }
+      if (isset($_COOKIE["Token"])) {
+        unset($_COOKIE["Token"]);
+        setcookie("Token", null, -1, "/");
+      }
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
       unset($_SESSION["Nombres"]);
@@ -4937,11 +4950,10 @@ class Webservices
       unset($_SESSION["Token"]);
       unset($_SESSION["CodError"]);
       unset($_SESSION["MsgError"]);
-      unset($_SESSION["Redireccion"]);
-      unset($_COOKIE["Codigo"]);        
+      unset($_SESSION["Redireccion"]);       
       session_destroy();
-	$site_url = ee()->config->item('site_url');
-        redirect($site_url);
+	    $site_url = ee()->config->item('site_url');
+      redirect($site_url);
     }
     
         

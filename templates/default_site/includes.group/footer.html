@@ -228,5 +228,16 @@
   		}
   		
 	</script>
+	<script>
+      window.addEventListener('load', function() {
+        var aCollection = document.getElementsByTagName("a");
+        for (var i = 0; i <= aCollection.length - 1; i++) {
+          var currentId = aCollection[i].id;
+          var newId = currentId.replace(/ /g, "");
+          aCollection[i].id = newId;
+          console.log(newId);
+        };
+      });
+    </script>
  </body> 
 </html>

@@ -10,15 +10,15 @@
           </div>
           <div class="pull-right pr-14 pt-7">
             <ul class="list-unstyled">
-              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a id="lnk_ext_Portal" class="black-link" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a id="lnk_ext_Servicios" class="black-link" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a id="lnk_ext_Blogs" class="black-link" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
             </ul>
           </div>
         </div>
         <div class="header-no-global">
           <div class="inicio">
-            <a href="{exp:webservices:boton_inicio}">
+            <a id="lnk_int_Inicio" href="{exp:webservices:boton_inicio}">
               <div class="inicio-icon"></div>
               <span>Inicio</span>
             </a>
@@ -26,7 +26,7 @@
           <div class="pull-left">
             <ul>
               <li class="ml-21 mr-21 pt-7">
-                <a class="text-muted" href="https://www.outlook.com/upc.edu.pe" target="_blank">
+                <a id="lnk_ext_Correo" class="text-muted" href="https://www.outlook.com/upc.edu.pe" target="_blank">
                   <div class="text-center">
                     <img src="{site_url}/assets/img/white_mail.png" class="block mb-7" alt="">
                     <span class="text-muted">Correo</span>
@@ -34,7 +34,7 @@
                 </a>
               </li>
               <li class="ml-21 mr-21">
-                <a class="text-muted" href="https://aulavirtual.upc.edu.pe" target="_blank">
+                <a id="lnk_ext_AulaVirtual" class="text-muted" href="https://aulavirtual.upc.edu.pe" target="_blank">
                   <div class="text-center">
                     <img src="{site_url}/assets/img/aula_virtual.png" class="block mb-7" alt="">
                     <span class="text-muted">Aula Virtual</span>
@@ -42,7 +42,7 @@
                 </a>
               </li>
               <li class="ml-21 mr-21 pt-3">
-                <a class="text-muted" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=669" target="_blank">
+                <a id="lnk_ext_Impresiones" class="text-muted" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=669" target="_blank">
                   <div class="text-center">
                     <img src="{site_url}/assets/img/print_new.png" class="block mb-7" alt="">
                     <span class="text-muted">Impresiones</span>
@@ -62,7 +62,7 @@
                     <input type="hidden" name="csrf_token" value="{csrf_token}" /> <!-- Important! -->
                     <input type="hidden" name="XID" value="{XID_HASH}">
                     <input type="text-muted" name="keywords" id="keywords" value="" size="18" value="{super_search_keywords}" maxlength="100" class="zizou-thin-12 form-control" placeholder="Introduce tu búsqueda">
-                    <input type="submit" value="submit" id="search-submit" class="hidden submit">
+                    <input id="btn_int_Buscar" type="submit" value="submit" id="search-submit" class="hidden submit">
                     <span>&nbsp;</span>
                   </form>
                 </div>
@@ -80,16 +80,16 @@
             <div class="dropdown avatar pt-7 pull-left">
               <div class="dropdown-toggle relative" id="dropdownMenu1" data-toggle="dropdown">
                 <div id="ie-avatar"></div> 
-                <img class="absolute" src="{site_url}assets/img/white_arrow_down.png" alt="">
+                <img id="develar_opciones_usuario" class="absolute" src="{site_url}assets/img/white_arrow_down.png" alt="">
               </div>
               <ul class="dropdown-menu" role="menu">
-                <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil">Mis Datos</a></li>
+                <li class="dditem ddmain" role="presentation"><a id="lnk_int_MisDatos" role="menuitem" tabindex="-1" href="{site_url}perfil">Mis Datos</a></li>
                 <li role="presentation" class="divider"></li>
-                <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}?utm_source=opciones_usuario_cambiar_perfil&utm_medium=link&utm_campaign=opciones_usuario_ultranet">Cambiar de Perfil</a></li>
+                <li class="dditem ddmain" role="presentation"><a id="lnk_int_CambiarPerfil" role="menuitem" tabindex="-1" href="{site_url}?utm_source=opciones_usuario_cambiar_perfil&utm_medium=link&utm_campaign=opciones_usuario_ultranet">Cambiar de Perfil</a></li>
                 <li  role="presentation" class="divider"></li>
-                <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Ver Tutorial</a></li>
+                <li class="dditem ddmain" role="presentation"><a id="lnk_int_VerTutorial" role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Ver Tutorial</a></li>
                 <li role="presentation" class="divider"></li>
-                <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
+                <li class="dditem ddmain" role="presentation"><a id="lnk_int_CerrarSesion" role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
               </ul>
             </div>
           </div>
