@@ -37,17 +37,19 @@
               </div>  
               <div class="col-sm-8 resultados">
                 <p class="zizou-26 encontrado">Se han encontrado 
-                  <span id="">{super_search_total_results}</span> resultados para <span class="black-text">"{super_search_keywords}"</span>  </p>
+                  <span id="total-results"></span> resultados para <span class="black-text">"{super_search_keywords}"</span>  </p>
                 <div class="resultados-busqueda red-line bg-muted">
                   <script>
                     ga('send', 'pageview', '/buscar?q={exp:search:keywords}');
                   </script>
 
-
+                  <script >
+                        var count = 0;
+                  </script>
 
                   {exp:super_search:results
-                      paginate="both" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|" search_in="title|body" where="any" keyword_search_author_name="yes" keyword_search_category_name="yes" relevance_proximity="yes" status="Estudiante"
-                      limit="10"
+                       search_in="title|intrudccion-referencia|intro-noticia" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|" where="any" relevance_proximity="yes" status="open"  keyword_search_author_name="yes" keyword_search_category_name="yes" 
+                     
                   }
                         {if super_search_no_results}
                            <div class="panel-body p-14 ">
@@ -58,7 +60,10 @@
                         {/if}
                     {if buscar_alumnos_referencia=='si'}
                       <div class="panel-body p-14 result_query">
-                        <div class="solano-bold-20 black-text">{count}.&nbsp;{title}</div>   
+
+                        <div class="solano-bold-20 black-text">
+                          <span id="search-count"></span>.&nbsp;{title}
+                        </div>   
                         <div class="helvetica-16">
                           {if intrudccion-referencia}
                             {intrudccion-referencia}
@@ -75,11 +80,9 @@
                           <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
                           {/if}   
                         {/if} 
-                        {paginate}
-                          <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-                        {/paginate}
+
                       </div>
-                      {if count != total_results}
+                      {if count != super_search_total_results}
                       <div class="dotted-line"></div>
                       {/if}
                     {/if}
@@ -89,4 +92,20 @@
               </div>
             </div>
           </div>
+
+          <script>
+        
+          $(document).ready(function($) {
+            counter = 0;
+            $('#total-results').html($('.result_query').length);
+
+            $('.result_query #search-count').each(function() {
+              counter = counter + 1;
+              $(this).html(counter);
+            });
+            if($('.result_query').length == 0){
+              $('.resultados-busqueda').html('<div class="panel-body p-14 "><div class="helvetica-16">Por favor, ingrese una nueva búsqueda.</div></div>');
+            }
+          });
+          </script>
   {embed="includes/footer"}   

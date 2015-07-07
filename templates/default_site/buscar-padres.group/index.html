@@ -35,12 +35,13 @@
             </form>
             </div>  
             <div class="col-sm-8 resultados">
-              <p class="zizou-26 encontrado">Se han encontrado <span id="query_results">{super_search_total_results}</span> resultados para <span class="black-text">"{super_search_keywords}"</span></p>
+             <p class="zizou-26 encontrado">Se han encontrado 
+                  <span id="total-results"></span> resultados para <span class="black-text">"{super_search_keywords}"</span>  </p>
               <div class="resultados-busqueda red-line bg-muted">
 
                   {exp:super_search:results
-                      paginate="both" channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title|body" where="any" keyword_search_author_name="yes" keyword_search_category_name="yes" relevance_proximity="yes" status="Padres"
-                      limit="10"
+                      channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title|intrudccion-referencia|intro-noticia"  where="any" keyword_search_author_name="yes" keyword_search_category_name="yes" relevance_proximity="yes" status="Padres"
+                     
                   }
                         {if super_search_no_results}
                            <div class="panel-body p-14 ">
@@ -51,7 +52,9 @@
                         {/if}
                    {if buscar_padres_referencia=='si'}
                     <div class="panel-body p-14 result_query">
-                      <div class="solano-bold-20 black-text">{title}</div>   
+                      <div class="solano-bold-20 black-text">
+                        <span id="search-count"></span>.&nbsp;{title}
+                      </div>    
                       <div class="helvetica-16">
                         {if intrudccion-referencia}
                           {intrudccion-referencia}
@@ -69,9 +72,6 @@
                         <a class="sb-link zizou-16" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
                         {/if}   
                       {/if} 
-                      {paginate}
-                        <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
-                      {/paginate}
                     </div>
                       {if count != total_results}
                       <div class="dotted-line"></div>
@@ -84,4 +84,20 @@
         </div>
       </div>
     </div>
+          <script>
+          counter = 0;
+          $(document).ready(function($) {
+            $('#total-results').html($('.result_query').length);
+
+            $('.result_query #search-count').each(function() {
+              counter = counter + 1;
+              $(this).html(counter);
+            });
+            if($('.result_query').length == 0){
+              $('.resultados-busqueda').html('<div class="panel-body p-14 "><div class="helvetica-16">Por favor, ingrese una nueva búsqueda.</div></div>');
+            }
+
+
+          });
+          </script>
 {embed="includes/footer"}
