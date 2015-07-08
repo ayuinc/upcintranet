@@ -192,6 +192,11 @@ class Webservices
       }    
       $result = '';
 
+      $_COOKIE["TipoUser"] =  $TipoUser;
+      setcookie("TipoUser",$TipoUser, time() + (1800), "/");
+      $_COOKIE["Token"] =  $token;
+      setcookie("Token",$token, time() + (1800), "/");
+
       if (strval($TipoUser)=='ALUMNO') {
         if (isset($_COOKIE["Redireccion"])) {
           if(strcmp($_COOKIE["Redireccion"], "")!=0 ){
