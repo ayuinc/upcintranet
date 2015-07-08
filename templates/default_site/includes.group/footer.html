@@ -230,13 +230,18 @@
 	</script>
 	<script>
       window.addEventListener('load', function() {
-        var aCollection = document.getElementsByTagName("a");
-        for (var i = 0; i <= aCollection.length - 1; i++) {
-          var currentId = aCollection[i].id;
-          var newId = currentId.replace(/ /g, "");
-          aCollection[i].id = newId;
-          console.log(newId);
-        };
+        function deleteIdSpaces(tag) {
+        	var collection = document.getElementsByTagName(tag);
+	        for (var i = 0; i <= collection.length - 1; i++) {
+	          var currentId = collection[i].id;
+	          var newId = currentId.replace(/ /g, "");
+	          collection[i].id = newId;
+	          console.log(newId);
+	        };
+        }
+
+        deleteIdSpaces("a");
+        deleteIdSpaces("img");
       });
     </script>
  </body> 

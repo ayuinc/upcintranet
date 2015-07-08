@@ -192,6 +192,12 @@ class Webservices
       }    
       $result = '';
 
+      $_COOKIE["TipoUser"] =  $TipoUser;
+      setcookie("TipoUser",$TipoUser, time() + (1800), "/");
+      
+      $_COOKIE["Token"] =  $token;
+      setcookie("Token",$token, time() + (1800), "/");
+
       if (strval($TipoUser)=='ALUMNO') {
         if (isset($_COOKIE["Redireccion"])) {
           if(strcmp($_COOKIE["Redireccion"], "")!=0 ){
@@ -1280,7 +1286,7 @@ class Webservices
           
           $result .= '<div class="borderless text-center"><span>'.$nota.'</span></div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="red zizou-12"><img class="mr-7" src="{site_url}assets/img/red_eye.png">Mostrar</span></div></li>';
+          $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="red zizou-12"><img id="develar_Curso'.$json['Inasistencias'][$i]['CursoNombre'].'" class="mr-7" src="{site_url}assets/img/red_eye.png">Mostrar</span></div></li>';
           $result .= '</ul>';
         }
       }     
@@ -1801,7 +1807,7 @@ class Webservices
       
       $result .= '<ul class="tr">';
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<a data-curso-id="'.$i.'" class="curso-link">';
+        $result .= '<a id="lnk_int_'. $json['Inasistencias'][$i]['CursoNombre'] .'" data-curso-id="'.$i.'" class="curso-link">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
         $result .= '<span class="zizou-16 col-sm-1 pr-0 pl-0">';
         $result .= '<img  src="{site_url}assets/img/black_arrow_tiny.png">';
@@ -2141,7 +2147,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black-text go-to-top text-right" href="#top">';
+        $result .= '<a id="lnk_int_RegresarListaCursos" class="black-text go-to-top text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
@@ -3723,7 +3729,7 @@ class Webservices
           $result .= '</ul>';
         }
       }
-      $result .= '<a class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">';  
+      $result .= '<a id="lnk_ext_CancelarReserva" class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">';  
       $result .= '<div class="zizou-18 pl-14 pb-14">Ir a Cancelar Reserva</div></a>';        
       $result .= '</div>';  
       $result .= '</div>'; 
@@ -3737,10 +3743,10 @@ class Webservices
         $result .= '</li>';
         if ($error_mensaje == "No se han registrado reservas durante esta semana.") {
           if ($_COOKIE["TipoUser"] =='ALUMNO') {
-            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a></p></li>';         
+            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a id="lnk_ext_Cubiculos" href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a id="lnk_ext_Computadoras" href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a id="lnk_ext_EspaciosDeportivos" href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a></p></li>';         
           } 
           if ($_COOKIE["TipoUser"] =='PROFESOR') {
-            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
+            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a id="lnk_ext_CubiculosComputadoras" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a id="lnk_ext_EspaciosDeportivos" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
           } 
         } else {
         $result .= '<li class="col-sm-8 pt-28 pr-21 pl-21"><p class="helvetica-14">'.$error_mensaje.'</p></li>'; 
@@ -4938,6 +4944,10 @@ class Webservices
       if (isset($_COOKIE["Token"])) {
         unset($_COOKIE["Token"]);
         setcookie("Token", null, -1, "/");
+      }
+      if (isset($_COOKIE["Redireccion"])) {
+        unset($_COOKIE["Redireccion"]);
+        setcookie("Redireccion", null, -1, "/");
       }
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
