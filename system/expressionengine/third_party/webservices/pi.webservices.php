@@ -923,7 +923,7 @@ class Webservices
         $result .= '</div>'; 
         $result .= '<div class="panel-body red-line mb-7">';
         $result .= '<div class="panel-body-head-table white">'; 
-        $result .= '<ul class="tr">'; 
+        $result .= '<ul class="tr text-center">'; 
         $result .= '<li class="col-sm-1-5  hidden-xs">'; 
         $result .= '<div><span>Inicio</span></div>'; 
         $result .= '</li>'; 
@@ -1539,9 +1539,9 @@ class Webservices
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-8 helvetica-14">';
+        $result .= '<li class="col-xs-8 helvetica-14 pl-7">';
         $result .= '<div>';
-        $result .= '<span class="pr-7 pl-7">'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+        $result .= '<span class="pr-7">'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
