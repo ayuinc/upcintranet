@@ -1,28 +1,10 @@
 {embed="includes/head"}
+<script src="{site_url}js/app/vendor/jquery.validate.min.js"></script>
 <script src="{site_url}js/app/src/global.js"></script>
-{if post:contrasena}
-	{exp:webservices:iniciar_session}
-	{exp:webservices:generador_token codigo="{post:codigo}" contrasena="{post:contrasena}" plataforma="{post:plataforma}"}
-	{embed="includes/header-global-only"}
-
-	<div class="site-content login">
-		<div class="container-fluid">
-		  <div class="section-content pb-70">
-			  <div class="row">
-				   		{exp:webservices:consultar_alumno}
-			  </div>
-		  </div>
-		</div>
-	</div>
-	<script src="{site_url}js/app/src/login.js"></script>
-{if:else}
-	{redirect="/"}
-{/if}
-
 <script>
     function delCokkies (){
         var cookies = document.cookie.split(";");
- 
+
         for (var i = 0; i < cookies.length; i++) {
             var cookie = cookies[i];
             var eqPos = cookie.indexOf("=");
@@ -40,10 +22,28 @@
         }
         return "";
     }
- 	var cookie = getCookie("onLogin");
-	if(cookie !="true"){
-	 	delCokkies();    
-		$(location).attr('href',"/");
-	}
+    var cookie = getCookie("onLogin");
+    if(cookie !="true"){
+        delCokkies();    
+        $(location).attr('href',"/");
+    }
 
 </script>
+{if post:contrasena}
+    {exp:webservices:iniciar_session}
+    {exp:webservices:generador_token codigo="{post:codigo}" contrasena="{post:contrasena}" plataforma="{post:plataforma}"}
+    {embed="includes/header-global-only"}
+
+<div class="site-content login">
+    <div class="container-fluid">
+        <div class="section-content pb-70">
+            <div class="row">
+                {exp:webservices:consultar_alumno}
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{site_url}js/app/src/login.js"></script>
+{if:else}
+    {redirect="{site_url}"}
+{/if}
