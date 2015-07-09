@@ -10,15 +10,15 @@
           </div>
           <div class="pull-right pr-14 pt-7">
             <ul class="list-unstyled">
-              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a id="lnk_ext_PortalDocentes" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a id="lnk_ext_ServiciosDocentes" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
+              <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a id="lnk_ext_BlogsDocentes" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
             </ul>
           </div>
         </div>
         <div class="header-no-global">
           <div class="inicio">
-            <a href="{exp:webservices:boton_inicio}">
+            <a id="lnk_int_InicioDocentes" href="{exp:webservices:boton_inicio}">
               <div class="inicio-icon"></div>
               <span>Inicio</span>
             </a>
@@ -26,7 +26,7 @@
           <div class="pull-left">
             <ul>
               <li class="ml-21 mr-21 pt-7">
-                <a class="text-muted" href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
+                <a id="lnk_ext_CorreoDocentes" class="text-muted" href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
                   <div class="text-center">
                     <img src="{site_url}/assets/img/white_mail.png" class="block mb-7" alt="">
                     <span class="text-muted">Correo</span>
@@ -34,7 +34,7 @@
                 </a>
               </li>
               <li class="ml-21 mr-21">
-                <a class="text-muted" href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
+                <a id="lnk_ext_AulaVirtualDocentes" class="text-muted" href="http://www.upc.edu.pe/acerca-de-upc/servicios/aula-virtual" target="_blank">
                   <div class="text-center">
                     <img src="{site_url}/assets/img/aula_virtual.png" class="block mb-7" alt="">
                     <span class="text-muted">Aula Virtual</span>
@@ -42,7 +42,7 @@
                 </a>
               </li>
               <li class="ml-21 mr-21 pt-3">
-                <a class="text-muted" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=669" target="_blank">
+                <a id="lnk_ext_ImpresionesDocentes" class="text-muted" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=669" target="_blank">
                   <div class="text-center">
                     <img src="{site_url}/assets/img/print_new.png" class="block mb-7" alt="">
                     <span class="text-muted">Impresiones</span>
@@ -50,7 +50,7 @@
                 </a>
               </li>
               <li class="ml-21 mr-21">
-                <div class="search-trigger">
+                <div id="btn_int_BuscarDocentes" class="search-trigger">
                   <img src="{site_url}assets/img/search_white.png" class="block">
                   <span>&nbsp;</span>
                 </div>
@@ -79,16 +79,16 @@
             <div class="dropdown pt-7 inline-block">
               <div class="dropdown-toggle relative" id="dropdownMenu1" data-toggle="dropdown">
                 <div id="ie-avatar"></div> 
-                <img class="absolute" src="{site_url}assets/img/white_arrow_down.png" alt=""> 
+                <img id="lnk_int_UsuarioDocente" class="absolute" src="{site_url}assets/img/white_arrow_down.png" alt=""> 
               </div>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}perfil-docente">Mi Perfil</a></li>
+                <li class="dditem ddmain" role="presentation"><a id="lnk_int_PerfilDocente" role="menuitem" tabindex="-1" href="{site_url}perfil-docente">Mi Perfil</a></li>
                 <li role="presentation" class="divider"></li>
-                <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" href="#">Cambiar a Docente</a></li>
+                <li class="dditem ddmain" role="presentation"><a id="lnk_int_CambiarDocente" role="menuitem" tabindex="-1" href="#">Cambiar a Docente</a></li>
                 <li  role="presentation" class="divider"></li>
-                <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Ver Tutorial</a></li>
+                <li class="dditem ddmain" role="presentation"><a id="lnk_int_VerTutorialDocente" role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Ver Tutorial</a></li>
                 <li role="presentation" class="divider"></li>
-                <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
+                <li class="dditem ddmain" role="presentation"><a id="lnk_int_CerrarSesion" role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
               </ul>
             </div>
           </div>
