@@ -69,7 +69,7 @@ class Webservices
       $contrasena = ee()->TMPL->fetch_param('contrasena');
       $plataforma = ee()->TMPL->fetch_param('plataforma');
       $contrasena = urlencode($contrasena);
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -228,8 +228,7 @@ class Webservices
       }
       
       if (strval($TipoUser)=='PADRE') {
-
-        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+        $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -274,7 +273,7 @@ class Webservices
         $token = $row->token;
       }
       $result = '';
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -308,7 +307,7 @@ class Webservices
         $token = $row->token;
       }
       $result = '';
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -342,7 +341,7 @@ class Webservices
         $token = $row->token;
       }
       $result = '';
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -376,7 +375,7 @@ class Webservices
         $token = $row->token;
       }
       $result = '';
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -410,7 +409,7 @@ class Webservices
         $token = $row->token;
       }
       $result = '';
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -451,7 +450,7 @@ class Webservices
 
       $result = '';
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -575,7 +574,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -730,7 +729,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/HorarioPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/HorarioPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -881,7 +880,7 @@ class Webservices
         $token = $row->token;
       }
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1045,16 +1044,12 @@ class Webservices
         $token = $row->token;
       }
 
-
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/HorarioPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
-      //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
-      //var_dump($url);
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/HorarioPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -1194,7 +1189,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1262,7 +1257,7 @@ class Webservices
           $codcurso = $json['Inasistencias'][$i]['CodCurso'];
           
           //Loop interno para calcular notas segun curso
-          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+          $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1337,16 +1332,12 @@ class Webservices
         $token = $row->token;
       }
 
-      
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
-      //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
-      //var_dump($url);
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -1375,9 +1366,7 @@ class Webservices
         $codcurso = $json['Inasistencias'][$i]['CodCurso'];
         
         //Loop interno para calcular notas segun curso
-        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&CodCurso='.$codcurso.'&Token='.$token;
-        //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token=1'.$token.'&CodCurso='.$codcurso;
-        
+        $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/NotaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&CodCurso='.$codcurso.'&Token='.$token;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1436,7 +1425,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codalumno.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codalumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1520,7 +1509,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1547,9 +1536,9 @@ class Webservices
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
 
           $codcurso = $json['Inasistencias'][$i]['CodCurso'];
-          
+
           //Loop interno para calcular notas segun curso
-          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+          $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1606,14 +1595,13 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-      //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/CursoAlumnoPadre/?Codigo=UFSANGAR10&CodAlumno=U201321137&Token=af0b422650d743d5b5e2e24d785ebb5c20140325114353 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/CursoAlumnoPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/CursoAlumnoPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -1637,7 +1625,7 @@ class Webservices
           $codcurso = $json['Cursos'][$i]['CodCurso'];
           
           //Loop interno para calcular notas segun curso
-          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaPadre/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+          $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/NotaPadre/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1696,10 +1684,8 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-      
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadres/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
-      //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
 
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1728,9 +1714,7 @@ class Webservices
           $codcurso = $json['Inasistencias'][$i]['CodCurso'];
           
           //Loop interno para calcular notas segun curso
-          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&CodCurso='.$codcurso.'&Token='.$token;
-          //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
-          
+          $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/NotaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&CodCurso='.$codcurso.'&Token='.$token;
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1790,7 +1774,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1851,13 +1835,12 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/CursoAlumnoPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/CursoAlumnoPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -1924,7 +1907,7 @@ class Webservices
         $token = $row->token;
       }
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1955,7 +1938,7 @@ class Webservices
           $codcurso = $json['Inasistencias'][$i]['CodCurso'];
           
           //Loop interno para calcular notas segun curso
-          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+          $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2002,8 +1985,7 @@ class Webservices
         $token = $row->token;
       }
 
-      
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2031,9 +2013,9 @@ class Webservices
         $result .= '</div>';
         
         $codcurso = $json['Inasistencias'][$i]['CodCurso'];
-        
+
         //Loop interno para calcular notas segun curso
-        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+        $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2190,10 +2172,7 @@ class Webservices
         $token = $row->token;
       }
 
-      
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
-      //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaPadre/?Codigo=UFSANGAR10&CodAlumno=U201110028&CodCurso=CO18&Token=af0b422650d743d5b5e2e24d785ebb5c20140325114353
-      //var_dump($url);
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2223,16 +2202,14 @@ class Webservices
         $result .= '</div>';
         
         $codcurso = $json['Inasistencias'][$i]['CodCurso'];
-        
+
         //Loop interno para calcular notas segun curso
-        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token.'&CodCurso='.$codcurso;
-        //var_dump($url);
+        $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/NotaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token.'&CodCurso='.$codcurso;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_URL,$url);
         $result_int=curl_exec($ch);
-        //var_dump($result_int);
         $json_int = json_decode($result_int, true);           
       
         //genera el tamano del array
@@ -2382,7 +2359,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/TramiteRealizado/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/TramiteRealizado/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2489,14 +2466,12 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/TramiteRealizadoPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
-      //var_dump($url);
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/TramiteRealizadoPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       
       //limpio la variable para reutilizarla
@@ -2596,7 +2571,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Companeros/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Companeros/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2622,7 +2597,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2660,8 +2635,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendientePadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
-      //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/PagoPendientePadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2697,7 +2671,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
       //var_dump($url);
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -2899,17 +2873,13 @@ class Webservices
            $token = $row->token;
          }
 
-         $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PagoPendientePadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
-         //var_dump($url);
+         $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/PagoPendientePadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
          $ch = curl_init($url);
          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
          curl_setopt($ch, CURLOPT_URL,$url);
          $result=curl_exec($ch);
-         //var_dump($result);
          $json = json_decode($result, true);
-         
-        
          
          if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
            
@@ -2925,7 +2895,6 @@ class Webservices
          } else {
            $result = '';
            for ($i=0; $i < count($json['PagosPendientes']); $i++) { 
-           // for ($i=0; $i < 5; $i++) { 
               $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
               $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 0,4);
               $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4);
@@ -3100,7 +3069,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -3140,7 +3109,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -3185,7 +3154,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -3262,13 +3231,12 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -3280,8 +3248,6 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
                 
         $tamano_int = count($json['HorarioDia'][$i]['Disponibles']);
-        
-        // $result .='<div class="row">';
         
         for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
           $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
@@ -3309,13 +3275,10 @@ class Webservices
             $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
             $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
             if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
-            $result .= '<div class="solano-bold-24 black-text">Sede: Complejo Alamos</div>';
+              $result .= '<div class="solano-bold-24 black-text">Sede: Complejo Alamos</div>';
             } else {
-            $result .= '<div class="solano-bold-24 black-text">Sede: Campus Villa</div>';
+              $result .= '<div class="solano-bold-24 black-text">Sede: Campus Villa</div>';
             }
-            // $a++;
-            // $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
-            // $a--;
             $result .= '<span class="zizou-16">';
             $result .= 'Fecha: '.$fecha.'<br>';
             $result .= '</span>';
@@ -3386,7 +3349,7 @@ class Webservices
         $token = $row->token;
       }
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ReservarED/?CodSede='.$codsede.'&CodED='.$coded.'&CodActiv='.$codactiv.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&Fecha='.$fecha.'&HoraIni='.$horaini.'&HoraFin='.$horafin.'&Detalles='.$detalles.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ReservarED/?CodSede='.$codsede.'&CodED='.$coded.'&CodActiv='.$codactiv.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&Fecha='.$fecha.'&HoraIni='.$horaini.'&HoraFin='.$horafin.'&Detalles='.$detalles.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -3471,16 +3434,12 @@ class Webservices
         $HoraFin = $HoraFin.'00';
       }
   
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local='.$CodSede.'&FecIni='.$fecini.'%20'.$HoraIni.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'%20'.$HoraFin.'&CodAlumno='.$codigo.'&Token='.$token;
-      //var_dump($url);
-      //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
-      //var_dump($url);
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local='.$CodSede.'&FecIni='.$fecini.'%20'.$HoraIni.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'%20'.$HoraFin.'&CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
@@ -3576,17 +3535,14 @@ class Webservices
         return "";
       }
       else { 
-        $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Reservar/?CodRecurso='.$codrecurso.'&NomRecurso='.$nomrecurso.'&CodAlumno='.$codigo.'&CanHoras='.$canhoras.'&fecIni='.$fecini.' '.$horaini.'&fecFin='.$fechafin.' '.$horafin.'&Token='.$token;
-        $url = str_replace(" ", "%20", $url);
 
-        //https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Reservar/?CodRecurso=3208&NomRecurso=COMPUTADORA 128 (SALA 2)&CodAlumno=U201121382&CanHoras=1&fecIni=07012015 1800&fecFin=08012015 1900&Token=2702b70d8b1942b38a51aceffd31acd520150107125348
+        $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Reservar/?CodRecurso='.$codrecurso.'&NomRecurso='.$nomrecurso.'&CodAlumno='.$codigo.'&CanHoras='.$canhoras.'&fecIni='.$fecini.' '.$horaini.'&fecFin='.$fechafin.' '.$horafin.'&Token='.$token;
+        $url = str_replace(" ", "%20", $url);
         $ch = curl_init($url);
-        //var_dump($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_URL,$url);
         $result=curl_exec($ch);
-        //var_dump($result);
         $json = json_decode($result, true);
 
         $error = $json['CodError'];
@@ -3653,14 +3609,12 @@ class Webservices
       $hoy = date('dmY');
       $unasemana = date('dmY',strtotime('+1 week'));
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ReservaAlumno/?FecIni='.$hoy.'&FechaFin='.$unasemana.'&CodAlumno='.$codigo.'&Token='.$token;
-      //var_dump($url);
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ReservaAlumno/?FecIni='.$hoy.'&FechaFin='.$unasemana.'&CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       
       $result = '';
@@ -3776,7 +3730,7 @@ class Webservices
         $token = $row->token;
       }
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -3802,13 +3756,12 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoCursosProfesor/?Codigo='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoCursosProfesor/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -3892,7 +3845,7 @@ class Webservices
         $token = $row->token;
       }
 
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoCursosProfesor/?Codigo='.$codigo.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoCursosProfesor/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -3977,7 +3930,7 @@ class Webservices
       $seccion = ee()->TMPL->fetch_param('seccion');
       $grupo = ee()->TMPL->fetch_param('grupo');
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoAlumnosProfesor/?Codigo='.$codigo.'&Token='.$token.'&Modalidad='.$modalidad.'&Periodo='.$periodo.'&Curso='.$curso.'&Seccion='.$seccion.'&Grupo='.$grupo;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoAlumnosProfesor/?Codigo='.$codigo.'&Token='.$token.'&Modalidad='.$modalidad.'&Periodo='.$periodo.'&Curso='.$curso.'&Seccion='.$seccion.'&Grupo='.$grupo;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -4052,7 +4005,7 @@ class Webservices
           $result .= '</span></p>';                 
           $result .= '<p class="m-0">';
           
-          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$json['Cursos'][$i]['alumnos'][$a]['codigo'].'&Token='.$token;
+          $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/InasistenciaProfesor/?Codigo='.$codigo.'&CodAlumno='.$json['Cursos'][$i]['alumnos'][$a]['codigo'].'&Token='.$token;
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -4134,7 +4087,7 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
+      // Por confirmar
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/HorarioProfesor/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -4236,7 +4189,7 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
+      // Por confirmar
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/HorarioProfesor/?Codigo='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -4397,7 +4350,7 @@ class Webservices
       $codcurso = ee()->TMPL->fetch_param('codcurso');
       $codalumno = ee()->TMPL->fetch_param('codalumno');      
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoAlumnosProfesor/?Codigo=PCSIJIPE&Token=2628581ed50d48a7bfd965e6c089ab1420140325103552&Modalidad=FC&Periodo=201400&Curso=IS157&Seccion=CB2B&Grupo=00';
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoAlumnosProfesor/?Codigo=PCSIJIPE&Token=2628581ed50d48a7bfd965e6c089ab1420140325103552&Modalidad=FC&Periodo=201400&Curso=IS157&Seccion=CB2B&Grupo=00';
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -4428,7 +4381,7 @@ class Webservices
       $codcurso = ee()->TMPL->fetch_param('cursoid');
       $nombrealumno = ee()->TMPL->fetch_param('nombrealumno');     
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codalumno.'&CodCurso='.$codcurso.'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/NotaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codalumno.'&CodCurso='.$codcurso.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -4592,7 +4545,7 @@ class Webservices
 
       $codcurso = ee()->TMPL->fetch_param('codcurso');
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&CodCurso='.strval ($codcurso).'&Token='.$token;
+      $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/Nota/?CodAlumno='.$codigo.'&CodCurso='.strval ($codcurso).'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -4890,7 +4843,7 @@ class Webservices
           redirect( $_COOKIE["Redireccion"]);
         }
         if ($tipouser == 'PADRE'){
-          $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+          $url = 'http://matriculadeso.upc.edu.pe/UPCMobile/UPCMobile.svc/ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
