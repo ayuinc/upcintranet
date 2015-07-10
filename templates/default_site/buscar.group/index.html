@@ -1,5 +1,5 @@
 
-  {exp:webservices:iniciar_session}
+  {exp:webservices:iniciar_session} 
   {embed="includes/head"}
   {embed="includes/header"}
   {embed="includes/header_movil"}
@@ -98,14 +98,16 @@
           $(document).ready(function($) {
             counter = 0;
             $('#total-results').html($('.result_query').length);
-
+            $("title").html($('.result_query').length + ' resultados para {exp:search:keywords}');
             $('.result_query #search-count').each(function() {
               counter = counter + 1;
               $(this).html(counter);
             });
             if($('.result_query').length == 0){
               $('.resultados-busqueda').html('<div class="panel-body p-14 "><div class="helvetica-16">Por favor, ingrese una nueva búsqueda.</div></div>');
+               
             }
+           
           });
           </script>
   {embed="includes/footer"}   

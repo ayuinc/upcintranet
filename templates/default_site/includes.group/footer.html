@@ -57,16 +57,6 @@
 		});
 
 		$(document).ready(function() {
-			$("#query_results").html($('.result_query').length);
-			title = $("title").html();
-			if (typeof title !== 'undefined') {
-				currentNumber = title.match(/\d+/);
-				if (currentNumber != null) {
-					if (currentNumber.length > 0) {
-						$("title").html(title.replace(currentNumber[0], $('.result_query').length));
-					};
-				};
-			};
 			
 			codActivities0 = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]; 
 			activities0 = [81,82,101,121,161,162,181,183,184,185,186,187,188,189,190];

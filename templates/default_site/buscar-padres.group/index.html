@@ -88,6 +88,7 @@
           counter = 0;
           $(document).ready(function($) {
             $('#total-results').html($('.result_query').length);
+            $("title").html($('.result_query').length + ' resultados para {exp:search:keywords}');
 
             $('.result_query #search-count').each(function() {
               counter = counter + 1;
