@@ -2063,19 +2063,19 @@ class Webservices
 
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-1 hidden-xs">';
-        $result .= '<div class="br-gl"><span>Tipo</span></div>';
+        $result .= '<div class="br-gl text-center"><span>Tipo</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-sm-2 hidden-xs">';
-        $result .= '<div class="br-gl"><span>Número</span></div>';
+        $result .= '<div class="br-gl text-center"><span>Número</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-sm-5 col-xs-8">';
-        $result .= '<div class="br-gl"><span>Evaluación</span></div>';
+        $result .= '<div class="br-gl text-center"><span>Evaluación</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-sm-2 col-xs-2">';
-        $result .= '<div class="br-gl"><span>Peso</span></div>';
+        $result .= '<div class="br-gl text-center"><span>Peso</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-sm-2 col-xs-2">';
-        $result .= '<div><span>Nota</span></div>';
+        $result .= '<div class="br-gl text-center"><span>Nota</span></div>';
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>'; 
