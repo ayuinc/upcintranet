@@ -55,14 +55,17 @@
 				}
 			}
 			&.info {
+
 				background-image:url("../assets/img/info_arrow_normal.png");
 				@media #{$md-down} {
 					background-image:url("../assets/img/info_arrow_normal_tiny.png");
+					background-size: cover;
 				}
 				&:hover {
 					background-image:url("../assets/img/info_arrow_hover.png");
 					@media #{$md-down} {
 						background-image:url("../assets/img/info_arrow_hover_tiny.png");
+						background-size: cover;
 					}
 				}
 			}

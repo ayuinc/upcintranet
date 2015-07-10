@@ -4167,6 +4167,7 @@ class Webservices
       
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);
+      $flag = TRUE;
       
       //Loop basado en el HorarioDia
       for ($i=0; $i<$tamano; $i++) {
@@ -4184,7 +4185,8 @@ class Webservices
           
           $tamano_2 = count($HoraInicio);
           $disponibles = 0;
-          for ($b=0; $b<=$tamano_1-1; $b++) {
+          for ($b=0; $b<=$tamano_1 -1 ; $b++) {
+              $flag = TRUE;
               $result .= '<ul class="tr">';
               $result .= '<li class="col-xs-2 helvetica-bold-14">';
               $result .= '<div class="text-center"><span>'.$HoraInicio[$b].':00</span></div>';
@@ -4205,17 +4207,38 @@ class Webservices
         $result .= '</div>'; 
       }
       
+      if($flag){
+        $result = '<div class="panel-body">';
+        $result .= '<div class="panel-table pb-7">';
+        $result .= '<ul class="tr">';
+        $result .= '<li class="col-xs-4 p-7">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-8 pt-28 pr-21">';
+        $result .= '<p class="zizou-bold-16 m-0">Tiempo de Innovar</p>';                
+        $result .= '<p class="helvetica-14">No tienes ningún curso el día de hoy</p>';                
+        $result .= '</li>';
+        $result .= '</ul>';
+        $result .= '</div>';
+        $result .= '</div>';
+
+      }
       //Control de errores
       if ($error!='00000') {
-        $result = '';
-        $result .= '<div class="panel-table">';
+        $result = '<div class="panel-body">';
+        $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12">';
-        $result .= '<div>'.$error_mensaje.'</div>';
-        $result .= '</li>';                
-        $result .= '</ul>';  
-        $result .= '</div>';     
+        $result .= '<li class="col-xs-4 p-7">';
+        $result .= '<img class="img-center" src="{site_url}assets/img/brain.png">';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-8 pt-28 pr-21">';
+        $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';                
+        $result .= '</li>';
+        $result .= '</ul>';
+        $result .= '</div>';
+        $result .= '</div>'; 
       } 
+
       
       return $result;              
     }    

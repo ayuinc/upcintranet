@@ -1,6 +1,6 @@
 
   {exp:webservices:iniciar_session}
-  {embed="includes/head" keywords="{super_search_total_results} resultados para {super_search_keywords}"}
+  {embed="includes/head"}
   {embed="includes/header"}
   {embed="includes/header_movil"}
   {embed="includes/sidebar"}
@@ -48,7 +48,7 @@
                   </script>
 
                   {exp:super_search:results
-                       search_in="title|intrudccion-referencia|intro-noticia" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|" where="any" relevance_proximity="yes" status="open"  keyword_search_author_name="yes" keyword_search_category_name="yes" 
+                       search_in="title|intrudccion-referencia|intro-noticia" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|" where="any" relevance_proximity="yes" status="open"  keyword_search_category_name="yes" 
                      
                   }
                         {if super_search_no_results}
