@@ -711,10 +711,12 @@ class Webservices
         $result .= '</div>';    
       } 
       
+
       return $result;             
     }
 
     public function padre_horario_alumno(){
+      die('horario padre');
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
@@ -867,6 +869,7 @@ class Webservices
     
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno(){
+      // die('horario actual');
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
 
@@ -882,6 +885,7 @@ class Webservices
       }
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
+
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1181,6 +1185,7 @@ class Webservices
     
     //INASISTENCIAS ALUMNO
     public function inasistencias_alumno(){
+      
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
@@ -1316,8 +1321,8 @@ class Webservices
         $result .= '</div>';  
       }       
       
-      
       return $result;               
+              
     }  
 
     //INASISTENCIAS ALUMNO
@@ -2474,7 +2479,7 @@ class Webservices
       return $result;                 
     }  
     
-        public function padre_tramites_realizados_por_alumno(){
+    public function padre_tramites_realizados_por_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
@@ -4450,7 +4455,6 @@ class Webservices
       $codalumno = ee()->TMPL->fetch_param('codalumno');
       $codcurso = ee()->TMPL->fetch_param('cursoid');
       $nombrealumno = ee()->TMPL->fetch_param('nombrealumno');     
-      
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codalumno.'&CodCurso='.$codcurso.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
