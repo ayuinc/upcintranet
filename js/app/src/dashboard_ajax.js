@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var	hostname =  window.location.origin;
+	var	hostname =  window.location.pathname;
 	$.get(hostname +'/includes/dashboard-miscursos', function(data, status){
     $('#cargador-cursos').remove();
     $( "#notas" ).append( data );
