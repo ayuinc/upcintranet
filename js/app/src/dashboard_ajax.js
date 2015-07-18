@@ -1,5 +1,6 @@
 $(document).ready(function() {
-	$.get({site_url}+'includes/dashboard-miscursos', function(data, status){
+	var	hostname =  window.location.origin;
+	$.get(hostname +'/includes/dashboard-miscursos', function(data, status){
     $('#cargador-cursos').remove();
     $( "#notas" ).append( data );
   	$('.show-curso-detail').click(function () {
@@ -19,7 +20,7 @@ $(document).ready(function() {
 		});
   });
 
-  $.get({site_url}+'includes/dashboard-mispagos', function(data, status){
+  $.get(hostname +'/includes/dashboard-mispagos', function(data, status){
     $('#cargador-pagos').remove();
     $( "#boleta" ).append( data );
   	//deudas
@@ -35,12 +36,12 @@ $(document).ready(function() {
 		});
   });  
 
-  $.get({site_url}+'includes/dashboard-horario', function(data, status){
+  $.get(hostname +'/includes/dashboard-horario', function(data, status){
     $('#cargador-horario').remove();
     $( "#horario" ).append( data );
   }); 
 
-  $.get({site_url}+'includes/dashboard-misreservas', function(data, status){
+  $.get(hostname +'/includes/dashboard-misreservas', function(data, status){
     $('#cargador-reservas').remove();
     $( "#reservas" ).append( data );
   }); 
