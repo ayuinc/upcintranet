@@ -1,5 +1,8 @@
 $(document).ready(function() {
 	var	hostname =  window.location.origin;
+	var	url =  window.location.href.split('/');
+	window.base_url = <?php echo json_encode(base_url()); ?>;
+	console.log(window.base_url);
 	$.get(hostname +'/includes/dashboard-miscursos', function(data, status){
     $('#cargador-cursos').remove();
     $( "#notas" ).append( data );
