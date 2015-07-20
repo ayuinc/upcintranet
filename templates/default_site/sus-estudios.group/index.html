@@ -1,0 +1,5 @@
+{if segment_2 != "notas-detalladas-hijos" || segment_2 != "su-seguro" || segment_2 != "sus-examenes" || segment_2 != "ciclo-actual-hijo" }
+  {redirect="404"}
+{if:elseif segment_2_category_id == ''}
+  {redirect="404"}
+{/if}

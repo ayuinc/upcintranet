@@ -1,0 +1,22 @@
+<div class="panel noticias-widget pt-21">
+  <div class="panel-head">
+    <div class="panel-title">
+      <h3>Noticias Tice</h3>
+    </div>
+    <a target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
+    <div class="panel-title-line"></div>
+  </div>
+	{exp:ajw_feedparser 
+	    url="http://tice.upc.edu.pe/blog/feed"
+	    cache_refresh="30"
+	    limit="2"
+	}  
+  <div class="panel-body p-14 bg-muted">
+    <div>
+      <span class="zizou-16">{pubDate}</span>
+    </div>
+		<p class="solano-bold-20 lh-1-1 black-text uppercase">{title}</p>
+		<p class="zizou-16"><a class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
+  </div>
+  {/exp:ajw_feedparser} 
+</div> 

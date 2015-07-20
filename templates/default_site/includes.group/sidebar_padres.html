@@ -1,0 +1,62 @@
+    <div class="site-menu">
+      <div class="text-center pt-7 sidebar-top">
+        <img src="/assets/img/isotipo_upc.png" class="inline-block">
+      </div>
+      <ul class="list-unstyled nav-main">
+        <li class="inicio">
+          <a href="#">
+            <div></div>
+            <span>Inicio</span>
+          </a>
+        </li>
+        <li class="mis-estudios menu">
+          <a href="#">
+            <div></div>
+            <span>Sus Estudios</span>
+          </a>
+          <ul class="list-unstyled">
+            <li><a href="#">Ciclo Actual</a></li>
+            <li><a href="#">Notas Detalladas</a></li>
+            <li><a href="#">Mi Carrera</a></li>
+            <li><a href="#">Inglés</a></li>
+            <li><a href="#">Talleres</a></li>
+          </ul>
+        </li>
+        <li class="mis-tramites menu">
+          <a href="#">
+            <div></div>
+            <span>Sus Trámites</span>
+          </a>
+          <ul class="list-unstyled">
+            <li><a href="#">aaaa</a></li>
+            <li><a href="#">bbb</a></li>
+            <li><a href="#">ccc</a></li>
+            <li><a href="#">ddd</a></li>
+            <li><a href="#">fff</a></li>
+          </ul>
+        </li>
+        <li class="mis-finanzas menu">
+          <a href="#">
+            <div></div>
+            <span>Mis Finanzas</span>
+          </a>
+        </li>
+        <li class="ci menu">
+          <a href="#">
+            <div></div>
+            <span>CI</span>
+          </a>
+          <ul class="list-unstyled">
+          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="43"}
+            <li><a href="{site_url}centro-de-informacion-padres/{url_title}">{title}</a></li>
+          {/exp:channel:entries}
+          </ul>   
+        </li>
+        <li class="ayuda menu">
+          <a href="#">
+            <div></div>
+            <span>Ayuda</span>
+          </a>
+        </li>
+      </ul>
+    </div>
