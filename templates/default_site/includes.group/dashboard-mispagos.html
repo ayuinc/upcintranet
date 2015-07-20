@@ -1,18 +1,25 @@
-
-      <ul class="tr">
-        <li class="text-center class-sm-12" id="pagos-placeholder">
-          <img class="img-center" src="{site_url}assets/img/red_eye.png">
-          <span class="zizou-14 red">Mostrar</span>
-        </li>
-      </ul>
-      <ul class="tr" id="pagos-pdtes">
-        <li class="col-sm-12 text-center">
-          <img src="{site_url}assets/img/pago_grey.png" class="inline-block">
-          {exp:webservices:proxima_boleta_alumno}
-        </li>
-        <!--<li class="col-sm-4 text-center">
-          <img src="/assets/img/pago_red.png" class="inline-block">
-          <span class="monto-1">S/.1958.20</span>
-          <span class="vcto-1">Desde el 24/02/2015</span>
-        </li>-->
-      </ul>
+<div class="panel-body-head-table">
+  <ul class="tr">
+    <li class="col-xs-12 text-center">
+      <div><span>Próxima boleta</span></div>
+    </li>
+  </ul>
+</div>
+            
+<ul class="tr">
+  <li class="text-center class-sm-12" id="pagos-placeholder">
+    <img class="img-center" src="{site_url}assets/img/red_eye.png">
+    <span class="zizou-14 red">Mostrar</span>
+  </li>
+</ul>
+<ul class="tr" id="pagos-pdtes">
+  <li class="col-sm-12 text-center">
+    <img src="{site_url}assets/img/pago_grey.png" class="inline-block">
+    {exp:webservices:proxima_boleta_alumno}
+  </li>
+  <!--<li class="col-sm-4 text-center">
+    <img src="/assets/img/pago_red.png" class="inline-block">
+    <span class="monto-1">S/.1958.20</span>
+    <span class="vcto-1">Desde el 24/02/2015</span>
+  </li>-->
+</ul>
