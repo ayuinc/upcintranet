@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	var hostname = <?php  echo $_GET['url']; ?>; 
 	//var	hostname =  window.location.origin;
@@ -47,4 +48,13 @@ $(document).ready(function() {
     $( "#reservas" ).append( data );
   }); 
   
+  $.get(hostname +'includes/rss-noticias', function(data, status){
+		$('#cargador-noticias').remove();
+    $( "#noticias" ).append( data );
+  });	
+
+  $.get(hostname +'includes/rss-vida-universitaria', function(data, status){
+		$('#cargador-vida').remove();
+    $( "#vida-universitaria" ).append( data );
+  });	
 });

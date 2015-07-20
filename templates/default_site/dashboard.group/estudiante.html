@@ -46,8 +46,7 @@
           <div class="panel-title-line"></div>
         </div>
         <div id="horario">
-          <div class="panel-table pb-14" id="cargador-horario" style="height:100px">
-            <div><img src="{site_url}assets/img/ajax-loader.gif" alt="" class="img-center"></div>
+          <div class="panel-body" id="cargador-horario" style="height:100px; background-color:#fff">
           </div>
         </div>
        </div>
@@ -83,8 +82,7 @@
               <div class="panel-title-line"></div>
             </div>
             <div class="panel-body" id="notas">
-              <div class="panel-table pb-14" id="cargador-cursos" style="height:100px">
-                <div><img src="{site_url}assets/img/ajax-loader.gif" alt="" class="img-center"></div>
+              <div class="panel-body" id="cargador-cursos" style="height:100px; background-color:#fff">
               </div>
             </div>
           </div>
@@ -97,8 +95,7 @@
               <div class="panel-title-line"></div>
             </div>
               <div id="reservas"> 
-                <div class="panel-table pb-14" id="cargador-reservas" style="height:100px">
-                  <div><img src="{site_url}assets/img/ajax-loader.gif" alt="" class="img-center"></div>
+                <div class="panel-body" id="cargador-reservas" style="height:100px; background-color:#fff">
                 </div>
               </div>  
           </div> 
@@ -142,22 +139,38 @@
             <div class="panel-title-line"></div>
           </div>
           <div class="panel-body">
-            <div class="panel-body-head-table">
-              <ul class="tr">
-                <li class="col-xs-12 text-center">
-                  <div><span>Próxima boleta</span></div>
-                </li>
-              </ul>
-            </div>
             <div class="panel-table pagos" id="boleta">
-              <div class="panel-table pb-14" id="cargador-pagos" style="height:100px">
-                <div><img src="{site_url}assets/img/ajax-loader.gif" alt="" class="img-center"></div>
+              <div class="panel-body" id="cargador-pagos" style="height:100px; background-color:#fff">
               </div>
             </div>
           </div>
         </div>
-        {embed="includes/rss-noticias"}
-        {embed="includes/rss-vida-universitaria"}
+          <div class="panel noticias-widget pt-21">
+            <div class="panel-head">
+              <div class="panel-title">
+                <h3>Noticias</h3>
+              </div>
+              <a target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
+              <div class="panel-title-line"></div>
+            </div>
+            <div id="noticias"> 
+              <div class="panel-body" id="cargador-noticias" style="height:100px; background-color:#fff">
+              </div>
+            </div> 
+        </div>
+        <div class="panel mt-21">
+          <div class="panel-head">
+            <div class="panel-title">
+              <h3 class="vida-universitaria">Vida&nbsp;</h3><h3 class="vida-universitaria">Universitaria</h3>
+            </div>
+            <a href="http://blogs.upc.edu.pe/vu" target="_blank"><div class="panel-head-link vida info"></div></a>
+            <div class="panel-title-line"></div>
+          </div>
+          <div id="vida-universitaria">
+            <div class="panel-body" id="cargador-vida" style="height:100px; background-color:#fff">
+              </div>
+          </div>
+        </div> 
       </div>
     </div>
   </div>
