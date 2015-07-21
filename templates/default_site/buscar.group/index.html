@@ -40,7 +40,7 @@
                   <span id="total-results"></span> resultados para <span class="black-text">"{super_search_keywords}"</span>  </p>
                 <div class="resultados-busqueda red-line bg-muted">
                   <script>
-                    ga('send', 'pageview', '/buscar?q={exp:search:keywords}');
+                    ga('send', 'pageview', '/buscar?q={super_search_keywords}');
                   </script>
 
                   <script >
@@ -80,6 +80,11 @@
                           <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
                           {/if}   
                         {/if} 
+                         {if archivo_referencia}
+                         <a class="sb-link pl-7 zizou-16" target="_blank" href="{link-referencia}">
+                              <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
+                          </a>
+                          {/if}  
 
                       </div>
                       {if count != super_search_total_results}
@@ -98,7 +103,7 @@
           $(document).ready(function($) {
             counter = 0;
             $('#total-results').html($('.result_query').length);
-            $("title").html($('.result_query').length + ' resultados para "{super_search_keywords}"');
+            $("title").html($('.result_query').length + ' resultados para "{super_search_keywords}');
             $('.result_query #search-count').each(function() {
               counter = counter + 1;
               $(this).html(counter);
