@@ -39,3 +39,4 @@ sized/
 thumbs/
 _thumbs/
 */expressionengine/cache/*
+system/expressionengine/cache/
