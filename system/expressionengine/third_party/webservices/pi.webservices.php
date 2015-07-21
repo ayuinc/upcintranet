@@ -3289,7 +3289,8 @@ class Webservices
       */
       $token = $_COOKIE['Token'];
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
-      
+      //var_dump($url);
+
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -3520,7 +3521,7 @@ class Webservices
         for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
           //if($json['Recursos'][$i]['Estado'] == true){
           //if($HoraIni <= intval(substr($json['Recursos'][$i]['HoraIni'], 0,2)) ){
-          if( $json['Estado'] == "true") {
+          if( $json['Recursos'][$i]['Estado'] == true) {
             $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';    
             if($tiporecurso == "CO"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-computadoras" method="post" name="formrecurso-'.$i.'">';
@@ -3542,6 +3543,7 @@ class Webservices
             // $i++; 
             // $result .= '<div class="solano-bold-24 black-text"> Opción '.$i.'</div>';
             // $i--;
+
             $result .= '<div class="solano-bold-24 black-text">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['Local'].'</div>';
             $result .= '<div class="zizou-16">'.$fecha.'</div>';
