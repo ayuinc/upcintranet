@@ -716,7 +716,6 @@ class Webservices
     }
 
     public function padre_horario_alumno(){
-      die('horario padre');
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
@@ -869,7 +868,6 @@ class Webservices
     
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno(){
-      // die('horario actual');
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
 
