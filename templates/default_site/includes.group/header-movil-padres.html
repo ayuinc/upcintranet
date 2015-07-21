@@ -11,7 +11,7 @@
 </div>
 <div class="collapse hidden-md hidden-lg" id="collapseMobile">
  <ul class="list-unstyled mobile-menu">
-   <li class="parent"><a href="{site_url}dashboard/padre/hijos/{last_segment}">Inicio</a></li>
+   <li class="parent"><a id="lnk_int_InicioMovil" href="{site_url}dashboard/padre/hijos/{last_segment}">Inicio</a></li>
    {exp:channel:entries channel="sidebar_padre" dynamic="off" orderby="date" sort="asc"}
    <li class="parent">
     <span>{title}</span>
@@ -21,12 +21,12 @@
    <li class="parent">
     <span>Mi Perfil</span>
     <ul class="list-unstyled child">
-      <li><a data-toggle="modal" data-target="#myModal">Ver tutorial</a></li>
-      <li><a href="{site_url}dashboard/elije_tu_hijo">Cambiar de perfil</a></li>
+      <li><a id="lnk_int_VerTutorialMovil" data-toggle="modal" data-target="#myModal">Ver tutorial</a></li>
+      <li><a id="lnk_int_CambiarPerfil" href="{site_url}dashboard/elije_tu_hijo">Cambiar de perfil</a></li>
     </ul>
    </li>
-   <li class="parent"><a href="{site_url}buscar-padres/buscar_movil">Buscar</a></li>    
-   <li><a href="{site_url}login/salir">Cerrar Sesión</a></li> 
+   <li class="parent"><a id="lnk_int_BuscarMovil" href="{site_url}buscar-padres/buscar_movil">Buscar</a></li>    
+   <li><a id="lnk_int_CerrarSesionMovil" href="{site_url}login/salir">Cerrar Sesión</a></li> 
  </ul>
 </div>
 {embed="includes/tutorial"}

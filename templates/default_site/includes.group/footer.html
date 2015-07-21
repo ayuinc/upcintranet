@@ -70,7 +70,7 @@
 			});
 
 		});		
-		
+
 		$('#CodSede').change(function(){
 			if($('#CodSede').val()=='L') { 
 				sedeshow('L', 'CodED');
@@ -180,7 +180,7 @@
 				firstactivityshow(activities0, codActivities0); 	
 		  }			  		  
 		});		
-
+		
   		function sedeshow(a, b){
 		  	$('#sede-'+a).attr('name', b);
 			$('[data-id="sede-'+a+'"]').parent().show();
@@ -218,7 +218,22 @@
   			b.shift();
   			everyactivityhide(a,b);
   		}
-  		
+
+  		$(".espacio").change(function() {
+  			var element = $(this).find("option:selected").val();
+  			
+  			$.ajax({
+  				type: 'POST',
+  				url: '{site_url}mis-reservas/test',
+  				data: {
+  					'element' : element
+  				},
+  				success: function(data) {
+  					$("#reglamento").html(data);
+  				}
+  			});
+  		});
+
 	</script>
 	<script>
       window.addEventListener('load', function() {
@@ -227,7 +242,6 @@
           var currentId = aCollection[i].id;
           var newId = currentId.replace(/ /g, "");
           aCollection[i].id = newId;
-          console.log(newId);
         };
       });
     </script>
