@@ -711,10 +711,12 @@ class Webservices
         $result .= '</div>';    
       } 
       
+
       return $result;             
     }
 
     public function padre_horario_alumno(){
+      die('horario padre');
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
@@ -867,6 +869,7 @@ class Webservices
     
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno(){
+      // die('horario actual');
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
 
@@ -882,6 +885,7 @@ class Webservices
       }
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
+
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1181,6 +1185,7 @@ class Webservices
     
     //INASISTENCIAS ALUMNO
     public function inasistencias_alumno(){
+      
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
@@ -1316,8 +1321,8 @@ class Webservices
         $result .= '</div>';  
       }       
       
-      
       return $result;               
+              
     }  
 
     //INASISTENCIAS ALUMNO
@@ -2474,7 +2479,7 @@ class Webservices
       return $result;                 
     }  
     
-        public function padre_tramites_realizados_por_alumno(){
+    public function padre_tramites_realizados_por_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
@@ -3091,7 +3096,7 @@ class Webservices
       
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
-
+      /*
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3099,7 +3104,8 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
+      */
+      $token = $_COOKIE["Token"];
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -3108,21 +3114,42 @@ class Webservices
       $result=curl_exec($ch);
       $json = json_decode($result, true);
       
-      $result = '';
+      $sedes = '';
+      $espacios = '';
+      $actividades = '';
       
-      $tamano = count($json['Sedes']);
-      $result .= '<div class="text-left helvetica-16 gray-main">Sede</div>';
-      $result .= '<select name="CodSede" id="CodSede" class="reservas-select selectpicker relative arrow form-control">';
-      $result .= '<option value="" disabled selected>Selecciona una sede</option>';      
-      for ($i=0; $i<$tamano; $i++) {
-        $result .= '<option value="'.$json['Sedes'][$i]['key'].'">';
-        $result .= $json['Sedes'][$i]['sede'];
-        $result .= '</option>';
+      $tamanoSedes = count($json['Sedes']);
+      $sedes .= '<div class="text-left helvetica-16 gray-main">Sede</div>';
+      $sedes .= '<select name="CodSede" id="CodSede" class="reservas-select selectpicker relative arrow form-control">';
+      $sedes .= '<option value="" disabled selected>Selecciona una sede</option>';      
+      for ($i=0; $i<$tamanoSedes; $i++) {
+        $sedes .= '<option value="'.$json['Sedes'][$i]['key'].'">';
+        $sedes .= $json['Sedes'][$i]['sede'];
+        $sedes .= '</option>';
+
+        $tamanoEspacios = count($json['Sedes'][$i]['espacios']);
+        $espacios .= '<select name="CodED" class="reservas-select selectpicker relative arrow form-control" id="sede-'.$json['Sedes'][$i]['key'].'">';
+        $espacios .= '<option value="" disabled selected>Seleccionar espacio</option>'; 
+        for ($j=0; $j<$tamanoEspacios; $j++) {
+          $espacios .= '<option value="'.$json['Sedes'][$i]['espacios'][$j]['codigo'].'">';
+          $espacios .= $json['Sedes'][$i]['espacios'][$j]['nombre'];
+          $espacios .= '</option>';
+
+          $tamanoActividades = count($json['Sedes'][$i]['espacios'][$j]['actividades']);
+          $actividades .= '<select class="reservas-select selectpicker relative arrow form-control" name="CodActiv" id="actividad-'.$json['Sedes'][$i]['espacios'][$j]['codigo'].'">';
+          for ($k=0; $k<$tamanoActividades; $k++) {
+            $actividades .= '<option value="'.$json['Sedes'][$i]['espacios'][$j]['actividades'][$k]['codigo'].'">';
+            $actividades .= $json['Sedes'][$i]['espacios'][$j]['actividades'][$k]['nombre'];
+            $actividades .= '</option>';
+          }
+          $actividades .= '</select>';
+        }
+        $espacios .= '</select>';
       }
-      $result .= '</select>';
+      $sedes .= '</select>';
       
-      return $result;          
-    } 
+      return $sedes . $espacios . $actividades;
+    }
     
     //POBLAR ESPACIOS DEPORTIVOS - Espacios  
     public function poblar_espacios_deportivos_espacios(){
@@ -3253,7 +3280,7 @@ class Webservices
       
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
-
+      /*
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3261,15 +3288,17 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
+      */
+      $token = $_COOKIE['Token'];
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
       //var_dump($url);
+
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
+      
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -4452,7 +4481,6 @@ class Webservices
       $codalumno = ee()->TMPL->fetch_param('codalumno');
       $codcurso = ee()->TMPL->fetch_param('cursoid');
       $nombrealumno = ee()->TMPL->fetch_param('nombrealumno');     
-      
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codalumno.'&CodCurso='.$codcurso.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

@@ -45,7 +45,10 @@
           <a id="btn_int_MiHorario" href="{site_url}mis-estudios/ciclo-actual"><div class="panel-head-link danger"></div></a>
           <div class="panel-title-line"></div>
         </div>
-        {embed="includes/dashboard-horario"}
+        <div id="horario">
+          <div class="panel-body" id="cargador-horario" style="height:100px; background-color:#fff">
+          </div>
+        </div>
        </div>
         <!-- banner mi horario starts -->
         <div class="pt-14">
@@ -69,8 +72,33 @@
         {embed="includes/dashboard-accesos-rapidos"}
       </div>
       <div class="col-sm-4">
-        {embed="includes/dashboard-miscursos"}
-        {embed="includes/dashboard-misreservas"}
+
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">
+                <h3>Mis Cursos</h3>
+              </div>
+              <a href="{site_url}mis-estudios/notas-detalladas"><div class="panel-head-link danger"></div></a>
+              <div class="panel-title-line"></div>
+            </div>
+            <div class="panel-body" id="notas">
+              <div class="panel-body" id="cargador-cursos" style="height:100px; background-color:#fff">
+              </div>
+            </div>
+          </div>
+          
+          <div class="panel mt-21">
+            <div class="panel-head bg-muted">
+              <div class="panel-title">
+                <h3>Mis Reservas</h3>
+              </div>
+              <div class="panel-title-line"></div>
+            </div>
+              <div id="reservas"> 
+                <div class="panel-body" id="cargador-reservas" style="height:100px; background-color:#fff">
+                </div>
+              </div>  
+          </div> 
         <!-- banner reservas starts -->
         <!--/ Revive Adserver Javascript Tag v3.0.5 /-->
 
@@ -102,9 +130,47 @@
         <!-- banner reservas ends -->
       </div>
       <div class="col-sm-3">
-        {embed="includes/dashboard-mispagos"}
-        {embed="includes/rss-noticias"}
-        {embed="includes/rss-vida-universitaria"}
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <h3>Mis Pagos</h3>
+            </div>
+            <a href="{site_url}mis-finanzas/mis-pagos"><div class="panel-head-link danger"></div></a>
+            <div class="panel-title-line"></div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-table pagos" id="boleta">
+              <div class="panel-body" id="cargador-pagos" style="height:100px; background-color:#fff">
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="panel noticias-widget pt-21">
+            <div class="panel-head">
+              <div class="panel-title">
+                <h3>Noticias</h3>
+              </div>
+              <a target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
+              <div class="panel-title-line"></div>
+            </div>
+            <div id="noticias"> 
+              <div class="panel-body" id="cargador-noticias" style="height:100px; background-color:#fff">
+              </div>
+            </div> 
+        </div>
+        <div class="panel mt-21">
+          <div class="panel-head">
+            <div class="panel-title">
+              <h3 class="vida-universitaria">Vida&nbsp;</h3><h3 class="vida-universitaria">Universitaria</h3>
+            </div>
+            <a href="http://blogs.upc.edu.pe/vu" target="_blank"><div class="panel-head-link vida info"></div></a>
+            <div class="panel-title-line"></div>
+          </div>
+          <div id="vida-universitaria">
+            <div class="panel-body" id="cargador-vida" style="height:100px; background-color:#fff">
+              </div>
+          </div>
+        </div> 
       </div>
     </div>
   </div>
