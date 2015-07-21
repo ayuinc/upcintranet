@@ -98,7 +98,7 @@
           $(document).ready(function($) {
             counter = 0;
             $('#total-results').html($('.result_query').length);
-            $("title").html($('.result_query').length + ' resultados para {exp:search:keywords}');
+            $("title").html($('.result_query').length + ' resultados para "{super_search_keywords}"');
             $('.result_query #search-count').each(function() {
               counter = counter + 1;
               $(this).html(counter);
