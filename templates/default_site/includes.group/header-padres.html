@@ -10,15 +10,15 @@
 		  </div>
 	    <div class="pull-right pr-14 pt-7">
 	      <ul class="list-unstyled">
-	        <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
-	        <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
-	        <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a class="black-link" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
+	        <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a id="lnk_ext_Portal" class="black-link" href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
+	        <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a id="lnk_ext_Servicios" class="black-link" href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
+	        <li class="pull-left mr-14"><span class="solano-bold-16 black-text"><a id="lnk_ext_Blogs" class="black-link" href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
 	      </ul>
 	    </div>
 	  </div>
 	  <div class="header-no-global">
 	  	<div class="inicio">
-	  	  <a href="{site_url}dashboard/padre/hijos/{last_segment}">
+	  	  <a id="lnk_int_Inicio" href="{site_url}dashboard/padre/hijos/{last_segment}">
 	  	    <div class="inicio-icon"></div>
 	  	    <span>Inicio</span>
 	  	  </a>
@@ -59,16 +59,16 @@
 		      {exp:webservices:nombre_alumno}</span>
 		    </div>
         <div class="dropdown pt-7 inline-block">
-	        <div class="dropdown-toggle relative" id="dropdownMenu1" data-toggle="dropdown">
+	        <div id="btn_int_MenuUsuario" class="dropdown-toggle relative" id="dropdownMenu1" data-toggle="dropdown">
 	        	<div id="ie-avatar"></div> 
 	        	<img class="absolute" src="{site_url}assets/img/white_arrow_down.png" alt=""> 
 	        </div>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}dashboard/elije_tu_hijo">Cambiar perfil</a></li>
+            <li class="dditem ddmain" role="presentation"><a id="lnk_int_CambiarPerfil" role="menuitem" tabindex="-1" href="{site_url}dashboard/elije_tu_hijo">Cambiar perfil</a></li>
             <li role="presentation" class="divider"></li>
-            <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Ver Tutorial</a></li>
+            <li class="dditem ddmain" role="presentation"><a id="lnk_int_VerTutorial" role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Ver Tutorial</a></li>
             <li role="presentation" class="divider"></li>
-            <li class="dditem ddmain" role="presentation"><a role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
+            <li class="dditem ddmain" role="presentation"><a id="lnk_int_CerrarSesion" role="menuitem" tabindex="-1" href="{site_url}login/salir">Cerrar Sesión</a></li>
           </ul>
         </div>
 	    </div> 
