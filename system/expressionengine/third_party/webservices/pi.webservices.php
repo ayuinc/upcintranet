@@ -285,7 +285,7 @@ class Webservices
       $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
         $result .= '<li>';
-        $result .= '<a href="{site_url}sus-estudios/ciclo-actual/'.$json["hijos"][$i]["codigo"].'">';
+        $result .= '<a id="lnk_int_CicloActual" href="{site_url}sus-estudios/ciclo-actual/'.$json["hijos"][$i]["codigo"].'">';
         $result .= '<div class="children-avatar text-center">';
         $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
         $result .= '</div>';
@@ -716,7 +716,6 @@ class Webservices
     }
 
     public function padre_horario_alumno(){
-      die('horario padre');
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
@@ -1882,7 +1881,7 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
         $curso = $json['Cursos'][$i]['CursoNombre'];
         $curso_min = str_replace(" ","",mb_convert_case($curso, MB_CASE_LOWER, "UTF-8"));
-        $result .= '<a data-curso-id="'.$curso_min.'" class="curso-link-padres">';
+        $result .= '<a id="lnk_int_'. $json['Cursos'][$i]['CursoNombre'] .'" data-curso-id="'.$curso_min.'" class="curso-link-padres">';
         $result .= '<li class="clickeable bg-muted pl-7 col-sm-12 mb-5">';
         $result .= '<span class="zizou-16">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
@@ -2342,7 +2341,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black-text go-to-top text-right" href="#top">';
+        $result .= '<a id="lnk_int_Top" class="black-text go-to-top text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
@@ -3120,7 +3119,7 @@ class Webservices
       
       $tamanoSedes = count($json['Sedes']);
       $sedes .= '<div class="text-left helvetica-16 gray-main">Sede</div>';
-      $sedes .= '<select name="CodSede" id="CodSede" class="reservas-select selectpicker relative arrow form-control">';
+      $sedes .= '<select name="CodSede" id="CodSede" class="reservas-select selectpicker relative arrow form-control sede">';
       $sedes .= '<option value="" disabled selected>Selecciona una sede</option>';      
       for ($i=0; $i<$tamanoSedes; $i++) {
         $sedes .= '<option value="'.$json['Sedes'][$i]['key'].'">';
@@ -3128,7 +3127,7 @@ class Webservices
         $sedes .= '</option>';
 
         $tamanoEspacios = count($json['Sedes'][$i]['espacios']);
-        $espacios .= '<select name="CodED" class="reservas-select selectpicker relative arrow form-control" id="sede-'.$json['Sedes'][$i]['key'].'">';
+        $espacios .= '<select name="CodED" class="reservas-select selectpicker relative arrow form-control espacio" id="sede-'.$json['Sedes'][$i]['key'].'" data-sede="'. $json['Sedes'][$i]['key'] .'">';
         $espacios .= '<option value="" disabled selected>Seleccionar espacio</option>'; 
         for ($j=0; $j<$tamanoEspacios; $j++) {
           $espacios .= '<option value="'.$json['Sedes'][$i]['espacios'][$j]['codigo'].'">';
@@ -3136,7 +3135,7 @@ class Webservices
           $espacios .= '</option>';
 
           $tamanoActividades = count($json['Sedes'][$i]['espacios'][$j]['actividades']);
-          $actividades .= '<select class="reservas-select selectpicker relative arrow form-control" name="CodActiv" id="actividad-'.$json['Sedes'][$i]['espacios'][$j]['codigo'].'">';
+          $actividades .= '<select class="reservas-select selectpicker relative arrow form-control actividad" name="CodActiv" id="actividad-'.$json['Sedes'][$i]['espacios'][$j]['codigo'].'" data-espacio="' . $json['Sedes'][$i]['espacios'][$j]['codigo'] . '">';
           for ($k=0; $k<$tamanoActividades; $k++) {
             $actividades .= '<option value="'.$json['Sedes'][$i]['espacios'][$j]['actividades'][$k]['codigo'].'">';
             $actividades .= $json['Sedes'][$i]['espacios'][$j]['actividades'][$k]['nombre'];

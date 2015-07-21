@@ -1,0 +1,13 @@
+{if post:element}
+	{exp:channel:entries channel="reservas" status="Reserva de Espacios Deportivos"}
+		{if codigo_de_espacio_deportivo == post:element}
+			{mensaje}
+		{if:else}
+			<span>Completa el formulario para encontrar recursos disponibles.</span>  
+			<span class="helvetica-18">Las reservas pueden <span class="helvetica-bold-18">realizarse hasta 15 minutos antes del horario deseado</span> y con <span class="helvetica-bold-18">24 horas de anticipación.</span>
+		{/if}
+	{/exp:channel:entries}
+{if:else}
+	<span>Completa el formulario para encontrar recursos disponibles.</span>  
+	<span class="helvetica-18">Las reservas pueden <span class="helvetica-bold-18">realizarse hasta 15 minutos antes del horario deseado</span> y con <span class="helvetica-bold-18">24 horas de anticipación.</span>
+{/if}
