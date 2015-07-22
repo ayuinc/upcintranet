@@ -3757,7 +3757,7 @@ class Webservices
           $result .= '</ul>';
         }
       }
-      $result .= '<a class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">';  
+      $result .= '<a id="lnk_ext_IrACancelarReserva" class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">';  
       $result .= '<div class="zizou-18 pl-14 pb-14">Ir a Cancelar Reserva</div></a>';        
       $result .= '</div>';  
       $result .= '</div>'; 
@@ -3771,10 +3771,10 @@ class Webservices
         $result .= '</li>';
         if ($error_mensaje == "No se han registrado reservas durante esta semana.") {
           if ($_COOKIE["TipoUser"] =='ALUMNO') {
-            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a></p></li>';         
+            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a id="lnk_int_ReservaCubiculos" href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a id="lnk_int_ReservaComputadoras" href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a id="lnk_int_ReservaEspaciosDeportivos" href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a></p></li>';         
           } 
           if ($_COOKIE["TipoUser"] =='PROFESOR') {
-            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
+            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a id="lnk_ext_ReservarCubiculos" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a id="lnk_ext_ReservaEspaciosDeportivos" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
           } 
         } else {
         $result .= '<li class="col-sm-8 pt-28 pr-21 pl-21"><p class="helvetica-14">'.$error_mensaje.'</p></li>'; 
@@ -3783,8 +3783,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>'; 
       }
-
-         
+        
       return $result;          
     } 
     
@@ -3960,7 +3959,7 @@ class Webservices
           $result .= '<input type="hidden" name="Grupo" value="'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'">';
           $result .= '<div>';
           $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
-          $result .= '<input type="submit" class="zizou-14 btn-anchor curso-detallado-submit" value="'.$json['modalidades'][$i]['cursos'][$a]['curso'].' ('.$json['modalidades'][$i]['cursos'][$a]['seccion'].')" name="submit">';
+          $result .= '<input type="submit" id="' . $json['modalidades'][$i]['cursos'][$a]['curso'] .'" class="zizou-14 btn-anchor curso-detallado-submit" value="'.$json['modalidades'][$i]['cursos'][$a]['curso'].' ('.$json['modalidades'][$i]['cursos'][$a]['seccion'].')" name="submit">';
           $result .= '</div>';
           $result .= '</form>';
           $result .= '</div>';
@@ -4112,7 +4111,7 @@ class Webservices
           $result .= '<input type="hidden" name="cursoid" value="'.$json['Cursos'][$i]['cursoId'].'">';
           $result .= '<input type="hidden" name="nombrealumno" value="'.$json['Cursos'][$i]['alumnos'][$a]['nombre_completo'].'">';
           $result .= '<input type="hidden" name="Flag" value="notas">';
-          $result .= '<input type="submit" class="btn-anchor p-0 zizou-14 red" name="submit" value=">>ver notas">';
+          $result .= '<input type="submit" id="lnk_int_VerNotas" class="btn-anchor p-0 zizou-14 red" name="submit" value=">>ver notas">';
           $result .= '</form>'; 
           $result .= '</span>';                 
           $result .= '</li>';   
@@ -4125,7 +4124,7 @@ class Webservices
         
         $result .= '</div>'; 
         //temp
-        $result .= '<a class="black-text curso-link text-right" href="{site_url}mi-docencia/cursos-detallados">';
+        $result .= '<a id="lnk_int_RegresarListaCursos" class="black-text curso-link text-right" href="{site_url}mi-docencia/cursos-detallados">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
@@ -4593,7 +4592,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black curso-link text-right" href="{site_url}mi-docencia/cursos-detallados">';
+        $result .= '<a id="lnk_int_RegresarListaCursos" class="black curso-link text-right" href="{site_url}mi-docencia/cursos-detallados">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos&nbsp;';
         $result .= '<img src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
