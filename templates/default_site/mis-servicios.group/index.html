@@ -10,10 +10,10 @@
     <div class="site-content">
       <div class="container-fluid">
         {exp:channel:entries 
-        	channel="seccion" 
-        	limit="1" 
-        	disable="member_data|pagination"  
-        	category="24"
+          channel="seccion" 
+          limit="1" 
+          disable="member_data|pagination"  
+          category="24"
         }
         <div class="internal-header">
           <div class="row">
@@ -37,16 +37,16 @@
             <div class="col-sm-8">
               <span class="zizou-26">¿Qué deseas hacer?</span>
               <div class="row">
-  	            {exp:channel:entries 
-  	            	channel="referencias" 
-  	            	orderby="screen_name|date" 
-  	            	sort="asc|desc"
-  	            	limit="100" 
-  	            	disable="member_data|pagination" 
-  	            	category="{segment_2_category_id}" 
-  	            	dynamic="off"
+                {exp:channel:entries 
+                  channel="referencias" 
+                  orderby="screen_name|date" 
+                  sort="asc|desc"
+                  limit="100" 
+                  disable="member_data|pagination" 
+                  category="{segment_2_category_id}" 
+                  dynamic="off"
                   orderby="screen_name|date" sort="asc|desc"
-  	            }
+                }
                 <div class="col-sm-6">
                   <div class="panel">
                     <div class="panel-body canales">
