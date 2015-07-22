@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
 	var href = window.location.protocol + "://" + window.location.host + "/" + window.location.pathname;
