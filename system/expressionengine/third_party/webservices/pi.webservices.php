@@ -718,7 +718,8 @@ class Webservices
     public function padre_horario_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo_alumno =  $_GET['codigo_alumno'];
       $flag = TRUE;
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
@@ -1327,7 +1328,8 @@ class Webservices
     public function padre_inasistencias_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
+      // $codigo_alumno =  ee()->TMPL->fetch_param('codigo_alumno');  
+      $codigo_alumno =  $_GET['codigo_alumno'];  
       
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
@@ -2649,7 +2651,8 @@ class Webservices
      //PROXIMA BOLETA DEL ALUMNO CONSULTADA POR EL PADRE 
     public function padre_proxima_boleta_alumno(){
       //$codigo = $_SESSION["Codigo"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo_alumno =  $_GET['codigo_alumno'];
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
