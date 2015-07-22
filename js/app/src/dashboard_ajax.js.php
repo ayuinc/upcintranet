@@ -82,11 +82,6 @@ $(document).ready(function() {
     $( "#noticias-tice" ).append( data );
   });
 
-  $.get(hostname +'includes/dashboard-padre-suhorario', function(data, status){
-		$('#cargador-padre-horario').remove();
-    $( "#padre-horario" ).append( data );
-  });
-
   $.ajax({
     url: hostname +'includes/dashboard-padre-suhorario',
     type: "GET",
