@@ -6,4 +6,14 @@ $(document).ready(function(){
 		$(this).toggleClass('open');
 		$(this).toggleClass('active-menu');
 	});
+	// Function for smooth proportional scroll to vertical side menu
+	$(window).scroll(function(){
+	    var scrollPercentage = $(window).scrollTop() /  ($(document).height() - $(window).height());
+		var availableHeight = $(window).height() - $('.site-header .container-fluid').height()
+
+		if(availableHeight< $('.site-menu').height()){
+			$('.site-menu').css('top', -($('.site-menu').height() - availableHeight)*(scrollPercentage));
+		}
+		
+	});
 });

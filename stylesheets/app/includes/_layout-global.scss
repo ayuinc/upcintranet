@@ -23,7 +23,7 @@ $site-menu-width: 79px;
 	background: white;
 	width: $site-menu-width;
 	z-index: 10;
-	position: relative;
+	position: fixed;
 	padding-top: 140px;
 	float: left;
 	@media #{$portrait} {
@@ -31,6 +31,7 @@ $site-menu-width: 79px;
 		min-height: 880px;
 	}
 	min-height: 575px;
+	top:0px;
 }
 
 .lista-cursos {
@@ -65,7 +66,7 @@ $site-menu-width: 79px;
 		height: 100%;
 	}
 	background-image:url("../assets/img/trama_xs.png");
-	float: left;
+	float: right;
 	padding-left: 0px;
 	padding-bottom: 21px;
 	&.iframe {
