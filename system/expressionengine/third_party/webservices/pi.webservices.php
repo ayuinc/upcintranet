@@ -4936,7 +4936,7 @@ class Webservices
         redirect($site_url);
       }
       elseif ($segment_2 != $tipouser ) {
-         $_COOKIE["Redireccion"]= "";
+         $_COOKIE["Redireccion"]= "/general/permisos";
         if ($tipouser == 'PROFESOR'){
           redirect( $_SESSION["Redireccion"]);
         }
