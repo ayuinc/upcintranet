@@ -11,7 +11,7 @@
 </div>
 <div class="collapse hidden-md hidden-lg" id="collapseMobile">
    <ul class="list-unstyled mobile-menu">
-     <li class="parent"><a href="{site_url}dashboard/docente">Inicio</a></li>
+     <li class="parent"><a id="lnk_int_Inicio" href="{site_url}dashboard/docente">Inicio</a></li>
      {exp:channel:entries channel="sidebar_docente" dynamic="off" orderby="date" sort="asc"}
      <li class="parent">
        <span>{title}</span>
@@ -21,13 +21,13 @@
      <li class="parent">
       <span>Mi Perfil</span>
       <ul class="list-unstyled child">
-        <li><a href="{site_url}perfil-docente">Mis Datos</a></li>
-        <li><a data-toggle="modal" data-target="#myModal">Ver tutorial</a></li>
+        <li><a id="lnk_int_MisDatos" href="{site_url}perfil-docente">Mis Datos</a></li>
+        <li><a id="lnk_int_VerTutorial" data-toggle="modal" data-target="#myModal">Ver tutorial</a></li>
       </ul>
      </li>    
-     <li class="parent"><a href="{site_url}ayuda-docentes">Ayuda</a></li>
-     <li class="parent"><a href="{site_url}buscar-docentes/buscar_movil">Buscar</a></li> 
-     <li><a href="{site_url}login/salir">Cerrar Sesión</a></li>
+     <li class="parent"><a id="lnk_int_Ayuda" href="{site_url}ayuda-docentes">Ayuda</a></li>
+     <li class="parent"><a id="lnk_int_Buscar" href="{site_url}buscar-docentes/buscar_movil">Buscar</a></li> 
+     <li><a id="lnk_int_CerrarSesion" href="{site_url}login/salir">Cerrar Sesión</a></li>
    </ul>
  </div>
  {embed="includes/tutorial"}
