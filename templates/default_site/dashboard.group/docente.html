@@ -37,7 +37,7 @@
             <div class="panel-title">
               <h3>Mi Horario: <span class="gray-light">{current_time format="%l"}</span></h3>
             </div>
-            <a href="{site_url}mi-docencia/ciclo-actual-docencia"><div class="panel-head-link danger"></div></a>
+            <a id="lnk_int_MiHorario" href="{site_url}mi-docencia/ciclo-actual-docencia"><div class="panel-head-link danger"></div></a>
             <div class="panel-title-line"></div>
           </div>
           <div id="horario-docente">
@@ -53,7 +53,7 @@
               <div class="panel-title">
                 <h3>Mis Cursos</h3>
               </div>
-              <a href="{site_url}mi-docencia/cursos-detallados"><div class="panel-head-link danger"></div></a>
+              <a id="lnk_int_MisCursos" href="{site_url}mi-docencia/cursos-detallados"><div class="panel-head-link danger"></div></a>
               <div class="panel-title-line"></div>
             </div>
             <div class="panel-body">
@@ -70,7 +70,7 @@
               <div class="panel-title">
                 <h3>Noticias</h3>
               </div>
-              <a target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
+              <a id="lnk_ext_Noticias" target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
               <div class="panel-title-line"></div>
             </div>
             <div id="noticias-docente">
@@ -83,7 +83,7 @@
               <div class="panel-title">
                 <h3>Noticias TICE</h3>
               </div>
-              <a target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
+              <a id="lnk_ext_NoticiasTICE" target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
               <div class="panel-title-line"></div>
             </div>
             <div id="noticias-tice">
@@ -98,3 +98,4 @@
     
  
 {embed="includes/footer"}
+<script src="{site_url}js/app/src/dashboard_ajax_docente.js.php?url='{site_url}'"></script>
