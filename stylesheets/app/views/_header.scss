@@ -154,9 +154,10 @@
 			}
 			@include serif-book;
 			font-size: 14px;
-			overflow-y: scroll;
-			height: 100%;
+
 		}
+		overflow-y: scroll;
+		height: 100%;
 	}
 	.child li {
 		padding-left: 21px !important;
