@@ -16,8 +16,8 @@ jQuery.validator.addMethod("require_from_group", function(value, element, option
 }, jQuery.validator.format("Debes seleccionar un espacio"));
 
 $(document).ready(function () {
-  $('input[name="FecIni"]').attr('readOnly': 'true');
-  $('input[name="FechaIni"]').attr('readOnly': 'true');
+  $('input[name="FecIni"]').attr('readOnly', 'true');
+  $('input[name="FechaIni"]').attr('readOnly', 'true');
   var result = "";
   var max_horas =  parseInt($('input[name=maxHoras]').val());
   var min_horas =  parseInt($('input[name=minHoras]').val());
