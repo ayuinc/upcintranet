@@ -1,11 +1,4 @@
-<div class="panel mt-21">
-  <div class="panel-head">
-    <div class="panel-title">
-      <h3 class="vida-universitaria">Vida&nbsp;</h3><h3 class="vida-universitaria">Universitaria</h3>
-    </div>
-    <a href="http://blogs.upc.edu.pe/vu" target="_blank"><div class="panel-head-link vida info"></div></a>
-    <div class="panel-title-line"></div>
-  </div>
+
 	{exp:ajw_feedparser 
 	    url="http://betablogs.upc.edu.pe/blog/feed/52"
 	    cache_refresh="30"
@@ -16,7 +9,6 @@
       <span class="zizou-16 text-lowercase">{pubDate}</span>
     </div>
     <p class="solano-bold-20 lh-1-1 black-text uppercase">{title}</p>
-    <p class="zizou-16"><a class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
+    <p class="zizou-16"><a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
   </div>
   {/exp:ajw_feedparser} 
-</div> 

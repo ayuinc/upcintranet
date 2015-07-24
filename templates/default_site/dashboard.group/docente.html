@@ -37,19 +37,60 @@
             <div class="panel-title">
               <h3>Mi Horario: <span class="gray-light">{current_time format="%l"}</span></h3>
             </div>
-            <a href="{site_url}mi-docencia/ciclo-actual-docencia"><div class="panel-head-link danger"></div></a>
+            <a id="lnk_int_MiHorario" href="{site_url}mi-docencia/ciclo-actual-docencia"><div class="panel-head-link danger"></div></a>
             <div class="panel-title-line"></div>
           </div>
-          {embed="includes/dashboard-horario-docente"}
+          <div id="horario-docente">
+            <div class="panel-body" id="cargador-horario-docente" style="height:100px; background-color:#fff">
+            </div>
+          </div>
           {embed="includes/dashboard-accesos-rapidos-docentes"}
          </div>
         </div>
         <div class="col-sm-4">
-          {embed="includes/dashboard-miscursos-docente"}
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">
+                <h3>Mis Cursos</h3>
+              </div>
+              <a id="lnk_int_MisCursos" href="{site_url}mi-docencia/cursos-detallados"><div class="panel-head-link danger"></div></a>
+              <div class="panel-title-line"></div>
+            </div>
+            <div class="panel-body">
+              <div id="cursos-docente">
+                <div class="panel-body" id="cargador-cursos-docente" style="height:100px; background-color:#fff">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-sm-3">
-          {embed="includes/dashboard-noticias-docentes"}
-          {embed="includes/rss-tice"}
+          <div class="panel noticias-widget">
+            <div class="panel-head">
+              <div class="panel-title">
+                <h3>Noticias</h3>
+              </div>
+              <a id="lnk_ext_Noticias" target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
+              <div class="panel-title-line"></div>
+            </div>
+            <div id="noticias-docente">
+              <div class="panel-body" id="cargador-noticias-docente" style="height:100px; background-color:#fff">
+              </div>
+            </div>
+          </div> 
+          <div class="panel noticias-widget pt-21">
+            <div class="panel-head">
+              <div class="panel-title">
+                <h3>Noticias TICE</h3>
+              </div>
+              <a id="lnk_ext_NoticiasTICE" target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
+              <div class="panel-title-line"></div>
+            </div>
+            <div id="noticias-tice">
+              <div class="panel-body" id="cargador-noticias-tice" style="height:100px; background-color:#fff">
+              </div>
+            </div>
+          </div> 
         </div>
         </div>
       </div>  
@@ -57,3 +98,4 @@
     
  
 {embed="includes/footer"}
+<script src="{site_url}js/app/src/dashboard_ajax_docente.js.php?url='{site_url}'"></script>

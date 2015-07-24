@@ -285,7 +285,7 @@ class Webservices
       $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
         $result .= '<li>';
-        $result .= '<a href="{site_url}sus-estudios/ciclo-actual/'.$json["hijos"][$i]["codigo"].'">';
+        $result .= '<a id="lnk_int_CicloActual" href="{site_url}sus-estudios/ciclo-actual/'.$json["hijos"][$i]["codigo"].'">';
         $result .= '<div class="children-avatar text-center">';
         $result .= '<img class="img-circle img-responsive img-thumbnail" src="{site_url}assets/img/user_gray.png" alt="">';
         $result .= '</div>';
@@ -711,13 +711,15 @@ class Webservices
         $result .= '</div>';    
       } 
       
+
       return $result;             
     }
 
     public function padre_horario_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo_alumno =  $_GET['codigo_alumno'];
       $flag = TRUE;
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
@@ -829,12 +831,12 @@ class Webservices
         $result .= '<li class="col-xs-3 p-7">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
         $result .= '</li>';
-        $result .= '<li class="text-center col-xs-9 text-center p-21">';
+        $result .= '<li class="text-center col-xs-9 text-center p-21 test">';
         $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
         $result .= '</li>';                       
         $result .= '</ul>';  
         $result .= '</div>';         
-      }
+      } 
       //Control de errores
       if ($error!='00000') {
         /*$result = '<ul class="tr">';
@@ -851,8 +853,8 @@ class Webservices
         $result .= '<li class="col-xs-3 p-7">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_classes.png">';
         $result .= '</li>';
-        $result .= '<li class="text-center col-xs-9 text-center p-21">';
-        $result .= '<p class="helvetica-14">No tienes ninguna clase programada para el día de hoy</p>';                
+        $result .= '<li class="text-center col-xs-9 text-center p-21 test-1">';
+        $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';                
         $result .= '</li>';                       
         $result .= '</ul>';  
         $result .= '</div>';         
@@ -882,6 +884,7 @@ class Webservices
       }
       
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/Horario/?CodAlumno='.$codigo.'&Token='.$token;
+
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1181,6 +1184,7 @@ class Webservices
     
     //INASISTENCIAS ALUMNO
     public function inasistencias_alumno(){
+      
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
@@ -1316,15 +1320,16 @@ class Webservices
         $result .= '</div>';  
       }       
       
-      
       return $result;               
+              
     }  
 
     //INASISTENCIAS ALUMNO
     public function padre_inasistencias_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
+      // $codigo_alumno =  ee()->TMPL->fetch_param('codigo_alumno');  
+      $codigo_alumno =  $_GET['codigo_alumno'];  
       
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
@@ -1839,7 +1844,8 @@ class Webservices
     public function padre_todos_los_curos_que_lleva_un_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo_alumno = $_GET['codigo_alumno'];
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -1877,7 +1883,7 @@ class Webservices
       for ($i=0; $i<$tamano; $i++) {
         $curso = $json['Cursos'][$i]['CursoNombre'];
         $curso_min = str_replace(" ","",mb_convert_case($curso, MB_CASE_LOWER, "UTF-8"));
-        $result .= '<a data-curso-id="'.$curso_min.'" class="curso-link-padres">';
+        $result .= '<a id="lnk_int_'. $json['Cursos'][$i]['CursoNombre'] .'" data-curso-id="'.$curso_min.'" class="curso-link-padres">';
         $result .= '<li class="clickeable bg-muted pl-7 col-sm-12 mb-5">';
         $result .= '<span class="zizou-16">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
@@ -1990,7 +1996,6 @@ class Webservices
     public function notas_alumno_por_curso(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -2178,7 +2183,8 @@ class Webservices
     public function padre_notas_alumno_por_curso(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo_alumno =  $_GET['codigo_alumno'];
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -2337,7 +2343,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
         $result .= '</div>';
-        $result .= '<a class="black-text go-to-top text-right" href="#top">';
+        $result .= '<a id="lnk_int_Top" class="black-text go-to-top text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
@@ -2474,7 +2480,7 @@ class Webservices
       return $result;                 
     }  
     
-        public function padre_tramites_realizados_por_alumno(){
+    public function padre_tramites_realizados_por_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
@@ -2646,7 +2652,8 @@ class Webservices
      //PROXIMA BOLETA DEL ALUMNO CONSULTADA POR EL PADRE 
     public function padre_proxima_boleta_alumno(){
       //$codigo = $_SESSION["Codigo"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo_alumno =  $_GET['codigo_alumno'];
       //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE["Codigo"];
@@ -3091,7 +3098,7 @@ class Webservices
       
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
-
+      /*
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3099,7 +3106,8 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
+      */
+      $token = $_COOKIE["Token"];
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -3108,21 +3116,42 @@ class Webservices
       $result=curl_exec($ch);
       $json = json_decode($result, true);
       
-      $result = '';
+      $sedes = '';
+      $espacios = '';
+      $actividades = '';
       
-      $tamano = count($json['Sedes']);
-      $result .= '<div class="text-left helvetica-16 gray-main">Sede</div>';
-      $result .= '<select name="CodSede" id="CodSede" class="reservas-select selectpicker relative arrow form-control">';
-      $result .= '<option value="" disabled selected>Selecciona una sede</option>';      
-      for ($i=0; $i<$tamano; $i++) {
-        $result .= '<option value="'.$json['Sedes'][$i]['key'].'">';
-        $result .= $json['Sedes'][$i]['sede'];
-        $result .= '</option>';
+      $tamanoSedes = count($json['Sedes']);
+      $sedes .= '<div class="text-left helvetica-16 gray-main">Sede</div>';
+      $sedes .= '<select name="CodSede" id="CodSede" class="reservas-select selectpicker relative arrow form-control sede">';
+      $sedes .= '<option value="" disabled selected>Selecciona una sede</option>';      
+      for ($i=0; $i<$tamanoSedes; $i++) {
+        $sedes .= '<option value="'.$json['Sedes'][$i]['key'].'">';
+        $sedes .= $json['Sedes'][$i]['sede'];
+        $sedes .= '</option>';
+
+        $tamanoEspacios = count($json['Sedes'][$i]['espacios']);
+        $espacios .= '<select name="CodED" class="reservas-select selectpicker relative arrow form-control espacio" id="sede-'.$json['Sedes'][$i]['key'].'" data-sede="'. $json['Sedes'][$i]['key'] .'">';
+        $espacios .= '<option value="" disabled selected>Seleccionar espacio</option>'; 
+        for ($j=0; $j<$tamanoEspacios; $j++) {
+          $espacios .= '<option value="'.$json['Sedes'][$i]['espacios'][$j]['codigo'].'">';
+          $espacios .= $json['Sedes'][$i]['espacios'][$j]['nombre'];
+          $espacios .= '</option>';
+
+          $tamanoActividades = count($json['Sedes'][$i]['espacios'][$j]['actividades']);
+          $actividades .= '<select class="reservas-select selectpicker relative arrow form-control actividad" name="CodActiv" id="actividad-'.$json['Sedes'][$i]['espacios'][$j]['codigo'].'" data-espacio="' . $json['Sedes'][$i]['espacios'][$j]['codigo'] . '">';
+          for ($k=0; $k<$tamanoActividades; $k++) {
+            $actividades .= '<option value="'.$json['Sedes'][$i]['espacios'][$j]['actividades'][$k]['codigo'].'">';
+            $actividades .= $json['Sedes'][$i]['espacios'][$j]['actividades'][$k]['nombre'];
+            $actividades .= '</option>';
+          }
+          $actividades .= '</select>';
+        }
+        $espacios .= '</select>';
       }
-      $result .= '</select>';
+      $sedes .= '</select>';
       
-      return $result;          
-    } 
+      return $sedes . $espacios . $actividades;
+    }
     
     //POBLAR ESPACIOS DEPORTIVOS - Espacios  
     public function poblar_espacios_deportivos_espacios(){
@@ -3253,7 +3282,7 @@ class Webservices
       
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
-
+      /*
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3261,14 +3290,17 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
+      */
+      $token = $_COOKIE['Token'];
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
+      //var_dump($url);
+
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($ch, CURLOPT_URL,$url);
       $result=curl_exec($ch);
-      //var_dump($result);
+      
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
@@ -3474,7 +3506,7 @@ class Webservices
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local='.$CodSede.'&FecIni='.$fecini.'%20'.$HoraIni.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'%20'.$HoraFin.'&CodAlumno='.$codigo.'&Token='.$token;
       //var_dump($url);
       //$url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
-      //var_dump($url);
+  
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -3493,7 +3525,7 @@ class Webservices
         for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
           //if($json['Recursos'][$i]['Estado'] == true){
           //if($HoraIni <= intval(substr($json['Recursos'][$i]['HoraIni'], 0,2)) ){
-          if( true ) {
+          if( $json['Recursos'][$i]['Estado'] == true) {
             $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';    
             if($tiporecurso == "CO"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-computadoras" method="post" name="formrecurso-'.$i.'">';
@@ -3515,6 +3547,7 @@ class Webservices
             // $i++; 
             // $result .= '<div class="solano-bold-24 black-text"> Opción '.$i.'</div>';
             // $i--;
+
             $result .= '<div class="solano-bold-24 black-text">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['Local'].'</div>';
             $result .= '<div class="zizou-16">'.$fecha.'</div>';
@@ -3600,7 +3633,7 @@ class Webservices
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
           //$result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
           $result .= '<span class="helvetica-16 text-info"> Estimado(a) alumno(a): Se ha reservado el recurso '.$nomrecurso.' para el dia '.substr($fechafin, 0,2).'/'.substr($fechafin, 2,2).'/'.substr($fechafin, 4,4).', a las '.substr($horaini, 0,2).':'.substr($horaini, 2,2).' horas.</span>';
-          $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33">';
+          $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">';
           $result .= '<div class="bg-muted p-7 mb-7">';
           $result .= '<div class="row">';  
           $result .= '<div class="col-xs-10">';  
@@ -4420,7 +4453,7 @@ class Webservices
       $codcurso = ee()->TMPL->fetch_param('codcurso');
       $codalumno = ee()->TMPL->fetch_param('codalumno');      
       
-      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoAlumnosProfesor/?Codigo=PCSIJIPE&Token=2628581ed50d48a7bfd965e6c089ab1420140325103552&Modalidad=FC&Periodo=201400&Curso=IS157&Seccion=CB2B&Grupo=00';
+      $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/ListadoAlumnosProfesor/?Codigo='.$codigo.'&Token='.$token.'&Modalidad=FC&Periodo=201400&Curso=IS157&Seccion=CB2B&Grupo=00';
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -4450,7 +4483,6 @@ class Webservices
       $codalumno = ee()->TMPL->fetch_param('codalumno');
       $codcurso = ee()->TMPL->fetch_param('cursoid');
       $nombrealumno = ee()->TMPL->fetch_param('nombrealumno');     
-      
       $url = 'https://upcmovil.upc.edu.pe/upcmovil1/UPCMobile.svc/NotaProfesor/?Codigo='.$codigo.'&CodAlumno='.$codalumno.'&CodCurso='.$codcurso.'&Token='.$token;
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -4905,7 +4937,7 @@ class Webservices
         redirect($site_url);
       }
       elseif ($segment_2 != $tipouser ) {
-         $_COOKIE["Redireccion"]= "";
+         $_COOKIE["Redireccion"]= "/general/permisos";
         if ($tipouser == 'PROFESOR'){
           redirect( $_SESSION["Redireccion"]);
         }

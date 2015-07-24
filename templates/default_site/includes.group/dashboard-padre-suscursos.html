@@ -1,27 +1,20 @@
-  <div class="panel">
-    <div class="panel-head">
-      <div class="panel-title">
-        <h3>Sus Cursos</h3>
-      </div>
-      <a href="{site_url}sus-estudios/notas-detalladas-hijos/{segment_4}"><div class="panel-head-link danger"></div></a>
-      <div class="panel-title-line"></div>
-    </div>
-    <div class="panel-body">
-      <div class="panel-body-head-table">
-        <ul class="tr">
-          <li class="col-xs-7">
-            <div class=""><span>Curso</span></div>
-          </li>
-          <li class="col-xs-2">
-            <div class=""><span>Faltas</span></div>
-          </li>
-          <li class="col-xs-3">
-            <div class=""><span>Promedio</span></div>
-          </li>
-        </ul>
-      </div>  
-      <div class="panel-table no-bg" id="miscursos">
-        {exp:webservices:padre_inasistencias_alumno codigo_alumno="{embed:codigo_alumno}"}
-      </div>
-    </div>
+
+<div class="panel-body">
+  <div class="panel-body-head-table">
+    <ul class="tr">
+      <li class="col-xs-7">
+        <div class=""><span>Curso</span></div>
+      </li>
+      <li class="col-xs-2">
+        <div class=""><span>Faltas</span></div>
+      </li>
+      <li class="col-xs-3">
+        <div class=""><span>Promedio</span></div>
+      </li>
+    </ul>
+  </div>  
+  <div class="panel-table no-bg" id="miscursos">
+    {exp:webservices:padre_inasistencias_alumno}
   </div>
+</div>
+
