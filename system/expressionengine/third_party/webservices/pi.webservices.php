@@ -3721,6 +3721,7 @@ class Webservices
       $result .= '</div>';      
       $result .= '<div class="panel-table">';
       
+      $counterReservas = 0;
       if($json['Reservas'] == null){
         $result = '<div class="panel-body">' ;
         $result .= '<div class="panel-table">' ;
@@ -3730,35 +3731,39 @@ class Webservices
       }
 
       else{ 
+
         for ($i=0; $i<$tamano; $i++) { 
-          $result .= '<ul class="tr">';
-          $result .= '<li class="col-xs-2 helvetica-12">';
-          $result .= '<div class="text-center">';
-          $fecha = substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2);
-          $result .= '<span>'.$fecha.'</span>';
-          $result .= '</div>';
-          $result .= '</li>';
-          $result .= '<li class="col-xs-2 helvetica-12">';
-          $result .= '<div class="text-center">';
-          $HoraInicio = substr($json['Reservas'][$i]['HoraIni'], 0, 2);
-          $HoraInicio = ltrim($HoraInicio,'0');
-          $HoraFin = substr($json['Reservas'][$i]['HoraFin'], 0, 2);
-          $HoraFin = ltrim($HoraFin,'0');       
-          $result .= '<span>'.$HoraInicio.':00 - '.$HoraFin.':00</span>';
-          $result .= '</div>';
-          $result .= '</li>';
-          $result .= '<li class="col-xs-3 helvetica-12">';
-          $result .= '<div class="text-center">';
-          $result .= '<span>'.substr($json['Reservas'][$i]['DesLocal'],7,strlen($json['Reservas'][$i]['DesLocal'])-1).'</span>';
-          $result .= '</div>';
-          $result .= '</li>';
-          $result .= '<li class="col-xs-5 helvetica-12">';
-          $result .= '<div class="text-center">';
-          $result .= '<span>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
-          $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>';
-          $result .= '</div>';
-          $result .= '</li>';
-          $result .= '</ul>';
+          if($json['Reservas'][$i]['CodEstado']=='R'){
+            $counterReservas = $counterReservas + 1;
+            $result .= '<ul class="tr">';
+            $result .= '<li class="col-xs-2 helvetica-12">';
+            $result .= '<div class="text-center">';
+            $fecha = substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2);
+            $result .= '<span>'.$fecha.'</span>';
+            $result .= '</div>';
+            $result .= '</li>';
+            $result .= '<li class="col-xs-2 helvetica-12">';
+            $result .= '<div class="text-center">';
+            $HoraInicio = substr($json['Reservas'][$i]['HoraIni'], 0, 2);
+            $HoraInicio = ltrim($HoraInicio,'0');
+            $HoraFin = substr($json['Reservas'][$i]['HoraFin'], 0, 2);
+            $HoraFin = ltrim($HoraFin,'0');       
+            $result .= '<span>'.$HoraInicio.':00 - '.$HoraFin.':00</span>';
+            $result .= '</div>';
+            $result .= '</li>';
+            $result .= '<li class="col-xs-3 helvetica-12">';
+            $result .= '<div class="text-center">';
+            $result .= '<span>'.substr($json['Reservas'][$i]['DesLocal'],7,strlen($json['Reservas'][$i]['DesLocal'])-1).'</span>';
+            $result .= '</div>';
+            $result .= '</li>';
+            $result .= '<li class="col-xs-5 helvetica-12">';
+            $result .= '<div class="text-center">';
+            $result .= '<span>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
+            $result .= '<span>'.$json['Reservas'][$i]['NomRecurso'].'</span>';
+            $result .= '</div>';
+            $result .= '</li>';
+            $result .= '</ul>';
+          }
         }
       }
       $result .= '<a class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">';  
@@ -3766,14 +3771,14 @@ class Webservices
       $result .= '</div>';  
       $result .= '</div>'; 
       //Control de errores
-      if ($error!='00000') {
+      if ($error!='00000' || $counterReservas == 0) {
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-4">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_bookings_new.png">';
         $result .= '</li>';
-        if ($error_mensaje == "No se han registrado reservas durante esta semana.") {
+        if ($error_mensaje == "No se han registrado reservas durante esta semana." || $counterReservas == 0) {
           if ($_COOKIE["TipoUser"] =='ALUMNO') {
             $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a></p></li>';         
           } 

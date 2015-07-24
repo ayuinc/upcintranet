@@ -12,6 +12,12 @@ $(document).ready(function() {
 
       $('#cargador-cursos-padre').remove();
       $( "#cursos-padre" ).append( data );
+      $(".go-to-top").click(function() {
+        var target = 10;
+        $('html, body').animate({
+            scrollTop: target
+        }, 200);
+      });
     }
   });	
 
@@ -23,6 +29,13 @@ $(document).ready(function() {
 
       $('#cargador-todos-cursos-hijo').remove();
       $( "#todos-cursos-hijo" ).append( data );
+      $(".curso-link-padres").click(function() {
+        var id = $(this).attr('data-curso-id');
+        var target = $("#" + id).offset().top - 150;
+        $('html, body').animate({
+            scrollTop: target
+        }, 200);
+      });
     }
   });	
 
