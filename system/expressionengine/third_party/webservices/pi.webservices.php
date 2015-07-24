@@ -1844,7 +1844,8 @@ class Webservices
     public function padre_todos_los_curos_que_lleva_un_alumno(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo_alumno = $_GET['codigo_alumno'];
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -1995,7 +1996,6 @@ class Webservices
     public function notas_alumno_por_curso(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -2183,7 +2183,8 @@ class Webservices
     public function padre_notas_alumno_por_curso(){
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $codigo_alumno =  $_GET['codigo_alumno'];
       $codigo =  $_COOKIE["Codigo"];
       setcookie("Codigo",$codigo, time() + (1800), "/");
 
