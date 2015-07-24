@@ -11,15 +11,16 @@
       <input type="text" name="FecIni" class="zizou-16 reservas-select form-control calendar datepicker" value="" placeholder="Selecciona" id="start-date-rec"> 
       <input type="hidden" name="TipoRecurso" value="CU">
       <div class="text-left helvetica-16 gray-main">Hora de reserva</div>
-      <select name="HoraIni" class="relative selectpicker reservas-select form-control">
+
       {exp:channel:entries channel="horario_de_reserva" limit="1" disable="member_data|pagination" url_title="horario-de-reserva-cubiculos"}
-      <?php 
-        for ($i='{min_horas}'; $i <= '{max_horas}' ; $i++) { 
-          echo '<option value="'.$i.'">'.$i.':00</option>';
-        }
-       ?>
-       {/exp:channel:entries} 
-      </select>  
+      <input type="hidden" name="minHoras" value="{min_horas}"/>
+      <input type="hidden" name="maxHoras" value="{max_horas}"/>
+      <select id="hora-reserva" name="HoraIni" class="relative selectpicker reservas-select form-control">
+
+      </select> 
+
+      {/exp:channel:entries} 
+
       <div class="text-left helvetica-16 gray-main">Cantidad de horas</div>
       <select name="CanHoras" class="relative selectpicker reservas-select form-control">
           <option value="1">1</option>

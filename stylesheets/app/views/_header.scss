@@ -131,6 +131,8 @@
 	position: fixed;
 	z-index: 30;
 	width: 100%;
+	overflow-y: scroll;
+	height: 100%;
 	ul.mobile-menu {
 		> li {
 			cursor: pointer;
@@ -154,6 +156,7 @@
 			}
 			@include serif-book;
 			font-size: 14px;
+
 		}
 	}
 	.child li {
