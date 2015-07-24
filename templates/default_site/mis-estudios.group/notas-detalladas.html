@@ -22,19 +22,18 @@
           <div class="row">
             <div class="col-sm-0-5"></div>        
             <div class="col-sm-3">
-                <div class="panel">
-                  <div class="panel-head no-bg">
-                    <div class="panel-title left">
-                      <h3>Saltar a un curso</h3>
-                    </div>
-                  </div>
-                  <div class="panel-body wobg">
-                    <div class="panel-table otras-acciones">
-  	                  {exp:webservices:todos_los_curos_que_lleva_un_alumno}
-                    </div>
+              <div class="panel">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Saltar a un curso</h3>
                   </div>
                 </div>
-  							{embed="includes/otras-acciones-notas"}
+                <div id="cursos-alumno"> 
+                  <div class="panel-body" id="cargador-cursos-alumno" style="height:100px; background-color:#fff">
+                  </div>
+                </div> 
+              </div>
+							{embed="includes/otras-acciones-notas"}
             </div>
            {/exp:channel:entries} 
             <div class="col-sm-8">
@@ -44,7 +43,10 @@
                     <h3>Notas por Curso</h3>
                   </div>
                 </div>
-                {exp:webservices:notas_alumno_por_curso}
+                <div id="notas-detalladas-alumno"> 
+                  <div class="panel-body" id="cargador-notas-detalladas-alumno" style="height:100px; background-color:#fff">
+                  </div>
+                </div> 
               </div>  
             </div>
           </div>
@@ -52,3 +54,4 @@
     </div>
   </div>
 {embed="includes/footer"}   
+<script src="{site_url}js/app/src/notas_detalladas_ajax_estudiante.js.php?url='{site_url}'"></script>

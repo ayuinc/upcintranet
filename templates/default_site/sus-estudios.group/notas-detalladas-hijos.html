@@ -24,7 +24,12 @@
             <div class="col-sm-3 section-des">
                 <span>{introduccion-seccion}</span>
             {/exp:channel:entries} 
-                {exp:webservices:padre_todos_los_curos_que_lleva_un_alumno codigo_alumno="{segment_3}"}
+
+                <div id="todos-cursos-hijo"> 
+                  <div class="panel-body" id="cargador-todos-cursos-hijo" style="height:100px; background-color:#fff">
+                  </div>
+                </div> 
+
                 {embed="includes/otras-acciones"}
             </div>
             <div class="col-sm-8">
@@ -34,7 +39,11 @@
                     <h3>Notas por Curso</h3>
                   </div>
                 </div>
-                {exp:webservices:padre_notas_alumno_por_curso codigo_alumno="{segment_3}"}
+
+                <div id="cursos-padre"> 
+                  <div class="panel-body" id="cargador-cursos-padre" style="height:100px; background-color:#fff">
+                  </div>
+                </div> 
               </div>  
             </div>
           </div>
@@ -42,3 +51,4 @@
     </div>
   </div>
 {embed="includes/footer"}   
+<script src="{site_url}js/app/src/notas_detalladas_ajax_padre.js.php?url='{site_url}'"></script>
