@@ -32,6 +32,14 @@ $(document).ready(function () {
     minDate : new Date(),
     maxDate : '+1D',
   });
+
+  $('.datepicker').datepicker({
+        format: "dd/mm/yyyy",
+    })
+    //Listen for the change even on the input
+    .change(dateChanged)
+    .on('changeDate', dateChanged);
+
   $("#deportivos-form").validate({
     // Ignore not visible fields 
     // ignore:":not(:visible)",
@@ -299,4 +307,35 @@ function firstactivityshow(a, b){
   a.shift();
   b.shift();
   everyactivityhide(a,b);
+}
+
+function dateChanged(ev) {
+  var dt = new Date();
+  var time = dt.getHours();
+  var max_horas =  parseInt($('input[name=maxHoras]').val());
+  if($('input[name="FechaIni"]').val()!= "" || $('input[name="FecIni"]').val()!= "")
+  {
+    var fecha = ($('input[name="FechaIni"]').length > 0 ) ? $('input[name="FechaIni"]').val() : $('input[name="FecIni"]').val();
+    var today = $.datepicker.formatDate('dd/mm/yy', new Date() );
+    if(fecha==today){
+      $('select[name="HoraIni"] option').each(function(index){
+        $(this).removeAttr('selected');
+        if($(this).val()< time){
+         $(this).prop('disabled', 'true');
+        }
+      });
+        $('select[name="HoraIni"] option[value="'+(time+1)+'"]').prop('selected', 'true');
+
+    }else{
+      $('select[name="HoraIni"] option:disabled').each(function(index){
+        $(this).removeAttr('selected');
+        $(this).removeAttr('disabled');
+        if(index == 0){
+          $(this).prop('selected', true);
+        }
+      });
+    }
+
+    $('select[name="HoraIni"]').selectpicker('render');
+  }
 }
