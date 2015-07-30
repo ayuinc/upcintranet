@@ -1,119 +1,113 @@
 
-{exp:webservices:iniciar_session} 
-{embed="includes/head"}
-{embed="includes/header"}
-{embed="includes/header_movil"}
-{embed="includes/sidebar"}
-<div class="site-content">
-  <div class="container-fluid">
-   {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="91" }
-   <div class="internal-header">
-    <div class="row">
-      <div class="col-sm-0-5"></div>
-      <div class="col-sm-4"><span class="zizou-16">Búsqueda</span></div>
-    </div>
-    <div class="row">
-      <div class="col-sm-0-5"></div>
-      <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
-    </div>
-  </div>  
-  {/exp:channel:entries}  
-  <div class="section-content buscar pb-70">
-    <div class="row">
-      <div class="col-sm-0-5"></div>
-      <div class="col-sm-3 que-buscas">
-        <span class="zizou-26">¿Qué buscas?</span>
+  {exp:webservices:iniciar_session} 
+  {embed="includes/head"}
+  {embed="includes/header"}
+  {embed="includes/header_movil"}
+  {embed="includes/sidebar"}
+      <div class="site-content">
+        <div class="container-fluid">
+  	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="91" }
+          <div class="internal-header">
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4"><span class="zizou-16">Búsqueda</span></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+            </div>
+          </div>  
+          {/exp:channel:entries}  
+          <div class="section-content buscar pb-70">
+            <div class="row">
+              <div class="col-sm-0-5"></div>
+              <div class="col-sm-3 que-buscas">
+                <span class="zizou-26">¿Qué buscas?</span>
 
-        <form method="post" action="{site_url}index.php/buscar/result">
-          <input type="hidden" name="csrf_token" value="{csrf_token}" /> <!-- Important! -->
-          <input type="hidden" name="XID" value="{XID_HASH}">
+             <form method="post" action="{site_url}index.php/buscar/result">
+                <input type="hidden" name="csrf_token" value="{csrf_token}" /> <!-- Important! -->
+                <input type="hidden" name="XID" value="{XID_HASH}">
+           
+               
+                    <input type="search" name="keywords" id="keywords" value="{super_search_keywords}"  size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco..."/>
 
+                    <input type="submit" name="submit" value="BUSCAR" class="submit btn full-width btn-custom black-btn"/>
+             
+            </form>
+              </div>  
+              <div class="col-sm-8 resultados">
+                <p class="zizou-26 encontrado">Se han encontrado 
+                  <span id="total-results"></span> resultados para <span class="black-text">"{super_search_keywords}"</span>  </p>
+                <div class="resultados-busqueda red-line bg-muted">
+                  <script>
+                    ga('send', 'pageview', '/buscar?q={exp:search:keywords}');
+                  </script>
 
-          <input type="search" name="keywords" id="keywords" value="{super_search_keywords}"  size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco..."/>
+                  <script >
+                        var count = 0;
+                  </script>
 
-          <input type="submit" name="submit" value="BUSCAR" class="submit btn full-width btn-custom black-btn"/>
+                  {exp:super_search:results
+                       search_in="title|intrudccion-referencia|intro-noticia" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|" where="any" relevance_proximity="yes" status="open"  keyword_search_category_name="yes" 
+                     
+                  }
+                        {if super_search_no_results}
+                           <div class="panel-body p-14 ">
+                               <div class="helvetica-16">
+                                  Por favor, ingrese una nueva búsqueda.
+                               </div>
+                            </div>
+                        {/if}
+                    {if buscar_alumnos_referencia=='si'}
+                      <div class="panel-body p-14 result_query">
 
-        </form>
-      </div>  
-      <div class="col-sm-8 resultados">
-        <p class="zizou-26 encontrado">Se han encontrado 
-          <span id="total-results"></span> resultados para <span class="black-text">"{super_search_keywords}"</span>  </p>
-          <div class="resultados-busqueda red-line bg-muted">
-            <script>
-              ga('send', 'pageview', '/buscar?q={super_search_keywords}');
-            </script>
+                        <div class="solano-bold-20 black-text">
+                          <span id="search-count"></span>.&nbsp;{title}
+                        </div>   
+                        <div class="helvetica-16">
+                          {if intrudccion-referencia}
+                            {intrudccion-referencia}
+                          {/if}
+                          {if intro-noticia}
+                            {intro-noticia}
+                          {/if}
+                        </div>     
+                        {if link-referencia}
+                          {if tipo-referencia=='Socrates'}
+                          <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+                          {/if} 
+                          {if tipo-referencia=='Externa'}
+                          <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
+                          {/if}   
+                        {/if} 
 
-            <script >
-              var count = 0;
-            </script>
-
-            {exp:super_search:results
-            search_in="title|intrudccion-referencia|intro-noticia" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|" where="any" relevance_proximity="yes" status="open"  keyword_search_category_name="yes" 
-
-          }
-          {if super_search_no_results}
-          <div class="panel-body p-14 ">
-           <div class="helvetica-16">
-            Por favor, ingrese una nueva búsqueda.
+                      </div>
+                      {if count != super_search_total_results}
+                      <div class="dotted-line"></div>
+                      {/if}
+                    {/if}
+                  {/exp:super_search:results}
+                </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        {/if}
-        {if buscar_alumnos_referencia=='si'}
-        <div class="panel-body p-14 result_query">
 
-          <div class="solano-bold-20 black-text">
-            <span id="search-count"></span>.&nbsp;{title}
-          </div>   
-          <div class="helvetica-16">
-            {if intrudccion-referencia}
-              {intrudccion-referencia}
-            {/if}
-            {if intro-noticia}
-              {intro-noticia}
-            {/if}
-          </div>     
-          {if link-referencia}
-            {if tipo-referencia=='Socrates'}
-             <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
-            {/if} 
-            {if tipo-referencia=='Externa'}
-              <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
-            {/if}   
-           {if archivo_referencia}
-            <a class="sb-link pl-7 zizou-16" target="_blank" href="{link-referencia}">
-              <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">{nombre-referencia}
-            </a>
-          {/if}  
-          {/if} 
-
-
-          </div>
-          {if count != super_search_total_results}
-          <div class="dotted-line"></div>
-          {/if}
-        {/if}
-        {/exp:super_search:results}
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<script>
-
-  $(document).ready(function($) {
-    counter = 0;
-    $('#total-results').html($('.result_query').length);
-    $("title").html($('.result_query').length + ' resultados para "{super_search_keywords}"');
-    $('.result_query #search-count').each(function() {
-      counter = counter + 1;
-      $(this).html(counter);
-    });
-    if($('.result_query').length == 0){
-      $('.resultados-busqueda').html('<div class="panel-body p-14 "><div class="helvetica-16">Por favor, ingrese una nueva búsqueda.</div></div>');
-
-    }
-
-  });
-</script>
-{embed="includes/footer"}   
+          <script>
+        
+          $(document).ready(function($) {
+            counter = 0;
+            $('#total-results').html($('.result_query').length);
+            $("title").html($('.result_query').length + ' resultados para {exp:search:keywords}');
+            $('.result_query #search-count').each(function() {
+              counter = counter + 1;
+              $(this).html(counter);
+            });
+            if($('.result_query').length == 0){
+              $('.resultados-busqueda').html('<div class="panel-body p-14 "><div class="helvetica-16">Por favor, ingrese una nueva búsqueda.</div></div>');
+               
+            }
+           
+          });
+          </script>
+  {embed="includes/footer"}   
