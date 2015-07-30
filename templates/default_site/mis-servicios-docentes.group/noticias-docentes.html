@@ -1,0 +1,137 @@
+{404-segment-2-category}
+{404-segment-2-only}
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+  
+{embed="includes/header-docentes"}
+{embed="includes/header-movil-docentes"}
+{embed="includes/sidebar-docente"}
+
+    <div class="site-content">
+      {exp:channel:entries 
+      	channel="seccion" 
+      	limit="1" 
+      	disable="member_data|pagination"  
+      	category="46"
+      }
+      <div class="container-fluid">
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Información General</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div>
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3 section-desc">
+              <span class="zizou-14">{introduccion-seccion}</span> 
+            </div>        
+            
+        {/exp:channel:entries}      
+            <div class="col-sm-8">
+              <span class="zizou-26 mb-21">Últimas Noticias de la UPC</span>
+              <div class="row">
+                {exp:ajw_feedparser 
+                  url="http://betablogs.upc.edu.pe/blog/feed/8"
+                  cache_refresh="30"
+                  limit="10"
+                  parse="inward"
+                } 
+                <div class="col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body canales">
+                      <div class="panel-body-head left tall">
+                        <p class="zizou-14 gray-main lowercase">{pubDate}</p>            
+                        <h3 class="pr-7">
+                           {exp:char_limit total="80" exact="no"}
+                              {title}
+                           {/exp:char_limit}
+                        </h3>
+                      </div>  
+                      <div class="panel-table">
+                        <ul class="tr">
+                          <p class="p-14 helvetica-16">
+                            {exp:char_limit total="150" exact="no"}
+                              {description}
+                            {/exp:char_limit}</p>
+                        </ul>
+                      </div>
+                      <div class="panel-footer">
+                        <a class="sb-link pl-7 zizou-14" href="{link}" target="_blank">
+                          <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Leer Nota Completa
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/exp:ajw_feedparser}
+
+                  {exp:ajw_feedparser 
+                  url="http://tice.upc.edu.pe/blog/feed
+                  cache_refresh="30"
+                  limit="10"
+                  parse="inward"
+                } 
+                <div class="col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body canales">
+                      <div class="panel-body-head left tall">
+                        <p class="zizou-14 gray-main lowercase">{pubDate format="%l %d de %F del %Y"} </p>            
+                        <h3 class="pr-7">
+                           {exp:char_limit total="80" exact="no"}
+                              {title}
+                           {/exp:char_limit}
+                        </h3>
+                      </div>  
+                      <div class="panel-table">
+                        <ul class="tr">
+                          <p class="p-14 helvetica-16">
+                            <?php 
+                                $description ='{description}'; 
+                              
+                               try{
+                                $description = strip_tags($description);
+                                $description = preg_replace("/\[(.*?)\]\s*(.*?)\s*\[\/(.*?)\]/", "[$1]$2[/$3]", html_entity_decode($description));
+                                $description =  preg_replace("/&#?[a-z0-9]+;/i","",$description);
+                                $description = stripcslashes($description);
+                               
+                                $description = str_replace("&nbsp;", '',htmlentities($description));
+
+                               if(strlen($description)>150){
+                           
+                                $description = substr($description, 0, 150)."...";
+                                }
+
+                               echo $description;
+                              } catch (Exception $e){
+                                echo 'Caught exception: ',  $e->getMessage(), "\n";
+                              }
+                                                                    
+                            ?>
+                            </p>
+                        </ul>
+                      </div>
+                      <div class="panel-footer">
+                        <a class="sb-link pl-7 zizou-14" href="{link}" target="_blank">
+                          <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Leer Nota Completa
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/exp:ajw_feedparser}
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>   
+  </div>
+ 
+{embed="includes/footer"}   
