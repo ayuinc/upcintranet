@@ -1,13 +1,15 @@
 <div class="reservas-select-group">
   <form action="{site_url}{segment_1}/resultados-reservas-deportivos" id="deportivos-form" method="post">
     <input type="hidden" name="XID" value="{XID_HASH}" />
+
+      <div class="text-left helvetica-16 gray-main">Sede</div>
       <select name="CodSede" id="CodSede" class="reservas-select selectpicker relative arrow form-control sede">
-      <option value="" disabled selected>Selecciona una sede</option>
-        {exp:channel:entries channel="sedes_de_reserva_de_espacios_deportivos" disable="member_data|pagination"}
-        <option value="{codigo_sede}">{title}</option>
+      <option value="" disabled selected>Selecciona una sede</option>';  
+        {exp:channel:entries dynamic="off" channel="sedes_de_reserva_de_espacios_deportivos" disable="member_data|pagination"}
+          <option value="{codigo_sede}" >{title}</option>
         {/exp:channel:entries} 
       </select>
-      {exp:webservices:poblar_espacios_deportivos_sede}	
+      {exp:webservices:poblar_espacios_deportivos_sede} 
       {!--{exp:webservices:poblar_espacios_deportivos_espacios}	--}
       {!--{exp:webservices:poblar_espacios_deportivos_actividad}	--}
       <div class="text-left helvetica-16 gray-main">Día de Reserva</div>
@@ -44,6 +46,7 @@
         <option value="10">10</option>
       </select> 
       <div class="mt-14">
+
         <input type="submit" class="btn wide-full btn-custom black-btn" style="padding:7px!important;" name="submit" value="Ver Disponibilidad">
       </div>
   </form>

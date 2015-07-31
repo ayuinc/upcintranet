@@ -3121,9 +3121,8 @@ class Webservices
       $actividades = '';
       
       $tamanoSedes = count($json['Sedes']);
-  
+    
       for ($i=0; $i<$tamanoSedes; $i++) {
-
         $tamanoEspacios = count($json['Sedes'][$i]['espacios']);
         $espacios .= '<select name="CodED" class="reservas-select selectpicker relative arrow form-control espacio" id="sede-'.$json['Sedes'][$i]['key'].'" data-sede="'. $json['Sedes'][$i]['key'] .'">';
         $espacios .= '<option value="" disabled selected>Seleccionar espacio</option>'; 
