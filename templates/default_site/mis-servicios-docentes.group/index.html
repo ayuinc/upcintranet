@@ -1,0 +1,99 @@
+{404-segment-2-category}
+{404-segment-2-only}
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+  
+{embed="includes/header-docentes"}
+{embed="includes/header-movil-docentes"}
+{embed="includes/sidebar-docente"}
+
+    <div class="site-content">
+      {exp:channel:entries 
+      	channel="seccion" 
+      	limit="1" 
+      	disable="member_data|pagination"  
+      	category="46"
+      }
+      <div class="container-fluid">
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Información General</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div>
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3">
+              {embed="includes/otras-acciones-info-gral-dcts"}
+            </div>        
+            
+        {/exp:channel:entries}      
+            <div class="col-sm-8 pt-7">
+              <span class="zizou-26">¿Qué deseas hacer?</span>
+              <div class="row">
+  	            {exp:channel:entries 
+  	            	channel="referencias" 
+  	            	orderby="screen_name|date" 
+  	            	sort="asc|desc"
+  	            	limit="100" 
+  	            	disable="member_data|pagination" 
+  	            	category="{segment_2_category_id}" 
+  	            	dynamic="off"
+  	            }
+                <div class="col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body canales">
+                      <div class="panel-body-head left tall">
+                        <h3>{title}</h3>
+                      </div>  
+                      <div class="panel-table">
+                        <ul class="tr">
+                          <p class="p-14 helvetica-16">{intrudccion-referencia}</p>
+                          {if fecha-referencia}
+                          <p class="helvetica-bold-14 pl-7">
+                          {fecha-referencia}, de {hora-referencia}, Aula {aula-referencia}
+                          </p>
+                          {/if}  
+                        </ul>
+                      </div>
+                      <div class="panel-footer">
+                        {if archivo-referencia}
+                        <a class="sb-link pl-7 zizou-16" target="_blank" href="{archivo-referencia}">
+                        {/if}  
+                        {if link-referencia}
+                          {if tipo-referencia=='Socrates'}
+                          <a class="sb-link pl-7 zizou-16" target="_blank" href="{site_url}socrates/{url_title}">
+                          <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png"><span>{nombre-referencia}</span>
+                          {/if} 
+                          {if tipo-referencia=='Externa'}
+                          <a class="sb-link pl-7 zizou-16" target="_blank" href="{link-referencia}">
+                          <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png"><span>{nombre-referencia}</span>
+                          {/if} 
+                          {if tipo-referencia=='Interna'}
+                          <a class="black-link pl-7 zizou-16" href="{link-referencia}">
+                          <img class="pr-7" src="{site_url}assets/img/red_arrow_small.png"><span>{nombre-referencia}</span>
+                          {/if}                             
+                        {/if}                                                   
+                        {if archivo-referencia}
+                        </a>
+                        {/if}  
+                        {if link-referencia}
+                        </a>
+                        {/if} 
+                      </div>  
+                    </div>  
+                  </div>
+                </div>
+                {/exp:channel:entries}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+{embed="includes/footer"}   
