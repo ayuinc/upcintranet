@@ -68,7 +68,9 @@
          </div> 
         <!-- banner mi horario ends -->
         {categories}
-          <?php $category = '{category_id}'; ?>
+          {if {category_id} == "135"}
+            <?php $category = '{category_id}'; ?>
+          {/if}
         {/categories}
         <?php echo($category) ?>
         {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
