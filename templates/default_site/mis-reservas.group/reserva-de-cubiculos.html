@@ -30,10 +30,6 @@
                 <div class="panel-head no-bg">
                   <div class="panel-title left">
                     <h3>Recursos Disponibles</h3>
-                    {categories}
-                      <?php $category = '{category_id}'; ?>
-                    {/categories}
-                    {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
                   </div>
                 </div>
                 <div class="panel-body">
@@ -67,7 +63,11 @@
                 </div>
               </div>
               <div class="col-md-5 section-desc">
-               
+                {segment_category_ids}
+              {categories}
+                      <?php $category = '{category_id}'; ?>
+                    {/categories}
+                    {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
               </div>
             </div>
           </div>
