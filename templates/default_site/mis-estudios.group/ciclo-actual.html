@@ -48,7 +48,10 @@
                 {if otras-actividades-seccion=='Activar'}
                 	{embed="includes/otras-acciones"}
                 {/if}
-                {embed="includes/dashboard-accesos-rapidos" cate="{categories}{category_id}{/categories}"}
+                {categories}
+                  <?php $category = '{category_id}'; ?>
+                {/categories}
+                {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
               </div>
       {/exp:channel:entries}        
               <div class="col-sm-8">
@@ -56,6 +59,7 @@
                     <div class="panel-head no-bg">
                       <div class="panel-title left">
                         <h3>Mi Horario Semanal</h3>
+                        <?php echo($category) ?>
                       </div>
                     </div>
                     {exp:webservices:horario_ciclo_actual_alumno}
