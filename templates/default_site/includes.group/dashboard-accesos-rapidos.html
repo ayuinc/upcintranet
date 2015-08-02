@@ -12,7 +12,10 @@
           <ul class="tr">
             {last_segment_category_id}
             {segment_category_ids_pipedd}
-             {exp:channel:entries channel="accesos_rapidos" category="{embed:cate}"}
+            {exp:channel:entries channel="accesos_rapidos" category="{embed:cate}"}
+              {categories}
+                <?php $category = '{category_id}'; ?>
+              {/categories}
              <a id="lnk_ext_{title}" class="sb-link" target="_blank" href="{acceso_rapido_link}">
               <li class="bg-muted pl-7 pb-0">
                 <div class="arrow-icon info"></div>
@@ -21,6 +24,7 @@
             </a>
             {/exp:channel:entries}
           </ul>
+              <?php echo $category; ?>
         </div>
       </div>   
     </div>
