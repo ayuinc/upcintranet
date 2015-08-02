@@ -24,17 +24,16 @@
         </div> 
         <div class="section-content">
           <div class="row">
-            <div class="col-md-0-5">
-              {categories}
-                <?php $category = '{category_id}'; ?>
-              {/categories}
-              {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"} 
-            </div>
+            <div class="col-md-0-5"></div>
             <div class="col-md-3-5">
               <div class="panel pt-0">
                 <div class="panel-head no-bg">
                   <div class="panel-title left">
                     <h3>Recursos Disponibles</h3>
+                    {categories}
+                      <?php $category = '{category_id}'; ?>
+                    {/categories}
+                    {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
                   </div>
                 </div>
                 <div class="panel-body">
@@ -67,7 +66,9 @@
                   </div>
                 </div>
               </div>
-              
+              <div class="col-md-5 section-desc">
+               
+              </div>
             </div>
           </div>
         </div>
