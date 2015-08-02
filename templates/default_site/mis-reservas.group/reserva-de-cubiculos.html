@@ -63,8 +63,10 @@
                 </div>
               </div>
               <div class="col-md-5 section-desc">
-                {segment_category_ids}
-              {embed="includes/dashboard-accesos-rapidos"}
+              {categories}
+                <?php $category = '{category_id}'; ?>
+              {/categories}
+              {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"} 
               </div>
             </div>
           </div>
