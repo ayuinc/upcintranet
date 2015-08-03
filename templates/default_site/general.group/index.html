@@ -22,6 +22,9 @@
           <div class="col-sm-3">
             {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" dynamic="off" category_group="34"}
               {categories}
+                {category_id}
+              {/categories}
+              {categories}
                 <?php $categories = '{category_id}'; 
                       $categories2 = explode(' ', $categories);
                       $category = end($categories2);
