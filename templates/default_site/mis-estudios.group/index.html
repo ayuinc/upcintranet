@@ -23,6 +23,10 @@
       <div class="col-sm-0-5"></div>
       <div class="col-sm-3 section-desc">
         <span>{introduccion-seccion}</span>
+        {categories}
+          <?php $category = '{category_id}'; ?>
+        {/categories}
+        {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
       </div>
   {/exp:channel:entries}      
       <div class="col-sm-8">

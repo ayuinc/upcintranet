@@ -42,6 +42,10 @@
                   </div>
                 </div>
                 {embed="includes/otras-acciones-reservas-deportivos"}
+                {categories}
+                  <?php $category = '{category_id}'; ?>
+                {/categories}
+                {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
               </div>
           {/exp:channel:entries}
               <div class="col-md-8">
@@ -97,6 +101,7 @@
             <div class="col-md-0-5"></div>
             <div class="col-md-3 section-desc">
               <span>{introduccion-seccion}</span>
+              {embed="includes/dashboard-accesos-rapidos"}
             </div>    
         {/exp:channel:entries}
             <div class="col-md-8">

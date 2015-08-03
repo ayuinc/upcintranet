@@ -48,6 +48,10 @@
                 {if otras-actividades-seccion=='Activar'}
                 	{embed="includes/otras-acciones"}
                 {/if}
+                {categories}
+                  <?php $category = '{category_id}'; ?>
+                {/categories}
+                {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
               </div>
       {/exp:channel:entries}        
               <div class="col-sm-8">

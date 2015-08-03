@@ -19,7 +19,20 @@
       <div class="section-content pb-70">
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-3"></div>
+          <div class="col-sm-3">
+            {exp:channel:entries channel="seccion" category="24" disable="member_data|pagination" dynamic="off"}
+             
+              {categories}
+                
+                  <?php $categories = '{category_id}'; 
+                        $categories2 = explode(' ', $categories);
+                        $category = end($categories2);
+                  ?>
+              {/categories}
+                
+            {/exp:channel:entries}
+            {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
+          </div>
           <div class="col-sm-8">
             <span class="zizou-26">¿Qué deseas hacer?</span>
             <div class="row">
@@ -31,6 +44,7 @@
              		disable="member_data" 
              		dynamic="off"
              	}
+
               <div class="col-sm-6">
                 <div class="panel">
                   <div class="panel-body canales">

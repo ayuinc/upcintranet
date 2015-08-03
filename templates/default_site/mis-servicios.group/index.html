@@ -31,22 +31,27 @@
             <div class="col-sm-3 section-desc">
               <span>{introduccion-seccion}</span>
               {embed="includes/otras-acciones"}
+              {categories}
+                <?php $category = '{category_id}'; ?>
+              {/categories}
+              {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
             </div>    
         {/exp:channel:entries}
-
+            <div class="col-sm-4">
+            </div>
             <div class="col-sm-8">
               <span class="zizou-26">¿Qué deseas hacer?</span>
               <div class="row">
-  	            {exp:channel:entries 
-  	            	channel="referencias" 
-  	            	orderby="screen_name|date" 
-  	            	sort="asc|desc"
-  	            	limit="100" 
-  	            	disable="member_data|pagination" 
-  	            	category="{segment_2_category_id}" 
-  	            	dynamic="off"
+                {exp:channel:entries 
+                  channel="referencias" 
+                  orderby="screen_name|date" 
+                  sort="asc|desc"
+                  limit="100" 
+                  disable="member_data|pagination" 
+                  category="{segment_2_category_id}" 
+                  dynamic="off"
                   orderby="screen_name|date" sort="asc|desc"
-  	            }
+                }
                 <div class="col-sm-6">
                   <div class="panel">
                     <div class="panel-body canales">
