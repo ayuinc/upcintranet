@@ -31,7 +31,10 @@
             <div class="col-sm-3 section-desc">
               <span>{introduccion-seccion}</span>
               {embed="includes/otras-acciones"}
-              {embed="includes/dashboard-accesos-rapidos"}
+              {categories}
+                <?php $category = '{category_id}'; ?>
+              {/categories}
+              {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
             </div>    
         {/exp:channel:entries}
             <div class="col-sm-4">
