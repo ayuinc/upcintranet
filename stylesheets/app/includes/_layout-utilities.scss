@@ -38,11 +38,7 @@ $class-col-xs : col-xs !default;
    	 @include make-xs-column($i+0.5);
   	}
   }
-  .#{$class-col-xs}-offset-#{$i}-5{
-  	@media #{$sm-down}{
-   	 @include make-xs-column($i+0.5);
-  	}
-  }
+ 
 }
 
 // Custom Margins & Paddings
