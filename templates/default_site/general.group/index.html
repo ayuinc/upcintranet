@@ -25,12 +25,12 @@
                 {category_id}
               {/categories}
               {categories}
-              {if {segment_3} == {category_name}}
-                <?php $categories = '{category_id}'; 
-                      $categories2 = explode(' ', $categories);
-                      $category = end($categories2);
-                ?>
-              {/if}  
+                {if {segment_3} == {category_name}}
+                  <?php $categories = '{category_id}'; 
+                        $categories2 = explode(' ', $categories);
+                        $category = end($categories2);
+                  ?>
+                {/if}  
               {/categories}
               {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
             {/exp:channel:entries}
