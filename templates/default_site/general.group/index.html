@@ -25,13 +25,13 @@
                 {category_id}
               {/categories}
               {categories}
-                {if {category_name} == "impresiones"}
+                
                   <?php $categories = '{category_id}'; 
                         $categories2 = explode(' ', $categories);
                         $category = end($categories2);
                   ?>
                   {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
-                {/if}  
+                
               {/categories}
             {/exp:channel:entries}
           </div>
