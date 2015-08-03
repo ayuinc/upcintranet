@@ -5,7 +5,7 @@
 {embed="includes/header_movil"}
 {embed="includes/sidebar"} 
 
-{exp:channel:entries channel="dashboard" limit="1" dynamic="off"}
+
 <div class="site-content dashboard">
   <div class="container-fluid">
     <div class="row pb-21 msge-row">
@@ -67,6 +67,7 @@
           </noscript>
          </div> 
         <!-- banner mi horario ends -->
+      {exp:channel:entries channel="dashboard" limit="1" dynamic="off"}
         {categories}
           {if {category_id} == "135"}
             <?php $category = '{category_id}'; ?>
@@ -74,6 +75,7 @@
         {/categories}
         <?php echo($category) ?>
         {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
+      {/exp:channel:entries}
       </div>
       <div class="col-sm-4">
 
@@ -188,6 +190,6 @@
     </div>
   </div>
 </div>
-{/exp:channel:entries}
+
 {embed="includes/footer"}
 <script src="{site_url}js/app/src/dashboard_ajax_estudiante.js.php?url='{site_url}'"></script>

@@ -10,13 +10,13 @@ html, .grid-bg{
 	background-color:#ffffff;
 }
 body{
-	background-image:url("../assets/img/fondo-escaleras.png");
-	background-color:#F0F0F0;
+//	background-image:url("../assets/img/fondo-escaleras.png");
+//	background-color:#F0F0F0;
 }
 .site-content {
-	background-image:url("../assets/img/fondo-escaleras.png");
-	background-color:#ffffff;
 	&.login {
+		background-image:url("../assets/img/fondo-escaleras.png");
+		background-color:#ffffff;
 		margin-top: 0px;
 		padding-bottom: 0px;
 		padding-top: 0;
