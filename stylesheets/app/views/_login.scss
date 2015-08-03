@@ -1,17 +1,52 @@
+@mixin redborder-shadow{
+	border-bottom: 2px solid #E42322;
+	padding: 0px;
+	-webkit-box-shadow: 3px 0px 4px 0px rgba(131, 134, 131,1);
+	-moz-box-shadow: 3px 0px 4px 0px rgba(131, 134, 131,1);
+	box-shadow: 3px 0px 4px 0px rgb(131, 134, 131);
+}
+html, .grid-bg{
+	background-image:none;
+	background-color:#ffffff;
+}
+body{
+	background-image:url("../assets/img/fondo-escaleras.png");
+	background-color:#F0F0F0;
+}
 .site-content {
+	background-image:url("../assets/img/fondo-escaleras.png");
+	background-color:#ffffff;
 	&.login {
 		margin-top: 0px;
-		// margin-bottom: 70px;
 		padding-bottom: 0px;
-		padding-top: 120px;
-		height: 900px !important; 
-		// min-height: 50px;
+		padding-top: 0;
 		@media #{$md-down} {
-			padding-top: 44px;
+			padding-top: 41px;
 			padding-bottom: 0px;
 			// min-height: 610px;
 		} 
+		.aviso{
+			margin-top:40px;
+			@media #{$md-down} {
+				margin-top: 0px;
+			}
+		}
+		.login-floting{
+			@include redborder-shadow;
+			min-height: 400px;
+			.row{
+				margin: 0px;
+			}
+		}
+		.pt-60{
+			padding-top: 60px;
+		}
 		.row {
+			margin-right: 0px;
+			margin-left: 0px;
+			.logo-position{
+				margin-top: -24px;
+			}
 			.col-sm-10 {
 				.row {
 					.col-sm-5 {
@@ -77,16 +112,41 @@
 			}
 		}
 	}
+
+	.login-servicios{
+		@include redborder-shadow;
+		padding: 25px 0px;
+		a{
+			.image{
+				text-align: center;
+				img{
+					height: 70px;
+				}
+			}
+			.text{
+				margin: auto;
+				margin-top: 14px;
+			}
+		}
+		>div{
+				padding-top: 15px;
+		}
+		.col-sm-2{
+			padding-bottom: 21px;
+		}
+		.row{
+			margin: 0px;
+		}
+
+	}
 }
 .footer {
 	line-height: 1;
-	position: fixed;
-	bottom: 0;
-	left: 0;
 	width: 100%;
 	background-color: $gray-lighter;
 	.row {
 		font-family: "zizou-slab-regular" !important;
+		margin:0;
 		.col-xs-7,
 		.col-md-7{
 			padding-top: 28px;
