@@ -9,7 +9,7 @@
       <div class="internal-header">
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Necesitass</span></div>
+          <div class="col-sm-4"><span class="zizou-16">Necesitas</span></div>
         </div>
         <div class="row">
           <div class="col-sm-1"></div>
@@ -20,6 +20,8 @@
         <div class="row">
           <div class="col-sm-1"></div>
           <div class="col-sm-3">
+            {segment_category_ids_piped}
+            {last_segment_category_id}
             {exp:channel:entries channel="seccion" disable="member_data|pagination" category="{segment_category_ids_piped}"}
             dale
             {categories}
