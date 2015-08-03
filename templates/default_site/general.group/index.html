@@ -9,18 +9,19 @@
       <div class="internal-header">
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="zizou-16">Necesitas</span></div>
+          <div class="col-sm-4"><span class="zizou-16">{segment_2_category_name}</span></div>
         </div>
         <div class="row">
           <div class="col-sm-1"></div>
-          <div class="col-sm-4"><span class="uppercase bold xl">{segment_3}</span></div>
+          <div class="col-sm-4"><span class="uppercase bold xl">
+          {segment_3_category_name}</span></div>
         </div>
       </div> 
       <div class="section-content pb-70">
         <div class="row">
           <div class="col-sm-1"></div>
           <div class="col-sm-3">
-            {exp:channel:entries channel="seccion" category="24" disable="member_data|pagination" dynamic="off"}
+            {exp:channel:entries channel="seccion" category="{segment_3_category_id}" disable="member_data|pagination" dynamic="off"}
              
               {categories}
                 
