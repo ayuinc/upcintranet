@@ -23,7 +23,9 @@
             {segment_category_ids_piped}
             {last_segment_category_id}
             {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" dynamic="off" category_group="34"}
-              dale
+              {categories}
+                {category_ids}
+              {/categories}
               {categories}
                 <?php $category = '{category_id}'; ?>
               {/categories}
