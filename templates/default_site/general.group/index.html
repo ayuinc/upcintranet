@@ -20,10 +20,7 @@
         <div class="row">
           <div class="col-sm-1"></div>
           <div class="col-sm-3">
-            {categories}
-              <?php $category = '{category_id}'; ?>
-            {/categories}
-            {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
+            
           </div>
           <div class="col-sm-8">
             <span class="zizou-26">¿Qué deseas hacer?</span>
@@ -37,6 +34,10 @@
              		dynamic="off"
              	}
               <div class="col-sm-6">
+                {categories}
+              <?php $category = '{category_id}'; ?>
+            {/categories}
+            {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
                 <div class="panel">
                   <div class="panel-body canales">
                     <div class="panel-body-head left tall">
