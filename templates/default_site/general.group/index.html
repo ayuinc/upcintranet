@@ -21,9 +21,7 @@
           <div class="col-sm-1"></div>
           <div class="col-sm-3">
             {exp:channel:entries channel="seccion" category="24" disable="member_data|pagination" dynamic="off"}
-              {categories}
-                {category_id}
-              {/categories}
+             
               {categories}
                 
                   <?php $categories = '{category_id}'; 
@@ -31,9 +29,9 @@
                         $category = end($categories2);
                   ?>
               {/categories}
-                  {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
                 
             {/exp:channel:entries}
+            {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
           </div>
           <div class="col-sm-8">
             <span class="zizou-26">¿Qué deseas hacer?</span>
