@@ -6,6 +6,7 @@
 {embed="includes/sidebar"}
 
     <div class="site-content">
+     <div class="container-fluid">
       <div class="internal-header">
         <div class="row">
           <div class="col-sm-1"></div>
@@ -35,7 +36,7 @@
             {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
           </div>
           <div class="col-sm-8">
-            <span class="zizou-26">¿Qué deseas hacer?</span>
+              <span class="zizou-26 mb-21">¿Qué deseas hacer?</span>
             <div class="row">
              {exp:channel:entries 
              		category="{segment_3_category_id}"
@@ -46,15 +47,15 @@
              		dynamic="off"
              	}
 
-              <div class="col-sm-6">
-                <div class="panel">
-                  <div class="panel-body canales">
-                    <div class="panel-body-head left tall">
+                <div class="col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body canales">
+                      <div class="panel-body-head left tall">
                       <h3>{title}</h3>
-                    </div>  
-                    <div class="panel-table">
-                      <ul class="tr">
-                        <p class="p-14 helvetica-16">{intrudccion-referencia}</p>
+                      </div>  
+                      <div class="panel-table">
+                        <ul class="tr">
+                          <p class="p-14 helvetica-16">{intrudccion-referencia}</p>
                         {if fecha-referencia}
                         <p class="helvetica-bold-14 pl-7">
                         {fecha-referencia}, de {hora-referencia}, Aula {aula-referencia}
@@ -91,5 +92,5 @@
         </div>
       </div>
       </div>
-       
+     </div>   
 {embed="includes/footer"}   
