@@ -1,3 +1,5 @@
+$login-max-width : 940px;
+
 @mixin redborder-shadow{
 	border-bottom: 2px solid #E42322;
 	padding: 0px;
@@ -25,11 +27,9 @@ body{
 			padding-bottom: 0px;
 			// min-height: 610px;
 		} 
-		.aviso{
-			margin-top:40px;
-			@media #{$md-down} {
-				margin-top: 0px;
-			}
+		.img-responsive{
+			height: 100%;
+			width: 100%;
 		}
 		.login-floting{
 			@include redborder-shadow;
@@ -42,14 +42,26 @@ body{
 			padding-top: 60px;
 		}
 		.row {
-			margin-right: 0px;
-			margin-left: 0px;
+			margin:auto;
+			max-width: $login-max-width;
+			&.aviso{
+				margin-top:40px!important;
+				max-width: 100%;
+				>div.row{
+					margin-left:auto;
+					margin-right:auto;
+					max-width: $login-max-width;
+				}
+				@media #{$md-down} {
+					margin-top: 0px!important;
+				}
+			}
 			.logo-position{
 				margin-top: -24px;
 			}
 			.col-sm-10 {
 				.row {
-					.col-sm-5 {
+					.col-md-7 {
 						img {
 							margin: 0 auto;							
 						}
@@ -57,11 +69,13 @@ body{
 							float: right;
 						}
 					}
-					.col-sm-7.bg-muted {
-						padding-bottom: 77px !important;
+					.col-md-5.bg-muted {
 						border-bottom: 2px solid $brand-danger; 
 						form.login-form {
 							.row {
+								.col-xs-2{
+									max-width: 50px;
+								}
 								.col-xs-8,
 								.col-xs-10 {
 									input.form-control {
@@ -114,6 +128,8 @@ body{
 	}
 
 	.login-servicios{
+		margin:auto;
+		max-width: $login-max-width;
 		@include redborder-shadow;
 		padding: 25px 0px;
 		a{
@@ -145,20 +161,27 @@ body{
 	width: 100%;
 	background-color: $gray-lighter;
 	.row {
-		font-family: "zizou-slab-regular" !important;
 		margin:0;
-		.col-xs-7,
-		.col-md-7{
+		margin-right:auto;
+		margin-left:auto;
+		max-width: $login-max-width;
+		font-family: "zizou-slab-regular" !important;
+
+		.col-xs-4,
+		.col-md-4{
 			padding-top: 28px;
 			@media #{$xs-only} {
 				padding-top: 7px;
 			}
 		}
-		.col-xs-6{
+		.col-xs-4{
 			img{
 				@media #{$xs-only} {
 				 width: 100px;
 				}
+			}
+			span{
+				padding-right:7px;
 			}
 			
 		}
