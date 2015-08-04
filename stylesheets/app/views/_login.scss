@@ -17,7 +17,7 @@ body{
 }
 .site-content {
 	&.login {
-		background-image:url("../assets/img/fondo-escaleras.png");
+		background-image:url("../assets/img/tramaMat.jpg");
 		background-color:#ffffff;
 		margin-top: 0px;
 		padding-bottom: 0px;
@@ -162,10 +162,10 @@ body{
 		margin-left:auto;
 		max-width: $login-max-width;
 		font-family: "zizou-slab-regular" !important;
-		.col-xs-4{
+		div{
 			img{
 				@media #{$xs-only} {
-				 width: 100px;
+				 width: 100%;
 				}
 			}
 			span{
