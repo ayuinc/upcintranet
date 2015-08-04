@@ -27,6 +27,9 @@ $class-col-sm : col-sm !default;
   .#{$class-col-sm}-#{$i}-5{
   	@include make-sm-column($i+0.5);
   }
+  .#{$class-col-sm}-offset-#{$i}-5{
+  	@include make-sm-column-offset($i+0.5)
+  }
 }
 
 $class-col-xs : col-xs !default;

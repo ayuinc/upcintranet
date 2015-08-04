@@ -131,13 +131,14 @@ body{
 		a{
 			.image{
 				text-align: center;
+				padding-top: 14px;
 				img{
 					height: 40px;
 				}
 			}
 			.text{
 				margin: auto;
-				margin-top: 14px;
+				margin-top: 7px;
 			}
 		}
 		>div{
@@ -164,12 +165,10 @@ body{
 		font-family: "zizou-slab-regular" !important;
 		div{
 			img{
+				max-height: 50px;
 				@media #{$xs-only} {
 				 width: 100%;
 				}
-			}
-			span{
-				padding-right:7px;
 			}
 			
 		}
