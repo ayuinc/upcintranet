@@ -59,7 +59,9 @@ body{
 			.logo-position{
 				margin-top: -24px;
 			}
-			.col-sm-10 {
+			.col-sm-10,
+			.col-sm-11,
+			.col-sm-10-5{
 				.row {
 					.col-md-7 {
 						img {
@@ -73,20 +75,14 @@ body{
 						border-bottom: 2px solid $brand-danger; 
 						form.login-form {
 							.row {
-								.col-xs-2{
-									max-width: 50px;
-								}
-								.col-xs-8,
-								.col-xs-10 {
+								padding:0px 50px;
+								div{
 									input.form-control {
 									  border-radius: 0px !important;
 									  border: 0px !important;
 									  background-color: $gray-lighter;
 									  color: black !important;
 									  font-family: "zizou-slab-regular" !important;
-
-																		  
-
 									}
 
 								}
@@ -136,7 +132,7 @@ body{
 			.image{
 				text-align: center;
 				img{
-					height: 70px;
+					height: 40px;
 				}
 			}
 			.text{
@@ -166,14 +162,6 @@ body{
 		margin-left:auto;
 		max-width: $login-max-width;
 		font-family: "zizou-slab-regular" !important;
-
-		.col-xs-4,
-		.col-md-4{
-			padding-top: 28px;
-			@media #{$xs-only} {
-				padding-top: 7px;
-			}
-		}
 		.col-xs-4{
 			img{
 				@media #{$xs-only} {
