@@ -25,18 +25,14 @@
 $class-col-sm : col-sm !default;
 @for $i from 0 through 11{
   .#{$class-col-sm}-#{$i}-5{
-  	@media #{$md-down}{
-    	@include make-sm-column($i+0.5);
-  	}
+  	@include make-sm-column($i+0.5);
   }
 }
 
 $class-col-xs : col-xs !default;
 @for $i from 0 through 11{
   .#{$class-col-xs}-#{$i}-5{
-  	@media #{$sm-down}{
    	 @include make-xs-column($i+0.5);
-  	}
   }
  
 }
