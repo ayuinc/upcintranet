@@ -1,6 +1,5 @@
-{exp:channel:entries channel="accesos_rapidos" dynamic="off" category={embed:cate}}
-
-{if {total_results} > 1}
+{exp:channel:entries channel="accesos_rapidos" dynamic="off" category="{embed:cate}"} 
+{if {total_results} >= 1}
     {if count == 1}
      <div class="panel mt-21">
       <div class="panel-head bg-muted">
@@ -15,23 +14,23 @@
         <div class="panel-table pb-14">
           <ul class="tr">
       {/if}
-              {categories}
-                <?php $category = '{category_id}'; ?>
-             
-              {if {category_id} == {embed:cate}}
-               <a id="lnk_ext_{title}" class="sb-link" target="_blank" href="{acceso_rapido_link}">
-                <li class="bg-muted pl-7 pb-0">
-                  <div class="arrow-icon info"></div>
-                   <div class="zizou-18 quick-access">{title}</div>
-                </li>
-              </a>
+          {categories}
+            <?php $category = '{category_id}'; ?>
+              {if {category_id} == {embed:cate} }
+                  <a id="lnk_ext_{title}" class="sb-link" target="_blank" href="{acceso_rapido_link}">
+                    <li class="bg-muted pl-7 pb-0">
+                      <div class="arrow-icon info"></div>
+                       <div class="zizou-18 quick-access">{title}</div>
+                    </li>
+                  </a>
               {/if}
-               {/categories}
-      {if count == {total_results} && {total_results} > 1 }    
+          {/categories} 
+      {if count == {total_results} && {total_results} >= 1 }    
           </ul>
         </div>
       </div>   
     </div>
     {/if}
   {/if}
+     
 {/exp:channel:entries}
