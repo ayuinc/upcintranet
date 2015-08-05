@@ -1213,13 +1213,13 @@ class Webservices
       //limpio la variable para reutilizarla
       $result = '<div class="panel-body-head-table">';
       $result .= '<ul class="tr">';
-      $result .= '<li class="col-xs-7">';
+      $result .= '<li class="col-xs-8">';
       $result .= '<div class="pl-7"><span class="text-left">Curso</span></div>';
       $result .= '</li>';
-      $result .= '<li class="col-xs-2">';
-      $result .= '<div class=""><span>Faltas</span></div>';
-      $result .= '</li>';
-      $result .= '<li class="col-xs-3">';
+      // $result .= '<li class="col-xs-2">';
+      // $result .= '<div class=""><span>Faltas</span></div>';
+      // $result .= '</li>';
+      $result .= '<li class="col-xs-4">';
       $result .= '<div class=""><span>Promedio</span></div>';
       $result .= '</li>';
       $result .= '</ul>';
@@ -1251,17 +1251,17 @@ class Webservices
       else{
         for ($i=0; $i<$tamano; $i++) {
           $result .= '<ul class="tr bg-muted">';
-          $result .= '<li class="col-xs-7 helvetica-14 pb-0">';
+          $result .= '<li class="col-xs-8 helvetica-14 pb-0">';
           $result .= '<div>';
           $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-2 ronnia-18 curso-faltas">';
-          $result .= '<div class="text-center">';
-          $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
-          $result .= '</div>';
+          // $result .= '<li class="col-xs-2 ronnia-18 curso-faltas">';
+          // $result .= '<div class="text-center">';
+          // $result .= '<span>'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'</span>';
+          // $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-3 ronnia-18 curso-promedio">';
+          $result .= '<li class="col-xs-4 ronnia-18 curso-promedio">';
 
           $codcurso = $json['Inasistencias'][$i]['CodCurso'];
           
