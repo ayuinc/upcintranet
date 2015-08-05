@@ -1,4 +1,4 @@
-{exp:channel:entries channel="accesos_rapidos" dynamic="off"}
+{exp:channel:entries channel="accesos_rapidos" dynamic="off" category={embed:cate}}
 
 {if {total_results} > 0}
     {if count == 0}
@@ -26,7 +26,7 @@
                 </li>
               </a>
               {/if}
-      {if count == {total_results}}    
+      {if count == {total_results} && {total_results} > 0}    
           </ul>
         </div>
       </div>   
