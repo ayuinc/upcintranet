@@ -17,7 +17,7 @@
       {/if}
               {categories}
                 <?php $category = '{category_id}'; ?>
-              {/categories}
+             
               {if {category_id} == {embed:cate}}
                <a id="lnk_ext_{title}" class="sb-link" target="_blank" href="{acceso_rapido_link}">
                 <li class="bg-muted pl-7 pb-0">
@@ -26,6 +26,7 @@
                 </li>
               </a>
               {/if}
+               {/categories}
       {if count == {total_results} && {total_results} > 1 }    
           </ul>
         </div>
