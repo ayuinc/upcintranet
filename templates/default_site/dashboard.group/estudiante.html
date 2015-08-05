@@ -13,7 +13,11 @@
       <div class="col-sm-11 col-xs-12">
       {exp:channel:entries channel="avisos_dashboard" orderby="date" sort="desc" category="20" limit="3" disable="member_data" dynamic="off"}
        <div class="msge-container clearfix mb-14" style="background:#{color_de_fondo}!important; color:#{color_de_texto}!important;">
-            
+            <style>
+              .msge-container a{
+                color:#{color_de_texto}!important;
+              }
+            </style>
             <div class="col-xs-11 col-sm-11 col-sm-offset-0 msge-text" >
               <div class="col-xs-2 col-sm-1 p-14 ">
                 <img class="img-center" src="{site_url}assets/img/bell_sm.png" alt="">
