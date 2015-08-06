@@ -1,6 +1,7 @@
 
 {if segment_2 != 'reserva-espacios-deportivos'}
   {404-segment-last}
+  {404-segment-2-category}
 {if:else}
   {404-segment-2-only}
 {/if}
@@ -84,7 +85,8 @@
           channel="seccion" 
           limit="1" 
           disable="member_data|pagination"  
-          entry_id="296"
+          category="{segment_1_category_id}"
+          limit="1"
         }
         <div class="internal-header">
           <div class="row">
