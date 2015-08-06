@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	var href = window.location.protocol + "://" + window.location.host + "/" + window.location.pathname;
+	var href = window.location.protocol + "://" + window.location.host + window.location.pathname;
 	var codigo_alumno = href.substr(href.lastIndexOf('/') + 1);
 	var hostname = <?php  echo $_GET['url']; ?>; 
 
