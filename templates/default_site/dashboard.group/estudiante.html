@@ -14,7 +14,7 @@
       {exp:channel:entries channel="avisos_dashboard" orderby="date" sort="desc" category="20" limit="3" disable="member_data" dynamic="off"}
        <div class="msge-container clearfix mb-14" style="background:#{color_de_fondo}!important; color:#{color_de_texto}!important;">
             <style>
-              .msge-container a{
+              .msge-container a {
                 color:#{color_de_texto}!important;
               }
             </style>
@@ -77,7 +77,7 @@
             <?php $category = '{category_id}'; ?>
           {/if}
         {/categories}
-        {embed="includes/dashboard-accesos-rapidos-estudiante" cate="<?php echo($category) ?>"}
+        {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
       {/exp:channel:entries}
       </div>
       <div class="col-sm-4">
