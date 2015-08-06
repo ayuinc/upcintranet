@@ -30,14 +30,25 @@
           <div class="row">
   	        <div class="col-sm-0-5"></div>
             <div class="col-sm-8 resultados red-line bg-muted pb-14 pt-14">
-                {exp:channel:entries channel="ayuda" limit="1" disable="member_data" dynamic="off" status="Estudiante" category="{segment_3}" entr_id="{segment_4}"}
+             {if segment_4 != ""}
+                {exp:channel:entries channel="ayuda" limit="1" disable="member_data" dynamic="off" status="Estudiante" category="{segment_3}" entry_id="{segment_4}"}
                   <h3 class="solano-bold-28 pt-3 black-text">{title}</h3>
                   <p>{contenido-noticia}</p>
     						{/exp:channel:entries} 	
                 <br>
                 <a href="{site_url}ayuda/{segment_3}" class="pl-0 pb-7 pr-35 sb-link zizou-14">
                  <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">
-                Regresar</a>	            
+                Regresar</a>    
+             {if:else }
+                {exp:channel:entries channel="ayuda" limit="1" disable="member_data" dynamic="off" status="Estudiante" entry_id="{segment_3}"}
+                  <h3 class="solano-bold-28 pt-3 black-text">{title}</h3>
+                  <p>{contenido-noticia}</p>
+                {/exp:channel:entries}  
+                <br>
+                <a href="{site_url}ayuda" class="pl-0 pb-7 pr-35 sb-link zizou-14">
+                 <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">
+                Regresar</a>	
+              {/if}            
             </div>
           </div>
         </div>
