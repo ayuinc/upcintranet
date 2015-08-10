@@ -9,9 +9,9 @@ $(document).ready(function(){
 	targetHeight = $('.site-content').height() + 49;
 	$('.site-menu').css("height",targetHeight + "px");
 
-	if(getCookie('closed-alert') == 'true'){
-		$(".msge-row").hide();
-	}
+	// if(getCookie('closed-alert') == 'true'){
+	// 	$(".msge-row").hide();
+	// }
 
 });
 
