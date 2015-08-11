@@ -171,7 +171,7 @@ class Webservices
      */
     public function eliminar_cookie()
     {
-
+      session_name('upc');
       session_start();
       unset($_COOKIE[$this->_cookies_prefix."Codigo"]);
       $this->services->set_cookie("Codigo",NULL);
@@ -216,8 +216,6 @@ class Webservices
       unset($_SESSION["onLogin"]);
       unset($_SESSION["Redireccion"]);     
       session_destroy();
-      var_dump($_SESSION);
-      var_dump($_COOKIE);
     }
 
     // CONSULTAR ORDEN DE MERITO ALUMNO
@@ -4863,6 +4861,7 @@ class Webservices
     
     //INICIAR SESION
     public function iniciar_session() {
+      session_name('upc');
       session_start();
     }
     
@@ -4938,6 +4937,7 @@ class Webservices
     
     //DESTRUYE LA SESSION
     public function destruir_session () {
+      session_name('upc');
       session_start();
       $_SESSION["Token"] = "";
       $this->services->set_cookie("Codigo", NULL);
