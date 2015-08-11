@@ -112,7 +112,7 @@ class Webservices
      * Buils session according to user
      *
      * @access  public
-     * @return  string
+     * @return  
      */
     public function generador_token()
     {
@@ -261,24 +261,31 @@ class Webservices
       $this->services->set_cookie("Token",$token, time() + (1800), "/");
       $site_url = ee()->config->item('site_url');
       
-      if (strval($TipoUser) ==='ALUMNO') {
-        if (isset($_COOKIE[$this->_cookies_prefix."Redireccion"])) {
-          if(strcmp($_COOKIE[$this->_cookies_prefix."Redireccion"], "")!=0 ){
+      if (strval($TipoUser) ==='ALUMNO') 
+      {
+        if (isset($_COOKIE[$this->_cookies_prefix."Redireccion"])) 
+        {
+          if(strcmp($_COOKIE[$this->_cookies_prefix."Redireccion"], "")!=0 )
+          {
             $this->EE->functions->redirect($site_url.($_COOKIE[$this->_cookies_prefix."Redireccion"]));
-
           }
-          else {
+          else 
+          {
             $this->EE->functions->redirect($site_url."dashboard/estudiante");
           }
         }
-        else{
+        else
+        {
           $this->EE->functions->redirect($site_url."dashboard/estudiante");
         } 
       }   
       
-      if (strval($TipoUser)=='PROFESOR') {
-        if (isset($_COOKIE[$this->_cookies_prefix."Redireccion"])) {
-          if(strcmp($_COOKIE[$this->_cookies_prefix."Redireccion"], "")!=0){
+      if (strval($TipoUser)=='PROFESOR') 
+      {
+        if (isset($_COOKIE[$this->_cookies_prefix."Redireccion"])) 
+        {
+          if(strcmp($_COOKIE[$this->_cookies_prefix."Redireccion"], "")!=0)
+          {
              $this->EE->functions->redirect($site_url.$_COOKIE[$this->_cookies_prefix."Redireccion"]);
           }
           else{
@@ -293,7 +300,6 @@ class Webservices
       if (strval($TipoUser)=='PADRE') {
 
         $url = 'ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
-
         $hijosWebService= $this->services->curl_url_not_reuse('ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'');
 
         $json = json_decode($hijosWebService, true);
@@ -1392,8 +1398,6 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
-      
       $url = 'InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
       //var_dump($url);
