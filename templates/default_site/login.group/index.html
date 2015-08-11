@@ -30,7 +30,7 @@
                 <img src="{site_url}assets/img/banner-b.jpg" style="max-height: 400px" class="img-responsive hidden-lg hidden-md" alt="">
               </div>
               <!-- Eliminado Informacion Local-->
-                {exp:webservices:eliminar_cookie}
+                {!-- {exp:webservices:eliminar_cookie} --}
               <!-- -->
               <div class="col-sm-12 col-md-5 p-0 bg-muted login-floting">
                 <div class="row">
@@ -160,3 +160,4 @@
       </div>
     </div>
 {embed="includes/footer"}
+{exp:webservices:redirect_user}
