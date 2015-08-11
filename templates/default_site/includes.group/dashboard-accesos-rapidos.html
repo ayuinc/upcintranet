@@ -1,36 +1,34 @@
 {exp:channel:entries channel="accesos_rapidos" dynamic="off" status="open" category="{embed:cate}"} 
 {if {total_results} >= 1}
     {if count == 1}
-     <div class="panel mt-21">
-      <div class="panel-head bg-muted">
-        <div class="panel-head left">
-            <div class="panel-title">
-              <h3>Accesos Rápidos</h3>
-            </div>
-            <div class="panel-title-line"></div>
+      <div class="panel mt-14 hidden-xs hidden-sm">
+        <div class="panel-head no-bg">
+          <div class="panel-title left">
+            <h3>Accesos Rápidos</h3>
+          </div>
+        </div>
+        <div class="panel-body wobg">
+          <div class="panel-table otras-acciones">
+            <ul class="tr">
+              {/if}
+                  {categories}
+                    <?php $category = '{category_id}'; ?>
+              {if {category_id} == {embed:cate} }              
+              <a id="lnk_ext_{title}" class="sb-link" target="_blank" href="{acceso_rapido_link}">
+                <li class="bg-muted p-7 mb-7">
+                  <div class="arrow-icon info"></div>
+                  <div class="zizou-16 borderless">{title}</div>
+                </li>
+              </a>
+              {/if}
+                  {/categories} 
+              {if count == {total_results} && {total_results} >= 1 } 
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="panel-body">
-        <div class="panel-table pb-14">
-          <ul class="tr">
       {/if}
-          {categories}
-            <?php $category = '{category_id}'; ?>
-              {if {category_id} == {embed:cate} }
-                  <a id="lnk_ext_{title}" class="sb-link" target="_blank" href="{acceso_rapido_link}">
-                    <li class="bg-muted pl-7 pb-0">
-                      <div class="arrow-icon info"></div>
-                       <div class="zizou-18 quick-access">{title}</div>
-                    </li>
-                  </a>
-              {/if}
-          {/categories} 
-      {if count == {total_results} && {total_results} >= 1 }    
-          </ul>
-        </div>
-      </div>   
-    </div>
     {/if}
-  {/if}
      
 {/exp:channel:entries}
+
