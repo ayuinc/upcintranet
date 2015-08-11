@@ -96,15 +96,16 @@ class Webservices
      * @return 
      */
     private function unset_session_cookie($name){
-      if(isset($_COOKIE[$this->_cookies_prefix.$key]))
+      if(isset($_COOKIE[$this->_cookies_prefix.$name]))
       { 
-        unset($_COOKIE[$this->_cookies_prefix.$key]);
+        unset($_COOKIE[$this->_cookies_prefix.$name]);
       }
-      if(isset($_SESSION[$this->_cookies_prefix.$key]))
+      if(isset($_SESSION[$this->_cookies_prefix.$name]))
       {
-        unset($_SESSION[$this->_cookies_prefix.$key]);
+        unset($_SESSION[$this->_cookies_prefix.$name]);
       }
-      $this->services->set_cookie($key, NULL) ;
+      $this->services->delete_cookie($this->_cookies_prefix.$name) ;
+      $this->services->delete_cookie($name) ;
     }
 
     /**
@@ -254,16 +255,16 @@ class Webservices
       }    
       $result = '';
 
-      $_COOKIE["TipoUser"] =  $TipoUser;
+      $_COOKIE[$this->_cookies_prefix."TipoUser"] =  $TipoUser;
       $this->services->set_cookie("TipoUser",$TipoUser, time() + (1800), "/");
       $_COOKIE[$this->_cookies_prefix."Token"] =  $token;
       $this->services->set_cookie("Token",$token, time() + (1800), "/");
       $site_url = ee()->config->item('site_url');
       
       if (strval($TipoUser) ==='ALUMNO') {
-        if (isset($_COOKIE["Redireccion"])) {
-          if(strcmp($_COOKIE["Redireccion"], "")!=0 ){
-            $this->EE->functions->redirect($site_url.($_COOKIE["Redireccion"]));
+        if (isset($_COOKIE[$this->_cookies_prefix."Redireccion"])) {
+          if(strcmp($_COOKIE[$this->_cookies_prefix."Redireccion"], "")!=0 ){
+            $this->EE->functions->redirect($site_url.($_COOKIE[$this->_cookies_prefix."Redireccion"]));
 
           }
           else {
@@ -276,9 +277,9 @@ class Webservices
       }   
       
       if (strval($TipoUser)=='PROFESOR') {
-        if (isset($_COOKIE["Redireccion"])) {
-          if(strcmp($_COOKIE["Redireccion"], "")!=0){
-             $this->EE->functions->redirect($site_url.$_COOKIE["Redireccion"]);
+        if (isset($_COOKIE[$this->_cookies_prefix."Redireccion"])) {
+          if(strcmp($_COOKIE[$this->_cookies_prefix."Redireccion"], "")!=0){
+             $this->EE->functions->redirect($site_url.$_COOKIE[$this->_cookies_prefix."Redireccion"]);
           }
           else{
             $this->EE->functions->redirect($site_url."dashboard/docente");
@@ -340,8 +341,7 @@ class Webservices
       
       if (strval($TipoUser)=='PADRE') 
       {
-        $this->EE->functions->redirect($site_url."dashboard/padre");
-                     
+        $this->EE->functions->redirect($site_url."dashboard/padre");              
       }  
        return;             
     }
@@ -1291,10 +1291,10 @@ class Webservices
          $result .= '</li>';
          $result .= '<li class="col-sm-8 pt-28 pr-21">';
          $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
-         if ($_COOKIE["TipoUser"] =='ALUMNO') {
+         if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='ALUMNO') {
          $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reincorpórate</a></p>';
          }
-         if ($_COOKIE["TipoUser"] =='PROFESOR') {
+         if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='PROFESOR') {
          $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar</p>';
          } 
          $result .= '</li>';
@@ -1355,10 +1355,10 @@ class Webservices
         $result .= '<li class="col-sm-8 pt-28 pr-21">';
         if ($error_mensaje == "Ud. no se encuentra matriculado en el presente ciclo.") {
         $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
-          if ($_COOKIE["TipoUser"] =='ALUMNO') {
+          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='ALUMNO') {
           $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reincorpórate</a></p>';
           }
-          if ($_COOKIE["TipoUser"] =='PROFESOR') {
+          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='PROFESOR') {
           $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar</p>';
           }
         } else {
@@ -3761,10 +3761,10 @@ class Webservices
         $result .= '<img class="img-center" src="{site_url}assets/img/no_bookings_new.png">';
         $result .= '</li>';
         if ($error_mensaje == "No se han registrado reservas durante esta semana." || $counterReservas == 0) {
-          if ($_COOKIE["TipoUser"] =='ALUMNO') {
+          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='ALUMNO') {
             $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a></p></li>';         
           } 
-          if ($_COOKIE["TipoUser"] =='PROFESOR') {
+          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='PROFESOR') {
             $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
           } 
         } else {
@@ -4876,7 +4876,7 @@ class Webservices
     //MENSAJE DE ERROR
     public function mensaje_error()
     {
-      $MsgError = $_COOKIE["MsgError"];
+      $MsgError = $_COOKIE[$this->_cookies_prefix."MsgError"];
       $this->services->set_cookie("MsgError", $MsgError, time() + (1800), "/");
       return $MsgError;
     }    
@@ -4909,19 +4909,19 @@ class Webservices
       if ($codigo == '') {
 
         $redireccion = uri_string();
-        $_COOKIE["Redireccion"] = $redireccion;
+        $_COOKIE[$this->_cookies_prefix."Redireccion"] = $redireccion;
         $this->services->set_cookie("Redireccion",$redireccion, time() + (1800), "/");
         $site_url = ee()->config->item('site_url');
         $site_url .= 'login/no-es-usuario';
         redirect($site_url);
       }
       elseif ($segment_2 != $tipouser ) {
-         $_COOKIE["Redireccion"]= "/general/permisos";
+         $_COOKIE[$this->_cookies_prefix."Redireccion"]= "/general/permisos";
         if ($tipouser == 'PROFESOR'){
           redirect( $_SESSION["Redireccion"]);
         }
         if ($tipouser == 'ALUMNO'){
-          redirect( $_COOKIE["Redireccion"]);
+          redirect( $_COOKIE[$this->_cookies_prefix."Redireccion"]);
         }
         if ($tipouser == 'PADRE'){
           $url = 'ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
@@ -4968,8 +4968,8 @@ class Webservices
         unset($_COOKIE[$this->_cookies_prefix."Codigo"]);
         $this->services->set_cookie("Codigo", null, -1, "/");
       }
-      if (isset($_COOKIE["TipoUser"])) {
-        unset($_COOKIE["TipoUser"]);
+      if (isset($_COOKIE[$this->_cookies_prefix."TipoUser"])) {
+        unset($_COOKIE[$this->_cookies_prefix."TipoUser"]);
         $this->services->set_cookie("TipoUser", null, -1, "/");
       }
       if (isset($_COOKIE[$this->_cookies_prefix."Token"])) {
