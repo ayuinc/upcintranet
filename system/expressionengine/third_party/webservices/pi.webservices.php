@@ -324,6 +324,31 @@ class Webservices
        return;             
     }
 
+    public function redirect_user()
+    {
+
+      $TipoUser = $_COOKIE["upc_TipoUser"];
+
+      if (strval($TipoUser) ==='ALUMNO') {
+        
+        $this->EE->functions->redirect($site_url."dashboard/estudiante");
+
+      }   
+      
+      if (strval($TipoUser)=='PROFESOR') {
+        
+        $this->EE->functions->redirect($site_url."dashboard/docente");
+             
+      }
+      
+      if (strval($TipoUser)=='PADRE') {
+
+        $this->EE->functions->redirect($site_url."dashboard/padre");
+                     
+      }  
+       return;             
+    }
+
     public function padre_lista_de_hijos_ciclo_actual()
     {
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
