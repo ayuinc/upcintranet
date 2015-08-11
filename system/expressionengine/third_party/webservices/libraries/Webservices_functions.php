@@ -69,7 +69,7 @@ class Webservices_functions {
 		public function delete_cookie($cookie)
 		{	
 			// Adding the prefix so original code stays "clean"
-			$this->EE->input->delete_cookie($this->_cookies_prefix.$cookie);
+			$this->EE->input->delete_cookie($cookie);
 		}
 
 }
