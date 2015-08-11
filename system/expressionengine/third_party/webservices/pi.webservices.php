@@ -171,6 +171,7 @@ class Webservices
      */
     public function eliminar_cookie()
     {
+
       session_start();
       unset($_COOKIE[$this->_cookies_prefix."Codigo"]);
       $this->services->set_cookie("Codigo",NULL);
@@ -179,6 +180,27 @@ class Webservices
       $this->services->set_cookie("MsgError",NULL);
       $this->services->set_cookie("closed-alert", NULL);
       $this->services->set_cookie("onLogin", NULL);
+
+              // Saving data to $_SESSION and Cookies
+        $user_data = array( 'Codigo' ,
+                            'TipoUser',
+                            'Nombres',
+                            'Apellidos',
+                            'Estado',
+                            'CodLinea',
+                            'CodModal',
+                            'DscModal',
+                            'CodSede',
+                            'DscSede',
+                            'Ciclo' ,
+                            'Token', 
+                            'Redireccion');
+        foreach ($user_data as $key)
+        {
+          $this->services->set_cookie($key, NULL) ;
+          unset($_COOKIE[$this->cookie_prefix.$key]);
+          unset($_SESSION[$key]);
+        }
       $_SESSION["Token"] = "";
       unset($_SESSION["Codigo"]);
       unset($_SESSION["TipoUser"]);
@@ -194,6 +216,8 @@ class Webservices
       unset($_SESSION["onLogin"]);
       unset($_SESSION["Redireccion"]);     
       session_destroy();
+      var_dump($_SESSION);
+      var_dump($_COOKIE);
     }
 
     // CONSULTAR ORDEN DE MERITO ALUMNO
