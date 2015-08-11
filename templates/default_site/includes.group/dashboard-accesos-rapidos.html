@@ -14,12 +14,12 @@
                   {categories}
                     <?php $category = '{category_id}'; ?>
               {if {category_id} == {embed:cate} }              
-              <a id="lnk_ext_{title}" class="sb-link" target="_blank" href="{acceso_rapido_link}">
-                <li class="bg-muted p-7 mb-7">
+              <li class="bg-muted p-7 mb-7">
+                <a id="lnk_ext_{title}" class="sb-link" target="_blank" href="{acceso_rapido_link}">
                   <div class="arrow-icon info"></div>
                   <div class="zizou-16 borderless">{title}</div>
-                </li>
-              </a>
+                </a>
+              </li>
               {/if}
                   {/categories} 
               {if count == {total_results} && {total_results} >= 1 } 
