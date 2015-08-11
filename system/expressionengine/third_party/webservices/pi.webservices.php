@@ -340,7 +340,8 @@ class Webservices
       
       if (strval($TipoUser)=='PADRE') 
       {
-        $this->EE->functions->redirect($site_url."dashboard/padre");              
+        $this->EE->functions->redirect($site_url."dashboard/padre");
+                     
       }  
        return;             
     }
