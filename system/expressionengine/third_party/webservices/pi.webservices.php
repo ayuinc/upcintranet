@@ -326,24 +326,21 @@ class Webservices
     public function redirect_user()
     {
 
-      $TipoUser = $_COOKIE["upc_TipoUser"];
+      $TipoUser = $_COOKIE[$this->_cookies_prefix."TipoUser"];
 
-      if (strval($TipoUser) ==='ALUMNO') {
-        
+      if (strval($TipoUser) ==='ALUMNO')
+      {  
         $this->EE->functions->redirect($site_url."dashboard/estudiante");
-
       }   
       
-      if (strval($TipoUser)=='PROFESOR') {
-        
-        $this->EE->functions->redirect($site_url."dashboard/docente");
-             
+      if (strval($TipoUser)=='PROFESOR') 
+      {  
+        $this->EE->functions->redirect($site_url."dashboard/docente");      
       }
       
-      if (strval($TipoUser)=='PADRE') {
-
-        $this->EE->functions->redirect($site_url."dashboard/padre");
-                     
+      if (strval($TipoUser)=='PADRE') 
+      {
+        $this->EE->functions->redirect($site_url."dashboard/padre");              
       }  
        return;             
     }
