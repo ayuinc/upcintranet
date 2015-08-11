@@ -27,6 +27,7 @@ $site-menu-width: 79px;
 	position: fixed;
 	padding-top: 140px;
 	float: left;
+	height: 100%;
 	@media #{$portrait} {
 		top: 86px;
 		min-height: 880px;
