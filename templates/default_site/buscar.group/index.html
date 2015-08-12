@@ -51,6 +51,7 @@
                        search_in="title|intrudccion-referencia|intro-noticia" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|" where="any" relevance_proximity="yes" status="open"  keyword_search_category_name="yes" 
                      
                   }
+
                         {if super_search_no_results}
                            <div class="panel-body p-14 ">
                                <div class="helvetica-16">
@@ -58,34 +59,47 @@
                                </div>
                             </div>
                         {/if}
+                     <div class="panel-body p-14 result_query">
                     {if buscar_alumnos_referencia=='si'}
-                      <div class="panel-body p-14 result_query">
-
                         <div class="solano-bold-20 black-text">
                           <span id="search-count"></span>.&nbsp;{title}
                         </div>   
                         <div class="helvetica-16">
-                          {if intrudccion-referencia}
+                        {if intrudccion-referencia}
                             {intrudccion-referencia}
-                          {/if}
-                          {if intro-noticia}
+                        {if:elseif intro-noticia}
                             {intro-noticia}
-                          {/if}
-                        </div>     
+                        {/if}
+                        </div>
+                        <div class="helvetica-16">
                         {if link-referencia}
                           {if tipo-referencia=='Socrates'}
                           <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}socrates/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
                           {/if} 
                           {if tipo-referencia=='Externa'}
-                          <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>                          
+                          <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>             
                           {/if}   
                         {/if} 
-
+                        </div>
+                      {if:else}
+                        
+                         {if link-referencia}
+                         <div class="solano-bold-20 black-text">
+                          <span id="search-count"></span>.&nbsp;{title}
+                        </div>   
+                          <a target="_blank" class="danger-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+                        {if:else}
+                        <div class="solano-bold-20 black-text">
+                          <span id="search-count"></span>.&nbsp;{title}
+                        </div>   
+                          <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}{categories}{category_url_title}/{/categories}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+                        {/if}
+                      {/if}
                       </div>
                       {if count != super_search_total_results}
                       <div class="dotted-line"></div>
                       {/if}
-                    {/if}
+                   
                   {/exp:super_search:results}
                 </div>
                 </div>
@@ -98,7 +112,7 @@
           $(document).ready(function($) {
             counter = 0;
             $('#total-results').html($('.result_query').length);
-            $("title").html($('.result_query').length + ' resultados para {exp:search:keywords}');
+            $("title").html($('.result_query').length + ' resultados para "{super_search_keywords}"');
             $('.result_query #search-count').each(function() {
               counter = counter + 1;
               $(this).html(counter);
