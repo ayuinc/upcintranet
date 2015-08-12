@@ -1,5 +1,6 @@
 {embed="includes/head"}
 {embed="includes/header-global-only"}
+
     <div class="site-content login">
       <div class="container-fluid p-0">
         {exp:channel:entries channel="avisos_intranet" orderby="date" sort="desc" limit="1" disable="member_data" dynamic="off"}
@@ -30,7 +31,7 @@
                 <img src="{site_url}assets/img/banner-b.jpg" style="max-height: 400px" class="img-responsive hidden-lg hidden-md" alt="">
               </div>
               <!-- Eliminado Informacion Local-->
-                {exp:webservices:eliminar_cookie}
+                {!-- {exp:webservices:eliminar_cookie} --}
               <!-- -->
               <div class="col-sm-12 col-md-5 p-0 bg-muted login-floting">
                 <div class="row">
@@ -160,3 +161,4 @@
       </div>
     </div>
 {embed="includes/footer"}
+{exp:webservices:redirect_user}

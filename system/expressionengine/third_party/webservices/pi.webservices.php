@@ -332,7 +332,7 @@ class Webservices
 
     public function redirect_user()
     {
-
+      $site_url = ee()->config->item('site_url');
       $TipoUser = $_COOKIE[$this->_cookies_prefix."TipoUser"];
 
       if (strval($TipoUser) ==='ALUMNO')
