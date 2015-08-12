@@ -38,7 +38,11 @@
                   </div>
                 </div>
               </div>
-              {embed="includes/otras-acciones-reservas-cubiculos"}
+              
+              {categories}
+                <?php $category = '{category_id}'; ?>
+              {/categories}
+              {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
             </div>
         {/exp:channel:entries}      
             <div class="col-md-8">
