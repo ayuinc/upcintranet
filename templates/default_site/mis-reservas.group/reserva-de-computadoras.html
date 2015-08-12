@@ -40,10 +40,9 @@
               </div>
               
               {categories}
-                <?php $category2 = '{category_id}'; ?>
-                
+                <?php $category = '139'; ?>
               {/categories}
-              {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category2) ?>"}
+              {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
             </div>
         {/exp:channel:entries}      
             <div class="col-md-8">
@@ -66,15 +65,6 @@
                     </ul>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-5 section-desc">
-              {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="segment_1_category_id"}
-                {categories}
-                  <?php $category = '{category_id}'; ?>
-                  
-                {/categories}
-              {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
-              {/exp:channel:entries} 
               </div>
             </div>
           </div>
