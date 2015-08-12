@@ -262,7 +262,7 @@
 							font-size: 14px;
 						}
 					}
-					>div {
+					div {
 						@include display(flex);
 						@include flex-direction(column);
 						@include justify-content(center);
