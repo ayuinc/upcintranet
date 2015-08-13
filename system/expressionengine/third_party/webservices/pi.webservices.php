@@ -3258,7 +3258,6 @@ class Webservices
       $numhoras = ee()->TMPL->fetch_param('numhoras');
       $fechaini = ee()->TMPL->fetch_param('fechaini');
       $fechaini = substr($fechaini, 6,4).substr($fechaini, 3,2).substr($fechaini, 0,2);
-      //$fechafin = ee()->TMPL->fetch_param('fechafin');
       $fechafin = $fechaini;
       $segmento = ee()->TMPL->fetch_param('segmento');
 
@@ -3266,65 +3265,49 @@ class Webservices
       $HoraIni = intval($HoraIni);
       $HoraFin = intval($HoraIni) + intval($numhoras);
       
-      if($HoraIni < 10){
+      if($HoraIni < 10)
+      {
         $HoraIni = '0'.$HoraIni.'00';
       }
-      else{
+      else
+      {
         $HoraIni = $HoraIni.'00';
       }
 
-      if($HoraFin < 10){
+      if($HoraFin < 10)
+      {
         $HoraFin = '0'.$HoraFin.'00';
       }
-      else{
+      else
+      {
         $HoraFin = $HoraFin.'00';
       }
       
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      /*
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
-
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
-      }
-      */
-      $token = $_COOKIE['Token'];
+   
+      $token = $_COOKIE[$this->_cookies_prefix.'Token'];
       $url = 'DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
       //var_dump($url);
 
-
       $result=$this->services->curl_url($url);
-      
       $json = json_decode($result, true);
-      
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];
-      
       $result = '';
       $tamano = count($json['HorarioDia']);
-      
+
+      $result .= '<div class="row pt-0 pl-14">'; // apertura
       for ($i=0; $i<$tamano; $i++) {
                 
         $tamano_int = count($json['HorarioDia'][$i]['Disponibles']);
         
         // $result .='<div class="row">';
-        
         for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
           $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
           $hora_inicio_sol = substr($HoraIni,0,2);
           if($hora_inicio_sol <= $hora_inicio_disp){
-            if ($a == 0) {
-              $result .= '<div class="row pt-0 pl-14">'; // apertura
-            }
-            if ($a == 2) {
-              $result .= '<div class="row mt-14 pl-14">'; // apertura
-            }
-            if($a > 3 && ($a % 2) == 0){
-               $result .= '<div class="row mt-14 pl-14">'; 
-            } 
+       
 
             $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
             $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
@@ -3367,11 +3350,11 @@ class Webservices
             if($a > 3 && ($a % 2) == 0){
               $result .= '<div class="col-sm-1"></div>'; 
             }else if($a>3 && ($a % 2)){
-               $result .= '</div>';
+             $result .= '<div class="col-sm-1"></div>'; 
             }
           }  
         }
-        // $result .= '</div>';              
+         $result .= '</div>';              
       }        
       
       //Control de errores
@@ -3379,7 +3362,7 @@ class Webservices
         $result = '';
         // $result .= $error_mensaje;
         //
-        $result .= '<div class="panel-table red-line">';
+        $result .= '<div class="panel-table red-line red-error-message">';
         $result .= '<div class="panel-body p-28">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
         $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
@@ -3440,7 +3423,7 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>';
       } else {
-        $result .= '<div class="resultados-busqueda red-line bg-muted">';
+        $result .= '<div class="panel-table red-line red-error-message">';
         $result .= '<div class="panel-body p-28">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
         $result .= '<span class="helvetica-16 red">'.$error_mensaje.$fechaini.$fechafin.'</span>';
@@ -3558,7 +3541,7 @@ class Webservices
       }
       //Control de errores
       if ($error!='00000') {
-        $result .= '<div class="panel-body red-line">';
+        $result .= '<div class="panel-body red-line red-error-message">';
         $result .= '<div class="panel-table p-28">';
         $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
         $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
@@ -3635,7 +3618,7 @@ class Webservices
           $result .= '</div>';
           $result .= '</div>';
         } else {
-          $result .= '<div class="panel-body red-line">';
+          $result .= '<div class="panel-body red-line red-error-message>';
           $result .= '<div class="p-28 panel-table">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
           $result .= '<span class="helvetica-16 red">'.$json['MsgError'].'</span>';

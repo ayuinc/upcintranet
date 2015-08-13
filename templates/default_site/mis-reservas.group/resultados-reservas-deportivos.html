@@ -48,6 +48,7 @@
         <div class="col-sm-8">
           <div class="panel pt-0">
             <div class="panel-head no-bg">
+          
             {if post:Flag!=1}
               <!-- <div class="panel-title left"> -->
                 {embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
@@ -66,15 +67,15 @@
             </div>
             {if:else}
               {embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
-              {exp:webservices:disponibilidad_espacios_deportivos 
+              {exp:webservices:reserva_espacios_deportivos 
                 codsede="{post:CodSede}" 
                 coded="{post:CodED}" 
                 codactiv="{post:CodActiv}"
                 numhoras="{post:NumHoras}"
                 HoraIni="{post:HoraIni}"
-                fechaini="{post:FechaIni}" 
-                fechafin="{post:FechaFin}"
-                segmento="{segment_1}"
+                HoraFin="{post:HoraFin}" 
+                fecha="{post:Fecha}"
+                detalle="{post:Detalles}"
               }
             {/if}
           </div>

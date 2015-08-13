@@ -73,6 +73,17 @@
 .red-line {
 	border-top: 2px solid $brand-danger;
 }
+.blue-line{
+	border-top: 2px solid rgba(55, 150, 255, 1);
+}
+.red-error-message{
+	background-color: #f8c6c2!important;
+	color:  #e42322!important;
+}
+.blue-message{
+	background-color: #afd7ff!important;
+	color:  #afd7ff!important;
+}
 .info-border {
 	border-top: 2px solid $brand-info;
 }

@@ -1,3 +1,4 @@
+
 // panels
 .panel {
 	@media #{$sm-down} {
@@ -90,6 +91,14 @@
 			}
 			&.otras-acciones {
 				background: none !important;
+			}
+			&.red-error-message{
+				background-color: #f8c6c2!important;
+				color:  #e42322!important;
+			}
+			&.blue-message{
+				background-color: #afd7ff!important;
+				color:  #afd7ff!important;
 			}
 		}
 		.panel-body-head {
@@ -300,3 +309,4 @@
 		}
 	}
 }
+
