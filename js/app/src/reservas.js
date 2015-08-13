@@ -15,9 +15,20 @@ jQuery.validator.addMethod("require_from_group", function(value, element, option
   // {0} below is the 0th item in the options field
 }, jQuery.validator.format("Debes seleccionar un espacio"));
 
+$.validator.addMethod("peruvianDate", function(value, element) {
+        return value.match(/^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/);
+},"Ingrese una fecha válida" );
+
 $(document).ready(function () {
-  $('input[name="FecIni"]').attr('readOnly', 'true');
-  $('input[name="FechaIni"]').attr('readOnly', 'true');
+  $('input[name="FecIni"]').keypress(function(event) {
+    event.preventDefault();
+  });
+  $('input[name="FechaIni"]').keypress(function(event) {
+    event.preventDefault();
+  });
+ // $('input[name="FecIni"]').attr('readOnly', 'true');
+  
+ // $('input[name="FechaIni"]').attr('readOnly', 'true');
   var result = "";
   var max_horas =  parseInt($('input[name=maxHoras]').val());
   var min_horas =  parseInt($('input[name=minHoras]').val());
@@ -46,13 +57,13 @@ $(document).ready(function () {
     ignore : [],
     // Specify the validation rules
     rules: {
-      FechaIni: "required",
-      CodSede: "required",
       CodED : {require_from_group : [1, '.espacios-deportivos']},
       CodED1 : {require_from_group : [1, '.espacios-deportivos']},
       CodED2 : {require_from_group : [1, '.espacios-deportivos']},
       CodActiv : "required",
-
+      FechaIni: {required : true,
+                  peruvianDate:true},
+      CodSede: "required"
     },
     // Specify the validation error messages
     messages: {
@@ -93,7 +104,8 @@ $(document).ready(function () {
       CodSede: "required",
       CanHoras: "required",
       HoraIni: "required",
-      FecIni: "required",
+      FecIni: {required : true,
+                  peruvianDate:true}
     },
     // Specify the validation error messages
     messages: {
@@ -115,7 +127,8 @@ $(document).ready(function () {
   // Specify the validation rules
     rules: {
       CodSede: "required",
-      FecIni: "required",
+      FecIni:  {required : true,
+                peruvianDate:true},
       HoraIni: "required",
       CanHoras: "required",
     },

@@ -31,6 +31,7 @@ class Webservices_functions {
 		
 		public function curl_url($service_url) 
 		{
+			//var_dump($this->_base_url.$service_url);
 			// Standard call to service.
 			$this->EE->curl->create($this->_base_url.$service_url);
 			$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
