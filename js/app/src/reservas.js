@@ -221,8 +221,6 @@ $('#sede-R').change(function() {
     firstactivityshow(activities0, codActivities0);       
   } 
   if($('#sede-R').val()=='161') { 
-    $('#actividad-161').show();
-
     codActivities0 = ["",3,5,6,7,8,9,10,11,12,13,14]; 
     activities0 = [161,121,162,181,183,184,185,186,187,188,189,190];
     firstactivityshow(activities0, codActivities0);     

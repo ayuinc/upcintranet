@@ -3260,117 +3260,126 @@ class Webservices
       $fechaini = substr($fechaini, 6,4).substr($fechaini, 3,2).substr($fechaini, 0,2);
       $fechafin = $fechaini;
       $segmento = ee()->TMPL->fetch_param('segmento');
-
+      $will_exec = ee()->TMPL->fetch_param('execute');
       $HoraIni = ee()->TMPL->fetch_param('HoraIni');
       $HoraIni = intval($HoraIni);
       $HoraFin = intval($HoraIni) + intval($numhoras);
       
-      if($HoraIni < 10)
-      {
-        $HoraIni = '0'.$HoraIni.'00';
+      if (strpos($will_exec, '{post:') !== false)
+      { 
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."mis-reservas/reserva-espacios-deportivos");
+        return;
       }
-      else
+      else if ($will_exec[0] == '0')
       {
-        $HoraIni = $HoraIni.'00';
-      }
-
-      if($HoraFin < 10)
-      {
-        $HoraFin = '0'.$HoraFin.'00';
-      }
-      else
-      {
-        $HoraFin = $HoraFin.'00';
-      }
-      
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
-      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-   
-      $token = $_COOKIE[$this->_cookies_prefix.'Token'];
-      $url = 'DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
-      //var_dump($url);
-
-      $result=$this->services->curl_url($url);
-      $json = json_decode($result, true);
-      $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];
-      $result = '';
-      $tamano = count($json['HorarioDia']);
-
-      $result .= '<div class="row pt-0 pl-14">'; // apertura
-      for ($i=0; $i<$tamano; $i++) {
-                
-        $tamano_int = count($json['HorarioDia'][$i]['Disponibles']);
-        
-        // $result .='<div class="row">';
-        for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
-          $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
-          $hora_inicio_sol = substr($HoraIni,0,2);
-          if($hora_inicio_sol <= $hora_inicio_disp){
-       
-
-            $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
-            $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
-            $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
-            $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
-            $result .= '<input type="hidden" value="1" name="Flag">';
-            $result .= '<input type="hidden" value="'.$codsede.'" name="CodSede">';
-            $result .= '<input type="hidden" value="'.$coded.'" name="CodED">';
-            $result .= '<input type="hidden" value="'.$codactiv.'" name="CodActiv">';
-            $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
-            $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
-            $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
-            if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
-            $result .= '<div class="solano-bold-24 black-text">Sede: Complejo Alamos</div>';
-            } else {
-            $result .= '<div class="solano-bold-24 black-text">Sede: Campus Villa</div>';
-            }
-            // $a++;
-            // $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
-            // $a--;
-            $result .= '<span class="zizou-16">';
-            $result .= 'Fecha: '.$fecha.'<br>';
-            $result .= '</span>';
-            $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
-            $HoraInicio = ltrim($HoraInicio,'0');
-            $HoraFin = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'], 0, 2);
-            $HoraFin = ltrim($HoraFin,'0');
-            $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
-            $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
-            $result .= '<span class="zizou-16">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
-            $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
-            $result .= '</form>';
-            $result .= '</div>';
-            if ($a == 0 || $a == 2 ) {
-              $result .= '<div class="col-sm-1"></div>'; // apertura
-            }
-            if ($a == 1 || $a == 3) {
-              $result .= '</div>'; // apertura
-            }
-            if($a > 3 && ($a % 2) == 0){
-              $result .= '<div class="col-sm-1"></div>'; 
-            }else if($a>3 && ($a % 2)){
-             $result .= '<div class="col-sm-1"></div>'; 
-            }
-          }  
+        if($HoraIni < 10)
+        {
+          $HoraIni = '0'.$HoraIni.'00';
         }
-         $result .= '</div>';              
-      }        
-      
-      //Control de errores
-      if ($error!='00000') {
+        else
+        {
+          $HoraIni = $HoraIni.'00';
+        }
+
+        if($HoraFin < 10)
+        {
+          $HoraFin = '0'.$HoraFin.'00';
+        }
+        else
+        {
+          $HoraFin = $HoraFin.'00';
+        }
+        
+        $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+        $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+     
+        $token = $_COOKIE[$this->_cookies_prefix.'Token'];
+        $url = 'DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
+        //var_dump($url);
+
+        $result=$this->services->curl_url($url);
+        $json = json_decode($result, true);
+        $error = $json['CodError'];
+        $error_mensaje = $json['MsgError'];
         $result = '';
-        // $result .= $error_mensaje;
-        //
-        $result .= '<div class="panel-table red-line red-error-message">';
-        $result .= '<div class="panel-body p-28">';
-        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-        $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
-        $result .= '</div>';
-        $result .= '</div>';
-      }          
-       
-      return $result;          
+        $tamano = count($json['HorarioDia']);
+
+        $result .= '<div class="row pt-0 pl-14">'; // apertura
+        for ($i=0; $i<$tamano; $i++) {
+                  
+          $tamano_int = count($json['HorarioDia'][$i]['Disponibles']);
+          
+          // $result .='<div class="row">';
+          for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
+            $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
+            $hora_inicio_sol = substr($HoraIni,0,2);
+            if($hora_inicio_sol <= $hora_inicio_disp){
+         
+
+              $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
+              $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
+              $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
+              $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
+              $result .= '<input type="hidden" value="1" name="Flag">';
+              $result .= '<input type="hidden" value="'.$codsede.'" name="CodSede">';
+              $result .= '<input type="hidden" value="'.$coded.'" name="CodED">';
+              $result .= '<input type="hidden" value="'.$codactiv.'" name="CodActiv">';
+              $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
+              $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
+              $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
+              if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
+              $result .= '<div class="solano-bold-24 black-text">Sede: Complejo Alamos</div>';
+              } else {
+              $result .= '<div class="solano-bold-24 black-text">Sede: Campus Villa</div>';
+              }
+              // $a++;
+              // $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
+              // $a--;
+              $result .= '<span class="zizou-16">';
+              $result .= 'Fecha: '.$fecha.'<br>';
+              $result .= '</span>';
+              $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
+              $HoraInicio = ltrim($HoraInicio,'0');
+              $HoraFin = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'], 0, 2);
+              $HoraFin = ltrim($HoraFin,'0');
+              $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
+              $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
+              $result .= '<span class="zizou-16">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
+              $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
+              $result .= '</form>';
+              $result .= '</div>';
+              if ($a == 0 || $a == 2 ) {
+                $result .= '<div class="col-sm-1"></div>'; // apertura
+              }
+              if ($a == 1 || $a == 3) {
+                $result .= '</div>'; // apertura
+              }
+              if($a > 3 && ($a % 2) == 0){
+                $result .= '<div class="col-sm-1"></div>'; 
+              }else if($a>3 && ($a % 2)){
+               $result .= '<div class="col-sm-1"></div>'; 
+              }
+            }  
+          }
+           $result .= '</div>';              
+        }        
+        
+        //Control de errores
+        if ($error!='00000') {
+          $result = '';
+          // $result .= $error_mensaje;
+          //
+          $result .= '<div class="panel-table red-line red-error-message">';
+          $result .= '<div class="panel-body p-28">';
+          $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+          $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
+          $result .= '</div>';
+          $result .= '</div>';
+        }          
+         
+        return $result;      
+      }    
     } 
     
     //RESERVA DE ESPACIOS DEPORTIVOS   
@@ -3378,6 +3387,8 @@ class Webservices
     {
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
+
+
       $codsede = ee()->TMPL->fetch_param('codsede');
       $coded = ee()->TMPL->fetch_param('coded');
       $codactiv = ee()->TMPL->fetch_param('codactiv');
@@ -3387,52 +3398,64 @@ class Webservices
       $horaini = ee()->TMPL->fetch_param('horaini');
       $horafin = ee()->TMPL->fetch_param('horafin');
       $detalles = ee()->TMPL->fetch_param('detalles');
+      $will_exec = ee()->TMPL->fetch_param('execute');
 
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
-      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
-
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
+      if (strpos($will_exec, '{post:') !== false)
+      { 
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."mis-reservas/reserva-espacios-deportivos");
+        return;
       }
-      
-      $url = 'ReservarED/?CodSede='.$codsede.'&CodED='.$coded.'&CodActiv='.$codactiv.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&Fecha='.$fecha.'&HoraIni='.$horaini.'&HoraFin='.$horafin.'&Detalles='.$detalles.'&Token='.$token;
+      else if ($will_exec[0] == '1')
+      {
+        $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+        $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
-      $result=$this->services->curl_url($url);
-      $json = json_decode($result, true);
-      
-      $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];
-      $result = '';
-      
-      //Control de errores
-      if (strpos($error_mensaje, 'realizado') !== false ) {
-        $result .= '<div class="resultados-busqueda info-border bg-muted">';
-        $result .= '<div class="panel-body p-28">';
-        $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
-        $result .= '<span class="helvetica-16 text-info">'.$error_mensaje.$fechaini.$fechafin.'</span>';
-        $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=506">';
-        $result .= '<div class="bg-muted p-7 mb-7">';  
-        $result .= '<div class="arrow-icon info"></div>';  
-        $result .= '<div class="zizou-18 text-info">Ir a Cancelar Reserva</div>';        
-        $result .= '</div>';
-        $result .= '</a>';
-        $result .= '</div>';
-        $result .= '</div>';
-      } else {
-        $result .= '<div class="panel-table red-line red-error-message">';
-        $result .= '<div class="panel-body p-28">';
-        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-        $result .= '<span class="helvetica-16 red">'.$error_mensaje.$fechaini.$fechafin.'</span>';
-        $result .= '</div>';
-        $result .= '</div>';
-      }  
+        ee()->db->select('*');
+        ee()->db->where('codigo',$codigo);
+        $query_modelo_result = ee()->db->get('exp_user_upc_data');
 
-      
-      return $result;          
+        foreach($query_modelo_result->result() as $row){
+          $token = $row->token;
+        }
+        
+        $url = 'ReservarED/?CodSede='.$codsede.'&CodED='.$coded.'&CodActiv='.$codactiv.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&Fecha='.$fecha.'&HoraIni='.$horaini.'&HoraFin='.$horafin.'&Detalles='.$detalles.'&Token='.$token;
+
+        $result=$this->services->curl_url($url);
+        //var_dump($result);
+        $json = json_decode($result, true);
+        
+        $error = $json['CodError'];
+        $error_mensaje = $json['MsgError'];
+        $estado - $json['Estado'];
+        $result = '';
+        
+        //Control de errores
+        if ( $estado == 'R' ) {
+          $result .= '<div class="resultados-busqueda info-border bg-muted blue-message">';
+          $result .= '<div class="panel-body p-28">';
+          $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
+          $result .= '<span class="helvetica-16 text-info">'.$error_mensaje.$fechaini.$fechafin.'</span>';
+          $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=506">';
+          $result .= '<div class="bg-muted p-7 mb-7 blue-message">';  
+          $result .= '<div class="arrow-icon info"></div>';  
+          $result .= '<div class="zizou-18 text-info">Ir a Cancelar Reserva</div>';        
+          $result .= '</div>';
+          $result .= '</a>';
+          $result .= '</div>';
+          $result .= '</div>';
+        } else {
+          $result .= '<div class="panel-table red-line red-error-message">';
+          $result .= '<div class="panel-body p-28">';
+          $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
+          $result .= '<span class="helvetica-16 red">'.$error_mensaje.$fechaini.$fechafin.'</span>';
+          $result .= '</div>';
+          $result .= '</div>';
+        }  
+        return $result;  
+
+      }
+        
     } 
     
     
@@ -3486,10 +3509,10 @@ class Webservices
       //var_dump($url);
       //$url = 'RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
   
-      $ch = curl_init($url);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_URL,$url);
+      // $ch = curl_init($url);
+      // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+      // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      // curl_setopt($ch, CURLOPT_URL,$url);
       $result=$this->services->curl_url($url);
       //var_dump($result);
       $json = json_decode($result, true);
@@ -3601,13 +3624,13 @@ class Webservices
 
         //mensaje de exito
         if (strpos($error_mensaje, 'realizado') !== false || strpos($error_mensaje, 'reservado') !== false) {
-          $result .= '<div class="resultados-busqueda info-border bg-muted">';
+          $result .= '<div class="resultados-busqueda info-border blue-message bg-muted">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
           //$result .= '<span class="helvetica-16 text-info">'.$json['MsgError'].'</span>';
           $result .= '<span class="helvetica-16 text-info"> Estimado(a) alumno(a): Se ha reservado el recurso '.$nomrecurso.' para el dia '.substr($fechafin, 0,2).'/'.substr($fechafin, 2,2).'/'.substr($fechafin, 4,4).', a las '.substr($horaini, 0,2).':'.substr($horaini, 2,2).' horas.</span>';
           $result .= '<a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">';
-          $result .= '<div class="bg-muted p-7 mb-7">';
+          $result .= '<div class="bg-muted p-7 mb-7 blue-message">';
           $result .= '<div class="row">';  
           $result .= '<div class="col-xs-10">';  
           $result .= '<span class="arrow-icon info"></span>';  
@@ -4877,6 +4900,7 @@ class Webservices
     //INICIAR SESION
     public function verificar_usuario() {
       //$token = $_SESSION["Token"];
+      //var_dump($_SESSION);
       $segment_2 = ee()->TMPL->fetch_param('tipo_de_vista');
  
       $codigo =  $_SESSION["Codigo"];

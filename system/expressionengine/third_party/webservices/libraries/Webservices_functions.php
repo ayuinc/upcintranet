@@ -31,7 +31,7 @@ class Webservices_functions {
 		
 		public function curl_url($service_url) 
 		{
-			//var_dump($this->_base_url.$service_url);
+			//var_dump($service_url);
 			// Standard call to service.
 			$this->EE->curl->create($this->_base_url.$service_url);
 			$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
@@ -64,7 +64,7 @@ class Webservices_functions {
 		public function get_cookie ($cookie)
 		{
 			// Adding the prefix so original code stays "clean"
-			$this->EE->input->get_cookie($this->_cookies_prefix.$cookie); 
+			$this->EE->input->get_cookie($cookie); 
 		}
 
 		public function delete_cookie($cookie)
