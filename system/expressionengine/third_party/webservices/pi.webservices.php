@@ -114,6 +114,33 @@ class Webservices
      * @access  public
      * @return  
      */
+    public function terminos_condiciones_get()
+    {
+      $codigo = $_POST['codigo'];
+      ee()->db->select('terminos_condiciones');
+      ee()->db->select('id');
+      ee()->db->where('codigo',$codigo);
+      $query = ee()->db->get('exp_user_upc_data');
+      $respuesta = $query->result();
+      $res = $respuesta[0]->terminos_condiciones;
+      // print_r($res);
+      if($res == '' || $res == NULL || $res == 'no'){
+        $datos = 'no';
+        echo $datos;
+      }else
+        echo $datos = 'si';  
+
+    }
+
+    public function terminos_condiciones_set()
+    {
+      $codigo = $_POST['codigo'];
+      ee()->db->select('terminos_condiciones');
+      ee()->db->where('codigo',$codigo);
+      $query = ee()->db->get('exp_user_upc_data');
+      ee()->db->update('exp_user_upc_data', array("terminos_condiciones" => 'si'));
+    }
+
     public function generador_token()
     {
       // fetch template parameters

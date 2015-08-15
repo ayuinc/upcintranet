@@ -24,7 +24,7 @@ $(document).ready(function(){
     submitHandler: function($this) {
     // do other things for a valid form
     document.cookie = "onLogin=true; ";
-    form.submit();
+    // form.submit();
   }
 	});
 });
