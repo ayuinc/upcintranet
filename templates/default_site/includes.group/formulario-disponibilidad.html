@@ -1,6 +1,7 @@
 <div class="reservas-select-group">
   <form action="{site_url}{segment_1}/resultados-reservas-deportivos" id="deportivos-form" method="post">
     <input type="hidden" name="XID" value="{XID_HASH}" />
+    <input type="hidden" name="Flag" value="0" />
       <div class="text-left helvetica-16 gray-main">Sede</div>
       <select name="CodSede" id="CodSede" class="reservas-select selectpicker relative arrow form-control sede">
       <option value="" disabled selected>Selecciona una sede</option>';  
@@ -14,7 +15,7 @@
       <div class="text-left helvetica-16 gray-main">Día de Reserva</div>
       <input type="text" name="FechaIni" class="zizou-16 reservas-select datepicker form-control calendar"  placeholder="Selecciona" id="start-date-rec">
       <div class="text-left helvetica-16 gray-main">Hora de reserva</div>
-      <select name="HoraIni" class="relative selectpicker reservas-select form-control">
+      <select name="HoraIni" class="relative selectpicker reservas-select form-control" >
          <option value="7">7:00</option>
          <option value="8">8:00</option>
          <option value="9">9:00</option>
