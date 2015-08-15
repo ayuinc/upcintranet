@@ -15,7 +15,6 @@ $('#form-login').submit( function(event) {
         $('#condicionesModal').modal('show');
         $( "#aceptar" ).click(function() {
           if ($('#checkbox').is(':checked')) {
-            alert(result);
             $.ajax({
               url: hostname +'includes/terminos_condiciones_set',
               type: "POST",
