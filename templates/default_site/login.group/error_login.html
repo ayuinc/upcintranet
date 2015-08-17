@@ -49,7 +49,7 @@
                       Utilice la opción "No puedes acceder a tu cuenta".</p>
                 </div>
                 </div>
-                <form action="{site_url}login/usuario" method="post" name="login_form" class="login-form" autocomplete="off">
+                <form action="{site_url}login/usuario" method="post" name="login_form" class="login-form" autocomplete="off" id="form-login">
                   <input type="hidden" name="XID" value="{XID_HASH}"> 
                   <input type="hidden" name="plataforma" value="C">
                   <div class="row mt-21">
@@ -168,5 +168,30 @@
         <span>Teléfonos: 3133333 | Fax: 3133334</span></div>
       </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="condicionesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            {exp:channel:entries channel="terminos_y_condiciones" limit="1" dynamic="off"}
+            <h4 class="modal-title" id="myModalLabel">{title}</h4>
+            </div>
+            <div class="modal-body">
+              <div>{contenido}</div>
+            {/exp:channel:entries}
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="checkbox"> Acepto los términos y condiciones
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="aceptar">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 {embed="includes/footer"}
+<script src="{site_url}js/app/src/terminos_ajax.js.php?url='{site_url}'"></script>
 {exp:webservices:redirect_user}

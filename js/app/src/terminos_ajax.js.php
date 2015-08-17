@@ -25,9 +25,9 @@ $('#form-login').submit( function(event) {
             });
           }  
         });
-      }else if(result == 'si'){
+      }else 
         form.submit();       
-      } 
+      
     }
   });
 }); 

@@ -7,6 +7,7 @@ $(document).ready(function(){
   };
   //validate login form
 	$(".login-form").validate({
+    // var form = this; 
 	  // Specify the validation rules
     rules: {
       codigo: "required",

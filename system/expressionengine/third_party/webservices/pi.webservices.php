@@ -123,8 +123,13 @@ class Webservices
       $query = ee()->db->get('exp_user_upc_data');
       $respuesta = $query->result();
       $res = $respuesta[0]->terminos_condiciones;
-      // print_r($res);
-      if($res == '' || $res == NULL || $res == 'no'){
+      // print_r($respuesta);
+
+      if ($res == '') {
+        $datos = 'nn';
+        echo $datos;
+      }
+      elseif($res == NULL || $res == 'no'){
         $datos = 'no';
         echo $datos;
       }else
