@@ -3350,7 +3350,7 @@ class Webservices
          
 
               $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
-              $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
+              $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
               $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
               $result .= '<input type="hidden" value="1" name="Flag">';
@@ -3381,17 +3381,7 @@ class Webservices
               $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
               $result .= '</form>';
               $result .= '</div>';
-              if ($a == 0 || $a == 2 ) {
-                $result .= '<div class="col-sm-1"></div>'; // apertura
-              }
-              if ($a == 1 || $a == 3) {
-                $result .= '</div>'; // apertura
-              }
-              if($a > 3 && ($a % 2) == 0){
-                $result .= '<div class="col-sm-1"></div>'; 
-              }else if($a>3 && ($a % 2)){
-               $result .= '<div class="col-sm-1"></div>'; 
-              }
+
             }  
           }
            $result .= '</div>';              
