@@ -56,28 +56,35 @@
                       </div>
                       <div class="panel-footer">
                         {if archivo-referencia}
-                        <a id="lnk_ext_{nombre-referencia}" class="sb-link pl-7 zizou-16" target="_blank" href="{archivo-referencia}">
-                        {/if}  
+                        <a class="black-link pl-7 zizou-16" target="_blank" href="{archivo-referencia}">
+                        <img class="pr-7" src="{site_url}assets/img/red_arrow_small.png"><span>{nombre-referencia}</span>
+                        {if:elseif s3_link_de_archivo}
+                          {exp:channel_files:files entry_id="{entry_id}" limit="1" orderby="upload_date" sort="desc" }
+                            <a class="black-link pl-7 zizou-16" href="{file:url}">
+                            <img class="pr-7" src="{site_url}assets/img/red_arrow_small.png"><span>{nombre-referencia}</span>
+                         {/exp:channel_files:files}
+                        {/if}
                         {if link-referencia}
                           {if tipo-referencia=='Socrates'}
-                          <a id="lnk_int_{nombre-referencia}" class="sb-link pl-7 zizou-16" target="_blank" href="{site_url}socrates/{url_title}">
+                          <a class="sb-link pl-7 zizou-16" target="_blank" href="{site_url}socrates/{url_title}">
                           <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png"><span>{nombre-referencia}</span>
                           {/if} 
                           {if tipo-referencia=='Externa'}
-                          <a id="lnk_ext_{nombre-referencia}" class="sb-link pl-7 zizou-16" target="_blank" href="{link-referencia}">
+                          <a class="sb-link pl-7 zizou-16" target="_blank" href="{link-referencia}">
                           <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png"><span>{nombre-referencia}</span>
                           {/if} 
                           {if tipo-referencia=='Interna'}
-                          <a id="lnk_int_{nombre-referencia}" class="black-link pl-7 zizou-16" href="{link-referencia}">
+                          <a class="black-link pl-7 zizou-16" href="{link-referencia}">
                           <img class="pr-7" src="{site_url}assets/img/red_arrow_small.png"><span>{nombre-referencia}</span>
                           {/if}                             
-                        {/if}
-                        {if archivo-referencia}
+                        {/if}  
+                        {if archivo-referencia OR s3_link_de_archivo}
                         </a>
                         {/if}  
                         {if link-referencia}
                         </a>
                         {/if} 
+
                       </div>
                     </div>
                   </div>

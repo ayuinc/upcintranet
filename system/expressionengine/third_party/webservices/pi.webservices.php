@@ -3374,7 +3374,7 @@ class Webservices
          
 
               $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
-              $result .= '<div class="col-sm-5 mb-14 p-14 text-left red-line bg-muted">';
+              $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
               $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
               $result .= '<input type="hidden" value="1" name="Flag">';
@@ -3405,17 +3405,7 @@ class Webservices
               $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
               $result .= '</form>';
               $result .= '</div>';
-              if ($a == 0 || $a == 2 ) {
-                $result .= '<div class="col-sm-1"></div>'; // apertura
-              }
-              if ($a == 1 || $a == 3) {
-                $result .= '</div>'; // apertura
-              }
-              if($a > 3 && ($a % 2) == 0){
-                $result .= '<div class="col-sm-1"></div>'; 
-              }else if($a>3 && ($a % 2)){
-               $result .= '<div class="col-sm-1"></div>'; 
-              }
+
             }  
           }
            $result .= '</div>';              
@@ -3476,14 +3466,14 @@ class Webservices
         }
         
         $url = 'ReservarED/?CodSede='.$codsede.'&CodED='.$coded.'&CodActiv='.$codactiv.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&Fecha='.$fecha.'&HoraIni='.$horaini.'&HoraFin='.$horafin.'&Detalles='.$detalles.'&Token='.$token;
-
         $result=$this->services->curl_url($url);
+  
         //var_dump($result);
         $json = json_decode($result, true);
         
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];
-        $estado - $json['Estado'];
+        $estado  = $json['Estado'];
         $result = '';
         
         //Control de errores
@@ -4857,19 +4847,13 @@ class Webservices
       
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
 
-      foreach($query_modelo_result->result() as $row){
-        $tipouser = $row->tipouser;
-      }
-
-
+      $tipouser = $_SESSION['TipoUser'];
+      $modalidad = $_SESSION['CodModal'];
       $result = '';
       
       if (strval($tipouser)=='ALUMNO') {
-        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
+        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" search:modalidad="'.$modalidad.'" }';
         $result .= '<ul class="tr bg-muted">';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
@@ -4915,7 +4899,7 @@ class Webservices
       }
       
       if (strval($tipouser)=='PADRE') {
-        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="21" dynamic="off" orderby="numero-cuota" sort="asc" }';
+        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" search:modalidad="AC"}';
         $result .= '<ul class="tr bg-muted">';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
