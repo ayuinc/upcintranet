@@ -3442,14 +3442,14 @@ class Webservices
         }
         
         $url = 'ReservarED/?CodSede='.$codsede.'&CodED='.$coded.'&CodActiv='.$codactiv.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&Fecha='.$fecha.'&HoraIni='.$horaini.'&HoraFin='.$horafin.'&Detalles='.$detalles.'&Token='.$token;
-
         $result=$this->services->curl_url($url);
+  
         //var_dump($result);
         $json = json_decode($result, true);
         
         $error = $json['CodError'];
         $error_mensaje = $json['MsgError'];
-        $estado - $json['Estado'];
+        $estado  = $json['Estado'];
         $result = '';
         
         //Control de errores
