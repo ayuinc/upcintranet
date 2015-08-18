@@ -156,6 +156,8 @@ class Webservices
       // Curl service
       $result =  $this->services->curl_url_not_reuse('Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma);
       $json = json_decode($result, true);
+      $modalidad = $json['Datos']['CodModal'];
+      $tipo_user = $json['TipoUser'];
       // Cookies for Error
       $_SESSION["CodError"] = $json['CodError'];
       $_SESSION["MsgError"] = $json['MsgError'];      
@@ -163,56 +165,78 @@ class Webservices
       $cookie_value = $json["MsgError"];
       $this->services->set_cookie($cookie_name, $cookie_value, time()+1800, "/");
 
-      if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
-      	$site_url = ee()->config->item('site_url');
-      	$site_url .= 'login/error_login';
-        $this->EE->functions->redirect($site_url);
-      }
-      else {
-        ee()->db->select('id');
-        ee()->db->where('codigo',$codigo);
-        $query_modelo_result = ee()->db->get('exp_user_upc_data');
-        if($query_modelo_result->result() == NULL){
-          $user_upc_insert = array(
-            "codigo" => $json['Codigo'],
-            "tipouser" => $json['TipoUser'],  
-            "nombres" => $json['Nombres'],      
-            "apellidos" => $json['Apellidos'],
-            "estado" => $json['Estado'],  
-            "dscmodal" => $json['Datos']['DscModal'],
-            "dscsede" => $json['Datos']['DscSede'],
-            "ciclo" => $json['Datos']['Ciclo'], 
-            "token" => $json['Token']
-          );
-          ee()->db->insert('exp_user_upc_data', $user_upc_insert);
-        } 
+        if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
+        	$site_url = ee()->config->item('site_url');
+        	$site_url .= 'login/error_login';
+          $this->EE->functions->redirect($site_url);
+        }
         else {
-          $user_upc_update = array(
-            "token" => $json['Token']
-          );
-          ee()->db->where('codigo', $codigo);
-          ee()->db->update('exp_user_upc_data', $user_upc_update);
+          ee()->db->select('id');
+          ee()->db->where('codigo',$codigo);
+          $query_modelo_result = ee()->db->get('exp_user_upc_data');
+          if($query_modelo_result->result() == NULL){
+            $user_upc_insert = array(
+              "codigo" => $json['Codigo'],
+              "tipouser" => $json['TipoUser'],  
+              "nombres" => $json['Nombres'],      
+              "apellidos" => $json['Apellidos'],
+              "estado" => $json['Estado'],  
+              "dscmodal" => $json['Datos']['DscModal'],
+              "dscsede" => $json['Datos']['DscSede'],
+              "ciclo" => $json['Datos']['Ciclo'], 
+              "token" => $json['Token']
+            );
+            ee()->db->insert('exp_user_upc_data', $user_upc_insert);
+          } 
+          else {
+            if ($tipo_user == 'ALUMNO') {
+              if ($modalidad != 'FC' && $modalidad != 'AC') {
+                $site_url = ee()->config->item('site_url');
+                $site_url .= 'login/no-es-usuario?message=true';
+                $this->EE->functions->redirect($site_url);
+                // return $output;
+              }
+            }
+            $user_upc_update = array(
+              "token" => $json['Token']
+            );
+            ee()->db->where('codigo', $codigo);
+            ee()->db->update('exp_user_upc_data', $user_upc_update);
+          }
+
+          // Saving data to $_SESSION and Cookies
+          $user_data = array( 'Codigo' =>  $json['Codigo'],
+                              'TipoUser'  =>  $json['TipoUser'],
+                              'Nombres' =>  $json['Nombres'],
+                              'Apellidos' =>  $json['Apellidos'],
+                              'Estado'  =>  $json['Estado'],
+                              'CodLinea' =>  $json['Datos']['CodLinea'],
+                              'CodModal' =>  $json['Datos']['CodModal'],
+                              'DscModal'  => $json['Datos']['DscModal'],
+                              'CodSede' =>  $json['Datos']['CodSede'],
+                              'DscSede' =>  $json['Datos']['DscSede'],
+                              'Ciclo' => $json['Datos']['Ciclo'],
+                              'Token' =>  $json['Token']);
+          foreach ($user_data as $key => $val)
+          {
+            $this->set_session_cookie($key, $val);
+          }
         }
 
-        // Saving data to $_SESSION and Cookies
-        $user_data = array( 'Codigo' =>  $json['Codigo'],
-                            'TipoUser'  =>  $json['TipoUser'],
-                            'Nombres' =>  $json['Nombres'],
-                            'Apellidos' =>  $json['Apellidos'],
-                            'Estado'  =>  $json['Estado'],
-                            'CodLinea' =>  $json['Datos']['CodLinea'],
-                            'CodModal' =>  $json['Datos']['CodModal'],
-                            'DscModal'  => $json['Datos']['DscModal'],
-                            'CodSede' =>  $json['Datos']['CodSede'],
-                            'DscSede' =>  $json['Datos']['DscSede'],
-                            'Ciclo' => $json['Datos']['Ciclo'],
-                            'Token' =>  $json['Token']);
-        foreach ($user_data as $key => $val)
-        {
-          $this->set_session_cookie($key, $val);
-        }
-      }      
-      return;         
+      return;        
+    }
+
+    //Recupera los parametros de la url cuando no es alumno de la modalidad ac o fc
+    public function get_message_no_user()
+    {
+
+      $message = $_GET['message'];
+      if ($message == "true") {
+        $message_body = "<p class='red text-justify'>Estimado alumno,</br></br> 
+                      Estamos trabajando para brindarte un mejor servicio, por lo cual te pedimos realizar tus operaciones a través de www.intranet.upc.edu.pe</br></br>
+                      Pronto te informaremos desde cuándo puedes realizar tus operaciones por este medio.</br></br> Gracias por tu comprensión.<p>";
+      }
+      return $message_body;
     }
 
     /**

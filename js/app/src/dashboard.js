@@ -1,17 +1,21 @@
 $(document).ready(function(){
 	//mensaje
 	$(".msge-row-x").click(function(){
-		document.cookie="closed-alert=true;"+(Date()+1800)+"; path=/";
+		document.cookie="closed-alert=true";
 		$(".msge-row").hide();
+	})
+
+	$("#lnk_int_CerrarSesion").click(function(){
+		document.cookie="closed-alert=false";
 	})
 
 	// menu height
 	targetHeight = $('.site-content').height() + 49;
 	$('.site-menu').css("height",targetHeight + "px");
 
-	// if(getCookie('closed-alert') == 'true'){
-	// 	$(".msge-row").hide();
-	// }
+	if(getCookie('closed-alert') == 'true'){
+		$(".msge-row").hide();
+	}
 
 });
 

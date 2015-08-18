@@ -39,7 +39,14 @@
                 </div>
                 <div class="row">
                   <div class="col-xs-2"></div>
-                  <div class="col-xs-8 pt-28 text-center"><span class="uppercase xl">Mi UPC</span></div>
+                  <div class="col-xs-8 pt-28 text-center"><span class="uppercase xl">Mi UPC</span>
+                  </div>
+                </div>
+                <div class="row pwd-mismatch">
+                  <div class="col-xs-2 col-md-2"></div>
+                  <div class="col-xs-8 col-md-8">
+                    {exp:webservices:get_message_no_user}
+                  </div>
                 </div>
                 <form action="{site_url}login/usuario" method="post" name="login_form" class="login-form" autocomplete="off" id="form-login">
                   <input type="hidden" name="XID" value="{XID_HASH}"> 
