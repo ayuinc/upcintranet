@@ -4823,19 +4823,13 @@ class Webservices
       
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
 
-      foreach($query_modelo_result->result() as $row){
-        $tipouser = $row->tipouser;
-      }
-
-
+      $tipouser = $_SESSION['TipoUser'];
+      $modalidad = $_SESSION['CodModal'];
       $result = '';
       
       if (strval($tipouser)=='ALUMNO') {
-        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" }';
+        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" search:modalidad="'.$modalidad.' }';
         $result .= '<ul class="tr bg-muted">';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
