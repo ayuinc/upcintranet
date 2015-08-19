@@ -36,7 +36,8 @@ class Webservices_functions {
 			$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
 			$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
 			$this->EE->curl->option(CURLOPT_URL, $this->_base_url.$service_url);
-			return $this->EE->curl->execute();
+			$return = $this->EE->curl->execute();
+			return $return;
 		}
 
 		public function curl_url_not_reuse( $service_url ) 
@@ -49,7 +50,9 @@ class Webservices_functions {
 			$this->EE->curl->option(CURLOPT_URL, $this->_base_url.$service_url);
 			$this->EE->curl->option(CURLOPT_FORBID_REUSE, 1);
 			$this->EE->curl->option(CURLOPT_FRESH_CONNECT, 1);
-			return $this->EE->curl->execute();
+			$return = $this->EE->curl->execute();
+			return $return;
+
 		}
 
 		public function set_cookie ( $name,  $value,  $expire = 0 ,  $path = "/" ,   $domain = ".upc.edu.pe" ,  $prefix = "",  $secure = TRUE )
