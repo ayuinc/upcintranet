@@ -157,7 +157,6 @@ class Webservices
       // Curl service
       $result =  $this->services->curl_url_not_reuse('Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma);
       $json = json_decode($result, true);
-      // die(print_r($result));
       $modalidad = $json['Datos']['CodModal'];
       $tipo_user = $json['TipoUser'];
       // Cookies for Error
