@@ -41,6 +41,7 @@ class Webservices_functions {
 
 		public function curl_url_not_reuse( $service_url ) 
 		{
+			var
 			// Initial call to service. 
 			$this->EE->curl->create($this->_base_url.$service_url);
 			$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
