@@ -276,11 +276,12 @@
 						@include flex-direction(column);
 						@include justify-content(center);
 						min-height: 28px;
-						border-right: 2px solid $gray-light;
+						border: 0px;
 						padding: 0 6px;
 						&.nrb {
-						border: none;	
+							border: none;	
 						}
+						
 						// @media only screen and (width: 1024px) {
 						// 	min-height: 49px;
 						// }						
@@ -297,7 +298,18 @@
 						}
 					}
 				}
+				&.table-border
+				{
+						li div
+						{
+							border-right: 2px solid $gray-light;	
+						}
+						li:last-of-type div{
+							border-right: 0px;
+						}
+				}
 			}
+
 		}
 	}
 	.panel-footer {

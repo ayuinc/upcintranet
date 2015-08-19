@@ -96,7 +96,6 @@ class Webservices
      * @return 
      */
     private function unset_session_cookie($name){
-      var_dump($name);
       if(isset($_COOKIE[$this->_cookies_prefix.$name]))
       { 
         unset($_COOKIE[$this->_cookies_prefix.$name]);
@@ -157,8 +156,6 @@ class Webservices
       // Curl service
       $result =  $this->services->curl_url_not_reuse('Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma);
       $json = json_decode($result, true);
-      $modalidad = $json['Datos']['CodModal'];
-      $tipo_user = $json['TipoUser'];
       // Cookies for Error
       $_SESSION["CodError"] = $json['CodError'];
       $_SESSION["MsgError"] = $json['MsgError'];      
@@ -166,78 +163,56 @@ class Webservices
       $cookie_value = $json["MsgError"];
       $this->services->set_cookie($cookie_name, $cookie_value, time()+1800, "/");
 
-        if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
-        	$site_url = ee()->config->item('site_url');
-        	$site_url .= 'login/error_login';
-          $this->EE->functions->redirect($site_url);
-        }
-        else {
-          ee()->db->select('id');
-          ee()->db->where('codigo',$codigo);
-          $query_modelo_result = ee()->db->get('exp_user_upc_data');
-          if($query_modelo_result->result() == NULL){
-            $user_upc_insert = array(
-              "codigo" => $json['Codigo'],
-              "tipouser" => $json['TipoUser'],  
-              "nombres" => $json['Nombres'],      
-              "apellidos" => $json['Apellidos'],
-              "estado" => $json['Estado'],  
-              "dscmodal" => $json['Datos']['DscModal'],
-              "dscsede" => $json['Datos']['DscSede'],
-              "ciclo" => $json['Datos']['Ciclo'], 
-              "token" => $json['Token']
-            );
-            ee()->db->insert('exp_user_upc_data', $user_upc_insert);
-          } 
-          else {
-            if ($tipo_user == 'ALUMNO') {
-              if ($modalidad != 'FC' && $modalidad != 'AC') {
-                $site_url = ee()->config->item('site_url');
-                $site_url .= 'login/no-es-usuario?message=true';
-                $this->EE->functions->redirect($site_url);
-                // return $output;
-              }
-            }
-            $user_upc_update = array(
-              "token" => $json['Token']
-            );
-            ee()->db->where('codigo', $codigo);
-            ee()->db->update('exp_user_upc_data', $user_upc_update);
-          }
-
-          // Saving data to $_SESSION and Cookies
-          $user_data = array( 'Codigo' =>  $json['Codigo'],
-                              'TipoUser'  =>  $json['TipoUser'],
-                              'Nombres' =>  $json['Nombres'],
-                              'Apellidos' =>  $json['Apellidos'],
-                              'Estado'  =>  $json['Estado'],
-                              'CodLinea' =>  $json['Datos']['CodLinea'],
-                              'CodModal' =>  $json['Datos']['CodModal'],
-                              'DscModal'  => $json['Datos']['DscModal'],
-                              'CodSede' =>  $json['Datos']['CodSede'],
-                              'DscSede' =>  $json['Datos']['DscSede'],
-                              'Ciclo' => $json['Datos']['Ciclo'],
-                              'Token' =>  $json['Token']);
-          foreach ($user_data as $key => $val)
-          {
-            $this->set_session_cookie($key, $val);
-          }
-        }
-
-      return;        
-    }
-
-    //Recupera los parametros de la url cuando no es alumno de la modalidad ac o fc
-    public function get_message_no_user()
-    {
-
-      $message = $_GET['message'];
-      if ($message == "true") {
-        $message_body = "<p class='red text-justify'>Estimado alumno,</br></br> 
-                      Estamos trabajando para brindarte un mejor servicio, por lo cual te pedimos realizar tus operaciones a través de www.intranet.upc.edu.pe</br></br>
-                      Pronto te informaremos desde cuándo puedes realizar tus operaciones por este medio.</br></br> Gracias por tu comprensión.<p>";
+      if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
+      	$site_url = ee()->config->item('site_url');
+      	$site_url .= 'login/error_login';
+        $this->EE->functions->redirect($site_url);
       }
-      return $message_body;
+      else {
+        ee()->db->select('id');
+        ee()->db->where('codigo',$codigo);
+        $query_modelo_result = ee()->db->get('exp_user_upc_data');
+        if($query_modelo_result->result() == NULL){
+          $user_upc_insert = array(
+            "codigo" => $json['Codigo'],
+            "tipouser" => $json['TipoUser'],  
+            "nombres" => $json['Nombres'],      
+            "apellidos" => $json['Apellidos'],
+            "estado" => $json['Estado'],  
+            "dscmodal" => $json['Datos']['DscModal'],
+            "dscsede" => $json['Datos']['DscSede'],
+            "ciclo" => $json['Datos']['Ciclo'], 
+            "token" => $json['Token']
+          );
+          ee()->db->insert('exp_user_upc_data', $user_upc_insert);
+        } 
+        else {
+          $user_upc_update = array(
+            "token" => $json['Token']
+          );
+          ee()->db->where('codigo', $codigo);
+          ee()->db->update('exp_user_upc_data', $user_upc_update);
+        }
+
+        // Saving data to $_SESSION and Cookies
+        $user_data = array( 'Codigo' =>  $json['Codigo'],
+                            'TipoUser'  =>  $json['TipoUser'],
+                            'Nombres' =>  $json['Nombres'],
+                            'Apellidos' =>  $json['Apellidos'],
+                            'Estado'  =>  $json['Estado'],
+                            'CodLinea' =>  $json['Datos']['CodLinea'],
+                            'CodModal' =>  $json['Datos']['CodModal'],
+                            'DscModal'  => $json['Datos']['DscModal'],
+                            'CodSede' =>  $json['Datos']['CodSede'],
+                            'DscSede' =>  $json['Datos']['DscSede'],
+                            'Ciclo' => $json['Datos']['Ciclo'],
+                            'Token' =>  $json['Token']);
+        foreach ($user_data as $key => $val)
+        {
+          $this->set_session_cookie($key, $val);
+        }
+      }      
+      return;         
     }
 
     /**
@@ -735,7 +710,7 @@ class Webservices
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
           if($i == 0){
             $result .= '<div class="panel-body-head-table">';
-            $result .= '  <ul class="tr">';
+            $result .= '  <ul class="tr table-border">';
             $result .= '    <li class="col-xs-2">';
             $result .= '      <div class="text-center fecha"><span>Hora</span></div>';
             $result .= '    </li>';
@@ -771,7 +746,7 @@ class Webservices
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
               $flag = FALSE;
-              $result .= '<ul class="tr">';
+              $result .= '<ul class="tr table-border">';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
               $result .= '</li>';
@@ -887,7 +862,7 @@ class Webservices
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']== date('w')) { // para provocar el error colocar en lugar de  date('w') -> 7
             $result .= '  <div class="panel-body-head-table">
-                          <ul class="tr">
+                          <ul class="tr table-border">
                             <li class="col-xs-2">
                               <div class="fecha"><span>Hora</span></div>
                             </li>
@@ -921,7 +896,7 @@ class Webservices
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
               $flag = FALSE;
-              $result .= '<ul class="tr list-unstyled clearfix bg-muted">';
+              $result .= '<ul class="tr list-unstyled clearfix bg-muted table-border">';
               $result .= '<li class="col-xs-2 br-gl">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
               $result .= '</li>';
@@ -1051,7 +1026,7 @@ class Webservices
         $result .= '</div>'; 
         $result .= '<div class="panel-body red-line mb-7">';
         $result .= '<div class="panel-body-head-table white">'; 
-        $result .= '<ul class="tr text-center">'; 
+        $result .= '<ul class="tr text-center table-border">'; 
         $result .= '<li class="col-sm-1-5  hidden-xs">'; 
         $result .= '<div><span>Inicio</span></div>'; 
         $result .= '</li>'; 
@@ -1081,7 +1056,7 @@ class Webservices
         
         for ($b=0; $b<$tamano_int; $b++) {
             $result .= '<div class="panel-table">'; 
-            $result .= '<ul class="tr mis-cursos-row">'; 
+            $result .= '<ul class="tr mis-cursos-row table-border">'; 
             $result .= '<li class="col-sm-1-5 col-xs-1-5 hidden-xs">'; 
             $result .= '<div class="text-center"><span class="helvetica-14">';
             $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
@@ -1217,7 +1192,7 @@ class Webservices
         $result .= '</div>'; 
         $result .= '<div class="panel-body red-line mb-7">';
         $result .= '<div class="panel-body-head-table">'; 
-        $result .= '<ul class="tr">'; 
+        $result .= '<ul class="tr table-border">'; 
         $result .= '<li class="col-xs-1-5">'; 
         $result .= '<div><span>Inicio</span></div>'; 
         $result .= '</li>'; 
@@ -1244,7 +1219,7 @@ class Webservices
         
         for ($b=0; $b<$tamano_int; $b++) {
             $result .= '<div class="panel-table">'; 
-            $result .= '<ul class="tr">'; 
+            $result .= '<ul class="tr" table-border>'; 
             $result .= '<li class="col-xs-1-5">'; 
             $result .= '<div class="text-center"><span class="helvetica-14">';
             $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
@@ -1328,7 +1303,7 @@ class Webservices
       
       //limpio la variable para reutilizarla
       $result = '<div class="panel-body-head-table">';
-      $result .= '<ul class="tr">';
+      $result .= '<ul class="tr table-border">';
       $result .= '<li class="col-xs-8">';
       $result .= '<div class="pl-7"><span class="text-left">Curso</span></div>';
       $result .= '</li>';
@@ -1348,7 +1323,7 @@ class Webservices
       if($tamano == 0 || $json['Inasistencias'] == NULL){
          $result = '<div class="panel-body-head-table">';
          $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
-         $result .= '<ul class="tr">';
+         $result .= '<ul class="tr table-border">';
          $result .= '<li class="col-sm-4">';
          $result .= '<img class="img-center" src="{site_url}assets/img/no_courses_new.png">';
          $result .= '</li>';
@@ -1366,7 +1341,7 @@ class Webservices
       }
       else{
         for ($i=0; $i<$tamano; $i++) {
-          $result .= '<ul class="tr bg-muted">';
+          $result .= '<ul class="tr bg-muted table-border">';
           $result .= '<li class="col-xs-8 helvetica-14 pb-0">';
           $result .= '<div>';
           $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
@@ -1473,7 +1448,7 @@ class Webservices
       $tamano = count($json['Inasistencias']);
       
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<ul class="tr bg-muted">';
+        $result .= '<ul class="tr bg-muted table-border">';
         $result .= '<li class="col-xs-7 helvetica-14 pb-0">';
         $result .= '<div>';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
@@ -1648,7 +1623,7 @@ class Webservices
       $tamano = count($json['Inasistencias']);
       
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<ul class="tr">';
+        $result .= '<ul class="tr table-border">';
         $result .= '<li class="col-xs-8 helvetica-14 pl-7">';
         $result .= '<div>';
         $result .= '<span class="pr-7">'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
@@ -2147,7 +2122,7 @@ class Webservices
         $result .= '</div>';    
         $result .= '<div class="panel-body-head-table pb-7 black-border-top">';
 
-        $result .= '<ul class="tr">';
+        $result .= '<ul class="tr table-border">';
         $result .= '<li class="col-sm-1 hidden-xs">';
         $result .= '<div class="br-gl text-center"><span>Tipo</span></div>';
         $result .= '</li>';
@@ -2166,7 +2141,7 @@ class Webservices
         $result .= '</ul>';
         $result .= '</div>'; 
         $result .= '<div class="panel-table gl-border-top">'; 
-        $result .= '<ul class="tr">';          
+        $result .= '<ul class="tr table-border">';          
 
         for ($b=0; $b<$tamano_int; $b++) {
           
@@ -2493,7 +2468,7 @@ class Webservices
         $tamano = count($json['TramitesRealizados']);
         $result .= '<div class="panel-body bg-muted red-line">';
         $result .= '<div class="panel-body-head-table">';
-        $result .= '<ul class="tr">';
+        $result .= '<ul class="tr table-border">';
         $result .= '<li class="col-xs-2">';
         $result .= '<div class="fecha"><span>No. Solicitud</span></div>';
         $result .= '</li>';
@@ -2511,7 +2486,7 @@ class Webservices
         
         for ($i=0; $i<$tamano; $i++) {  
           $result .= '<div class="panel-table"> ';
-          $result .= '<ul class="tr">';
+          $result .= '<ul class="tr table-border">';
           $result .= '<li class="col-xs-2 solano-bold-18 uppercase">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['TramitesRealizados'][$i]['NroSolicitud'].'</span>';
@@ -2597,7 +2572,7 @@ class Webservices
         $tamano = count($json['TramitesRealizados']);
         
         $result .= '<div class="panel-body-head-table">';
-        $result .= '<ul class="tr">';
+        $result .= '<ul class="tr table-border">';
         $result .= '<li class="col-xs-2">';
         $result .= '<div class="fecha"><span>No. Solicitud</span></div>';
         $result .= '</li>';
@@ -2615,7 +2590,7 @@ class Webservices
         
         for ($i=0; $i<$tamano; $i++) {  
           $result .= '<div class="panel-table"> ';
-          $result .= '<ul class="tr">';
+          $result .= '<ul class="tr table-border">';
           $result .= '<li class="col-xs-2 solano-bold-18 uppercase">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['TramitesRealizados'][$i]['NroSolicitud'].'</span>';
@@ -2853,7 +2828,7 @@ class Webservices
            $result .= '</ul>';
            $result .= '</div>';
            $result .= '<div class="panel-body-head-table gm-border-top">';
-           $result .= '<ul class="tr">';
+           $result .= '<ul class="tr table-border">';
            $result .= '<li class="col-xs-10">';
            $result .= '<div><span>Detalle</span></div>';
            $result .= '</li>';
@@ -2864,7 +2839,7 @@ class Webservices
            $result .= '</div>';
            $result .= '<div class="panel-table gm-border-top pl-7">';
            $result .= '<ul class="tr">';
-           $result .= '<li class="col-xs-10">';
+           $result .= '<li class="col-xs-1">';
            $result .= '<div>';
            $result .= '<span class="helvetica-16">Importe</span>';
            $result .= '</div>';
@@ -2875,7 +2850,7 @@ class Webservices
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
-           $result .= '<ul class="tr">';
+           $result .= '<ul class="tr table-border">';
            $result .= '<li class="col-xs-10">';
            $result .= '<div>';
            $result .= '<span class="helvetica-16">Descuento</span>'; 
@@ -2899,7 +2874,7 @@ class Webservices
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
-           $result .= '<ul class="tr">';
+           $result .= '<ul class="tr table-border">';
            $result .= '<li class="col-xs-10">';
            $result .= '<div>';
            $result .= '<span class="helvetica-16">Cancelado</span>';
@@ -2923,7 +2898,7 @@ class Webservices
            $result .= '</div>';
            $result .= '</li>';
            $result .= '</ul>';
-           $result .= '<ul class="tr">';
+           $result .= '<ul class="tr table-border">';
            $result .= '<li class="col-xs-10">';
            $result .= '<div>';
            $result .= '<span class="helvetica-16">Mora</span>';
@@ -2937,7 +2912,7 @@ class Webservices
            $result .= '</ul>';
            $result .= '</div>';
            $result .= '<div class="panel-table observaciones">';
-           $result .= '<ul class="tr">';
+           $result .= '<ul class="tr table-border">';
            $result .= '<li class="col-xs-10 pl-7">';
            $result .= '<div>';
            $result .= '<span class="uppercase helvetica-16 text-muted">TOTAL</span>';
@@ -3014,7 +2989,7 @@ class Webservices
               $result .= '</ul>';
               $result .= '</div>';
               $result .= '<div class="panel-table">';
-              $result .= '<ul class="tr">';
+              $result .= '<ul class="tr table-border">';
               $result .= '<li class="col-xs-4 pl-7">';
               $result .= '<div class="nrb helvetica-16">';
               $result .= '<div>';
@@ -3055,7 +3030,7 @@ class Webservices
               $result .= '</ul>';
               $result .= '</div>';
               $result .= '<div class="panel-body-head-table gm-border-top">';
-              $result .= '<ul class="tr pb-7">';
+              $result .= '<ul class="tr pb-7 table-border">';
               $result .= '<li class="col-xs-10">';
               $result .= '<div><span>Detalle</span></div>';
               $result .= '</li>';
@@ -3077,7 +3052,7 @@ class Webservices
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
-              $result .= '<ul class="tr">';
+              $result .= '<ul class="tr table-border">';
               $result .= '<li class="col-xs-10">';
               $result .= '<div>';
               $result .= '<span class="helvetica-16">Descuento</span>'; 
@@ -3089,7 +3064,7 @@ class Webservices
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
-              $result .= '<ul class="tr">';
+              $result .= '<ul class="tr table-border">';
               $result .= '<li class="col-xs-10">';
               $result .= '<div>';
               $result .= '<span class="helvetica-16">Impuesto</span>';
@@ -3101,7 +3076,7 @@ class Webservices
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
-              $result .= '<ul class="tr">';
+              $result .= '<ul class="tr table-border">';
               $result .= '<li class="col-xs-10">';
               $result .= '<div>';
               $result .= '<span class="helvetica-16">Cancelado</span>';
@@ -3113,7 +3088,7 @@ class Webservices
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
-              $result .= '<ul class="tr">';
+              $result .= '<ul class="tr table-border">';
               $result .= '<li class="col-xs-10">';
               $result .= '<div>';
               $result .= '<span class="helvetica-16">Saldo</span>';
@@ -3125,7 +3100,7 @@ class Webservices
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
-              $result .= '<ul class="tr">';
+              $result .= '<ul class="tr table-border">';
               $result .= '<li class="col-xs-10">';
               $result .= '<div>';
               $result .= '<span class="helvetica-16">Mora</span>';
@@ -3167,15 +3142,15 @@ class Webservices
       
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      /*
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      
+      // ee()->db->select('*');
+      // ee()->db->where('codigo',$codigo);
+      // $query_modelo_result = ee()->db->get('exp_user_upc_data');
 
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
-      }
-      */
+      // foreach($query_modelo_result->result() as $row){
+      //   $token = $row->token;
+      // }
+      
       $token = $_COOKIE[$this->_cookies_prefix."Token"];
       $url = 'PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
 
@@ -3743,7 +3718,7 @@ class Webservices
       $tamano = count($json['Reservas']);
       $result .= '<div class="panel-body">';
       $result .= ' <div class="panel-body-head-table">';
-      $result .= '  <ul class="tr">';
+      $result .= '  <ul class="tr table-border">';
       $result .= '    <li class="col-xs-2">';
       $result .= '      <div class="fecha"><span>Fecha</span></div>';
       $result .= '    </li>';
@@ -3774,7 +3749,7 @@ class Webservices
         for ($i=0; $i<$tamano; $i++) { 
           if($json['Reservas'][$i]['CodEstado']=='R'){
             $counterReservas = $counterReservas + 1;
-            $result .= '<ul class="tr">';
+            $result .= '<ul class="tr table-border">';
             $result .= '<li class="col-xs-2 helvetica-12">';
             $result .= '<div class="text-center">';
             $fecha = substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2);
@@ -3813,7 +3788,7 @@ class Webservices
       if ($error!='00000' || $counterReservas == 0) {
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table">';
-        $result .= '<ul class="tr">';
+        $result .= '<ul class="tr table-border">';
         $result .= '<li class="col-sm-4">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_bookings_new.png">';
         $result .= '</li>';
@@ -3890,7 +3865,7 @@ class Webservices
       //limpio la variable para reutilizarla
       $result = '';
       $result .= '<div class="panel-body-head-table">';
-      $result .= '<ul class="tr">';
+      $result .= '<ul class="tr table-border">';
       $result .= '<li class="col-xs-6">';
       $result .= '<div><span>Curso</span></div>';
       $result .= '</li>';
@@ -3914,7 +3889,7 @@ class Webservices
         $tamano_int = count($json['modalidades'][$i]['cursos']);        
         
         for ($a=0; $a<$tamano_int; $a++) {
-          $result .= '<ul class="tr">';
+          $result .= '<ul class="tr table-border">';
           $result .= '<li class="col-xs-6 helvetica-14">';
           $result .= '<div>';
           $result .= '<span>'.$json['modalidades'][$i]['cursos'][$a]['curso'].'</span>';
@@ -4855,7 +4830,7 @@ class Webservices
       
       if (strval($tipouser)=='ALUMNO') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" search:modalidad="'.$modalidad.'" }';
-        $result .= '<ul class="tr bg-muted">';
+        $result .= '<ul class="tr bg-muted table-border">';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
@@ -4878,7 +4853,7 @@ class Webservices
       
       if (strval($tipouser)=='PROFESOR') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="19" dynamic="off" orderby="numero-cuota" sort="asc" }';
-        $result .= '<ul class="tr bg-muted">';
+        $result .= '<ul class="tr bg-muted table-border">';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
@@ -4901,7 +4876,7 @@ class Webservices
       
       if (strval($tipouser)=='PADRE') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" search:modalidad="AC"}';
-        $result .= '<ul class="tr bg-muted">';
+        $result .= '<ul class="tr bg-muted table-border">';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
@@ -5041,10 +5016,12 @@ class Webservices
       unset($_SESSION["MsgError"]);
       unset($_SESSION["Redireccion"]);       
       session_destroy();
+      $this->eliminar_cookie();
 	    $site_url = ee()->config->item('site_url');
       redirect($site_url);
     }
     
+
         
 }
 
