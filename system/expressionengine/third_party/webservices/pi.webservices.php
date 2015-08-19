@@ -96,6 +96,7 @@ class Webservices
      * @return 
      */
     private function unset_session_cookie($name){
+      var_dump($name);
       if(isset($_COOKIE[$this->_cookies_prefix.$name]))
       { 
         unset($_COOKIE[$this->_cookies_prefix.$name]);
