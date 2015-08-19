@@ -156,6 +156,7 @@ class Webservices
       // Curl service
       $result =  $this->services->curl_url_not_reuse('Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma);
       $json = json_decode($result, true);
+      // die(print_r($result));
       $modalidad = $json['Datos']['CodModal'];
       $tipo_user = $json['TipoUser'];
       // Cookies for Error
@@ -189,6 +190,8 @@ class Webservices
             ee()->db->insert('exp_user_upc_data', $user_upc_insert);
           } 
           else {
+            // die($tipo_user);
+
             if ($tipo_user == 'ALUMNO') {
               if ($modalidad != 'FC' && $modalidad != 'AC') {
                 $site_url = ee()->config->item('site_url');
