@@ -19,7 +19,7 @@ body{
 	&.login {
 		background-image:url("../assets/img/tramaMat.jpg");
 		background-color:#ffffff;
-		margin-top: 0px;
+		margin-top:40px!important;
 		padding-bottom: 0px;
 		padding-top: 0;
 		@media #{$md-down} {
@@ -45,7 +45,6 @@ body{
 			margin:auto;
 			max-width: $login-max-width;
 			&.aviso{
-				margin-top:40px!important;
 				max-width: 100%;
 				>div.row{
 					margin-left:auto;
