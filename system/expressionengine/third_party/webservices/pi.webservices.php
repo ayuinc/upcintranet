@@ -250,6 +250,18 @@ class Webservices
       session_destroy();
     }
 
+    //Recupera los parametros de la url cuando no es alumno de la modalidad ac o fc
+    public function get_message_no_user()
+    {
+
+      $message = $_GET['message'];
+      if ($message == "true") {
+        $message_body = "<p class='red text-justify'>Estimado alumno,</br></br> 
+                      Estamos trabajando para brindarte un mejor servicio, por lo cual te pedimos realizar tus operaciones a través de www.intranet.upc.edu.pe</br></br>
+                      Pronto te informaremos desde cuándo puedes realizar tus operaciones por este medio.</br></br> Gracias por tu comprensión.<p>";
+      }
+      return $message_body;
+     }
     // CONSULTAR ORDEN DE MERITO ALUMNO
     public function consultar_orden_de_merito_alumno()
     {
