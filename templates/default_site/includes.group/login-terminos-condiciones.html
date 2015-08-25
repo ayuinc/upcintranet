@@ -1,0 +1,24 @@
+    <div class="modal fade" id="condicionesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header col-md-12 p-0 text-right ">
+          <img class="logo" src="{site_url}assets/img/logo_upc_red.png" alt="">
+        </div>
+        <div class="modal-body red-line">
+          {exp:channel:entries channel="terminos_y_condiciones" limit="1" dynamic="off"}
+              <h4 class="modal-title" id="myModalLabel">{title}</h4>
+              <div class="terms-content bg-muted">{contenido}</div>
+            {/exp:channel:entries}
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="checkbox"> Declaro haber leído y aceptado el reglamento y todos sus términos.
+              </label>
+            </div>
+        </div>
+          <div class="modal-footer bg-muted">
+            <button type="button" class="btn btn-custom wide blue-btn" id="aceptar">Aceptar</button>
+            <button type="button" class="btn btn-custom wide black-btn" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>

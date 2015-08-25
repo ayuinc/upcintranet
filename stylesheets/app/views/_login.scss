@@ -209,3 +209,26 @@ body{
 		}
 	}
 }
+
+#condicionesModal{
+
+	.modal-content{
+		padding: 10px;
+	}
+	.modal-header {
+		color: #565658;
+    	background-image: url("../assets/img/tramaMat.jpg");
+    	background-color: white;
+    	float: none;
+    }
+
+    .modal-body{
+    	background-color: #E3E3E3;
+		float: none;
+    }
+
+    .blue-btn{
+    	background: #3298FF!important;
+    }
+}
+

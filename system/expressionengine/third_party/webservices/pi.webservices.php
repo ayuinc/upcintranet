@@ -88,7 +88,7 @@ class Webservices
       return;
     }
 
-        /**
+    /**
      * Unset object to name in $_SESSION and cookies
      *
      * @access  public
@@ -109,10 +109,10 @@ class Webservices
     }
 
     /**
-     * Buils session according to user
+     * Get terms and conditions acceptance of db
      *
      * @access  public
-     * @return  
+     * @return  string 
      */
     public function terminos_condiciones_get()
     {
@@ -122,30 +122,53 @@ class Webservices
       ee()->db->where('codigo',$codigo);
       $query = ee()->db->get('exp_user_upc_data');
       $respuesta = $query->result();
-      $res = $respuesta[0]->terminos_condiciones;
-      // print_r($respuesta);
-
-      if ($res == '') {
-        $datos = 'nn';
-        echo $datos;
+      $datos = 'no';
+      if(count($respuesta)>0){
+        $res = $respuesta[0]->terminos_condiciones;
+        // print_r($respuesta);
+        if ($res == '' || $res == NULL || $res == 'no'){
+          $datos = 'no';
+        }else{
+          $datos = 'si';  
+        }
       }
-      elseif($res == NULL || $res == 'no'){
-        $datos = 'no';
-        echo $datos;
-      }else
-        echo $datos = 'si';  
-
+      echo $datos;
     }
 
+    /**
+     * Set terms and conditions acceptance or denial to db
+     *
+     * @access  public
+     * @return  
+     */
     public function terminos_condiciones_set()
     {
       $codigo = $_POST['codigo'];
       ee()->db->select('terminos_condiciones');
       ee()->db->where('codigo',$codigo);
       $query = ee()->db->get('exp_user_upc_data');
-      ee()->db->update('exp_user_upc_data', array("terminos_condiciones" => 'si'));
+      $respuesta = $query->result();
+      if(count($respuesta)>0)
+      {
+        $data = array(
+                 'terminos_condiciones' => "si",
+        );
+        ee()->db->where('codigo', $codigo);
+        ee()->db->update('exp_user_upc_data', $data); 
+      }
+      else
+      {
+        $this->set_session_cookie("Terms","true");
+      }
+
     }
 
+    /**
+     * Build session according to user
+     *
+     * @access  public
+     * @return  
+     */
     public function generador_token()
     {
       // fetch template parameters
@@ -163,16 +186,20 @@ class Webservices
       $cookie_value = $json["MsgError"];
       $this->services->set_cookie($cookie_name, $cookie_value, time()+1800, "/");
 
-      if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') {
+      if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') 
+      {
       	$site_url = ee()->config->item('site_url');
       	$site_url .= 'login/error_login';
         $this->EE->functions->redirect($site_url);
       }
-      else {
+      else 
+      {
         ee()->db->select('id');
         ee()->db->where('codigo',$codigo);
         $query_modelo_result = ee()->db->get('exp_user_upc_data');
-        if($query_modelo_result->result() == NULL){
+        $terminos = "si";
+        if($query_modelo_result->result() == NULL)
+        {
           $user_upc_insert = array(
             "codigo" => $json['Codigo'],
             "tipouser" => $json['TipoUser'],  
@@ -182,13 +209,16 @@ class Webservices
             "dscmodal" => $json['Datos']['DscModal'],
             "dscsede" => $json['Datos']['DscSede'],
             "ciclo" => $json['Datos']['Ciclo'], 
-            "token" => $json['Token']
+            "token" => $json['Token'],
+            "terminos_condiciones" => $terminos
           );
           ee()->db->insert('exp_user_upc_data', $user_upc_insert);
         } 
-        else {
+        else 
+        {
           $user_upc_update = array(
-            "token" => $json['Token']
+            "token" => $json['Token'],
+            "terminos_condiciones" => $terminos
           );
           ee()->db->where('codigo', $codigo);
           ee()->db->update('exp_user_upc_data', $user_upc_update);
@@ -242,7 +272,8 @@ class Webservices
                           'DscSede',
                           'Ciclo' ,
                           'Token', 
-                          'Redireccion');
+                          'Redireccion',
+                          'Terms');
       foreach ($user_data as $key)
       {
         $this->unset_session_cookie($key);
@@ -255,7 +286,8 @@ class Webservices
     {
 
       $message = $_GET['message'];
-      if ($message == "true") {
+      if ($message == "true") 
+      {
         $message_body = "<p class='red text-justify'>Estimado alumno,</br></br> 
                       Estamos trabajando para brindarte un mejor servicio, por lo cual te pedimos realizar tus operaciones a través de www.intranet.upc.edu.pe</br></br>
                       Pronto te informaremos desde cuándo puedes realizar tus operaciones por este medio.</br></br> Gracias por tu comprensión.<p>";
@@ -272,7 +304,8 @@ class Webservices
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
-      foreach($query_modelo_result->result() as $row){
+      foreach($query_modelo_result->result() as $row)
+      {
         $TipoUser = $row->tipouser;
         $token = $row->token;
       }
@@ -293,7 +326,8 @@ class Webservices
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
       $TipoUser = '';
       $token = '';
-      foreach($query_modelo_result->result() as $row){
+      foreach($query_modelo_result->result() as $row)
+      {
         $TipoUser = $row->TipoUser;
         $token = $row->Token;
       }    
@@ -341,7 +375,8 @@ class Webservices
         }       
       }
       
-      if (strval($TipoUser)=='PADRE') {
+      if (strval($TipoUser)=='PADRE') 
+      {
 
         $url = 'ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
         $hijosWebService= $this->services->curl_url_not_reuse('ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'');
@@ -354,18 +389,22 @@ class Webservices
         $result .= '<div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>';
         $result .= '<div class="row pt-21">';
 
-        for ($i=0; $i < count($json["hijos"])  ; $i++) { 
-          if ($i%2 == 0) {
+        for ($i=0; $i < count($json["hijos"])  ; $i++) 
+        { 
+          if ($i%2 == 0) 
+          {
             $result .= '<div class="col-sm-offset-2 col-xs-offset-1 col-xs-5 col-sm-4">';
-          } elseif ($i%2 == 1) {
+          } 
+          elseif ($i%2 == 1) 
+          {
             $result .= '<div class="col-sm-4 col-xs-5 ">';    
           }
-        $result .= '<a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">';
-        $result .= '<div class="children-avatar text-center">';
-        $result .= '</div>';
-        $result .= '</a>';
-        $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
-        $result .= '</div>';
+          $result .= '<a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">';
+          $result .= '<div class="children-avatar text-center">';
+          $result .= '</div>';
+          $result .= '</a>';
+          $result .= '<div class="solano-bold-20 text-center"><a href="{site_url}dashboard/padre/hijos/'.$json["hijos"][$i]["codigo"].'">'.$json["hijos"][$i]["nombres"].'</a></div>';
+          $result .= '</div>';
         }
         $result .= '</div>';
 

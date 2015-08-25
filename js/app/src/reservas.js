@@ -1,10 +1,10 @@
-jQuery.validator.addMethod("require_from_group", function(value, element, options) {
+jQuery.validator.addMethod("require_from_group", function (value, element, options) {
   var numberRequired = options[0];
   var selector = options[1];
   var fields = $(selector, element.form);
-  var filled_fields = fields.filter(function() {
+  var filled_fields = fields.filter(function () {
     // it's more clear to compare with empty string
-    return ($(this).val() !== "" && $(this).val() !== null); 
+    return ($(this).val() !== "" && $(this).val() !== null);
   });
   var empty_fields = fields.not(filled_fields);
   // we will mark only first empty field as invalid
@@ -15,23 +15,20 @@ jQuery.validator.addMethod("require_from_group", function(value, element, option
   // {0} below is the 0th item in the options field
 }, jQuery.validator.format("Debes seleccionar un espacio"));
 
-$.validator.addMethod("peruvianDate", function(value, element) {
-        return value.match(/^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/);
-},"Ingrese una fecha válida" );
+$.validator.addMethod("peruvianDate", function (value, element) {
+  return value.match(/^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/);
+}, "Ingrese una fecha válida");
 
 $(document).ready(function () {
-  $('input[name="FecIni"]').keypress(function(event) {
+  $('input[name="FecIni"]').keypress(function (event) {
     event.preventDefault();
   });
-  $('input[name="FechaIni"]').keypress(function(event) {
+  $('input[name="FechaIni"]').keypress(function (event) {
     event.preventDefault();
   });
- // $('input[name="FecIni"]').attr('readOnly', 'true');
-  
- // $('input[name="FechaIni"]').attr('readOnly', 'true');
   var result = "";
-  var max_horas =  parseInt($('input[name=maxHoras]').val());
-  var min_horas =  parseInt($('input[name=minHoras]').val());
+  var max_horas =  parseInt($('input[name=maxHoras]').val(), 10);
+  var min_horas =  parseInt($('input[name=minHoras]').val(), 10);
   for (var i = min_horas; i <= max_horas; i++) {
     result +='<option value="'+i+'">'+i+':00</option>';
   };
@@ -154,14 +151,14 @@ $(document).ready(function () {
 
 
 
-$(window).load(function(){
+$(window).load(function (){
   $('[id^="sede-"]').hide(); 
   $('[data-id^="sede-"]').parent().hide();
   $('[id^="actividad-"]').hide();
   $('[data-id^="actividad-"]').parent().hide();
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
   
   codActivities0 = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]; 
   activities0 = [81,82,101,121,161,162,181,183,184,185,186,187,188,189,190];
@@ -174,7 +171,7 @@ $(document).ready(function() {
 
 });   
 
-$('#CodSede').change(function(){
+$('#CodSede').change(function (){
   if($('#CodSede').val()=='L') { 
     sedeshow('L', 'CodED');
     sedehide('R', 'CodED2')
@@ -192,7 +189,7 @@ $('#CodSede').change(function(){
    }                  
 });
 
-$('#sede-L').change(function() {
+$('#sede-L').change(function () {
   if($('#sede-L').val()=='81') { 
 
     codActivities0 = ["",1,2]; 
@@ -213,7 +210,7 @@ $('#sede-L').change(function() {
   }                         
 });
 
-$('#sede-R').change(function() {
+$('#sede-R').change(function () {
   if($('#sede-R').val()=='121') { 
 
     codActivities0 = ["",4,5,6,7,8,9,10,11,12,13,14]; 
