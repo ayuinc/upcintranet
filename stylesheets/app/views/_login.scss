@@ -213,7 +213,7 @@ body{
 #condicionesModal{
 
 	.modal-content{
-		padding: 10px;
+		padding: 20px;
 	}
 	.modal-header {
 		color: #565658;
@@ -223,18 +223,28 @@ body{
     }
 
     .modal-body{
-    	background-color: #E3E3E3;
-		float: none;
+	    background-color: #EBEBEB;
+	    padding: 20px;
+	    padding-top: 30px;
+	    float: none;
     }
-
+	
+	.modal_footer{
+		border: 0px;
+	}
     .blue-btn{
     	background: #3298FF!important;
+    	&:disabled{
+    		background: #afd7ff!important;
+    	}
     }
 
 	.terms-content {
+		font-family: Helvetica, Arial;
 	    height: 350px;
 	    line-height: 1.9em;
-	    overflow-y: scroll;
+	 	overflow-y: scroll;
+	    padding: 20px;
 	}
 }
 

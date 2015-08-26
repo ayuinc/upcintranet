@@ -6,18 +6,23 @@
         </div>
         <div class="modal-body red-line">
           {exp:channel:entries channel="terminos_y_condiciones" limit="1" dynamic="off"}
+            <div class="terms-content bg-muted">
               <h4 class="modal-title" id="myModalLabel">{title}</h4>
-              <div class="terms-content bg-muted">{contenido}</div>
+              <div class="zizou-16">
+                {contenido}
+              </div>
+            </div>
             {/exp:channel:entries}
-            <div class="checkbox">
+
+        </div>
+         <div class="checkbox">
               <label>
                 <input type="checkbox" id="checkbox"> Declaro haber leído y aceptado el reglamento y todos sus términos.
               </label>
             </div>
-        </div>
           <div class="modal-footer bg-muted">
-            <button type="button" class="btn btn-custom wide blue-btn" id="aceptar">Aceptar</button>
-            <button type="button" class="btn btn-custom wide black-btn" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-custom wide blue-btn" disabled id="aceptar">Acepto</button>
+            <button type="button" class="btn btn-custom wide black-btn" data-dismiss="modal">No Acepto</button>
           </div>
         </div>
       </div>
