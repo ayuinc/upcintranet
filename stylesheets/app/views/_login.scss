@@ -220,6 +220,10 @@ body{
     	background-image: url("../assets/img/tramaMat.jpg");
     	background-color: white;
     	float: none;
+    	.logo{
+    		margin: 5px;
+    		width: 80px;
+    	}
     }
 
     .modal-body{
@@ -240,11 +244,18 @@ body{
     }
 
 	.terms-content {
-		font-family: Helvetica, Arial;
-	    height: 350px;
+		
+	    height: 300px;
 	    line-height: 1.9em;
 	 	overflow-y: scroll;
 	    padding: 20px;
+	    .helvetica-16{
+	    	font-family: "nimbus-sans", Helvetica, Arial, sans-serif!important;
+	    	font-size: 15px!important;
+	    	font-style: normal;
+	    	font-weight: 300;
+	    }
+
 	}
 }
 

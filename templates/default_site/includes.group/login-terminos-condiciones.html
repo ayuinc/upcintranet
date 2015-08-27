@@ -7,17 +7,16 @@
         <div class="modal-body red-line">
           {exp:channel:entries channel="terminos_y_condiciones" limit="1" dynamic="off"}
             <div class="terms-content bg-muted">
-              <h4 class="modal-title" id="myModalLabel">{title}</h4>
-              <div class="zizou-16">
+              <h2 class="modal-title uppercase xl" id="myModalLabel">{title}</h2>
+              <div class="helvetica-16">
                 {contenido}
               </div>
             </div>
             {/exp:channel:entries}
-
         </div>
          <div class="checkbox">
-              <label>
-                <input type="checkbox" id="checkbox"> Declaro haber leído y aceptado el reglamento y todos sus términos.
+              <label for="checkbox" class="zizou-16">
+                <input type="checkbox" id="checkbox" name="checkbox"> Declaro haber leído y aceptado el reglamento y todos sus términos.
               </label>
             </div>
           <div class="modal-footer bg-muted">
