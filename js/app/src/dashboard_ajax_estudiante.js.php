@@ -27,6 +27,9 @@ $(document).ready(function() {
 			$(this).parent().find(".curso-faltas").toggle();
 			$(this).hide();
 		});
+		if($('input.session-expired-redirect').size()!=0){
+			window.location = '/general/session-expired';
+		}
   });
 
   $.get(hostname +'includes/dashboard-misreservas', function(data, status){

@@ -107,6 +107,31 @@ class Webservices
       $this->services->delete_cookie($this->_cookies_prefix.$name) ;
       $this->services->delete_cookie($name) ;
     }
+    /**
+     * Evaluate error code
+     *
+     * @access  public
+     * @param string $error Error string
+     * @return 
+     */
+    private function error_eval($error){
+      $result = '0';
+      if ($error != '')
+      {
+        if ($error!='00000') 
+        {
+          if ($error === '00003' || $error === '00001')
+          {
+            $result = '<input type="text" hidden class="session-expired-redirect">';
+          }
+          else
+          {
+            $result = '1';
+          }
+        }
+      }
+      return $result;
+    }
 
     /**
      * Get terms and conditions acceptance of db
@@ -851,7 +876,9 @@ class Webservices
       $result .= '</div>';
       $result .= '</div>'; 
       //Control de errores
-      if ($error!='00000') {
+      $error_result = $this->error_eval($error);
+      if ($error_result === '1') 
+      {
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table pb-7">';
         $result .= '<ul class="tr">';
@@ -864,7 +891,12 @@ class Webservices
         $result .= '</ul>';
         $result .= '</div>';
         $result .= '</div>';    
-      } 
+      }
+      elseif ($error_result != '0')
+      {
+        $result = $error_result;
+
+      }   
       
 
       return $result;             
@@ -1023,9 +1055,6 @@ class Webservices
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -1156,7 +1185,9 @@ class Webservices
       }
 
       //Control de errores
-      if ($error!='00000') {
+      $error_result = $this->error_eval($error);
+      if ($error_result === '1') 
+      {
         $result = '';
         $result .= '<div>';
         $result .= '<div class="panel-body mb-35">';
@@ -1177,7 +1208,12 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>'; 
         $result .= '</div>';     
-      }         
+      }elseif ($error_result != '0') {
+        $result = $error_result;
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."general/session-expired");
+        return;
+      }
       
       return $result;               
     }     
@@ -1434,30 +1470,41 @@ class Webservices
       }     
       $result .= '</div>'; 
       //Control de errores
-      if ($error!='00000') {
-        $result = '<div class="panel-body-head-table">';
+      $error_result = $this->error_eval($error);
+      if ($error_result === '1') 
+      {
+        $result  = '<div class="panel-body-head-table">';
         $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-sm-4">';
         $result .= '<img class="img-center" src="{site_url}assets/img/no_courses_new.png">';
         $result .= '</li>';
         $result .= '<li class="col-sm-8 pt-28 pr-21">';
-        if ($error_mensaje == "Ud. no se encuentra matriculado en el presente ciclo.") {
-        $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
-          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='ALUMNO') {
-          $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reincorpórate</a></p>';
+        if ($error_mensaje == "Ud. no se encuentra matriculado en el presente ciclo.") 
+        {
+          $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
+          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='ALUMNO') 
+          {
+            $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reincorpórate</a></p>';
           }
-          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='PROFESOR') {
-          $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar</p>';
+          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='PROFESOR') 
+          {
+            $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar</p>';
           }
-        } else {
-        $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';
+        }
+        else
+        {
+          $result .= '<p class="helvetica-14">'.$error_mensaje.'</p>';
         }
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';
-        $result .= '</div>';  
-      }       
+        $result .= '</div>'; 
+      }
+      elseif ($error_result != '0')
+      {
+        $result = $error_result;
+      }   
       
       return $result;               
               
@@ -1942,7 +1989,9 @@ class Webservices
       
           
       //Control de errores
-      if ($error!='00000') {
+      $error_result = $this->error_eval($error);
+      //Control de errores
+      if ($error_result === '1') {
         $result = '';
         $result .= '<ul class="tr">';
         $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5 pr-7">';
@@ -1951,10 +2000,12 @@ class Webservices
         $result .= '</span>';
         $result .= '</li>';                
         $result .= '</ul>';     
-      }       
-      
+      }
+      elseif ($error_result != 0) 
+      {
+        $result = $error_result;
+      }
       return $result;
-    
     } 
     
     public function padre_todos_los_curos_que_lleva_un_alumno()
@@ -2267,9 +2318,9 @@ class Webservices
 
       }     
       
-      
+      $error_result = $this->error_eval($error);
       //Control de errores
-      if ($error!='00000') {
+      if ($error_result === '1') {
         $result = '';
         $result .= '<div>';
         $result .= '<div class="panel-body mb-35">';
@@ -2282,8 +2333,12 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>'; 
         $result .= '</div>';      
-      }         
-      
+      }
+      elseif ($error_result != '0')
+      {
+        $result = $error_result;
+      }
+
       return $result;           
     }      
      
@@ -2458,8 +2513,9 @@ class Webservices
       }     
       
       
+      $error_result = $this->error_eval();
       //Control de errores
-      if ($error!='00000') {
+      if ($error_result === '1') {
         $result = '';
         $result .= '<div>';
         $result .= '<div class="panel-body mb-35">';
@@ -2472,8 +2528,11 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>'; 
         $result .= '</div>';      
-      }         
-      
+      }
+      elseif ($error_result != '0')
+      {
+        $result = $error_result;
+      }
       return $result;           
     }    
     
@@ -3010,8 +3069,6 @@ class Webservices
          //var_dump($result);
          $json = json_decode($result, true);
          
-        
-         
          if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
            
            $result = '<div class="panel-body info-border">';
@@ -3188,19 +3245,8 @@ class Webservices
     //POBLAR ESPACIOS DEPORTIVOS - SEDE  
     public function poblar_espacios_deportivos_sede()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-      
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      
-      // ee()->db->select('*');
-      // ee()->db->where('codigo',$codigo);
-      // $query_modelo_result = ee()->db->get('exp_user_upc_data');
-
-      // foreach($query_modelo_result->result() as $row){
-      //   $token = $row->token;
-      // }
       
       $token = $_COOKIE[$this->_cookies_prefix."Token"];
       $url = 'PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
@@ -3284,10 +3330,7 @@ class Webservices
     
     //POBLAR ESPACIOS DEPORTIVOS - ACTIVIDAD  
     public function poblar_espacios_deportivos_actividad()
-    {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-      
+    {      
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -3333,8 +3376,6 @@ class Webservices
     //DISPONIBILIDAD DE ESPACIOS DEPORTIVOS   
     public function disponibilidad_espacios_deportivos()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
       $codsede = ee()->TMPL->fetch_param('codsede');
       $coded = ee()->TMPL->fetch_param('coded');
       $codactiv = ee()->TMPL->fetch_param('codactiv');
@@ -3379,7 +3420,6 @@ class Webservices
      
         $token = $_COOKIE[$this->_cookies_prefix.'Token'];
         $url = 'DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
-        //var_dump($url);
 
         $result=$this->services->curl_url($url);
         $json = json_decode($result, true);
@@ -3397,9 +3437,8 @@ class Webservices
           for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
             $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
             $hora_inicio_sol = substr($HoraIni,0,2);
-            if($hora_inicio_sol <= $hora_inicio_disp){
-         
-
+            if($hora_inicio_sol <= $hora_inicio_disp)
+            {
               $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
               $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
@@ -3437,19 +3476,22 @@ class Webservices
           }
            $result .= '</div>';              
         }        
-        
+
+        $error_result = $this->error_eval();
         //Control de errores
-        if ($error!='00000') {
+        if ($error_result === '1') {
           $result = '';
-          // $result .= $error_mensaje;
-          //
           $result .= '<div class="panel-table red-line red-error-message">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
           $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
           $result .= '</div>';
           $result .= '</div>';
-        }          
+        }
+        elseif ($error_result != '0')
+        {
+          $result = $error_result;
+        }      
          
         return $result;      
       }    
@@ -3579,13 +3621,6 @@ class Webservices
       }
   
       $url = 'RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local='.$CodSede.'&FecIni='.$fecini.'%20'.$HoraIni.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'%20'.$HoraFin.'&CodAlumno='.$codigo.'&Token='.$token;
-      //var_dump($url);
-      //$url = 'RecursosDisponible/?TipoRecurso='.$tiporecurso.'&Local=A&FecIni='.$fecini.'&CanHoras='.$canhoras.'&FechaFin='.$fechafin.'&CodAlumno='.$codigo.'&Token='.$token;
-  
-      // $ch = curl_init($url);
-      // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-      // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      // curl_setopt($ch, CURLOPT_URL,$url);
       $result=$this->services->curl_url($url);
       //var_dump($result);
       $json = json_decode($result, true);
@@ -3652,9 +3687,6 @@ class Webservices
     //RESERVA DE RECURSOS
     public function reserva_recursos()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-      
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -3851,7 +3883,7 @@ class Webservices
             $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
           } 
         } else {
-        $result .= '<li class="col-sm-8 pt-28 pr-21 pl-21"><p class="helvetica-14">'.$error_mensaje.'</p></li>'; 
+          $result .= '<li class="col-sm-8 pt-28 pr-21 pl-21"><p class="helvetica-14">'.$error_mensaje.'</p></li>'; 
         }
         $result .= '</ul>';
         $result .= '</div>';
@@ -3890,8 +3922,6 @@ class Webservices
     //LISTADOS DE CURSOS DICTADOS POR EL PROFESOR 
     public function lista_cursos_dictados_profesor()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
       
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
@@ -4991,6 +5021,7 @@ class Webservices
         $this->services->set_cookie("Redireccion",$redireccion, time() + (1800), "/");
         $site_url = ee()->config->item('site_url');
         $site_url .= 'login/no-es-usuario';
+        $this->eliminar_cookie();
         redirect($site_url);
       }
       elseif ($segment_2 != $tipouser ) {
