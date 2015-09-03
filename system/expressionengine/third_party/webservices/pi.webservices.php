@@ -26,18 +26,7 @@ class Webservices
     var $site_url = "";
     var $services;
     var $_cookies_prefix="";
-    var $cookies_reserved = array( 'Codigo' =>  $json['Codigo'],
-                            'TipoUser'  =>  $json['TipoUser'],
-                            'Nombres' =>  $json['Nombres'],
-                            'Apellidos' =>  $json['Apellidos'],
-                            'chstats'  =>  $json['Estado'],
-                            'CodLinea' =>  $json['Datos']['CodLinea'],
-                            'CodModal' =>  $json['Datos']['CodModal'],
-                            'DscModal'  => $json['Datos']['DscModal'],
-                            'CodSede' =>  $json['Datos']['CodSede'],
-                            'DscSede' =>  $json['Datos']['DscSede'],
-                            'Ciclo' => $json['Datos']['Ciclo'],
-                            'Token' =>  $json['Token']);
+
     // --------------------------------------------------------------------
         /**
          *
