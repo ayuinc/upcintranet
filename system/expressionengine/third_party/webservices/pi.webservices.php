@@ -5,16 +5,16 @@
  *
  * @package     ExpressionEngine
  * @category    Plugin
- * @author      Gianfranco Montoya
- * @copyright   Copyright (c) 2014, Gianfranco Montoya 
- * @link        http://www.ayuinc.com/
+ * @author      Laboratoria
+ * @copyright   Copyright (c) 2014, Laboratoria
+ * @link        http://www.laboratoria.la/
  */
 
 $plugin_info = array(
     'pi_name'         => 'Webservices',
     'pi_version'      => '1.0',
-    'pi_author'       => 'Gianfranco Montoya',
-    'pi_author_url'   => 'http://www.ayuinc.com/',
+    'pi_author'       => 'Laboratoria',
+    'pi_author_url'   => 'http://www.laboratoria.la/',
     'pi_description'  => 'Permite consumir los servicios generados por UPC',
     'pi_usage'        => Webservices::usage()
 );
@@ -110,7 +110,7 @@ class Webservices
     /**
      * Evaluate error code
      *
-     * @access  public
+     * @access  private
      * @param string $error Error string
      * @return 
      */
@@ -133,6 +133,43 @@ class Webservices
       return $result;
     }
 
+    /**
+     * Get subtag data
+     *
+     * @access  private
+     * @param tag_name Tag to look for
+     * @param tag_data Template tag data to look in
+     * @return string
+     */
+    private function _get_subtag_data($tag_name, $tagdata){    
+      $pattern  = '#' .LD.$tag_name .RD .'(.*?)' .LD .'/'.$tag_name .RD .'#s';
+
+      if (is_string($tagdata) && is_string($tag_name) && preg_match($pattern, $tagdata, $matches))
+      {
+        return $matches[1];
+      }
+      return '';
+    }
+
+    /**
+     * Replace lonenly tag data
+     *
+     * @access  private
+     * @param tag_name Tag to look for
+     * @param tag_data Template tag data to look in
+     * @param replacement 
+     * @return string
+     */
+    private function _replace_subtag_data($tag_name, $tagdata, $replacement){
+
+
+      if (is_string($tagdata) && is_string($tag_name) && is_string($replacement))
+      {
+        $pattern  =  LD.$tag_name .RD ;
+        return str_replace($pattern, $replacement, $tagdata);
+      }
+      return '';
+    }
     /**
      * Get terms and conditions acceptance of db
      *
@@ -297,7 +334,6 @@ class Webservices
                           'DscSede',
                           'Ciclo' ,
                           'Token', 
-                          'Redireccion',
                           'Terms');
       foreach ($user_data as $key)
       {
@@ -1209,7 +1245,6 @@ class Webservices
         $result .= '</div>'; 
         $result .= '</div>';     
       }elseif ($error_result != '0') {
-        $result = $error_result;
         $site_url = ee()->config->item('site_url');
         $this->EE->functions->redirect($site_url."general/session-expired");
         return;
@@ -3253,7 +3288,8 @@ class Webservices
 
       $result=$this->services->curl_url($url);
       $json = json_decode($result, true);
-      
+
+      $error = $json['CodError'];
       $sedes = '';
       $espacios = '';
       $actividades = '';
@@ -3282,7 +3318,15 @@ class Webservices
       }
       $sedes .= '</select>';
       
+      $error_result = $this->error_eval($error);
+      if($error_result !== '0' && $error_result !== '1')
+      {
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."general/session-expired"); 
+        // return '{redirect="'.$site_url.'general/session-expired"}';
+      }
       return $sedes . $espacios . $actividades;
+
     }
     
     //POBLAR ESPACIOS DEPORTIVOS - Espacios  
@@ -3308,7 +3352,7 @@ class Webservices
       $json = json_decode($result, true);
       
       $result = '';
-      
+      $error = $json['CodError'];
       $tamano = count($json['Sedes']);
       
       for ($i=0; $i<$tamano; $i++) {
@@ -3324,6 +3368,13 @@ class Webservices
           }
         $result .= '</select>';
 
+      }
+      $error_result = $this->error_eval($error);
+            return 'error_result'.$error_result; 
+      if($error_result != '0')
+      {
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."general/session-expired"); 
       }
       return $result;          
     } 
@@ -3369,6 +3420,13 @@ class Webservices
             
         }
 
+      }
+      $error_result = $this->error_eval($error);
+            return 'error_result'.$error_result; 
+      if($error_result != '0')
+      {
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."general/session-expired"); 
       }
       return $result;          
     }         
@@ -3577,8 +3635,9 @@ class Webservices
     //LISTA DE RECURSOS DISPONIBLES
     public function listado_recursos_disponibles()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
+      $tagdata  = $this->EE->TMPL->tagdata;
+      $header_message_result = $this->_get_subtag_data('header', $tagdata);
+
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
       $CodSede = ee()->TMPL->fetch_param('CodSede');
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
@@ -3591,7 +3650,6 @@ class Webservices
       foreach($query_modelo_result->result() as $row){  
         $token = $row->token;
       }
-
       $canhoras= ee()->TMPL->fetch_param('CanHoras');
       $segmento= ee()->TMPL->fetch_param('segmento');
       $fecini = ee()->TMPL->fetch_param('FecIni');
@@ -3631,6 +3689,7 @@ class Webservices
       
       if($error=='00000'){
         // $result .= '<div class="panel-body red-line">';
+        $result .= $header_message_result;
         $result .= '<div class="row pt-0 pl-14">'; // apertura row
         for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
           //if($json['Recursos'][$i]['Estado'] == true){
@@ -3671,13 +3730,16 @@ class Webservices
         $result .= "</div>"; //cierre panel-body
       }
       //Control de errores
-      if ($error!='00000') {
-        $result .= '<div class="panel-body red-line red-error-message">';
-        $result .= '<div class="panel-table p-28">';
-        $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-        $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
-        $result .= '</div>';
-        $result .= '</div>';
+      $error_result = $this->error_eval($error);
+      if ($error_result === '1') 
+      {
+        $no_problem_result = $this->_get_subtag_data('error', $tagdata);
+        return $this->_replace_subtag_data('error_message',  $no_problem_result, $error_mensaje);
+      }
+      elseif ($error_result != '0')
+      {
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."general/session-expired");  
       }
       return $result;
       //return "Respuesta de entorno de alta disponibilidad";          
@@ -5013,15 +5075,14 @@ class Webservices
         $token = $row->token;
         $tipouser = $row->tipouser;
       }
-
-      if ($codigo == '') {
+      if ($codigo === '' || is_null($codigo)) {
 
         $redireccion = uri_string();
+        $this->eliminar_cookie();
         $_COOKIE[$this->_cookies_prefix."Redireccion"] = $redireccion;
         $this->services->set_cookie("Redireccion",$redireccion, time() + (1800), "/");
         $site_url = ee()->config->item('site_url');
         $site_url .= 'login/no-es-usuario';
-        $this->eliminar_cookie();
         redirect($site_url);
       }
       elseif ($segment_2 != $tipouser ) {
