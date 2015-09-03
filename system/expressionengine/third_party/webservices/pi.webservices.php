@@ -26,6 +26,18 @@ class Webservices
     var $site_url = "";
     var $services;
     var $_cookies_prefix="";
+    var $cookies_reserved = array( 'Codigo' =>  $json['Codigo'],
+                            'TipoUser'  =>  $json['TipoUser'],
+                            'Nombres' =>  $json['Nombres'],
+                            'Apellidos' =>  $json['Apellidos'],
+                            'chstats'  =>  $json['Estado'],
+                            'CodLinea' =>  $json['Datos']['CodLinea'],
+                            'CodModal' =>  $json['Datos']['CodModal'],
+                            'DscModal'  => $json['Datos']['DscModal'],
+                            'CodSede' =>  $json['Datos']['CodSede'],
+                            'DscSede' =>  $json['Datos']['DscSede'],
+                            'Ciclo' => $json['Datos']['Ciclo'],
+                            'Token' =>  $json['Token']);
     // --------------------------------------------------------------------
         /**
          *
@@ -43,7 +55,7 @@ class Webservices
         require_once 'libraries/Webservices_functions.php';
         $this->site_url = $this->EE->config->item('site_url');
         $this->services = new Webservices_functions;
-        $this->_cookies_prefix = $this->EE->config->item('cookie_prefix')."_";
+        $this->_cookies_prefix = $this->EE->config->item('cookie_prefix');
     }
 
     // --------------------------------------------------------------------
@@ -5076,7 +5088,6 @@ class Webservices
         $tipouser = $row->tipouser;
       }
       if ($codigo === '' || is_null($codigo)) {
-
         $redireccion = uri_string();
         $this->eliminar_cookie();
         $_COOKIE[$this->_cookies_prefix."Redireccion"] = $redireccion;
@@ -5087,13 +5098,16 @@ class Webservices
       }
       elseif ($segment_2 != $tipouser ) {
          $_COOKIE[$this->_cookies_prefix."Redireccion"]= "/general/permisos";
-        if ($tipouser == 'PROFESOR'){
+        if ($tipouser == 'PROFESOR')
+        {
           redirect( $_SESSION["Redireccion"]);
         }
-        if ($tipouser == 'ALUMNO'){
+        if ($tipouser == 'ALUMNO')
+        {
           redirect( $_COOKIE[$this->_cookies_prefix."Redireccion"]);
         }
-        if ($tipouser == 'PADRE'){
+        if ($tipouser == 'PADRE')
+        {
           $url = 'ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
 
           $hijosWebService=$this->services->curl_url($url);
@@ -5102,11 +5116,11 @@ class Webservices
           redirect('/dashboard/padre/hijos/'.$json["hijos"][0]["codigo"]);
         }
       }
-
     }    
     
     //BOTON INICIO
-    public function boton_inicio() {
+    public function boton_inicio() 
+    {
       $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
@@ -5124,7 +5138,7 @@ class Webservices
       } 
       if (strval($tipouser)=='PADRE') {
         return '{site_url}dashboard/padre/hijos/{last_segment}'; 
-      }             
+      }
     }    
     
     //DESTRUYE LA SESSION
