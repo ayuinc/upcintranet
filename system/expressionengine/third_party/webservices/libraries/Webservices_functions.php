@@ -65,7 +65,8 @@ class Webservices_functions {
 				$domain  = $this->_site_url;
 			}
 			// setcookie($name, $value, time() + (1800), '/');
-			setcookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false);  
+			setcookie($name, $value, time() + (1800), '/'); 
+			setcookie($name, $value, time() + (1800), '/', '.upc.edu.pe',false);  
 		}
 
 		public function get_cookie ($cookie)

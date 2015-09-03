@@ -92,7 +92,7 @@ class Webservices
       $_COOKIE[$name] = $jsonObj;
 
       // setcookie($name, $jsonObj, time() + (1800), '/'); 
-
+      setcookie($name, $jsonObj, time() + (1800), '/'); 
       setcookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
       // bool setcookie ( string $name [, string $value = "" [, int $expire = 0 [, string $path = "" [, string $domain = "" [, bool $secure = false [, bool $httponly = false ]]]]]] )
       return;
