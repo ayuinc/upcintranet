@@ -118,7 +118,8 @@ class Webservices
       {
         unset($_SESSION[$this->_cookies_prefix.$name]);
       }
-      setcookie($name, NULL, time() + (1800), "/");
+      setcookie($name, NULL, time() - (1800), "/");
+      setcookie($name, NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
     }
     /**
      * Evaluate error code
