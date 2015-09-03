@@ -31,18 +31,20 @@ class Webservices_functions {
 		
 		public function curl_url($service_url) 
 		{
+			// var_dump($this->_base_url.$service_url);
 			// Standard call to service.
 			$this->EE->curl->create($this->_base_url.$service_url);
 			$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
 			$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
 			$this->EE->curl->option(CURLOPT_URL, $this->_base_url.$service_url);
 			$return = $this->EE->curl->execute();
+			// var_dump($return);
 			return $return;
 		}
 
 		public function curl_url_not_reuse( $service_url ) 
 		{
-			
+			// var_dump($this->_base_url.$service_url);
 			// Initial call to service. 
 			$this->EE->curl->create($this->_base_url.$service_url);
 			$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
@@ -51,6 +53,7 @@ class Webservices_functions {
 			$this->EE->curl->option(CURLOPT_FORBID_REUSE, 1);
 			$this->EE->curl->option(CURLOPT_FRESH_CONNECT, 1);
 			$return = $this->EE->curl->execute();
+			// var_dump($return);
 			return $return;
 
 		}

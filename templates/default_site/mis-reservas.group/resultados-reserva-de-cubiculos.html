@@ -52,31 +52,59 @@
                     <h3>Resultados</h3>
                   </div>
                 </div>
+              {if post}
                 {if post:Flag!='1'}
-                   <div class="panel-body">
-                      <div class="panel-table col-sm-10-5 mr-xs-7 p-14 pt-21 mb-14 text-left red-line">
-                      <ul class="tr">
-                        <li class="col-sm-2 col-xs-3">
-                          <img src="{site_url}assets/img/reloj.png" class="img-center">
-                        </li>
-                        <li class="col-sm-10 col-xs-9">
-                          <span class="block helvetica-18">Completa el formulario para encontrar recursos disponibles.</span>  
-                          <span class="helvetica-18">Las reservas pueden <span class="helvetica-bold-18">realizarse hasta 15 minutos antes del horario deseado</span> y con <span class="helvetica-bold-18">24 horas de anticipación.</span></span>  
-                        </li>
-                      </ul>
-                    </div>
-                   </div> 
-
+                    
                     {exp:webservices:listado_recursos_disponibles 
-                      CodSede = '{post:CodSede}'
-                      TipoRecurso='{post:TipoRecurso}'
-                      FecIni='{post:FecIni}'
-                      FechaFin='{post:FechaFin}'
-                      HoraIni='{post:HoraIni}'
-                      HoraFin='{post:HoraFin}'
-                      CanHoras='{post:CanHoras}'
-                      segmento='{segment_1}'
-                    } 
+                        CodSede = '{post:CodSede}'
+                        TipoRecurso='{post:TipoRecurso}'
+                        FecIni='{post:FecIni}'
+                        FechaFin='{post:FechaFin}'
+                        HoraIni='{post:HoraIni}'
+                        HoraFin='{post:HoraFin}'
+                        CanHoras='{post:CanHoras}'
+                        segmento='{segment_1}'
+                      }
+
+                      {header}
+                       <div class="panel-body">
+                          <div class="panel-table col-sm-10-5 mr-xs-7 p-14 pt-21 mb-14 text-left red-line">
+                          <ul class="tr">
+                            <li class="col-sm-2 col-xs-3">
+                              <img src="{site_url}assets/img/reloj.png" class="img-center">
+                            </li>
+                            <li class="col-sm-10 col-xs-9">
+                              <span class="block helvetica-18">Completa el formulario para encontrar recursos disponibles.</span>  
+                              <span class="helvetica-18">Las reservas pueden <span class="helvetica-bold-18">realizarse hasta 15 minutos antes del horario deseado</span> y con <span class="helvetica-bold-18">24 horas de anticipación.</span></span>  
+                            </li>
+                          </ul>
+                        </div>
+                       </div> 
+                      {/header}
+
+                      {error}
+                       <div class="panel-body">
+                          <div class="panel-table col-sm-10-5 red-line red-error-message">
+                            <div class="panel-body pt-14 pb-14 pr-28 pl-28">
+                            <img class="pr-7" src="{site_url}assets/img/excla_red_1.png">
+                            <span class="helvetica-16 red">{error_message}</span>
+                          </div>
+                          </div>
+                          <div class="panel-table col-sm-10-5 mr-xs-7 p-14 pt-14 mb-14 text-left ">
+                          <ul class="tr">
+                            <li class="col-sm-2 col-xs-3">
+                              <img src="{site_url}assets/img/reloj.png" class="img-center">
+                            </li>
+                            <li class="col-sm-10 col-xs-9"> 
+                              <span class="block helvetica-18">Completa el formulario para encontrar recursos disponibles.</span>  
+                              <span class="helvetica-18">Las reservas pueden <span class="helvetica-bold-18">realizarse hasta 15 minutos antes del horario deseado</span> y con <span class="helvetica-bold-18">24 horas de anticipación.</span></span>  
+                            </li>
+                          </ul>
+                        </div>
+                       </div> 
+                      {/error}
+                    {/exp:webservices:listado_recursos_disponibles }
+              
                   {if:else}
                     {exp:webservices:reserva_recursos 
                       CodRecurso='{post:CodRecurso}'
@@ -87,7 +115,23 @@
                       HoraFin='{post:HoraFin}'
                       CanHoras='{post:CanHoras}'
                     }                
-                  {/if}                         
+                  {/if}  
+
+                {if:else}
+                    <div class="panel-body">
+                          <div class="panel-table col-sm-10-5 mr-xs-7 p-14 pt-21 mb-14 text-left red-line">
+                          <ul class="tr">
+                            <li class="col-sm-2 col-xs-3">
+                              <img src="{site_url}assets/img/reloj.png" class="img-center">
+                            </li>
+                            <li class="col-sm-10 col-xs-9">
+                              <span class="block helvetica-18">Completa el formulario para encontrar recursos disponibles.</span>  
+                              <span class="helvetica-18">Las reservas pueden <span class="helvetica-bold-18">realizarse hasta 15 minutos antes del horario deseado</span> y con <span class="helvetica-bold-18">24 horas de anticipación.</span></span>  
+                            </li>
+                          </ul>
+                        </div>
+                    </div> 
+                {/if}                       
                 </div>
               </div>  
             </div>
