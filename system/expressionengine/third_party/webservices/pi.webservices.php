@@ -44,7 +44,11 @@ class Webservices
         require_once 'libraries/Webservices_functions.php';
         $this->site_url = $this->EE->config->item('site_url');
         $this->services = new Webservices_functions;
-        $this->_cookies_prefix = $this->EE->config->item('cookie_prefix');
+
+        $this->_cookies_prefix = '';
+      
+ 
+
     }
 
     // --------------------------------------------------------------------
@@ -85,7 +89,10 @@ class Webservices
      */
     private function set_session_cookie($name, $jsonObj){
       $_SESSION[$name] = $jsonObj;
-      $this->services->set_cookie($name, $jsonObj, time()+3600, '/', '.upc.edu.pe', '', 1);
+      $_COOKIE[$name] = $jsonObj;
+
+      setcookie($name, $jsonObj, time() + (1800), '/'); 
+      // bool setcookie ( string $name [, string $value = "" [, int $expire = 0 [, string $path = "" [, string $domain = "" [, bool $secure = false [, bool $httponly = false ]]]]]] )
       return;
     }
 
@@ -101,12 +108,15 @@ class Webservices
       { 
         unset($_COOKIE[$this->_cookies_prefix.$name]);
       }
+      if(isset($_COOKIE[$name]))
+      {
+         unset($_COOKIE[$name]);
+      }
       if(isset($_SESSION[$this->_cookies_prefix.$name]))
       {
         unset($_SESSION[$this->_cookies_prefix.$name]);
       }
-      $this->services->delete_cookie($this->_cookies_prefix.$name) ;
-      $this->services->delete_cookie($name) ;
+      setcookie($name, NULL, time() + (1800), "/");
     }
     /**
      * Evaluate error code
@@ -221,7 +231,7 @@ class Webservices
       }
       else
       {
-        $this->set_session_cookie("Terms","true");
+         $this->set_session_cookie("Terms","true");
       }
 
     }
@@ -304,6 +314,16 @@ class Webservices
         {
           $this->set_session_cookie($key, $val);
         }
+
+        $cookie_name = 'Codigo';
+        $cookie_value = $json['Codigo'];
+        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe', 1); 
+        $cookie_name = 'TipoUser';
+        $cookie_value = $json['TipoUser'];
+        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe', 1); 
+        $cookie_name = 'Token';
+        $cookie_value = $json['Token'];
+        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe', 1); 
       }      
       return;         
     }
@@ -318,6 +338,7 @@ class Webservices
     {
       session_name('upc');
       session_start();
+      ob_start();
       $_SESSION["Token"] = "";
       // Removing data from $_SESSION and Cookies
       $user_data = array( 'Codigo' ,
@@ -341,6 +362,7 @@ class Webservices
         $this->unset_session_cookie($key);
       }
       session_destroy();
+      ob_end_flush();
     }
 
     //Recupera los parametros de la url cuando no es alumno de la modalidad ac o fc
@@ -5053,8 +5075,9 @@ class Webservices
     
     //INICIAR SESION
     public function iniciar_session() {
-      session_name('upc');
-      session_start();
+        session_name('upc');
+        session_start();
+        ob_start();
     }
     
     //INICIAR SESION
