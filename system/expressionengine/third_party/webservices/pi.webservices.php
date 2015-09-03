@@ -91,7 +91,9 @@ class Webservices
       $_SESSION[$name] = $jsonObj;
       $_COOKIE[$name] = $jsonObj;
 
-      setcookie($name, $jsonObj, time() + (1800), '/'); 
+      // setcookie($name, $jsonObj, time() + (1800), '/'); 
+
+      setcookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
       // bool setcookie ( string $name [, string $value = "" [, int $expire = 0 [, string $path = "" [, string $domain = "" [, bool $secure = false [, bool $httponly = false ]]]]]] )
       return;
     }
@@ -317,15 +319,15 @@ class Webservices
 
         $cookie_name = 'Codigo';
         $cookie_value = $json['Codigo'];
-        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe', 1); 
+        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
         $cookie_name = 'TipoUser';
         $cookie_value = $json['TipoUser'];
-        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe', 1); 
+        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
         $cookie_name = 'Token';
         $cookie_value = $json['Token'];
-        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe', 1); 
-      }      
-      return;         
+        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
+      }
+      return;
     }
 
     /**

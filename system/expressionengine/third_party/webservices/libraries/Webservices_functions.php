@@ -64,7 +64,8 @@ class Webservices_functions {
 			if($domain == "" OR is_null($domain)){
 				$domain  = $this->_site_url;
 			}
-			$this->EE->input->set_cookie($name, $value, $expire, $domain, $path, "", $secure);
+			// setcookie($name, $value, time() + (1800), '/');
+			setcookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false);  
 		}
 
 		public function get_cookie ($cookie)
