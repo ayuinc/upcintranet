@@ -18,6 +18,7 @@ $plugin_info = array(
     'pi_description'  => 'Permite consumir los servicios generados por UPC',
     'pi_usage'        => Webservices::usage()
 );
+
             
 class Webservices
 {
@@ -46,8 +47,6 @@ class Webservices
         $this->services = new Webservices_functions;
 
         $this->_cookies_prefix = '';
-      
- 
 
     }
 
@@ -89,12 +88,12 @@ class Webservices
      */
     private function set_session_cookie($name, $jsonObj){
       $_SESSION[$name] = $jsonObj;
-      $_COOKIE[$name] = $jsonObj;
+      $_COOKIE[$this->services->get_fuzzy_name($name)] = $jsonObj;
 
       // setcookie($name, $jsonObj, time() + (1800), '/'); 
-      setcookie($name, $jsonObj, time() + (1800), '/'); 
-      setcookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
-      // bool setcookie ( string $name [, string $value = "" [, int $expire = 0 [, string $path = "" [, string $domain = "" [, bool $secure = false [, bool $httponly = false ]]]]]] )
+      $this->services->set_cookie($name, $jsonObj);
+      $this->services->set_cookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false);
+      // setcookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
       return;
     }
 
@@ -105,10 +104,11 @@ class Webservices
      * @param string $name Name of data as key for $_SESSION and cookie
      * @return 
      */
-    private function unset_session_cookie($name){
-      if(isset($_COOKIE[$this->_cookies_prefix.$name]))
+    private function unset_session_cookie($name)
+    {
+      if(isset($_COOKIE[$this->services->get_fuzzy_name($name)]))
       { 
-        unset($_COOKIE[$this->_cookies_prefix.$name]);
+        unset($_COOKIE[$this->services->get_fuzzy_name($name)]);
       }
       if(isset($_COOKIE[$name]))
       {
@@ -118,9 +118,13 @@ class Webservices
       {
         unset($_SESSION[$this->_cookies_prefix.$name]);
       }
-      setcookie($name, NULL, time() - (1800), "/");
-      setcookie($name, NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
+      // setcookie($name, NULL, time() - (1800), "/");
+      // setcookie($name, NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
+
+      $this->services->set_cookie($name, NULL, time() - (1800), "/");
+      $this->services->set_cookie($name, NULL, time() - (1800), '/', '.upc.edu.pe',false);
     }
+
     /**
      * Evaluate error code
      *
@@ -384,8 +388,8 @@ class Webservices
     // CONSULTAR ORDEN DE MERITO ALUMNO
     public function consultar_orden_de_merito_alumno()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
-      $_COOKIE[$this->_cookies_prefix."Codigo"] =  $codigo;
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+      $_COOKIE[$this->services->get_fuzzy_name("Codigo")] =  $codigo;
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       
       ee()->db->select('*');
@@ -404,7 +408,7 @@ class Webservices
     {
 
       $codigo = $_SESSION["Codigo"];
-      $_COOKIE[$this->_cookies_prefix."Codigo"] =  $codigo;
+      $_COOKIE[$this->services->get_fuzzy_name("Codigo")] =  $codigo;
 
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -420,19 +424,19 @@ class Webservices
       }    
       $result = '';
 
-      $_COOKIE[$this->_cookies_prefix."TipoUser"] =  $TipoUser;
+      $_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =  $TipoUser;
       $this->services->set_cookie("TipoUser",$TipoUser, time() + (1800), "/");
-      $_COOKIE[$this->_cookies_prefix."Token"] =  $token;
+      $_COOKIE[$this->services->get_fuzzy_name("Token")] =  $token;
       $this->services->set_cookie("Token",$token, time() + (1800), "/");
       $site_url = ee()->config->item('site_url');
       
       if (strval($TipoUser) ==='ALUMNO') 
       {
-        if (isset($_COOKIE[$this->_cookies_prefix."Redireccion"])) 
+        if (isset($_COOKIE[$this->services->get_fuzzy_name("Redireccion")])) 
         {
-          if(strcmp($_COOKIE[$this->_cookies_prefix."Redireccion"], "")!=0 )
+          if(strcmp($_COOKIE[$this->services->get_fuzzy_name("Redireccion")], "")!=0 )
           {
-            $this->EE->functions->redirect($site_url.($_COOKIE[$this->_cookies_prefix."Redireccion"]));
+            $this->EE->functions->redirect($site_url.($_COOKIE[$this->services->get_fuzzy_name("Redireccion")]));
           }
           else 
           {
@@ -447,11 +451,11 @@ class Webservices
       
       if (strval($TipoUser)=='PROFESOR') 
       {
-        if (isset($_COOKIE[$this->_cookies_prefix."Redireccion"])) 
+        if (isset($_COOKIE[$this->services->get_fuzzy_name("Redireccion")])) 
         {
-          if(strcmp($_COOKIE[$this->_cookies_prefix."Redireccion"], "")!=0)
+          if(strcmp($_COOKIE[$this->services->get_fuzzy_name("Redireccion")], "")!=0)
           {
-             $this->EE->functions->redirect($site_url.$_COOKIE[$this->_cookies_prefix."Redireccion"]);
+             $this->EE->functions->redirect($site_url.$_COOKIE[$this->services->get_fuzzy_name("Redireccion")]);
           }
           else{
             $this->EE->functions->redirect($site_url."dashboard/docente");
@@ -503,7 +507,7 @@ class Webservices
     public function redirect_user()
     {
       $site_url = ee()->config->item('site_url');
-      $TipoUser = $_COOKIE[$this->_cookies_prefix."TipoUser"];
+      $TipoUser = $_COOKIE[$this->services->get_fuzzy_name("TipoUser")];
 
       if (strval($TipoUser) ==='ALUMNO')
       {  
@@ -524,7 +528,7 @@ class Webservices
 
     public function padre_lista_de_hijos_ciclo_actual()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
       ee()->db->where('codigo',$codigo);
@@ -556,7 +560,7 @@ class Webservices
 
     public function padre_lista_de_hijos_notas_detalladas()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
       ee()->db->where('codigo',$codigo);
@@ -588,7 +592,7 @@ class Webservices
 
     public function padre_lista_de_hijos_estado_actual()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
       ee()->db->where('codigo',$codigo);
@@ -620,7 +624,7 @@ class Webservices
 
     public function padre_lista_de_hijos_mis_pagos()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
       ee()->db->where('codigo',$codigo);
@@ -652,7 +656,7 @@ class Webservices
 
     public function padre_lista_de_hijos_mis_pagos_hijos()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
       ee()->db->where('codigo',$codigo);
@@ -689,7 +693,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
       ee()->db->where('codigo',$codigo);
@@ -742,7 +746,7 @@ class Webservices
       //$TipoUser = $_SESSION["TipoUser"];
       //$redireccion = $_SESSION["Redireccion"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -812,7 +816,7 @@ class Webservices
     //HORARIO DEL ALUMNO
     public function horario_alumno()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -971,7 +975,7 @@ class Webservices
       // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
       $codigo_alumno =  $_GET['codigo_alumno'];
       $flag = TRUE;
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -1117,7 +1121,7 @@ class Webservices
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -1286,7 +1290,7 @@ class Webservices
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -1432,7 +1436,7 @@ class Webservices
     public function inasistencias_alumno()
     {
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1477,10 +1481,10 @@ class Webservices
          $result .= '</li>';
          $result .= '<li class="col-sm-8 pt-28 pr-21">';
          $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
-         if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='ALUMNO') {
+         if ($_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =='ALUMNO') {
          $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reincorpórate</a></p>';
          }
-         if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='PROFESOR') {
+         if ($_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =='PROFESOR') {
          $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar</p>';
          } 
          $result .= '</li>';
@@ -1544,11 +1548,11 @@ class Webservices
         if ($error_mensaje == "Ud. no se encuentra matriculado en el presente ciclo.") 
         {
           $result .= '<p class="zizou-bold-16">¿Ningún curso en este Ciclo?</p>';
-          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='ALUMNO') 
+          if ($_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =='ALUMNO') 
           {
             $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar o <a href="" class="sb-link">reincorpórate</a></p>';
           }
-          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='PROFESOR') 
+          if ($_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =='PROFESOR') 
           {
             $result .= '<p class="helvetica-14">Entérate de <a href="http://www.upc.edu.pe/eventos" target="_blank" class="sb-link">otras</a> actividades que puedes realizar</p>';
           }
@@ -1579,7 +1583,7 @@ class Webservices
       // $codigo_alumno =  ee()->TMPL->fetch_param('codigo_alumno');  
       $codigo_alumno =  $_GET['codigo_alumno'];  
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -1674,7 +1678,7 @@ class Webservices
       //$token = $_SESSION["Token"]; 
       $codalumno = ee()->TMPL->fetch_param('codalumno');  
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -1756,7 +1760,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];     
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -1839,7 +1843,7 @@ class Webservices
       //$token = $_SESSION["Token"];     
       
       $codigo_alumno =  ee()->TMPL->fetch_param('codigo_alumno');
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -1923,7 +1927,7 @@ class Webservices
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
       //$token = $_SESSION["Token"];     
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2011,7 +2015,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2075,7 +2079,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
       $codigo_alumno = $_GET['codigo_alumno'];
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2146,7 +2150,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
 
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2218,7 +2222,7 @@ class Webservices
     {
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2409,7 +2413,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
       $codigo_alumno =  $_GET['codigo_alumno'];
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2603,7 +2607,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2708,7 +2712,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2813,7 +2817,7 @@ class Webservices
       //$token = $_SESSION["Token"];
       $codcurso = ee()->TMPL->fetch_param('codcurso');
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2837,7 +2841,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2874,7 +2878,7 @@ class Webservices
       $codigo_alumno =  $_GET['codigo_alumno'];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -2909,7 +2913,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -3109,7 +3113,7 @@ class Webservices
          //$token = $_SESSION["Token"];
          
          $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
-         $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+         $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
          $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
          ee()->db->select('*');
@@ -3306,10 +3310,10 @@ class Webservices
     //POBLAR ESPACIOS DEPORTIVOS - SEDE  
     public function poblar_espacios_deportivos_sede()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       
-      $token = $_COOKIE[$this->_cookies_prefix."Token"];
+      $token = $_COOKIE[$this->services->get_fuzzy_name("Token")];
       $url = 'PoblarED/?CodAlumno='.$codigo.'&Token='.$token;
 
       $result=$this->services->curl_url($url);
@@ -3361,7 +3365,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -3408,7 +3412,7 @@ class Webservices
     //POBLAR ESPACIOS DEPORTIVOS - ACTIVIDAD  
     public function poblar_espacios_deportivos_actividad()
     {      
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -3499,10 +3503,10 @@ class Webservices
           $HoraFin = $HoraFin.'00';
         }
         
-        $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+        $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
         $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
      
-        $token = $_COOKIE[$this->_cookies_prefix.'Token'];
+        $token = $_COOKIE[$this->services->get_fuzzy_name('Token')];
         $url = 'DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
 
         $result=$this->services->curl_url($url);
@@ -3607,7 +3611,7 @@ class Webservices
       }
       else if ($will_exec[0] == '1')
       {
-        $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+        $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
         $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
         ee()->db->select('*');
@@ -3666,7 +3670,7 @@ class Webservices
 
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
       $CodSede = ee()->TMPL->fetch_param('CodSede');
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -3775,7 +3779,7 @@ class Webservices
     //RESERVA DE RECURSOS
     public function reserva_recursos()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -3860,7 +3864,7 @@ class Webservices
     public function listado_recursos_reservados_alumno()
     {
       $fecha = ''; 
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -3964,10 +3968,10 @@ class Webservices
         $result .= '<img class="img-center" src="{site_url}assets/img/no_bookings_new.png">';
         $result .= '</li>';
         if ($error_mensaje == "No se han registrado reservas durante esta semana." || $counterReservas == 0) {
-          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='ALUMNO') {
+          if ($_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =='ALUMNO') {
             $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a></p></li>';         
           } 
-          if ($_COOKIE[$this->_cookies_prefix."TipoUser"] =='PROFESOR') {
+          if ($_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =='PROFESOR') {
             $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
           } 
         } else {
@@ -3989,7 +3993,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
 
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4011,7 +4015,7 @@ class Webservices
     public function lista_cursos_dictados_profesor()
     {
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4099,7 +4103,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4176,7 +4180,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4335,7 +4339,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4458,7 +4462,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4613,7 +4617,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4641,7 +4645,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
 
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4804,7 +4808,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
        
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4848,7 +4852,7 @@ class Webservices
     {
       // return $_SESSION["Nombres"];
        
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4867,7 +4871,7 @@ class Webservices
     public function apellido_alumno()
     {
 
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       ee()->db->select('*');
@@ -4887,7 +4891,7 @@ class Webservices
     {    
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       
-      $codigo_alumno = ucwords(strtolower($_COOKIE[$this->_cookies_prefix."Codigo"]));
+      $codigo_alumno = ucwords(strtolower($_COOKIE[$this->services->get_fuzzy_name("Codigo")]));
       
       return $codigo_alumno;
     }  
@@ -4896,7 +4900,7 @@ class Webservices
     public function modalidad_alumno()
     {    
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -4913,7 +4917,7 @@ class Webservices
     //ESTADO DEL ALUMNO
     public function estado_alumno()
     { 
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -4936,7 +4940,7 @@ class Webservices
     //SEDE DEL ALUMNO
     public function sede_alumno()
     {       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -4953,7 +4957,7 @@ class Webservices
     //CICLO DEL ALUMNO
     public function ciclo_alumno()
     { 
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -4971,7 +4975,7 @@ class Webservices
     //MUESTRA EL TIPO DE USUARIO
     public function tipo_usuario()
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -4990,7 +4994,7 @@ class Webservices
       //$codigo = $_SESSION["Codigo"];
       //$TipoUser = $_SESSION["TipoUser"];
       
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
       $tipouser = $_SESSION['TipoUser'];
@@ -5071,7 +5075,7 @@ class Webservices
     //MENSAJE DE ERROR
     public function mensaje_error()
     {
-      $MsgError = $_COOKIE[$this->_cookies_prefix."MsgError"];
+      $MsgError = $_COOKIE[$this->services->get_fuzzy_name("MsgError")];
       $this->services->set_cookie("MsgError", $MsgError, time() + (1800), "/");
       return $MsgError;
     }    
@@ -5092,7 +5096,7 @@ class Webservices
       $codigo =  $_SESSION["Codigo"];
 
 
-      $_COOKIE[$this->_cookies_prefix."Codigo"] = $codigo;
+      $_COOKIE[$this->services->get_fuzzy_name("Codigo")] = $codigo;
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo', $codigo);
@@ -5105,21 +5109,21 @@ class Webservices
       if ($codigo === '' || is_null($codigo)) {
         $redireccion = uri_string();
         $this->eliminar_cookie();
-        $_COOKIE[$this->_cookies_prefix."Redireccion"] = $redireccion;
+        $_COOKIE[$this->services->get_fuzzy_name("Redireccion")] = $redireccion;
         $this->services->set_cookie("Redireccion",$redireccion, time() + (1800), "/");
         $site_url = ee()->config->item('site_url');
         $site_url .= 'login/no-es-usuario';
         redirect($site_url);
       }
       elseif ($segment_2 != $tipouser ) {
-         $_COOKIE[$this->_cookies_prefix."Redireccion"]= "/general/permisos";
+         $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]= "/general/permisos";
         if ($tipouser == 'PROFESOR')
         {
           redirect( $_SESSION["Redireccion"]);
         }
         if ($tipouser == 'ALUMNO')
         {
-          redirect( $_COOKIE[$this->_cookies_prefix."Redireccion"]);
+          redirect( $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]);
         }
         if ($tipouser == 'PADRE')
         {
@@ -5136,7 +5140,7 @@ class Webservices
     //BOTON INICIO
     public function boton_inicio() 
     {
-      $codigo =  $_COOKIE[$this->_cookies_prefix."Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
@@ -5163,16 +5167,16 @@ class Webservices
       $_SESSION["Token"] = "";
       $this->services->set_cookie("Codigo", NULL);
       $this->services->set_cookie("MsgError", NULL);
-      if (isset($_COOKIE[$this->_cookies_prefix."Codigo"])) {
-        unset($_COOKIE[$this->_cookies_prefix."Codigo"]);
+      if (isset($_COOKIE[$this->services->get_fuzzy_name("Codigo")])) {
+        unset($_COOKIE[$this->services->get_fuzzy_name("Codigo")]);
         $this->services->set_cookie("Codigo", null, -1, "/");
       }
-      if (isset($_COOKIE[$this->_cookies_prefix."TipoUser"])) {
-        unset($_COOKIE[$this->_cookies_prefix."TipoUser"]);
+      if (isset($_COOKIE[$this->services->get_fuzzy_name("TipoUser")])) {
+        unset($_COOKIE[$this->services->get_fuzzy_name("TipoUser")]);
         $this->services->set_cookie("TipoUser", null, -1, "/");
       }
-      if (isset($_COOKIE[$this->_cookies_prefix."Token"])) {
-        unset($_COOKIE[$this->_cookies_prefix."Token"]);
+      if (isset($_COOKIE[$this->services->get_fuzzy_name("Token")])) {
+        unset($_COOKIE[$this->services->get_fuzzy_name("Token")]);
         $this->services->set_cookie("Token", null, -1, "/");
       }
       unset($_SESSION["Codigo"]);
