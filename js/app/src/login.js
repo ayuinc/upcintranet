@@ -24,7 +24,7 @@ $(document).ready(function () {
     // do other things for a valid form
       document.cookie = "onLogin=true; ";
     // TERMINOS Y CONDICIONES 
-      // var form = $this;
+      var form = $this;
       // event.preventDefault();
       // var hostname = ''; 
       // var codigo = $("input[name='codigo']").val();
