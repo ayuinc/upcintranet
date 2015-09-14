@@ -55,6 +55,7 @@ $(document).ready(function () {
       //   }
       // });
       // END TERMINOS Y CONDICIONES
+      form.submit();  
     }
   });
 });
