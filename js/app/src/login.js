@@ -23,10 +23,9 @@ $(document).ready(function () {
     submitHandler: function ($this) {
     // do other things for a valid form
       document.cookie = "onLogin=true; ";
-    // TERMINOS Y CONDICIONES 
       var form = $this;
       event.preventDefault();
-      var hostname = ''; 
+      var hostname = $('a#site_url').attr('href');; 
       var codigo = $("input[name='codigo']").val();
 
       $.ajax({
@@ -40,7 +39,7 @@ $(document).ready(function () {
             $( "#aceptar" ).click(function() {
               if ($('#checkbox').is(':checked')) {
                 $.ajax({
-                  url: hostname +'/includes/terminos_condiciones_set',
+                  url: hostname +'includes/terminos_condiciones_set',
                   type: "POST",
                   data: ({codigo: codigo}),
                   success: function(data){
@@ -54,7 +53,6 @@ $(document).ready(function () {
           
         }
       });
-      // END TERMINOS Y CONDICIONES
     }
   });
 });
