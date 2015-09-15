@@ -47,7 +47,7 @@ class Webservices_functions {
                           'closed-alert' => 'closed-alert');
 		
 	}
-			 /**
+	/**
      * Get Fuzzy name for Cookie
      *
      * @access  public

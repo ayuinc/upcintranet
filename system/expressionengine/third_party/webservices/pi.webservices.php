@@ -5196,8 +5196,6 @@ class Webservices
 	    $site_url = ee()->config->item('site_url');
       redirect($site_url);
     }
-    
-
         
 }
 
