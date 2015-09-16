@@ -406,7 +406,7 @@ class Webservices
     
     public function consultar_alumno()
     {
-      $codigo = $_SESSION["Codigo"];
+      $codigo = $_COOKIE["Codigo"];
       $_COOKIE[$this->services->get_fuzzy_name("Codigo")] =  $codigo;
 
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
@@ -5092,7 +5092,7 @@ class Webservices
       //var_dump($_SESSION);
       $segment_2 = ee()->TMPL->fetch_param('tipo_de_vista');
  
-      $codigo =  $_SESSION["Codigo"];
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
 
 
       $_COOKIE[$this->services->get_fuzzy_name("Codigo")] = $codigo;
@@ -5118,7 +5118,7 @@ class Webservices
          $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]= "/general/permisos";
         if ($tipouser == 'PROFESOR')
         {
-          redirect( $_SESSION["Redireccion"]);
+          redirect( $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]);
         }
         if ($tipouser == 'ALUMNO')
         {
