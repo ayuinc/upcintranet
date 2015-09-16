@@ -406,7 +406,6 @@ class Webservices
     
     public function consultar_alumno()
     {
-
       $codigo = $_SESSION["Codigo"];
       $_COOKIE[$this->services->get_fuzzy_name("Codigo")] =  $codigo;
 
@@ -5112,8 +5111,9 @@ class Webservices
         $_COOKIE[$this->services->get_fuzzy_name("Redireccion")] = $redireccion;
         $this->services->set_cookie("Redireccion",$redireccion, time() + (1800), "/");
         $site_url = ee()->config->item('site_url');
-        $site_url .= 'login/no-es-usuario';
-        redirect($site_url);
+        //$site_url .= 'login/no-es-usuario';
+        //redirect($site_url);
+        var_dump($_SESSION);
       }
       elseif ($segment_2 != $tipouser ) {
          $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]= "/general/permisos";
