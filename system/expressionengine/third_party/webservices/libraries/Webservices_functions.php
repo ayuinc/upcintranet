@@ -10,11 +10,7 @@
  * @version		1.0
  */
 
-
-
 class Webservices_functions {
-
-
 
 	protected $_base_url; // Base url for services from EE config 'web_services_url'
 	protected $_site_url; // Base url for site
@@ -101,7 +97,7 @@ class Webservices_functions {
 
 	public function set_cookie ( $name,  $value,  $expire = 0 ,  $path = "/" ,   $domain = ".upc.edu.pe" ,  $prefix = "",  $secure = TRUE )
 	{
-		validate domain, just in case
+		// validate domain, just in case
 		if($domain == "" OR is_null($domain)){
 			$domain  = $this->_site_url;
 		}
