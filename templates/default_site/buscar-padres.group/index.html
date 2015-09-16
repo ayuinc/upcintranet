@@ -71,7 +71,10 @@
                           {/if} 
                           {if tipo-referencia=='Externa'}
                           <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>             
-                          {/if}   
+                          {/if}
+                          {if tipo-referencia=='Interna'}
+                          <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}{link-referencia}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>             
+                          {/if}      
                         {/if} 
                         </div>
                         </div>
@@ -82,15 +85,28 @@
                          <div class="solano-bold-20 black-text">
                           <span id="search-count"></span>.&nbsp;{title}
                         </div>   
+                         
                           <a target="_blank" class="danger-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+
                         </div>
+                        {if:elseif acceso_rapido_link}
+                          <div class="panel-body p-14 result_query">
+                           <div class="solano-bold-20 black-text">
+                            <span id="search-count"></span>.&nbsp;{title}
+                          </div>   
+                           
+                            <a target="_blank" class="danger-link zizou-16" target="_blank" href="{acceso_rapido_link}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+
+                          </div>
                         {if:else}
+
                             {categories limit='1'}
                               {exp:query sql="SELECT exp_templates.template_id 
                                 FROM `exp_templates` 
                                 JOIN `exp_template_groups` 
                                 ON exp_template_groups.group_id = exp_templates.group_id 
                                 WHERE exp_template_groups.group_name LIKE '{category_url_title}'
+                                AND exp_template_groups.group_name NOT LIKE '%alumnos%'
                                 AND exp_template_groups.group_name NOT LIKE '%docentes%'
                                 limit 1"}
                                 <div class="panel-body p-14 result_query">
@@ -109,7 +125,7 @@
                       <div class="dotted-line"></div>
                       {/if}
                    
-                  {/exp:super_search:results}     
+                  {/exp:super_search:results}
                 </div>
               </div>
           </div>
