@@ -5201,4 +5201,3 @@ class Webservices
 
 /* End of file pi.webservices.php */
 /* Location: ./system/expressionengine/third_party/infhotel/pi.webservices.php */
-?>

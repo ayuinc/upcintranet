@@ -121,10 +121,6 @@ class Webservices_functions {
 		// Adding the prefix so original code stays "clean"
 		$this->EE->input->delete_cookie($cookie);
 	}
-
-
-
-
 }
-
-?>
+/* End of file Webservices_functions.php */
+/* Location: ./system/expressionengine/third_party/webservices/Webservices_functions.php */
