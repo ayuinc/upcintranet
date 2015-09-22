@@ -1,11 +1,11 @@
   {exp:ajw_feedparser 
-      url="http://betablogs.upc.edu.pe/blog/feed/8"
+      url="http://www.upc.edu.pe/noticias/rss"
       cache_refresh="30"
       limit="2"
   }  
   <div class="panel-body p-14 bg-muted">
     <div>
-      <span class="zizou-16 text-lowercase">{pubDate}</span>
+      <span class="zizou-16 text-lowercase">{pubDate format="%l %d de %F del %Y"} </span>
     </div>
     <p class="solano-bold-20 lh-1-1 black-text uppercase">{title}</p>
     <p class="zizou-16"><a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
