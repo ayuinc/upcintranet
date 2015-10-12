@@ -4120,7 +4120,7 @@ class Webservices
       
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];       
-
+   
       //limpio la variable para reutilizarla
       $result = '';
 
@@ -4161,14 +4161,25 @@ class Webservices
       } 
       
       //Control de errores
-      if ($error!='00000') {
+      $error_result = $this->error_eval($error);
+      if ($error_result === '1') 
+      {
         $result = '';
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-12 helvetica-bold-14"><div class="text-center"><span>'.$error_mensaje.'</span></div></li>'; 
         $result .= '</ul>';
-        $result .= '</div>';
-      }      
+        $result .= '</div>'; 
+      }
+      elseif ($error_result !== '0')
+      {
+        $result = $error_result;
+      }
+      else
+      {
+        $site_url = ee()->config->item('site_url');
+        redirect('general/session-expired');
+      }
 
       return $result;          
     }      
