@@ -4137,8 +4137,7 @@ class Webservices
         // var_dump($json);
         for ($a=0; $a<$tamano_int; $a++) {
           $result .= '<ul class="tr">';
-          $result .= '<li class="col-xs-12 bg-muted mb-5">';
-          $result .= '<div>';
+          $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
           $result .= '<form action="{site_url}index.php/mi-docencia/cursos-detallados" method="post" id="form-'.$i.'">';
           $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
           $result .= '<input type="hidden" name="Flag" value="buscar-curso">';
@@ -4147,12 +4146,13 @@ class Webservices
           $result .= '<input type="hidden" name="Curso" value="'.$json['modalidades'][$i]['cursos'][$a]['cursoId'].'">';
           $result .= '<input type="hidden" name="Seccion" value="'.$json['modalidades'][$i]['cursos'][$a]['seccion'].'">';
           $result .= '<input type="hidden" name="Grupo" value="'.$json['modalidades'][$i]['cursos'][$a]['grupo'].'">';
-          $result .= '<div>';
+          $result .= '<span class="zizou-16 col-sm-1 pr-0 pl-0">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/black_arrow_tiny.png">';
+          $result .= '</span>';
+          $result .= '<span class="zizou-16 col-sm-11 pr-0 pl-7">';
           $result .= '<input type="submit" class="zizou-14 btn-anchor curso-detallado-submit" value="'.$json['modalidades'][$i]['cursos'][$a]['curso'].' ('.$json['modalidades'][$i]['cursos'][$a]['seccion'].')" name="submit">';
-          $result .= '</div>';
+          $result .= '</span>';
           $result .= '</form>';
-          $result .= '</div>';
           $result .= '</li>';         
           $result .= '</ul>';
         }
