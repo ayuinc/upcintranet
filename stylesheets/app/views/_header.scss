@@ -44,6 +44,15 @@
 			@include bold;
 			// text-transform: uppercase;
 			text-align: center;
+			&.header-estudiante{
+				background-image:url("../assets/img/header_no_global_estudiante.png");
+			}
+			&.header-docente{
+				background-image:url("../assets/img/header_no_global_docente.png");
+			}
+			&.header-padre{
+				background-image:url("../assets/img/header_no_global_padre.png");
+			}
 			.inicio {
 				background-color: white;
 				color: $gray-light;
