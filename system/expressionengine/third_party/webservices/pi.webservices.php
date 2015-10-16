@@ -1214,15 +1214,15 @@ class Webservices
           $horario_dia = $this->_replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);                             
           // var_dump($json);
           $horario_dia = $this->_replace_subtag_data('survey_cod_clase', $horario_dia, (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase']);
+          $horario_dia = $this->_replace_subtag_data('survey_cod_curso', $horario_dia, (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso']);
           $horario_dia = $this->_replace_subtag_data('survey_cod_alumno', $horario_dia, $codigo);
-          $horario_dia = $this->_replace_subtag_data('survey_token', $horario_dia, $token);
-          $horario_dia = $this->_replace_subtag_data('survey_hora_inicio', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['HoraInicio']);
-          $horario_dia = $this->_replace_subtag_data('survey_hora_fin', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['HoraFin']);
+          // $horario_dia = $this->_replace_subtag_data('survey_token', $horario_dia, $token);
+          // $horario_dia = $this->_replace_subtag_data('survey_hora_inicio', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['HoraInicio']);
+          // $horario_dia = $this->_replace_subtag_data('survey_hora_fin', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['HoraFin']);
           $horario_dia = $this->_replace_subtag_data('survey_active_time', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio);
        
           $clases .= $horario_dia;
-// {url_base}/?CodAlumno={survey_cod_alumno}&Token={survey_token}&CodClase={survey_cod_clase}&HoraInicio={survey_hora_inicio}&HoraFin{survey_hora_fin}
-         }  
+        }  
         $horario = $this->_replace_pair_subtag_data('horario_dia', $horario, $clases);
 
         $result .= $horario;         
