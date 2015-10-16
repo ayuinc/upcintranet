@@ -154,7 +154,7 @@
                               <li class="col-sm-1-5 hidden-xs"> 
                                 <div class="text-center br-no horario-survey">
                                   <span class="helvetica-14">
-                                  <a data-survey-active="{survey_active_time}"  href="{url_base}/?CodAlumno={survey_cod_alumno}&Token={survey_token}&CodClase={survey_cod_clase}&HoraInicio={survey_hora_inicio}&HoraFin{survey_hora_fin}"><img src="{site_url}assets/img/class-survey-icon.png" alt="" class="pl-7"> Ingresar</a>
+                                  <a data-survey-active="{survey_active_time}"  href="{url_base}/{survey_cod_alumno}/{survey_cod_clase}"><img src="{site_url}/assets/img/class-survey-icon.png" alt=""> Ingresar</a>
                                   </span>
                                 </div>  
                               </li>
@@ -164,7 +164,7 @@
                                   </div>
                                   <div class="col-xs-4">
                                     <span class=  "helvetica-14 text-center">
-                                    <a data-survey-active="{survey_active_time}" href="{url_base}/?CodAlumno={survey_cod_alumno}&Token={survey_token}&CodClase={survey_cod_clase}&HoraInicio={survey_hora_inicio}&HoraFin{survey_hora_fin}"><img src="{site_url}assets/img/class-survey-icon.png" class="pl-7" alt="">Ingresar</a>
+                                    <a data-survey-active="{survey_active_time}" href="{url_base}/{survey_cod_alumno}/{survey_cod_clase}"><img src="{site_url}/assets/img/class-survey-icon.png" class="pl-7" alt="">Ingresar</a>
                                     </span>
                                   </div>
                                
@@ -287,15 +287,15 @@
  <script>
 $( document ).ready(function() {
     var currentTime = new Date();
-  $('.horario-survey a').each(function(index, element){
-    if($(element).data('survey-active').toString() != ''+currentTime.getFullYear()+''+(currentTime.getMonth()+1)+''+currentTime.getDate()+''+currentTime.getHours()){
-      $(this).addClass('inactive');
-      $(this).attr('href', '#');
-      img = $(this).find('img');
-      $(img).attr('src', $(img).attr('src').replace('survey-icon.png', 'survey-icon-inactive.png'));
-      $(this).click(function(e){e.preventDefault();});
-    }
-  });
+  // $('.horario-survey a').each(function(index, element){
+  //   if($(element).data('survey-active').toString() != ''+currentTime.getFullYear()+''+(currentTime.getMonth()+1)+''+currentTime.getDate()+''+currentTime.getHours()){
+  //     $(this).addClass('inactive');
+  //     $(this).attr('href', '#');
+  //     img = $(this).find('img');
+  //     $(img).attr('src', $(img).attr('src').replace('survey-icon.png', 'survey-icon-inactive.png'));
+  //     $(this).click(function(e){e.preventDefault();});
+  //   }
+  // });
 });
  </script>
 }
