@@ -18,3 +18,39 @@
 		-webkit-transform: rotate(180deg);
 	}
 }
+
+.horario-survey{
+	span{
+		background-color: #e4fcfc;
+		color:#3298ff;
+		@media #{$xs-only}{
+			background-color: #e4fcfc;
+			&.nobg{
+				background-color:transparent!important;
+				-webkit-flex-grow: 0;
+			    -moz-flex-grow: 0;
+			    flex-grow: 0;
+			    -ms-flex-positive: 0;
+			    font-family: "ronnia-condensed" !important;
+			    font-weight: 300;
+			    font-style: normal;
+			    color: #B0B1B2;
+			    font-size: 1rem;
+			    font-size: 14px;
+			    text-align: center;
+			    text-transform: uppercase;
+			}
+		}
+		&.inactive{
+			color:#afb1b2;
+			cursor: pointer;
+		}
+		&.inactive:hover{
+			color:#afb1b2;
+			cursor: pointer;
+			text-decoration: none;
+		}
+	}
+
+}
+
