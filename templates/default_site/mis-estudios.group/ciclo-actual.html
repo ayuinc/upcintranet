@@ -60,7 +60,103 @@
                         <h3>Mi Horario Semanal</h3>
                       </div>
                     </div>
+         
+                  
                     {exp:webservices:horario_ciclo_actual_alumno}
+                      {horario}
+                       <div>
+                          <span class="zizou-16">
+                          {week_day}
+                          </span>
+                        </div>
+                        <div class="panel-body red-line mb-7">
+                          <div class="panel-body-head-table white"> 
+                            <ul class="tr text-center table-border"> 
+                              <li class="col-sm-1-5  hidden-xs"> 
+                               <div><span>Inicio</span></div> 
+                              </li> 
+                              <li class="col-sm-1-5 hidden-xs">
+                               <div><span>Fin</span></div> 
+                              </li> 
+                              <li class="col-sm-1-5 col-xs-2 hidden-sm hidden-md hidden-lg"> 
+                               <div><span>Inicio - Fin</span></div> 
+                              </li> 
+                              <li class="col-sm-4-5 col-xs-4-5 "> 
+                                <div><span>Clase</span></div> 
+                              </li> 
+                              <li class="col-sm-1-5 col-xs-1-5 "> 
+                               <div><span>Sede</span></div> 
+                              </li>  
+                              <li class="col-sm-1-5 col-xs-2 "> 
+                                <div><span>Sección</span></div> 
+                              </li> 
+                              <li class="col-sm-1-5 col-xs-2 "> 
+                               <div><span>Aula</span></div> 
+                              </li>                                                          
+                            </ul> 
+                          </div>
+                          {horario_dia}
+                          <div class="panel-table"> 
+                            <ul class="tr mis-cursos-row table-border"> 
+                              <li class="col-sm-1-5 col-xs-1-5 hidden-xs"> 
+                                <div class="text-center">
+                                  <span class="helvetica-14">{hora_inicio}</span>
+                                </div> 
+                              </li> 
+                              <li class="col-sm-1-5 col-xs-1-5 hidden-xs"> 
+                                <div class="text-center">
+                                  <span class="helvetica-14">
+                                    {hora_fin}               
+                                  </span>
+                                </div>                  
+                              </li>     
+                              <li class="col-xs-2 hidden-md hidden-sm hidden-lg"> 
+                                <div class="text-center">
+                                  <span class="helvetica-14">
+                                  {hora_inicio} - {hora_fin}
+                                  </span>
+                                </div> 
+                              </li>                    
+                              <li class="col-sm-4-5 col-xs-4-5"> 
+                                <div class="text-center">
+                                  <span class="helvetica-14">
+                                  {curso_nombre}
+                                  </span>
+                                </div>                   
+                              </li> 
+                              <li class="col-sm-1-5 col-xs-1-5"> 
+                                <div class="text-center">
+                                  <span class="helvetica-14">
+                                    {clase_sede}
+                                  </span>
+                                </div> 
+                              </li> 
+                              <li class="col-sm-1-5 col-xs-2"> 
+                                <div class="text-center">
+                                  <span class="helvetica-14">
+                                    {curso_seccion}
+                                  </span>
+                                </div> 
+                              </li> 
+                              <li class="col-sm-1-5 col-xs-2"> 
+                                <div class="text-center">
+                                  <span class="helvetica-14">
+                                    {clase_salon}
+                                  </span>
+                                </div>  
+                              </li> 
+                            </ul> 
+                          </div> 
+                          <div>
+                  
+                          </div>
+                          {/horario_dia}
+                        </div>
+                      {/horario}
+                      {error}
+
+                      {/error}
+                    {/exp:webservices:horario_ciclo_actual_alumno}
                 </div>
               </div>
           </div>

@@ -160,7 +160,7 @@ class Webservices
      * @return string
      */
     private function _get_subtag_data($tag_name, $tagdata){    
-      $pattern  = '#' .LD.$tag_name .RD .'(.*?)' .LD .'/'.$tag_name .RD .'#s';
+      $pattern  = '#'.LD.$tag_name.RD.'(.*?)'.LD.'/'.$tag_name.RD.'#s';
 
       if (is_string($tagdata) && is_string($tag_name) && preg_match($pattern, $tagdata, $matches))
       {
@@ -183,8 +183,28 @@ class Webservices
 
       if (is_string($tagdata) && is_string($tag_name) && is_string($replacement))
       {
-        $pattern  =  LD.$tag_name .RD ;
+        // var_dump('by this '.$replacement.' replace'.$tag_name.' on '.$tagdata);
+        $pattern  =  LD.$tag_name.RD ;
         return str_replace($pattern, $replacement, $tagdata);
+      }
+      return '';
+    }
+
+    /**
+     * Replace pair tag data
+     *
+     * @access  private
+     * @param tag_name Tag to look for
+     * @param tag_data Template tag data to look in
+     * @param replacement 
+     * @return string
+     */
+    private function _replace_pair_subtag_data($tag_name, $tagdata, $replacement){
+
+      $pattern  = '#'.LD.$tag_name.RD.'(.*?)'.LD.'/'.$tag_name.RD.'#s';
+      if (is_string($tagdata) && is_string($tag_name) && preg_match($pattern, $tagdata, $matches))
+      {
+        return str_replace($matches[0], $replacement, $tagdata);;
       }
       return '';
     }
@@ -1122,7 +1142,7 @@ class Webservices
     {
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-
+      $tagdata  = $this->EE->TMPL->tagdata;
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -1142,111 +1162,57 @@ class Webservices
       
       //limpio la variable para reutilizarla
       $result = '';
-      
+      $horario_empty = $this->_get_subtag_data('horario',$tagdata);
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);  
-      
+    
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<div>';
-        $result .= '<span class="zizou-16">';
+        $horario = $horario_empty;
+        $week_day = '';
         if ($json['HorarioDia'][$i]['CodDia'] == 1) {
-          $result .= 'Lunes';
+          $week_day = 'Lunes';
         }
         if ($json['HorarioDia'][$i]['CodDia'] == 2) {
-          $result .= 'Martes';
-        }       
+          $week_day = 'Martes';
+        }
         if ($json['HorarioDia'][$i]['CodDia'] == 3) {
-          $result .= 'Miércoles';
-        }    
+          $week_day = 'Miércoles';
+        }
         if ($json['HorarioDia'][$i]['CodDia'] == 4) {
-          $result .= 'Jueves';
+          $week_day = 'Jueves';
         }  
         if ($json['HorarioDia'][$i]['CodDia'] == 5) {
-          $result .= 'Viernes';
-        }                    
+          $week_day = 'Viernes';
+        }
         if ($json['HorarioDia'][$i]['CodDia'] == 6) {
-          $result .= 'Sábado';
-        }           
-        $result .= '</span>';
-        $result .= '</div>'; 
-        $result .= '<div class="panel-body red-line mb-7">';
-        $result .= '<div class="panel-body-head-table white">'; 
-        $result .= '<ul class="tr text-center table-border">'; 
-        $result .= '<li class="col-sm-1-5  hidden-xs">'; 
-        $result .= '<div><span>Inicio</span></div>'; 
-        $result .= '</li>'; 
-        $result .= '<li class="col-sm-1-5 hidden-xs">'; 
-        $result .= '<div><span>Fin</span></div>'; 
-        $result .= '</li>'; 
-        $result .= '<li class="col-sm-1-5 col-xs-2 hidden-sm hidden-md hidden-lg">'; 
-        $result .= '<div><span>Inicio - Fin</span></div>'; 
-        $result .= '</li>'; 
-        $result .= '<li class="col-sm-4-5 col-xs-4-5 ">'; 
-        $result .= '<div><span>Clase</span></div>'; 
-        $result .= '</li>'; 
-        $result .= '<li class="col-sm-1-5 col-xs-1-5 ">'; 
-        $result .= '<div><span>Sede</span></div>'; 
-        $result .= '</li>';  
-        $result .= '<li class="col-sm-1-5 col-xs-2 ">'; 
-        $result .= '<div><span>Sección</span></div>'; 
-        $result .= '</li>'; 
-        $result .= '<li class="col-sm-1-5 col-xs-2 ">'; 
-        $result .= '<div><span>Aula</span></div>'; 
-        $result .= '</li>';                                                                                                                                                  
-        $result .= '</ul>'; 
-        $result .= '</div>';        
+          $week_day = 'Sábado';
+        }
+
+        $horario = $this->_replace_subtag_data('week_day',  $horario, $week_day);      
         
+
         //genera el tamano del array
         $tamano_int = count($json['HorarioDia'][$i]['Clases']); 
-        
+        $clases = '';
+        $horario_dia_empty = $this->_get_subtag_data('horario_dia', $tagdata);
         for ($b=0; $b<$tamano_int; $b++) {
-            $result .= '<div class="panel-table">'; 
-            $result .= '<ul class="tr mis-cursos-row table-border">'; 
-            $result .= '<li class="col-sm-1-5 col-xs-1-5 hidden-xs">'; 
-            $result .= '<div class="text-center"><span class="helvetica-14">';
-            $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
-            $HoraInicio = ltrim($HoraInicio,'0');
-            $result .= $HoraInicio.':00';
-            $result .= '</span></div>'; 
-            $result .= '</li>'; 
-            $result .= '<li class="col-sm-1-5 col-xs-1-5 hidden-xs">'; 
-            $result .= '<div class="text-center"><span class="helvetica-14">';
-            $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
-            $HoraFin = ltrim($HoraFin,'0');
-            $result .= $HoraFin.':00';                  
-            $result .= '</span></div>';                  
-            $result .= '</li>';     
-            $result .= '<li class="col-xs-2 hidden-md hidden-sm hidden-lg">'; 
-            $result .= '<div class="text-center"><span class="helvetica-14">';
-            $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
-            $HoraInicio = ltrim($HoraInicio,'0');
-            $result .= $HoraInicio.':00 - '.$HoraFin.':00';
-            $result .= '</span></div>'; 
-            $result .= '</li>';                    
-            $result .= '<li class="col-sm-4-5 col-xs-4-5">'; 
-            $result .= '<div class="text-center"><span class="helvetica-14">';
-            $result .= $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre'];
-            $result .= '</span></div>';                   
-            $result .= '</li>'; 
-            $result .= '<li class="col-sm-1-5 col-xs-1-5">'; 
-            $result .= '<div class="text-center"><span class="helvetica-14">';
-            $result .= $json['HorarioDia'][$i]['Clases'][$b]['Sede'];
-            $result .= '</span></div>'; 
-            $result .= '</li>'; 
-            $result .= '<li class="col-sm-1-5 col-xs-2">'; 
-            $result .= '<div class="text-center"><span class="helvetica-14">';
-            $result .= $json['HorarioDia'][$i]['Clases'][$b]['Seccion'];
-            $result .= '</span></div>'; 
-            $result .= '</li>'; 
-            $result .= '<li class="col-sm-1-5 col-xs-2">'; 
-            $result .= '<div class="text-center"><span class="helvetica-14">';
-            $result .= $json['HorarioDia'][$i]['Clases'][$b]['Salon'];
-            $result .= '</span></div>';  
-            $result .= '</li>'; 
-            $result .= '</ul>'; 
-            $result .= '</div>';                              
-        }               
-        $result .= '</div>';
+          $horario_dia = $horario_dia_empty;
+          $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
+          $HoraInicio = ltrim($HoraInicio,'0');
+          $horario_dia = $this->_replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
+          // var_dump('hora_inicio : '.$horario_dia);
+          $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
+          $HoraFin = ltrim($HoraFin,'0');
+          $horario_dia = $this->_replace_subtag_data('hora_fin', $horario_dia, $HoraFin.':00');
+          
+          $horario_dia = $this->_replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
+          $horario_dia = $this->_replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
+          $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
+          $horario_dia = $this->_replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);                             
+          $clases .= $horario_dia;
+        }  
+        $horario = $this->_replace_pair_subtag_data('horario_dia', $horario, $clases);
+        $result .= $horario;         
       }
 
       //Control de errores
