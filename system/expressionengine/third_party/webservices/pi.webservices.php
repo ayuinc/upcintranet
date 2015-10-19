@@ -1349,7 +1349,7 @@ class Webservices
         $result .= '<li class="col-sm-1-5 col-xs-2-5 col-md-2 hidden-sm hidden-md hidden-lg">'; 
         $result .= '<div><span>Inicio - Fin</span></div>'; 
         $result .= '</li>'; 
-        $result .= '<li class="col-sm-4-5 col-md-4 col-xs-4-5">'; 
+        $result .= '<li class="col-sm-4-5 col-md-4-5 col-xs-4">'; 
         $result .= '<div><span>Clase</span></div>'; 
         $result .= '</li>'; 
         $result .= '<li class="col-sm-1-5  col-md-2  col-xs-2">'; 
