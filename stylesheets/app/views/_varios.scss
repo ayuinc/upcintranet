@@ -34,6 +34,18 @@
 	a span{
 		color:#3298ff;
 	}
+	a.inactive {
+		& span{
+			color:#afb1b2;
+			cursor: default;;
+		}
+		&:hover{
+			color:#afb1b2;
+			cursor: default;
+			text-decoration: none;
+		}
+	}
+
 	span{
 		@media #{$sm-down}{
 			&.nobg{
@@ -53,15 +65,7 @@
 			}
 		}
 
-		&.inactive{
-			color:#afb1b2;
-			cursor: pointer;
-		}
-		&.inactive:hover{
-			color:#afb1b2;
-			cursor: pointer;
-			text-decoration: none;
-		}
+
 	}
 
 }
