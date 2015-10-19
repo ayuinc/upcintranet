@@ -495,8 +495,8 @@ class Webservices
 
         $json = json_decode($hijosWebService, true);
 
-        $result .= '<div class="col-sm-3 col-xs-2"></div>';
-        $result .= '<div class="col-sm-6 col-xs-8 welcome">';
+        $result .= '<div class="col-sm-3 col-xs-0-5"></div>';
+        $result .= '<div class="col-sm-6 col-xs-12 welcome">';
         $result .= '<div class="usuario-container pb-14 bg-muted"><div class="avatar-circle"><img class="img-center img-responsive" src="{site_url}assets/img/user_ie8_info.png" alt=""></div><div class="zizou-28 mt--28 text-center">Hola {exp:webservices:nombre_alumno}</div>';
         $result .= '<div class="zizou-18 text-center gray-light">Elige con cuál de tus hijos quieres entrar</div>';
         $result .= '<div class="row pt-21">';
