@@ -23,7 +23,7 @@
 }
 $class-col-xs : col-xs !default;
 @for $i from 0 through 11{
-	@media #{$xs-only} {
+	@media #{$sm-down} {
 	  .#{$class-col-xs}-#{$i}-5{  
 	   	 @include make-xs-column($i+0.5);
 	   	}
@@ -31,7 +31,7 @@ $class-col-xs : col-xs !default;
 }
 $class-col-sm : col-sm !default;
 @for $i from 0 through 11{
-	@media #{$sm-up} {
+	@media #{$xs-up} {
 	  .#{$class-col-sm}-#{$i}-5{
 	  	@include make-sm-column($i+0.5);
 	  }
@@ -41,7 +41,19 @@ $class-col-sm : col-sm !default;
 	}
 }
 
-
+$class-col-md : col-md !default;
+@for $i from 0 through 11{
+	@media #{$sm-up} {
+	  .#{$class-col-md}-#{$i}-5{  
+	   	 @include make-md-column($i+0.5);
+	   	}
+	}
+	@media #{$md-only} {
+	  .#{$class-col-md}-#{$i}-5{  
+	   	 @include make-md-column($i+0.5);
+	   	}
+	}
+}
 
 // Custom Margins & Paddings
 .m-auto {

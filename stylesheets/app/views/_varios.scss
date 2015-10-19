@@ -20,11 +20,22 @@
 }
 
 .horario-survey{
-	span{
+	.survey-block{
 		background-color: #e4fcfc;
 		color:#3298ff;
-		@media #{$xs-only}{
-			background-color: #e4fcfc;
+	}
+	div.br-no{
+		border-right:0px!important;
+	}
+	img#survey-img{
+		min-width:35px;
+		max-width: 40px;
+	}
+	a span{
+		color:#3298ff;
+	}
+	span{
+		@media #{$sm-down}{
 			&.nobg{
 				background-color:transparent!important;
 				-webkit-flex-grow: 0;
@@ -41,6 +52,7 @@
 			    text-transform: uppercase;
 			}
 		}
+
 		&.inactive{
 			color:#afb1b2;
 			cursor: pointer;
@@ -53,4 +65,8 @@
 	}
 
 }
-
+@media #{$sm-down}{
+	div.br-xs-no{
+		border-right:0px!important;
+	}
+}

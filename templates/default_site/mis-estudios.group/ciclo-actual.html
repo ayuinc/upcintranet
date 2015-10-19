@@ -130,42 +130,45 @@
                                   </span>
                                 </div>                   
                               </li> 
-                              <li class="col-sm-1-5  col-md-2  col-xs-1-5"> 
+                              <li class="col-sm-1-5  col-md-1-5  col-xs-1-5"> 
                                 <div class="text-center">
                                   <span class="helvetica-14">
                                     {clase_sede}
                                   </span>
                                 </div> 
                               </li> 
-                              <li class="col-sm-1-5  col-md-2  col-xs-2"> 
+                              <li class="col-sm-1-5  col-md-1-5  col-xs-2"> 
                                 <div class="text-center">
                                   <span class="helvetica-14">
                                     {curso_seccion}
                                   </span>
                                 </div> 
                               </li> 
-                              <li class="col-sm-1-5 col-md-2 col-xs-1-5"> 
-                                <div class="text-center br-no">
+                              <li class="col-sm-1-5 col-md-1-5 col-xs-2"> 
+                                <div class="text-center br-xs-no">
                                   <span class="helvetica-14">
                                     {clase_salon}
                                   </span>
                                 </div>  
                               </li> 
-                              <li class="col-sm-1-5 hidden-xs"> 
-                                <div class="text-center br-no horario-survey">
-                                  <span class="helvetica-14">
-                                  <a data-survey-active="{survey_active_time}"  href="{url_base}?alumno_id={survey_cod_alumno}&horario_id={survey_cod_clase}&curso_id={survey_cod_curso}"><img src="{site_url}/assets/img/class-survey-icon.png" alt=""> Ingresar</a>
-                                  </span>
+                              <li class="col-sm-1-5 hidden-xs horario-survey"> 
+                                <div class="text-center br-no survey-block">
+                                  <a data-survey-active="{survey_active_time}"  href="{url_base}?alumno_id={survey_cod_alumno}&horario_id={survey_cod_clase}&curso_id={survey_cod_curso}">
+                                  <span class="helvetica-14"><img src="{site_url}/assets/img/class-survey-icon.png" alt="Encuesta"> Ingresar </span></a>
+                                 
                                 </div>  
                               </li>
-                              <li class="col-xs-12 hidden-sm hidden-md hidden-lg  horario-survey"> 
-                                  <div class="col-xs-4 "> 
+                              <li class="col-xs-12 hidden-sm hidden-md hidden-lg horario-survey"> 
+                                  <div class="col-xs-3 "> 
                                      <span class="nobg">Encuesta</span>
                                   </div>
-                                  <div class="col-xs-4">
-                                    <span class=  "helvetica-14 text-center">
-                                    <a data-survey-active="{survey_active_time}" href="{url_base}?alumno_id={survey_cod_alumno}&horario_id={survey_cod_clase}&curso_id={survey_cod_curso}"><img src="{site_url}/assets/img/class-survey-icon.png" class="pl-7" alt="">Ingresar</a>
+                                  <div class="col-xs-4-5 survey-block p-0">
+                                  <a data-survey-active="{survey_active_time}" href="{url_base}?alumno_id={survey_cod_alumno}&horario_id={survey_cod_clase}&curso_id={survey_cod_curso}">
+                                    <img src="{site_url}/assets/img/class-survey-icon.png" class="pl-7 pt-5 col-xs-3" id="survey-img" alt="Encuesta">
+                                    <span class="helvetica-16 col-xs-8 text-center pt-5 pb-5">
+                                    Ingresar
                                     </span>
+                                  </a>
                                   </div>
                                
                               </li> 
@@ -216,12 +219,12 @@
                           {horario_dia}
                           <div class="panel-table"> 
                             <ul class="tr mis-cursos-row table-border"> 
-                              <li class="col-sm-1-5 col-xs-1-5 hidden-xs"> 
+                              <li class="col-sm-1-5 col-xs-1-5 col-md-2 hidden-xs"> 
                                 <div class="text-center">
                                   <span class="helvetica-14">{hora_inicio}</span>
                                 </div> 
                               </li> 
-                              <li class="col-sm-1-5 col-xs-1-5 hidden-xs"> 
+                              <li class="col-sm-1-5 col-xs-1-5 col-md-2 hidden-xs"> 
                                 <div class="text-center">
                                   <span class="helvetica-14">
                                     {hora_fin}               
@@ -235,28 +238,28 @@
                                   </span>
                                 </div> 
                               </li>                    
-                              <li class="col-sm-4-5 col-xs-4-5"> 
+                              <li class="col-sm-4-5 col-md-4-5 col-xs-4-5"> 
                                 <div class="text-center">
                                   <span class="helvetica-14">
                                   {curso_nombre}
                                   </span>
                                 </div>                   
                               </li> 
-                              <li class="col-sm-1-5 col-xs-1-5"> 
+                              <li class="col-sm-1-5  col-md-2  col-xs-1-5"> 
                                 <div class="text-center">
                                   <span class="helvetica-14">
                                     {clase_sede}
                                   </span>
                                 </div> 
                               </li> 
-                              <li class="col-sm-1-5 col-xs-2"> 
+                              <li class="col-sm-1-5 col-md-2  col-xs-2"> 
                                 <div class="text-center">
                                   <span class="helvetica-14">
                                     {curso_seccion}
                                   </span>
                                 </div> 
                               </li> 
-                              <li class="col-sm-1-5 col-xs-2"> 
+                              <li class="col-sm-1-5 col-md-2 col-xs-2 br-xs-no"> 
                                 <div class="text-center">
                                   <span class="helvetica-14">
                                     {clase_salon}
@@ -286,16 +289,16 @@
   </div>
  <script>
 $( document ).ready(function() {
-    var currentTime = new Date();
-  $('.horario-survey a').each(function(index, element){
-    if($(element).data('survey-active').toString() != ''+currentTime.getFullYear()+''+(currentTime.getMonth()+1)+''+currentTime.getDate()+''+currentTime.getHours()){
-      $(this).addClass('inactive');
-      $(this).attr('href', '#');
-      img = $(this).find('img');
-      $(img).attr('src', $(img).attr('src').replace('survey-icon.png', 'survey-icon-inactive.png'));
-      $(this).click(function(e){e.preventDefault();});
-    }
-  });
+  //   var currentTime = new Date();
+  // $('.horario-survey a').each(function(index, element){
+  //   if($(element).data('survey-active').toString() != ''+currentTime.getFullYear()+''+(currentTime.getMonth()+1)+''+currentTime.getDate()+''+currentTime.getHours()){
+  //     $(this).addClass('inactive');
+  //     $(this).attr('href', '#');
+  //     img = $(this).find('img');
+  //     $(img).attr('src', $(img).attr('src').replace('survey-icon.png', 'survey-icon-inactive.png'));
+  //     $(this).click(function(e){e.preventDefault();});
+  //   }
+  // });
 });
  </script>
 }
