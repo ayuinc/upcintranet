@@ -46,6 +46,14 @@
           </div>
          </div>
         </div>
+       {exp:channel:entries channel="dashboard" limit="1" dynamic="off" url_title="padre"}
+        {categories}
+          {if {category_id} == "143"}
+            <?php $category = '{category_id}'; ?>
+          {/if}
+        {/categories}
+        {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
+      {/exp:channel:entries}
         <div class="col-sm-4">
           <div class="panel">
             <div class="panel-head">
