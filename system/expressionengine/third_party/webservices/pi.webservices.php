@@ -1135,7 +1135,7 @@ class Webservices
     
     public function get_modalidad_alumno()
     {
-        $modalidad =$this->modalidad_alumno();
+        $modalidad =$_SESSION["CodModal"];
         return $modalidad;
     }
 
@@ -1145,6 +1145,11 @@ class Webservices
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       $tagdata  = $this->EE->TMPL->tagdata;
+      $modalidad_survey = ee()->TMPL->fetch_param('modalidad_survey');
+      $enable_survey = trim(ee()->TMPL->fetch_param('habilitar_survey'));  
+      if($modalidad_survey !== $this->get_modalidad_alumno()){
+        return;
+      }
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -1164,7 +1169,13 @@ class Webservices
       
       //limpio la variable para reutilizarla
       $result = '';
-      $horario_empty = $this->_get_subtag_data('horario',$tagdata);
+      $horario_empty;
+      if(strlen($enable_survey) !== 0 ){
+        $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
+      }else{
+        $horario_empty = $this->_get_subtag_data('horario',$tagdata);
+      }
+      
       //genera el tamano del array
       $tamano = count($json['HorarioDia']);  
     
@@ -1191,12 +1202,11 @@ class Webservices
         }
 
         $horario = $this->_replace_subtag_data('week_day',  $horario, $week_day);      
-        
 
         //genera el tamano del array
         $tamano_int = count($json['HorarioDia'][$i]['Clases']); 
         $clases = '';
-        $horario_dia_empty = $this->_get_subtag_data('horario_dia', $tagdata);
+        $horario_dia_empty = $this->_get_subtag_data('horario_dia', $horario);
 
         for ($b=0; $b<$tamano_int; $b++) {
           $horario_dia = $horario_dia_empty;
@@ -1213,14 +1223,12 @@ class Webservices
           $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
           $horario_dia = $this->_replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);                             
           // var_dump($json);
-          $horario_dia = $this->_replace_subtag_data('survey_cod_clase', $horario_dia, (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase']);
-          $horario_dia = $this->_replace_subtag_data('survey_cod_curso', $horario_dia, (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso']);
-          $horario_dia = $this->_replace_subtag_data('survey_cod_alumno', $horario_dia, $codigo);
-          // $horario_dia = $this->_replace_subtag_data('survey_token', $horario_dia, $token);
-          // $horario_dia = $this->_replace_subtag_data('survey_hora_inicio', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['HoraInicio']);
-          // $horario_dia = $this->_replace_subtag_data('survey_hora_fin', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['HoraFin']);
-          $horario_dia = $this->_replace_subtag_data('survey_active_time', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio);
-       
+          if(strlen($enable_survey) !== 0){
+            $horario_dia = $this->_replace_subtag_data('survey_cod_clase', $horario_dia, (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase']);
+            $horario_dia = $this->_replace_subtag_data('survey_cod_curso', $horario_dia, (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso']);
+            $horario_dia = $this->_replace_subtag_data('survey_cod_alumno', $horario_dia, $codigo);
+            $horario_dia = $this->_replace_subtag_data('survey_active_time', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio);
+          }
           $clases .= $horario_dia;
         }  
         $horario = $this->_replace_pair_subtag_data('horario_dia', $horario, $clases);
@@ -4982,16 +4990,14 @@ class Webservices
     {
       //$codigo = $_SESSION["Codigo"];
       //$TipoUser = $_SESSION["TipoUser"];
-      
+
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-
-      $tipouser = $_SESSION['TipoUser'];
-      $modalidad = $_SESSION['CodModal'];
+      $tipouser = $_SESSION["TipoUser"];
+      $modalidad = $_SESSION["CodModal"];
       $result = '';
-      
       if (strval($tipouser)=='ALUMNO') {
-        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" search:modalidad="'.$modalidad.'" }';
+        $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" search:modalidad="'.$modalidad.'"}';
         $result .= '<ul class="tr bg-muted table-border">';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
@@ -5058,7 +5064,7 @@ class Webservices
         $result .= '{/exp:channel:entries}'; 
         return $result;             
       }  
-                    
+      return;                
     }      
     
     //MENSAJE DE ERROR

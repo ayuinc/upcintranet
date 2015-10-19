@@ -60,13 +60,9 @@
                         <h3>Mi Horario Semanal</h3>
                       </div>
                     </div>
-                   {exp:webservices:horario_ciclo_actual_alumno}
-                    {exp:channel:entries url_title="configuracion-horario-epe" channel="configuracion_horario" search:modalidad_encuestas="{exp:webservices:get_modalidad_alumno}"}
-                                {habilitar_encuestas}
-                               
-                      {if habilitar_encuestas == 'enabled'}
-                  
-                      {horario}
+                    {exp:channel:entries channel="configuracion_horario" }
+                      {exp:webservices:horario_ciclo_actual_alumno modalidad_survey="{modalidad_encuesta}" habilitar_survey="{habilitar_encuestas}"}
+                      {horario_survey}
                        <div>
                           <span class="zizou-16">
                           {week_day}
@@ -179,12 +175,9 @@
                           </div>
                           {/horario_dia}
                         </div>
-                      {/horario}
-                      {error}
-
-                      {/error}
-                      {if: else}
-                       {horario}
+                      {/horario_survey}
+             
+                      {horario}
                        <div>
                           <span class="zizou-16">
                           {week_day}
@@ -277,9 +270,9 @@
                       {error}
 
                       {/error}
-                      {/if}
+                      {/exp:webservices:horario_ciclo_actual_alumno}
                     {/exp:channel:entries}
-                    {/exp:webservices:horario_ciclo_actual_alumno}
+                
                    
                 </div>
               </div>
@@ -289,16 +282,16 @@
   </div>
  <script>
 $( document ).ready(function() {
-  //   var currentTime = new Date();
-  // $('.horario-survey a').each(function(index, element){
-  //   if($(element).data('survey-active').toString() != ''+currentTime.getFullYear()+''+(currentTime.getMonth()+1)+''+currentTime.getDate()+''+currentTime.getHours()){
-  //     $(this).addClass('inactive');
-  //     $(this).attr('href', '#');
-  //     img = $(this).find('img');
-  //     $(img).attr('src', $(img).attr('src').replace('survey-icon.png', 'survey-icon-inactive.png'));
-  //     $(this).click(function(e){e.preventDefault();});
-  //   }
-  // });
+    var currentTime = new Date();
+  $('.horario-survey a').each(function(index, element){
+    if($(element).data('survey-active').toString() != ''+currentTime.getFullYear()+''+(currentTime.getMonth()+1)+''+currentTime.getDate()+''+currentTime.getHours()){
+      $(this).addClass('inactive');
+      $(this).attr('href', '#');
+      img = $(this).find('img');
+      $(img).attr('src', $(img).attr('src').replace('survey-icon.png', 'survey-icon-inactive.png'));
+      $(this).click(function(e){e.preventDefault();});
+    }
+  });
 });
  </script>
 }
