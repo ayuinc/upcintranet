@@ -307,6 +307,8 @@ class Webservices
             "apellidos" => $json['Apellidos'],
             "estado" => $json['Estado'],  
             "dscmodal" => $json['Datos']['DscModal'],
+            "codmodal" => $json['Datos']['CodModal'],
+            "codsede" => $json['Datos']['CodSede'],
             "dscsede" => $json['Datos']['DscSede'],
             "ciclo" => $json['Datos']['Ciclo'], 
             "token" => $json['Token'],
@@ -1135,8 +1137,15 @@ class Webservices
     
     public function get_modalidad_alumno()
     {
-        $modalidad =$_SESSION["CodModal"];
-        return $modalidad;
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      foreach($query_modelo_result->result() as $row){
+        $modalidad = $row->codmodal;
+      }
+      return $modalidad;
     }
 
     //HORARIO CICLO ACTUAL DEL ALUMNO
