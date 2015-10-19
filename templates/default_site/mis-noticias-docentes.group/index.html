@@ -1,0 +1,81 @@
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+  
+{embed="includes/header-movil-docentes"}
+{embed="includes/header-docentes"}
+{embed="includes/sidebar-docente"}
+
+    <div class="site-content">
+      {exp:channel:entries 
+      	channel="seccion" 
+      	disable="member_data|pagination"  
+        limit="1"
+      	entry_id="61"
+      }
+      <div class="container-fluid">
+        <div class="internal-header">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Mis Noticias</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
+        </div> 
+        <div class="section-content pb-70">
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3 section-desc">
+              <span>{introduccion-seccion}</span>
+              {categories}
+                <?php $category = '{category_id}'; ?>
+              {/categories}
+              {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
+            </div>        
+            
+        {/exp:channel:entries}      
+            <div class="col-sm-8">
+              <span class="zizou-26 mb-21">Últimas Noticias de la UPC</span>
+              <div class="row">
+  	            {exp:ajw_feedparser 
+  						    url="http://www.upc.edu.pe/noticias/rss"
+  						    cache_refresh="30"
+  						    limit="10"
+                  parse="inward"
+  							} 
+                <div class="col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body canales">
+                      <div class="panel-body-head left tall">
+                        <p class="zizou-14 gray-main lowercase">{pubDate format="%l %d de %F del %Y"}</p>            
+                        <h3 class="pr-7">
+                           {exp:char_limit total="60" exact="no"}
+                              {title}
+                           {/exp:char_limit}
+                        </h3>
+                      </div>  
+                      <div class="panel-table">
+                        <ul class="tr">
+                          <div class="p-14 helvetica-16">
+                            {exp:char_limit total="130" exact="no"}
+                              {description}
+                            {/exp:char_limit}</div>
+                        </ul>
+                      </div>
+                      <div class="panel-footer">
+                        <a class="sb-link pl-7 zizou-14" href="{link}" target="_blank">
+                          <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">Leer Nota Completa
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/exp:ajw_feedparser}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{embed="includes/footer"}   
