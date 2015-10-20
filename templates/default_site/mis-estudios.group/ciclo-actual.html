@@ -281,18 +281,18 @@
     </div>
   </div>
  <script>
-$( document ).ready(function() {
-    var currentTime = new Date();
-  $('.horario-survey a').each(function(index, element){
-    if($(element).data('survey-active').toString() != ''+currentTime.getFullYear()+''+(currentTime.getMonth()+1)+''+currentTime.getDate()+''+currentTime.getHours()){
-      $(this).addClass('inactive');
-      $(this).attr('href', '#');
-      img = $(this).find('img');
-      $(img).attr('src', $(img).attr('src').replace('survey-icon.png', 'survey-icon-inactive.png'));
-      $(this).click(function(e){e.preventDefault();});
-    }
-  });
-});
+// $( document ).ready(function() {
+//     var currentTime = new Date();
+//   $('.horario-survey a').each(function(index, element){
+//     if($(element).data('survey-active').toString() != ''+currentTime.getFullYear()+''+(currentTime.getMonth()+1)+''+currentTime.getDate()+''+currentTime.getHours()){
+//       $(this).addClass('inactive');
+//       $(this).attr('href', '#');
+//       img = $(this).find('img');
+//       $(img).attr('src', $(img).attr('src').replace('survey-icon.png', 'survey-icon-inactive.png'));
+//       $(this).click(function(e){e.preventDefault();});
+//     }
+//   });
+// });
  </script>
 }
 {embed="includes/footer"}   
