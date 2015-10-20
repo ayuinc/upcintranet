@@ -4119,7 +4119,7 @@ class Webservices
 
       $result=$this->services->curl_url($url);
       $json = json_decode($result, true);
-      
+
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];       
    
@@ -4128,7 +4128,7 @@ class Webservices
 
       //genera el tamano del array
       $tamano = count($json['modalidades']);
-
+      
       for ($i=0; $i<$tamano; $i++) {
         // $result .= '<h4>'.$json['modalidades'][$i]['descripcion'].'</h4>';
         $result .= '<div class="panel-table otras-acciones">';              
@@ -4137,7 +4137,9 @@ class Webservices
         $tamano_int = count($json['modalidades'][$i]['cursos']);    
         // $result .= '<span>Tamaño Int '.$tamano_int.' Tamaño '.$tamano;    
         // var_dump($json);
+
         for ($a=0; $a<$tamano_int; $a++) {
+
           $result .= '<ul class="tr">';
           $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
           $result .= '<form action="{site_url}index.php/mi-docencia/cursos-detallados" method="post" id="form-'.$i.'">';
@@ -4175,10 +4177,8 @@ class Webservices
       }
       elseif ($error_result !== '0')
       {
-        $result = $error_result;
-      }
-      else
-      {
+        $result = $error_result;      
+        $result = "";
         $site_url = ee()->config->item('site_url');
         redirect('general/session-expired');
       }
@@ -4525,22 +4525,22 @@ class Webservices
         $result .= '<div class="panel-body red-line mb-7">';
         $result .= '<div class="panel-body-head-table white">'; 
         $result .= '<ul class="tr">'; 
-        $result .= '<li class="col-xs-1-5">'; 
+        $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2 ">'; 
         $result .= '<div class=""><span>Inicio</span></div>'; 
         $result .= '</li>'; 
-        $result .= '<li class="col-xs-1-5">'; 
+        $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2">'; 
         $result .= '<div class=""><span>Fin</span></div>'; 
         $result .= '</li>'; 
-        $result .= '<li class="col-xs-5">'; 
+        $result .= '<li class="col-sm-4-5 col-xs-4-5 col-md-5 ">'; 
         $result .= '<div class=""><span>Clase</span></div>'; 
         $result .= '</li>'; 
-        $result .= '<li class="col-xs-1">'; 
+        $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2 ">'; 
         $result .= '<div class=""><span>Sede</span></div>'; 
         $result .= '</li>';  
-        $result .= '<li class="col-xs-1-5">'; 
+        $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2">'; 
         $result .= '<div class=""><span>Sección</span></div>'; 
         $result .= '</li>'; 
-        $result .= '<li class="col-xs-1-5">'; 
+        $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2 ">'; 
         $result .= '<div class=""><span>Salón</span></div>'; 
         $result .= '</li>';                                                                                                                                                  
         $result .= '</ul>'; 
@@ -4552,7 +4552,7 @@ class Webservices
         for ($b=0; $b<$tamano_int; $b++) {
             $result .= '<div class="panel-table">'; 
             $result .= '<ul class="tr mis-cursos-row">'; 
-            $result .= '<li class="col-xs-1-5">'; 
+            $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2 ">'; 
             $result .= '<div class="text-center">';
             $result .= '<span>';
             $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
@@ -4561,7 +4561,7 @@ class Webservices
             $result .='</span>'; 
             $result .= '</div>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1-5">';
+            $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2 ">';
             $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
@@ -4570,28 +4570,28 @@ class Webservices
             $result .='</span>';                  
             $result .= '</div>'; 
             $result .= '</li>';                        
-            $result .= '<li class="col-xs-5">'; 
+            $result .= '<li class="col-sm-4-5 col-xs-4-5 col-md-5">'; 
             $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre'];
             $result .= '</span>';                   
             $result .= '</div>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1">'; 
+            $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2 ">'; 
             $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Sede'];
             $result .= '</span>'; 
             $result .= '</div>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1-5">'; 
+            $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2" >'; 
             $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Seccion'];
             $result .= '</span>'; 
             $result .= '</div>'; 
             $result .= '</li>'; 
-            $result .= '<li class="col-xs-1-5">'; 
+            $result .= '<li class="col-sm-1-5 col-xs-1-5 col-md-2 ">'; 
             $result .= '<div class="text-center">'; 
             $result .= '<span>';
             $result .= $json['HorarioDia'][$i]['Clases'][$b]['Salon'];
