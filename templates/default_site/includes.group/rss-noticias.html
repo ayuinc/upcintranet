@@ -1,5 +1,4 @@
   
-
   {if "{exp:webservices:tipo_usuario}" == "Alumno"}
 
     {if "{exp:webservices:get_modalidad_alumno}"== "FC"}
@@ -33,7 +32,7 @@
     </div>
     {/exp:ajw_feedparser}
     {/if}
-  {if:elseif "{exp:webservices:tipo_usuario}" == "Docente"}
+  {if:elseif "{exp:webservices:tipo_usuario}" == "Profesor"}
     {exp:ajw_feedparser 
         url="http://blogs.upc.edu.pe/comunicados-upc/rss.xml"
         cache_refresh="30"
