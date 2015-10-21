@@ -3695,14 +3695,16 @@ class Webservices
       //var_dump($HoraIni);
       $HoraIni = intval($HoraIni);  
       
-      if($HoraIni < 10){
+      if($HoraIni < 10)
+      {
         $HoraIni = '0'.$HoraIni.'00';
       }
       else{
         $HoraIni = $HoraIni.'00';
       }
 
-      if($HoraFin < 10){
+      if($HoraFin < 10)
+      {
         $HoraFin = '0'.$HoraFin.'00';
       }
       else{
@@ -3717,15 +3719,15 @@ class Webservices
       $error_mensaje = $json['MsgError'];      
       $result = ''; 
       $tamano = count($json['Recursos']); 
-      
+      $enabled_counter = 0;
       if($error=='00000'){
         // $result .= '<div class="panel-body red-line">';
         $result .= $header_message_result;
         $result .= '<div class="row pt-0 pl-14">'; // apertura row
         for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
-          //if($json['Recursos'][$i]['Estado'] == true){
-          //if($HoraIni <= intval(substr($json['Recursos'][$i]['HoraIni'], 0,2)) ){
+
           if( $json['Recursos'][$i]['Estado'] == true) {
+            $enabled_counter += 1; 
             $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';    
             if($tiporecurso == "CO"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-computadoras" method="post" name="formrecurso-'.$i.'">';
@@ -3759,6 +3761,12 @@ class Webservices
           }
         }
         $result .= "</div>"; //cierre panel-body
+      }
+
+      if($enabled_counter <= 0){
+        $info_result = $this->_get_subtag_data('info', $tagdata);
+        $info_message = 'No se encontraron recursos disponibles.';
+        return $this->_replace_subtag_data('info_message',  $info_result, $info_message);
       }
       //Control de errores
       $error_result = $this->error_eval($error);

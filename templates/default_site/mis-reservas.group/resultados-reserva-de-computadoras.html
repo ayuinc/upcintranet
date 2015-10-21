@@ -97,6 +97,27 @@
                         </div>
                        </div> 
                       {/error}
+                      {info}
+                       <div class="panel-body">
+                          <div class="panel-table col-sm-10-5 info-border blue-message bg-muted">
+                            <div class="panel-body pt-14 pb-14 pr-28 pl-28">
+                            <img class="pr-7" src="{site_url}assets/img/excla_cyan_1.png">
+                            <span class="helvetica-16 blue">{info_message}</span>
+                          </div>
+                          </div>
+                          <div class="panel-table col-sm-10-5 mr-xs-7 p-14 pt-14 mb-14 text-left ">
+                          <ul class="tr">
+                            <li class="col-sm-2 col-xs-3">
+                              <img src="{site_url}assets/img/reloj.png" class="img-center">
+                            </li>
+                            <li class="col-sm-10 col-xs-9"> 
+                              <span class="block helvetica-18">Completa el formulario para encontrar recursos disponibles.</span>  
+                              <span class="helvetica-18">Las reservas pueden <span class="helvetica-bold-18">realizarse hasta 15 minutos antes del horario deseado</span> y con <span class="helvetica-bold-18">24 horas de anticipación.</span></span>  
+                            </li>
+                          </ul>
+                        </div>
+                       </div> 
+                      {/info}
                     {/exp:webservices:listado_recursos_disponibles }
                   {if:else}
                     {exp:webservices:reserva_recursos 
