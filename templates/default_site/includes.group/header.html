@@ -16,8 +16,10 @@
             </ul>
           </div>
         </div>
-        {exp:channel:entries channel="banner_dashboard" dynamic="off" orderby="date" sort="asc" url_title="{segment_2}"}
-        <div class="header-no-global header-{url_title}" style="background-image:url('{banner}')">
+        {exp:channel:entries channel="banner_dashboard" dynamic="off" orderby="date" sort="asc" }
+          {if tipo_de_usuario_banner == "{exp:webservices:tipo_usuario}" }
+            <div class="header-no-global header-{url_title}" style="background-image:url('{banner}')">
+          {/if}
         {/exp:channel:entries}
           <div class="inicio">
             <a id="lnk_int_Inicio" href="{exp:webservices:boton_inicio}">
