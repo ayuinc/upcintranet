@@ -1,6 +1,5 @@
 {embed="includes/head" keywords="{super_search_total_results} resultados para {super_search_keywords}"}
 {exp:webservices:iniciar_session}
-  
 {embed="includes/header-padres"}
 {embed="includes/header-movil-padres"}
 {embed="includes/sidebar-padres"}
@@ -40,10 +39,8 @@
               <div class="resultados-busqueda red-line bg-muted">
 
                   {exp:super_search:results
-                      channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title|intrudccion-referencia|intro-noticia"  where="any" keyword_search_author_name="yes" keyword_search_category_name="yes" relevance_proximity="yes" status="Padres"
-                     
+                      channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title|intrudccion-referencia|intro-noticia"  where="any" keyword_search_author_name="yes" keyword_search_category_name="yes" relevance_proximity="yes" status="Open"
                   }
-
                         {if super_search_no_results}
                            <div class="panel-body p-14 ">
                                <div class="helvetica-16">
@@ -52,7 +49,7 @@
                             </div>
                         {/if}
                     
-                    {if buscar_alumnos_referencia=='si'}
+                    {if buscar_padres_referencia=='si'}
                      <div class="panel-body p-14 result_query">
                         <div class="solano-bold-20 black-text">
                           <span id="search-count"></span>.&nbsp;{title}
@@ -99,25 +96,26 @@
 
                           </div>
                         {if:else}
-
-                            {categories limit='1'}
+                          {exp:channel:entries dynamic="off" entry_id="{entry_id}"}
+                            {categories limit="1"}
                               {exp:query sql="SELECT exp_templates.template_id 
                                 FROM `exp_templates` 
                                 JOIN `exp_template_groups` 
                                 ON exp_template_groups.group_id = exp_templates.group_id 
                                 WHERE exp_template_groups.group_name LIKE '{category_url_title}'
+                                AND exp_template_groups.group_name LIKE '%padres%'
                                 AND exp_template_groups.group_name NOT LIKE '%alumnos%'
                                 AND exp_template_groups.group_name NOT LIKE '%docentes%'
                                 limit 1"}
-                                <div class="panel-body p-14 result_query">
-                                <div class="solano-bold-20 black-text">
-                                  <span id="search-count"></span>.&nbsp;{title}
-                                </div>   
-                                <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}{category_url_title}/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
-                                </div>
+                                  <div class="panel-body p-14 result_query">
+                                  <div class="solano-bold-20 black-text">
+                                    <span id="search-count"></span>.&nbsp;{title}
+                                  </div>   
+                                  <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}{category_url_title}/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
+                                  </div>
                               {/exp:query}
-                            
-                          {/categories}
+                            {/categories}     
+                          {/exp:channel:entries}
                         {/if}
                       {/if}
                       
