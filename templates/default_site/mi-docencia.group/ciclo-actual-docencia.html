@@ -37,7 +37,10 @@
                      {exp:webservices:lista_cursos_dictados_profesor}
                   </div>
                 </div>
-                	{embed="includes/otras-acciones-docentes"}
+                {categories}
+                  <?php $category = '{category_id}'; ?>
+                {/categories}
+                {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
               </div>
       {/exp:channel:entries}        
               <div class="col-sm-8">
