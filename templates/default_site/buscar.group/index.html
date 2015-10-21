@@ -106,8 +106,8 @@
 
                           </div>
                         {if:else}
-
-                            {categories limit='1'}
+                          {exp:channel:entries dynamic="off" entry_id="{entry_id}"}
+                            {categories limit="1"}
                               {exp:query sql="SELECT exp_templates.template_id 
                                 FROM `exp_templates` 
                                 JOIN `exp_template_groups` 
@@ -123,8 +123,8 @@
                                 <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}{category_url_title}/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
                                 </div>
                               {/exp:query}
-                            
-                          {/categories}
+                            {/categories}     
+                          {/exp:channel:entries}
                         {/if}
                       {/if}
                       

@@ -100,14 +100,16 @@
 
                           </div>
                         {if:else}
-
-                            {categories limit='1'}
+                          {exp:channel:entries dynamic="off" entry_id="{entry_id}"}
+                            {categories limit="1"}
                               {exp:query sql="SELECT exp_templates.template_id 
                                 FROM `exp_templates` 
                                 JOIN `exp_template_groups` 
                                 ON exp_template_groups.group_id = exp_templates.group_id 
                                 WHERE exp_template_groups.group_name LIKE '{category_url_title}'
+                                AND exp_template_groups.group_name LIKE '%docentes%'
                                 AND exp_template_groups.group_name NOT LIKE '%padres%'
+                                AND exp_template_groups.group_name NOT LIKE '%alumnos%'
                                 limit 1"}
                                 <div class="panel-body p-14 result_query">
                                 <div class="solano-bold-20 black-text">
@@ -118,6 +120,7 @@
                               {/exp:query}
                             
                           {/categories}
+                         {/exp:channel:entries}
                         {/if}
                       {/if}
                       
