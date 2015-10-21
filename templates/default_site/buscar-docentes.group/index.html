@@ -28,7 +28,7 @@
                 <input type="hidden" name="XID" value="{XID_HASH}">
            
                
-                    <input type="search" name="keywords" id="keywords" value="{super_search_keywords}"  size="18" maxlength="100" class="zizou-light-12 form-control" placeholder="Busco..."/>
+                    <input type="search" name="keywords" id="keywords" value="{super_search_keywords}"  size="18" maxlength="100" minlength="3"  class="zizou-light-12 form-control" placeholder="Busco..."/>
 
                     <input type="submit" name="submit" value="BUSCAR" class="submit btn full-width btn-custom black-btn"/>
              
@@ -40,7 +40,7 @@
               <div class="resultados-busqueda red-line bg-muted">
                 
                   {exp:super_search:results
-                       channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title|intrudccion-referencia|intro-noticia" where="any" keyword_search_category_name="yes" relevance_proximity="yes" status="open"
+                       channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title|intrudccion-referencia|intro-noticia" where="any" keyword_search_category_name="yes"  status="open"
                       limit="25"
                   }
 
