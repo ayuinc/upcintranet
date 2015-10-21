@@ -16,16 +16,8 @@
             </ul>
           </div>
         </div>
-        {exp:channel:entries channel="banner_dashboard" dynamic="off" orderby="date" sort="asc"}
-        {segment_2}
-        {url_title}
-        {if segment_2==url_title}
-        <div class="header-no-global header-estudiante" style="background-image:{banner}">
-        {if:else}
-        <div class="header-no-global header-padre" style="background-image:{banner}">
-        {if:else}
-        <div class="header-no-global header-profesor" style="background-image:{banner}">
-        {/if}
+        {exp:channel:entries channel="banner_dashboard" dynamic="off" orderby="date" sort="asc" url_title="{segment_2}"}
+        <div class="header-no-global header-{url_title}" style="background-image:url('{banner}')">
         {/exp:channel:entries}
           <div class="inicio">
             <a id="lnk_int_Inicio" href="{exp:webservices:boton_inicio}">
