@@ -18,6 +18,9 @@ $(document).ready(function() {
             scrollTop: target
         }, 200);
       });
+      if($('input.session-expired-redirect').size()!=0){
+        window.location = '/general/session-expired';
+      }
     }
   });	
 
@@ -36,6 +39,9 @@ $(document).ready(function() {
             scrollTop: target
         }, 200);
       });
+      if($('input.session-expired-redirect').size()!=0){
+        window.location = '/general/session-expired';
+      }
     }
   });	
 

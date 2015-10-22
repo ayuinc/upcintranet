@@ -12,6 +12,9 @@ $(document).ready(function() {
 
       $('#cargador-padre-horario').remove();
 	    $( "#padre-horario" ).append( data );
+      if($('input.session-expired-redirect').size()!=0){
+        window.location = '/general/session-expired';
+      }
     }
   });
 
@@ -23,6 +26,9 @@ $(document).ready(function() {
 
       $('#cargador-padre-cursos').remove();
       $( "#padre-cursos" ).append( data );
+      if($('input.session-expired-redirect').size()!=0){
+        window.location = '/general/session-expired';
+      }
     }
   });
 
@@ -34,12 +40,16 @@ $(document).ready(function() {
 
       $('#cargador-padre-pagos').remove();
       $( "#padre-pagos" ).append( data );
+      if($('input.session-expired-redirect').size()!=0){
+        window.location = '/general/session-expired';
+      }
     }
   });	
 
   $.get(hostname +'includes/rss-noticias', function(data, status){
 		$('#cargador-padre-noticias').remove();
     $( "#padre-noticias" ).append( data );
+    
   });
 
 });
