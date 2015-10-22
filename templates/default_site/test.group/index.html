@@ -1,0 +1,11 @@
+<?php          
+            $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
+            $strDate = $date->format('YmdH');
+            $class_date =  '2015102319';
+          if(intval($strDate) > intval($class_date)){
+              var_dump($strDate.' es mayor que'.$class_date);
+            }
+            else{
+              var_dump($strDate.' es menor que'.$class_date);
+      }
+?> 

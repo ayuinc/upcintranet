@@ -140,6 +140,9 @@
 
 #collapseMobile {
 	padding-top: 54px;
+	@media #{$xs-only}{
+		padding-top : 60px;
+	}
 	position: fixed;
 	z-index: 30;
 	width: 100%;
@@ -149,8 +152,11 @@
 		> li {
 			cursor: pointer;
 			padding-left: 21px !important;
-			padding-top: 3px;
-			padding-bottom: 3px;
+			padding-top: 6px;
+			padding-bottom: 6px;
+			a{
+				display: block;
+			}
 			a, span {
 				@include book;
 				color: white !important;
@@ -167,8 +173,7 @@
 				}
 			}
 			@include serif-book;
-			font-size: 14px;
-
+			font-size: 24px;
 		}
 	}
 	.child li {

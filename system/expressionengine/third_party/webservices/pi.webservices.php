@@ -1248,7 +1248,6 @@ class Webservices
             }
             else
             {
-              var_dump($strDate.' es menor que'.$class_date);
               $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'inactive');
               $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/class-survey-icon-inactive.png');
               $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, '#');
