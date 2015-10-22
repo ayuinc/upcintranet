@@ -41,6 +41,11 @@ body{
 		.pt-60{
 			padding-top: 60px;
 		}
+		.pt-xs-35{
+			@media #{$md-down}{
+				padding-top:35px;
+			}
+		}
 		.row {
 			margin:auto;
 			max-width: $login-max-width;
@@ -264,4 +269,5 @@ body{
 
 	}
 }
+
 
