@@ -1155,7 +1155,8 @@ class Webservices
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       $tagdata  = $this->EE->TMPL->tagdata;
       $modalidad_survey = ee()->TMPL->fetch_param('modalidad_survey');
-      $enable_survey = trim(ee()->TMPL->fetch_param('habilitar_survey'));  
+      $enable_survey = trim(ee()->TMPL->fetch_param('habilitar_survey'));
+      $url_base_survey = trim(ee()->TMPL->fetch_param('url_base'));  
       if($modalidad_survey !== $this->get_modalidad_alumno()){
         return;
       }
@@ -1169,6 +1170,7 @@ class Webservices
       
       $url = 'Horario/?CodAlumno='.$codigo.'&Token='.$token;
 
+      $site_url = ee()->config->item('site_url');
 
       $result=$this->services->curl_url($url);
       $json = json_decode($result, true);
@@ -1231,15 +1233,31 @@ class Webservices
           $horario_dia = $this->_replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
           $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
           $horario_dia = $this->_replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);                             
-          // var_dump($json);
+       
           if(strlen($enable_survey) !== 0){
-            $horario_dia = $this->_replace_subtag_data('survey_cod_clase', $horario_dia, (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase']);
-            $horario_dia = $this->_replace_subtag_data('survey_cod_curso', $horario_dia, (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso']);
-            $horario_dia = $this->_replace_subtag_data('survey_cod_alumno', $horario_dia, $codigo);
-            $horario_dia = $this->_replace_subtag_data('survey_active_time', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio);
+            $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
+            $strDate = $date->format('YmdH');
+            $class_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio;
+            $class_end_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraFin;
+            // if(intval($strDate) > intval($class_date) && intval($strDate) < intval($class_end_date)){
+            if(true){
+              $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/class-survey-icon.png');
+              $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
+              $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
+              $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $url_base_survey.'?'.'alumno_id='.$codigo.'&horario_id='.$codclase.'&curso_id='.$codcurso);
+            }
+            else
+            {
+              var_dump($strDate.' es menor que'.$class_date);
+              $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'inactive');
+              $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/class-survey-icon-inactive.png');
+              $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, '#');
+            }
+          
           }
           $clases .= $horario_dia;
         }  
+
         $horario = $this->_replace_pair_subtag_data('horario_dia', $horario, $clases);
 
         $result .= $horario;         

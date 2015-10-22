@@ -61,7 +61,7 @@
                       </div>
                     </div>
                     {exp:channel:entries channel="configuracion_horario" }
-                      {exp:webservices:horario_ciclo_actual_alumno modalidad_survey="{modalidad_encuesta}" habilitar_survey="{habilitar_encuestas}"}
+                      {exp:webservices:horario_ciclo_actual_alumno modalidad_survey="{modalidad_encuesta}" habilitar_survey="{habilitar_encuestas}" url_base="{url_base}"}
                       {horario_survey}
                        <div>
                           <span class="zizou-16">
@@ -145,22 +145,21 @@
                                   <span class="helvetica-14">
                                     {clase_salon}
                                   </span>
-                                </div>  
-                              </li> 
-                              <li class="col-sm-1-5 hidden-xs horario-survey"> 
+                                </div>
+                              </li>
+                              <li class="col-sm-1-5 hidden-xs horario-survey">
                                 <div class="text-center br-no survey-block">
-                                  <a data-survey-active="{survey_active_time}"  href="{url_base}?alumno_id={survey_cod_alumno}&horario_id={survey_cod_clase}&curso_id={survey_cod_curso}">
-                                  <span class="helvetica-14"><img src="{site_url}/assets/img/class-survey-icon.png" alt="Encuesta"> Ingresar </span></a>
-                                 
-                                </div>  
+                                  <a class="{survey_is_active}" href="{survey_url_generated}">
+                                  <span class="helvetica-14"><img src="{survey_image_icon}" alt="Encuesta"> Ingresar </span></a>
+                                </div>
                               </li>
                               <li class="col-xs-12 hidden-sm hidden-md hidden-lg horario-survey"> 
-                                  <div class="col-xs-3 "> 
-                                     <span class="nobg">Encuesta</span>
+                                  <div class="col-xs-3 ">
+                                  <span class="nobg">Encuesta</span>
                                   </div>
                                   <div class="col-xs-4-5 survey-block p-0">
-                                  <a data-survey-active="{survey_active_time}" href="{url_base}?alumno_id={survey_cod_alumno}&horario_id={survey_cod_clase}&curso_id={survey_cod_curso}">
-                                    <img src="{site_url}/assets/img/class-survey-icon.png" class="pl-7 pt-5 col-xs-3" id="survey-img" alt="Encuesta">
+                                  <a class="{survey_is_active}" href="{survey_url_generated}">
+                                    <img src="{survey_image_icon}" class="pl-7 pt-5 col-xs-3" id="survey-img" alt="Encuesta">
                                     <span class="helvetica-16 col-xs-8 text-center pt-5 pb-5">
                                     Ingresar
                                     </span>
@@ -272,27 +271,11 @@
                       {/error}
                       {/exp:webservices:horario_ciclo_actual_alumno}
                     {/exp:channel:entries}
-                
-                   
                 </div>
               </div>
           </div>
       </div>
     </div>
   </div>
- <script>
-// $( document ).ready(function() {
-//     var currentTime = new Date();
-//   $('.horario-survey a').each(function(index, element){
-//     if($(element).data('survey-active').toString() != ''+currentTime.getFullYear()+''+(currentTime.getMonth()+1)+''+currentTime.getDate()+''+currentTime.getHours()){
-//       $(this).addClass('inactive');
-//       $(this).attr('href', '#');
-//       img = $(this).find('img');
-//       $(img).attr('src', $(img).attr('src').replace('survey-icon.png', 'survey-icon-inactive.png'));
-//       $(this).click(function(e){e.preventDefault();});
-//     }
-//   });
-// });
- </script>
 }
 {embed="includes/footer"}   
