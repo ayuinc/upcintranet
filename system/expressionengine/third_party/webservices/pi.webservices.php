@@ -562,7 +562,15 @@ class Webservices
 
       $hijosWebService=$this->services->curl_url($url);
       $json = json_decode($hijosWebService, true);
-
+      //Control de errores
+      $error = $json['CodError'];
+      
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
         $result .= '<li>';
@@ -594,7 +602,12 @@ class Webservices
 
       $hijosWebService=$this->services->curl_url($url);
       $json = json_decode($hijosWebService, true);
-
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
       $result .= '<li>';
@@ -626,7 +639,12 @@ class Webservices
 
       $hijosWebService=$this->services->curl_url($url);
       $json = json_decode($hijosWebService, true);
-
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
       $result .= '<li>';
@@ -658,7 +676,12 @@ class Webservices
 
       $hijosWebService=$this->services->curl_url($url);
       $json = json_decode($hijosWebService, true);
-
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
       $result .= '<li>';
@@ -690,7 +713,12 @@ class Webservices
 
       $hijosWebService=$this->services->curl_url($url);
       $json = json_decode($hijosWebService, true);
-
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       $result .= '<ul class="grid-list grid-list-3 grid-list-centered">';
       for ($i=0; $i < count($json["hijos"])  ; $i++) { 
       $result .= '<li>';
@@ -1014,7 +1042,12 @@ class Webservices
       $json = json_decode($result, true);
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError']; 
-      
+
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       //limpio la variable para reutilizarla
       $result = '';
 
@@ -1306,8 +1339,12 @@ class Webservices
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];      
-      
+      $error_mensaje = $json['MsgError'];
+      if ($error_result != '0') {
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."general/session-expired");
+        return;
+      }
       //limpio la variable para reutilizarla
       $result = '';
       
@@ -1601,10 +1638,14 @@ class Webservices
       $result=$this->services->curl_url($url);
       //var_dump($result);
       $json = json_decode($result, true);
-      
+            
       $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];       
-      
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       //limpio la variable para reutilizarla
       $result = '';
       
@@ -1778,8 +1819,12 @@ class Webservices
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];        
-      
+      $error_mensaje = $json['MsgError'];
+      if ($error_result != '0') {
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."general/session-expired");
+        return;
+      }
       //limpio la variable para reutilizarla
       $result = '';
       
@@ -1861,7 +1906,12 @@ class Webservices
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];        
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }       
       
       //limpio la variable para reutilizarla
       $result = '';
@@ -1946,8 +1996,13 @@ class Webservices
       $result=$this->services->curl_url($url);
       $json = json_decode($result, true);
       
-      $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];        
+      $error = $json['CodError'];      
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }      
       
       //limpio la variable para reutilizarla
       $result = '';
@@ -2096,10 +2151,14 @@ class Webservices
       $result=$this->services->curl_url($url);
       //var_dump($result);
       $json = json_decode($result, true);
-      
+            
       $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];       
-      
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       $tamano = count($json['Cursos']);
       $result = '';
       $result .= '<div class="panel">';
@@ -2416,20 +2475,16 @@ class Webservices
       $codigo_alumno =  $_GET['codigo_alumno'];
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
-
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
       
       $url = 'InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //InasistenciaPadre/?Codigo=UFSANGAR10&CodAlumno=U201110028&CodCurso=CO18&Token=af0b422650d743d5b5e2e24d785ebb5c20140325114353
       //var_dump($url);
-
       $result=$this->services->curl_url($url);
       //var_dump($result);
       $json = json_decode($result, true);
@@ -2437,6 +2492,12 @@ class Webservices
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];
       
+      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       //limpio la variable para reutilizarla
       $result = '';
       
@@ -2471,7 +2532,6 @@ class Webservices
         $tamano_int = count($json_int['Notas']);
         $nota = 0;
         $porcentaje = 0;
-
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-2">';
@@ -2487,10 +2547,8 @@ class Webservices
         $result .= '</ul>';
         $result .= '</div>';    
         $result .= '<div class="panel-body-head-table pb-7 black-border-top">';
-
         $result .= '<ul class="tr">';
         $result .= '<li class="col-xs-1">';
-
         $result .= '<div class="br-gl"><span>Tipo</span></div>';
         $result .= '</li>';
         $result .= '<li class="col-xs-2">';
@@ -2509,7 +2567,6 @@ class Webservices
         $result .= '</div>'; 
         $result .= '<div class="panel-table gl-border-top">'; 
         $result .= '<ul class="tr">';          
-
         for ($b=0; $b<$tamano_int; $b++) {
           
           $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
@@ -2575,7 +2632,6 @@ class Webservices
         $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';          
-
       }     
       
       
@@ -2600,7 +2656,7 @@ class Webservices
         $result = $error_result;
       }
       return $result;           
-    }    
+    }  
     
     //TRAMITES REALIZADOS POR ALUMNO     
     public function tramites_realizados_por_alumno()
@@ -2733,10 +2789,17 @@ class Webservices
       
       //limpio la variable para reutilizarla
       $result = '';
-      
       $CodError = $json['CodError'];
       $MsgError = $json['MsgError'];
+
+      $error_result = $this->error_eval($CodError);
       
+      if ($error_result != '0' && $error_result != '1') {
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."general/session-expired");
+        return;
+      }
+
       if ($CodError == '00051') {
         $result .= '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
         $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">';
@@ -2895,7 +2958,13 @@ class Webservices
 
       $result=$this->services->curl_url($url);
       $json = json_decode($result, true);
-      
+      $error = $json['CodError'];
+      $error_mensaje = $json['MsgError'];      
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
+        
+        return $error_result;
+      }
       //Control de errores
       if ($json['CodError']!='00000') {
         $result = '<p><span class="solano-14 uppercase">'.$json['MsgError'].'</span></p>'; 
@@ -3134,7 +3203,14 @@ class Webservices
          $result=$this->services->curl_url($url);
          //var_dump($result);
          $json = json_decode($result, true);
-         
+         $CodError = $json['CodError'];
+          $error_result = $this->error_eval($CodError);
+          
+          if ($error_result != '0' && $error_result != '1') {
+            $site_url = ee()->config->item('site_url');
+            $this->EE->functions->redirect($site_url."general/session-expired");
+            return;
+          }
          if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
            
            $result = '<div class="panel-body info-border">';
