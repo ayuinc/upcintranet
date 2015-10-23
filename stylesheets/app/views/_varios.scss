@@ -21,15 +21,15 @@
 
 .horario-survey{
 	.survey-block{
-		background-color: #e4fcfc;
+		// background-color: #e4fcfc;
 		color:#3298ff;
 	}
 	div.br-no{
 		border-right:0px!important;
 	}
-	img#survey-img{
-		min-width:35px;
-		max-width: 40px;
+	img{
+		max-width: 150px;
+		width: 100%;
 	}
 	a span{
 		color:#3298ff;

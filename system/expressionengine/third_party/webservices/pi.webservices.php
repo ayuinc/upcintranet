@@ -1190,6 +1190,7 @@ class Webservices
       $modalidad_survey = ee()->TMPL->fetch_param('modalidad_survey');
       $enable_survey = trim(ee()->TMPL->fetch_param('habilitar_survey'));
       $url_base_survey = trim(ee()->TMPL->fetch_param('url_base'));  
+      $id_survey = trim(ee()->TMPL->fetch_param('id_survey'));  
       if($modalidad_survey !== $this->get_modalidad_alumno()){
         return;
       }
@@ -1207,6 +1208,7 @@ class Webservices
 
       $result=$this->services->curl_url($url);
       $json = json_decode($result, true);
+      // $json = json_decode('{"CodError":"00000","MsgError":"","HorarioDia":[{"CodDia":1,"CodAlumno":"U201110349","Fecha":"20150413","Clases":[{"CodClase":13676659,"CodAlumno":"U201110349","CodCurso":"CI88","CursoNombre":"Edificios","CursoNombreCorto":"EDIFICIOS","Fecha":"20150413","HoraInicio":"070000","HoraFin":"100000","Sede":"MO","Seccion":"CI91","Salon":"UH-57"},{"CodClase":13459387,"CodAlumno":"U201110349","CodCurso":"CI122","CursoNombre":"Hidrología","CursoNombreCorto":"HIDROLOGÍA","Fecha":"20150413","HoraInicio":"130000","HoraFin":"160000","Sede":"MO","Seccion":"CI73","Salon":"UE-43"}]},{"CodDia":2,"CodAlumno":"U201110349","Fecha":"20150414","Clases":[{"CodClase":14282087,"CodAlumno":"U201110349","CodCurso":"CI89","CursoNombre":"Proyecto de Tesis I","CursoNombreCorto":"PROYECTO DE TESIS I","Fecha":"20150414","HoraInicio":"200000","HoraFin":"220000","Sede":"MO","Seccion":"CI91","Salon":"UA-34"}]},{"CodDia":3,"CodAlumno":"U201110349","Fecha":"20150415","Clases":[{"CodClase":13676645,"CodAlumno":"U201110349","CodCurso":"CI88","CursoNombre":"Edificios","CursoNombreCorto":"EDIFICIOS","Fecha":"20150415","HoraInicio":"090000","HoraFin":"110000","Sede":"MO","Seccion":"CI91","Salon":"UE-21"},{"CodClase":13920085,"CodAlumno":"U201110349","CodCurso":"CI102","CursoNombre":"Productividad en obras","CursoNombreCorto":"PRODUCTIVIDAD EN OBRAS","Fecha":"20150415","HoraInicio":"110000","HoraFin":"140000","Sede":"MO","Seccion":"CI92","Salon":"UD-57"},{"CodClase":14132534,"CodAlumno":"U201110349","CodCurso":"CI89","CursoNombre":"Proyecto de Tesis I","CursoNombreCorto":"PROYECTO DE TESIS I","Fecha":"20150415","HoraInicio":"150000","HoraFin":"170000","Sede":"MO","Seccion":"CI91","Salon":"UB-15"},{"CodClase":14280498,"CodAlumno":"U201110349","CodCurso":"CI89","CursoNombre":"Proyecto de Tesis I","CursoNombreCorto":"PROYECTO DE TESIS I","Fecha":"20150415","HoraInicio":"170000","HoraFin":"190000","Sede":"MO","Seccion":"CI91","Salon":"UD-23"}]},{"CodDia":4,"CodAlumno":"U201110349","Fecha":"20150416","Clases":[{"CodClase":14109671,"CodAlumno":"U201110349","CodCurso":"CI124","CursoNombre":"Ingeniería de tránsito y diseño vial urbano","CursoNombreCorto":"INGENIERÍA DE TRÁNSITO Y","Fecha":"20150416","HoraInicio":"070000","HoraFin":"090000","Sede":"MO","Seccion":"CI81","Salon":"UD-46"},{"CodClase":14109684,"CodAlumno":"U201110349","CodCurso":"CI124","CursoNombre":"Ingeniería de tránsito y diseño vial urbano","CursoNombreCorto":"INGENIERÍA DE TRÁNSITO Y","Fecha":"20150416","HoraInicio":"090000","HoraFin":"110000","Sede":"MO","Seccion":"CI81","Salon":"UH-52"},{"CodClase":13459373,"CodAlumno":"U201110349","CodCurso":"CI122","CursoNombre":"Hidrología","CursoNombreCorto":"HIDROLOGÍA","Fecha":"20150416","HoraInicio":"150000","HoraFin":"170000","Sede":"MO","Seccion":"CI73","Salon":"UH-41"}]},{"CodDia":5,"CodAlumno":"U201110349","Fecha":"20150417","Clases":[{"CodClase":14132558,"CodAlumno":"U201110349","CodCurso":"CI89","CursoNombre":"Proyecto de Tesis I","CursoNombreCorto":"PROYECTO DE TESIS I","Fecha":"20150417","HoraInicio":"090000","HoraFin":"110000","Sede":"MO","Seccion":"CI91","Salon":"UH-52"}]},{"CodDia":6,"CodAlumno":"U201110349","Fecha":"20150418","Clases":[{"CodClase":13493293,"CodAlumno":"U201110349","CodCurso":"CI144","CursoNombre":"Gerencia de Proyectos de Construcción","CursoNombreCorto":"GEREN DE PROYECTOS DE CON","Fecha":"20150418","HoraInicio":"070000","HoraFin":"100000","Sede":"MO","Seccion":"CI91","Salon":"UE-46"},{"CodClase":13455464,"CodAlumno":"U201110349","CodCurso":"CI123","CursoNombre":"Calidad en la construcción","CursoNombreCorto":"CALIDAD EN LA CONSTRUCCIÓ","Fecha":"20150418","HoraInicio":"100000","HoraFin":"130000","Sede":"MO","Seccion":"CI82","Salon":"UF-21"}]}]}', true);
       
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
@@ -1253,11 +1255,11 @@ class Webservices
         $horario_dia_empty = $this->_get_subtag_data('horario_dia', $horario);
 
         for ($b=0; $b<$tamano_int; $b++) {
+
           $horario_dia = $horario_dia_empty;
           $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
           $HoraInicio = ltrim($HoraInicio,'0');
           $horario_dia = $this->_replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
-          // var_dump('hora_inicio : '.$horario_dia);
           $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
           $HoraFin = ltrim($HoraFin,'0');
           $horario_dia = $this->_replace_subtag_data('hora_fin', $horario_dia, $HoraFin.':00');
@@ -1274,18 +1276,17 @@ class Webservices
             $class_end_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraFin;
             // if(intval($strDate) > intval($class_date) && intval($strDate) < intval($class_end_date)){
             if(true){
-              $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/class-survey-icon.png');
+              $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/btn-encuesta-ingresar.jpg');
               $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
               $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
-              $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $url_base_survey.'?'.'alumno_id='.$codigo.'&horario_id='.$codclase.'&curso_id='.$codcurso);
+              $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $url_base_survey.$id_survey.'/'.'?'.'alumno_id='.$codigo.'&horario_id='.$codclase.'&curso_id='.$codcurso);
             }
             else
             {
               $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'inactive');
-              $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/class-survey-icon-inactive.png');
+              $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/btn-encuesta-no-disponible.jpg');
               $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, '#');
             }
-          
           }
           $clases .= $horario_dia;
         }  
