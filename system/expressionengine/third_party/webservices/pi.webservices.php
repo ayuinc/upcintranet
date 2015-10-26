@@ -5263,8 +5263,9 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
         $tipouser = $row->tipouser;
+        $terminos = $row->terminos_condiciones;
       }
-      if ($codigo === '' || is_null($codigo)) {
+      if ($codigo === '' || is_null($codigo) || is_null($terminos) || $terminos == 'no' || $terminos == '') {
         $redireccion = uri_string();
         $this->eliminar_cookie();
         $_COOKIE[$this->services->get_fuzzy_name("Redireccion")] = $redireccion;

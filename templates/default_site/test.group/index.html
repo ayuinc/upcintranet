@@ -1,0 +1,7 @@
+{if post:contrasena}
+{post:contrasena}
+
+
+    {exp:webservices:iniciar_session}
+    {exp:webservices:generador_token codigo="{post:codigo}" contrasena="{post:contrasena}" plataforma="{post:plataforma}"}
+ {/if}

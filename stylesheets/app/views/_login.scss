@@ -270,4 +270,9 @@ body{
     }
 
 }
+.pt-xs-21{
+	@media #{$md-down}{
+		padding-top:21px;
+	}
+}
 
