@@ -29,21 +29,22 @@
     }
 
 </script>
-{if post:contrasena}
-    {exp:webservices:iniciar_session}
-    {exp:webservices:generador_token codigo="{post:codigo}" contrasena="{post:contrasena}" plataforma="{post:plataforma}"}
+
+{post:terminosAccepted}
     {embed="includes/header-global-only"}
 
 <div class="site-content login">
     <div class="container-fluid">
         <div class="section-content pt-70">
             <div class="row">
-                {exp:webservices:consultar_alumno}
+    
+                    {exp:webservices:consultar_alumno terms="{post:terminosAccepted}"}
+ 
             </div>
         </div>
     </div>
 </div>
 <script src="{site_url}js/app/src/login.js"></script>
-{if:else}
-    {redirect="{site_url}"}
-{/if}
+
+
+
