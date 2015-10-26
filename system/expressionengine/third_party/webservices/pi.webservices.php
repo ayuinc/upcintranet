@@ -122,7 +122,6 @@ class Webservices
       // setcookie($name, NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
 
       $this->services->set_cookie($name, NULL, time() - (1800), "/");
-      $this->services->set_cookie($name, NULL, time() - (1800), '/', '.upc.edu.pe',false);
     }
 
     /**
