@@ -35,19 +35,27 @@
 
     {embed="includes/header-global-only"}
 
-<div class="site-content login">
-    <div class="container-fluid">
-        <div class="section-content pt-70">
-            <div class="row">
+
+<div class="site-content error-404 pt-49">
+  <div class="container-fluid">
+    <div class="internal-header">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4"><span class="zizou-16"></span></div>
+      </div>  
+      <div class="row">
+        <div class="col-sm-12 text-center">  <img class="logo" src="{site_url}assets/img/logo_upc_red.png" alt=""></div>
+      </div>
+    </div>  
                 <a href="{site_url}" id="site_url"></a>
                 {exp:webservices:get_terms_acceptance}
-                        {terminos}
+                   
                         {if '{terminos}' == 'no'}
+      <div class="row">
+        <div class=" resultados col-sm-7 resultados col-sm-offset-2-5">
+          <div class="resultados-busqueda red-line bg-muted">
+            <div class="panel-body p-14 result_query">
                            <form action="{site_url}login/usuario" method="post" name="form-terms" class="form-terms" autocomplete="off" id="form-terms">
-                            <div class="modal-header col-md-12 p-0 text-right ">
-                              <img class="logo" src="{site_url}assets/img/logo_upc_red.png" alt="">
-                            </div>
-                            <div class="modal-body red-line">
                               {exp:channel:entries channel="terminos_y_condiciones" limit="1" dynamic="off"}
                                 <div class="terms-content bg-muted">
                                   <h2 class="modal-title uppercase xl" id="myModalLabel">{title}</h2>
@@ -56,17 +64,17 @@
                                   </div>
                                 </div>
                                 {/exp:channel:entries}
-                            </div>
+                  
                              <div class="checkbox">
                                   <label for="checkbox" class="zizou-16">
-                                    <input type="checkbox" id="checkbox" name="checkbox"> Declaro haber leído y aceptado el reglamento y todos sus términos. {embed:codigo}
+                                    <input type="checkbox" id="checkbox" name="checkbox"> Declaro haber leído y aceptado el reglamento y todos sus términos.
                                     <input type="hidden" id="terminosAccepted" name="terminosAccepted" value='no'>
                                     <input type="hidden" id="codigo" name="codigo" value='{embed:codigo}'>
                                   </label>
                                 </div>
                               <div class="modal-footer bg-muted">
                                 <button type="button" class="btn btn-custom wide blue-btn" disabled id="aceptar">Acepto</button>
-                                <button type="button" class="btn btn-custom wide black-btn" id="rechazar" onclick="rechazar(); return false;">No Acepto</button>
+                                <button type="button" class="btn btn-custom wide black-btn" id="rechazar" onclick="$(location).attr('href',hostname+'login/salir'); return false;">No Acepto</button>
                               </div>
                             </form>
                               <script>
@@ -80,18 +88,19 @@
                                     $('input#terminosAccepted').val('no');
                                   }
                               });
-                              function rechazar() {
-                                    $(location).attr('href',hostname+'login/salir');
-                                    return false;
-                              };
+                              $(document).ready(function () {
+                                  $('div.terms-content').css('max-height', '300px;');
+                              });
                           </script>
                         {if:elseif '{terminos}' == 'si'}
                             {redirect="{site_url}login/usuario"}
                         {/if}
                 {/exp:webservices:get_terms_acceptance}
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+  </div>
 </div>
 <script src="{site_url}js/app/src/login.js"></script>
 {if:else}
