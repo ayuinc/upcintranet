@@ -432,7 +432,7 @@ class Webservices
       $codigo = $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
 
       $terminos = '';
-      var_dump($codigo);
+      // var_dump($codigo);
       ee()->db->select('TipoUser, Token');
       ee()->db->select(' terminos_condiciones');
       ee()->db->where('codigo',$codigo);
@@ -441,7 +441,7 @@ class Webservices
       foreach($query_modelo_result->result() as $row)
       {
         $terminos = $row->terminos_condiciones;
-        var_dump($terminos);
+        // var_dump($terminos);
       }   
       if(is_null($terminos) || $terminos === 'null' || $terminos === 'no'){
         $tagdata = $this->_replace_subtag_data('terminos', $tagdata, 'no');
