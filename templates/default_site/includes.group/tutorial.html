@@ -5,7 +5,7 @@
       <div class="modal-body">
         <!-- Place somewhere in the <body> of your page -->
         <div class="flexslider">
-
+        <div id="load-tutorial-message"><span class="zizou-16">Actualizando tutorial...</span></div>
           <ul class="slides">
             <!-- <li><img src="{site_url}assets/img/tutorial_web_01.png" /></li> 
              <li><img src="{site_url}assets/img/tutorial_web_02.png" /></li>
@@ -19,7 +19,6 @@
             <li><img src="{site_url}assets/img/tutorial_web_10.png" /></li> -->  
             
             {exp:channel_images:images url_title="tutorial-general" paginate="bottom"}
-             <div id="load-tutorial-message"><span class="zizou-16">Actualizando tutorial...</span></div>
                <li><img src="{image:url}" alt="{image:title}"/></li>
             {/exp:channel_images:images} 
           </ul>

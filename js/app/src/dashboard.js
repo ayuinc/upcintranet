@@ -21,7 +21,7 @@ $(document).ready(function(){
 	jQuery.each($('ul.slides li img'), function(i, val){
 	 	$(val).load(function(){ 
 	 		console.log('cargó!'+i);
-	 	 	$(val).parent().find('#load-tutorial-message').hide();
+	 	 	$('#load-tutorial-message').hide();
 	 	 }).error(function(){
 	 	 	console.log('xeess!'+i);
 	 	 });
