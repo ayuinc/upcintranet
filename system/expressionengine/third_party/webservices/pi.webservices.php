@@ -274,8 +274,8 @@ class Webservices
     public function generador_token()
     {
       // fetch template parameters
-      $codigo = ee()->TMPL->fetch_param('codigo');
-      $contrasena = ee()->TMPL->fetch_param('contrasena');
+      $codigo = urlencode(ee()->TMPL->fetch_param('codigo'));
+      $contrasena = urlencode(ee()->TMPL->fetch_param('contrasena'));
       $plataforma = ee()->TMPL->fetch_param('plataforma');
 
       // Curl service
