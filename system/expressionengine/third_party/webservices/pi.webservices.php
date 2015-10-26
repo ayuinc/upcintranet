@@ -243,24 +243,26 @@ class Webservices
      */
     public function terminos_condiciones_set()
     {
-      $codigo = $_POST['codigo'];
-      ee()->db->select('terminos_condiciones');
-      ee()->db->where('codigo',$codigo);
-      $query = ee()->db->get('exp_user_upc_data');
-      $respuesta = $query->result();
-      if(count($respuesta)>0)
-      {
-        $data = array(
-                 'terminos_condiciones' => "si",
-        );
-        ee()->db->where('codigo', $codigo);
-        ee()->db->update('exp_user_upc_data', $data); 
-      }
-      else
-      {
-         $this->set_session_cookie("Terms","true");
-      }
+      $codigo = $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
 
+        ee()->db->select('terminos_condiciones');
+        ee()->db->where('codigo',$codigo);
+        $query = ee()->db->get('exp_user_upc_data');
+        $respuesta = $query->result();
+
+        if(count($respuesta)>0)
+        {
+          $data = array(
+                   'terminos_condiciones' => "si",
+          );
+          ee()->db->where('codigo', $codigo);
+          ee()->db->update('exp_user_upc_data', $data); 
+        }
+        else
+        {
+           $this->set_session_cookie("Terms","true");
+        }
+      return true;
     }
 
     /**
@@ -291,13 +293,14 @@ class Webservices
       	$site_url = ee()->config->item('site_url');
       	$site_url .= 'login/error_login';
         $this->EE->functions->redirect($site_url);
-      }
-      else 
+      } 
+      else
       {
         ee()->db->select('id');
         ee()->db->where('codigo',$codigo);
         $query_modelo_result = ee()->db->get('exp_user_upc_data');
-        $terminos = "si";
+        //$terminos = "si";
+      
         if($query_modelo_result->result() == NULL)
         {
           $user_upc_insert = array(
@@ -311,16 +314,14 @@ class Webservices
             "codsede" => $json['Datos']['CodSede'],
             "dscsede" => $json['Datos']['DscSede'],
             "ciclo" => $json['Datos']['Ciclo'], 
-            "token" => $json['Token'],
-            "terminos_condiciones" => $terminos
+            "token" => $json['Token']
           );
           ee()->db->insert('exp_user_upc_data', $user_upc_insert);
         } 
         else 
         {
           $user_upc_update = array(
-            "token" => $json['Token'],
-            "terminos_condiciones" => $terminos
+            "token" => $json['Token']
           );
           ee()->db->where('codigo', $codigo);
           ee()->db->update('exp_user_upc_data', $user_upc_update);
@@ -413,7 +414,7 @@ class Webservices
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $_COOKIE[$this->services->get_fuzzy_name("Codigo")] =  $codigo;
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      
+
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -424,49 +425,97 @@ class Webservices
       }
     }
 
+    ///  Validate Terminos y Condiciones
+    public function get_terms_acceptance()
+    {
+      $tagdata = $this->EE->TMPL->tagdata;
+      $codigo = $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+
+      $terminos = '';
+      var_dump($codigo);
+      ee()->db->select('TipoUser, Token');
+      ee()->db->select(' terminos_condiciones');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row)
+      {
+        $terminos = $row->terminos_condiciones;
+        var_dump($terminos);
+      }   
+      if(is_null($terminos) || $terminos === 'null' || $terminos === 'no'){
+        $tagdata = $this->_replace_subtag_data('terminos', $tagdata, 'no');
+        return $tagdata;
+      }else if($terminos == 'si'){
+        return $this->consultar_alumno();
+      }else{
+        return $terminos;
+      }
+    }
+
+
     //CONSTRUCTOR DE SESIONES DE ACUERDO AL USUARIO
     
     public function consultar_alumno()
     {
-      $codigo = $_COOKIE["Codigo"];
-      $_COOKIE[$this->services->get_fuzzy_name("Codigo")] =  $codigo;
-
-      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+      // $codigo = $_COOKIE["Codigo"];
+      // $_COOKIE[$this->services->get_fuzzy_name("Codigo")] =  $codigo;
+      // var_dump('consultar_alumno');
+      $tagdata = $this->EE->TMPL->tagdata;
+      // $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+      $terms = ee()->TMPL->fetch_param('terms');
+      // var_dump($terms);
+      if($terms == 'si')
+       {
+         $this->terminos_condiciones_set();
+       }
+      $site_url = ee()->config->item('site_url');
+      $codigo = $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
 
       ee()->db->select('TipoUser, Token');
+      ee()->db->select('terminos_condiciones');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
       $TipoUser = '';
       $token = '';
+      $terminos = '';
       foreach($query_modelo_result->result() as $row)
       {
         $TipoUser = $row->TipoUser;
         $token = $row->Token;
-      }    
-      $result = '';
+        $terminos = $row->terminos_condiciones;
+      }   
+      if($terminos !== 'si'){
 
+        $this->EE->functions->redirect($site_url."login/salir");
+      }
+
+      $result = '';
       $_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =  $TipoUser;
       $this->services->set_cookie("TipoUser",$TipoUser, time() + (1800), "/");
       $_COOKIE[$this->services->get_fuzzy_name("Token")] =  $token;
       $this->services->set_cookie("Token",$token, time() + (1800), "/");
-      $site_url = ee()->config->item('site_url');
       
       if (strval($TipoUser) ==='ALUMNO') 
       {
+
         if (isset($_COOKIE[$this->services->get_fuzzy_name("Redireccion")])) 
         {
           if(strcmp($_COOKIE[$this->services->get_fuzzy_name("Redireccion")], "")!=0 )
           {
             $this->EE->functions->redirect($site_url.($_COOKIE[$this->services->get_fuzzy_name("Redireccion")]));
+           // return redirect($site_url.($_COOKIE[$this->services->get_fuzzy_name("Redireccion")]));
           }
           else 
           {
+
             $this->EE->functions->redirect($site_url."dashboard/estudiante");
           }
         }
         else
         {
-          $this->EE->functions->redirect($site_url."dashboard/estudiante");
+
+            $this->EE->functions->redirect($site_url."dashboard/estudiante");
         } 
       }   
       
@@ -806,8 +855,6 @@ class Webservices
         $TipoUser = $row->tipouser;
         $redireccion = $row->redireccion;
       }
-
-      $result = '';
       
       if (strval($TipoUser)=='ALUMNO') {
         $result .= '<ul class="tr pb-7">';
@@ -1208,8 +1255,7 @@ class Webservices
 
       $result=$this->services->curl_url($url);
       $json = json_decode($result, true);
-      // $json = json_decode('{"CodError":"00000","MsgError":"","HorarioDia":[{"CodDia":1,"CodAlumno":"U201110349","Fecha":"20150413","Clases":[{"CodClase":13676659,"CodAlumno":"U201110349","CodCurso":"CI88","CursoNombre":"Edificios","CursoNombreCorto":"EDIFICIOS","Fecha":"20150413","HoraInicio":"070000","HoraFin":"100000","Sede":"MO","Seccion":"CI91","Salon":"UH-57"},{"CodClase":13459387,"CodAlumno":"U201110349","CodCurso":"CI122","CursoNombre":"Hidrología","CursoNombreCorto":"HIDROLOGÍA","Fecha":"20150413","HoraInicio":"130000","HoraFin":"160000","Sede":"MO","Seccion":"CI73","Salon":"UE-43"}]},{"CodDia":2,"CodAlumno":"U201110349","Fecha":"20150414","Clases":[{"CodClase":14282087,"CodAlumno":"U201110349","CodCurso":"CI89","CursoNombre":"Proyecto de Tesis I","CursoNombreCorto":"PROYECTO DE TESIS I","Fecha":"20150414","HoraInicio":"200000","HoraFin":"220000","Sede":"MO","Seccion":"CI91","Salon":"UA-34"}]},{"CodDia":3,"CodAlumno":"U201110349","Fecha":"20150415","Clases":[{"CodClase":13676645,"CodAlumno":"U201110349","CodCurso":"CI88","CursoNombre":"Edificios","CursoNombreCorto":"EDIFICIOS","Fecha":"20150415","HoraInicio":"090000","HoraFin":"110000","Sede":"MO","Seccion":"CI91","Salon":"UE-21"},{"CodClase":13920085,"CodAlumno":"U201110349","CodCurso":"CI102","CursoNombre":"Productividad en obras","CursoNombreCorto":"PRODUCTIVIDAD EN OBRAS","Fecha":"20150415","HoraInicio":"110000","HoraFin":"140000","Sede":"MO","Seccion":"CI92","Salon":"UD-57"},{"CodClase":14132534,"CodAlumno":"U201110349","CodCurso":"CI89","CursoNombre":"Proyecto de Tesis I","CursoNombreCorto":"PROYECTO DE TESIS I","Fecha":"20150415","HoraInicio":"150000","HoraFin":"170000","Sede":"MO","Seccion":"CI91","Salon":"UB-15"},{"CodClase":14280498,"CodAlumno":"U201110349","CodCurso":"CI89","CursoNombre":"Proyecto de Tesis I","CursoNombreCorto":"PROYECTO DE TESIS I","Fecha":"20150415","HoraInicio":"170000","HoraFin":"190000","Sede":"MO","Seccion":"CI91","Salon":"UD-23"}]},{"CodDia":4,"CodAlumno":"U201110349","Fecha":"20150416","Clases":[{"CodClase":14109671,"CodAlumno":"U201110349","CodCurso":"CI124","CursoNombre":"Ingeniería de tránsito y diseño vial urbano","CursoNombreCorto":"INGENIERÍA DE TRÁNSITO Y","Fecha":"20150416","HoraInicio":"070000","HoraFin":"090000","Sede":"MO","Seccion":"CI81","Salon":"UD-46"},{"CodClase":14109684,"CodAlumno":"U201110349","CodCurso":"CI124","CursoNombre":"Ingeniería de tránsito y diseño vial urbano","CursoNombreCorto":"INGENIERÍA DE TRÁNSITO Y","Fecha":"20150416","HoraInicio":"090000","HoraFin":"110000","Sede":"MO","Seccion":"CI81","Salon":"UH-52"},{"CodClase":13459373,"CodAlumno":"U201110349","CodCurso":"CI122","CursoNombre":"Hidrología","CursoNombreCorto":"HIDROLOGÍA","Fecha":"20150416","HoraInicio":"150000","HoraFin":"170000","Sede":"MO","Seccion":"CI73","Salon":"UH-41"}]},{"CodDia":5,"CodAlumno":"U201110349","Fecha":"20150417","Clases":[{"CodClase":14132558,"CodAlumno":"U201110349","CodCurso":"CI89","CursoNombre":"Proyecto de Tesis I","CursoNombreCorto":"PROYECTO DE TESIS I","Fecha":"20150417","HoraInicio":"090000","HoraFin":"110000","Sede":"MO","Seccion":"CI91","Salon":"UH-52"}]},{"CodDia":6,"CodAlumno":"U201110349","Fecha":"20150418","Clases":[{"CodClase":13493293,"CodAlumno":"U201110349","CodCurso":"CI144","CursoNombre":"Gerencia de Proyectos de Construcción","CursoNombreCorto":"GEREN DE PROYECTOS DE CON","Fecha":"20150418","HoraInicio":"070000","HoraFin":"100000","Sede":"MO","Seccion":"CI91","Salon":"UE-46"},{"CodClase":13455464,"CodAlumno":"U201110349","CodCurso":"CI123","CursoNombre":"Calidad en la construcción","CursoNombreCorto":"CALIDAD EN LA CONSTRUCCIÓ","Fecha":"20150418","HoraInicio":"100000","HoraFin":"130000","Sede":"MO","Seccion":"CI82","Salon":"UF-21"}]}]}', true);
-      
+   
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];      
       
