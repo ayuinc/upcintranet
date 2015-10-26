@@ -6,16 +6,20 @@
         <!-- Place somewhere in the <body> of your page -->
         <div class="flexslider">
           <ul class="slides">
-            <li><img src="{site_url}assets/img/tutorial_web_01.png" /></li>
-            <li><img src="{site_url}assets/img/tutorial_web_02.png" /></li>
+            <!-- <li><img src="{site_url}assets/img/tutorial_web_01.png" /></li> 
+             <li><img src="{site_url}assets/img/tutorial_web_02.png" /></li>
             <li><img src="{site_url}assets/img/tutorial_web_03.png" /></li>
             <li><img src="{site_url}assets/img/tutorial_web_04.png" /></li>
             <li><img src="{site_url}assets/img/tutorial_web_05.png" /></li>
             <li><img src="{site_url}assets/img/tutorial_web_06.png" /></li>
             <li><img src="{site_url}assets/img/tutorial_web_07.png" /></li>
             <li><img src="{site_url}assets/img/tutorial_web_08.png" /></li>
-            <li><img src="{site_url}assets/img/tutorial_web_09.png" /></li>
-            <li><img src="{site_url}assets/img/tutorial_web_10.png" /></li>
+          <li><img src="{site_url}assets/img/tutorial_web_09.png" /></li>
+            <li><img src="{site_url}assets/img/tutorial_web_10.png" /></li> -->  
+
+            {exp:channel_images:images url_title="tutorial-general" paginate="bottom"}
+               <li><img src="{image:url}" alt="{image:title}"/></li>
+            {/exp:channel_images:images} 
           </ul>
         </div>
       </div>
@@ -25,4 +29,5 @@
     </div>
   </div>
 </div>
+
 <!-- Modal ends -->

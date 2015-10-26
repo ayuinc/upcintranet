@@ -17,6 +17,8 @@ $(document).ready(function(){
 		$(".msge-row").hide();
 	}
 
+	$('#myModal').modal('toggle');
+
 });
 
 function getCookie(cname) {
@@ -29,3 +31,4 @@ function getCookie(cname) {
 	}
 	return "";
 }
+
