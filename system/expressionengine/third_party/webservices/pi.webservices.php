@@ -343,16 +343,6 @@ class Webservices
         {
           $this->set_session_cookie($key, $val);
         }
-
-        $cookie_name = 'Codigo';
-        $cookie_value = $json['Codigo'];
-        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
-        $cookie_name = 'TipoUser';
-        $cookie_value = $json['TipoUser'];
-        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
-        $cookie_name = 'Token';
-        $cookie_value = $json['Token'];
-        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
       }
       return;
     }
