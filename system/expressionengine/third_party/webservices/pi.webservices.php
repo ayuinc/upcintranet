@@ -92,7 +92,7 @@ class Webservices
 
       // setcookie($name, $jsonObj, time() + (1800), '/'); 
       $this->services->set_cookie($name, $jsonObj);
-      $this->services->set_cookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false);
+      // $this->services->set_cookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false);
       // setcookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
       return;
     }
