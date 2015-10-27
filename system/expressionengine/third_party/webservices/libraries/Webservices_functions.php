@@ -107,7 +107,7 @@ class Webservices_functions {
 		}
 		// setcookie($name, $value, time() + (1800), '/');
 		setcookie($this->get_fuzzy_name($name), $value, time() + (1800), '/'); 
-		setcookie($this->get_fuzzy_name($name), $value, time() + (1800), '/', '.upc.edu.pe',false);  
+		// setcookie($this->get_fuzzy_name($name), $value, time() + (1800), '/', '.upc.edu.pe',false);  
 	}
 
 	public function get_cookie ($cookie)
