@@ -1883,7 +1883,8 @@ class Webservices
       
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];
-      if ($error_result != '0') {
+       $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
         $site_url = ee()->config->item('site_url');
         $this->EE->functions->redirect($site_url."general/session-expired");
         return;
