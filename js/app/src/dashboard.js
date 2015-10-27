@@ -17,15 +17,6 @@ $(document).ready(function(){
 		$(".msge-row").hide();
 	}
 
-
-	jQuery.each($('ul.slides li img'), function(i, val){
-	 	$(val).load(function(){ 
-	 		console.log('cargó!'+i);
-	 	 	$('#load-tutorial-message').hide();
-	 	 }).error(function(){
-	 	 	console.log('xeess!'+i);
-	 	 });
-	});
 	$('#myModal').modal('toggle');
 });
 
