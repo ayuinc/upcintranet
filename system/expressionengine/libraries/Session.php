@@ -907,8 +907,8 @@ class EE_Session {
 	 */
 	public function tracker()
 	{
-		$tracker = ee()->input->cookie('tracker');
-
+		// $tracker = ee()->input->cookie('tracker');
+		$tracker = '';
 		if ($tracker != FALSE)
 		{
 			$regex = "#(http:\/\/|https:\/\/|www\.|[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})#i";
@@ -969,7 +969,7 @@ class EE_Session {
 
 		if (REQ == 'PAGE')
 		{
-			ee()->input->set_cookie('tracker', serialize($tracker), '0');
+			// ee()->input->set_cookie('tracker', serialize($tracker), '0');
 		}
 
 		return $tracker;
