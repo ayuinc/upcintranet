@@ -90,10 +90,10 @@ class Webservices
       $_SESSION[$name] = $jsonObj;
       $_COOKIE[$this->services->get_fuzzy_name($name)] = $jsonObj;
 
-      // setcookie($name, $jsonObj, time() + (1800), '/'); 
+      setcookie($name, $jsonObj, time() + (1800), '/'); 
       // $this->services->set_cookie($name, $jsonObj);
       // $this->services->set_cookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false);
-      setcookie($name, $jsonObj, time() + (3600), '/', '.upc.edu.pe',false); 
+      // setcookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
       return;
     }
 
@@ -118,8 +118,8 @@ class Webservices
       {
         unset($_SESSION[$this->_cookies_prefix.$name]);
       }
-      // setcookie($name, NULL, time() - (1800), "/");
-      // setcookie($name, NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
+      setcookie($name, NULL, time() - (1800), "/");
+      setcookie($name, NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
 
       $this->services->set_cookie($name, NULL, time() - (1800), "/");
     }
@@ -344,15 +344,15 @@ class Webservices
           $this->set_session_cookie($key, $val);
         }
 
-        // $cookie_name = 'Codigo';
-        // $cookie_value = $json['Codigo'];
-        // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
-        // $cookie_name = 'TipoUser';
-        // $cookie_value = $json['TipoUser'];
-        // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
-        // $cookie_name = 'Token';
-        // $cookie_value = $json['Token'];
-        // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
+        $cookie_name = 'Codigo';
+        $cookie_value = $json['Codigo'];
+        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
+        $cookie_name = 'TipoUser';
+        $cookie_value = $json['TipoUser'];
+        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
+        $cookie_name = 'Token';
+        $cookie_value = $json['Token'];
+        setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
       }
       return;
     }
