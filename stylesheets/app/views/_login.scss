@@ -143,6 +143,9 @@ body{
 			.text{
 				margin: auto;
 				margin-top: 7px;
+				@media #{$xs-only} {
+					height: 49px;
+				}
 			}
 		}
 		>div{
