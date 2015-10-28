@@ -177,7 +177,7 @@
 #collapseMobile {
 	padding-top: 54px;
 	@media #{$xs-only}{
-		padding-top : 120px;
+		padding-top : 90px;
 	}
 	position: fixed;
 	z-index: 30;
