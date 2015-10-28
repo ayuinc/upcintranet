@@ -132,16 +132,52 @@
 // mobile nav
 #mobile-nav {	
 	position: fixed;
-	background-color: white;
+	// background-color: white;
 	z-index: 31;
 	width: 100%;
 	padding: 7px 14px;
+
+	.white-header{
+		background-color: #FFFFFF;
+	}
+	.blue-menu{
+		background-color: #3298FF;
+		.blue-menu-option{
+			a > img{
+				margin:auto;
+				height: 30px;
+			}
+			&:first-child{
+				@media screen and (max-width:350px){
+					a > img {
+						margin-left: 0px;
+					}
+				}
+			}
+			.button{
+				height: 30px;
+				padding-top: 3px;
+				padding-bottom: 3px;
+				span {color: #ffffff}
+				@media screen and (max-width:350px){
+					span{ display : none;}
+				}
+			}
+		}
+
+		.btn-info{
+			border:0px
+		}
+		.border-white-right{
+			border-left: 2px #FFFFFF solid;
+		}
+	}
 }
 
 #collapseMobile {
 	padding-top: 54px;
 	@media #{$xs-only}{
-		padding-top : 60px;
+		padding-top : 120px;
 	}
 	position: fixed;
 	z-index: 30;
