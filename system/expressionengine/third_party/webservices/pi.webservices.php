@@ -3213,7 +3213,7 @@ class Webservices
            $result .= '<span class="helvetica-16">Mora</span>';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-4 col-sm-2">';
+           $result .= '<li class="col-xs-4 col-sm-2 ">';
            $result .= '<div class="text-center">';
            $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Mora'].'</span>';
            $result .= '</div>';
@@ -3221,13 +3221,13 @@ class Webservices
            $result .= '</ul>';
            $result .= '</div>';
            $result .= '<div class="panel-table observaciones">';
-           $result .= '<ul class="tr table-border">';
+           $result .= '<ul class="tr table-border ">';
            $result .= '<li class="col-xs-8 col-sm-10 pl-7">';
            $result .= '<div>';
            $result .= '<span class="uppercase helvetica-16 text-muted">TOTAL</span>';
            $result .= '</div>';
            $result .= '</li>';
-           $result .= '<li class="col-xs-4 col-sm-2">';
+           $result .= '<li class="col-xs-4 col-sm-2 ">';
            $result .= '<div class="text-center">';
            $result .= '<span class="helvetica-16 text-muted uppercase">'.$json['PagosPendientes'][$i]['Total'].'</span>';
            $result .= '</div>';
