@@ -5153,11 +5153,17 @@ class Webservices
     {
       //$codigo = $_SESSION["Codigo"];
       //$TipoUser = $_SESSION["TipoUser"];
-
+      $tipouser = '';
+      $modalidad = '';
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      $tipouser = $_SESSION["TipoUser"];
-      $modalidad = $_SESSION["CodModal"];
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      foreach($query_modelo_result->result() as $row){
+        $tipouser = $row->tipouser;
+        $modalidad = $row->codmodal;
+      }
       $result = '';
       if (strval($tipouser)=='ALUMNO') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" search:modalidad="'.$modalidad.'"}';
