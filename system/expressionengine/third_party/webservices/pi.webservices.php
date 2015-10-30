@@ -1324,7 +1324,11 @@ class Webservices
               $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/btn-encuesta-ingresar.jpg');
               $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
               $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
-              $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $url_base_survey.'?'.'alumno_id='.$codigo.'&horario_id='.$codclase.'&curso_id='.$codcurso);
+              if($id_survey == '' || is_null($id_survey)){
+                $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $url_base_survey.'?'.'alumno_id='.$codigo.'&horario_id='.$codclase.'&curso_id='.$codcurso);
+              }else{
+                $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $url_base_survey.$id_survey.'/'.'?'.'alumno_id='.$codigo.'&horario_id='.$codclase.'&curso_id='.$codcurso);
+              }
             }
             else
             {
