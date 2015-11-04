@@ -156,7 +156,12 @@
               <div class="panel-title">
                 <h3>Comunicados</h3>
               </div>
-              <a target="_blank" href="http://www.upc.edu.pe/noticias"><div class="panel-head-link info"></div></a>
+            {if "{exp:webservices:get_modalidad_alumno}"== "FC"}
+              <a target="_blank" href="http://blogs.upc.edu.pe/comunicados-upc/category/categorias/epe-upc">
+            {if:else}
+              <a target="_blank" href="http://blogs.upc.edu.pe/comunicados-upc/category/categorias/pregrado">
+            {/if}
+              <div class="panel-head-link info"></div></a>
               <div class="panel-title-line"></div>
             </div>
             <div id="noticias"> 
