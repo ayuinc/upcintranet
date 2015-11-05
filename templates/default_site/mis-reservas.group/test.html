@@ -1,6 +1,6 @@
 {if post:element}
 	{exp:channel:entries channel="reservas" status="Reserva de Espacios Deportivos"  search:codigo_de_espacio_deportivo ="{post:element}"}
-			{mensaje} // // {max_dias_de_anticipacion}
+			{mensaje}
 			<input type="hidden" value="{dias_disponibles}" id="enabled-days">
 			<input type="hidden" value="{max_dias_de_anticipacion}" id="max-days">
 		{if no_results}
