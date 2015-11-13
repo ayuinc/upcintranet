@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-sm-0-5"></div>
       <div class="col-sm-4">
-      {embed="includes/ads-upc" adId="primer-ad"}
+      {embed="includes/ads-upc" adId="primer-ad-{exp:webservices:get_modalidad_alumno}"}
       
        <div class="panel">
         <div class="panel-head">
@@ -32,7 +32,7 @@
           </div>
         </div>
        </div>
-      {embed="includes/ads-upc" adId="segundo-ad"}
+      {embed="includes/ads-upc" adId="segundo-ad-{exp:webservices:get_modalidad_alumno}"}
       {exp:channel:entries channel="dashboard" limit="1" dynamic="off" url_title="estudiante"}
         {categories}
           {if {category_id} == "135"}
@@ -70,10 +70,10 @@
                 </div>
               </div>  
           </div> 
-         {embed="includes/ads-upc" adId="tercer-ad"}
+         {embed="includes/ads-upc" adId="tercer-ad-{exp:webservices:get_modalidad_alumno}"}
       </div>
       <div class="col-sm-3">
-          {embed="includes/ads-upc" adId="cuarto-ad"}
+          {embed="includes/ads-upc" adId="cuarto-ad-{exp:webservices:get_modalidad_alumno}"}
         <div class="panel">
           <div class="panel-head">
             <div class="panel-title">
@@ -89,7 +89,7 @@
             </div>
           </div>
         </div>
-           {embed="includes/ads-upc" adId="quinto-ad"}
+           {embed="includes/ads-upc" adId="quinto-ad-{exp:webservices:get_modalidad_alumno}"}
           <div class="panel noticias-widget pt-21">
             <div class="panel-head">
               <div class="panel-title">
@@ -108,7 +108,7 @@
               </div>
             </div> 
           </div>
-           {embed="includes/ads-upc" adId="sexto-ad"}
+           {embed="includes/ads-upc" adId="sexto-ad-{exp:webservices:get_modalidad_alumno}"}
         <div class="panel mt-21">
           <div class="panel-head">
             <div class="panel-title">
