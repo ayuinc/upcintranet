@@ -13,7 +13,7 @@
 <!-- banner 1 -->
 {if:else}
   <a href="{ad_link}" target="_blank">
-      {exp:channel_images:images entry_id="{entry_id}"}
+      {exp:channel_images:images entry_id="{entry_id}" limit="1"}
           <img class="img-responsive margin-auto"  src="{image:locked_url}" alt="{image:title}">
     {/exp:channel_images:images}
   </a>
