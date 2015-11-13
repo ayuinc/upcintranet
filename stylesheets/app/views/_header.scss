@@ -1,4 +1,7 @@
 .site-header {
+	&.non-fixed{
+		position: relative!important;
+	}
 	.container-fluid {
 		padding: 0;
 		.header-global {
@@ -17,7 +20,6 @@
 			background-position: 7% 80%;
 			// padding-left: 28px;
 			border-bottom: 1px solid $gray-main;
-			height: 80px;
 			.pull-right {
 				padding-left: 14px;
 				padding-right: 14px;
@@ -29,6 +31,18 @@
 				}
 				@media #{$xs-only} {
 					width: 113px;
+				}
+			}
+			&#mobile-nav{
+				position:relative!important;
+				padding:0px;
+				@media #{$xs-only} {
+					a{
+						color: white;
+					}
+				}
+				img.back-img{
+					width:27px;
 				}
 			}
 		}

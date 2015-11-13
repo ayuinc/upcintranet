@@ -1,4 +1,4 @@
-    <div class="site-header">
+    <div class="site-header non-fixed">
       <div class="container-fluid">
         <div class="header-global clearfix">
           <div class="pull-left crisol">
@@ -7,27 +7,25 @@
           <div class="pull-left mt-7">
             <span class="solano-bold-20 black-text">Mi UPC</span>
           </div>
-          <div class="pull-right pr-14 pt-7">
-            <ul class="list-unstyled">
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a href="http://www.upc.edu.pe/" target="_blank">Portal</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a href="http://www.upc.edu.pe/acerca-de-upc/servicios" target="_blank">Servicios</a></span></li>
-              <li class="pull-left mr-14"><span class="solano-bold-18 black-text"><a href="http://blogs.upc.edu.pe/" target="_blank">Blogs</a></span></li>
-            </ul>
-          </div>
         </div>
-        <div class="header-iframe clearfix">
-          <div class="pull-left pl-28 pt-7">
+        <div class="header-iframe clearfix" id="mobile-nav">
+          <div class="hidden-sm hidden-lg hidden-md col-xs-12 text-center bg-muted blue-menu">
+            <img src="{site_url}assets/img/back-white.png" class="back-img mb-7" alt="">
+            <a class="p-7" href="{site_url}dashboard/estudiante"><span class="solano-16">Regresar a Mi UPC</span></a>
+          </div>
+          <div class="col-sm-10 col-xs-12 pl-28 pt-7">
+
           {exp:channel:entries 
             url_title="{segment_2}"
-            channel="referencias" 
+            channel="referencias"
             orderby="screen_name|date" 
             sort="asc|desc"
-            limit="1" 
+            limit="1"
           }
               <div class="solano-bold-24">{title}</div>
               <div class="zizou-20">{embed:ruta}</div>
           </div>
-          <div class="pull-right text-center bg-muted">
+          <div class="col-sm-2 hidden-xs pull-right text-center bg-muted">
             <img src="{site_url}assets/img/back.png" class="img-center mb-7" alt="">
             <a class="p-7" href="{site_url}dashboard/estudiante"><span class="solano-16">Regresar a Mi UPC</span></a>
           </div>
