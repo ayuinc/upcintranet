@@ -164,6 +164,8 @@ body{
 	line-height: 1;
 	width: 100%;
 	background-color: $gray-lighter;
+	position:fixed;
+	bottom:0px;
 	.row {
 		margin:0;
 		margin-right:auto;
