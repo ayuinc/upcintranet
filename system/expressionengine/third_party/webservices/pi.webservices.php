@@ -1381,7 +1381,7 @@ class Webservices
      //HORARIO CICLO ACTUAL DEL ALUMNO CONSULTADO POR PADRE
     public function padre_horario_ciclo_actual_alumno()
     {
-      //$codigo = $_SESSION["Codigo"];
+      $codigo = $_SESSION["Codigo"];
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
       //$token = $_SESSION["Token"];
       
@@ -1399,15 +1399,16 @@ class Webservices
 
       $url = 'HorarioPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //$url = 'Horario/?CodAlumno='.$codigo.'&Token='.$token;
-      //var_dump($url);
+      // var_dump($url);
 
       $result=$this->services->curl_url($url);
-      //var_dump($result);
+      // var_dump($result);
       $json = json_decode($result, true);
       
       $error = $json['CodError'];
       $error_mensaje = $json['MsgError'];
-      if ($error_result != '0') {
+      $error_result = $this->error_eval($error);
+      if ($error_result != '0' && $error_result != '1') {
         $site_url = ee()->config->item('site_url');
         $this->EE->functions->redirect($site_url."general/session-expired");
         return;
@@ -1440,6 +1441,7 @@ class Webservices
           $result .= 'Sábado';
         }           
         $result .= '</span>';
+
         $result .= '</div>'; 
         $result .= '<div class="panel-body red-line mb-7">';
         $result .= '<div class="panel-body-head-table">'; 
