@@ -2996,9 +2996,10 @@ class Webservices
         $result = '<p><span class="solano-14 uppercase">'.$json['MsgError'].'</span></p>'; 
       } else {
         //limpio la variable para reutilizarla
+        $strFecha = date('d/m/Y', strtotime($json['PagosPendientes'][0]['FecVencimiento']));
         $result = ''; 
         $result .= '<h3 class="monto">S/.'.$json['PagosPendientes'][0]['Total'].'</h3>';
-        $result .= '<span class="uppercase">Vence el '.$json['PagosPendientes'][0]['FecVencimiento'].'</span>';
+        $result .= '<span class="uppercase">Vence el '.$strFecha.'</span>';
       }
       
       return $result;         
@@ -3040,9 +3041,10 @@ class Webservices
         $result = '<p><span class="solano-14 uppercase">'.$json['MsgError'].'</span></p>'; 
       } else {
         //limpio la variable para reutilizarla
+        $strFecha = date('d/m/Y', strtotime($json['PagosPendientes'][0]['FecVencimiento']));
         $result = ''; 
         $result .= '<h3 class="monto">S/.'.$json['PagosPendientes'][0]['Total'].'</h3>';
-        $result .= '<span class="uppercase">Vence el '.$json['PagosPendientes'][0]['FecVencimiento'].'</span>';
+        $result .= '<span class="uppercase">Vence el '.$strFecha.'</span>';
       }
       
       return $result;         
