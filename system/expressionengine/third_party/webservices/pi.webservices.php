@@ -3275,10 +3275,6 @@ class Webservices
 
          $url = 'PagoPendientePadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
          //var_dump($url);
-         $ch = curl_init($url);
-         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-         curl_setopt($ch, CURLOPT_URL,$url);
          $result=$this->services->curl_url($url);
          //var_dump($result);
          $json = json_decode($result, true);
@@ -3377,7 +3373,7 @@ class Webservices
               $result .= '</li>';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Importe'].'</span>';
+              $result .= '<span class="helvetica-16">'.number_format($json['PagosPendientes'][$i]['Importe'], 2).'</span>';
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
@@ -3389,7 +3385,7 @@ class Webservices
               $result .= '</li>';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Descuento'].'</span>';
+              $result .= '<span class="helvetica-16">'.number_format($json['PagosPendientes'][$i]['Descuento'],2).'</span>';
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
@@ -3401,7 +3397,7 @@ class Webservices
               $result .= '</li>';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Impuesto'].'</span>';
+              $result .= '<span class="helvetica-16">'.number_format($json['PagosPendientes'][$i]['Impuesto'],2).'</span>';
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
@@ -3413,7 +3409,7 @@ class Webservices
               $result .= '</li>';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Cancelado'].'</span>';
+              $result .= '<span class="helvetica-16">'.number_format($json['PagosPendientes'][$i]['Cancelado'],2).'</span>';
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
@@ -3425,7 +3421,7 @@ class Webservices
               $result .= '</li>';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Saldo'].'</span>';
+              $result .= '<span class="helvetica-16">'.number_format($json['PagosPendientes'][$i]['Saldo'],2).'</span>';
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
@@ -3437,7 +3433,7 @@ class Webservices
               $result .= '</li>';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-16">'.$json['PagosPendientes'][$i]['Mora'].'</span>';
+              $result .= '<span class="helvetica-16">'.number_format($json['PagosPendientes'][$i]['Mora'],2).'</span>';
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
@@ -3451,7 +3447,7 @@ class Webservices
               $result .= '</li>';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-16 text-muted uppercase">'.$json['PagosPendientes'][$i]['Total'].'</span>';
+              $result .= '<span class="helvetica-16 text-muted uppercase">'.number_format($json['PagosPendientes'][$i]['Total'],2).'</span>';
               $result .= '</div>';
               $result .= '</li>';
               $result .= '</ul>';
