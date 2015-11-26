@@ -5140,7 +5140,7 @@ class Webservices
 
       $yyyy = substr($ciclo,0,4); 
       $dd = substr($ciclo,4,6); 
-      return $dd.'-'.$yyyy;     
+      return $yyyy.'-'.$dd;     
     }
         
     //MUESTRA EL TIPO DE USUARIO
