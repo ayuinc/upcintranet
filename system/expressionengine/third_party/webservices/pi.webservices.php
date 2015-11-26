@@ -1227,6 +1227,32 @@ class Webservices
       return $modalidad;
     }
 
+    public function companeros()
+    {
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+      $tagdata  = $this->EE->TMPL->tagdata;
+      $codcurso = ee()->TMPL->fetch_param('cod_curso'); 
+      if($modalidad_survey !== $this->get_modalidad_alumno()){
+        return;
+      }
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      $token = '';
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+      
+      $url = 'Companeros/?CodAlumno='.$codigo.'&CodCurso='.$codcurso.'&Token='.$token;
+      $result=$this->services->curl_url($url);
+       var_dump($result);
+      $json = json_decode($result, true);
+      var_dump($json);
+      return $json;
+
+    }
+
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno()
     {
@@ -1561,20 +1587,22 @@ class Webservices
       $error_mensaje = $json['MsgError'];       
       
       //limpio la variable para reutilizarla
-      $result = '<div class="panel-body-head-table">';
+      $result = '<div class="panel-body-head-table pr-7">';
       $result .= '<ul class="tr table-border">';
       $result .= '<li class="col-xs-8">';
       $result .= '<div class="pl-7"><span class="text-left">Curso</span></div>';
       $result .= '</li>';
       $result .= '<li class="col-xs-2">';
-      $result .= '<div class=""><span>Faltas</span></div>';
+      $result .= '<div class="hidden-sm hidden-xs"><span>Faltas</span></div>';
+      $result .= '<div class="hidden-lg hidden-md"><span>Faltas</span></div>';
       $result .= '</li>';
       $result .= '<li class="col-xs-2">';
-      $result .= '<div class=""><span>Promedio</span></div>';
+      $result .= '<div class="hidden-sm hidden-xs"><span>Promedio</span></div>';
+      $result .= '<div class="hidden-lg hidden-md"><span>Prom.</span></div>';
       $result .= '</li>';
       $result .= '</ul>';
       $result .= '</div>'; 
-      $result .= '<div class="panel-table mis-cursos-content" id="miscursos">';
+      $result .= '<div class="panel-table mis-cursos-content pr-7" id="miscursos">';
 
       //genera el tamano del array
       $tamano = count($json['Inasistencias']);
@@ -1636,7 +1664,7 @@ class Webservices
           
           $result .= '<div class="borderless text-center"><span>'.$nota.'</span></div>';
           $result .= '</li>';
-          $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="red zizou-12"><img class="mr-7" src="{site_url}assets/img/red_eye.png">Mostrar</span></div></li>';
+          $result .= '<li class="col-xs-4 show-curso-detail"><div class="text-center"><span class="red zizou-12 hidden-md hidden-lg"><img class="mr-7" src="{site_url}assets/img/red_eye.png"></span><span class="red zizou-12 hidden-xs hidden-sm"><img class="mr-7" src="{site_url}assets/img/red_eye.png">Mostrar</span></div></li>';
           $result .= '</ul>';
         }
       }     
