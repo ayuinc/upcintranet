@@ -93,7 +93,7 @@ class Webservices
       // setcookie($name, $jsonObj, time() + (1800), '/'); 
       // $this->services->set_cookie($name, $jsonObj);
       // $this->services->set_cookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false);
-      setcookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
+      setcookie($this->services->get_fuzzy_name($name), $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
       return;
     }
 
@@ -119,9 +119,9 @@ class Webservices
         unset($_SESSION[$this->_cookies_prefix.$name]);
       }
       // setcookie($name, NULL, time() - (1800), "/");
-      setcookie($name, NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
+      setcookie($this->services->get_fuzzy_name($name), NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
 
-      $this->services->set_cookie($name, NULL, time() - (1800), "/");
+      // $this->services->set_cookie($name, NULL, time() - (1800), "/");
     }
 
     /**
