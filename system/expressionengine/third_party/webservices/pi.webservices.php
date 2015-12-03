@@ -27,18 +27,24 @@ class Webservices
     var $site_url = "";
     var $services;
     var $_cookies_prefix="";
+    protected $env = "";
+
+    const LOCAL = "LOCAL";
+    const DEV = "DEV";
+    const PROD = "PROD";
+    const STG = "STG";
 
     // --------------------------------------------------------------------
-        /**
-         *
-         *
-         * Webservices
-         *
-         * This function returns a list of members
-         *
-         * @access  public
-         * @return  string
-         */
+    /**
+     *
+     *
+     * Webservices
+     *
+     * This function returns a list of members
+     *
+     * @access  public
+     * @return  string
+     */
     public function __construct()
     {
         $this->EE =& get_instance();
@@ -47,6 +53,7 @@ class Webservices
         $this->services = new Webservices_functions;
 
         $this->_cookies_prefix = '';
+        $this->env = $this->EE->config->item('env');
 
     }
 
@@ -93,7 +100,23 @@ class Webservices
       // setcookie($name, $jsonObj, time() + (1800), '/'); 
       // $this->services->set_cookie($name, $jsonObj);
       // $this->services->set_cookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false);
-      setcookie($this->services->get_fuzzy_name($name), $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
+      switch ($this->env) {
+        case LOCAL:
+          setcookie($name, $jsonObj, time() + (1800), '/'); 
+          break;
+        case DEV:
+          setcookie($name, $jsonObj, time() + (1800), '/'); 
+          break;
+        case STG:
+          setcookie($name, $jsonObj, time() + (1800), '/'); 
+          break;
+        case PROD:
+          setcookie($this->services->get_fuzzy_name($name), $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
+          break;
+        default:
+          setcookie($this->services->get_fuzzy_name($name), $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
+          break;
+      }
       return;
     }
 
@@ -118,10 +141,28 @@ class Webservices
       {
         unset($_SESSION[$this->_cookies_prefix.$name]);
       }
+
       // setcookie($name, NULL, time() - (1800), "/");
-      setcookie($this->services->get_fuzzy_name($name), NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
+      // setcookie($this->services->get_fuzzy_name($name), NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
 
       // $this->services->set_cookie($name, NULL, time() - (1800), "/");
+      switch ($this->env) {
+        case LOCAL:
+          setcookie($name, $jsonObj, time() + (1800), '/'); 
+          break;
+        case DEV:
+          setcookie($name, $jsonObj, time() + (1800), '/'); 
+          break;
+        case STG:
+          setcookie($name, $jsonObj, time() + (1800), '/'); 
+          break;
+        case PROD:
+          setcookie($this->services->get_fuzzy_name($name), $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
+          break;
+        default:
+          setcookie($this->services->get_fuzzy_name($name), $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
+          break;
+      }
     }
 
     /**
