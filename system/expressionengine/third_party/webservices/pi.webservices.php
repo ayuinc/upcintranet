@@ -1268,32 +1268,6 @@ class Webservices
       return $modalidad;
     }
 
-    public function companeros()
-    {
-      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
-      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      $tagdata  = $this->EE->TMPL->tagdata;
-      $codcurso = ee()->TMPL->fetch_param('cod_curso'); 
-      if($modalidad_survey !== $this->get_modalidad_alumno()){
-        return;
-      }
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
-      $token = '';
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
-      }
-      
-      $url = 'Companeros/?CodAlumno='.$codigo.'&CodCurso='.$codcurso.'&Token='.$token;
-      $result=$this->services->curl_url($url);
-       var_dump($result);
-      $json = json_decode($result, true);
-      var_dump($json);
-      return $json;
-
-    }
-
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno()
     {
@@ -3013,28 +2987,55 @@ class Webservices
       return $result;                 
     } 
 
-    //LISTADO DE COMPANEROS DE CLASE POR CURSO    
+    //LISTADO DE COMPANEROS DE CLASE POR CURSO
+    /**
+    * Tag para obtener compañeros de clase por curso de un alumno. 
+    * @param cod_curso el código del curso que lleva el alumno
+    * Tags : 
+    * {alumnos} {nombre} {codigo} {foto_url} {/alumnos}
+    **/
     public function companeros_clase_por_curso()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-      $codcurso = ee()->TMPL->fetch_param('codcurso');
-      
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+      $tagdata  = $this->EE->TMPL->tagdata;
+      $codcurso = ee()->TMPL->fetch_param('cod_curso'); 
 
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
-
-      foreach($query_modelo_result->result() as $row){
+      $token = '';
+      foreach($query_modelo_result->result() as $row) {
         $token = $row->token;
       }
 
-      $url = 'Companeros/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
-
+      $url = 'Companeros/?CodAlumno='.$codigo.'&CodCurso='.$codcurso.'&Token='.$token;
       $result=$this->services->curl_url($url);
-      
+      // echo $result;
+      $json = json_decode($result, true);
+
+      $result = '';
+      $this->_get_subtag_data('alumnos', $tagdata);
+
+      $tag_alumno = $this->_get_subtag_data('alumnos', $tagdata);
+      foreach ($json['alumnos'] as  $alumno ) 
+      {
+          $tag = $this->_replace_subtag_data('nombre', $tag_alumno, $alumno['nombre_completo']);
+          $tag = $this->_replace_subtag_data('codigo', $tag, $alumno['codigo']);
+          $tag = $this->_replace_subtag_data('foto_url', $tag, $alumno['url_foto']);
+          $result.= $tag;
+      }
+
+      $error_result = $this->error_eval($error);
+      if($error_result !== '0' && $error_result !== '1')
+      {
+          $site_url = ee()->config->item('site_url');
+          $this->EE->functions->redirect($site_url."general/session-expired");
+      }else if($error_result === '1'){
+          $error_tag = $this->_get_subtag_data('error', $tagdata);
+          $result = $this->_replace_subtag_data('error_message', $error_tag, $json['MsgError']);
+      }
+
       return $result;         
     }
     
