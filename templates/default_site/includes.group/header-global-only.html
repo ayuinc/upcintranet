@@ -1,9 +1,14 @@
     <div class="site-header">
       <div class="container-fluid">
         <div class="header-global clearfix pl-7 pb-7 pr-21">
+        {if segment_2 == 'terminos'}
           <div class="pull-left crisol">
             <img class="img-center pt-7" src="{site_url}assets/img/isotipo_upc.png" alt="">
           </div>
+          <div class="pull-left mt-7">
+            <span class="solano-bold-20 black-text">Mi UPC</span>
+          </div>
+        {/if}
           <div class="pull-right mt-7">
             <ul class="list-unstyled">
               {exp:channel:entries channel="servicios" sort="asc"}
