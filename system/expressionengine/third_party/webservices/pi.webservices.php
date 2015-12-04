@@ -248,6 +248,7 @@ class Webservices
       }
       return '';
     }
+
     /**
      * Get terms and conditions acceptance of db
      *
@@ -303,6 +304,23 @@ class Webservices
            $this->set_session_cookie("Terms","true");
         }
       return true;
+    }
+
+    /**
+     * Get diferencia de días 
+     *
+     * @access  private
+     * @param tag_name Tag to look for
+     * @param tag_data Template tag data to look in
+     * @return string
+     */
+    private function get_diferencia_en_dias($date1, $date2){    
+      $date1 = new DateTime();
+      $fecha1->setTimestamp($date1);
+      $fecha2 = new DateTime();
+      $fecha2->setTimestamp($date2);
+      $interval = date_diff($fecha1 , $fecha2);
+      return (int)$interval->format('%R%a');
     }
 
     /**
@@ -464,6 +482,34 @@ class Webservices
         $token = $row->token;
       }
     }
+
+    /**
+     * Get user codigo
+     *
+     * @access  private
+     * @return 
+     */
+    private function get_user_codigo(){
+        return $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+    }
+
+    /**
+     * Get user codigo
+     *
+     * @access  private
+     * @return 
+     */
+    private function get_user_token($codigo){
+        ee()->db->select('*');
+        ee()->db->where('codigo',$codigo);
+        $query_modelo_result = ee()->db->get('exp_user_upc_data');
+        $token = '';
+        foreach($query_modelo_result->result() as $row) {
+          $token = $row->token;
+        }
+        return $token;
+    }
+
 
     ///  Validate Terminos y Condiciones
     public function get_terms_acceptance()
@@ -2277,7 +2323,7 @@ class Webservices
       $result .= '<div class="panel">';
       $result .= '<div class="panel-head no-bg">
         <div class="panel-title left">
-          <h3>Saltar a un curso</h3>
+          <h3>Elija un curso</h3>
         </div>
       </div>';
       $result .= '<div class="panel-body wobg">';
@@ -2582,21 +2628,13 @@ class Webservices
      
     public function padre_notas_alumno_por_curso()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-      // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+
       $codigo_alumno =  $_GET['codigo_alumno'];
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
-      }
+      $token = $this->get_user_token($codigo);
       
       $url = 'InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
-      //InasistenciaPadre/?Codigo=UFSANGAR10&CodAlumno=U201110028&CodCurso=CO18&Token=af0b422650d743d5b5e2e24d785ebb5c20140325114353
       //var_dump($url);
       $result=$this->services->curl_url($url);
       //var_dump($result);
@@ -2607,8 +2645,8 @@ class Webservices
       
       
       $error_result = $this->error_eval($error);
-      if ($error_result != '0' && $error_result != '1') {
-        
+      if ($error_result != '0' && $error_result != '1') 
+      {
         return $error_result;
       }
       //limpio la variable para reutilizarla
@@ -2633,10 +2671,6 @@ class Webservices
         //Loop interno para calcular notas segun curso
         $url = 'NotaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token.'&CodCurso='.$codcurso;
         //var_dump($url);
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL,$url);
         $result_int=$this->services->curl_url($url);
         //var_dump($result_int);
         $json_int = json_decode($result_int, true);           
@@ -2764,7 +2798,7 @@ class Webservices
         $result .= '</div>'; 
         $result .= '</div>';      
       }
-      elseif ($error_result != '0')
+      else if ($error_result != '0')
       {
         $result = $error_result;
       }
@@ -2993,31 +3027,22 @@ class Webservices
     * @param cod_curso el código del curso que lleva el alumno
     * Tags : 
     * {alumnos} {nombre} {codigo} {foto_url} {/alumnos}
+    * {error} {error_message} {/error}
     **/
     public function companeros_clase_por_curso()
     {
-      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+      $codigo =  $this->get_user_codigo();
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+      $token = $this->get_user_token($codigo);
       $tagdata  = $this->EE->TMPL->tagdata;
       $codcurso = ee()->TMPL->fetch_param('cod_curso'); 
 
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
-      $token = '';
-      foreach($query_modelo_result->result() as $row) {
-        $token = $row->token;
-      }
-
       $url = 'Companeros/?CodAlumno='.$codigo.'&CodCurso='.$codcurso.'&Token='.$token;
       $result=$this->services->curl_url($url);
-      // echo $result;
       $json = json_decode($result, true);
-
       $result = '';
-      $this->_get_subtag_data('alumnos', $tagdata);
-
       $tag_alumno = $this->_get_subtag_data('alumnos', $tagdata);
+
       foreach ($json['alumnos'] as  $alumno ) 
       {
           $tag = $this->_replace_subtag_data('nombre', $tag_alumno, $alumno['nombre_completo']);
@@ -3031,7 +3056,9 @@ class Webservices
       {
           $site_url = ee()->config->item('site_url');
           $this->EE->functions->redirect($site_url."general/session-expired");
-      }else if($error_result === '1'){
+      }
+      else if ($error_result === '1') 
+      {
           $error_tag = $this->_get_subtag_data('error', $tagdata);
           $result = $this->_replace_subtag_data('error_message', $error_tag, $json['MsgError']);
       }
@@ -3122,9 +3149,6 @@ class Webservices
     //BOLETAS PENDIENTES DEL ALUMNO   
     public function boletas_pendientes_alumno()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-      
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
@@ -3137,10 +3161,7 @@ class Webservices
       }
 
       $url = 'PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
-      //var_dump($url);
-
       $result=$this->services->curl_url($url);
-      //var_dump($result);
       $json = json_decode($result, true);
       
       if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
@@ -3166,6 +3187,23 @@ class Webservices
            $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4);
            $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2);
            $fech_vencimiento = strtotime($fech_vencimiento_format1.' 12:00:00');
+           $diff=  date_diff($fecha_vencimiento, $fecha_actual);
+           $diaspasados = $this->get_diferencia_en_dias($fecha_actual, $fech_vencimiento);
+           // if ($diaspasados*(-1) > 30) {
+           //     $msg = 
+           //     $result = '<div class="panel-body info-border">';
+           //     $result .= '<div class="panel-body-content text-left">';
+           //     $result .= '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
+           //     if ($json['MsgError']=="Ud. no presenta deudas pendientes.") {
+           //      $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">Ud. no presenta deudas.</span>';          
+           //     } else {
+           //      $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';          
+           //     }
+           //     $result .= '</div>';
+           //     $result .= '</div>';
+           //     $result .= '</div>';
+
+           // }
 
            $result = '<div class="panel-body">';
            $result .= '<div class="panel-body-head left">';
@@ -3328,9 +3366,6 @@ class Webservices
 
    public function padres_boletas_pendientes_alumno()
     {
-         //$codigo = $_SESSION["Codigo"];
-         //$token = $_SESSION["Token"];
-         
          $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
          $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
          $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");

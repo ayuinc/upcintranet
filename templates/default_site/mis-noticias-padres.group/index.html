@@ -7,10 +7,10 @@
 
     <div class="site-content">
       {exp:channel:entries 
-      	channel="seccion" 
-      	disable="member_data|pagination"  
+        channel="seccion" 
+        disable="member_data|pagination"  
         limit="1"
-      	entry_id="61"
+        entry_id="61"
       }
       <div class="container-fluid">
         <div class="internal-header">
@@ -38,12 +38,12 @@
             <div class="col-sm-8">
               <span class="zizou-26 mb-21">Últimas Noticias de la UPC</span>
               <div class="row">
-  	            {exp:ajw_feedparser 
-  						    url="http://www.upc.edu.pe/noticias/rss"
-  						    cache_refresh="30"
-  						    limit="10"
+                {exp:ajw_feedparser 
+                  url="http://www.upc.edu.pe/noticias/rss"
+                  cache_refresh="30"
+                  limit="10"
                   parse="inward"
-  							} 
+                } 
                 <div class="col-sm-6">
                   <div class="panel">
                     <div class="panel-body canales">
