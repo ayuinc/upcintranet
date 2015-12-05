@@ -9,30 +9,51 @@
       <div class="container-fluid">
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination|categories" entry_id="93" dynamic="off"}
         <div class="internal-header">
-            <div class="row first-line">
-              <div class="col-sm-0-5"></div>
-              <div class="col-sm-4"><span>Necesitas</span></div>
-            </div>
-            <div class="row second-line pb-14">
-              <div class="col-sm-0-5"></div>
-              <div class="col-sm-4">
-  	            <span>{title}</span>
-              </div>
-            </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-4"><span class="zizou-16">Ayuda</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+             <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+          </div>
         </div> 
-        {/exp:channel:entries}    
+    
         <div class="section-content pb-70">
           <div class="row">
-  	        <div class="col-sm-0-5"></div>
-            <div class="col-sm-3"><span><a href="{site_url}ayuda">Regresar</a></span></div>
-            <div class="col-sm-8 resultados">
-                {exp:channel:entries channel="ayuda" limit="1" disable="member_data"}
-                <h3>{title}</h3>
-                <p>{contenido-noticia}</p>
-    						{/exp:channel:entries} 		            
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-3 section-desc">
+              <span>{introduccion-seccion}</span>
+              {embed="includes/otras-acciones" otras_acciones="{otras-actividades-seccion}"}
+              {embed="includes/dashboard-accesos-rapidos" cate="{category_id}"}
+            </div>   
+            {/exp:channel:entries}   
+          <div class="row">
+            <div class="col-sm-0-5"></div>
+            <div class="col-sm-8 resultados red-line bg-muted pb-14 pt-14">
+             {if segment_4 != last_segment}
+                {exp:channel:entries channel="ayuda_padres" limit="1" disable="member_data" dynamic="off" status="Padre" category="{segment_3}" entry_id="{segment_4}"}
+                  <h3 class="solano-bold-28 pt-3 black-text">{title}</h3>
+                  <p>{contenido-noticia}</p>
+                {/exp:channel:entries}  
+                <br>
+                <a href="{site_url}ayuda-padres/{segment_3}/{last_segment}" class="pl-0 pb-7 pr-35 sb-link zizou-14">
+                 <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">
+                Regresar</a>    
+             {if:else }
+                {exp:channel:entries channel="ayuda_padres" limit="1" disable="member_data" dynamic="off" status="Padre" entry_id="{segment_3}"}
+                  <h3 class="solano-bold-28 pt-3 black-text">{title}</h3>
+                  <p>{contenido-noticia}</p>
+                {/exp:channel:entries}
+                <br>
+                <a href="{site_url}ayuda-padres/{last_segment}" class="pl-0 pb-7 pr-35 sb-link zizou-14">
+                 <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">
+                Regresar</a>  
+              {/if}            
             </div>
           </div>
         </div>
+      </div> 
       </div>
     </div>
 {embed="includes/footer"}   

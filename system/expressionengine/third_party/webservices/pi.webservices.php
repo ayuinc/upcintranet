@@ -638,7 +638,9 @@ class Webservices
         if (count($json["hijos"])===1) 
         {
           $this->EE->functions->redirect($site_url.'dashboard/padre/hijos/'.$json["hijos"][0]["codigo"]);
-        }else{
+        }
+        else
+        {
 
           for ($i=0; $i < count($json["hijos"])  ; $i++) 
           { 
