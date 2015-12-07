@@ -4,7 +4,9 @@ $(document).ready(function(){
 		document.cookie="closed-alert=true";
 		$(".msge-row").hide();
 	})
-
+	  if ($('.site-content').hasClass("dashboard")) {
+	    $('.site-wrapper').addClass("grid-bg");
+	  }
 	$("#lnk_int_CerrarSesion").click(function(){
 		document.cookie="closed-alert=false";
 	})
@@ -17,7 +19,7 @@ $(document).ready(function(){
 		$(".msge-row").hide();
 	}
 
-	$('#myModal').modal('toggle');
+	$('.dashboard-modal').modal('toggle');
 });
 
 function getCookie(cname) {
