@@ -1,17 +1,15 @@
-{exp:channel:entries channel="configuracion_tutorial"}
+{exp:channel:entries channel="configuracion_tutorial" status="Open"}
 
 <!-- Modal starts {habilitar_tutorial_en} -->
-{if "{dirigido_a}" == "{exp:webservices:tipo_usuario}" || "{dirigido_a}" == "General"} 
+{if "{dirigido_a}" == "{exp:webservices:tipo_usuario}"} 
   {if "{dirigido_a}" == "Alumno"}
     {if "{modalidad_tutorial_settings}" == "{exp:webservices:get_modalidad_alumno}" || "{modalidad_tutorial_settings}"=="Todas"}
-    {habilitar_tutorial_en} 
-    {item}
-    {if item =="dashboard" }dashboard-modal{/if}
-    {/habilitar_tutorial_en} 
       <div class="modal fade {habilitar_tutorial_en}{if item =='dashboard' }dashboard-modal{/if} {if item =='dashboard' }inicio-modal{/if} {/habilitar_tutorial_en}" id="{habilitar_tutorial_en}{if item =='ver tutorial' }myModal{if:else}modalBasic{/if}{/habilitar_tutorial_en}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body">
+            <h1>{title} 1</h1>
               <!-- Place somewhere in the <body> of your page -->
               <div class="flexslider">
                 <ul class="slides">
@@ -36,6 +34,7 @@
         <div class="modal-content">
           <div class="modal-body">
             <!-- Place somewhere in the <body> of your page -->
+            <h1>{title} 2</h1>
             <div class="flexslider">
               <ul class="slides">
                 
