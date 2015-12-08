@@ -1,11 +1,11 @@
 {exp:channel:entries channel="configuracion_tutorial" status="Open"}
 
 <!-- Modal starts {habilitar_tutorial_en} -->
-{if "{dirigido_a}" == "{exp:webservices:tipo_usuario}"} 
+{if "{dirigido_a}" == "{exp:webservices:tipo_usuario}" ||  "{dirigido_a}" == "General"}
   {if "{dirigido_a}" == "Alumno"}
     {if "{modalidad_tutorial_settings}" == "{exp:webservices:get_modalidad_alumno}" || "{modalidad_tutorial_settings}"=="Todas"}
-      <div class="modal fade {habilitar_tutorial_en}{if item =='dashboard' }dashboard-modal{/if} {if item =='dashboard' }inicio-modal{/if} {/habilitar_tutorial_en}" id="{habilitar_tutorial_en}{if item =='ver tutorial' }myModal{if:else}modalBasic{/if}{/habilitar_tutorial_en}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      
+      <div class="modal fade {habilitar_tutorial_en}{if item =='dashboard' }dashboard-modal{/if} {if item =='dashboard' }inicio-modal{/if} {/habilitar_tutorial_en}" id="{habilitar_tutorial_en}{if item =='ver tutorial' }myModal{/if}{/habilitar_tutorial_en}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <h1>{title}</h1>
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body">
@@ -28,7 +28,7 @@
     {/if}
   {if:else}
 
-      <div class="modal fade {habilitar_tutorial_en}{if item =='dashboard' }dashboard-modal{/if} {if item =='dashboard' }inicio-modal{/if} {/habilitar_tutorial_en}" id="{habilitar_tutorial_en}{if item =='ver tutorial' }myModal{if:else}modalBasic{/if}{/habilitar_tutorial_en}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal fade {habilitar_tutorial_en}{if item =='dashboard' }dashboard-modal{/if} {if item =='dashboard' }inicio-modal{/if} {/habilitar_tutorial_en}" id="{habilitar_tutorial_en}{if item =='ver tutorial' }myModal{/if}{/habilitar_tutorial_en}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
