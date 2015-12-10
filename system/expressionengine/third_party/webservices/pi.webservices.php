@@ -172,7 +172,8 @@ class Webservices
      * @param string $error Error string
      * @return 
      */
-    private function error_eval($error){
+    private function error_eval($error)
+    {
       $result = '0';
       if ($error != '')
       {
@@ -199,7 +200,8 @@ class Webservices
      * @param tag_data Template tag data to look in
      * @return string
      */
-    private function _get_subtag_data($tag_name, $tagdata){    
+    private function _get_subtag_data($tag_name, $tagdata)
+    {    
       $pattern  = '#'.LD.$tag_name.RD.'(.*?)'.LD.'/'.$tag_name.RD.'#s';
 
       if (is_string($tagdata) && is_string($tag_name) && preg_match($pattern, $tagdata, $matches))
@@ -218,9 +220,8 @@ class Webservices
      * @param replacement 
      * @return string
      */
-    private function _replace_subtag_data($tag_name, $tagdata, $replacement){
-
-
+    private function _replace_subtag_data($tag_name, $tagdata, $replacement)
+    {
       if (is_string($tagdata) && is_string($tag_name) && is_string($replacement))
       {
         // var_dump('by this '.$replacement.' replace'.$tag_name.' on '.$tagdata);
@@ -239,8 +240,8 @@ class Webservices
      * @param replacement 
      * @return string
      */
-    private function _replace_pair_subtag_data($tag_name, $tagdata, $replacement){
-
+    private function _replace_pair_subtag_data($tag_name, $tagdata, $replacement)
+    {
       $pattern  = '#'.LD.$tag_name.RD.'(.*?)'.LD.'/'.$tag_name.RD.'#s';
       if (is_string($tagdata) && is_string($tag_name) && preg_match($pattern, $tagdata, $matches))
       {
@@ -314,13 +315,15 @@ class Webservices
      * @param tag_data Template tag data to look in
      * @return string
      */
-    private function get_diferencia_en_dias($date1, $date2){    
-      $date1 = new DateTime();
+    private function get_diferencia_en_dias($date1, $date2)
+    {    
+      $fecha1 = new DateTime();
       $fecha1->setTimestamp($date1);
       $fecha2 = new DateTime();
       $fecha2->setTimestamp($date2);
-      $interval = date_diff($fecha1 , $fecha2);
-      return (int)$interval->format('%R%a');
+      $interval = ($fecha1->diff($fecha2, false));
+      echo 'interval'.$interval;
+      return $interval->format("%R%a");
     }
 
     /**
@@ -3116,6 +3119,7 @@ class Webservices
     {
       //$codigo = $_SESSION["Codigo"];
       // $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
+      $tagdata  = $this->EE->TMPL->tagdata;
       $codigo_alumno =  $_GET['codigo_alumno'];
       //$token = $_SESSION["Token"];
       
@@ -3155,12 +3159,14 @@ class Webservices
       
       return $result;         
     } 
+
+
     //BOLETAS PENDIENTES DEL ALUMNO   
     public function boletas_pendientes_alumno()
     {
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-
+      $tagdata  = $this->EE->TMPL->tagdata;
       ee()->db->select('*');
       ee()->db->where('codigo',$codigo);
       $query_modelo_result = ee()->db->get('exp_user_upc_data');
@@ -3171,6 +3177,7 @@ class Webservices
 
       $url = 'PagoPendiente/?CodAlumno='.$codigo.'&Token='.$token;
       $result=$this->services->curl_url($url);
+      // echo $result;
       $json = json_decode($result, true);
       
       if (($json['CodError']=='00041') || ($json['CodError']=='00003')) {
@@ -3191,30 +3198,41 @@ class Webservices
       } else {
         $result = '';
         for ($i=0; $i < count($json['PagosPendientes']); $i++) { 
-           $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
-           $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 0,4);
-           $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4);
-           $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2);
-           $fech_vencimiento = strtotime($fech_vencimiento_format1.' 12:00:00');
-           $diff=  date_diffc($fecha_vencimiento, $fecha_actual);
-           $diaspasados = $this->get_diferencia_en_dias($fecha_actual, $fech_vencimiento);
-           // if ($diaspasados*(-1) > 30) {
-           //     $msg = 
-           //     $result = '<div class="panel-body info-border">';
-           //     $result .= '<div class="panel-body-content text-left">';
-           //     $result .= '<img class="m-14 pull-left" src="{site_url}assets/img/check_xl.png" alt="">';
-           //     if ($json['MsgError']=="Ud. no presenta deudas pendientes.") {
-           //      $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">Ud. no presenta deudas.</span>';          
-           //     } else {
-           //      $result .= '<div class="inline-block p-28"><span class="text-info helvetica-18">'.$json['MsgError'].'</span>';          
-           //     }
-           //     $result .= '</div>';
-           //     $result .= '</div>';
-           //     $result .= '</div>';
+            $fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
+            $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecEmision'], 0,4);
+            $fech_vencimiento_format = substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4);
 
-           // }
+            $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2);
 
-           $result = '<div class="panel-body">';
+            $fech_vencimiento = strtotime($fech_vencimiento_format1.' 12:00:00');
+
+            $fnow = time();
+            $fven = strtotime($fech_vencimiento_format);
+            $diaspasados = $this->get_diferencia_en_dias($fven, $fnow);
+            echo 'diasss'.$diaspasados;
+            if ($diaspasados > 30) 
+            { setlocale(LC_TIME, 'es_PE');
+              $result .= '<div class="panel">';
+              $result .= '<div class="panel-body pb-21">';
+              $result .= '<div class="red-line panel-table p-14 pt-0 text-left">';
+              $result .= '<ul class="tr">';
+              $result .= '<li class="col-xs-3 col-sm-2 text-center">';
+              $result .= '<img class="img-center" src="{site_url}assets/img/icono-pagos-pendientes.png" alt="">';
+              $result .= '</li>';
+            
+              $mensaje = ($diaspasados < 60) ? $this->_get_subtag_data('pendiente_dos_meses', $tagdata): $this->_get_subtag_data('pendiente_tres_meses', $tagdata);
+              setlocale(LC_TIME, "es_ES");
+              $mensaje = $this->_replace_subtag_data('fecha', $mensaje, strftime("%d de %B del %Y",$fven));
+              $result .= '<li class="col-xs-9 col-sm-10"><span class="block helvetica-18">'.$mensaje.'</span>';          
+
+              $result .= '</li>';
+              $result .= '</ul>';
+              $result .= '</div>';
+              $result .= '</div>';
+              $result .= '</div>';
+            }
+
+           $result .= '<div class="panel-body">';
            $result .= '<div class="panel-body-head left">';
            $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
            $result .= '<span class="solano-20">Cuota '.$json['PagosPendientes'][$i]['NroCuota'].'</span>';
@@ -3244,7 +3262,7 @@ class Webservices
            $result .= '</div>';
            $result .= '</li>';
 
-           if ($fecha_actual > $fech_vencimiento) {
+           if ($diaspasados<0) {
               $result .= '<li class="col-xs-6 col-sm-2 apr-tr">';
               $result .= '<div class="text-center">';
               $result .= '<span class="helvetica-bold-14">A TIEMPO</span>'; /* pdte-tr*/
@@ -3254,7 +3272,7 @@ class Webservices
            else{
               $result .= '<li class="col-xs-2 pdte-tr">';
               $result .= '<div class="text-center">';
-              $result .= '<span class="helvetica-bold-14">A TIEMPO</span>'; /* pdte-tr*/
+              $result .= '<span class="helvetica-bold-14">PENDIENTE</span>'; /* pdte-tr*/
               $result .= '</div>';
               $result .= '</li>';
            }
