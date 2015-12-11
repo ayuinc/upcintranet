@@ -303,6 +303,9 @@
 						li div
 						{
 							border-right: 2px solid $gray-light;	
+							div{
+								border: none;
+							}
 						}
 						li:last-of-type div{
 							border-right: 0px;
