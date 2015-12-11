@@ -322,7 +322,7 @@ class Webservices
       $fecha2 = new DateTime();
       $fecha2->setTimestamp($date2);
       $interval = ($fecha1->diff($fecha2, false));
-      echo 'interval'.$interval;
+
       return $interval->format("%R%a");
     }
 
@@ -3209,7 +3209,7 @@ class Webservices
             $fnow = time();
             $fven = strtotime($fech_vencimiento_format);
             $diaspasados = $this->get_diferencia_en_dias($fven, $fnow);
-            echo 'diasss'.$diaspasados;
+
             if ($diaspasados > 30) 
             { setlocale(LC_TIME, 'es_PE');
               $result .= '<div class="panel">';
@@ -3439,7 +3439,33 @@ class Webservices
               $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0,4).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 4,2).'-'.substr($json['PagosPendientes'][$i]['FecVencimiento'], 6,2);
               $fech_vencimiento = strtotime($fech_vencimiento_format1.' 12:00:00');
 
-              $result = '<div class="panel-body">';
+
+              $fnow = time();
+              $fven = strtotime($fech_vencimiento_format);
+              $diaspasados = $this->get_diferencia_en_dias($fven, $fnow);
+
+              if ($diaspasados > 30) 
+              { setlocale(LC_TIME, 'es_PE');
+                $result .= '<div class="panel">';
+                $result .= '<div class="panel-body pb-21">';
+                $result .= '<div class="red-line panel-table p-14 pt-0 text-left">';
+                $result .= '<ul class="tr">';
+                $result .= '<li class="col-xs-3 col-sm-2 text-center">';
+                $result .= '<img class="img-center" src="{site_url}assets/img/icono-pagos-pendientes.png" alt="">';
+                $result .= '</li>';
+              
+                $mensaje = ($diaspasados < 60) ? $this->_get_subtag_data('pendiente_dos_meses', $tagdata): $this->_get_subtag_data('pendiente_tres_meses', $tagdata);
+                setlocale(LC_TIME, "es_ES");
+                $mensaje = $this->_replace_subtag_data('fecha', $mensaje, strftime("%d de %B del %Y",$fven));
+                $result .= '<li class="col-xs-9 col-sm-10"><span class="block helvetica-18">'.$mensaje.'</span>';          
+
+                $result .= '</li>';
+                $result .= '</ul>';
+                $result .= '</div>';
+                $result .= '</div>';
+                $result .= '</div>';
+              }
+              $result .= '<div class="panel-body">';
               $result .= '<div class="panel-body-head left">';
               $result .= '<udm_load_ispell_data(agent, var, val1, val2, flag) class="tr">';
               $result .= '<span class="solano-20">Cuota '.$json['PagosPendientes'][$i]['NroCuota'].'</span>';
@@ -3469,7 +3495,7 @@ class Webservices
               $result .= '</div>';
               $result .= '</li>';
 
-              if ($fecha_actual > $fech_vencimiento) {
+              if ($diaspasados<0) {
                  $result .= '<li class="col-xs-2 apr-tr">';
                  $result .= '<div class="text-center">';
                  $result .= '<span class="helvetica-bold-14">A TIEMPO</span>'; /* pdte-tr*/
