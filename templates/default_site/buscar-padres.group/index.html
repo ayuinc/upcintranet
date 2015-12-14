@@ -22,7 +22,7 @@
             <div class="col-sm-0-5"></div>
             <div class="col-sm-3 que-buscas">
               <span class="zizou-26">¿Qué buscas?</span>
-               <form method="post" action="{site_url}index.php/buscar-padres/result">
+               <form method="post" action="{site_url}index.php/buscar-padres/result/{segment_3}">
                 <input type="hidden" name="csrf_token" value="{csrf_token}" /> <!-- Important! -->
                 <input type="hidden" name="XID" value="{XID_HASH}">
            
@@ -38,8 +38,8 @@
                   <span id="total-results"></span> resultados para <span class="black-text">"{super_search_keywords}"</span>  </p>
               <div class="resultados-busqueda red-line bg-muted">
 
-                  {exp:super_search:results
-                      channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title|intrudccion-referencia|intro-noticia"  where="any" keyword_search_author_name="yes" keyword_search_category_name="yes" relevance_proximity="yes" status="Open"
+                  {exp:super_search:results search_in="title"
+                      channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title"  where="any" keyword_search_author_name="yes" keyword_search_category_name="no" relevance_proximity="yes" status="Open|Padre"
                   }
                         {if super_search_no_results}
                            <div class="panel-body p-14 ">
@@ -51,8 +51,8 @@
                     
                     {if buscar_padres_referencia=='si'}
                      <div class="panel-body p-14 result_query">
-                        <div class="solano-bold-20 black-text">
-                          <span id="search-count"></span>.&nbsp;{title}
+                        <div class="solano-bold-20 black-text"> 
+                          <span id="search-count"></span>.&nbsp;{title} 
                         </div>   
                         <div class="helvetica-16">
                         {if intrudccion-referencia}
@@ -75,27 +75,16 @@
                         {/if} 
                         </div>
                         </div>
-                      {if:else}
-                        
-                         {if link-referencia}
-                         <div class="panel-body p-14 result_query">
-                         <div class="solano-bold-20 black-text">
-                          <span id="search-count"></span>.&nbsp;{title}
-                        </div>   
-                         
-                          <a target="_blank" class="danger-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
-
-                        </div>
-                        {if:elseif acceso_rapido_link}
-                          <div class="panel-body p-14 result_query">
-                           <div class="solano-bold-20 black-text">
-                            <span id="search-count"></span>.&nbsp;{title}
-                          </div>   
-                           
-                            <a target="_blank" class="danger-link zizou-16" target="_blank" href="{acceso_rapido_link}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
-
-                          </div>
-                        {if:else}
+                      {/if}
+                      {if count != super_search_total_results}
+                      <div class="dotted-line"></div>
+                      {/if}
+                    {/exp:super_search:results}
+                  {exp:super_search:results search_in="title"
+                      channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title"  where="any" keyword_search_author_name="yes" keyword_search_category_name="yes" relevance_proximity="yes" status="Open|Padre"
+                  }
+                      
+ 
                           {exp:channel:entries dynamic="off" entry_id="{entry_id}"}
                             {categories limit="1"}
                               {exp:query sql="SELECT exp_templates.template_id 
@@ -110,19 +99,13 @@
                                   <div class="panel-body p-14 result_query">
                                   <div class="solano-bold-20 black-text">
                                     <span id="search-count"></span>.&nbsp;{title}
-                                  </div>   
+                                  </div>
                                   <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}{category_url_title}/{url_title}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
                                   </div>
+                                   <div class="dotted-line"></div>
                               {/exp:query}
                             {/categories}     
                           {/exp:channel:entries}
-                        {/if}
-                      {/if}
-                      
-                      {if count != super_search_total_results}
-                      <div class="dotted-line"></div>
-                      {/if}
-                   
                   {/exp:super_search:results}
                 </div>
               </div>

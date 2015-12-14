@@ -6,7 +6,11 @@
           {if:else}
           <li class="{url_title} menu sidebar-item"> 
           {/if}
+          {if segment_1=="buscar-padres"}
+            <a id="lnk_int_{title}" href="{url-root-item}/{segment_3}">
+          {if:else}
             <a id="lnk_int_{title}" href="{url-root-item}/{last_segment}">
+          {/if}
               <div></div>
               <span>{title}</span>
             </a>
@@ -14,7 +18,11 @@
           </li>
         {/exp:channel:entries}
         <li class="ayuda menu sidebar-item">
+          {if segment_1=="buscar-padres"}
+          <a id="lnk_int_Ayuda" href="{site_url}ayuda-padres/{segment_3}">
+          {if:else}
           <a id="lnk_int_Ayuda" href="{site_url}ayuda-padres/{last_segment}">
+          {/if} 
             <div></div>
             <span>Ayuda</span>
           </a>

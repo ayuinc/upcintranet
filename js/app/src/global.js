@@ -13,7 +13,9 @@ $(document).ready(function(){
     });
     // search feature
     $('.search-trigger').click(function(){
-        $('.search-bar').toggleClass('hidden');
+        // $('.search-bar').toggleClass('hidden');
+        
+        $('form#form-buscar').submit();
     })
     //
     //pdf and mail features

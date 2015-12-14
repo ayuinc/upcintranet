@@ -886,18 +886,17 @@ class Webservices
     // HEADER PADRES CON LISTA DE HIJOS 
     public function padre_lista_de_hijos()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];
-      
-      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
-      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
-      }
 
+      // $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+      // $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+      $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');  
+      // ee()->db->where('codigo',$codigo);
+      $codigo = $this->get_user_codigo();
+      // $query_modelo_result = ee()->db->get('exp_user_upc_data');
+      // foreach($query_modelo_result->result() as $row){
+      //   $token = $row->token;
+      // }
+      $token = $this->get_user_token($codigo);
       $result = '';
       
       $url = 'ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
