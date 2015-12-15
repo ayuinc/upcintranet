@@ -70,15 +70,15 @@
                           <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>             
                           {/if}
                           {if tipo-referencia=='Interna'}
-                          <a target="_blank" class="danger-link zizou-16" target="_blank" href="{site_url}{link-referencia}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>             
+                          <a target="_blank" class="danger-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>             
                           {/if}      
                         {/if} 
                         </div>
                         </div>
+                        <div class="dotted-line"></div>
+                        
                       {/if}
-                      {if count != super_search_total_results}
-                      <div class="dotted-line"></div>
-                      {/if}
+                      
                     {/exp:super_search:results}
                   {exp:super_search:results search_in="title"
                       channel="talleres|referencias|seccion|bolsa_trabajo|ayuda" search_in="title"  where="any" keyword_search_author_name="yes" keyword_search_category_name="yes" relevance_proximity="yes" status="Open|Padre"
@@ -93,8 +93,13 @@
                                 ON exp_template_groups.group_id = exp_templates.group_id 
                                 WHERE exp_template_groups.group_name LIKE '{category_url_title}'
                                 AND exp_template_groups.group_name LIKE '%padres%'
+                                AND exp_template_groups.group_name LIKE '%padre%'
                                 AND exp_template_groups.group_name NOT LIKE '%alumnos%'
+                                AND exp_template_groups.group_name NOT LIKE '%estudiante%'
                                 AND exp_template_groups.group_name NOT LIKE '%docentes%'
+                                AND exp_template_groups.group_name NOT LIKE '%docente%'
+                                AND exp_template_groups.group_name NOT LIKE '%docencia%'
+                                AND exp_template_groups.group_name NOT LIKE '%profesor%'
                                 limit 1"}
                                   <div class="panel-body p-14 result_query">
                                   <div class="solano-bold-20 black-text">
