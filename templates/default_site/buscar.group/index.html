@@ -48,17 +48,9 @@
                   </script>
 
                   {exp:super_search:results
-                       search_in="title" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes" where="any" relevance_proximity="yes" status="Open|Estudiante"  keyword_search_category_name="no"
-                  }
+                       search_in="title" channel="referencias" where="any" relevance_proximity="yes" status="Open|Estudiante"  keyword_search_category_name="no"
 
-                        {if super_search_no_results}
-                           <div class="panel-body p-14 ">
-                               <div class="helvetica-16">
-                                  Por favor, ingrese una nueva búsqueda.
-                               </div>
-                            </div>
-                        {/if}
-                    
+                  }
                     {if buscar_alumnos_referencia=='si'}
                      <div class="panel-body p-14 result_query">
                         <div class="solano-bold-20 black-text">
@@ -87,32 +79,12 @@
                         </div>
                        
                           <div class="dotted-line"></div>
-                        
-                      {if:else}
-                         {if link-referencia}
-                       <div class="panel-body p-14 result_query">
-                       <div class="solano-bold-20 black-text">
-                        <span id="search-count"></span>.&nbsp;{title}
-                      </div>   
-                       
-                        <a target="_blank" class="danger-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
-
-                      </div>
-                       <div class="dotted-line"></div>
-                      {if:elseif acceso_rapido_link}
-                        <div class="panel-body p-14 result_query">
-                         <div class="solano-bold-20 black-text">
-                          <span id="search-count"></span>.&nbsp;{title}
-                        </div>   
-                         
-                          <a target="_blank" class="danger-link zizou-16" target="_blank" href="{acceso_rapido_link}"><div class="arrow-icon mr-7 danger"></div>Ver más</a>
-
-                        </div>
-                         <div class="dotted-line"></div>
-                      {/if}
                        
                     {/if}
+                    {if super_search_no_results}
+                    {/if}
                   {/exp:super_search:results}
+  {embed="includes/buscar-uno" categories="{exp:webservices:categories_alumno}"}
                   {exp:super_search:results
                        search_in="title|intrudccion-referencia|intro-noticia" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|" where="any" relevance_proximity="yes" status="Open|Estudiante"  keyword_search_category_name="yes"
                         }
@@ -140,7 +112,8 @@
                               {/exp:query}
                             {/categories}     
                           {/exp:channel:entries}
-                      
+                          {if super_search_no_results}
+                          {/if}
                   {/exp:super_search:results}
                 </div>
                 </div>

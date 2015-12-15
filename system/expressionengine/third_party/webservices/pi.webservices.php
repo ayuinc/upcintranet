@@ -5529,6 +5529,18 @@ class Webservices
 	    $site_url = ee()->config->item('site_url');
       redirect($site_url);
     }
+
+    public function categories_alumno(){
+      $query = $this->EE->db->query("  SELECT  GROUP_CONCAT(exp_categories.cat_id  SEPARATOR '|') as cats FROM `exp_categories` JOIN `exp_category_groups` ON  exp_categories.group_id = exp_category_groups.group_id WHERE exp_categories.cat_name  LIKE '%docentes%' OR exp_categories.cat_name  LIKE '%docente%' OR exp_categories.cat_name  LIKE '%docencia%' OR exp_categories.cat_name  LIKE '%padres%' OR exp_categories.cat_name  LIKE '%profesor%' OR exp_categories.cat_name  LIKE '%padre%' OR exp_category_groups.group_name  LIKE '%docentes%' OR exp_category_groups.group_name  LIKE '%docente%' OR exp_category_groups.group_name  LIKE '%docencia%' OR exp_category_groups.group_name  LIKE '%profesor%'");
+      if ($query->num_rows() > 0)
+      {
+          foreach($query->result_array() as $row)
+          {
+              return $row['cats'];
+          }
+      }
+      return '';
+    }
         
 }
 
