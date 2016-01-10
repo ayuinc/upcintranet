@@ -66,6 +66,17 @@
                   </div>
                 </div>
                   {exp:webservices:padres_boletas_pendientes_alumno codigo_alumno="{last_segment}"} 
+                    {pendiente_dos_meses}
+                    {exp:channel:entries channel="mensajes_customizables" status="Open" dynamic="off" url_title="mis-pagos-dos-meses-atrasado-padre" limit="1"}
+                      {custom_message}
+                    {/exp:channel:entries}
+                   {/pendiente_dos_meses}
+                   {pendientes_tres_meses}
+                    {exp:channel:entries channel="mensajes_customizables" status="Open" dynamic="off" url_title="mis-pagos-tres-meses-atrasado-padre" limit="1"}
+                      {custom_message}
+                    {/exp:channel:entries}
+                   {/pendientes_tres_meses}
+                  {exp:webservices:padres_boletas_pendientes_alumno}
               </div>  
             </div>
           </div>
