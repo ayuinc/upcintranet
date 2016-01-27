@@ -1669,7 +1669,7 @@ class Webservices
       $result .= '<div class="hidden-lg hidden-md"><span>Faltas</span></div>';
       $result .= '</li>';
       $result .= '<li class="col-xs-2">';
-      $result .= '<div class="text-left"><span>Promedio</span></div>';
+      $result .= '<div class="text-left hidden-xs hidde-sm"><span>Promedio</span></div>';
       $result .= '<div class="hidden-lg hidden-md"><span>Prom.</span></div>';
       $result .= '</li>';
       $result .= '</ul>';
