@@ -6,15 +6,17 @@
   </div>
   <div class="panel-body wobg">
     <div class="panel-table otras-acciones">
-    {exp:channel:categories category_group="18" id="" class="tr"}
-        <a id="lnk_int_{category_name}" href="{site_url}ayuda-padres/{category_id}">
+    {exp:channel:categories category_group="37" id="" class="tr" dynamic="off"}
+        <a id="lnk_int_{category_name}" href="{site_url}ayuda-padres/{category_id}/{last_segment}">
           <li class="bg-muted p-0">
+    
             {if "{category_id}" == segment_2}
             <div class="arrow-icon tiny danger"></div>
             {if:else}
             <div class="arrow-icon tiny black"></div>
             {/if}
             <div class="p-7 zizou-16">{category_name}</div>
+          
           </li>
         </a>
     {/exp:channel:categories}

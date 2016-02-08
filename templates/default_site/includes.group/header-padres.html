@@ -26,7 +26,12 @@
 			<div class="pull-left">
 				<ul>
 	         <!-- INICIO DE LINKS DE DASHBOARDS DE HIJOS -->
-	        {exp:webservices:padre_lista_de_hijos codigo_alumno="{last_segment}"}
+	         {if segment_1 == "buscar-padres"}
+	         	{exp:webservices:padre_lista_de_hijos codigo_alumno="{segment_3}"}
+	         {if:else}
+	         	{exp:webservices:padre_lista_de_hijos codigo_alumno="{last_segment}"}
+	         {/if}
+	        
 	         <!-- FIN DE LINKS DE DASHBOARDS DE HIJOS -->
 	        <li class="ml-21 mr-21">
 	          <div class="search-trigger">
@@ -37,10 +42,11 @@
 					<li class="ml-21 mr-21 pt-7">
 			    <!-- inicio BUSQUEDA -->
 					
-					  <div class="search-bar hidden">
-					      <form method="post" action="{site_url}index.php/buscar-padres/result">
+					  <div class="search-bar">
+					      <form method="post" action="{site_url}index.php/buscar-padres/result/{last_segment}" id="form-buscar">
 		                    <input type="hidden" name="csrf_token" value="{csrf_token}" /> <!-- Important! -->
 		                    <input type="hidden" name="XID" value="{XID_HASH}">
+		                    <input type="text" class="hidden" value="{last_segment}">
 		                    <input type="text-muted" name="keywords" id="keywords" value="" size="18" value="{super_search_keywords}" maxlength="100" class="zizou-thin-12 form-control" placeholder="Introduce tu búsqueda">
 		                    <input type="submit" value="submit" id="search-submit" class="hidden submit">
 		                    <span>&nbsp;</span>

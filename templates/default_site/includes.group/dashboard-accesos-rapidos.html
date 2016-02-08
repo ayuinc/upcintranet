@@ -1,7 +1,7 @@
 {exp:channel:entries channel="accesos_rapidos" dynamic="off" status="open" category="{embed:cate}"} 
 {if {total_results} >= 1}
     {if count == 1}
-      <div class="panel mt-14">
+      <div class="panel mt-14 hidden-xs hidden-sm">
         <div class="panel-head no-bg">
           <div class="panel-title left">
             <h3>Accesos Rápidos</h3>
@@ -32,3 +32,39 @@
      
 {/exp:channel:entries}
 
+{exp:channel:entries channel="accesos_rapidos" dynamic="off" status="open" category="{embed:cate}"} 
+{if {total_results} >= 1}
+    {if count == 1}
+      <div class="panel mt-14 hidden-lg hidden-md">
+        <div class="panel-head" data-toggle="collapse" href="#accdCollapse">
+            <div class="panel-title">
+              <h3>Accesos Rápidos</h3>
+            </div>
+           <div class="otras-acciones-arrow"></div>
+            <div class="panel-title-line"></div>
+        </div>
+        <div class="panel-body wobg collapse" id="accdCollapse">
+          <div class="panel-table otras-acciones">
+            <ul class="tr">
+              {/if}
+                  {categories}
+                    <?php $category = '{category_id}'; ?>
+              {if {category_id} == {embed:cate} }              
+              <li class="bg-muted p-7">
+                <a id="lnk_ext_{title}" class="sb-link" target="_blank" href="{acceso_rapido_link}">
+                  <div class="arrow-icon info borderless"></div>
+                  <div class="zizou-16 borderless">{title}</div>
+                </a>
+              </li>
+              {/if}
+                  {/categories} 
+              {if count == {total_results} && {total_results} >= 1 } 
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/if}
+    {/if}
+     
+{/exp:channel:entries}

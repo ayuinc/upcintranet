@@ -1,27 +1,54 @@
 {exp:channel:entries channel="ads" url_title="{embed:adId}" limit="1" status="Open" dynamic="off"}
 {if ad_source == 'AdSense'}
 <!-- banner 1 -->
+
 <script type='text/javascript'>
 <!--// <![CDATA[
   /* [id2] IntranetUPC_dashboard_columna1_pos1 */
   OA_show({ad_module_id}); 
   // ]]> 
-  </script><noscript><a target='_blank' 
+  --></script><noscript><a target='_blank' 
   href='http://ads.upc.pe/delivery/ck.php?n={ad_id}'><img border='0' alt=''
   src='http://ads.upc.pe/delivery/avw.php?zoneid=2&amp;n={ad_id}' class="img-responsive ad-img margin-auto" /></a>
   </noscript>
 <!-- banner 1 -->
 {if:else}
-  {if ad_link != ''}
-  <a href="{ad_link}" target="_blank">
+  {if segment_1 != "" && segment_1 != 'login'}
+    {if ad_link != ''}
+    <a href="{ad_link}" target="_blank">
+        {exp:channel_images:images entry_id="{entry_id}" limit="1"}
+            <img class="img-responsive ad-img margin-auto"  src="{image:locked_url}" alt="{image:title}">
+      {/exp:channel_images:images}
+    </a>
+    {if:else}
       {exp:channel_images:images entry_id="{entry_id}" limit="1"}
-          <img class="img-responsive ad-img margin-auto"  src="{image:locked_url}" alt="{image:title}">
-    {/exp:channel_images:images}
-  </a>
+            <img class="img-responsive ad-img margin-auto"  src="{image:locked_url}" alt="{image:title}">
+      {/exp:channel_images:images}
+    {/if}
   {if:else}
-    {exp:channel_images:images entry_id="{entry_id}" limit="1"}
-          <img class="img-responsive ad-img margin-auto"  src="{image:locked_url}" alt="{image:title}">
-    {/exp:channel_images:images}
+    {if ad_link != ''}
+      <a href="{ad_link}" target="_blank">
+        {exp:channel_images:images entry_id="{entry_id}" limit="3"} 
+          {if {image:width} == "500"}
+          <img style="max-height: 400px" class="img-responsive hidden-xs hidden-sm pr-14"  src="{image:locked_url}" alt="{image:title}">
+          {if:elseif {image:width} == "620"}
+           <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-xs"src="{image:locked_url}" alt="{image:title}">
+          {if:else}
+          <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-sm" src="{image:locked_url}" alt="{image:title}">
+          {/if}
+        {/exp:channel_images:images}
+      </a>
+      {if:else}
+        {exp:channel_images:images entry_id="{entry_id}" limit="3"} 
+          {if {image:width} == "500"}
+          <img style="max-height: 400px" class="img-responsive hidden-xs hidden-sm pr-14"  src="{image:locked_url}" alt="{image:title}">
+          {if:elseif {image:width} == "620"}
+           <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-xs"src="{image:locked_url}" alt="{image:title}">
+          {if:else}
+          <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-sm" src="{image:locked_url}" alt="{image:title}">
+          {/if}
+        {/exp:channel_images:images}
+      {/if}
   {/if}
 {/if}
 {/exp:channel:entries}

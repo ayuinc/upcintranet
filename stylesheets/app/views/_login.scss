@@ -33,7 +33,7 @@ body{
 		}
 		.login-floting{
 			@include redborder-shadow;
-			min-height: 400px;
+			min-height: 391px;
 			.row{
 				margin: 0px;
 			}
@@ -41,9 +41,19 @@ body{
 		.pt-60{
 			padding-top: 60px;
 		}
-		.pt-xs-35{
+		.pt-sm-35{
 			@media #{$md-down}{
 				padding-top:35px;
+			}
+		}
+		.pt-xs-35{
+			@media #{$sm-down}{
+				padding-top:35px;
+			}
+		}
+		.pt-xs-0{
+			@media #{$sm-down}{
+				padding-top:0px;
 			}
 		}
 		.row {

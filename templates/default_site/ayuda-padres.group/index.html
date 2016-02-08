@@ -1,6 +1,4 @@
-{if segment_2_category_id == ''}
-  {redirect="404"}
-{/if}
+
 {embed="includes/head"}
 {exp:webservices:iniciar_session}
   
@@ -29,23 +27,57 @@
               {embed="includes/temas-ayuda-padres"}
             </div>
             <div class="col-sm-8 resultados">
+              <div class="panel">
+                <div class="panel-head no-bg">
+                  <div class="panel-title left">
+                    <h3>Resultados</h3>
+                  </div>
+                </div>
+              </div>  
               <div class="resultados-busqueda red-line bg-muted">
-                {exp:channel:entries channel="ayuda" limit="20" disable="member_data" dynamic="off" status="Padre" category="{segment_2}"}
+               {if segment_2 != last_segment}
+                {exp:channel:entries channel="ayuda_padres" limit="20" disable="member_data" dynamic="off" status="Padre" category="{segment_2}"}
                   <div class="mt-14">
                     <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
                     <div class="solano-bold-20 pt-3 black-text">{title}</div>   
                   </div>
                   <div class="pl-35 pb-7 pr-35">
                     {intro-noticia}
-                  </div>     
+                  </div> 
+                  <div class="pl-35 pb-7 pr-35 sb-link zizou-14">
+                    <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">
+                    <a href="{site_url}ayuda-padres/post/{segment_2}/{entry_id}/{last_segment}" class="sb-link">Ver más</a>
+                  </div>    
                   {paginate}
                   <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
                   {/paginate}
                   {if count != total_results}
                   <div class="dotted-line"></div>
                   {/if}
-                {/exp:channel:entries} 
-              </div>      
+                {/exp:channel:entries}
+                {if:else}
+                  {exp:channel:entries channel="ayuda_padres" limit="20" disable="member_data" dynamic="off" status="Padre"}
+                  <div class="mt-14">
+                    <img class="p-7 pull-left" src="{site_url}assets/img/black_arrow_tiny.png" alt="">
+                    <div class="solano-bold-20 pt-3 black-text">{title}</div>   
+                  </div>
+                  <div class="pl-35 pb-7 pr-35">
+                    {intro-noticia}
+                  </div> 
+                  <div class="pl-35 pb-7 pr-35 sb-link zizou-14">
+                    <img class="pr-7" src="{site_url}assets/img/skyblue_arrow.png">
+                    <a href="{site_url}ayuda-padres/post/{entry_id}/{last_segment}" class="sb-link">
+                    Ver más</a>
+                  </div>    
+                  {paginate}
+                  <p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+                  {/paginate}
+                  {if count != total_results}
+                  <div class="dotted-line"></div>
+                  {/if}
+                {/exp:channel:entries}   
+                {/if}
+              </div>   
             </div>
           </div>
         </div>

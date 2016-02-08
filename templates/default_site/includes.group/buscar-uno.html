@@ -1,0 +1,26 @@
+{exp:super_search:results
+ search_in="title" channel="not acciones|avisos_intranet|boletines|calendario_pagos|sidebar_docente|sidebar_estudiante|sidebar_padre|ayuda_docentes|referencias" where="any" relevance_proximity="yes" status="Open|Estudiante"  keyword_search_category_name="no" category="not {embed:categories}"
+}
+
+{if super_search_no_results}
+{/if}
+{if link-referencia}
+   <div class="panel-body p-14 result_query">
+     <div class="solano-bold-20 black-text">
+      <span id="search-count"></span>.&nbsp;{title}
+    </div>   
+    <a target="_blank" class="sb-link zizou-16" target="_blank" href="{link-referencia}"><div class="arrow-icon mr-7 info"></div>Ver más</a>
+  </div>
+   <div class="dotted-line"></div>
+{if:elseif acceso_rapido_link}
+  <div class="panel-body p-14 result_query">
+   <div class="solano-bold-20 black-text">
+    <span id="search-count"></span>.&nbsp;{title}
+  </div>   
+   
+    <a target="_blank" class="sb-link zizou-16" target="_blank" href="{acceso_rapido_link}"><div class="arrow-icon mr-7 info"></div>Ver más</a>
+
+  </div>
+   <div class="dotted-line"></div>
+{/if}
+{/exp:super_search:results}
