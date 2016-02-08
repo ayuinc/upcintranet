@@ -84,16 +84,17 @@ class Webservices_functions {
 		return $return;
 	}
 
-	public function curl_full_url($service_url) 
+	public function curl_full_url($service_url, $user, $pwd) 
 	{
-		// var_dump($this->_base_url.$service_url);
+		// var_dump($service_url.' USER '.$user.' PWD '.$pwd);
 		// Standard call to service.
 		$this->EE->curl->create($service_url);
 		$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
 		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
 		$this->EE->curl->option(CURLOPT_URL, $service_url);
+		$this->EE->curl->http_login($user, $pwd);
 		$return = $this->EE->curl->execute();
-		// var_dump($return);
+		// var_dump('Return'.$return);
 		return $return;
 	}
 
