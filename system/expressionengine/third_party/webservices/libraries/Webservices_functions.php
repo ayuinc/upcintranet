@@ -84,6 +84,19 @@ class Webservices_functions {
 		return $return;
 	}
 
+	public function curl_full_url($service_url) 
+	{
+		// var_dump($this->_base_url.$service_url);
+		// Standard call to service.
+		$this->EE->curl->create($service_url);
+		$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
+		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
+		$this->EE->curl->option(CURLOPT_URL, $service_url);
+		$return = $this->EE->curl->execute();
+		// var_dump($return);
+		return $return;
+	}
+
 	public function curl_url_not_reuse( $service_url ) 
 	{
 		// var_dump($this->_base_url.$service_url);
