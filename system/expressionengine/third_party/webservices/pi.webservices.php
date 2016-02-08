@@ -1486,18 +1486,18 @@ class Webservices
                   $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
                   $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
                   $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
-                  $coddocente = (string)$quiz_horarios[$q]["DocenteSesionCOD_DOCENTE"];
+                  $coddocente = (string)$quiz_horarios[$q]["DocenteSeccionCOD_DOCENTE"];
                  
                   $quiz_gen = $url_base_survey;
                   $quiz_gen .='?'.'c_un='.$codlinea;
-                  $quiz_gen .= "&c_modalidad=".$modalidad;
+                  $quiz_gen .= "&c_modalidad=".$codmodal;
                   $quiz_gen .= "&c_periodo=".$periodo;
-                  $quiz_gen .= "&c_curso=".$c_curso;
+                  $quiz_gen .= "&c_curso=".$codcurso;
                   $quiz_gen .= "&seccion=".$quiz_horarios[$q]['SesionSECCION'];
                   $quiz_gen .= "&grupo=".$quiz_horarios[$q]["SesionGRUPO"];
                   $quiz_gen .= '&aula='.$quiz_horarios[$q]["SesionCOD_AULA"];
                   $quiz_gen .= '&c_alumno='.$codigo;
-                  $quiz_gen .= '&c_profesor='.$quiz_horarios[$q]["DocenteSesionCOD_DOCENTE"];
+                  $quiz_gen .= '&c_profesor='.$coddocente;
                   $quiz_gen .= '&c_sede='. $quiz_horarios[$q]["AlumnoCOD_SEDE"];
                   $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $quiz_gen);
 
