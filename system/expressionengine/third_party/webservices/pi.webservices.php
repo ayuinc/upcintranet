@@ -101,6 +101,7 @@ class Webservices
       // setcookie($name, $jsonObj, time() + (1800), '/'); 
       // $this->services->set_cookie($name, $jsonObj);
       // $this->services->set_cookie($name, $jsonObj, time() + (1800), '/', '.upc.edu.pe',false);
+
       switch ($this->env) {
         case LOCAL:
           setcookie($this->services->get_fuzzy_name($name), $jsonObj, time() + (1800), '/'); 
@@ -118,6 +119,7 @@ class Webservices
           setcookie($this->services->get_fuzzy_name($name), $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
           break;
       }
+
       return;
     }
 
@@ -143,6 +145,7 @@ class Webservices
         unset($_SESSION[$this->_cookies_prefix.$name]);
       }
 
+
       // setcookie($name, NULL, time() - (1800), "/");
       // setcookie($this->services->get_fuzzy_name($name), NULL, time() - (1800) , '/', '.upc.edu.pe',false); 
 
@@ -164,6 +167,7 @@ class Webservices
           setcookie($this->services->get_fuzzy_name($name), $jsonObj, time() + (1800), '/', '.upc.edu.pe',false); 
           break;
       }
+
     }
 
     /**
@@ -1748,7 +1752,7 @@ class Webservices
       $result .= '<div class="hidden-lg hidden-md"><span>Faltas</span></div>';
       $result .= '</li>';
       $result .= '<li class="col-xs-2">';
-      $result .= '<div class="text-left"><span>Promedio</span></div>';
+      $result .= '<div class="text-left hidden-xs hidde-sm"><span>Promedio</span></div>';
       $result .= '<div class="hidden-lg hidden-md"><span>Prom.</span></div>';
       $result .= '</li>';
       $result .= '</ul>';

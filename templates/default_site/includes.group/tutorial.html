@@ -1,28 +1,38 @@
-{exp:channel:entries channel="configuracion_tutorial" status="Open"}
+<!-- Modal starts -->
+{exp:channel:entries channel="configuracion_tutorial" status="open" dynamic="off"}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- Place somewhere in the <body> of your page -->
+        <div class="flexslider">
+          <ul class="slides">
 
-<!-- Modal starts {habilitar_tutorial_en} -->
-{if "{dirigido_a}" == "{exp:webservices:tipo_usuario}" ||  "{dirigido_a}" == "General"}
-  {if "{dirigido_a}" == "Alumno"}
-    {if "{modalidad_tutorial_settings}" == "{exp:webservices:get_modalidad_alumno}" || "{modalidad_tutorial_settings}"=="Todas"}
-      <div class="modal fade {habilitar_tutorial_en}{if item =='dashboard' }dashboard-modal{/if} {if item =='dashboard' }inicio-modal{/if} {/habilitar_tutorial_en}" id="{habilitar_tutorial_en}{if item =='ver tutorial' }myModal{/if}{/habilitar_tutorial_en}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <h1>{title}</h1>
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <!-- Place somewhere in the <body> of your page -->
-              <div class="flexslider">
-                <ul class="slides">
-                  
-                  {exp:channel_images:images url_title="{url_title}" paginate="bottom"}
-                     <li><img src="{image:url}" alt="{image:title}"/></li>
-                  {/exp:channel_images:images} 
-                </ul>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
+            {if dirigido_a=="General"}
+              {exp:channel_images:images url_title="tutorial-general" paginate="bottom"}
+                 <li><img src="{image:url}" alt="{image:title}"/></li>
+              {/exp:channel_images:images}
+            {/if}
+            {if dirigido_a=="Profesor" && "{exp:webservices:tipo_usuario}" == "Profesor"}}
+               {exp:channel_images:images url_title="tutorial-docente" paginate="bottom"}
+                 <li><img src="{image:url}" alt="{image:title}"/></li>
+              {/exp:channel_images:images}
+            {/if}
+            {if dirigido_a=="Padre" && "{exp:webservices:tipo_usuario}" == "Padre"}}
+               {exp:channel_images:images url_title="tutorial-padre" paginate="bottom"}
+                 <li><img src="{image:url}" alt="{image:title}"/></li>
+              {/exp:channel_images:images}
+            {/if}
+            {if dirigido_a=="Estudiante" && "{exp:webservices:tipo_usuario}" == "Alumno"}}
+              {if "{exp:webservices:get_modalidad_alumno}" == modalidad_tutorial_settings}
+                 {exp:channel_images:images url_title="tutorial-estudiante-{modalidad_tutorial_settings}" paginate="bottom" }
+                   <li><img src="{image:url}" alt="{image:title}"/></li>
+                {/exp:channel_images:images}
+              {/if}
+            {/if}
+            
+          </ul>
+
         </div>
       </div>
     {/if}
@@ -48,8 +58,24 @@
         </div>
       </div>
     </div>
+
+  </div>
+</div>
+
+{habilitar_tutorial_en}
+  {if item=="dashboard" && segment_1==item}
+  <script>$(document).ready(function(){
+     $('#myModal').modal('toggle');
+  });</script>
   {/if}
-{/if}
-{if  no_results} <span class="nohayhhh"></span> {/if}
+
+  {if item=="inicio" && segment_1==""}
+  <script>$(document).ready(function(){
+     $('#myModal').modal('toggle');
+  });</script>
+  {/if}
+
+{/habilitar_tutorial_en}
+
 {/exp:channel:entries}
 <!-- Modal ends -->

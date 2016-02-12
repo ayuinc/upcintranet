@@ -90,14 +90,26 @@
       });
 	</script>
 	<script>
-      window.addEventListener('load', function() {
-        var aCollection = document.getElementsByTagName("a");
-        for (var i = 0; i <= aCollection.length - 1; i++) {
-          var currentId = aCollection[i].id;
-          var newId = currentId.replace(/ /g, "");
-          aCollection[i].id = newId;
-        };
-      });
+     	if(window.addEventListener){
+	 	window.addEventListener('load', function() {
+        		var aCollection = document.getElementsByTagName("a");
+        		for (var i = 0; i <= aCollection.length - 1; i++) {
+          			var currentId = aCollection[i].id;
+          			var newId = currentId.replace(/ /g, "");
+          			aCollection[i].id = newId;
+       			 };
+      		});
+	}else {
+    		window.attachEvent("load", function(){
+		 var aCollection = document.getElementsByTagName("a");
+                        for (var i = 0; i <= aCollection.length - 1; i++) {
+                                var currentId = aCollection[i].id;
+                                var newId = currentId.replace(/ /g, "");
+                                aCollection[i].id = newId;
+                         };
+		});
+
+	}
     </script>
 
  </body> 
