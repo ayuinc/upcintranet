@@ -1481,8 +1481,8 @@ class Webservices
                 $strDate = $date->format('YmdH');
                 $class_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio;
                 $class_end_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraFin;
-                // if(intval($strDate) > intval($class_date) && intval($strDate) < intval($class_end_date))
-                if(true)
+                if(intval($strDate) > intval($class_date) && intval($strDate) < intval($class_end_date))
+                // if(true)
                 {
                 
                   $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'active');
