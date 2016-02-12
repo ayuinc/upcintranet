@@ -1503,7 +1503,7 @@ class Webservices
                   $quiz_gen .= '&aula='.$quiz_horarios[$q]["SesionCOD_AULA"];
                   $quiz_gen .= '&c_profesor='.$coddocente;
                   $quiz_gen .= '&c_sede='. $quiz_horarios[$q]["AlumnoCOD_SEDE"];
-                  $quiz_gen .= '&c_alumno=  '.$codigo;
+                  $quiz_gen .= '&c_alumno='.$codigo;
                   $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $quiz_gen);
 
                 }
