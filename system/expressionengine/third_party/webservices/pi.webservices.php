@@ -1491,14 +1491,15 @@ class Webservices
                   $quiz_gen = $url_base_survey;
                   $quiz_gen .='?'.'c_un='.$codlinea;
                   $quiz_gen .= "&c_modalidad=".$codmodal;
+                  $quiz_gen .= "&c_direccion=".'CU';
                   $quiz_gen .= "&c_periodo=".$periodo;
                   $quiz_gen .= "&c_curso=".$codcurso;
                   $quiz_gen .= "&seccion=".$quiz_horarios[$q]['SesionSECCION'];
                   $quiz_gen .= "&grupo=".$quiz_horarios[$q]["SesionGRUPO"];
                   $quiz_gen .= '&aula='.$quiz_horarios[$q]["SesionCOD_AULA"];
-                  $quiz_gen .= '&c_alumno='.$codigo;
                   $quiz_gen .= '&c_profesor='.$coddocente;
                   $quiz_gen .= '&c_sede='. $quiz_horarios[$q]["AlumnoCOD_SEDE"];
+                  $quiz_gen .= '&c_alumno=  '.$codigo;
                   $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $quiz_gen);
 
                 }
