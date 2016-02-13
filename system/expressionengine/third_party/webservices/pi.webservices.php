@@ -1405,9 +1405,8 @@ class Webservices
       $week_end = date('Y-m-d', strtotime('+'.(6-$day).' days'));
       $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
       $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
-      // var_dump($quiz_services_url);
+      $quiz_enabled = false;
       $quiz_result = $this->services->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
-      
       $quiz_json = json_decode($quiz_result, true);
       if($quiz_json['DTOHeader']['CodigoRetorno'] == 'Correcto')
       {
@@ -1418,7 +1417,7 @@ class Webservices
       //limpio la variable para reutilizarla
       $result = '';
       $horario_empty;
-      if(strlen($enable_survey) !== 0 ){
+      if(strlen($enable_survey) !== 0  && $quiz_enabled == true){
         $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
       }else{
         $horario_empty = $this->_get_subtag_data('horario',$tagdata);
@@ -1473,15 +1472,19 @@ class Webservices
           $horario_dia = $this->_replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);                             
 
 
-          if(strlen($enable_survey) !== 0 && $quiz_enabled){
+          if(strlen($enable_survey) !== 0 && $quiz_enabled == true){
             for($q = 0 ; $q<count($quiz_horarios); $q++){
           
               if($json['HorarioDia'][$i]['CodDia']  == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) &&  $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] &&  $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion']){
                 $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
                 $strDate = $date->format('YmdH');
+                var_dump("start date".$strDate);
+
                 $class_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio;
+                var_dump("class date".$class_date);
                 $class_end_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraFin;
-                if(intval($strDate) > intval($class_date) && intval($strDate) < intval($class_end_date))
+                var_dump("class end date".$class_end_date);
+                if(intval($strDate) >= intval($class_date) && intval($strDate) <= intval($class_end_date))
                 // if(true)
                 {
                 
