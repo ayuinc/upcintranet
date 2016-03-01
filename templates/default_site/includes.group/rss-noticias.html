@@ -2,7 +2,7 @@
 
     {if "{exp:webservices:get_modalidad_alumno}"== "FC"}
     {exp:ajw_feedparser 
-        url="http://blogs.upc.edu.pe/comunicados-upc/rss.xml"
+        url="http://blogs.upc.edu.pe/blog/feed/9611"
         cache_refresh="30"
         limit="4"
         search:category="Institucional|EPE-UPC"
@@ -17,7 +17,7 @@
     {/exp:ajw_feedparser} 
     {if:else}
     {exp:ajw_feedparser 
-        url="http://blogs.upc.edu.pe/comunicados-upc/rss.xml"
+        url="http://blogs.upc.edu.pe/blog/feed/9611"
         cache_refresh="30"
         limit="4"
         search:category="Institucional|Pregrado"
