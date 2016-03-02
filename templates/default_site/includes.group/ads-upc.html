@@ -30,22 +30,22 @@
       <a href="{ad_link}" target="_blank">
         {exp:channel_images:images entry_id="{entry_id}" limit="3"} 
           {if {image:width} == "500"}
-          <img style="max-height: 400px" class="img-responsive hidden-xs hidden-sm pr-14"  src="{image:locked_url}" alt="{image:title}">
+          <img style="max-height: 400px" class="img-responsive hidden-xs hidden-sm pr-14"  src="{image:url}" alt="{image:title}">
           {if:elseif {image:width} == "620"}
-           <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-xs"src="{image:locked_url}" alt="{image:title}">
+           <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-xs"src="{image:url}" alt="{image:title}">
           {if:else}
-          <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-sm" src="{image:locked_url}" alt="{image:title}">
+          <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-sm" src="{image:url}" alt="{image:title}">
           {/if}
         {/exp:channel_images:images}
       </a>
       {if:else}
         {exp:channel_images:images entry_id="{entry_id}" limit="3"} 
           {if {image:width} == "500"}
-          <img style="max-height: 400px" class="img-responsive hidden-xs hidden-sm pr-14"  src="{image:locked_url}" alt="{image:title}">
+          <img style="max-height: 400px" class="img-responsive hidden-xs hidden-sm pr-14"  src="{image:url}" alt="{image:title}">
           {if:elseif {image:width} == "620"}
-           <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-xs"src="{image:locked_url}" alt="{image:title}">
+           <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-xs"src="{image:url}" alt="{image:title}">
           {if:else}
-          <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-sm" src="{image:locked_url}" alt="{image:title}">
+          <img style="max-height: 400px" class="img-responsive hidden-lg hidden-md hidden-sm" src="{image:url}" alt="{image:title}">
           {/if}
         {/exp:channel_images:images}
       {/if}
