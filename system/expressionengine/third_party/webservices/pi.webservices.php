@@ -369,82 +369,88 @@ class Webservices
 
       // Curl service
       $result =  $this->services->curl_url_not_reuse('Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma);
-      $json = json_decode($result, true);
-      // Cookies for Error
-      $_SESSION["CodError"] = $json['CodError'];
-      $_SESSION["MsgError"] = $json['MsgError'];      
-      $cookie_name = "MsgError";
-      $cookie_value = $json["MsgError"];
-      $this->services->set_cookie($cookie_name, $cookie_value, time()+1800, "/");
+      if($result!==FALSE){
+        $json = json_decode($result, true);
+        // Cookies for Error
+        $_SESSION["CodError"] = $json['CodError'];
+        $_SESSION["MsgError"] = $json['MsgError'];      
+        $cookie_name = "MsgError";
+        $cookie_value = $json["MsgError"];
+        $this->services->set_cookie($cookie_name, $cookie_value, time()+1800, "/");
 
-      if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') 
-      {
-      	$site_url = ee()->config->item('site_url');
-      	$site_url .= 'login/error_login';
-        $this->EE->functions->redirect($site_url);
-      } 
-      else
-      {
-        ee()->db->select('id');
-        ee()->db->where('codigo',$codigo);
-        $query_modelo_result = ee()->db->get('exp_user_upc_data');
-        //$terminos = "si";
-      
-        if($query_modelo_result->result() == NULL)
+        if (strval($json['CodError'])=='null' || strval($json['CodError'])=='00001' || strval($json['CodError'])=='11111') 
         {
-          $user_upc_insert = array(
-            "codigo" => $json['Codigo'],
-            "tipouser" => $json['TipoUser'],  
-            "nombres" => $json['Nombres'],      
-            "apellidos" => $json['Apellidos'],
-            "estado" => $json['Estado'],  
-            "dscmodal" => $json['Datos']['DscModal'],
-            "codmodal" => $json['Datos']['CodModal'],
-            "codsede" => $json['Datos']['CodSede'],
-            "dscsede" => $json['Datos']['DscSede'],
-            "ciclo" => $json['Datos']['Ciclo'], 
-            "token" => $json['Token']
-          );
-          ee()->db->insert('exp_user_upc_data', $user_upc_insert);
+          $site_url = ee()->config->item('site_url');
+          $site_url .= 'login/error_login';
+          $this->EE->functions->redirect($site_url);
         } 
-        else 
+        else
         {
-          $user_upc_update = array(
-            "token" => $json['Token']
-          );
-          ee()->db->where('codigo', $codigo);
-          ee()->db->update('exp_user_upc_data', $user_upc_update);
-        }
+          ee()->db->select('id');
+          ee()->db->where('codigo',$codigo);
+          $query_modelo_result = ee()->db->get('exp_user_upc_data');
+          //$terminos = "si";
+        
+          if($query_modelo_result->result() == NULL)
+          {
+            $user_upc_insert = array(
+              "codigo" => $json['Codigo'],
+              "tipouser" => $json['TipoUser'],  
+              "nombres" => $json['Nombres'],      
+              "apellidos" => $json['Apellidos'],
+              "estado" => $json['Estado'],  
+              "dscmodal" => $json['Datos']['DscModal'],
+              "codmodal" => $json['Datos']['CodModal'],
+              "codsede" => $json['Datos']['CodSede'],
+              "dscsede" => $json['Datos']['DscSede'],
+              "ciclo" => $json['Datos']['Ciclo'], 
+              "token" => $json['Token']
+            );
+            ee()->db->insert('exp_user_upc_data', $user_upc_insert);
+          } 
+          else 
+          {
+            $user_upc_update = array(
+              "token" => $json['Token']
+            );
+            ee()->db->where('codigo', $codigo);
+            ee()->db->update('exp_user_upc_data', $user_upc_update);
+          }
 
-        // Saving data to $_SESSION and Cookies
-        $user_data = array( 'Codigo' =>  $json['Codigo'],
-                            'TipoUser'  =>  $json['TipoUser'],
-                            'Nombres' =>  $json['Nombres'],
-                            'Apellidos' =>  $json['Apellidos'],
-                            'Estado'  =>  $json['Estado'],
-                            'CodLinea' =>  $json['Datos']['CodLinea'],
-                            'CodModal' =>  $json['Datos']['CodModal'],
-                            'DscModal'  => $json['Datos']['DscModal'],
-                            'CodSede' =>  $json['Datos']['CodSede'],
-                            'DscSede' =>  $json['Datos']['DscSede'],
-                            'Ciclo' => $json['Datos']['Ciclo'],
-                            'Token' =>  $json['Token']);
-        foreach ($user_data as $key => $val)
-        {
-          $this->set_session_cookie($key, $val);
-        }
+          // Saving data to $_SESSION and Cookies
+          $user_data = array( 'Codigo' =>  $json['Codigo'],
+                              'TipoUser'  =>  $json['TipoUser'],
+                              'Nombres' =>  $json['Nombres'],
+                              'Apellidos' =>  $json['Apellidos'],
+                              'Estado'  =>  $json['Estado'],
+                              'CodLinea' =>  $json['Datos']['CodLinea'],
+                              'CodModal' =>  $json['Datos']['CodModal'],
+                              'DscModal'  => $json['Datos']['DscModal'],
+                              'CodSede' =>  $json['Datos']['CodSede'],
+                              'DscSede' =>  $json['Datos']['DscSede'],
+                              'Ciclo' => $json['Datos']['Ciclo'],
+                              'Token' =>  $json['Token']);
+          foreach ($user_data as $key => $val)
+          {
+            $this->set_session_cookie($key, $val);
+          }
 
-        $cookie_name = 'Codigo';
-        $cookie_value = $json['Codigo'];
-        // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
-        $cookie_name = 'TipoUser';
-        $cookie_value = $json['TipoUser'];
-        // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
-        $cookie_name = 'Token';
-        $cookie_value = $json['Token'];
-        // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
+          $cookie_name = 'Codigo';
+          $cookie_value = $json['Codigo'];
+          // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
+          $cookie_name = 'TipoUser';
+          $cookie_value = $json['TipoUser'];
+          // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
+          $cookie_name = 'Token';
+          $cookie_value = $json['Token'];
+          // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
+        }
+        return;
+      }else{
+        $site_url = ee()->config->item('site_url');
+        $this->EE->functions->redirect($site_url."general/error-404");
       }
-      return;
+      
     }
 
     /**
