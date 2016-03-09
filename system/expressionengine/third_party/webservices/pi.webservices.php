@@ -369,7 +369,8 @@ class Webservices
 
       // Curl service
       $result =  $this->services->curl_url_not_reuse('Autenticar2/?Codigo='.$codigo.'&Contrasena='.$contrasena.'&Plataforma='.$plataforma);
-      if($result!==FALSE){
+      if($result!==FALSE)
+      {
         $json = json_decode($result, true);
         // Cookies for Error
         $_SESSION["CodError"] = $json['CodError'];
@@ -384,7 +385,7 @@ class Webservices
           $site_url .= 'login/error_login';
           $this->EE->functions->redirect($site_url);
         } 
-        else
+        else if($json['CodError'] === '0000')
         {
           ee()->db->select('id');
           ee()->db->where('codigo',$codigo);
@@ -444,6 +445,11 @@ class Webservices
           $cookie_name = 'Token';
           $cookie_value = $json['Token'];
           // setcookie($cookie_name, $cookie_value, time() + (3600), '/', '.upc.edu.pe',false); 
+        }
+        else
+        {
+          $site_url = ee()->config->item('site_url');
+          $this->EE->functions->redirect($site_url."general/error-404");
         }
         return;
       }else{
