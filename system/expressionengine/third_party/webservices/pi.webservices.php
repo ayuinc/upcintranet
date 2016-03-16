@@ -1554,8 +1554,10 @@ class Webservices
                   $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, '#');
                 }
               }
-              
+
             }
+         
+          }
           $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
           $HoraInicio = ltrim($HoraInicio,'0');
           $horario_dia = $this->_replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
@@ -1567,7 +1569,6 @@ class Webservices
           $horario_dia = $this->_replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
           $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
           $horario_dia = $this->_replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);  
-          }
           $clases .= $horario_dia;
         }  
 
