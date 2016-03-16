@@ -2137,12 +2137,12 @@ class Webservices
       
       for ($i=0; $i<$tamano; $i++) {
         $result .= '<ul class="tr table-border">';
-        $result .= '<li class="col-xs-8 helvetica-14 pl-7">';
+        $result .= '<li class="col-xs-12  col-md-8 helvetica-14 pl-7">';
         $result .= '<div>';
         $result .= '<span class="pr-7">'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
+        $result .= '<li class="col-xs-12 col-md-4 text-center helvetica-bold-14">';
 
           $codcurso = $json['Inasistencias'][$i]['CodCurso'];
           
