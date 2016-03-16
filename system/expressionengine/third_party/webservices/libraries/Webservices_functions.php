@@ -139,11 +139,11 @@ class Webservices_functions {
 			$this->EE->curl->http_login($user, $pwd);
 			$this->EE->curl->post($params);
 			$return = $this->EE->curl->execute();
-			foreach($params as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-			rtrim($fields_string, '&');
-			var_dump($fields_string);
-			var_dump($this->EE->curl->error_code); // int
-			var_dump($this->EE->curl->error_string);
+			// foreach($params as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+			// rtrim($fields_string, '&');
+			// var_dump($fields_string);
+			// var_dump($this->EE->curl->error_code); // int
+			// var_dump($this->EE->curl->error_string);
 			return $return;
 		}
 		return FALSE;

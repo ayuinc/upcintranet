@@ -1373,7 +1373,7 @@ class Webservices
       $result = $this->services->curl_full_url($matricula_url, ee()->config->item('matricula_user'), ee()->config->item('matricula_pwd'));
       $json = json_decode($result, true);
       foreach ($json['ListaDTOMatricula'] as $matricula) {
-        var_dump($matricula['MatriculaCodPeriodMat']);
+        // var_dump($matricula['MatriculaCodPeriodMat']);
         if($periodo == $matricula['MatriculaCodPeriodMat']){
           return $matricula['MatriculaCodProducMat'];
         }
@@ -1496,12 +1496,15 @@ class Webservices
         $clases = '';
         $horario_dia_empty = $this->_get_subtag_data('horario_dia', $horario);
         $horario_dia_survey_empty = $this->_get_subtag_data('horario_dia', $horario_empty_survey);
-        for ($b=0; $b<$tamano_int; $b++) {
+        for ($b=0; $b<$tamano_int; $b++) 
+        {
 
           $horario_dia = $horario_dia_empty;                           
 
-          if(strlen($enable_survey) !== 0 && $quiz_enabled == true){
-            for($q = 0 ; $q<count($quiz_horarios); $q++){
+          if(strlen($enable_survey) !== 0 && $quiz_enabled == true)
+          {
+            for($q = 0 ; $q<count($quiz_horarios); $q++)
+            {
           
               if($json['HorarioDia'][$i]['CodDia']  == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) &&  $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] &&  $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion']){
                 $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
@@ -1601,7 +1604,9 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>'; 
         $result .= '</div>';     
-      }elseif ($error_result != '0') {
+      }
+      elseif ($error_result != '0') 
+      {
         $site_url = ee()->config->item('site_url');
         $this->EE->functions->redirect($site_url."general/session-expired");
         return;
