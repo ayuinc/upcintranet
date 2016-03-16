@@ -113,6 +113,42 @@ class Webservices_functions {
 		return $return;
 	}
 
+	/**
+     * Post curl to full service url
+     *
+     * @access  public
+     * @param string $service_url Full Service URL 
+     * @param array $params Post body parameters 
+     * @return 
+     */
+	public function curl_post_full_url( $services_url , $params)
+	{
+		
+		if( $services_url != NULL && $params != NULL)
+		{
+			
+			$this->EE->curl->create($services_url);
+			$this->EE->curl->http_method('post');
+
+
+			$this->EE->curl->option(CURLOPT_URL, $services_url);
+
+			$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
+			$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
+
+			$this->EE->curl->http_login($user, $pwd);
+			$this->EE->curl->post($params);
+			$return = $this->EE->curl->execute();
+			foreach($params as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+			rtrim($fields_string, '&');
+			var_dump($fields_string);
+			var_dump($this->EE->curl->error_code); // int
+			var_dump($this->EE->curl->error_string);
+			return $return;
+		}
+		return FALSE;
+	}
+
 	public function set_cookie ( $name,  $value,  $expire = 0 ,  $path = "/" ,   $domain = ".upc.edu.pe" ,  $prefix = "",  $secure = TRUE )
 	{
 		// validate domain, just in case

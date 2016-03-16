@@ -1359,6 +1359,34 @@ class Webservices
       return $modalidad;
     }
 
+    public function get_carrera_alumno()
+    {
+      $linea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
+      $codigo = $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+      if($codigo[0] == 'U' || $codigo[0] =='u'){
+        $codigo = substr($codigo,1);
+      }
+      $periodo = '201502';
+      $matricula_url = ee()->config->item('matricula_services_url');
+      $matricula_url .= $linea;
+      $matricula_url .= '/'.$codigo;
+      $result = $this->services->curl_full_url($matricula_url, ee()->config->item('matricula_user'), ee()->config->item('matricula_pwd'));
+      $json = json_decode($result, true);
+      foreach ($json['ListaDTOMatricula'] as $matricula) {
+        var_dump($matricula['MatriculaCodPeriodMat']);
+        if($periodo == $matricula['MatriculaCodPeriodMat']){
+          return $matricula['MatriculaCodProducMat'];
+        }
+      }
+
+      return 0;
+    }
+
+    public function get_available_quiz($quiz_data)
+    {
+
+    }
+
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno()
     {
@@ -1381,7 +1409,6 @@ class Webservices
       }
       
       $url = 'Horario/?CodAlumno='.$codigo.'&Token='.$token;
-
       $site_url = ee()->config->item('site_url');
 
       $result=$this->services->curl_url($url);
@@ -1399,32 +1426,39 @@ class Webservices
       $quiz_services_url = $quiz_service;
       $quiz_services_url .= $codlinea;
       $quiz_services_url .= '/'.$codmodal;
-      $quiz_services_url .= '/'.$periodo;
-
+      
+      // $quiz_services_url .= '/'.$periodo;
+      $quiz_services_url .= '/'.'201502';
       if($codigo[0] == 'U' || $codigo[0] =='u'){
-        $quiz_services_url .= '/'.substr($codigo,1);
+        $quiz_services_url .=   '/'.substr($codigo,1);
       }else{
         $quiz_services_url .= '/'.$codigo;
       }
       $day = date('w');
       $week_start = date('Y-m-d', strtotime('-'.$day.' days'));
       $week_end = date('Y-m-d', strtotime('+'.(6-$day).' days'));
-      $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
-      $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
+      // $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
+      // $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
+      $quiz_services_url .= '/'.'2015-11-23'.'T00:00:00Z';
+      $quiz_services_url .= '/'.'2015-11-27'.'T00:00:00Z';
       $quiz_enabled = false;
+      $carrera = '';
       $quiz_result = $this->services->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
       $quiz_json = json_decode($quiz_result, true);
       if($quiz_json['DTOHeader']['CodigoRetorno'] == 'Correcto')
       {
         $quiz_enabled = true;
+        $carrera = $this->get_carrera_alumno();
         $quiz_horarios = $quiz_json['ListaDTOHorarioAlumno'];
       }
       // END : traer data de encuestas 
       //limpio la variable para reutilizarla
       $result = '';
       $horario_empty;
+      $horario_empty_survey =  $this->_get_subtag_data('horario_survey',$tagdata);
       if(strlen($enable_survey) !== 0  && $quiz_enabled == true){
-        $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
+        // $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
+        $horario_empty = $this->_get_subtag_data('horario',$tagdata);
       }else{
         $horario_empty = $this->_get_subtag_data('horario',$tagdata);
       }
@@ -1461,22 +1495,10 @@ class Webservices
         $tamano_int = count($json['HorarioDia'][$i]['Clases']); 
         $clases = '';
         $horario_dia_empty = $this->_get_subtag_data('horario_dia', $horario);
-
+        $horario_dia_survey_empty = $this->_get_subtag_data('horario_dia', $horario_empty_survey);
         for ($b=0; $b<$tamano_int; $b++) {
 
-          $horario_dia = $horario_dia_empty;
-          $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
-          $HoraInicio = ltrim($HoraInicio,'0');
-          $horario_dia = $this->_replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
-          $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
-          $HoraFin = ltrim($HoraFin,'0');
-          $horario_dia = $this->_replace_subtag_data('hora_fin', $horario_dia, $HoraFin.':00');
-          
-          $horario_dia = $this->_replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
-          $horario_dia = $this->_replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
-          $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
-          $horario_dia = $this->_replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);                             
-
+          $horario_dia = $horario_dia_empty;                           
 
           if(strlen($enable_survey) !== 0 && $quiz_enabled == true){
             for($q = 0 ; $q<count($quiz_horarios); $q++){
@@ -1491,27 +1513,39 @@ class Webservices
                 // if(true)
                 {
                 
-                  $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'active');
-                  $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/btn-encuesta-ingresar.jpg');
                   $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
                   $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
                   $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
-                  $coddocente = (string)$quiz_horarios[$q]["DocenteSeccionCOD_DOCENTE"];
-                 
-                  $quiz_gen = $url_base_survey;
-                  $quiz_gen .='?'.'c_un='.$codlinea;
-                  $quiz_gen .= "&c_modalidad=".$codmodal;
-                  $quiz_gen .= "&c_direccion=".'CU';
-                  $quiz_gen .= "&c_periodo=".$periodo;
-                  $quiz_gen .= "&c_curso=".$codcurso;
-                  $quiz_gen .= "&seccion=".$quiz_horarios[$q]['SesionSECCION'];
-                  $quiz_gen .= "&grupo=".$quiz_horarios[$q]["SesionGRUPO"];
-                  $quiz_gen .= '&aula='.$quiz_horarios[$q]["SesionCOD_AULA"];
-                  $quiz_gen .= '&c_profesor='.$coddocente;
-                  $quiz_gen .= '&c_sede='. $quiz_horarios[$q]["AlumnoCOD_SEDE"];
-                  $quiz_gen .= '&c_alumno='.$codigo;
-                  $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $quiz_gen);
+                
+                  $quiz_params = array('c_un' => $codlinea, 
+                    "c_modalidad" => $codmodal,
+                    "c_periodo" => $periodo,
+                    "c_curso" => $codcurso,
+                    "seccion" => $quiz_horarios[$q]['SesionSECCION'],
+                    "grupo" => $quiz_horarios[$q]["SesionGRUPO"],
+                    'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
+                    'c_sede' => $quiz_horarios[$q]["AlumnoCOD_SEDE"],
+                    'c_alumno' => $codigo,
+                    'c_carrera' => $carrera);
+                  $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
+                  $qjson = json_decode($quiz_request, true);
+                  if($quiz_request!==false && $qjson['CodError'] === 11011)
+                  {
+                     $horario_dia = $horario_dia_survey_empty;
+                      // $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'active');
+                      // $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/btn-encuesta-ingresar.jpg');
+                      // $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $url_base_survey);
+                    // var_dump($quiz_request);
 
+                      $form = "<form action=\"".$qjson["QuizLink"]."\" ";
+                      $form .= "id=\""."form11"."\" method=\"post\">";
+                      foreach ($quiz_params as $key => $value) {
+                        $form .= "<input type=\"hidden\" value=\"".$value."\" name=\"".$key."\">";
+                      }
+                      $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
+                      $form .= "<input type=\"hidden\" name=\"XID\" value=\"{XID_HASH}\"> </form>";
+                      $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+                  }
                 }
                 else
                 {
@@ -1522,7 +1556,17 @@ class Webservices
               }
               
             }
-
+          $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
+          $HoraInicio = ltrim($HoraInicio,'0');
+          $horario_dia = $this->_replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
+          $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
+          $HoraFin = ltrim($HoraFin,'0');
+          $horario_dia = $this->_replace_subtag_data('hora_fin', $horario_dia, $HoraFin.':00');
+          
+          $horario_dia = $this->_replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
+          $horario_dia = $this->_replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
+          $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
+          $horario_dia = $this->_replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);  
           }
           $clases .= $horario_dia;
         }  
