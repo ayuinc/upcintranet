@@ -3906,7 +3906,6 @@ class Webservices
      
         $token = $_COOKIE[$this->services->get_fuzzy_name('Token')];
         $url = 'DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
-
         $result=$this->services->curl_url($url);
         $json = json_decode($result, true);
         $error = $json['CodError'];
@@ -3923,42 +3922,45 @@ class Webservices
           for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
             $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
             $hora_inicio_sol = substr($HoraIni,0,2);
-            if($hora_inicio_sol <= $hora_inicio_disp)
-            {
-              $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
-              $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';
-              $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
-              $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
-              $result .= '<input type="hidden" value="1" name="Flag">';
-              $result .= '<input type="hidden" value="'.$codsede.'" name="CodSede">';
-              $result .= '<input type="hidden" value="'.$coded.'" name="CodED">';
-              $result .= '<input type="hidden" value="'.$codactiv.'" name="CodActiv">';
-              $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
-              $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
-              $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
-              if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
-              $result .= '<div class="solano-bold-24 black-text">Sede: Complejo Alamos</div>';
-              } else {
-              $result .= '<div class="solano-bold-24 black-text">Sede: Campus Villa</div>';
+            if($json['HorarioDia'][$i]['Fecha'] == '20160318' && $hora_inicio_disp >= 18 && $hora_inicio_disp<23 && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='R' && $coded==181 ){
+              // var_dump("jaskdaldka;ld");
+            }else{
+                if($hora_inicio_sol <= $hora_inicio_disp)
+                {
+                  $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
+                  $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';
+                  $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
+                  $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
+                  $result .= '<input type="hidden" value="1" name="Flag">';
+                  $result .= '<input type="hidden" value="'.$codsede.'" name="CodSede">';
+                  $result .= '<input type="hidden" value="'.$coded.'" name="CodED">';
+                  $result .= '<input type="hidden" value="'.$codactiv.'" name="CodActiv">';
+                  $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
+                  $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
+                  $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
+                  if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
+                  $result .= '<div class="solano-bold-24 black-text">Sede: Complejo Alamos</div>';
+                  } else {
+                  $result .= '<div class="solano-bold-24 black-text">Sede: Campus Villa</div>';
+                  }
+                  // $a++;
+                  // $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
+                  // $a--;
+                  $result .= '<span class="zizou-16">';
+                  $result .= 'Fecha: '.$fecha.'<br>';
+                  $result .= '</span>';
+                  $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
+                  $HoraInicio = ltrim($HoraInicio,'0');
+                  $HoraFin = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'], 0, 2);
+                  $HoraFin = ltrim($HoraFin,'0');
+                  $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
+                  $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
+                  $result .= '<span class="zizou-16">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
+                  $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
+                  $result .= '</form>';
+                  $result .= '</div>';
+                }
               }
-              // $a++;
-              // $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
-              // $a--;
-              $result .= '<span class="zizou-16">';
-              $result .= 'Fecha: '.$fecha.'<br>';
-              $result .= '</span>';
-              $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
-              $HoraInicio = ltrim($HoraInicio,'0');
-              $HoraFin = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'], 0, 2);
-              $HoraFin = ltrim($HoraFin,'0');
-              $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
-              $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
-              $result .= '<span class="zizou-16">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
-              $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
-              $result .= '</form>';
-              $result .= '</div>';
-
-            }  
           }
            $result .= '</div>';              
         }        
