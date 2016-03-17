@@ -1382,11 +1382,6 @@ class Webservices
       return 0;
     }
 
-    public function get_available_quiz($quiz_data)
-    {
-
-    }
-
     //HORARIO CICLO ACTUAL DEL ALUMNO
     public function horario_ciclo_actual_alumno()
     {
@@ -1422,13 +1417,14 @@ class Webservices
       $codlinea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
       $codmodal = $_COOKIE[$this->services->get_fuzzy_name("CodModal")];
       $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
+      // $periodo = '201600';
       $quiz_service = ee()->config->item('quiz_services_url');
       $quiz_services_url = $quiz_service;
       $quiz_services_url .= $codlinea;
       $quiz_services_url .= '/'.$codmodal;
       
-      // $quiz_services_url .= '/'.$periodo;
-      $quiz_services_url .= '/'.'201502';
+      $quiz_services_url .= '/'.$periodo;
+      // $quiz_services_url .= '/'.'201502';
       if($codigo[0] == 'U' || $codigo[0] =='u'){
         $quiz_services_url .=   '/'.substr($codigo,1);
       }else{
@@ -1437,10 +1433,10 @@ class Webservices
       $day = date('w');
       $week_start = date('Y-m-d', strtotime('-'.$day.' days'));
       $week_end = date('Y-m-d', strtotime('+'.(6-$day).' days'));
-      // $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
-      // $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
-      $quiz_services_url .= '/'.'2015-11-23'.'T00:00:00Z';
-      $quiz_services_url .= '/'.'2015-11-27'.'T00:00:00Z';
+      $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
+      $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
+      // $quiz_services_url .= '/'.'2015-11-23'.'T00:00:00Z';
+      // $quiz_services_url .= '/'.'2015-11-27'.'T00:00:00Z';
       $quiz_enabled = false;
       $carrera = '';
       $quiz_result = $this->services->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
@@ -1529,10 +1525,11 @@ class Webservices
                     'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
                     'c_sede' => $quiz_horarios[$q]["AlumnoCOD_SEDE"],
                     'c_alumno' => $codigo,
-                    'c_carrera' => $carrera);
+                    // 'c_carrera' => $carrera
+                    );
                   $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
                   $qjson = json_decode($quiz_request, true);
-                  if($quiz_request!==false && $qjson['CodError'] === 11011)
+                  if($quiz_request!==false && $qjson['CodError'] === 0)
                   {
                      $horario_dia = $horario_dia_survey_empty;
                       // $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'active');
@@ -1540,13 +1537,14 @@ class Webservices
                       // $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $url_base_survey);
                     // var_dump($quiz_request);
 
-                      $form = "<form action=\"".$qjson["QuizLink"]."\" ";
-                      $form .= "id=\""."form11"."\" method=\"post\">";
+                      $form = "<form target=\"_blank\"action=\"".$qjson["Quizlink"]."\" ";
+                      $form .= "id=\"".rand ( 0 , 999 )."\" method=\"post\">";
                       foreach ($quiz_params as $key => $value) {
                         $form .= "<input type=\"hidden\" value=\"".$value."\" name=\"".$key."\">";
                       }
                       $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
-                      $form .= "<input type=\"hidden\" name=\"XID\" value=\"{XID_HASH}\"> </form>";
+                      $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
+                      $form .= "</form>";
                       $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
                   }
                 }
