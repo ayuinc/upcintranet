@@ -1,3 +1,6 @@
+    <div class="row pb-21 msge-row">
+      <div class="col-sm-0-5 hidden-xs"></div>
+      <div class="col-sm-11 col-xs-12">
 {if 'FC' == '{exp:webservices:get_modalidad_alumno}'}
       {exp:channel:entries channel="avisos_dashboard" orderby="date" sort="desc" " limit="3" disable="member_data" dynamic="off" category="22"}
        
@@ -49,3 +52,5 @@
       
       {/exp:channel:entries}
 {/if}
+     </div>
+    </div>
