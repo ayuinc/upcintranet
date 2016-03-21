@@ -55,10 +55,17 @@ $site-menu-width: 79px;
 	@media #{$md-up} {
 		@include calc(width, "100% - #{$site-menu-width}");
 	}
+
 	padding-top: 175px;
 	@media #{$md-down} {
 		width: 100% !important;
 		padding-top: 121px;
+
+	}
+	.container-fluid{
+		@media #{$sm-down} {
+			max-width: 480px;
+		}
 	}
 	&.login, &.error-404 {
 		width: 100% !important;

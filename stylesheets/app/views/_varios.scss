@@ -1,3 +1,12 @@
+.col-center{
+  margin:0 auto;
+}
+
+.col-xs-center{
+	@media #{$md-down} {
+	  	margin:0 auto;
+	}
+}
 .buscar {
 	.resultados {
 		@media #{$xs-only} {
@@ -105,4 +114,8 @@
 
 img.img-responsive.ad-img.margin-auto{
 	width:100%;
+}
+
+.selectpicker{
+	@include alt-light;
 }

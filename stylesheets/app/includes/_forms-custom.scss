@@ -86,3 +86,7 @@
     // background: white url(/img/arrow-down.svg) no-repeat 98%;
   }
 }
+
+.form-control {
+	@include alt-light;	
+}

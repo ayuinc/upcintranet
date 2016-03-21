@@ -10,8 +10,11 @@
 		@include clearfix;
 		.panel-title {
 			padding: 7px;
+			@media #{$sm-down} {
+				padding: 14px !important;
+			}
 			&.left {
-				padding: 7px 0 !important;
+				padding: 14px 0 !important;
 			}
 			display: inline-block;
 			h1, h2, h3, h4, h5, h6 {
