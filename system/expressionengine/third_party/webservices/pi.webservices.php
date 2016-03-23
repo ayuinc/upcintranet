@@ -1366,7 +1366,8 @@ class Webservices
       if($codigo[0] == 'U' || $codigo[0] =='u'){
         $codigo = substr($codigo,1);
       }
-      $periodo = '201502';
+      
+      $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
       $matricula_url = ee()->config->item('matricula_services_url');
       $matricula_url .= $linea;
       $matricula_url .= '/'.$codigo;
@@ -1671,6 +1672,7 @@ class Webservices
       // $quiz_services_url .= '/'.'2015-11-27'.'T00:00:00Z';
       $quiz_enabled = false;
       $carrera = '';
+      var_dump($quiz_services_url);
       $quiz_result = $this->services->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
       $quiz_json = json_decode($quiz_result, true);
       if($quiz_json['DTOHeader']['CodigoRetorno'] == 'Correcto')
