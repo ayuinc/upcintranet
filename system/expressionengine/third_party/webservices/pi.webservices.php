@@ -1366,11 +1366,36 @@ class Webservices
       if($codigo[0] == 'U' || $codigo[0] =='u'){
         $codigo = substr($codigo,1);
       }
+
+      $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
+      $matricula_url = ee()->config->item('matricula_services_url');
+      $matricula_url .= $linea;
+      $matricula_url .= '/'.$codigo;
+      $result = $this->services->curl_full_url($matricula_url, ee()->config->item('matricula_user'), ee()->config->item('matricula_pwd'));
+      $json = json_decode($result, true);
+      foreach ($json['ListaDTOMatricula'] as $matricula) {
+        // var_dump($matricula['MatriculaCodPeriodMat']);
+        if($periodo == $matricula['MatriculaCodPeriodMat']){
+          return $matricula['MatriculaCodProducMat'];
+        }
+      }
+
+      return 0;
+    }
+
+    public function get_carrera_alumno2()
+    {
+      $linea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
+      $codigo = $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+      if($codigo[0] == 'U' || $codigo[0] =='u'){
+        $codigo = substr($codigo,1);
+      }
       
       $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
       $matricula_url = ee()->config->item('matricula_services_url');
       $matricula_url .= $linea;
       $matricula_url .= '/'.$codigo;
+      var_dump($matricula_url);
       $result = $this->services->curl_full_url($matricula_url, ee()->config->item('matricula_user'), ee()->config->item('matricula_pwd'));
       $json = json_decode($result, true);
       foreach ($json['ListaDTOMatricula'] as $matricula) {
@@ -1678,7 +1703,7 @@ class Webservices
       if($quiz_json['DTOHeader']['CodigoRetorno'] == 'Correcto')
       {
         $quiz_enabled = true;
-        $carrera = $this->get_carrera_alumno();
+        $carrera = $this->get_carrera_alumno2();
         $quiz_horarios = $quiz_json['ListaDTOHorarioAlumno'];
       }
       // END : traer data de encuestas 
@@ -1687,8 +1712,8 @@ class Webservices
       $horario_empty;
       $horario_empty_survey =  $this->_get_subtag_data('horario_survey',$tagdata);
       if(strlen($enable_survey) !== 0  && $quiz_enabled == true){
-        // $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
-        $horario_empty = $this->_get_subtag_data('horario',$tagdata);
+        $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
+        // $horario_empty = $this->_get_subtag_data('horario',$tagdata);
       }else{
         $horario_empty = $this->_get_subtag_data('horario',$tagdata);
       }
@@ -1780,6 +1805,8 @@ class Webservices
                       $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
                       $form .= "</form>";
                       $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+                  }else{
+                    $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, '');
                   }
                 }
                 else
