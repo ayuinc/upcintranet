@@ -1575,6 +1575,9 @@ class Webservices
                       $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
                       $form .= "</form>";
                       $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+                  }else{
+                    $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
+                    $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
                   }
                 }
                 else
@@ -1586,7 +1589,7 @@ class Webservices
                    $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
 
                 }
-                
+
               }
 
             }
