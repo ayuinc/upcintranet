@@ -1522,7 +1522,10 @@ class Webservices
         {
 
           $horario_dia = $horario_dia_empty;                           
-
+          $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
+          $HoraInicio = ltrim($HoraInicio,'0');
+          $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
+          $HoraFin = ltrim($HoraFin,'0');
           if(strlen($enable_survey) !== 0 && $quiz_enabled == true)
           {
             for($q = 0 ; $q<count($quiz_horarios); $q++)
@@ -1576,22 +1579,22 @@ class Webservices
                 }
                 else
                 {
-                  $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'inactive');
-                  $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/btn-encuesta-no-disponible.jpg');
-                  $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, '#');
+                  // $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'inactive');
+                  // $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/btn-encuesta-no-disponible.jpg');
+                  // $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, '#');
+                   $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
+                   $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+
                 }
+                
               }
 
             }
          
           }
-          $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
-          $HoraInicio = ltrim($HoraInicio,'0');
+
           $horario_dia = $this->_replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
-          $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
-          $HoraFin = ltrim($HoraFin,'0');
           $horario_dia = $this->_replace_subtag_data('hora_fin', $horario_dia, $HoraFin.':00');
-          
           $horario_dia = $this->_replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
           $horario_dia = $this->_replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
           $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
@@ -1833,7 +1836,7 @@ class Webservices
 
           $horario_dia = $this->_replace_subtag_data('hora_fin', $horario_dia, $HoraFin.':00');
           $horario_dia = $this->_replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
-          
+
           $horario_dia = $this->_replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
           $horario_dia = $this->_replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
           $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
