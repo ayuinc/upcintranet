@@ -1479,8 +1479,8 @@ class Webservices
       $horario_empty;
       $horario_empty_survey =  $this->_get_subtag_data('horario_survey',$tagdata);
       if(strlen($enable_survey) !== 0  && $quiz_enabled == true){
-        // $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
-        $horario_empty = $this->_get_subtag_data('horario',$tagdata);
+        $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
+        // $horario_empty = $this->_get_subtag_data('horario',$tagdata);
       }else{
         $horario_empty = $this->_get_subtag_data('horario',$tagdata);
       }
