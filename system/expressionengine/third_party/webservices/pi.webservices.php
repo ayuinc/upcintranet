@@ -1767,12 +1767,13 @@ class Webservices
                 var_dump($date);
                 $class_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio;
                 $class_end_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraFin;
-                // if(intval($strDate) >= intval($class_date) && intval($strDate) <= intval($class_end_date))
+                
                 var_dump(intval($strDate));
                 var_dump(intval($class_date));
                 var_dump(intval($strDate));
                 var_dump(intval($class_end_date));
-                if(true)
+                if(intval($strDate) >= intval($class_date) && intval($strDate) <= intval($class_end_date))
+                // if(true)
                 {
                 
                   $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
@@ -1788,7 +1789,7 @@ class Webservices
                     'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
                     'c_sede' => $quiz_horarios[$q]["AlumnoCOD_SEDE"],
                     'c_alumno' => $codigo,
-                    // 'c_carrera' => $carrera
+                    'c_carrera' => $carrera
                     );
                   $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
                   var_dump($quiz_request);
