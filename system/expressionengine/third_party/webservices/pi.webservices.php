@@ -1791,6 +1791,7 @@ class Webservices
                     // 'c_carrera' => $carrera
                     );
                   $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
+                  var_dump($quiz_request);
                   $qjson = json_decode($quiz_request, true);
                   if($quiz_request!==false && $qjson['CodError'] === 0)
                   {
