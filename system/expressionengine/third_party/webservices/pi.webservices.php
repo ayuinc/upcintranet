@@ -1737,7 +1737,7 @@ class Webservices
               if($json['HorarioDia'][$i]['CodDia']  == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) &&  $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] &&  $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion']){
                 $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
                 $strDate = $date->format('YmdH');
-                var_dump($date->format(("Y-m-d H:i:s"));
+                var_dump($date->format("Y-m-d H:i:s"));
                 $class_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio;
                 $class_end_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraFin;
                 // if(intval($strDate) >= intval($class_date) && intval($strDate) <= intval($class_end_date))
