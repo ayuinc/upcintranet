@@ -1529,7 +1529,7 @@ class Webservices
                     'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
                     'c_sede' => $quiz_horarios[$q]["AlumnoCOD_SEDE"],
                     'c_alumno' => $codigo,
-                    // 'c_carrera' => $carrera
+                    'c_carrera' => $carrera
                     );
                   $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
                   $qjson = json_decode($quiz_request, true);
