@@ -128,7 +128,7 @@ class Webservices_functions {
 			$return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false)); 
 			return $return;
 		}
-		return FALSE;
+		return "AA";
 	}
 
 	public function set_cookie ( $name,  $value,  $expire = 0 ,  $path = "/" ,   $domain = ".upc.edu.pe" ,  $prefix = "",  $secure = TRUE )
