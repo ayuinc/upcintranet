@@ -125,14 +125,11 @@ class Webservices_functions {
 	{
 		if( $services_url != NULL && $params != NULL)
 		{
-			$string = ""; 
-			foreach ($params as $key => $value) {
-				$string.= $key."=".$value;
-			}
+			
 			$return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false)); 
-			return $string;
+			return $return;
 		}
-		return "AA";
+		return FALSE;
 	}
 
 	public function set_cookie ( $name,  $value,  $expire = 0 ,  $path = "/" ,   $domain = ".upc.edu.pe" ,  $prefix = "",  $secure = TRUE )
