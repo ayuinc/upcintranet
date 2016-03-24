@@ -1519,7 +1519,11 @@ class Webservices
                   $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
                   $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
                   $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
-                
+                  if($codigo[0] == 'U' || $codigo[0] =='u'){
+                    $codigo_alumno .=   '/'.substr($codigo,1);
+                  }else{
+                    $codigo_alumno .= '/'.$codigo;
+                  }
                   $quiz_params = array('c_un' => $codlinea, 
                     "c_modalidad" => $codmodal,
                     "c_periodo" => $periodo,
@@ -1528,7 +1532,7 @@ class Webservices
                     "grupo" => $quiz_horarios[$q]["SesionGRUPO"],
                     'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
                     'c_sede' => $quiz_horarios[$q]["AlumnoCOD_SEDE"],
-                    'c_alumno' => $codigo,
+                    'c_alumno' => $codigo_alumno,
                     'c_carrera' => $carrera
                     );
                   $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
