@@ -1520,9 +1520,9 @@ class Webservices
                   $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
                   $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
                   if($codigo[0] == 'U' || $codigo[0] =='u'){
-                    $codigo_alumno .=   '/'.substr($codigo,1);
+                    $codigo_alumno =   substr($codigo,1);
                   }else{
-                    $codigo_alumno .= '/'.$codigo;
+                    $codigo_alumno = $codigo;
                   }
                   $quiz_params = array('c_un' => $codlinea, 
                     "c_modalidad" => $codmodal,
