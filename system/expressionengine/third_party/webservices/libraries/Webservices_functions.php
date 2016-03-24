@@ -126,7 +126,7 @@ class Webservices_functions {
 		if( $services_url != NULL && $params != NULL)
 		{
 			$return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false)); 
-			return $return;
+			return "BB";
 		}
 		return "AA";
 	}
