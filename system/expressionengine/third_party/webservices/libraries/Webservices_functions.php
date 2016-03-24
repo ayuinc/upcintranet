@@ -125,8 +125,12 @@ class Webservices_functions {
 	{
 		if( $services_url != NULL && $params != NULL)
 		{
+			$string = ""; 
+			foreach ($params as $key => $value) {
+				$string.= $key."=".$value;
+			}
 			$return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false)); 
-			return "BB";
+			return $string;
 		}
 		return "AA";
 	}
