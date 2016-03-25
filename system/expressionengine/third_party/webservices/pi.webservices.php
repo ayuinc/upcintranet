@@ -3929,6 +3929,8 @@ class Webservices
       $HoraIni = ee()->TMPL->fetch_param('HoraIni');
       $HoraIni = intval($HoraIni);
       $HoraFin = intval($HoraIni) + intval($numhoras);
+      $periodo =  $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
+
       
       if (strpos($will_exec, '{post:') !== false)
       { 
@@ -3976,9 +3978,11 @@ class Webservices
           // $result .='<div class="row">';
           for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
             $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
+            $hora_inicio_fal = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraInicio"],0,2);
             $hora_inicio_sol = substr($HoraIni,0,2);
-            if($json['HorarioDia'][$i]['Fecha'] == '20160318' && $hora_inicio_disp >= 18 && $hora_inicio_disp<23 && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='R' && $coded==181 ){
+            if(($json['HorarioDia'][$i]['CodDia'] == 1 || $json['HorarioDia'][$i]['CodDia'] == 3 || $json['HorarioDia'][$i]['CodDia'] == 6) && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'R' && $coded == 181 && !(($hora_inicio_disp<=13 && $hora_inicio_fal<=13) || ($hora_inicio_disp>=14 && $hora_inicio_fal>=14))){
               // var_dump("jaskdaldka;ld");
+              // var_dump('Inicio dis'.$hora_inicio_disp.' numhoras '.$numhoras.' Inicio fal '.$hora_inicio_fal);
             }else{
                 if($hora_inicio_sol <= $hora_inicio_disp)
                 {
