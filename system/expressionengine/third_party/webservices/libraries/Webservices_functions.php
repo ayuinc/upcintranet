@@ -123,27 +123,10 @@ class Webservices_functions {
      */
 	public function curl_post_full_url( $services_url , $params)
 	{
-		
 		if( $services_url != NULL && $params != NULL)
 		{
 			
-			$this->EE->curl->create($services_url);
-			$this->EE->curl->http_method('post');
-
-
-			$this->EE->curl->option(CURLOPT_URL, $services_url);
-
-			$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
-			$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
-
-			$this->EE->curl->http_login($user, $pwd);
-			$this->EE->curl->post($params);
-			$return = $this->EE->curl->execute();
-			foreach($params as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-			rtrim($fields_string, '&');
-			var_dump($fields_string);
-			var_dump($this->EE->curl->error_code); // int
-			var_dump($this->EE->curl->error_string);
+			$return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false)); 
 			return $return;
 		}
 		return FALSE;

@@ -1366,25 +1366,21 @@ class Webservices
       if($codigo[0] == 'U' || $codigo[0] =='u'){
         $codigo = substr($codigo,1);
       }
-      $periodo = '201502';
+
+      $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
       $matricula_url = ee()->config->item('matricula_services_url');
       $matricula_url .= $linea;
       $matricula_url .= '/'.$codigo;
       $result = $this->services->curl_full_url($matricula_url, ee()->config->item('matricula_user'), ee()->config->item('matricula_pwd'));
       $json = json_decode($result, true);
       foreach ($json['ListaDTOMatricula'] as $matricula) {
-        var_dump($matricula['MatriculaCodPeriodMat']);
+        // var_dump($matricula['MatriculaCodPeriodMat']);
         if($periodo == $matricula['MatriculaCodPeriodMat']){
           return $matricula['MatriculaCodProducMat'];
         }
       }
 
       return 0;
-    }
-
-    public function get_available_quiz($quiz_data)
-    {
-
     }
 
     //HORARIO CICLO ACTUAL DEL ALUMNO
@@ -1422,13 +1418,14 @@ class Webservices
       $codlinea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
       $codmodal = $_COOKIE[$this->services->get_fuzzy_name("CodModal")];
       $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
+      // $periodo = '201600';
       $quiz_service = ee()->config->item('quiz_services_url');
       $quiz_services_url = $quiz_service;
       $quiz_services_url .= $codlinea;
       $quiz_services_url .= '/'.$codmodal;
       
-      // $quiz_services_url .= '/'.$periodo;
-      $quiz_services_url .= '/'.'201502';
+      $quiz_services_url .= '/'.$periodo;
+      // $quiz_services_url .= '/'.'201502';
       if($codigo[0] == 'U' || $codigo[0] =='u'){
         $quiz_services_url .=   '/'.substr($codigo,1);
       }else{
@@ -1437,10 +1434,10 @@ class Webservices
       $day = date('w');
       $week_start = date('Y-m-d', strtotime('-'.$day.' days'));
       $week_end = date('Y-m-d', strtotime('+'.(6-$day).' days'));
-      // $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
-      // $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
-      $quiz_services_url .= '/'.'2015-11-23'.'T00:00:00Z';
-      $quiz_services_url .= '/'.'2015-11-27'.'T00:00:00Z';
+      $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
+      $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
+      // $quiz_services_url .= '/'.'2015-11-23'.'T00:00:00Z';
+      // $quiz_services_url .= '/'.'2015-11-27'.'T00:00:00Z';
       $quiz_enabled = false;
       $carrera = '';
       $quiz_result = $this->services->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
@@ -1457,8 +1454,8 @@ class Webservices
       $horario_empty;
       $horario_empty_survey =  $this->_get_subtag_data('horario_survey',$tagdata);
       if(strlen($enable_survey) !== 0  && $quiz_enabled == true){
-        // $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
-        $horario_empty = $this->_get_subtag_data('horario',$tagdata);
+        $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
+        // $horario_empty = $this->_get_subtag_data('horario',$tagdata);
       }else{
         $horario_empty = $this->_get_subtag_data('horario',$tagdata);
       }
@@ -1496,12 +1493,18 @@ class Webservices
         $clases = '';
         $horario_dia_empty = $this->_get_subtag_data('horario_dia', $horario);
         $horario_dia_survey_empty = $this->_get_subtag_data('horario_dia', $horario_empty_survey);
-        for ($b=0; $b<$tamano_int; $b++) {
+        for ($b=0; $b<$tamano_int; $b++) 
+        {
 
           $horario_dia = $horario_dia_empty;                           
-
-          if(strlen($enable_survey) !== 0 && $quiz_enabled == true){
-            for($q = 0 ; $q<count($quiz_horarios); $q++){
+          $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
+          $HoraInicio = ltrim($HoraInicio,'0');
+          $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
+          $HoraFin = ltrim($HoraFin,'0');
+          if(strlen($enable_survey) !== 0 && $quiz_enabled == true)
+          {
+            for($q = 0 ; $q<count($quiz_horarios); $q++)
+            {
           
               if($json['HorarioDia'][$i]['CodDia']  == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) &&  $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] &&  $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion']){
                 $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
@@ -1516,7 +1519,11 @@ class Webservices
                   $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
                   $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
                   $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
-                
+                  if($codigo[0] == 'U' || $codigo[0] =='u'){
+                    $codigo_alumno =   substr($codigo,1);
+                  }else{
+                    $codigo_alumno = $codigo;
+                  }
                   $quiz_params = array('c_un' => $codlinea, 
                     "c_modalidad" => $codmodal,
                     "c_periodo" => $periodo,
@@ -1525,46 +1532,47 @@ class Webservices
                     "grupo" => $quiz_horarios[$q]["SesionGRUPO"],
                     'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
                     'c_sede' => $quiz_horarios[$q]["AlumnoCOD_SEDE"],
-                    'c_alumno' => $codigo,
-                    'c_carrera' => $carrera);
+                    'c_alumno' => $codigo_alumno,
+                    'c_carrera' => $carrera
+                    );
                   $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
                   $qjson = json_decode($quiz_request, true);
-                  if($quiz_request!==false && $qjson['CodError'] === 11011)
+                  if($quiz_request!==false && $qjson['CodError'] === 0)
                   {
                      $horario_dia = $horario_dia_survey_empty;
-                      // $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'active');
-                      // $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/btn-encuesta-ingresar.jpg');
-                      // $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, $url_base_survey);
-                    // var_dump($quiz_request);
 
-                      $form = "<form action=\"".$qjson["QuizLink"]."\" ";
-                      $form .= "id=\""."form11"."\" method=\"post\">";
+                      $form = "<form target=\"_blank\"action=\"".$qjson["Quizlink"]."\" ";
+                      $form .= "id=\"".rand ( 0 , 999 )."\" method=\"post\">";
                       foreach ($quiz_params as $key => $value) {
                         $form .= "<input type=\"hidden\" value=\"".$value."\" name=\"".$key."\">";
                       }
                       $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
-                      $form .= "<input type=\"hidden\" name=\"XID\" value=\"{XID_HASH}\"> </form>";
+                      $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
+                      $form .= "</form>";
                       $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+                  }else{
+                    $form = "<!-- ".$quiz_request." COD ERROR".$qjson['CodError']."--><a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
+                    $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
                   }
                 }
                 else
                 {
-                  $horario_dia = $this->_replace_subtag_data('survey_is_active', $horario_dia, 'inactive');
-                  $horario_dia = $this->_replace_subtag_data('survey_image_icon', $horario_dia, $site_url.'assets/img/btn-encuesta-no-disponible.jpg');
-                  $horario_dia = $this->_replace_subtag_data('survey_url_generated', $horario_dia, '#');
+              
+                   $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
+                   $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+
                 }
+                $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
+                   $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+
               }
 
             }
          
           }
-          $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
-          $HoraInicio = ltrim($HoraInicio,'0');
+
           $horario_dia = $this->_replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
-          $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
-          $HoraFin = ltrim($HoraFin,'0');
           $horario_dia = $this->_replace_subtag_data('hora_fin', $horario_dia, $HoraFin.':00');
-          
           $horario_dia = $this->_replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
           $horario_dia = $this->_replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
           $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
@@ -1601,7 +1609,9 @@ class Webservices
         $result .= '</div>';
         $result .= '</div>'; 
         $result .= '</div>';     
-      }elseif ($error_result != '0') {
+      }
+      elseif ($error_result != '0') 
+      {
         $site_url = ee()->config->item('site_url');
         $this->EE->functions->redirect($site_url."general/session-expired");
         return;
@@ -3919,6 +3929,8 @@ class Webservices
       $HoraIni = ee()->TMPL->fetch_param('HoraIni');
       $HoraIni = intval($HoraIni);
       $HoraFin = intval($HoraIni) + intval($numhoras);
+      $periodo =  $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
+
       
       if (strpos($will_exec, '{post:') !== false)
       { 
@@ -3951,7 +3963,6 @@ class Webservices
      
         $token = $_COOKIE[$this->services->get_fuzzy_name('Token')];
         $url = 'DisponibilidadED/?CodSede='.$codsede.'&CodED='.$coded.'&NumHoras='.$numhoras.'&CodAlumno='.$codigo.'&FechaIni='.$fechaini.'&FechaFin='.$fechafin.'&Token='.$token;
-
         $result=$this->services->curl_url($url);
         $json = json_decode($result, true);
         $error = $json['CodError'];
@@ -3967,43 +3978,53 @@ class Webservices
           // $result .='<div class="row">';
           for ($a=0; $a< count($json['HorarioDia'][$i]['Disponibles']); $a++) {
             $hora_inicio_disp = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraFin"],0,2);
+            $hora_inicio_fal = substr($json['HorarioDia'][$i]['Disponibles'][$a]["HoraInicio"],0,2);
             $hora_inicio_sol = substr($HoraIni,0,2);
-            if($hora_inicio_sol <= $hora_inicio_disp)
-            {
-              $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
-              $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';
-              $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
-              $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
-              $result .= '<input type="hidden" value="1" name="Flag">';
-              $result .= '<input type="hidden" value="'.$codsede.'" name="CodSede">';
-              $result .= '<input type="hidden" value="'.$coded.'" name="CodED">';
-              $result .= '<input type="hidden" value="'.$codactiv.'" name="CodActiv">';
-              $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
-              $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
-              $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
-              if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
-              $result .= '<div class="solano-bold-24 black-text">Sede: Complejo Alamos</div>';
-              } else {
-              $result .= '<div class="solano-bold-24 black-text">Sede: Campus Villa</div>';
+            if(
+               (($json['HorarioDia'][$i]['CodDia'] == 1 || $json['HorarioDia'][$i]['CodDia'] == 3 || $json['HorarioDia'][$i]['CodDia'] == 6) && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'R' && $coded == 181 && !(($hora_inicio_disp<=13 && $hora_inicio_fal<=13) || ($hora_inicio_disp>=14 && $hora_inicio_fal>=14))) ||
+                ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'R' && $coded == 101 && !(($hora_inicio_disp<=9 && $hora_inicio_fal<=9) || ($hora_inicio_disp>=10 && $hora_inicio_fal>=10))) || 
+                (($json['HorarioDia'][$i]['CodDia'] != 6) && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'L' && $coded == 101 && !(($hora_inicio_disp<=15 && $hora_inicio_fal<=15) || ($hora_inicio_disp>=16 && $hora_inicio_fal>=16)) && !(($hora_inicio_disp<=22 && $hora_inicio_fal<=22) || ($hora_inicio_disp>=23 && $hora_inicio_fal>=23))) ||
+                ($json['HorarioDia'][$i]['CodDia'] == 6 && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'L' && $coded == 101 && !(($hora_inicio_disp<=15 && $hora_inicio_fal<=15) || ($hora_inicio_disp>=23 && $hora_inicio_fal>=23))) 
+                )  {
+              // var_dump("jaskdaldka;ld");
+              // var_dump('Inicio dis'.$hora_inicio_disp.' numhoras '.$numhoras.' Inicio fal '.$hora_inicio_fal);
+            }else{
+                if($hora_inicio_sol <= $hora_inicio_disp)
+                {
+                  $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
+                  $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';
+                  $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
+                  $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
+                  $result .= '<input type="hidden" value="1" name="Flag">';
+                  $result .= '<input type="hidden" value="'.$codsede.'" name="CodSede">';
+                  $result .= '<input type="hidden" value="'.$coded.'" name="CodED">';
+                  $result .= '<input type="hidden" value="'.$codactiv.'" name="CodActiv">';
+                  $result .= '<input type="hidden" value="'.$numhoras.'" name="NumHoras">';
+                  $result .= '<input type="hidden" value="Ninguno" name="Detalles">';
+                  $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'].'" name="Fecha">';
+                  if ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede']=='L') {
+                  $result .= '<div class="solano-bold-24 black-text">Sede: Complejo Alamos</div>';
+                  } else {
+                  $result .= '<div class="solano-bold-24 black-text">Sede: Campus Villa</div>';
+                  }
+                  // $a++;
+                  // $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
+                  // $a--;
+                  $result .= '<span class="zizou-16">';
+                  $result .= 'Fecha: '.$fecha.'<br>';
+                  $result .= '</span>';
+                  $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
+                  $HoraInicio = ltrim($HoraInicio,'0');
+                  $HoraFin = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'], 0, 2);
+                  $HoraFin = ltrim($HoraFin,'0');
+                  $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
+                  $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
+                  $result .= '<span class="zizou-16">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
+                  $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
+                  $result .= '</form>';
+                  $result .= '</div>';
+                }
               }
-              // $a++;
-              // $result .= '<div class="solano-bold-24 black-text"> Opción '.$a.'</div>';
-              // $a--;
-              $result .= '<span class="zizou-16">';
-              $result .= 'Fecha: '.$fecha.'<br>';
-              $result .= '</span>';
-              $HoraInicio = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'], 0, 2);
-              $HoraInicio = ltrim($HoraInicio,'0');
-              $HoraFin = substr($json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'], 0, 2);
-              $HoraFin = ltrim($HoraFin,'0');
-              $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraInicio'].'" name="HoraIni">';
-              $result .= '<input type="hidden" value="'.$json['HorarioDia'][$i]['Disponibles'][$a]['HoraFin'].'" name="HoraFin">';
-              $result .= '<span class="zizou-16">Hora: '.$HoraInicio.':00 - '.$HoraFin.':00</span>';
-              $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
-              $result .= '</form>';
-              $result .= '</div>';
-
-            }  
           }
            $result .= '</div>';              
         }        
