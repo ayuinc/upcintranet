@@ -1568,6 +1568,8 @@ class Webservices
               }
 
             }
+            $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
+                   $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
          
           }
 
