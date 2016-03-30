@@ -4341,7 +4341,29 @@ class Webservices
       }    
     }     
     
-    
+    public function activar_recurso()
+    {
+      $fecha = ''; 
+      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+
+      ee()->db->select('*');
+      ee()->db->where('codigo',$codigo);
+      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+
+      foreach($query_modelo_result->result() as $row){
+        $token = $row->token;
+      }
+
+      $url = 'ActivarReserva/?CodReserva='.$reserva.'&CodAlumno='.$codigo.'&CodAlumno2='.$codigo2.'&Token='.$token;
+      //var_dump($url);
+
+      $result=$this->services->curl_url($url);
+      //var_dump($result);
+      $json = json_decode($result, true);
+
+      
+    }
     //LISTADO DE RECURSOS RESERVADOS POR EL ALUMNO     
     public function listado_recursos_reservados_alumno()
     {

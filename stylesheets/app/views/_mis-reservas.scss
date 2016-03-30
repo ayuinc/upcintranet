@@ -50,6 +50,10 @@
 					@media only screen and (width: 600px) {
 						height: 33px;
 					}
+					@media #{$md-down}{
+						background: url(../assets/img/select_black_2x.png) no-repeat center;
+						height: 44px;
+					}
 				}
 				.btn {
 					border-radius: 0;
@@ -58,6 +62,9 @@
 					color: $gray-main;
 					padding-bottom: 4px;
 					height: 35px;
+					@media #{$md-down}{
+						height: 45px;
+					}
 					@media only screen and (width: 1024px) {
 						padding-bottom: 0;
 						font-size: 14px;
@@ -68,8 +75,16 @@
 				&.calendar {
 					background: url(../assets/img/calendario_black.png) no-repeat right;
 					cursor: default;
+					@media #{$md-down}{
+						background: url(../assets/img/calendario_black_2x.png) no-repeat right;
+						background-size: 41px 45px;
+						height: 44px;
+					}
 				}
 				height: 35px;
+				@media #{$md-down}{
+					height: 45px;
+				}
 				@media only screen and (width: 1024px) {
 					.caret {
 						background: url(../assets/img/select_black_sm.png) no-repeat right;
@@ -105,4 +120,10 @@ label.error {
 }
 #ui-datepicker-div{
   display: none;
+}
+
+.icon-clock{
+	@media #{$xs-only} {
+		height: 50px;
+	}
 }
