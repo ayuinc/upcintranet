@@ -1568,6 +1568,8 @@ class Webservices
               }
 
             }
+            $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
+                   $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
          
           }
 
@@ -3992,7 +3994,7 @@ class Webservices
                 if($hora_inicio_sol <= $hora_inicio_disp)
                 {
                   $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
-                  $result .= '<div class="col-sm-5 col-xs-12 mb-21 mr-21 p-14 text-left red-line bg-muted">';
+                  $result .= '<div class="col-sm-5-5 mb-21 p-14 text-left red-line bg-muted">';
                   $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
                   $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
                   $result .= '<input type="hidden" value="1" name="Flag">';
@@ -4023,7 +4025,11 @@ class Webservices
                   $result .= '<input type="submit"  class="block mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
                   $result .= '</form>';
                   $result .= '</div>';
+
                 }
+              }
+              if($a%2 != 1){
+                 $result .= '<div class="col-sm-0-5 hidden-xs"></div>';
               }
           }
            $result .= '</div>';              
@@ -4213,7 +4219,7 @@ class Webservices
             // $result .= '<div class="solano-bold-24 black-text"> Opción '.$i.'</div>';
             // $i--;
 
-            $result .= '<div class="solano-bold-24 black-text nowrap">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
+            $result .= '<div class="solano-bold-24 black-text nowrap normal-whitespace-xs">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['Local'].'</div>';
             $result .= '<div class="zizou-16">'.$fecha.'</div>';
             $result .= '<div class="zizou-16">'.substr($json['Recursos'][$i]['HoraIni'], 0,2).':'.substr($json['Recursos'][$i]['HoraIni'], 2,2).' - '.substr($json['Recursos'][$i]['HoraFin'], 0,2).':'.substr($json['Recursos'][$i]['HoraFin'], 2,2).'</div>';

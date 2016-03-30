@@ -14,18 +14,18 @@
       {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
         <div class="internal-header">
           <div class="row">
-            <div class="col-sm-0-5"></div>
-            <div class="col-sm-4"><span class="zizou-16">Mis Reservas</span></div>
+            <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+            <div class="col-sm-4 p-xs-0"><span class="zizou-16">Mis Reservas</span></div>
           </div>
           <div class="row">
-            <div class="col-sm-0-5"></div>
-            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+            <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+            <div class="col-md-4 p-xs-0 col-sm-12"><span class="uppercase bold xl">Cubículos</span></div>
           </div>
         </div> 
         <div class="section-content pb-70">
           <div class="row">
-            <div class="col-sm-0-5 hidden-xs"></div>
-            <div class="col-sm-3-5 col-xs-12">
+            <div class="col-sm-0-5 hidden-xs hidden-sm"></div>
+            <div class="col-md-3-5 col-sm-4 p-xs-0">
               <div class="panel pt-0">
                 <div class="panel-head no-bg">
                   <div class="panel-title left">
@@ -44,8 +44,8 @@
               {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
             </div>
         {/exp:channel:entries}      
-            <div class="col-sm-8">
-              <div class="panel pt-0">
+            <div class="col-md-8 col-sm-8 col-xs-12 p-xs-0">
+              <div class="panel pt-0 clearfix">
                 <div class="panel-head no-bg">
                   <div class="panel-title left">
                     <h3>Resultados</h3>
@@ -66,13 +66,13 @@
                       }
 
                       {header}
-                       <div class="panel-body">
-                          <div class="panel-table col-sm-10-5 mr-xs-7 p-14 pt-21 mb-14 text-left red-line">
+                       <div class="panel-body clearfix">
+                          <div class="panel-table col-sm-12 col-md-12 mr-xs-7 p-14 pt-21 mb-14 text-left red-line col-xs-12">
                           <ul class="tr">
-                            <li class="col-sm-2 col-xs-3">
-                              <img src="{site_url}assets/img/reloj.png" class="img-center">
+                            <li class="col-sm-2 col-xs-12">
+                              <img src="{site_url}assets/img/reloj.png" class="img-center img-xs-left img-sm-left">
                             </li>
-                            <li class="col-sm-10 col-xs-9">
+                            <li class="col-sm-10 col-xs-12">
                               <span class="block helvetica-18">Completa el formulario para encontrar recursos disponibles.</span>  
                               <span class="helvetica-18">Las reservas pueden <span class="helvetica-bold-18">realizarse hasta 15 minutos antes del horario deseado</span> y con <span class="helvetica-bold-18">24 horas de anticipación.</span></span>  
                             </li>
@@ -82,8 +82,8 @@
                       {/header}
 
                       {error}
-                       <div class="panel-body">
-                          <div class="panel-table col-sm-10-5 red-line red-error-message">
+                       <div class="panel-body clearfix">
+                          <div class="panel-table col-sm-12 col-md-12  mr-xs-7 p-14 pt-21 mb-14 text-left col-xs-12 red-line red-error-message">
                             <div class="panel-body pt-14 pb-14 pr-28 pl-28">
                             <img class="pr-7" src="{site_url}assets/img/excla_red_1.png">
                             <span class="helvetica-16 red">{error_message}</span>
@@ -92,7 +92,7 @@
                           <div class="panel-table col-sm-10-5 mr-xs-7 p-14 pt-14 mb-14 text-left ">
                           <ul class="tr">
                             <li class="col-sm-2 col-xs-3">
-                              <img src="{site_url}assets/img/reloj.png" class="img-center">
+                              <img src="{site_url}assets/img/reloj.png" class="img-center img-xs-left img-sm-left">
                             </li>
                             <li class="col-sm-10 col-xs-9"> 
                               <span class="block helvetica-18">Completa el formulario para encontrar recursos disponibles.</span>  
@@ -104,8 +104,8 @@
                       {/error}
 
                       {info}
-                       <div class="panel-body">
-                          <div class="panel-table col-sm-10-5 info-border blue-message bg-muted">
+                       <div class="panel-body clearfix">
+                          <div class="panel-table col-sm-12 col-md-12  mr-xs-7 p-14 pt-21 mb-14 text-left col-xs-12 info-border blue-message bg-muted">
                             <div class="panel-body pt-14 pb-14 pr-28 pl-28">
                             <img class="pr-7" src="{site_url}assets/img/excla_cyan_1.png">
                             <span class="helvetica-16 blue">{info_message}</span>
@@ -114,7 +114,7 @@
                           <div class="panel-table col-sm-10-5 mr-xs-7 p-14 pt-14 mb-14 text-left ">
                           <ul class="tr">
                             <li class="col-sm-2 col-xs-3">
-                              <img src="{site_url}assets/img/reloj.png" class="img-center">
+                              <img src="{site_url}assets/img/reloj.png" class="img-center img-xs-left img-sm-left">
                             </li>
                             <li class="col-sm-10 col-xs-9"> 
                               <span class="block helvetica-18">Completa el formulario para encontrar recursos disponibles.</span>  
@@ -138,6 +138,7 @@
                     }                
                   {/if}                       
                 </div>
+                {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}
               </div>  
             </div>
           </div>

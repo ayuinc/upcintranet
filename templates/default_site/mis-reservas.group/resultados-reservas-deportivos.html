@@ -14,18 +14,18 @@
     {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
     <div class="internal-header">
       <div class="row">
-        <div class="col-sm-0-5"></div>
-        <div class="col-sm-4"><span class="zizou-16">Mis Reservas</span></div>
+        <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+        <div class="col-sm-4 p-xs-0"><span class="zizou-16">Mis Reservas</span></div>
       </div>
       <div class="row">
-        <div class="col-sm-0-5"></div>
-        <div class="col-sm-4"><span class="uppercase bold xl">Espacios Deportivos</span></div>
+        <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+        <div class="col-md-4 p-xs-0 col-sm-12"><span class="uppercase bold xl">Espacios Deportivos</span></div>
       </div>
     </div>   
     <div class="section-content pb-70">
       <div class="row">
-        <div class="col-sm-0-5 hidden-xs"></div>
-        <div class="col-sm-3-5 col-xs-12">
+        <div class="col-sm-0-5 hidden-xs hidden-sm"></div>
+        <div class="col-md-3-5 col-sm-4 p-xs-0">
           <div class="panel pt-0">
             <div class="panel-head no-bg">
               <div class="panel-title left">
@@ -44,19 +44,19 @@
           {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
         </div>
     {/exp:channel:entries}      
-        <div class="col-sm-8">
-          <div class="panel pt-0">
+        <div class="col-md-8 col-sm-8 col-xs-12 p-xs-0">
+          <div class="panel pt-0 clearfix">
             <div class="panel-head no-bg">
             {if post:Flag!=1}
               <!-- <div class="panel-title left"> -->
                 {embed="includes/datos-busqueda" coded="{post:CodED}" codsede="{post:CodSede}" tipo="buscando"}
               <!-- </div> -->
             </div>
-            <div class="panel-body">
+            <div class="panel-body clearfix">
             
-                  <div class="panel-table col-sm-10-5 mr-xs-7 p-14 pt-21 mb-14 text-left red-line">
+                  <div class="panel-table col-sm-12 col-md-12 mr-xs-7 p-14 pt-21 mb-14 text-left red-line col-xs-12">
                       <ul class="tr">
-                        <li class="col-sm-2 col-xs-12 text-xs-left">
+                        <li class="col-sm-2 col-xs-12">
                           <img src="{site_url}assets/img/reloj.png" class="img-center img-xs-left">
                         </li>
                         <li class="col-sm-10 col-xs-12 text-xs-left">
@@ -94,6 +94,8 @@
                 execute="{post:Flag}"
               }
             {/if}
+
+            {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}
           </div>
         </div>
       </div>
