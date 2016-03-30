@@ -103,6 +103,15 @@
 	.mt-xs-0{
 		margin-top: 0px!important;
 	}
+	.m-xs-0{
+		margin: 0px!important;
+	}
+	.p-xs-0{
+		padding: 0px!important;
+	}
+	.pr-xs-14{
+		padding-right: 14px!important;
+	}
 	.text-xs-left{
 		text-align: left;
 	}
@@ -116,6 +125,9 @@ img.img-responsive.ad-img.margin-auto{
 	width:100%;
 }
 
+.nowrap{
+	white-space: nowrap;
+}
 .selectpicker{
 	@include alt-light;
 }

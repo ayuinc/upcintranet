@@ -15,9 +15,13 @@
 @mixin make-row($gutter: $grid-gutter-width) {
   margin-left:  ($gutter / -2);
   margin-right: ($gutter / -2);
-  @media (min-width: $screen-sm-min){
+  @media (max-width: $screen-sm-min) and (max-width: $screen-sm-max){
     margin-left:  ($gutter / 2);
     margin-right: ($gutter / 2);
+  }
+  @media (max-width: $screen-sm-min){
+    margin-left:  ($gutter / -2);
+    margin-right: ($gutter / -2);
   }
   @include clearfix();
 }

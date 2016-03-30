@@ -60,7 +60,15 @@ $site-menu-width: 79px;
 	@media #{$md-down} {
 		width: 100% !important;
 		padding-top: 121px;
+		margin-right: auto;
+		margin-left: auto;
+		padding-left: 5%;
+		padding-right: 5%;
+		float: none;
 
+	}
+	@media #{$sm-down}{
+		width: 100% !important;
 	}
 	.container-fluid{
 		@media #{$sm-down} {

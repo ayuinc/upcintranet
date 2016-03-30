@@ -181,6 +181,12 @@ $margins-paddings: ("p": "padding", "m": "margin", "pt": "padding-top", "pb": "p
 	}
 }	
 
+@media #{$sm-only} {
+	.img-sm-left {
+		display: block;
+		margin: 0 0;
+	}
+}	
 /*========================================
 =            h2ww               =
 ========================================*/

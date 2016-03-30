@@ -3970,7 +3970,7 @@ class Webservices
         $result = '';
         $tamano = count($json['HorarioDia']);
 
-        $result .= '<div class="row pt-0 pl-14">'; // apertura
+        $result .= '<div class="row pt-0 pl-14 m-xs-0 p-xs-0">'; // apertura
         for ($i=0; $i<$tamano; $i++) {
                   
           $tamano_int = count($json['HorarioDia'][$i]['Disponibles']);
@@ -3992,7 +3992,7 @@ class Webservices
                 if($hora_inicio_sol <= $hora_inicio_disp)
                 {
                   $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
-                  $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';
+                  $result .= '<div class="col-sm-5 col-xs-12 mb-21 mr-21 p-14 text-left red-line bg-muted">';
                   $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
                   $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
                   $result .= '<input type="hidden" value="1" name="Flag">';
@@ -4186,12 +4186,12 @@ class Webservices
       if($error=='00000'){
         // $result .= '<div class="panel-body red-line">';
         $result .= $header_message_result;
-        $result .= '<div class="row pt-0 pl-14">'; // apertura row
+        $result .= '<div class="row pt-0 pl-14 pr-xs-14">'; // apertura row
         for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
 
           if( $json['Recursos'][$i]['Estado'] == true) {
             $enabled_counter += 1; 
-            $result .= '<div class="col-sm-5 mb-21 mr-21 p-14 text-left red-line bg-muted">';    
+            $result .= '<div class="col-sm-5-5 mb-21 p-14 text-left red-line bg-muted">';    
             if($tiporecurso == "CO"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-computadoras" method="post" name="formrecurso-'.$i.'">';
             }
@@ -4213,13 +4213,17 @@ class Webservices
             // $result .= '<div class="solano-bold-24 black-text"> Opción '.$i.'</div>';
             // $i--;
 
-            $result .= '<div class="solano-bold-24 black-text">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
+            $result .= '<div class="solano-bold-24 black-text nowrap">'.$json['Recursos'][$i]['NomRecurso'].'</div>';
             $result .= '<div class="zizou-16">'.$json['Recursos'][$i]['Local'].'</div>';
             $result .= '<div class="zizou-16">'.$fecha.'</div>';
             $result .= '<div class="zizou-16">'.substr($json['Recursos'][$i]['HoraIni'], 0,2).':'.substr($json['Recursos'][$i]['HoraIni'], 2,2).' - '.substr($json['Recursos'][$i]['HoraFin'], 0,2).':'.substr($json['Recursos'][$i]['HoraFin'], 2,2).'</div>';
             $result .= '<input type="submit" class="mt-14 btn btn-custom black-btn wide" value="Reservar" name="submit">';
             $result .= '</form>'; 
             $result .= '</div>';
+            if($enabled_counter%2 != 0){
+               $result .= '<div class="col-sm-0-5 hidden-xs"></div>';
+            }
+           
             // $result .= '</div>'; // cierre row
           }
         }
