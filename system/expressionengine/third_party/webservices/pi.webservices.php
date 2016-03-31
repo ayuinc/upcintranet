@@ -1512,7 +1512,7 @@ class Webservices
 
                 $class_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraInicio;
                 $class_end_date =  $json['HorarioDia'][$i]['Clases'][$b]['Fecha'].$HoraFin;
-                if(intval($strDate) >= intval($class_date) && intval($strDate) <= intval($class_end_date))
+                if(intval($strDate) >= intval($class_date) && intval($strDate) < intval($class_end_date))
                 // if(true)
                 {
                 
