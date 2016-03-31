@@ -1519,8 +1519,8 @@ class Webservices
                   $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
                   $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
                   $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
-                  if($codigo[0] == 'U' || $codigo[0] =='u'){
-                    $codigo_alumno =   substr($codigo,1);
+                  if($codigo[0] =='u'){
+                    $codigo_alumno =  'U'.substr($codigo,1);
                   }else{
                     $codigo_alumno = $codigo;
                   }
