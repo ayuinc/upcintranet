@@ -1812,7 +1812,7 @@ class Webservices
       $error_mensaje = $json['MsgError'];       
       
       //limpio la variable para reutilizarla
-      $result = '<div class="panel-body-head-table pr-7">';
+      $result = '<div class="panel-body-head-table pr-7 hidden-xs hidden-sm">';
       $result .= '<ul class="tr table-border">';
       $result .= '<li class="col-xs-8">';
       $result .= '<div class="pl-7"><span class="text-left">Curso</span></div>';
@@ -1853,7 +1853,7 @@ class Webservices
       }
       else{
         for ($i=0; $i<$tamano; $i++) {
-          $result .= '<ul class="tr bg-muted table-border">';
+          $result .= '<ul class="tr bg-muted table-border hidden-xs hidden-sm">';
           $result .= '<li class="col-xs-8 helvetica-14 pb-0">';
           $result .= '<div>';
           $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
@@ -1887,10 +1887,17 @@ class Webservices
           //Cambia el formato a 2 decimales
           $nota = number_format($nota, 2, '.', '');
           
-          $result .= '<div class="borderless text-center"><span>'.$nota.'</span></div>';
+          $result .= '<div class="text-center"><span>'.$nota.'</span></div>';
           $result .= '</li>';
           $result .= '<li class="col-xs-3 show-curso-detail"><div class="text-center"><span class="red zizou-12 hidden-md hidden-lg"><img class="mr-7" src="{site_url}assets/img/red_eye.png"></span><span class="red zizou-12 hidden-xs hidden-sm"><img class="mr-7" src="{site_url}assets/img/red_eye.png">Mostrar</span></div></li>';
           $result .= '</ul>';
+
+          $result .= '<div class="hidden-md hidden-lg p-21 pb-14 pt-14 gray-line-bottom">';
+          $result .= '<span class="helvetica-16">Curso:</span>&nbsp;<span class="helvetica-bold-16">'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
+          $result .= '</br>';
+          $result .= '<span class="helvetica-14">'.$json['Inasistencias'][$i]['Total'].'/'.$json['Inasistencias'][$i]['Maximo'].'&nbsp;faltas</span>,&nbsp;';
+          $result .= '<span class="helvetica-14">'.$nota.'&nbsp;prom</span>';
+          $result .= '</div>';
         }
       }     
       $result .= '</div>'; 
@@ -4467,11 +4474,11 @@ class Webservices
             $result .= '<div class="hidden-md hidden-lg p-21 red-line">';
             $result .= '<span class="helvetica-bold-16">'.$json['Reservas'][$i]['NomRecurso'].'</span>';
             $result .= '</br>';
-            $result .= '<span>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
+            $result .= '<span class="helvetica-14">Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
             $result .= '</br>';
-            $result .= '<span>'.$HoraInicio.':00 hrs</span>';
-            $result .= '</br>';
-            $result .= '<span>'.substr($json['Reservas'][$i]['DesLocal'],7,strlen($json['Reservas'][$i]['DesLocal'])-1).'</span>';
+            $result .= '<span class="helvetica-14">Inicio&nbsp;'.$HoraInicio.':00 hrs</span>';
+            $result .= '&nbsp;,';
+            $result .= '<span class="helvetica-14">'.substr($json['Reservas'][$i]['DesLocal'],7,strlen($json['Reservas'][$i]['DesLocal'])-1).'</span>';
             $result .= '</div>';
           }
         }
