@@ -1078,7 +1078,7 @@ class Webservices
         //Despliega solo las clases del dia
          if ($json['HorarioDia'][$i]['CodDia']==date('w')) {
           if($i == 0){
-            $result .= '<div class="panel-body-head-table">';
+            $result .= '<div class="panel-body-head-table hidden-xs hidden-sm">';
             $result .= '  <ul class="tr table-border">';
             $result .= '    <li class="col-xs-2">';
             $result .= '      <div class="text-center fecha"><span>Hora</span></div>';
@@ -1115,7 +1115,7 @@ class Webservices
             //Compara si en el arreglo construido la hora es igual al counter del loop
             if ($HoraInicio[$disponibles]==$b) {
               $flag = FALSE;
-              $result .= '<ul class="tr table-border">';
+              $result .= '<ul class="tr table-border hidden-xs hidden-sm">';
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center"><span class="helvetica-bold-16">'.$HoraInicio[$disponibles].':00</span></div>';
               $result .= '</li>';
@@ -1128,7 +1128,14 @@ class Webservices
               $result .= '<li class="col-xs-2">';
               $result .= '<div class="text-center"><span class="solano-bold-18">'.$Salon[$disponibles].'</span></div>';
               $result .= '</li>';
-              $result .= '</ul>';    
+              $result .= '</ul>';  
+              // Mobile design for horario alumno
+              $result .= '<div class="p-21 hidden-md hidden-lg tr table-border red-line">';
+              $result .= '<span class="helvetica-bold-16">Curso: '.$CursoNombre[$disponibles].'</span></br>';
+              $result .= '<span class="helvetica-14">'.$HoraInicio[$disponibles].':00 hrs</span></br>';
+              $result .= '<span class="helvetica-14">Campus '.$Sede[$disponibles].'&nbsp;aula&nbsp;</span><span class="helvetica-bold-14">'.$Salon[$disponibles].'</span>';
+              $result .= '</div>';
+
               //Controla que ya no recorra mas el arreglo 
               if ($disponibles != $tamano_2-1) {
                 $disponibles++;
@@ -4396,7 +4403,7 @@ class Webservices
        
       $tamano = count($json['Reservas']);
       $result .= '<div class="panel-body">';
-      $result .= ' <div class="panel-body-head-table">';
+      $result .= ' <div class="panel-body-head-table hidden-xs hidden-sm">';
       $result .= '  <ul class="tr table-border">';
       $result .= '    <li class="col-xs-2">';
       $result .= '      <div class="fecha"><span>Fecha</span></div>';
@@ -4428,7 +4435,7 @@ class Webservices
         for ($i=0; $i<$tamano; $i++) { 
           if($json['Reservas'][$i]['CodEstado']=='R'){
             $counterReservas = $counterReservas + 1;
-            $result .= '<ul class="tr table-border">';
+            $result .= '<ul class="tr table-border hidden-xs hidden-sm">';
             $result .= '<li class="col-xs-2 helvetica-12">';
             $result .= '<div class="text-center">';
             $fecha = substr($json['Reservas'][$i]['FecReserva'],0,2)."/".substr($json['Reservas'][$i]['FecReserva'],2,2);
@@ -4456,6 +4463,16 @@ class Webservices
             $result .= '</div>';
             $result .= '</li>';
             $result .= '</ul>';
+
+            $result .= '<div class="hidden-md hidden-lg p-21 red-line">';
+            $result .= '<span class="helvetica-bold-16">'.$json['Reservas'][$i]['NomRecurso'].'</span>';
+            $result .= '</br>';
+            $result .= '<span>Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
+            $result .= '</br>';
+            $result .= '<span>'.$HoraInicio.':00 hrs</span>';
+            $result .= '</br>';
+            $result .= '<span>'.substr($json['Reservas'][$i]['DesLocal'],7,strlen($json['Reservas'][$i]['DesLocal'])-1).'</span>';
+            $result .= '</div>';
           }
         }
       }
