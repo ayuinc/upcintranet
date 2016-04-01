@@ -4477,7 +4477,7 @@ class Webservices
             $result .= '<span class="helvetica-14">Código Reserva: '.$json['Reservas'][$i]['CodReserva'].'</span>';
             $result .= '</br>';
             $result .= '<span class="helvetica-14">Inicio&nbsp;'.$HoraInicio.':00 hrs</span>';
-            $result .= '&nbsp;,';
+            $result .= ',&nbsp;';
             $result .= '<span class="helvetica-14">'.substr($json['Reservas'][$i]['DesLocal'],7,strlen($json['Reservas'][$i]['DesLocal'])-1).'</span>';
             $result .= '</div>';
           }
