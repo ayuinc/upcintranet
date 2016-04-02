@@ -11,10 +11,10 @@
   {embed="includes/avisos-dashboard-alumno"}
     <div class="row">
       <div class="col-sm-0-5 hidden-xs"></div>
-      <div class="col-sm-4">
+      <div class="col-sm-12 col-md-4">
       {embed="includes/ads-upc" adId="primer-ad-{exp:webservices:get_modalidad_alumno}"}
       
-       <div class="panel mt-xs-0">
+       <div class="panel mt-xs-0 mt-sm-0">
         <div class="panel-head">
           <div class="panel-title">
             <h3>Mi Horario: <span class="gray-light">{current_time format="%l"}</span></h3>
@@ -37,7 +37,7 @@
         {embed="includes/dashboard-accesos-rapidos-estudiante" cate="<?php echo($category) ?>"}
       {/exp:channel:entries}
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-12 col-md-4">
 
           <div class="panel">
             <div class="panel-head">
@@ -67,7 +67,7 @@
           </div> 
          {embed="includes/ads-upc" adId="tercer-ad-{exp:webservices:get_modalidad_alumno}"}
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-12 col-md-3">
           {embed="includes/ads-upc" adId="cuarto-ad-{exp:webservices:get_modalidad_alumno}"}
         <div class="panel">
           <div class="panel-head">

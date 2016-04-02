@@ -71,7 +71,7 @@ $site-menu-width: 79px;
 		width: 100% !important;
 	}
 	.container-fluid{
-		@media #{$sm-down} {
+		@media #{$md-down} {
 			max-width: 480px;
 		}
 	}
