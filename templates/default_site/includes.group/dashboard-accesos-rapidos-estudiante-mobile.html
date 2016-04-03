@@ -1,16 +1,18 @@
 {exp:channel:entries channel="accesos_rapidos" dynamic="off" status="open" category="{embed:cate}"} 
 {if {total_results} >= 1}
     {if count == 1}
-    <div class="panel mt-21 hidden-xs hidden-sm">
-      <div class="panel-head bg-muted">
+    <div class="panel mt-21 hidden-lg hidden-md">
+      <div class="panel-head bg-muted collapsed" data-toggle="collapse" href="#accdCollapse" id="acrd-estudiante">
         <div class="panel-head left">
             <div class="panel-title">
               <h3>Accesos Rápidos</h3>
             </div>
+           <div class="otras-acciones-arrow"></div>
+           <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
             <div class="panel-title-line"></div>
         </div>
       </div>
-      <div class="panel-body">
+      <div class="panel-body collapse" id="accdCollapse">
         <div class="panel-table pb-14">
           <ul class="tr">
     {/if}
@@ -33,5 +35,3 @@
     {/if}
 {/if}
 {/exp:channel:entries}
-
-

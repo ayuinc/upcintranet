@@ -14,7 +14,7 @@
       <div class="col-sm-12 col-md-4">
       {embed="includes/ads-upc" adId="primer-ad-{exp:webservices:get_modalidad_alumno}"}
       
-       <div class="panel mt-xs-0 mt-sm-0">
+       <div class="panel">
         <div class="panel-head">
           <div class="panel-title">
             <h3>Mi Horario: <span class="gray-light">{current_time format="%l"}</span></h3>
@@ -85,7 +85,7 @@
           </div>
         </div>
            {embed="includes/ads-upc" adId="quinto-ad-{exp:webservices:get_modalidad_alumno}"}
-          <div class="panel noticias-widget pt-21">
+          <div class="panel noticias-widget pt-21 pt-xs-0 pt-xs-0">
             <div class="panel-head">
               <div class="panel-title">
                 <h3>Comunicados</h3>
@@ -105,10 +105,11 @@
           </div>
          {if "{exp:webservices:get_modalidad_alumno}"== "AC"}
            {embed="includes/ads-upc" adId="sexto-ad-{exp:webservices:get_modalidad_alumno}"}
-        <div class="panel mt-21">
+        <div class="panel mt-21 pt-xs-0 pt-xs-0">
           <div class="panel-head">
             <div class="panel-title">
-              <h3 class="vida-universitaria">Vida&nbsp;</h3><h3 class="vida-universitaria">Universitaria</h3>
+              <h3 class="vida-universitaria hidden-xs hidden-sm">Vida&nbsp;</h3><h3 class="vida-universitaria hidden-xs hidden-sm">Universitaria</h3>
+              <h3 class="vida-universitaria hidden-md hidden-lg">Vida Universitaria</h3>
             </div>
             <a href="http://blogs.upc.edu.pe/vu" target="_blank"><div class="panel-head-link vida info"></div></a>
             <div class="panel-title-line"></div>
@@ -119,6 +120,7 @@
           </div>
         </div> 
       {/if}
+      {embed="includes/dashboard-accesos-rapidos-estudiante-mobile" cate="<?php echo($category) ?>"}
       </div>
     </div>
   </div>

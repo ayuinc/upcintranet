@@ -38,3 +38,10 @@
 		padding-bottom: 14px !important;
 	}
 }
+
+#acrd-estudiante {
+	background-color:transparent;
+	&.collapsed{
+		background-color:#ffffff;
+	}
+}

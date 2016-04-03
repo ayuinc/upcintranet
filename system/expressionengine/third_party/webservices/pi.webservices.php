@@ -1130,7 +1130,7 @@ class Webservices
               $result .= '</li>';
               $result .= '</ul>';  
               // Mobile design for horario alumno
-              $result .= '<div class="p-21 hidden-md hidden-lg tr table-border red-line">';
+              $result .= '<div class="p-21 hidden-md hidden-lg tr table-border gray-mobile-line-bottom">';
               $result .= '<span class="helvetica-bold-16">Curso: '.$CursoNombre[$disponibles].'</span></br>';
               $result .= '<span class="helvetica-14">'.$HoraInicio[$disponibles].':00 hrs</span></br>';
               $result .= '<span class="helvetica-14">Campus '.$Sede[$disponibles].'&nbsp;aula&nbsp;</span><span class="helvetica-bold-14">'.$Salon[$disponibles].'</span>';

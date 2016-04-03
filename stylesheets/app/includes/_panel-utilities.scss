@@ -81,6 +81,20 @@
 	border-bottom: #E3E3E3 1px solid;
 }
 
+@media #{$md-down}
+{
+	.red-mobile-line {
+	border-top: 2px solid $brand-danger;
+	}
+
+	.blue-mobile-line{
+		border-top: 2px solid rgba(55, 150, 255, 1);
+	}
+	.gray-mobile-line-bottom{
+		border-bottom: #E3E3E3 1px solid;
+	}
+}
+
 .red-error-message{
 	background-color: #f8c6c2!important;
 	color:  #e42322!important;

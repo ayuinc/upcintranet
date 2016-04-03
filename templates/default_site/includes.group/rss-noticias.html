@@ -1,65 +1,66 @@
+<div class="panel-body bg-muted">
+  <div class="panel-table">
   {if "{exp:webservices:tipo_usuario}" == "Alumno"}
+      {if "{exp:webservices:get_modalidad_alumno}"== "FC"}
+        {exp:ajw_feedparser 
+            url="http://blogs.upc.edu.pe/blog/feed/9611"
+            cache_refresh="30"
+            limit="4"
+            search:category="Institucional|EPE-UPC"
+        }  
+        <div class="tr p-21 pb-14 pt-14 gray-line-bottom">
+          <span class="zizou-16 text-lowercase">{pubDate format="%l %d de %F del %Y"} </span>
+          <br>
+          <span class="solano-bold-20 lh-1-1 black-text uppercase">{title}</span>
+          <a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank"><span class="zizou-16">Seguir Leyendo</span></a>      
+        </div>
+        {/exp:ajw_feedparser} 
+      {if:else}
+        {exp:ajw_feedparser 
+            url="http://blogs.upc.edu.pe/blog/feed/9611"
+            cache_refresh="30"
+            limit="4"
+            search:category="Institucional|Pregrado"
+        }  
+        <div class="tr p-21 pb-14 pt-14 gray-line-bottom">
+          <span class="zizou-16 text-lowercase">{pubDate format="%l %d de %F del %Y"} </span>
+          <br>
+          <span class="solano-bold-20 lh-1-1 black-text uppercase">{title}</span>
+          <br>
+          <a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank"><span class="zizou-16">Seguir Leyendo</span></a>      
+        </div>
+        {/exp:ajw_feedparser}
+      {/if}
+    {if:elseif "{exp:webservices:tipo_usuario}" == "Profesor"}
+      {exp:ajw_feedparser 
+          url="http://blogs.upc.edu.pe/comunicados-upc/rss.xml"
+          cache_refresh="30"
+          limit="4"
+          search:category="Institucional|Profesores"
+      }  
+        <div class="tr p-21 pb-14 pt-14 gray-line-bottom">
+          <span class="zizou-16 text-lowercase">{pubDate format="%l %d de %F del %Y"} </span>
+          <br>
+          <span class="solano-bold-20 lh-1-1 black-text uppercase">{title}</span>
+          <a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank"><span class="zizou-16">Seguir Leyendo</span></a>      
+        </div>
+      {/exp:ajw_feedparser} 
 
-    {if "{exp:webservices:get_modalidad_alumno}"== "FC"}
-    {exp:ajw_feedparser 
-        url="http://blogs.upc.edu.pe/blog/feed/9611"
-        cache_refresh="30"
-        limit="4"
-        search:category="Institucional|EPE-UPC"
-    }  
-    <div class="panel-body p-14 bg-muted">
-      <div>
-        <span class="zizou-16 text-lowercase">{pubDate format="%l %d de %F del %Y"} </span>
+    {if:elseif "{exp:webservices:tipo_usuario}" == "Padre" }
+      {exp:ajw_feedparser 
+          url="http://blogs.upc.edu.pe/comunicados-upc/rss.xml"
+          cache_refresh="30"
+          limit="4"
+          search:category="Institucional|Padres-de-familia"
+      }  
+        <div class="tr p-21 pb-14 pt-14 gray-line-bottom">
+          <span class="zizou-16 text-lowercase">{pubDate format="%l %d de %F del %Y"} </span>
+          <br>
+          <span class="solano-bold-20 lh-1-1 black-text uppercase">{title}</span>
+          <a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank"><span class="zizou-16">Seguir Leyendo</span></a>      
+        </div>s="zizou-16"><a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
       </div>
-      <p class="solano-bold-20 lh-1-1 black-text uppercase">{title}</p>
-      <p class="zizou-16"><a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
-    </div>
-    {/exp:ajw_feedparser} 
-    {if:else}
-    {exp:ajw_feedparser 
-        url="http://blogs.upc.edu.pe/blog/feed/9611"
-        cache_refresh="30"
-        limit="4"
-        search:category="Institucional|Pregrado"
-    }  
-    <div class="panel-body p-14 bg-muted">
-      <div>
-        <span class="zizou-16 text-lowercase">{pubDate format="%l %d de %F del %Y"} </span>
-      </div>
-      <p class="solano-bold-20 lh-1-1 black-text uppercase">{title}</p>
-      <p class="zizou-16"><a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
-    </div>
-    {/exp:ajw_feedparser}
+      {/exp:ajw_feedparser} 
     {/if}
-  {if:elseif "{exp:webservices:tipo_usuario}" == "Profesor"}
-    {exp:ajw_feedparser 
-        url="http://blogs.upc.edu.pe/comunicados-upc/rss.xml"
-        cache_refresh="30"
-        limit="4"
-        search:category="Institucional|Profesores"
-    }  
-    <div class="panel-body p-14 bg-muted">
-      <div>
-        <span class="zizou-16 text-lowercase">{pubDate format="%l %d de %F del %Y"} </span>
-      </div>
-      <p class="solano-bold-20 lh-1-1 black-text uppercase">{title}</p>
-      <p class="zizou-16"><a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
-    </div>
-    {/exp:ajw_feedparser} 
-
-  {if:elseif "{exp:webservices:tipo_usuario}" == "Padre" }
-    {exp:ajw_feedparser 
-        url="http://blogs.upc.edu.pe/comunicados-upc/rss.xml"
-        cache_refresh="30"
-        limit="4"
-        search:category="Institucional|Padres-de-familia"
-    }  
-    <div class="panel-body p-14 bg-muted">
-      <div>
-        <span class="zizou-16 text-lowercase">{pubDate format="%l %d de %F del %Y"} </span>
-      </div>
-      <p class="solano-bold-20 lh-1-1 black-text uppercase">{title}</p>
-      <p class="zizou-16"><a id="lnk_ext_{title}" class="sb-link" href="{link}" target="_blank">Seguir Leyendo</a></p>        
-    </div>
-    {/exp:ajw_feedparser} 
-    {/if}
+  </div>
+</div>
