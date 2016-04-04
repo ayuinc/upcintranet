@@ -10,18 +10,18 @@
       <div class="container-fluid">
         <div class="internal-header">
             <div class="row">
-              <div class="col-sm-0-5"></div>
-              <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
+              <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+              <div class="col-md-4 col-sm-12 col-xs-12"><span class="zizou-16">Mis Estudios</span></div>
             </div>
             <div class="row">
-              <div class="col-sm-0-5"></div>
-              <div class="col-sm-4"><span id="top" class="uppercase bold xl">{title}</span></div>
+              <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+              <div class="col-md-4 col-sm-12 col-xs-12"><span id="top" class="uppercase bold xl">{title}</span></div>
             </div>
         </div>  
         <div class="section-content pb-70">
           <div class="row">
-            <div class="col-sm-0-5"></div>        
-            <div class="col-sm-3">
+            <div class="col-md-0-5 hidden-xs hidden-sm"></div>        
+            <div class="col-md-3 col-sm-12 col-xs-12">
               <div class="panel">
                 <div class="panel-head no-bg">
                   <div class="panel-title left">
@@ -40,7 +40,7 @@
               {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
             </div>
            {/exp:channel:entries} 
-            <div class="col-sm-8">
+            <div class="col-md-8">
               <div class="panel">
                 <div class="panel-head no-bg">
                   <div class="panel-title left">
@@ -50,8 +50,9 @@
                 <div id="notas-detalladas-alumno"> 
                   <div class="panel-body" id="cargador-notas-detalladas-alumno" style="height:100px; background-color:#fff">
                   </div>
-                </div> 
+                </div>  
               </div>  
+              {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}
             </div>
           </div>
       </div>

@@ -2649,7 +2649,7 @@ class Webservices
 
         $result .= '<div class="panel curso-detalle">';
         $result .= '<div class="panel-body" id="curso-'.$i.'">';
-        $result .= '<div class="panel-body-head pl-7 left">';
+        $result .= '<div class="panel-body-head pl-7 left red-mobile-line">';
         $result .= '<ul class="tr">';
         $result .= '<span>'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
         $result .= '</ul>';
@@ -2672,19 +2672,19 @@ class Webservices
         $porcentaje = 0;
         $result .= '<div class="panel-table">';
         $result .= '<ul class="tr">';
-        $result .= '<li class="col-sm-2 col-xs-3">';
+        $result .= '<li class="col-md-2 hidden-xs hidden-sm">';
         $result .= '<div class="black-text borderless">';
         $result .= '<span class="pl-7 helv-neue-16">FÓRMULA:</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-sm-10 col-xs-9">';
+        $result .= '<li class="col-md-10 hidden-xs hidden-sm">';
         $result .= '<div class="black-text">';
         $result .= '<span class="ronnia-16">'.$json_int['Formula'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';    
-        $result .= '<div class="panel-body-head-table pb-7 black-border-top">';
+        $result .= '<div class="panel-body-head-table pb-7 black-border-top hidden-xs hidden-sm">';
 
         $result .= '<ul class="tr table-border">';
         $result .= '<li class="col-sm-1 hidden-xs">';
@@ -2704,7 +2704,7 @@ class Webservices
         $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>'; 
-        $result .= '<div class="panel-table gl-border-top">'; 
+        $result .= '<div class="panel-table gl-border-top no-border-top">'; 
         $result .= '<ul class="tr table-border">';          
 
         for ($b=0; $b<$tamano_int; $b++) {
@@ -2712,32 +2712,36 @@ class Webservices
           $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
           $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
             
-          $result .= '<li class="col-sm-1 hidden-xs">';
+          $result .= '<li class="col-sm-1 hidden-xs hidden-sm">';
           $result .= '<div class="text-center">';
           $result .= '<span class="helv-neue-16">'.$json_int['Notas'][$b]['NombreCorto'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-2 hidden-xs">';
+          $result .= '<li class="col-sm-2 hidden-xs hidden-sm">';
           $result .= '<div class="text-center">';
           $result .= '<span class="ronnia-16">'.$json_int['Notas'][$b]['NroEvaluacion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-5 hidden-xs">';
+          $result .= '<li class="col-sm-5 hidden-xs hidden-sm">';
           $result .= '<div>';
           $result .= '<span class="helvetica-16">'.$json_int['Notas'][$b]['NombreEvaluacion'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="hidden-sm hidden-md hidden-lg col-xs-8">';
-          $result .= '<div>';
-          $result .= '<span class="helvetica-16">'.$json_int['Notas'][$b]['NombreCorto'].$json_int['Notas'][$b]['NroEvaluacion'].' '.$json_int['Notas'][$b]['NombreEvaluacion'].'</span>';
-          $result .= '</div>';
+          $result .= '<li class="hidden-md hidden-lg col-xs-12 p-21 gray-mobile-dot-line-top">';
+  
+          $result .= '<span class="helvetica-bold-16">'.$json_int['Notas'][$b]['NombreCorto'].$json_int['Notas'][$b]['NroEvaluacion'].' '.$json_int['Notas'][$b]['NombreEvaluacion'].'</span>';
+          $result .= '</br>';
+          $result .= '<span class="helvetica-14 notas-sp">'.$json_int['Notas'][$b]['Peso'].'</span>';
+          $result .= '<span class="helvetica-14 pull-right notas-blue">'.$json_int['Notas'][$b]['Valor'].'</span>';
+          $result .= '<span class="helvetica-14 pull-right notas-sp">Nota:&nbsp;</span>';
+      
           $result .= '</li>';
-          $result .= '<li class="col-sm-2 col-xs-2">';
+          $result .= '<li class="col-md-2 col-xs-2 hidden-xs hidden-sm">';
           $result .= '<div class="text-center">';
-          $result .= '<span class="ronnia-18">'.$json_int['Notas'][$b]['Peso'].'</span>';
+          $result .= '<span class="ronnia-18 ">'.$json_int['Notas'][$b]['Peso'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          $result .= '<li class="col-sm-2 col-xs-2">';
+          $result .= '<li class="col-md-2 col-xs-2 hidden-xs hidden-sm">';
           $result .= '<div class="borderless text-center">';
           $result .= '<span class="ronnia-18">'.$json_int['Notas'][$b]['Valor'].'</span>';
           $result .= '</div>';
@@ -2747,24 +2751,38 @@ class Webservices
           
         //Cambia el formato a 2 decimales
         $nota = number_format($nota, 2, '.', '');
-          
+       $result .= '<li class="col-xs-12 hidden-md hidden-lg gm-background p-21">';
+       $result .= '<span class="helvetica-14">Formula:&nbsp;</span>';
+        $result .= '<span class="helvetica-14">'.$json_int['Formula'].'</span>';
+        $result .= '</li>';
         $result .= '</ul>';
         $result .= '</div>';
-        $result .= '<div class="panel-table observaciones">';
+
+        $result .= '<div class="panel-table observaciones p-xs-21 p-sm-21">';
         $result .= ' <ul class="tr">';
-        $result .= '<li class="col-xs-8">';
+        $result .= '<li class="col-md-8 hidden-xs hidden-sm">';
         $result .= '<div class="text-left borderless">';
         $result .= '<span class="helvetica-bold-16 pl-7 text-muted uppercase">Observaciones:</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-2">';
+        $result .= '<li class="hidden-md hidden-lg col-sm-12 col-xs-12 p-0">';
+        $result .= '<div class="text-left borderless">';
+        $result .= '<span class="helvetica-bold-16  text-muted uppercase">Observaciones:</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-md-2 hidden-xs hidden-sm">';
         $result .= '<div class="text-center borderless">';
         $result .= '<span class="helv-neue-14 text-muted uppercase">Nota al '.$json_int['PorcentajeAvance'].'</span>';
         $result .= '</div>';
         $result .= '</li>';
-        $result .= '<li class="col-xs-2">';
+        $result .= '<li class="col-md-2 hidden-xs hidden-sm">';
         $result .= '<div class="text-center">';
         $result .= '<span class="helvetica-bold-16 text-muted">'.$nota.'</span>';
+        $result .= '</div>';
+        $result .= '</li>';
+        $result .= '<li class="col-xs-12 col-sm-12 hidden-md hidden-lg p-0">';
+        $result .= '<div class="text-left borderless">';
+        $result .= '<span class="helvetica-16 text-muted uppercase">NOTA AL al '.$json_int['PorcentajeAvance'].':&nbsp;'.$nota.'</span>';
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul>';

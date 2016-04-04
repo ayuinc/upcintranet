@@ -93,6 +93,18 @@
 	.gray-mobile-line-bottom{
 		border-bottom: #E3E3E3 1px solid;
 	}
+
+	.gray-mobile-dot-line-bottom{
+		border-bottom: #58585A 1px dashed;
+	}
+
+	.gray-mobile-dot-line-top{
+		border-top: #58585A 1px dashed;
+	}
+
+	.no-border-top{
+		border-top: none!important;
+	}
 }
 
 .red-error-message{
@@ -115,6 +127,11 @@
 .gm-border-top {
 	border-top: 2px solid $gray-main;
 }
+
+.gm-background{
+	background-color: #C4C5C7;
+}
+
 // Borders Helpers
 .br-gl {
 	border-right: 2px solid $gray-light;

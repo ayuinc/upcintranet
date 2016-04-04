@@ -112,11 +112,20 @@
 	.pr-xs-14{
 		padding-right: 14px!important;
 	}
+	.p-xs-21{
+		padding: 21px!important;
+	}
 	.text-xs-left{
 		text-align: left;
 	}
 	.normal-whitespace-xs{
 		white-space: normal!important;
+	}
+}
+
+@media #{$md-down}{
+	.p-sm-21{
+		padding: 21px!important;
 	}
 }
 
