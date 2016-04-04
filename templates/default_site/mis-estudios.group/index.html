@@ -11,16 +11,16 @@
     <div class="container-fluid">
     {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" category="{segment_1_category_id}"}
     <div class="row">
-      <div class="col-sm-0-5"></div>
-      <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
+      <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+      <div class="col-md-4"><span class="zizou-16">Mis Estudios</span></div>
     </div>
     <div class="row">
       <div class="col-sm-0-5"></div>
-      <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+      <div class="col-md-4"><span class="uppercase bold xl">{title}</span></div>
     </div>
     <div class="row">
-      <div class="col-sm-0-5"></div>
-      <div class="col-sm-3 section-desc">
+      <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+      <div class="col-md-3 section-desc">
         <span>{introduccion-seccion}</span>
         {categories}
           <?php $category = '{category_id}'; ?>
@@ -28,7 +28,7 @@
         {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
       </div>
   {/exp:channel:entries}      
-      <div class="col-sm-8">
+      <div class="col-md-8">
         <span class="zizou-26">¿Qué deseas hacer?</span>
         <div class="row">
           {exp:channel:entries 
@@ -40,7 +40,7 @@
           	category="{segment_2_category_id}" 
           	dynamic="off"
           }
- <div class="col-sm-6">
+ <div class="col-md-6">
                   <div class="panel">
                     <div class="panel-body canales">
                       <div class="panel-body-head left tall">
@@ -92,6 +92,7 @@
                 </div>
           {/exp:channel:entries}
         </div>
+         {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}
       </div>
     </div>
    </div>
