@@ -5571,7 +5571,7 @@ class Webservices
       $result = '';
       if (strval($tipouser)=='ALUMNO') {
         $result .= '{exp:channel:entries channel="calendario_pagos" limit="10" disable="member_data|pagination" category_group="8" category="20" dynamic="off" orderby="numero-cuota" sort="asc" search:modalidad="'.$modalidad.'"}';
-        $result .= '<ul class="tr bg-muted table-border">';
+        $result .= '<ul class="tr bg-muted table-border hidden-xs hidden-sm">';
         $result .= '<li class="col-xs-4 text-center helvetica-bold-14">';
         $result .= '<div>';
         $result .= '<span>{numero-cuota}</span>';
@@ -5588,6 +5588,13 @@ class Webservices
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul>';
+
+        $result .= '<div class="tr p-14 pr-21 pl-21 bg-muted table-border hidden-lg hidden-md  gray-line-bottom">';
+        $result .= '<span class="helvetica-bold-16">Cuota {numero-cuota}</span></br>';
+        $result .= '<span class="helvetica-14">Emitida el {emitida-cuota format="%d/%m/%y"}</span></br>';
+        $result .= '<span class="helvetica-14">Vence el {vence-cuota format="%d/%m/%y"}</span>';
+        $result .= '</div>';
+
         $result .= '{/exp:channel:entries}';  
         return $result;  
       }
