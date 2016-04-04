@@ -37,6 +37,17 @@
     font-style: normal;
 }
 
+@font-face{ 
+    font-family: 'sgothic-lt';
+    src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-lt-webfont.eot');
+    src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-lt-webfont.woff') format('woff'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-lt-webfont.ttf') format('truetype'),
+         url('https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-lt-webfont.svg#https://s3-sa-east-1.amazonaws.com/webfontsupc/upc_sgothic-lt-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @font-face {
     font-family: 'zizou-slab-regular';
     src: url('https://s3-sa-east-1.amazonaws.com/webfontsupc/zizou-slab-regular.eot');

@@ -3,58 +3,42 @@
   <div class="white-header col-xs-12">
     <img src="{site_url}assets/img/isotipo_upc.png" class="pt-7 pull-left">  
     <span class="solano-bold-28 pull-left pt-7 pl-7 uppercase">Mi UPC</span>
+<button class="hamburger hamburger--collapse pull-right" type="button" id="menu-mobile">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
    </div>
 
-  <div class="col-xs-12">
-    <div class="col-sm-0-5 col-xs-0-5"></div>
-    <div class="col-sm-11 col-xs-12 blue-menu p-0 pl-35">
-      <div class="col-sm-2 col-xs-2 text-center blue-menu-option pt-7 pl-0 pb-7">
-        <a id="lnk_ext_Correo" class="text-muted" href="https://www.outlook.com/upc.edu.pe" target="_blank">
-            <img src="{site_url}/assets/img/white_mail.png" class="block" alt="">
-        </a>
-      </div>
-      <div class="col-sm-3 col-xs-3 text-center blue-menu-option p-7">
-       <a id="lnk_ext_AulaVirtual" class="text-muted" href="https://aulavirtual.upc.edu.pe" target="_blank">
-            <img src="{site_url}/assets/img/aula_virtual.png" class="block " alt="">
-        </a>
-      </div>
-      <div class="col-sm-2 col-xs-2 text-center blue-menu-option p-7">
-        <a id="lnk_ext_Impresiones" class="text-muted" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=669" target="_blank">
-            <img src="{site_url}/assets/img/print_new.png" class="block" alt="">
-        </a>
-      </div>
-      <div class="blue-menu-option pull-right col-sm-2 col-sm-offset-3 col-xs-4 col-xs-offset-1 border-white-right p-7 blue-menu-option">
-        <div class="button text-center" type="button" data-toggle="collapse" data-target="#collapseMobile" aria-expanded="false" aria-controls="collapseMobile">
-          <img class="inline-block" src="{site_url}assets/img/bars.png" alt="">
-          <span class="pl-7">MENU</span>
-        </div>  
-      </div>
-    </div>
-  </div>
+
 </div>
-<div class="collapse hidden-md hidden-lg" id="collapseMobile">
-   <ul class="list-unstyled mobile-menu">
-     <li class="parent"><a id="lnk_int_Inicio" href="{site_url}dashboard/estudiante">Inicio</a></li>
-   {exp:channel:entries channel="sidebar_estudiante" dynamic="off" orderby="date" sort="asc"}
-     <li class="parent">
-     {if "{url_title}" == "mis-noticias"}
-       <a href="{url-root-item}" title=""><span>{title}</span></a>
-     {if:else}
-      <span>{title}</span>
-      {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
-     {/if}
-     </li>
-     {/exp:channel:entries}    
-     <li class="parent">
-      <span>Mi Perfil</span>
-      <ul class="list-unstyled child">
-        <li><a id="lnk_int_MisDatosMovil" href="{site_url}perfil">Mis Datos</a></li>
-        <li><a data-toggle="modal" data-target="#myModal">Ver tutorial</a></li>
-      </ul>
-     </li>
-     <li class="parent"><a id="lnk_int_AyudaMovil" href="{site_url}ayuda">Ayuda</a></li>
-     <li class="parent"><a id="lnk_int_BuscarMovil" href="{site_url}buscar/buscar_movil">Buscar</a></li>
-     <li><a id="lnk_intCerrarSesionMovil" href="{site_url}login/salir">Cerrar Sesión</a></li> 
-   </ul>
- </div>
+
+
+<div class="overlay overlay-slidedown close" id="overlay">
+      <nav>
+        <ul class="list-unstyled mobile-menu">
+           <li class="parent"><a id="lnk_int_Inicio" href="{site_url}dashboard/estudiante">Inicio</a></li>
+         {exp:channel:entries channel="sidebar_estudiante" dynamic="off" orderby="date" sort="asc"}
+           <li class="parent">
+           {if "{url_title}" == "mis-noticias"}
+             <a href="{url-root-item}" title=""><span class="solano-thin-28">{title}</span></a>
+           {if:else}
+            <span>{title}</span>
+            {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
+           {/if}
+           </li>
+           {/exp:channel:entries}    
+           <li class="parent">
+            <span>Mi Perfil</span>
+            <ul class="list-unstyled child">
+              <li><a id="lnk_int_MisDatosMovil" href="{site_url}perfil">Mis Datos</a></li>
+              <li><a data-toggle="modal" data-target="#myModal">Ver tutorial</a></li>
+            </ul>
+           </li>
+           <li class="parent"><a id="lnk_int_AyudaMovil" href="{site_url}ayuda">Ayuda</a></li>
+           <li class="parent"><a id="lnk_int_BuscarMovil" href="{site_url}buscar/buscar_movil">Buscar</a></li>
+           <li><a id="lnk_intCerrarSesionMovil" href="{site_url}login/salir">Cerrar Sesión</a></li> 
+         </ul>
+      </nav>
+    </div>
 {embed="includes/tutorial-movil"}

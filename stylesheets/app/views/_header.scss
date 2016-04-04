@@ -147,7 +147,7 @@
 #mobile-nav {	
 	position: fixed;
 	// background-color: white;
-	z-index: 31;
+	z-index: 300;
 	width: 100%;
 	padding: 7px 14px;
 
@@ -201,7 +201,7 @@
 	ul.mobile-menu {
 		> li {
 			cursor: pointer;
-			padding-left: 21px !important;
+			padding: 14px 21px !important;
 			padding-top: 6px;
 			padding-bottom: 6px;
 			a{
@@ -214,12 +214,14 @@
 				text-transform: uppercase;
 			}
 			&:nth-child(even) {
-				background: $gray-light;
+				// background: $gray-light;
+				background: #58585A;
 			}
 			&:nth-child(odd) {
-				background: $gray-lighter;
+				background: #6F7072;
+				// background: $gray-lighter;
 				a, span {
-				color: $gray-main !important;
+				// color: $gray-main !important;
 				}
 			}
 			@include serif-book;
@@ -227,11 +229,50 @@
 		}
 	}
 	.child li {
-		padding-left: 21px !important;
+		padding: 3.5px 21px !important;
 	}
 }
 
-
+ul.mobile-menu {
+	> li {
+		cursor: pointer;
+		padding: 14px 21px !important;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		> ul li{
+			padding: 3.5px 21px !important;
+		}
+		a{
+			display: block;
+		}
+		a, span {
+			// @include book;
+			// font-family: "sgothic-lt", Charcoal, sans-serif !important;
+			@include light;
+			color: white !important;
+			font-size: 20px !important;
+			text-transform: uppercase;
+		}
+		&:nth-child(even) {
+			background: #6F7072;
+			// background: $gray-light;
+		}
+		&:nth-child(odd) {
+			background: #58585A;
+			
+			// background: $gray-lighter;
+			a, span {
+			// color: $gray-main !important;
+			}
+		}
+		// @include serif-book;
+		font-family: "sgothic-lt", Charcoal, sans-serif !important;
+		font-size: 24px;
+	}
+}
+.child li {
+	padding: 14px 21px !important;
+}
 .search-trigger {
 	padding-top: 5px;
 	cursor: pointer;

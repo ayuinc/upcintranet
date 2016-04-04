@@ -11,6 +11,13 @@ $(document).ready(function(){
         $(this).siblings('.parent').find('ul').slideUp();
         $(this).find('.child').slideToggle();
     });
+
+    // Responsive Mobile Menu
+    $('#menu-mobile').click(function(){
+        $(this).toggleClass('is-active');
+        $('#overlay').toggleClass('open');
+        $('#overlay').toggleClass('close');
+    });
     // search feature
     $('.search-trigger').click(function(){
         // $('.search-bar').toggleClass('hidden');

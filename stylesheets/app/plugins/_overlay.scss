@@ -1,0 +1,92 @@
+/* Overlay style */
+.overlay {
+	background: #58585A;
+	position: fixed;
+	top: 50px;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index:200;
+	border: 1px solid #58585A;
+	/* Menu style */
+	nav {
+		text-align: left;
+		height: 100%;
+		position: relative;
+		top: 0%;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	ul {
+		display: inline-block;
+		height: 100%;
+		list-style: none;
+		margin: 0 auto;
+		position: relative;
+		width: 100%;
+		li {
+
+			display: block;
+			font-size: 1.5rem;
+			font-weight: 100;
+			color: #ffffff;
+			padding: 7px 21px;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			a {
+				display: block;
+				-webkit-transition: color 0.2s;
+				transition: color 0.2s;
+				&:hover,
+				&:focus {
+					color: #e3fcb1;
+				}
+			}
+		}
+	}
+	.overlay-close {
+		width: 80px;
+		height: 80px;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		overflow: hidden;
+		border: none;
+		background: url(../img/cross.png) no-repeat center center;
+		text-indent: 200%;
+		color: transparent;
+		outline: none;
+		z-index: 100;
+	}
+
+}
+
+/* Effects */
+.overlay-slidedown {
+	visibility: hidden;
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+	-webkit-transition: -webkit-transform 0.4s ease-in-out, visibility 0s 0.4s;
+	transition: transform 0.4s ease-in-out, visibility 0s 0.4s;
+
+	&.open {
+		overflow: scroll;
+		visibility: visible;
+		-webkit-transform: translateY(0%);
+		transform: translateY(0%);
+		-webkit-transition: -webkit-transform 0.4s ease-in-out;
+		transition: transform 0.4s ease-in-out;
+	}
+}
+
+
+@media screen and (max-height: 30.5em) {
+	.overlay nav {
+		height: 70%;
+		font-size: 34px;
+	}
+	.overlay ul li {
+		min-height: 34px;
+	}
+}
