@@ -2074,7 +2074,7 @@ class Webservices
       //genera el tamano del array
       $tamano = count($json['Inasistencias']);
 
-      $result .= '<div class="panel-body red-line">';
+      $result .= '<div class="panel-body red-line hidden-xs hidden-sm">';
       $result .= '<div class="panel-body-head-table">';
       $result .= '<ul class="tr">';
       $result .= '<li class="col-xs-2"><div><span class="text-left pl-7">Código Curso</span></div></li>';
@@ -2087,7 +2087,7 @@ class Webservices
 
       for ($i=0; $i<$tamano; $i++) {
 
-        $result .= '<li class="col-xs-2 helvetica-14">';
+        $result .= '<li class="col-md-2 helvetica-14">';
         $result .= '<div>';
         $result .= '<span>'.$json['Inasistencias'][$i]['CodCurso'].'</span>';
         $result .= '</div>';
@@ -2108,6 +2108,7 @@ class Webservices
       $result .= '</ul>'; 
       $result .= '</div>';
       $result .= '</div>';
+
       
       //Control de errores
       if ($error!='00000') {
@@ -2162,7 +2163,7 @@ class Webservices
       $tamano = count($json['Inasistencias']);
       
       for ($i=0; $i<$tamano; $i++) {
-        $result .= '<ul class="tr table-border">';
+        $result .= '<ul class="tr table-border hidden-xs hidden-sm">';
         $result .= '<li class="col-xs-12  col-md-8 helvetica-14 pl-7">';
         $result .= '<div>';
         $result .= '<span class="pr-7">'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
@@ -2196,6 +2197,12 @@ class Webservices
         $result .= '</div>';
         $result .= '</li>';
         $result .= '</ul>';
+
+        // Mobile desig mis cursos
+        $result .= '<div class="tr table-border hidden-md hidden-lg p-21 gray-mobile-line-bottom">';
+        $result .= '<span class="helvetica-bold-16">'.$json['Inasistencias'][$i]['CursoNombre'].'</span></br>';
+        $result .= '<span class="helvetica-14">Promedio : '.$nota.'</span>';
+        $result .= '</div>';
       }     
       
       //Control de errores

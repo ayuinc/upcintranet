@@ -12,18 +12,18 @@
         {exp:channel:entries channel="seccion" limit="1" entry_id="20"}
         <div class="internal-header">
             <div class="row">
-              <div class="col-sm-0-5"></div>
-              <div class="col-sm-4"><span class="zizou-16">Mis Estudios</span></div>
+              <div class="col-md-0-5 hidden-sm hidden-xs"></div>
+              <div class="col-md-4 col-sm-12 col-xs-12"><span class="zizou-16">Mis Estudios</span></div>
             </div>
             <div class="row">
-              <div class="col-sm-0-5"></div>
-              <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+              <div class="col-md-0-5 hidden-sm hidden-xs"></div>
+              <div class="col-md-4 col-sm-12 col-xs-12"><span class="uppercase bold xl">{title}</span></div>
             </div>
         </div>  
         <div class="section-content pb-70">
             <div class="row">
-              <div class="col-sm-0-5"></div>
-              <div class="col-sm-3">
+              <div class="col-md-0-5 hidden-sm hidden-xs"></div>
+              <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="panel">
                   <div class="panel-head no-bg">
                     <div class="panel-title left">
@@ -31,12 +31,12 @@
                     </div>
                   </div>
                   <div class="panel-body mt-7">
-                    <div class="panel-body-head-table hidden-xs">
+                    <div class="panel-body-head-table hidden-xs hidden-sm">
                       <ul class="tr">
-                        <li class="col-xs-8 text-center">
+                        <li class=" text-center col-md-8">
                           <div class=""><span>Curso</span></div>
                         </li>
-                        <li class="col-xs-4 text-center">
+                        <li class="col-md-4 text-center">
                           <div class=""><span>Promedio</span></div>
                         </li>
                       </ul>
@@ -54,7 +54,7 @@
                 {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
               </div>
       {/exp:channel:entries}        
-              <div class="col-sm-8">
+              <div class="col-md-8">
                 <div class="panel">
                     <div class="panel-head no-bg">
                       <div class="panel-title left">
@@ -69,8 +69,8 @@
                           {week_day}
                           </span>
                         </div>
-                        <div class="panel-body red-line mb-7">
-                          <div class="panel-body-head-table white"> 
+                        <div class="panel-body red-line mb-7 ">
+                          <div class="panel-body-head-table white hidden-xs hidden-sm"> 
                             <ul class="tr text-center table-border"> 
                               <li class="col-sm-1-5  hidden-xs"> 
                                <div><span>Inicio</span></div> 
@@ -99,7 +99,7 @@
                             </ul> 
                           </div>
                           {horario_dia}
-                          <div class="panel-table"> 
+                          <div class="panel-table hidden-sm hidden-xs"> 
                             <ul class="tr mis-cursos-row table-border"> 
                               <li class="col-sm-1-5 col-xs-1-5 hidden-xs"> 
                                 <div class="text-center">
@@ -169,8 +169,47 @@
                               </li> 
                             </ul> 
                           </div> 
-                          <div>
-  
+
+                          <div class="panel-table hidden-md">
+                            <div class="tr mis-cursos-row p-21 table-border gray-mobile-line-bottom"> 
+                             <span class="helvetica-16">
+                                  Curso :
+                              </span>
+                              <span class="helvetica-bold-16">
+                                  {curso_nombre}
+                              </span>
+                              <br>
+                              <span class="helvetica-bold-14">
+                                 Inicio : {hora_inicio}
+                              </span>
+                              <span class="helvetica-14">
+                                 - Fin : {hora_fin}
+                              </span>
+                              <br>
+                              <span class="helvetica-14">
+                                    Secci&oacute;n: {curso_seccion},&nbsp;
+                                  </span>
+                              <span class="helvetica-14">
+                                    Sede : {clase_sede},&nbsp;
+                                  </span>
+                              <span class="helvetica-bold-14">
+                                    aula: {clase_salon}
+                                  </span>
+                               
+                                <div class="text-center br-no survey-block p-0">
+                                  <!-- <a class="{survey_is_active}" href="{survey_url_generated}">
+                                  <span class="helvetica-14"><img src="{survey_image_icon}" alt="Encuesta"></span></a> -->
+                                  {survey_form}
+                                </div>
+                           <!--    <span class="nobg">Encuesta</span> -->
+                                  
+                                  <div class="col-xs-4-5 survey-block p-0">
+                                  <!-- <a class="{survey_is_active}" href="{survey_url_generated}">
+                                    <img src="{survey_image_icon}" class="pl-7 pt-5 col-xs-3" id="survey-img" alt="Encuesta">
+                                  </a> -->
+                                  {survey_form}
+                                  </div>
+                            </div> 
                           </div>
                           {/horario_dia}
                         </div>
@@ -183,7 +222,7 @@
                           </span>
                         </div>
                         <div class="panel-body red-line mb-7">
-                          <div class="panel-body-head-table white"> 
+                          <div class="panel-body-head-table white hidden-sm hidden-xs"> 
                             <ul class="tr text-center table-border"> 
                               <li class="col-sm-1-5  hidden-xs"> 
                                <div><span>Inicio</span></div> 
@@ -209,7 +248,7 @@
                             </ul> 
                           </div>
                           {horario_dia}
-                          <div class="panel-table"> 
+                          <div class="panel-table hidden-sm hidden-xs"> 
                             <ul class="tr mis-cursos-row table-border"> 
                               <li class="col-sm-1-5 col-xs-1-5 col-md-2 hidden-xs"> 
                                 <div class="text-center">
@@ -260,6 +299,35 @@
                               </li> 
                             </ul> 
                           </div> 
+
+                          <div class="panel-table hidden-md hidden-lg">
+                            <div class="tr mis-cursos-row p-21 table-border gray-mobile-line-bottom"> 
+                             <span class="helvetica-16">
+                                  Curso :
+                              </span>
+                              <span class="helvetica-bold-16">
+                                  {curso_nombre}
+                              </span>
+                              <br>
+                              <span class="helvetica-bold-14">
+                                 Inicio : {hora_inicio}
+                              </span>
+                              <span class="helvetica-14">
+                                 - Fin : {hora_fin}
+                              </span>
+                              <br>
+                              <span class="helvetica-14">
+                                    Secci&oacute;n: {curso_seccion},&nbsp;
+                                  </span>
+                              <span class="helvetica-14">
+                                    Sede : {clase_sede},&nbsp;
+                                  </span>
+                              <span class="helvetica-bold-14">
+                                    aula: {clase_salon}
+                                  </span>
+                               
+                            </div> 
+                          </div>
                           <div>
   
                           </div>
@@ -272,6 +340,7 @@
                       {/exp:webservices:horario_ciclo_actual_alumno}
                     {/exp:channel:entries}
                 </div>
+                 {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}
               </div>
           </div>
       </div>
