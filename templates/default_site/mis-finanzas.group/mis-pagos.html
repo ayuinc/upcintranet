@@ -12,18 +12,18 @@
       <div class="container-fluid">
         <div class="internal-header">
           <div class="row">
-            <div class="col-sm-0-5"></div>
-            <div class="col-sm-4"><span class="zizou-16">Mis Finanzas</span></div>
+            <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+            <div class="col-md-4"><span class="zizou-16">Mis Finanzas</span></div>
           </div>
           <div class="row">
-            <div class="col-sm-0-5"></div>
-            <div class="col-sm-4"><span class="uppercase bold xl">{title}</span></div>
+            <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+            <div class="col-md-4"><span class="uppercase bold xl">{title}</span></div>
           </div>
         </div>   
         <div class="section-content">
           <div class="row">
-            <div class="col-sm-0-5"></div>       
-            <div class="col-sm-3">
+            <div class="col-md-0-5 hidden-xs hidden-sm"></div>       
+            <div class="col-md-3">
   	          {if introduccion-seccion}
                 <div class="section-desc">
   	          		<span>{introduccion-seccion}</span>
@@ -61,7 +61,7 @@
                 {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}            
             </div>
       {/exp:channel:entries} 
-            <div class="col-sm-8">
+            <div class="col-md-8">
               <div class="panel curso-detalle pt-0">
                 <div class="panel-head no-bg">
                   <div class="panel-title">
@@ -81,6 +81,7 @@
                  {/pendientes_tres_meses}
                 {/exp:webservices:boletas_pendientes_alumno} 
               </div>  
+              {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}   
             </div>
           </div>
         </div>
