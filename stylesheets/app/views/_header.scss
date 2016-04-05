@@ -252,6 +252,9 @@ ul.mobile-menu {
 			color: white !important;
 			font-size: 20px !important;
 			text-transform: uppercase;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+		    text-rendering: optimizeLegibility !important;
+		    -webkit-font-smoothing: antialiased !important;
 		}
 		&:nth-child(even) {
 			background: #6F7072;

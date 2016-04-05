@@ -7,25 +7,25 @@
   <div class="container-fluid">
     <div class="internal-header">
       <div class="row">
-        <div class="col-sm-0-5"></div>
-        <div class="col-sm-4"><span class="zizou-16">Mi Perfil</span></div>
+        <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+        <div class="col-md-4"><span class="zizou-16">Mi Perfil</span></div>
       </div>
       <div class="row">
-        <div class="col-sm-0-5"></div>
-        <div class="col-sm-4">
+        <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+        <div class="col-md-4">
           <span class="uppercase bold xl">{exp:webservices:nombre_alumno}</span>
         </div>
       </div>
     </div>
     <div class="section-content pb-70">
         <div class="row">
-          <div class="col-sm-0-5"></div>
-          <div class="col-sm-3">
+          <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+          <div class="col-md-3">
             {!--{embed="includes/perfil-accesos-rapidos"}--}
             <!--<span class="section-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget sapien vel massa rhoncus gravida. Duis iaculis pretium ligula, vel fringilla nunc euismod in.</span>-->
             {embed="includes/dashboard-accesos-rapidos" cate="138"}
           </div>  
-          <div class="col-sm-8">
+          <div class="col-md-8">
             <div class="row pl-14 pr-14">
               <div class="panel">
                 <div class="panel-head no-bg">
@@ -35,11 +35,11 @@
                 </div>
                 <div class="panel-body red-line">  
                   <div class="panel-table">
-                    <ul class="tr bg-muted">
-                      <li class="col-xs-4 pl-14 text-center">
+                    <ul class="tr bg-muted p-xs-21">
+                      <li class="col-sm-4 col-md-4 col-xs-12 col-sm-offset-0 pl-14 p-xs-0 text-center">
                       	<img src="{site_url}assets/img/user_dark.png" class="img-responsive img-center mt-14">
                       </li>
-                      <li class="col-xs-8">
+                      <li class="col-sm-8 col-xs-12 col-md-8">
                         <ul class="list-unstyled p-7">
                           <li>
                           	<span class="solano-bold-16">NOMBRE COMPLETO:&nbsp;</span>
@@ -72,6 +72,8 @@
                 </div>
             </div>
           </div>
+          {embed="includes/dashboard-accesos-rapidos-mobile" cate="138"}
+
         </div>
        </div>
     </div>

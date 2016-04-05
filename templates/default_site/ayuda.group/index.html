@@ -9,19 +9,19 @@
 	    {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" entry_id="93" }
         <div class="internal-header">
           <div class="row">
-            <div class="col-sm-0-5"></div>
-            <div class="col-sm-4"><span class="zizou-16">Ayuda</span></div>
+            <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+            <div class="col-md-4"><span class="zizou-16">Ayuda</span></div>
           </div>
           <div class="row">
-            <div class="col-sm-0-5"></div>
-            <div class="col-sm-4"><span class="uppercase bold xl">¿Qué Necesitas?</span></div>
+            <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+            <div class="col-md-4"><span class="uppercase bold xl">¿Qué Necesitas?</span></div>
           </div>
         </div>   
         {/exp:channel:entries}   
         <div class="section-content pb-70">
           <div class="row">
-            <div class="col-sm-0-5"></div>
-            <div class="col-sm-3">
+            <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+            <div class="col-md-3">
               {exp:channel:entries channel="seccion" limit="1" disable="member_data|pagination" entry_id="93" }
               {embed="includes/temas-ayuda"}
               {categories}
@@ -30,7 +30,7 @@
               {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
               {/exp:channel:entries} 
             </div>
-            <div class="col-sm-8 resultados">
+            <div class="col-md-8 resultados">
               <div class="panel">
                 <div class="panel-head no-bg">
                   <div class="panel-title left">
@@ -63,7 +63,8 @@
                   <div class="dotted-line"></div>
                   {/if}
                 {/exp:channel:entries}   
-              </div>                   
+              </div>  
+              {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}                 
             </div>
           </div>
         </div>

@@ -4231,12 +4231,12 @@ class Webservices
       if($error=='00000'){
         // $result .= '<div class="panel-body red-line">';
         $result .= $header_message_result;
-        $result .= '<div class="row pt-0 pl-14 pr-xs-14">'; // apertura row
+        $result .= '<div class="row pt-0 pl-14 pr-xs-14 pr-sm-14">'; // apertura row
         for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
 
           if( $json['Recursos'][$i]['Estado'] == true) {
             $enabled_counter += 1; 
-            $result .= '<div class="col-sm-5-5 mb-21 p-14 text-left red-line bg-muted">';    
+            $result .= '<div class="col-md-5-5 mb-21 p-14 text-left red-line bg-muted">';    
             if($tiporecurso == "CO"){
               $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reserva-de-computadoras" method="post" name="formrecurso-'.$i.'">';
             }
