@@ -19,8 +19,8 @@
           {/exp:channel:entries}  
           <div class="section-content buscar pb-70">
             <div class="row">
-              <div class="col-sm-0-5"></div>
-              <div class="col-sm-3 que-buscas">
+              <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+              <div class="col-md-3 que-buscas">
                 <span class="zizou-26">¿Qué buscas?</span>
 
              <form method="post" action="{site_url}index.php/buscar/result">
@@ -34,7 +34,7 @@
              
             </form>
               </div>  
-              <div class="col-sm-8 resultados">
+              <div class="col-md-8 resultados">
                 <p class="zizou-26 encontrado">Se han encontrado 
                   <span id="total-results"></span> resultados para <span class="black-text">"{super_search_keywords}"</span>  </p>
                 <div class="resultados-busqueda red-line bg-muted">
@@ -45,7 +45,8 @@
                   <script >
                         var count = 0;
                   </script>
-
+                {if super_search_keywords == ""}
+                {if:else}
                   {exp:super_search:results
                        search_in="title" channel="referencias" where="any" relevance_proximity="yes" status="Open|Estudiante"  keyword_search_category_name="no"
 
@@ -114,6 +115,7 @@
                           {if super_search_no_results}
                           {/if}
                   {/exp:super_search:results}
+                  {/if}
                 </div>
                 </div>
               </div>
