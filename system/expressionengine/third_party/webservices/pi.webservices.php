@@ -2728,13 +2728,20 @@ class Webservices
           $result .= '</div>';
           $result .= '</li>';
           $result .= '<li class="hidden-md hidden-lg col-xs-12 p-21 gray-mobile-dot-line-top">';
-  
+          // Mobile Responsive 
           $result .= '<span class="helvetica-bold-16">'.$json_int['Notas'][$b]['NombreCorto'].$json_int['Notas'][$b]['NroEvaluacion'].' '.$json_int['Notas'][$b]['NombreEvaluacion'].'</span>';
           $result .= '</br>';
-          $result .= '<span class="helvetica-14 notas-sp">'.$json_int['Notas'][$b]['Peso'].'</span>';
-          $result .= '<span class="helvetica-14 pull-right notas-blue">'.$json_int['Notas'][$b]['Valor'].'</span>';
+          $result .= '<span class="helvetica-14 notas-sp pull-left">'.$json_int['Notas'][$b]['Peso'].'</span>';
+          $notaj =$json_int['Notas'][$b]['Valor'];
+          $nota_class = (($notaj!=0 && $notaj < 13) ?'notas-red':'notas-blue');
+          if($notaj=="NR"){
+            $nota_class = 'notas-lred';
+          }else if ($notaj == 0){
+            $nota_class = 'notas-lblue';
+          }
+          $result .= '<span class="helvetica-14 pull-right '.$nota_class.'">'.$json_int['Notas'][$b]['Valor'].'</span>';
           $result .= '<span class="helvetica-14 pull-right notas-sp">Nota:&nbsp;</span>';
-      
+          
           $result .= '</li>';
           $result .= '<li class="col-md-2 col-xs-2 hidden-xs hidden-sm">';
           $result .= '<div class="text-center">';
