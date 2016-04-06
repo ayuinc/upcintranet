@@ -175,6 +175,12 @@ $margins-paddings: ("p": "padding", "m": "margin", "pt": "padding-top", "pb": "p
 	display: block;
 	margin: 0 auto;
 }
+@media #{$md-down} {
+	.img-sm-left {
+		display: block;
+		margin: 0 0;
+	}
+}
 @media #{$xs-only} {
 	.img-xs-left {
 		display: block;
@@ -182,12 +188,7 @@ $margins-paddings: ("p": "padding", "m": "margin", "pt": "padding-top", "pb": "p
 	}
 }	
 
-@media #{$sm-only} {
-	.img-sm-left {
-		display: block;
-		margin: 0 0;
-	}
-}	
+	
 /*========================================
 =            h2ww               =
 ========================================*/
