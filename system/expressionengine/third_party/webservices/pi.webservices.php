@@ -3986,7 +3986,9 @@ class Webservices
                (($json['HorarioDia'][$i]['CodDia'] == 1 || $json['HorarioDia'][$i]['CodDia'] == 3 || $json['HorarioDia'][$i]['CodDia'] == 6) && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'R' && $coded == 181 && !(($hora_inicio_disp<=13 && $hora_inicio_fal<=13) || ($hora_inicio_disp>=14 && $hora_inicio_fal>=14))) ||
                 ($json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'R' && $coded == 101 && !(($hora_inicio_disp<=9 && $hora_inicio_fal<=9) || ($hora_inicio_disp>=10 && $hora_inicio_fal>=10))) || 
                 (($json['HorarioDia'][$i]['CodDia'] != 6) && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'L' && $coded == 101 && !(($hora_inicio_disp<=15 && $hora_inicio_fal<=15) || ($hora_inicio_disp>=16 && $hora_inicio_fal>=16)) && !(($hora_inicio_disp<=22 && $hora_inicio_fal<=22) || ($hora_inicio_disp>=23 && $hora_inicio_fal>=23))) ||
-                ($json['HorarioDia'][$i]['CodDia'] == 6 && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'L' && $coded == 101 && !(($hora_inicio_disp<=15 && $hora_inicio_fal<=15) || ($hora_inicio_disp>=23 && $hora_inicio_fal>=23))) 
+                ($json['HorarioDia'][$i]['CodDia'] == 6 && $json['HorarioDia'][$i]['Disponibles'][$a]['Sede'] == 'L' && $coded == 101 && !(($hora_inicio_disp<=15 && $hora_inicio_fal<=15) || ($hora_inicio_disp>=23 && $hora_inicio_fal>=23))) ||
+
+                ($json['HorarioDia'][$i]['CodDia'] == 4 && ($coded == 101 || $coded == 181) && !(($hora_inicio_disp<=14 && $hora_inicio_fal<=14) || ($hora_inicio_disp>=15 && $hora_inicio_fal>=15))) 
                 )  {
               // var_dump("jaskdaldka;ld");
               // var_dump('Inicio dis'.$hora_inicio_disp.' numhoras '.$numhoras.' Inicio fal '.$hora_inicio_fal);
