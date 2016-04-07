@@ -15,7 +15,7 @@
 	}
 }
 .otras-acciones-arrow {
-	background-image:url("../assets/img/black_down.png");
+	background-image:url("../assets/img/black_up.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
@@ -23,9 +23,17 @@
 	height: 42px;
 	width: 49px;
 	-webkit-transition: background-image 1s;
-	&.open {
-		-webkit-transform: rotate(180deg);
-	}
+	-moz-transition: transform .4s ease-out 0ms;
+    -o-transition: transform .4s ease-out 0ms;
+    transition: transform .4s ease-out 0ms;
+}
+
+.collapsed .otras-acciones-arrow{
+	// background-image:url("../assets/img/black_down.png");
+	-moz-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
 }
 
 .horario-survey{
