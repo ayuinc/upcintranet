@@ -146,10 +146,7 @@ $margins-paddings: ("p": "padding", "m": "margin", "pt": "padding-top", "pb": "p
 		font-size: 22px !important;
 		@media #{$md-down} {
 			font-size: 18px !important;	
-		}	
-		@media #{$xs-only} {
-			font-size: 14px !important;	
-		}	
+		}		
 	}
 }
 .btn-anchor {

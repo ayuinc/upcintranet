@@ -90,12 +90,16 @@ body{
 						form.login-form {
 							.row {
 								padding:0px 50px;
+								@media #{$md-down} {
+									padding:0px 21px;
+								}
 								div{
 									input.form-control {
 									  border-radius: 0px !important;
 									  border: 0px !important;
 									  background-color: $gray-lighter;
 									  color: black !important;
+									  // @include light;
 									  font-family: "zizou-slab-regular" !important;
 									}
 
@@ -153,9 +157,7 @@ body{
 			.text{
 				margin: auto;
 				margin-top: 7px;
-				@media #{$xs-only} {
-					height: 49px;
-				}
+				height: 3rem;
 			}
 		}
 		>div{

@@ -1,5 +1,6 @@
 $(document).ready(function(){
     //user-avatar
+
     var $dropdown = $('.dropdown-menu > li.dditem.ddmain');
     $dropdown.hover(function(){
         $('#ie-avatar').toggleClass('open');
@@ -41,4 +42,6 @@ $(document).ready(function(){
     $('#oaCollapse').on('hide.bs.collapse', function () {
        $(".otras-acciones-arrow").removeClass("open");
     });
+
+
 });

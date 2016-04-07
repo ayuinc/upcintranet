@@ -188,12 +188,12 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 	font-size: 18px !important; 
 	font-size: rem(18) !important;
 	@media #{$lg-down} {
-		font-size: 13px !important; 
-		font-size: rem(13) !important;
+		font-size: 14px !important; 
+		font-size: rem(14) !important;
 	} 
 	@media #{$md-down}{
-		font-size: 16px !important;
-		font-size: 16px !important; 
+		font-size: 18px !important;
+		font-size: rem(18)!important;
 	}
 }
 
