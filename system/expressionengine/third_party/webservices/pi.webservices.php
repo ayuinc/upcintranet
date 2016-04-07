@@ -1531,7 +1531,7 @@ class Webservices
                     "seccion" => $quiz_horarios[$q]['SesionSECCION'],
                     "grupo" => $quiz_horarios[$q]["SesionGRUPO"],
                     'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
-                    'c_sede' => $quiz_horarios[$q]["AlumnoCOD_SEDE"],
+                    'c_sede' => $quiz_horarios[$q]["AulaCOD_LOCAL"],
                     'c_alumno' => $codigo_alumno,
                     'c_carrera' => $carrera
                     );
