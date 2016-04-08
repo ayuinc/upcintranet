@@ -55,15 +55,15 @@ $(document).ready(function () {
       $('input[name="codigo"]').on('keyup', function (event) {
         console.log('key up');
         if(($(this).val()[0]== 'u' ||  $(this).val()[0]== 'U') && $(this).val().length<=1){
-          $(this).prop('type', 'tel');
-          $(this).blur(); 
-          $(this).focus();
+          $('input[name="codigo"]').prop('type', 'tel');
+          $('input[name="codigo"]').blur(); 
+          $('input[name="codigo"]').focus();
         }else if($(this).val().length<=1){
-          $(this).prop('type', 'text');
-          $(this).blur(); 
-          $(this).focus();
+          $('input[name="codigo"]').prop('type', 'text');
+          $('input[name="codigo"]').blur(); 
+          $('input[name="codigo"]').focus();
         }
-        $(this).focus();
+        $('input[name="codigo"]').focus();
       });
       $('input[name="contrasena"]').on('focus', function (event) {
         $('input[name="codigo"]').prop('type', 'text');
