@@ -54,11 +54,11 @@ $(document).ready(function () {
   if(isMobile == true){
       $('input[name="codigo"]').on('keyup', function (event) {
         console.log('key up');
-        if($(this).val()[0]== 'u' ||  $(this).val()[0]== 'U'){
+        if(($(this).val()[0]== 'u' ||  $(this).val()[0]== 'U') && $(this).length==1){
           $(this).prop('type', 'tel');
           $(this).blur(); 
           $(this).focus();
-        }else{
+        }else if($(this).length>1){
           $(this).prop('type', 'text');
           $(this).blur(); 
           $(this).focus();
