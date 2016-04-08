@@ -56,11 +56,7 @@ $(document).ready(function () {
         console.log('key up');
         if(($(this).val()[0]== 'u' ||  $(this).val()[0]== 'U') && $(this).val().length<=1){
           $('input[name="codigo"]').prop('type', 'tel');
-          $('input[name="codigo"]').blur(); 
-          $('input[name="codigo"]').focus();
-        }else if($(this).val().length<=1){
-          $('input[name="codigo"]').prop('type', 'text');
-          $('input[name="codigo"]').blur(); 
+          $('input[name="contrasena"]').focus(); 
           $('input[name="codigo"]').focus();
         }
         $('input[name="codigo"]').focus();
