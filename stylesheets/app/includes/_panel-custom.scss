@@ -96,6 +96,9 @@
 			padding-bottom: 28px;
 			.panel-table {
 				min-height: 140px !important;
+				@media #{$md-down}{
+					min-height: 0px!important;
+				}
 				.tr {
 					border: none !important;
 				}
@@ -129,6 +132,9 @@
 			&.tall {
 				min-height: 70px !important;
 				padding-right: 7px;
+				@media #{$md-down}{
+					min-height: 0px !important;
+				}
 			}
 			&.left {
 				text-align: left !important;
@@ -138,6 +144,9 @@
 			}
 			h3{
 				min-height: 3.7rem;
+				@media #{$md-down}{
+					min-height: 0px !important;
+				}
 			}
 			@include bold;
 			ul {
