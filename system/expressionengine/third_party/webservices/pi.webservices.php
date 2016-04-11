@@ -3136,7 +3136,7 @@ class Webservices
           $result .= '</br>';
           $result .= '<span class="helvetica-14">Fecha de Inicio: '.$json['TramitesRealizados'][$i]['Fecha'].'</span>';
           $result .= '</br>';
-          $result .= '<span class="helvetica-14 tramites-sp">Estado: </span><span class="'.$class.' helvetica-14 pull-right">'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
+          $result .= '<span class="helvetica-14 tramites-sp pl-0">Estado: </span><span class="'.$class.' helvetica-14 pull-right">'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
           $result .= '</div>';
           $result .= '</div>';
         }          
