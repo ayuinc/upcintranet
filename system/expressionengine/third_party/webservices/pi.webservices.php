@@ -3091,7 +3091,15 @@ class Webservices
             $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
-            $class = "notas-red";
+            $class = "tramites-red";
+          } 
+          if ($json['TramitesRealizados'][$i]['Estado']=='INCOMPLETO') {
+            $result .= '<li class="col-xs-2 pdte-tr solano-bold-18">';
+            $result .= '<div class="text-center">';
+            $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
+            $result .= '</div>';
+            $result .= '</li>';
+            $class = "tramites-lred";
           } 
           if ($json['TramitesRealizados'][$i]['Estado']=='PROCEDE') {
             $result .= '<li class="col-xs-2 apr-tr solano-bold-18">';
@@ -3099,7 +3107,15 @@ class Webservices
             $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
-            $class = "notas-blue";
+            $class = "tramites-blue";
+          }
+          if ($json['TramitesRealizados'][$i]['Estado']=='PROCEDE PARCIALMENTE') {
+            $result .= '<li class="col-xs-2 apr-tr solano-bold-18">';
+            $result .= '<div class="text-center">';
+            $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
+            $result .= '</div>';
+            $result .= '</li>';
+            $class = "tramites-lblue";
           }
           if ($json['TramitesRealizados'][$i]['Estado']=='RESPONDIDA') {
             $result .= '<li class="col-xs-2 apr-tr solano-bold-18">';
@@ -3107,7 +3123,7 @@ class Webservices
             $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
-            $class = "notas-lblue";
+            $class = "tramites-lblue";
           }         
           $result .= '</ul>';
 
@@ -3120,7 +3136,7 @@ class Webservices
           $result .= '</br>';
           $result .= '<span class="helvetica-14">Fecha de Inicio: '.$json['TramitesRealizados'][$i]['Fecha'].'</span>';
           $result .= '</br>';
-          $result .= '<span class="helvetica-14">Estado: </span><span class="'.$class.' helvetica-14">'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
+          $result .= '<span class="helvetica-14 tramites-sp">Estado: </span><span class="'.$class.' helvetica-14 pull-right">'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
           $result .= '</div>';
           $result .= '</div>';
         }          

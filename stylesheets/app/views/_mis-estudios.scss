@@ -29,12 +29,20 @@
 	}	
 }
 
-@mixin notas-color($background, $color, $border){
-	width: 40px;
+@mixin highlight-color($background, $color, $border){
 	padding: 3px 3px;
 	background: $background;
 	color:$color;
 	border: 1px solid $border;
+}
+
+@mixin notas-color($background, $color, $border){
+	width: 40px;
+	@include highlight-color($background, $color, $border);
+}
+@mixin tramites-color($background, $color, $border){
+	width: auto;
+	@include highlight-color($background, $color, $border);
 }
 .notas-blue {
 	@include notas-color(#3298FF, #FFFFFF, none);
@@ -53,6 +61,24 @@
 
 }
 
-.notas-sp{
+.tramites-blue {
+	@include tramites-color(#3298FF, #FFFFFF, none);
+
+}
+.tramites-red {
+	@include tramites-color(#e74c3c, #FFFFFF, none);
+
+}
+.tramites-lred {
+	@include tramites-color(transparent, #565658, #e74c3c);
+
+}
+.tramites-lblue {
+	@include tramites-color(transparent, #565658, #3298FF);
+
+}
+
+.notas-sp, 
+.tramites-sp{
 	padding: 3px 3px;
 }
