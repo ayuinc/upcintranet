@@ -3048,8 +3048,8 @@ class Webservices
       } else {
         
         $tamano = count($json['TramitesRealizados']);
-        $result .= '<div class="panel-body bg-muted red-line">';
-        $result .= '<div class="panel-body-head-table">';
+        $result .= '<div class="panel-body bg-muted red-line ">';
+        $result .= '<div class="panel-body-head-table hidden-xs hidden-sm">';
         $result .= '<ul class="tr table-border">';
         $result .= '<li class="col-xs-2">';
         $result .= '<div class="fecha"><span>No. Solicitud</span></div>';
@@ -3068,7 +3068,7 @@ class Webservices
         
         for ($i=0; $i<$tamano; $i++) {  
           $result .= '<div class="panel-table"> ';
-          $result .= '<ul class="tr table-border">';
+          $result .= '<ul class="tr table-border hidden-xs hidden-sm">';
           $result .= '<li class="col-xs-2 solano-bold-18 uppercase">';
           $result .= '<div class="text-center">';
           $result .= '<span>'.$json['TramitesRealizados'][$i]['NroSolicitud'].'</span>';
@@ -3084,13 +3084,14 @@ class Webservices
           $result .= '<span>'.$json['TramitesRealizados'][$i]['Fecha'].'</span>';
           $result .= '</div>';
           $result .= '</li>';
-          
+          $class = "";
           if ($json['TramitesRealizados'][$i]['Estado']=='NO PROCEDE') {
             $result .= '<li class="col-xs-2 pdte-tr solano-bold-18">';
             $result .= '<div class="text-center">';
             $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
+            $class = "notas-red";
           } 
           if ($json['TramitesRealizados'][$i]['Estado']=='PROCEDE') {
             $result .= '<li class="col-xs-2 apr-tr solano-bold-18">';
@@ -3098,6 +3099,7 @@ class Webservices
             $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
+            $class = "notas-blue";
           }
           if ($json['TramitesRealizados'][$i]['Estado']=='RESPONDIDA') {
             $result .= '<li class="col-xs-2 apr-tr solano-bold-18">';
@@ -3105,8 +3107,21 @@ class Webservices
             $result .= '<span>'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
             $result .= '</div>';
             $result .= '</li>';
+            $class = "notas-lblue";
           }         
           $result .= '</ul>';
+
+          $result .= '<div class="tr hidden-md hidden-lg p-21 gray-mobile-line-bottom">';
+          $result .= '<span class="helvetica-bold-16">'.$json['TramitesRealizados'][$i]['Nombre'];
+          $result .= '</span>';
+          $result .= '</br>';
+          $result .= '<span class="helvetica-14">No. Solicitud: '.$json['TramitesRealizados'][$i]['NroSolicitud'];
+          $result .= '</span>';
+          $result .= '</br>';
+          $result .= '<span class="helvetica-14">Fecha de Inicio: '.$json['TramitesRealizados'][$i]['Fecha'].'</span>';
+          $result .= '</br>';
+          $result .= '<span class="helvetica-14">Estado: </span><span class="'.$class.' helvetica-14">'.$json['TramitesRealizados'][$i]['Estado'].'</span>';
+          $result .= '</div>';
           $result .= '</div>';
         }          
       }
