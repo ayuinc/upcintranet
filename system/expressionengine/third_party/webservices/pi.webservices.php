@@ -465,6 +465,8 @@ class Webservices
       session_start();
       ob_start();
       $_SESSION["Token"] = "";
+
+      ee()->db->update('exp_user_upc_data', array('Token' => ""), array('Codigo' => $_COOKIE[$this->get_fuzzy_name('Codigo')]));
       // Removing data from $_SESSION and Cookies
       $user_data = array( 'Codigo' ,
                           'TipoUser',
@@ -5728,6 +5730,7 @@ class Webservices
       $verification_result = json_decode($result, true);
       if (($codigo === '' || is_null($codigo) || is_null($terminos) || $terminos == 'no' || $terminos == '') || ($verification_result['DTOHeader']['CodigoRetorno'] == "Correcto" && count($verification_result['ListaDTOUsuarioToken']) === 0) ) {
         $redireccion = uri_string();
+        $this->destruir_session();
         $this->eliminar_cookie();
         $_COOKIE[$this->services->get_fuzzy_name("Redireccion")] = $redireccion;
         $this->services->set_cookie("Redireccion",$redireccion, time() + (1800), "/");
