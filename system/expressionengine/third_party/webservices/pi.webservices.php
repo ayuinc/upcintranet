@@ -5786,6 +5786,12 @@ class Webservices
     public function destruir_session () {
       session_name('upc');
       session_start();
+      $user_upc_update = array(
+        "token" => '0'
+      );
+      ee()->db->where('codigo', $_COOKIE[$this->services->get_fuzzy_name("Codigo")]);
+      ee()->db->update('exp_user_upc_data', $user_upc_update);
+
       $_SESSION["Token"] = "";
       $this->services->set_cookie("Codigo", NULL);
       $this->services->set_cookie("MsgError", NULL);
@@ -5814,12 +5820,6 @@ class Webservices
       unset($_SESSION["MsgError"]);
       unset($_SESSION["Redireccion"]);       
       session_destroy();
-
-      $user_upc_update = array(
-              "token" => ' '
-            );
-      ee()->db->where('codigo', $_COOKIE[$this->services->get_fuzzy_name("Codigo")]);
-      ee()->db->update('exp_user_upc_data', $user_upc_update);
 
       $this->eliminar_cookie();
 	    $site_url = ee()->config->item('site_url');
