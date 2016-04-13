@@ -5814,14 +5814,14 @@ class Webservices
       unset($_SESSION["MsgError"]);
       unset($_SESSION["Redireccion"]);       
       session_destroy();
-      $this->eliminar_cookie();
 
       $user_upc_update = array(
               "token" => ' '
             );
       ee()->db->where('codigo', $_COOKIE[$this->services->get_fuzzy_name("Codigo")]);
       ee()->db->update('exp_user_upc_data', $user_upc_update);
-      
+
+      $this->eliminar_cookie();
 	    $site_url = ee()->config->item('site_url');
       redirect($site_url);
     }
