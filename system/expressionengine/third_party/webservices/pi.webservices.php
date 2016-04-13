@@ -4049,7 +4049,7 @@ class Webservices
         $result = '';
         $tamano = count($json['HorarioDia']);
 
-        $result .= '<div class="row pt-0 pl-14 m-xs-0 p-xs-0">'; // apertura
+        $result .= '<div class="row pt-0 pl-14 m-xs-0 p-xs-0" id="listado-reservas">'; // apertura
         for ($i=0; $i<$tamano; $i++) {
                   
           $tamano_int = count($json['HorarioDia'][$i]['Disponibles']);
@@ -4073,7 +4073,7 @@ class Webservices
                 if($hora_inicio_sol <= $hora_inicio_disp)
                 {
                   $fecha = substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 6,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 4,2).'-'.substr($json['HorarioDia'][$i]['Disponibles'][$a]['Fecha'], 0,4);
-                  $result .= '<div class="col-sm-5-5 mb-21 p-14 text-left red-line bg-muted">';
+                  $result .= '<div class="col-md-5-5 mb-21 p-14 text-left red-line bg-muted">';
                   $result .= '<form action="{site_url}index.php/'.$segmento.'/resultados-reservas-deportivos" method="post" name="form-'.$a.'">';
                   $result .= '<input type="hidden" name="XID" value="{XID_HASH}" />';
                   $result .= '<input type="hidden" value="1" name="Flag">';
@@ -4271,7 +4271,7 @@ class Webservices
       if($error=='00000'){
         // $result .= '<div class="panel-body red-line">';
         $result .= $header_message_result;
-        $result .= '<div class="row pt-0 pl-14 pr-xs-14 pr-sm-14">'; // apertura row
+        $result .= '<div class="row pt-0 pl-14 pr-xs-14 pr-sm-14" id="listado-reservas">'; // apertura row
         for ($i=0; $i<count($json['Recursos']); $i++) {  //Se desplegarán 4 resultados
 
           if( $json['Recursos'][$i]['Estado'] == true) {
