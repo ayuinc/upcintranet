@@ -466,11 +466,6 @@ class Webservices
       ob_start();
       $_SESSION["Token"] = "";
 
-      $user_upc_update = array(
-              "token" => ''
-            );
-      ee()->db->where('codigo', $_COOKIE[$this->services->get_fuzzy_name('Codigo')]);
-      ee()->db->update('exp_user_upc_data', $user_upc_update);
       // Removing data from $_SESSION and Cookies
       $user_data = array( 'Codigo' ,
                           'TipoUser',
@@ -5820,6 +5815,13 @@ class Webservices
       unset($_SESSION["Redireccion"]);       
       session_destroy();
       $this->eliminar_cookie();
+
+      $user_upc_update = array(
+              "token" => ' '
+            );
+      ee()->db->where('codigo', $_COOKIE[$this->services->get_fuzzy_name("Codigo")]);
+      ee()->db->update('exp_user_upc_data', $user_upc_update);
+      
 	    $site_url = ee()->config->item('site_url');
       redirect($site_url);
     }
