@@ -83,13 +83,12 @@
 		}
 
 	}
-
-	input.survey-submit{
+}
+input.survey-submit{
 		@include background-image(url("../assets/img/btn-encuesta-ingresar.jpg"));
 		    border: 0px;
 		    width: 100%;
 		    background-size: 100% 100%;
-	}
 
 }
 @media #{$sm-down}{
