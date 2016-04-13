@@ -5725,6 +5725,7 @@ class Webservices
 
       $result = $this->services->curl_full_url(ee()->config->item('verification_services_url').'/'.$codigo.'/'.$token,  ee()->config->item('verification_user'),  ee()->config->item('verification_pwd'));
 
+      $verification_result = json_decode($result, true);
       if (($codigo === '' || is_null($codigo) || is_null($terminos) || $terminos == 'no' || $terminos == '') || $verification_result['DTOHeader']['CodigoRetorno'] !== "Correcto") {
         $redireccion = uri_string();
         $this->eliminar_cookie();
