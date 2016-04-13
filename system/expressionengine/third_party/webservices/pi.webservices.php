@@ -466,7 +466,11 @@ class Webservices
       ob_start();
       $_SESSION["Token"] = "";
 
-      ee()->db->update('exp_user_upc_data', array('token' => ""), array('codigo' => $_COOKIE[$this->services->get_fuzzy_name('Codigo')]));
+      $user_upc_update = array(
+              "token" => ''
+            );
+      ee()->db->where('codigo', $_COOKIE[$this->services->get_fuzzy_name('Codigo')]);
+      ee()->db->update('exp_user_upc_data', $user_upc_update);
       // Removing data from $_SESSION and Cookies
       $user_data = array( 'Codigo' ,
                           'TipoUser',
