@@ -5727,7 +5727,7 @@ class Webservices
 
       $verification_result = json_decode($result, true);
       var_dump($verification_result); 
-      if (($codigo === '' || is_null($codigo) || is_null($terminos) || $terminos == 'no' || $terminos == '') || $verification_result['DTOHeader']['CodigoRetorno'] !== "Correcto") {
+      if ($codigo === '' || is_null($codigo) || is_null($terminos) || $terminos == 'no' || $terminos == '') {
         $redireccion = uri_string();
         $this->eliminar_cookie();
         $_COOKIE[$this->services->get_fuzzy_name("Redireccion")] = $redireccion;
