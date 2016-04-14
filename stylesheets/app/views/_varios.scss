@@ -89,7 +89,12 @@ input.survey-submit{
 		    border: 0px;
 		    width: 100%;
 		    background-size: 100% 100%;
-
+	@media #{$md-down}{
+		max-width: 130px;
+	    width: 184px;
+	    height: 30px;
+	    display: inline-block
+	}
 }
 @media #{$sm-down}{
 	div.br-xs-no{
