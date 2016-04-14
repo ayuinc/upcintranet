@@ -97,6 +97,9 @@ input.survey-submit{
 	}
 }
 @media #{$sm-down}{
+	.survey-form {
+		display: inline-block;
+	}
 	div.br-xs-no{
 		border-right:0px!important;
 	}
