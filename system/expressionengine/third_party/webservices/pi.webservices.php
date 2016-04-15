@@ -1550,7 +1550,7 @@ class Webservices
                      $horario_dia = $horario_dia_survey_empty;
 
                       $form = "<form target=\"_blank\"action=\"".$qjson["Quizlink"]."\" ";
-                      $form .= "id=\"".rand ( 0 , 999 )."\" method=\"post\">";
+                      $form .= "id=\"".rand ( 0 , 999 )."\" method=\"post\" class=\"survey-form\">";
                       foreach ($quiz_params as $key => $value) {
                         $form .= "<input type=\"hidden\" value=\"".$value."\" name=\"".$key."\">";
                       }
