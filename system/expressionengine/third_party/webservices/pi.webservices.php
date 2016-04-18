@@ -26,6 +26,7 @@ class Webservices
     var $return_data = "";
     var $site_url = "";
     var $services;
+    var $tags;
     var $_cookies_prefix="";
     protected $env = "";
 
@@ -50,9 +51,10 @@ class Webservices
     {
         $this->EE =& get_instance();
         require_once 'libraries/Webservices_functions.php';
+        require_once 'libraries/Tag_methods.php';
         $this->site_url = $this->EE->config->item('site_url');
         $this->services = new Webservices_functions;
-
+        $this->tags = new Tag_methods;
         $this->_cookies_prefix = '';
         $this->env = $this->EE->config->item('env');
 
@@ -1675,10 +1677,14 @@ class Webservices
         $carrera = '';
         $quiz_result = $this->services->curl_full_url($quiz_services_url, ee()->config->item('quiz_user'), ee()->config->item('quiz_pwd'));
         $quiz_json = json_decode($quiz_result, true);
-        if ($quiz_json['DTOHeader']['CodigoRetorno'] == 'Correcto') {
+        if ($quiz_json['DTOHeader']['CodigoRetorno'] == 'Correcto' && count($quiz_json['ListaDTOHorarioAlumno']) > 0) {
             $quiz_enabled = true;
             $carrera = $this->get_carrera_alumno();
             $quiz_horarios = $quiz_json['ListaDTOHorarioAlumno'];
+        }else{
+            $error_result = $this->tags->get_subtag_data('error', $this->EE->TMPL->tagdata);
+            $error_result = $this->tags->replace_subtag_data('error_message', $error_result, 'No podemos obtener los datos necesarios.');
+            return $error_result;
         }
         // END : traer data de encuestas
         $result = '';
@@ -1799,6 +1805,7 @@ class Webservices
             $result .= '</div>';
             $result .= '</div>';
             $result .= '</div>';
+
         } elseif ($error_result != '0') {
             $site_url = ee()->config->item('site_url');
             $this->EE->functions->redirect($site_url . "general/session-expired");
