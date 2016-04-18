@@ -56,7 +56,7 @@
           <div class="panel mt-21">
             <div class="panel-head">
               <div class="panel-title">
-                <h3>Mi Encuestas</h3>
+                <h3>Mis Encuestas <span class="hidden-xs hidden-sm">:</span> <span class="gray-light hidden-sm hidden-xs">{current_time format="%l"}</span></h3>
               </div>
               <a id="btn_int_MisEncuestas" href="{site_url}mis-estudios/ciclo-actual"><div class="panel-head-link danger"></div></a>
               <div class="panel-title-line"></div>
@@ -67,14 +67,6 @@
             </div>
           </div>
 
-        {exp:channel:entries channel="" limit="1" dynamic="off" url_title="estudiante"}
-        {categories}
-        {if {category_id} == "135"}
-        <?php $category = '{category_id}'; ?>
-        {/if}
-        {/categories}
-        {embed="includes/dashboard-accesos-rapidos-estudiante" cate="<?php echo($category) ?>"}
-        {/exp:channel:entries}
           <div class="panel mt-21">
             <div class="panel-head bg-muted">
               <div class="panel-title">
@@ -120,7 +112,7 @@
               <div class="panel-head-link info"></div></a>
               <div class="panel-title-line"></div>
             </div>
-          a <div id="noticias">
+            <div id="noticias">
               <div class="panel-body" id="cargador-noticias" style="height:100px; background-color:#fff"> 
               </div>
             </div> 

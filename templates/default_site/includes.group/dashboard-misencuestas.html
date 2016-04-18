@@ -1,0 +1,48 @@
+{exp:channel:entries channel="configuracion_horario" }
+{exp:webservices:encuestas_del_dia modalidad_survey="{modalidad_encuesta}" habilitar_survey="{habilitar_encuestas}" url_base="{url_base}" id_survey="{type_form_id_encuesta}"}
+
+{horario_survey}
+<div class="panel-body  mb-7 ">
+    {horario_dia}
+    <div class="panel-table hidden-sm hidden-xs">
+        <ul class="tr mis-cursos-row table-border">
+
+            <li class="col-md-9 ">
+                <div class="text-left">
+                    <span class="helvetica-14">
+                    {curso_nombre}
+                    </span>
+                </div>
+            </li>
+
+            <li class="col-md-3 horario-survey ">
+                <div class="text-center br-no survey-block p-0">
+                    {survey_form}
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="panel-table hidden-md hidden-lg">
+        <div class="tr mis-cursos-row p-21 table-border gray-mobile-line-bottom">
+            <span class="helvetica-16">
+              Curso :
+            </span>
+            <span class="helvetica-bold-16">
+              {curso_nombre}
+            </span>
+            </br>
+            <span class="helvetica-bold-14">
+                Encuesta: {survey_form}
+            </span>
+        </div>
+    </div>
+    {/horario_dia}
+</div>
+{/horario_survey}
+{error}
+
+{/error}
+{/exp:webservices:encuestas_del_dia}
+{/exp:channel:entries}
