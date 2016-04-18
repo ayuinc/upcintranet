@@ -14,13 +14,13 @@
 
 class Webservices_functions {
 
-
-
 	protected $_base_url; // Base url for services from EE config 'web_services_url'
 	protected $_site_url; // Base url for site
 
 	protected $_cookies_prefix; // Get the cookie prefix from config, for stuff. No questions ask.
 	protected $cookie_fuzzynames;
+
+
 	public function __construct()
 	{
 		$this->CI =& get_instance();
@@ -47,12 +47,13 @@ class Webservices_functions {
                           'closed-alert' => 'closed-alert');
 		
 	}
+
 	/**
      * Get Fuzzy name for Cookie
      *
      * @access  public
-     * @param string $key Name of data as key for $_SESSION and cookie
-     * @return 
+     * @param string $key - Name of data as key for $_SESSION and cookie
+     * @return string
      */
     public function get_fuzzy_name($key)
     {
@@ -60,56 +61,54 @@ class Webservices_functions {
     }
 
     /**
-     * Get Fuzzy name for Cookie
+     * Get Cookie name from Cookkie fuzzy name
      *
      * @access  public
-     * @param string $key Name of data as key for $_SESSION and cookie
-     * @return 
+     * @param string $fuzzy - Name of data as key for $_SESSION and cookie
+     * @return string
      */
     public function get_unfuzzy_name($fuzzy)
     {
-      return ($array_search($fuzzy)!= FALSE)?$array_search($fuzzy):$fuzzy;
+      return (array_search($fuzzy)!== FALSE)?array_search($fuzzy):$fuzzy;
     }
 
+	/**
+	 * Standard call to services
+	 *
+	 * @access  public
+	 * @param string $service_url - Name last part of the url service to be requested
+	 * @return string
+	 */
 	public function curl_url($service_url) 
 	{
-		// var_dump($this->_base_url.$service_url);
-		// Standard call to service.
-		$this->EE->curl->create($this->_base_url.$service_url);
-		$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
-		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
-		$this->EE->curl->option(CURLOPT_URL, $this->_base_url.$service_url);
+		$this->base_request_options($service_url);
+
 		$return = $this->EE->curl->execute();
-		// var_dump($return);
+
 		return $return;
 	}
 
 	public function curl_full_url($service_url, $user, $pwd) 
 	{
-		// var_dump($service_url.' USER '.$user.' PWD '.$pwd);
-		// Standard call to service.
 		$this->EE->curl->create($service_url);
 		$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
 		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
 		$this->EE->curl->option(CURLOPT_URL, $service_url);
+
 		$this->EE->curl->http_login($user, $pwd);
 		$return = $this->EE->curl->execute();
-		// var_dump('Return'.$return);
+
 		return $return;
 	}
 
 	public function curl_url_not_reuse( $service_url ) 
 	{
-		// var_dump($this->_base_url.$service_url);
-		// Initial call to service. 
-		$this->EE->curl->create($this->_base_url.$service_url);
-		$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
-		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
-		$this->EE->curl->option(CURLOPT_URL, $this->_base_url.$service_url);
+		$this->base_request_options($service_url);
 		$this->EE->curl->option(CURLOPT_FORBID_REUSE, 1);
 		$this->EE->curl->option(CURLOPT_FRESH_CONNECT, 1);
+
 		$return = $this->EE->curl->execute();
-		// var_dump($return);
+
 		return $return;
 	}
 
@@ -117,9 +116,9 @@ class Webservices_functions {
      * Post curl to full service url
      *
      * @access  public
-     * @param string $service_url Full Service URL 
+     * @param string $services_url Full Service URL
      * @param array $params Post body parameters 
-     * @return 
+     * @return string
      */
 	public function curl_post_full_url( $services_url , $params)
 	{
@@ -154,6 +153,17 @@ class Webservices_functions {
 		// Adding the prefix so original code stays "clean"
 		$this->EE->input->delete_cookie($cookie);
 	}
+
+	/**
+	 * @param $service_url
+	 */
+	public function base_request_options($service_url)
+	{
+		$this->EE->curl->create($this->_base_url . $service_url);
+		$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
+		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
+		$this->EE->curl->option(CURLOPT_URL, $this->_base_url . $service_url);
+	}
 }
 /* End of file Webservices_functions.php */
-/* Location: ./system/expressionengine/third_party/webservices/Webservices_functions.php */
+/* Location: ./system/expressionengine/third_party/webservices/libraries/Webservices_functions.php */
