@@ -93,7 +93,8 @@ input.survey-submit{
 		max-width: 130px;
 	    width: 184px;
 	    height: 30px;
-	    display: inline-block
+	    display: inline-block;
+		border-radius: 0px;
 	}
 }
 @media #{$sm-down}{
