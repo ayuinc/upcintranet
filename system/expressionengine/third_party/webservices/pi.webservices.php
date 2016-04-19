@@ -26,6 +26,7 @@ class Webservices
     var $return_data = "";
     var $site_url = "";
     var $services;
+    var $tags;
     var $_cookies_prefix="";
     protected $env = "";
 
@@ -50,9 +51,10 @@ class Webservices
     {
         $this->EE =& get_instance();
         require_once 'libraries/Webservices_functions.php';
+        require_once 'libraries/Tag_methods.php';
         $this->site_url = $this->EE->config->item('site_url');
         $this->services = new Webservices_functions;
-
+        $this->tags = new Tag_methods;
         $this->_cookies_prefix = '';
         $this->env = $this->EE->config->item('env');
 
@@ -465,7 +467,6 @@ class Webservices
       session_start();
       ob_start();
       $_SESSION["Token"] = "";
-
       // Removing data from $_SESSION and Cookies
       $user_data = array( 'Codigo' ,
                           'TipoUser',
@@ -1628,8 +1629,190 @@ class Webservices
       }
       
       return $result;               
-    }     
-    
+    }
+
+    public function encuestas_del_dia()
+    {
+        $codigo = $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+        $this->services->set_cookie("Codigo", $codigo, time() + (1800), "/");
+        $tagdata = $this->EE->TMPL->tagdata;
+        $modalidad_survey = ee()->TMPL->fetch_param('modalidad_survey');
+        $enable_survey = trim(ee()->TMPL->fetch_param('habilitar_survey'));
+        if ($modalidad_survey !== $this->get_modalidad_alumno()) {
+            return '';
+        }
+        ee()->db->select('*');
+        ee()->db->where('codigo', $codigo);
+        $query_modelo_result = ee()->db->get('exp_user_upc_data');
+        foreach ($query_modelo_result->result() as $row) {
+            $token = $row->token;
+        }
+        $url = 'Horario/?CodAlumno=' . $codigo . '&Token=' . $token;
+        $site_url = ee()->config->item('site_url');
+        $result = $this->services->curl_url($url);
+        $json = json_decode($result, true);
+        $error = $json['CodError'];
+        $error_mensaje = $json['MsgError'];
+        // traer data de encuestas
+        $quiz_horarios = null;
+        $codlinea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
+        $codmodal = $_COOKIE[$this->services->get_fuzzy_name("CodModal")];
+        $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
+        $quiz_service = ee()->config->item('quiz_services_url');
+        $quiz_services_url = $quiz_service;
+        $quiz_services_url .= $codlinea;
+        $quiz_services_url .= '/' . $codmodal;
+        $quiz_services_url .= '/' . $periodo;
+        if ($codigo[0] == 'U' || $codigo[0] == 'u') {
+            $quiz_services_url .= '/' . substr($codigo, 1);
+        } else {
+            $quiz_services_url .= '/' . $codigo;
+        }
+        $day = date('w');
+        $week_start = date('Y-m-d', strtotime('-' . $day . ' days'));
+        $week_end = date('Y-m-d', strtotime('+' . (6 - $day) . ' days'));
+        $quiz_services_url .= '/' . $week_start . 'T00:00:00Z';
+        $quiz_services_url .= '/' . $week_end . 'T00:00:00Z';
+        $quiz_enabled = false;
+        $carrera = '';
+        $quiz_result = $this->services->curl_full_url($quiz_services_url, ee()->config->item('quiz_user'), ee()->config->item('quiz_pwd'));
+        $quiz_json = json_decode($quiz_result, true);
+        if ($quiz_json['DTOHeader']['CodigoRetorno'] == 'Correcto' && count($quiz_json['ListaDTOHorarioAlumno']) > 0) {
+            $quiz_enabled = true;
+            $carrera = $this->get_carrera_alumno();
+            $quiz_horarios = $quiz_json['ListaDTOHorarioAlumno'];
+        }else{
+            $error_result = $this->tags->get_subtag_data('error', $this->EE->TMPL->tagdata);
+            $error_result = $this->tags->replace_subtag_data('error_message', $error_result, 'No podemos obtener los datos necesarios.');
+            return $error_result;
+        }
+        // END : traer data de encuestas
+        $result = '';
+        $horario_empty = '';
+        $horario_empty_survey = $this->tags->get_subtag_data('horario_survey', $tagdata);
+        if (strlen($enable_survey) !== 0 && $quiz_enabled == true) {
+            $horario_empty = $this->tags->get_subtag_data('horario_survey', $tagdata);
+            // $horario_empty = $this->tags->get_subtag_data('horario',$tagdata);
+        } else {
+            $horario_empty = $this->tags->get_subtag_data('horario', $tagdata);
+        }
+        $tamano = count($json['HorarioDia']);
+        $i=0;
+        for ($j=0; $j < $tamano; $j++) {
+            if ($json['HorarioDia'][$j]['CodDia'] === date('w')) {
+                $i = $j;
+                break;
+            }
+        }
+        $horario = $horario_empty;
+        //genera el tamano del array
+        $tamano_int = count($json['HorarioDia'][$i]['Clases']);
+        $clases = '';
+        $horario_dia_empty = $this->tags->get_subtag_data('horario_dia', $horario);
+        $horario_dia_survey_empty = $this->tags->get_subtag_data('horario_dia', $horario_empty_survey);
+        for ($b = 0; $b < $tamano_int; $b++) {
+            $horario_dia = $horario_dia_empty;
+            $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
+            $HoraInicio = ltrim($HoraInicio, '0');
+            $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
+            $HoraFin = ltrim($HoraFin, '0');
+            if (strlen($enable_survey) !== 0 && $quiz_enabled == true) {
+                for ($q = 0; $q < count($quiz_horarios); $q++) {
+                    if ($json['HorarioDia'][$i]['CodDia'] == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) && $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] && $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion']) {
+                        $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
+                        $strDate = $date->format('YmdH');
+                        $class_date = $json['HorarioDia'][$i]['Clases'][$b]['Fecha'] . $HoraInicio;
+                        $class_end_date = $json['HorarioDia'][$i]['Clases'][$b]['Fecha'] . $HoraFin;
+                        if (intval($strDate) >= intval($class_date) && intval($strDate) < intval($class_end_date)) // if(true)
+                        {
+                            $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
+                            $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
+                            $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
+                            if ($codigo[0] == 'u') {
+                                $codigo_alumno = 'U' . substr($codigo, 1);
+                            } else {
+                                $codigo_alumno = $codigo;
+                            }
+                            $quiz_params = array('c_un' => $codlinea,
+                                "c_modalidad" => $codmodal,
+                                "c_periodo" => $periodo,
+                                "c_curso" => $codcurso,
+                                "seccion" => $quiz_horarios[$q]['SesionSECCION'],
+                                "grupo" => $quiz_horarios[$q]["SesionGRUPO"],
+                                'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
+                                'c_sede' => $quiz_horarios[$q]["AulaCOD_LOCAL"],
+                                'c_alumno' => $codigo_alumno,
+                                'c_carrera' => $carrera
+                            );
+                            $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
+                            $qjson = json_decode($quiz_request, true);
+                            if ($quiz_request !== false && $qjson['CodError'] === 0) {
+                                $horario_dia = $horario_dia_survey_empty;
+                                $form = "<form target=\"_blank\"action=\"" . $qjson["Quizlink"] . "\" ";
+                                $form .= "id=\"" . rand(0, 999) . "\" method=\"post\" class=\"survey-form\">";
+                                foreach ($quiz_params as $key => $value) {
+                                    $form .= "<input type=\"hidden\" value=\"" . $value . "\" name=\"" . $key . "\">";
+                                }
+                                $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
+                                $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
+                                $form .= "</form>";
+                                $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                            } else {
+                                $form = "<!-- " . $quiz_request . " COD ERROR" . $qjson['CodError'] . "--><a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                                $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                            }
+                        } else {
+                            $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                            $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                        }
+                        $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                        $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                    }
+                }
+                $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+            }
+            $horario_dia = $this->tags->replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio . ':00');
+            $horario_dia = $this->tags->replace_subtag_data('hora_fin', $horario_dia, $HoraFin . ':00');
+            $horario_dia = $this->tags->replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
+            $horario_dia = $this->tags->replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
+            $horario_dia = $this->tags->replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
+            $horario_dia = $this->tags->replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);
+            $clases .= $horario_dia;
+        }
+        $horario = $this->tags->replace_pair_subtag_data('horario_dia', $horario, $clases);
+        $result .= $horario;
+        //Control de errores
+        $error_result = $this->error_eval($error);
+        if ($error_result === '1') {
+            $result = '';
+            $result .= '<div>';
+            $result .= '<div class="panel-body mb-35">';
+            $result .= '<div class="panel-table red-line">';
+            $result .= '<ul class="tr mis-cursos-row">';
+            $result .= '<li class="col-sm-2 col-xs-12">';
+            $result .= '<img src="{site_url}assets/img/brain.png" class="img-center">';
+            $result .= '</li>';
+            $result .= '<li class="col-sm-10 col-xs-12">';
+            $result .= '<span class="block zizou-bold-18">Tiempo de Innovar</span>';
+            if (strpos($error_mensaje, "Ud. no tiene clases programadas para esta semana.") !== false) {
+                $result .= '<span class="helvetica-16">No tienes ningún curso</span>';
+            } else {
+                $result .= '<span class="helvetica-16">' . $error_mensaje . '</span>';
+            }
+            $result .= '</li>';
+            $result .= '</ul>';
+            $result .= '</div>';
+            $result .= '</div>';
+            $result .= '</div>';
+
+        } elseif ($error_result != '0') {
+            $site_url = ee()->config->item('site_url');
+            $this->EE->functions->redirect($site_url . "general/session-expired");
+            return '';
+        }
+        return $result;
+    }
      //HORARIO CICLO ACTUAL DEL ALUMNO CONSULTADO POR PADRE
     public function padre_horario_ciclo_actual_alumno()
     {
@@ -5705,60 +5888,60 @@ class Webservices
     
     //INICIAR SESION
     public function verificar_usuario() {
-      //$token = $_SESSION["Token"];
-      //var_dump($_SESSION);
-      $segment_2 = ee()->TMPL->fetch_param('tipo_de_vista');
- 
-      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
+        //$token = $_SESSION["Token"];
+        //var_dump($_SESSION);
+        $segment_2 = ee()->TMPL->fetch_param('tipo_de_vista');
+
+        $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
 
 
-      $_COOKIE[$this->services->get_fuzzy_name("Codigo")] = $codigo;
-      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      ee()->db->select('*');
-      ee()->db->where('codigo', $codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+        $_COOKIE[$this->services->get_fuzzy_name("Codigo")] = $codigo;
+        $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
+        ee()->db->select('*');
+        ee()->db->where('codigo', $codigo);
+        $query_modelo_result = ee()->db->get('exp_user_upc_data');
 
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
-        $tipouser = $row->tipouser;
-        $terminos = $row->terminos_condiciones;
-      }
-
-      $result = $this->services->curl_full_url(ee()->config->item('verification_services_url').'/'.$codigo.'/'.$token,  ee()->config->item('verification_user'),  ee()->config->item('verification_pwd'));
-
-      $verification_result = json_decode($result, true);
-      if (($codigo === '' || is_null($codigo) || is_null($terminos) || $terminos == 'no' || $terminos == '') || ($verification_result['DTOHeader']['CodigoRetorno'] == "Correcto" && count($verification_result['ListaDTOUsuarioToken']) === 0) ) {
-        $redireccion = uri_string();
-        $this->destruir_session();
-        $this->eliminar_cookie();
-        $_COOKIE[$this->services->get_fuzzy_name("Redireccion")] = $redireccion;
-        $this->services->set_cookie("Redireccion",$redireccion, time() + (1800), "/");
-        $site_url = ee()->config->item('site_url');
-        $site_url .= 'login/no-es-usuario';
-        redirect($site_url);
-      }
-      elseif ($segment_2 != $tipouser ) {
-         $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]= "/general/permisos";
-        if ($tipouser == 'PROFESOR')
-        {
-          redirect( $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]);
+        foreach($query_modelo_result->result() as $row){
+            $token = $row->token;
+            $tipouser = $row->tipouser;
+            $terminos = $row->terminos_condiciones;
         }
-        if ($tipouser == 'ALUMNO')
-        {
-          redirect( $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]);
-        }
-        if ($tipouser == 'PADRE')
-        {
-          $url = 'ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
 
-          $hijosWebService=$this->services->curl_url($url);
-          $json = json_decode($hijosWebService, true);
-          
-          redirect('/dashboard/padre/hijos/'.$json["hijos"][0]["codigo"]);
+        $result = $this->services->curl_full_url(ee()->config->item('verification_services_url').'/'.$codigo.'/'.$token,  ee()->config->item('verification_user'),  ee()->config->item('verification_pwd'));
+
+        $verification_result = json_decode($result, true);
+        if (($codigo === '' || is_null($codigo) || is_null($terminos) || $terminos == 'no' || $terminos == '') || ($verification_result['DTOHeader']['CodigoRetorno'] == "Correcto" && count($verification_result['ListaDTOUsuarioToken']) === 0) ) {
+            $redireccion = uri_string();
+            $this->destruir_session();
+            $this->eliminar_cookie();
+            $_COOKIE[$this->services->get_fuzzy_name("Redireccion")] = $redireccion;
+            $this->services->set_cookie("Redireccion",$redireccion, time() + (1800), "/");
+            $site_url = ee()->config->item('site_url');
+            $site_url .= 'login/no-es-usuario';
+            redirect($site_url);
         }
-      }
-    }    
-    
+        elseif ($segment_2 != $tipouser ) {
+            $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]= "/general/permisos";
+            if ($tipouser == 'PROFESOR')
+            {
+                redirect( $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]);
+            }
+            if ($tipouser == 'ALUMNO')
+            {
+                redirect( $_COOKIE[$this->services->get_fuzzy_name("Redireccion")]);
+            }
+            if ($tipouser == 'PADRE')
+            {
+                $url = 'ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
+
+                $hijosWebService=$this->services->curl_url($url);
+                $json = json_decode($hijosWebService, true);
+
+                redirect('/dashboard/padre/hijos/'.$json["hijos"][0]["codigo"]);
+            }
+        }
+    }
+
     //BOTON INICIO
     public function boton_inicio() 
     {
@@ -5780,50 +5963,51 @@ class Webservices
       if (strval($tipouser)=='PADRE') {
         return '{site_url}dashboard/padre/hijos/{last_segment}'; 
       }
-    }    
-    
+    }
+
+
     //DESTRUYE LA SESSION
     public function destruir_session () {
-      session_name('upc');
-      session_start();
-      $user_upc_update = array(
-        "token" => '0'
-      );
-      ee()->db->where('codigo', $_COOKIE[$this->services->get_fuzzy_name("Codigo")]);
-      ee()->db->update('exp_user_upc_data', $user_upc_update);
+        session_name('upc');
+        session_start();
+        $user_upc_update = array(
+            "token" => '0'
+        );
+        ee()->db->where('codigo', $_COOKIE[$this->services->get_fuzzy_name("Codigo")]);
+        ee()->db->update('exp_user_upc_data', $user_upc_update);
 
-      $_SESSION["Token"] = "";
-      $this->services->set_cookie("Codigo", NULL);
-      $this->services->set_cookie("MsgError", NULL);
-      if (isset($_COOKIE[$this->services->get_fuzzy_name("Codigo")])) {
-        unset($_COOKIE[$this->services->get_fuzzy_name("Codigo")]);
-        $this->services->set_cookie("Codigo", null, -1, "/");
-      }
-      if (isset($_COOKIE[$this->services->get_fuzzy_name("TipoUser")])) {
-        unset($_COOKIE[$this->services->get_fuzzy_name("TipoUser")]);
-        $this->services->set_cookie("TipoUser", null, -1, "/");
-      }
-      if (isset($_COOKIE[$this->services->get_fuzzy_name("Token")])) {
-        unset($_COOKIE[$this->services->get_fuzzy_name("Token")]);
-        $this->services->set_cookie("Token", null, -1, "/");
-      }
-      unset($_SESSION["Codigo"]);
-      unset($_SESSION["TipoUser"]);
-      unset($_SESSION["Nombres"]);
-      unset($_SESSION["Apellidos"]);
-      unset($_SESSION["Estado"]);
-      unset($_SESSION["DscModal"]);
-      unset($_SESSION["DscSede"]);
-      unset($_SESSION["Ciclo"]);
-      unset($_SESSION["Token"]);
-      unset($_SESSION["CodError"]);
-      unset($_SESSION["MsgError"]);
-      unset($_SESSION["Redireccion"]);       
-      session_destroy();
+        $_SESSION["Token"] = "";
+        $this->services->set_cookie("Codigo", NULL);
+        $this->services->set_cookie("MsgError", NULL);
+        if (isset($_COOKIE[$this->services->get_fuzzy_name("Codigo")])) {
+            unset($_COOKIE[$this->services->get_fuzzy_name("Codigo")]);
+            $this->services->set_cookie("Codigo", null, -1, "/");
+        }
+        if (isset($_COOKIE[$this->services->get_fuzzy_name("TipoUser")])) {
+            unset($_COOKIE[$this->services->get_fuzzy_name("TipoUser")]);
+            $this->services->set_cookie("TipoUser", null, -1, "/");
+        }
+        if (isset($_COOKIE[$this->services->get_fuzzy_name("Token")])) {
+            unset($_COOKIE[$this->services->get_fuzzy_name("Token")]);
+            $this->services->set_cookie("Token", null, -1, "/");
+        }
+        unset($_SESSION["Codigo"]);
+        unset($_SESSION["TipoUser"]);
+        unset($_SESSION["Nombres"]);
+        unset($_SESSION["Apellidos"]);
+        unset($_SESSION["Estado"]);
+        unset($_SESSION["DscModal"]);
+        unset($_SESSION["DscSede"]);
+        unset($_SESSION["Ciclo"]);
+        unset($_SESSION["Token"]);
+        unset($_SESSION["CodError"]);
+        unset($_SESSION["MsgError"]);
+        unset($_SESSION["Redireccion"]);
+        session_destroy();
 
-      $this->eliminar_cookie();
-	    $site_url = ee()->config->item('site_url');
-      redirect($site_url);
+        $this->eliminar_cookie();
+        $site_url = ee()->config->item('site_url');
+        redirect($site_url);
     }
 
     public function categories_alumno(){
