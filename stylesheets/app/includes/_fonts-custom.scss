@@ -29,13 +29,13 @@
 .serif-light {@include serif-light;}
 // @mixin serif-light-italic { font-family: $font-family-serif !important; font-weight: 300; font-style: italic;}
 // .serif-light-italic {@include serif-light-italic;}
-@mixin serif-book { font-family: "zizou-slab-regular" "quatro-slab" !important; font-style: normal;}
+@mixin serif-book { font-family: "zizou-slab-regular", "Lucida Bright", "Baskerville", serif !important; font-style: normal;}
 .serif-book {@include serif-book;}
-@mixin serif-book-italic { font-family: "zizou-slab-regular" !important; font-weight: 400; font-style: italic;}
+@mixin serif-book-italic { font-family: "zizou-slab-regular", "Lucida Bright", "Baskerville", serif !important; font-weight: 400; font-style: italic;}
 .serif-book-italic {@include serif-book-italic;}
-@mixin serif-medium { font-family: "Zizou Slab-Medium" !important; font-style: normal;}
+@mixin serif-medium { font-family: "Zizou Slab-Medium", "Lucida Bright", "Baskerville", serif !important; font-style: normal;}
 .serif-medium {@include serif-medium;}
-@mixin serif-medium-italic { font-family: $font-family-serif !important; font-weight: 500; font-style: italic;}
+@mixin serif-medium-italic { font-family: $font-family-serif , "Lucida Bright", "Baskerville", serif!important; font-weight: 500; font-style: italic;}
 .serif-medium-italic {@include serif-medium-italic;}
 @mixin serif-bold { font-family: "zizou-slab-bold" !important; font-style: normal;}
 .serif-bold {@include serif-bold;}
@@ -43,13 +43,13 @@
 // .serif-bold-italic {@include serif-bold-italic;}
 
 // ALTERNATIVE FONTS
-@mixin alt-light { font-family: "nimbus-sans" !important; font-weight: 400; font-style: normal;}
+@mixin alt-light { font-family: "nimbus-sans", "Helvetica Neue", "Helvetica", "Arial" !important; font-weight: 400; font-style: normal;}
 .alt-light {@include alt-light;}
-@mixin alt-book { font-family: "nimbus-sans" !important; font-weight: 500; font-style: normal;}
+@mixin alt-book { font-family: "nimbus-sans", "Helvetica Neue", "Helvetica", "Arial"  !important; font-weight: 500; font-style: normal;}
 .alt-book {@include alt-book;}
 // @mixin alt-medium { font-family: $font-family-alt !important; font-weight: 600; font-style: normal;}
 // .alt-medium {@include alt-medium;}
-@mixin alt-bold { font-family: "nimbus-sans" !important; font-weight: 700; font-style: normal;}
+@mixin alt-bold { font-family: "nimbus-sans", "Helvetica Neue", "Helvetica", "Arial"  !important; font-weight: 700; font-style: normal;}
 .alt-bold {@include alt-bold;}
 
 
@@ -60,7 +60,7 @@
 .alt-book {@include alt-12-book;}
 
 // ALTERNATIVE-AB FONTS (for letter)
-@mixin alt-ab-light { font-family: "ronnia-condensed" !important; font-weight: 300; font-style: normal;}
+@mixin alt-ab-light { font-family: "pragmatica-web-condensed" !important; font-weight: 300; font-style: normal;}
 .alt-light {@include alt-ab-light;}
-@mixin alt-ab-book { font-family: "ronnia-condensed" !important; font-weight: 500; font-style: normal;}
+@mixin alt-ab-book { font-family: "pragmatica-web-condensed" !important; font-weight: 500; font-style: normal;}
 .alt-book {@include alt-ab-book;}

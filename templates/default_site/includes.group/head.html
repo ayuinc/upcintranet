@@ -65,8 +65,17 @@
     <link rel="apple-touch-icon" sizes="60x60" href="{site_url}assets/img/apple-icon-60x60.png">
 
     <!-- WebFonts -->
-    <script src="//use.typekit.net/atd7fhw.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
+    <script>
+      (function(d) {
+        var tkTimeout=3000;
+        if(window.sessionStorage){if(sessionStorage.getItem('useTypekit')==='false'){tkTimeout=0;}}
+        var config = {
+                  kitId: 'atd7fhw',
+                  scriptTimeout: tkTimeout
+                },
+                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+"wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+="wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
     <!-- publicidad -->
     <script type='text/javascript' src='https://ads.upc.edu.pe/delivery/spcjs.php?id=1'></script>
     <!-- APP STYLES -->
@@ -90,48 +99,7 @@
     <!-- print -->
     <link rel="stylesheet" href="{site_url}stylesheets/main_print.css" media="print">
 
-    <style>
-        {exp:channel:entries channel="sidebar_estudiante" dynamic="off" orderby="date" sort="asc"}
-            .nav-main > li.active-menu.{url_title} a div {
-              background-image: url({icono_sidebar_red}); 
-              }
-            .nav-main > li.current-menu.{url_title} a div {
-              background-image: url({icono_sidebar_red}); 
-              }
-            .nav-main > li.{url_title} a div {
-              background-image: url({icono_sidebar_grey}); 
-              }
-        {/exp:channel:entries}
-
-        {exp:channel:entries channel="sidebar_docente" dynamic="off" orderby="date" sort="asc"}
-            .nav-main > li.active-menu.{url_title} a div {
-              background-image: url({icono_sidebar_red}); 
-              }
-            .nav-main > li.current-menu.{url_title} a div {
-              background-image: url({icono_sidebar_red}); 
-              }
-            .nav-main > li.{url_title} a div {
-              background-image: url({icono_sidebar_grey}); 
-              }
-        {/exp:channel:entries}
-
-        {exp:channel:entries channel="sidebar_padre" dynamic="off" orderby="date" sort="asc"}
-            .nav-main > li.active-menu.{url_title} a div {
-              background-image: url({icono_sidebar_red}); 
-              }
-            .nav-main > li.current-menu.{url_title} a div {
-              background-image: url({icono_sidebar_red}); 
-              }
-            .nav-main > li.{url_title} a div {
-              background-image: url({icono_sidebar_grey}); 
-              }
-        {/exp:channel:entries}
- 
-    </style>
-
     <!--[if lt IE 9]>
-    <script src="//use.typekit.net/dbm5wbg.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
     <script src="{site_url}js/app/vendor/html5shiv.js"></script>
     <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
     <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
@@ -139,9 +107,6 @@
     <script src="{site_url}js/app/vendor/placeholders.min.js"></script>
     <![endif]-->
 
-    <!-- SCRIPTS -->
-    
-    <!-- SCRIPTS -->
     <!-- jquery 1.11.1 -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Flexslider -->
@@ -156,7 +121,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css"/>
     {/if}
 
-    <script data-pace-options='{ "ajax": true , "document": true }' src='{site_url}js/app/vendor/pace.js'></script>
+    <script data-pace-options='{ "ajax": true , "document": true }' src='{site_url}js/app/vendor/pace.js?v=1.0.2'></script>
       <link href="{site_url}stylesheets/app/plugins/pace.css" rel="stylesheet" />
 
   </head>

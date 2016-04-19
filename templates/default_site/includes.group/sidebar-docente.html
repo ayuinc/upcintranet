@@ -1,3 +1,13 @@
+
+<style>
+
+  {exp:channel:entries channel="sidebar_docente" dynamic="off" orderby="date" sort="asc"}
+  .nav-main > li.active-menu.{url_title} a div {  background-image: url({icono_sidebar_red});  }
+  .nav-main > li.current-menu.{url_title} a div {  background-image: url({icono_sidebar_red});  }
+  .nav-main > li.{url_title} a div {  background-image: url({icono_sidebar_grey});  }
+  {/exp:channel:entries}
+
+</style>
     <div class="site-menu hidden-xs hidden-sm">
       <ul class="list-unstyled nav-main">
         {exp:channel:entries channel="sidebar_docente" dynamic="off" orderby="date" sort="asc"}

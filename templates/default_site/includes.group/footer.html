@@ -1,15 +1,16 @@
   
   </div> <!-- site wrapper  -->
-
+  {if segment_1 != 'login' || segment_1 != '' }
   <script src="{site_url}js/b3/transition.js"></script>
   <script src="{site_url}js/b3/dropdown.js"></script>
-  <script src="{site_url}js/b3/modal.js"></script>
   <script src="{site_url}js/b3/collapse.js"></script>
   <script src="{site_url}js/app/vendor/wurfl.js"></script>
   <script src="{site_url}js/app/src/insert-script.js.php?url='{site_url}'"></script>
   <script src="{site_url}js/app/vendor/velocity.min.js"></script>
-  <script src="{site_url}js/app/src/global.js?v=1.1"></script>
   <script src="{site_url}js/app/src/large_sidebar.js"></script>
+  {/if}
+  <script src="{site_url}js/b3/modal.js"></script>
+  <script src="{site_url}js/app/src/global.js?v=1.1"></script>
   <script src="{site_url}js/app/vendor/jquery.validate.min.js"></script>
   {if segment_1 == 'login' || segment_1 == '' }
   <script src="{site_url}js/app/src/login.js?v=1.5.3"></script>
@@ -49,7 +50,7 @@
   <!--[if IE 9]>
   <script src="{site_url}js/app/src/ie9.js"></script>
   <![endif]-->
-
+  {if segment_1 == 'mis-reservas' || segment_1 == 'mis-reservas-docentes'}
 	<script>
 
       $(".espacio").change(function() {
@@ -89,6 +90,7 @@
         });
       });
 	</script>
+  {/if}
 	<script>
      	if(window.addEventListener){
 	 	window.addEventListener('load', function() {

@@ -19,6 +19,9 @@ Icon
 .Spotlight-V100
 .Trashes
 
+## IDE
+.idea
+
 # Expression Engine
 # Images
 # images/avatars/

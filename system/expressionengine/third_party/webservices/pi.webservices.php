@@ -1727,8 +1727,8 @@ class Webservices
         
         for ($b=0; $b<$tamano_int; $b++) {
             $result .= '<div class="panel-table">'; 
-            $result .= '<ul class="tr" table-border>'; 
-            $result .= '<li class="col-sm-1-5 col-md-2 col-xs-2 hidden-xs">'; 
+            $result .= '<ul class="tr table-border">';
+            $result .= '<li class="col-sm-1-5 col-md-2 col-xs-2 hidden-xs">';
             $result .= '<div class="text-center"><span class="helvetica-14">';
             $HoraInicio = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraInicio'], 0, 2);
             $HoraInicio = ltrim($HoraInicio,'0');

@@ -1,17 +1,26 @@
-    <div class="site-menu hidden-sm hidden-xs">
-      <ul class="list-unstyled nav-main">
+
+<style>
+    {exp:channel:entries channel="sidebar_estudiante" dynamic="off" orderby="date" sort="asc"}
+    .nav-main > li.active-menu.{url_title} a div {  background-image: url({icono_sidebar_red});  }
+    .nav-main > li.current-menu.{url_title} a div {  background-image: url({icono_sidebar_red});  }
+    .nav-main > li.{url_title} a div {  background-image: url({icono_sidebar_grey});  }
+    {/exp:channel:entries}
+
+</style>
+<div class="site-menu hidden-sm hidden-xs">
+    <ul class="list-unstyled nav-main">
         {exp:channel:entries channel="sidebar_estudiante" dynamic="off" orderby="date" sort="asc"}
-          {if segment_1==url_title} 
-          <li class="{url_title} menu current-menu sidebar-item">
-          {if:else}
-          <li class="{url_title} menu sidebar-item"> 
-          {/if}
+        {if segment_1==url_title}
+        <li class="{url_title} menu current-menu sidebar-item">
+            {if:else}
+        <li class="{url_title} menu sidebar-item">
+            {/if}
             <a id="lnk_int_{title}" href="{url-root-item}">
-              <div></div>
-              <span>{title}</span>
+                <div></div>
+                <span>{title}</span>
             </a>
             {embed="includes/subitems-sidebar" category="{id_categoria_subitems}" item="{url_title}"}
-          </li>
+        </li>
         {/exp:channel:entries}
         <!-- 
         <li class="mis-estudios menu {if segment_1=='mis-estudios'}current-menu{/if}">
@@ -75,13 +84,13 @@
           {/exp:channel:entries}
           </ul>	          
         </li>
-        -->       
+        -->
         <li class="ayuda menu sidebar-item">
-          <a id="lnk_int_Ayuda" href="{site_url}ayuda">
-            <div></div>
-            <span>Ayuda</span>
-          </a>
+            <a id="lnk_int_Ayuda" href="{site_url}ayuda">
+                <div></div>
+                <span>Ayuda</span>
+            </a>
         </li>
-        
-      </ul>
-    </div>
+
+    </ul>
+</div>
