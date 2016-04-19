@@ -1707,8 +1707,8 @@ class Webservices
         }
         $tamano = count($json['HorarioDia']);
         $i=0;
-        for ($j=0; $j < $tamano; $j++) {
-            if ($json['HorarioDia'][$j]['CodDia'] === date('w')) {
+        for ($j=0; $j <= $tamano; $j++) {
+            if ($json['HorarioDia'][$j]['CodDia'] == date('w')) {
                 $i = $j;
                 break;
             }
