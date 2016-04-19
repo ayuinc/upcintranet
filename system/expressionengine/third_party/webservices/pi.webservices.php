@@ -27,6 +27,8 @@ class Webservices
     var $site_url = "";
     var $services;
     var $tags;
+    var $upc_services;
+    var $upc_user_data;
     var $_cookies_prefix="";
     protected $env = "";
 
@@ -45,16 +47,23 @@ class Webservices
      * This function returns a list of members
      *
      * @access  public
-     * @return  string
+     *
      */
     public function __construct()
     {
         $this->EE =& get_instance();
         require_once 'libraries/Webservices_functions.php';
         require_once 'libraries/Tag_methods.php';
+        require_once 'libraries/UPC_services.php';
+        require_once 'libraries/UPC_user_data.php';
         $this->site_url = $this->EE->config->item('site_url');
+
         $this->services = new Webservices_functions;
         $this->tags = new Tag_methods;
+        $this->upc_services = new UPC_services;
+        $this->upc_user_data = new UPC_user_data;
+
+
         $this->_cookies_prefix = '';
         $this->env = $this->EE->config->item('env');
 
@@ -94,7 +103,7 @@ class Webservices
      * @access  public
      * @param string $name Name of data as key for $_SESSION and cookie
      * @param string $jsonObj Object to be saved on $_SESSION
-     * @return 
+     * @return
      */
     private function set_session_cookie($name, $jsonObj){
       $_SESSION[$name] = $jsonObj;
@@ -203,8 +212,8 @@ class Webservices
      * Get subtag data
      *
      * @access  private
-     * @param tag_name Tag to look for
-     * @param tag_data Template tag data to look in
+     * @param tag_name - Tag to look for
+     * @param tag_data - Template tag data to look in
      * @return string
      */
     private function _get_subtag_data($tag_name, $tagdata)
@@ -5891,26 +5900,12 @@ class Webservices
         //$token = $_SESSION["Token"];
         //var_dump($_SESSION);
         $segment_2 = ee()->TMPL->fetch_param('tipo_de_vista');
+        $codigo = $this->upc_user_data->get_user_code();
+        $token = $this->upc_user_data->get_user_token();
+        $terminos = $this->upc_user_data->get_user_terminos();
+        $tipouser =  $this->upc_user_data->get_user_perfil_type();
 
-        $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
-
-
-        $_COOKIE[$this->services->get_fuzzy_name("Codigo")] = $codigo;
-        $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-        ee()->db->select('*');
-        ee()->db->where('codigo', $codigo);
-        $query_modelo_result = ee()->db->get('exp_user_upc_data');
-
-        foreach($query_modelo_result->result() as $row){
-            $token = $row->token;
-            $tipouser = $row->tipouser;
-            $terminos = $row->terminos_condiciones;
-        }
-
-        $result = $this->services->curl_full_url(ee()->config->item('verification_services_url').'/'.$codigo.'/'.$token,  ee()->config->item('verification_user'),  ee()->config->item('verification_pwd'));
-
-        $verification_result = json_decode($result, true);
-        if (($codigo === '' || is_null($codigo) || is_null($terminos) || $terminos == 'no' || $terminos == '') || ($verification_result['DTOHeader']['CodigoRetorno'] == "Correcto" && count($verification_result['ListaDTOUsuarioToken']) === 0) ) {
+        if (($codigo === '' || is_null($codigo) || is_null($terminos) || $terminos == 'no' || $terminos == '') || $this->upc_services->verify_token()  == false) {
             $redireccion = uri_string();
             $this->destruir_session();
             $this->eliminar_cookie();
