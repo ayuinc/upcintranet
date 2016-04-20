@@ -163,3 +163,57 @@ img.img-responsive.ad-img.margin-auto{
 .selectpicker{
 	@include alt-light;
 }
+
+@-webkit-keyframes sk-stretchdelay {
+	0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+	20% { -webkit-transform: scaleY(1.0) }
+}
+
+@include keyframes(sk-stretchdelay) {
+	0%, 40%, 100% {
+		//transform: scaleY(0.4);
+		@include transform(scaleY(0.4));
+		//-webkit-transform: scaleY(0.4);
+	}  20% {
+			   @include transform(scaleY(1.0));
+		   //-webkit-transform: scaleY(1.0);
+	   }
+}
+
+.spinner {
+	margin: 100px auto;
+	width: 50px;
+	height: 40px;
+	text-align: center;
+	font-size: 10px;
+	&> div {
+		background-color: #333;
+		height: 100%;
+		width: 6px;
+		display: inline-block;
+
+		//-webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+		//animation: sk-stretchdelay 1.2s infinite ease-in-out;
+		@include animation(sk-stretchdelay 1.2s ease-in-out);
+	}
+	.rect2 {
+		//-webkit-animation-delay: -1.1s;
+		//animation-delay: -1.1s;
+		@include animation-delay(-1.1s);
+	}
+	.rect3 {
+		@include animation-delay(-1.0s);
+		//-webkit-animation-delay: -1.0s;
+		//animation-delay: -1.0s;
+	}
+	.rect4 {
+		@include animation-delay(-0.9s);
+		//-webkit-animation-delay: -0.9s;
+		//animation-delay: -0.9s;
+	}
+	.rect5 {
+		@include animation-delay(-0.8s);
+		//-webkit-animation-delay: -0.8s;
+		//animation-delay: -0.8s;
+	}
+}

@@ -41,8 +41,10 @@
                         </li>
                       </ul>
                     </div>
-                    <div class="panel-table no-bg">
-                      {exp:webservices:curos_que_lleva_un_alumno}
+                    <div class="panel-table no-bg" id="cursos-alumno">
+                        <div id="cargador-cursos-estudiante" class="tr">
+                        {embed="includes/spinner"}
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -61,7 +63,11 @@
                         <h3>Mi Horario Semanal</h3>
                       </div>
                     </div>
-                    <div id="cargador-ciclo-actual-estudiante"></div>
+                    <div id="cargador-ciclo-actual-estudiante" class="panel-body white">
+                        <div class="panel-table">
+                            <div class="tr">{embed="includes/spinner"}</div>
+                        </div>
+                    </div>
                 </div>
                  {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}
               </div>

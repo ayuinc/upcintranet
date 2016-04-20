@@ -17,5 +17,19 @@ $(document).ready(function() {
             }
         }
     });
+    
+    $.ajax({
+        url: hostname +'includes/mis-estudios-cursosalumno',
+        type: "GET",
+        data: ({codigo_alumno: codigo_alumno}),
+        success: function(data){
+            
+            $('#cargador-cursos-estudiante').remove();
+            $( "#cursos-alumno" ).append( $(data) );
+            if($('input.session-expired-redirect').size()!=0){
+                window.location = '/general/session-expired';
+            }
+        }
+    });
 
 });
