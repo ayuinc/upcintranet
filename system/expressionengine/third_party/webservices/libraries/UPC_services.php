@@ -16,7 +16,7 @@ class UPC_services
         $this->CI =& get_instance();
         $this->EE =& get_instance();
 
-        $this->curl_quicks = new Webservices_functions;
+        $this->curl_quicks = new ws_helper;
         $this->user_data = new UPC_user_data;
     }
 

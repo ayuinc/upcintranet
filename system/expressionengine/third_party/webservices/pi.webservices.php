@@ -52,14 +52,14 @@ class Webservices
     public function __construct()
     {
         $this->EE =& get_instance();
-        require_once 'libraries/Webservices_functions.php';
-        require_once 'libraries/Tag_methods.php';
+        require_once 'libraries/ws_helper.php';
+        require_once 'libraries/tags_helper.php';
         require_once 'libraries/UPC_services.php';
         require_once 'libraries/UPC_user_data.php';
         $this->site_url = $this->EE->config->item('site_url');
 
-        $this->services = new Webservices_functions;
-        $this->tags = new Tag_methods;
+        $this->services = new ws_helper;
+        $this->tags = new tags_helper;
         $this->upc_services = new UPC_services;
         $this->upc_user_data = new UPC_user_data;
 
@@ -139,7 +139,6 @@ class Webservices
      *
      * @access  public
      * @param string $name Name of data as key for $_SESSION and cookie
-     * @return 
      */
     private function unset_session_cookie($name)
     {
@@ -185,8 +184,8 @@ class Webservices
      * Evaluate error code
      *
      * @access  private
-     * @param string $error Error string
-     * @return 
+     * @param string $error - Error string
+     * @return string
      */
     private function error_eval($error)
     {
@@ -208,86 +207,6 @@ class Webservices
       return $result;
     }
 
-    /**
-     * Get subtag data
-     *
-     * @access  private
-     * @param tag_name - Tag to look for
-     * @param tag_data - Template tag data to look in
-     * @return string
-     */
-    private function _get_subtag_data($tag_name, $tagdata)
-    {    
-      $pattern  = '#'.LD.$tag_name.RD.'(.*?)'.LD.'/'.$tag_name.RD.'#s';
-
-      if (is_string($tagdata) && is_string($tag_name) && preg_match($pattern, $tagdata, $matches))
-      {
-        return $matches[1];
-      }
-      return '';
-    }
-
-    /**
-     * Replace lonenly tag data
-     *
-     * @access  private
-     * @param tag_name Tag to look for
-     * @param tag_data Template tag data to look in
-     * @param replacement 
-     * @return string
-     */
-    private function _replace_subtag_data($tag_name, $tagdata, $replacement)
-    {
-      if (is_string($tagdata) && is_string($tag_name) && is_string($replacement))
-      {
-        // var_dump('by this '.$replacement.' replace'.$tag_name.' on '.$tagdata);
-        $pattern  =  LD.$tag_name.RD ;
-        return str_replace($pattern, $replacement, $tagdata);
-      }
-      return $tagdata;
-    }
-    /**
-     * String starts with
-     *
-     * @access  private
-     * @param tag_name Tag to look for
-     * @param tag_data Template tag data to look in
-     * @return boolean
-     */
-    private function startsWith($string, $start) {
-      // search backwards starting from haystack length characters from the end
-      return $start === "" || strrpos($string, $start, -strlen($string)) !== false;
-    }
-    /**
-     * String ends with 
-     *
-     * @access  private
-     * @param string Complete String
-     * @param $stars with... 
-     * @return boolean
-     */
-    private function endsWith($string, $start) {
-        // search forward starting from end minus needle length characters
-        return $start === "" || (($temp = strlen($string) - strlen($start)) >= 0 && strpos($string, $start, $temp) !== false);
-    }
-    /**
-     * Replace pair tag data
-     *
-     * @access  private
-     * @param tag_name Tag to look for
-     * @param tag_data Template tag data to look in
-     * @param replacement 
-     * @return string
-     */
-    private function _replace_pair_subtag_data($tag_name, $tagdata, $replacement)
-    {
-      $pattern  = '#'.LD.$tag_name.RD.'(.*?)'.LD.'/'.$tag_name.RD.'#s';
-      if (is_string($tagdata) && is_string($tag_name) && preg_match($pattern, $tagdata, $matches))
-      {
-        return str_replace($matches[0], $replacement, $tagdata);;
-      }
-      return '';
-    }
 
     /**
      * Get terms and conditions acceptance of db
@@ -350,8 +269,8 @@ class Webservices
      * Get diferencia de días 
      *
      * @access  private
-     * @param tag_name Tag to look for
-     * @param tag_data Template tag data to look in
+     * @param tag_name - Tag to look for
+     * @param tag_data - Template tag data to look in
      * @return string
      */
     private function get_diferencia_en_dias($date1, $date2)
@@ -578,7 +497,7 @@ class Webservices
         // var_dump($terminos);
       }   
       if(is_null($terminos) || $terminos === 'null' || $terminos === 'no'){
-        $tagdata = $this->_replace_subtag_data('terminos', $tagdata, 'no');
+        $tagdata = $this->tags->replace_subtag_data('terminos', $tagdata, 'no');
         return $tagdata;
       }else if($terminos == 'si'){
         return $this->consultar_alumno();
@@ -1470,12 +1389,12 @@ class Webservices
       //limpio la variable para reutilizarla
       $result = '';
       $horario_empty;
-      $horario_empty_survey =  $this->_get_subtag_data('horario_survey',$tagdata);
+      $horario_empty_survey =  $this->tags->get_subtag_data('horario_survey',$tagdata);
       if(strlen($enable_survey) !== 0  && $quiz_enabled == true){
-        $horario_empty = $this->_get_subtag_data('horario_survey',$tagdata);
-        // $horario_empty = $this->_get_subtag_data('horario',$tagdata);
+        $horario_empty = $this->tags->get_subtag_data('horario_survey',$tagdata);
+        // $horario_empty = $this->tags->get_subtag_data('horario',$tagdata);
       }else{
-        $horario_empty = $this->_get_subtag_data('horario',$tagdata);
+        $horario_empty = $this->tags->get_subtag_data('horario',$tagdata);
       }
       
       //genera el tamano del array
@@ -1504,13 +1423,13 @@ class Webservices
           $week_day = 'Sábado';
         }
 
-        $horario = $this->_replace_subtag_data('week_day',  $horario, $week_day);      
+        $horario = $this->tags->replace_subtag_data('week_day',  $horario, $week_day);      
 
         //genera el tamano del array
         $tamano_int = count($json['HorarioDia'][$i]['Clases']); 
         $clases = '';
-        $horario_dia_empty = $this->_get_subtag_data('horario_dia', $horario);
-        $horario_dia_survey_empty = $this->_get_subtag_data('horario_dia', $horario_empty_survey);
+        $horario_dia_empty = $this->tags->get_subtag_data('horario_dia', $horario);
+        $horario_dia_survey_empty = $this->tags->get_subtag_data('horario_dia', $horario_empty_survey);
         for ($b=0; $b<$tamano_int; $b++) 
         {
 
@@ -1567,40 +1486,40 @@ class Webservices
                       $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
                       $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
                       $form .= "</form>";
-                      $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+                      $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                   }else{
                     $form = "<!-- ".$quiz_request." COD ERROR".$qjson['CodError']."--><a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
-                    $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+                    $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                   }
                 }
                 else
                 {
               
                    $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
-                   $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+                   $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
 
                 }
                 $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
-                   $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+                   $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
 
               }
 
             }
             $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
-                   $horario_dia = $this->_replace_subtag_data('survey_form', $horario_dia, $form);
+                   $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
          
           }
 
-          $horario_dia = $this->_replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
-          $horario_dia = $this->_replace_subtag_data('hora_fin', $horario_dia, $HoraFin.':00');
-          $horario_dia = $this->_replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
-          $horario_dia = $this->_replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
-          $horario_dia = $this->_replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
-          $horario_dia = $this->_replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);  
+          $horario_dia = $this->tags->replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio.':00');
+          $horario_dia = $this->tags->replace_subtag_data('hora_fin', $horario_dia, $HoraFin.':00');
+          $horario_dia = $this->tags->replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
+          $horario_dia = $this->tags->replace_subtag_data('clase_sede', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Sede']);
+          $horario_dia = $this->tags->replace_subtag_data('curso_seccion', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Seccion']);
+          $horario_dia = $this->tags->replace_subtag_data('clase_salon', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['Salon']);  
           $clases .= $horario_dia;
         }  
 
-        $horario = $this->_replace_pair_subtag_data('horario_dia', $horario, $clases);
+        $horario = $this->tags->replace_pair_subtag_data('horario_dia', $horario, $clases);
 
         $result .= $horario;         
       }
@@ -3451,7 +3370,7 @@ class Webservices
     //LISTADO DE COMPANEROS DE CLASE POR CURSO
     /**
     * Tag para obtener compañeros de clase por curso de un alumno. 
-    * @param cod_curso el código del curso que lleva el alumno
+    * @param cod_curso - el código del curso que lleva el alumno
     * Tags : 
     * {alumnos} {nombre} {codigo} {foto_url} {/alumnos}
     * {error} {error_message} {/error}
@@ -3468,13 +3387,13 @@ class Webservices
       $result=$this->services->curl_url($url);
       $json = json_decode($result, true);
       $result = '';
-      $tag_alumno = $this->_get_subtag_data('alumnos', $tagdata);
+      $tag_alumno = $this->tags->get_subtag_data('alumnos', $tagdata);
 
       foreach ($json['alumnos'] as  $alumno ) 
       {
-          $tag = $this->_replace_subtag_data('nombre', $tag_alumno, $alumno['nombre_completo']);
-          $tag = $this->_replace_subtag_data('codigo', $tag, $alumno['codigo']);
-          $tag = $this->_replace_subtag_data('foto_url', $tag, $alumno['url_foto']);
+          $tag = $this->tags->replace_subtag_data('nombre', $tag_alumno, $alumno['nombre_completo']);
+          $tag = $this->tags->replace_subtag_data('codigo', $tag, $alumno['codigo']);
+          $tag = $this->tags->replace_subtag_data('foto_url', $tag, $alumno['url_foto']);
           $result.= $tag;
       }
 
@@ -3486,8 +3405,8 @@ class Webservices
       }
       else if ($error_result === '1') 
       {
-          $error_tag = $this->_get_subtag_data('error', $tagdata);
-          $result = $this->_replace_subtag_data('error_message', $error_tag, $json['MsgError']);
+          $error_tag = $this->tags->get_subtag_data('error', $tagdata);
+          $result = $this->tags->replace_subtag_data('error_message', $error_tag, $json['MsgError']);
       }
 
       return $result;         
@@ -3635,9 +3554,9 @@ class Webservices
               $result .= '<img class="img-center" src="{site_url}assets/img/icono-pagos-pendientes.png" alt="">';
               $result .= '</li>';
             
-              $mensaje = ($diaspasados < 60) ? $this->_get_subtag_data('pendiente_dos_meses', $tagdata): $this->_get_subtag_data('pendiente_tres_meses', $tagdata);
+              $mensaje = ($diaspasados < 60) ? $this->tags->get_subtag_data('pendiente_dos_meses', $tagdata): $this->tags->get_subtag_data('pendiente_tres_meses', $tagdata);
               setlocale(LC_TIME, "es_ES");
-              $mensaje = $this->_replace_subtag_data('fecha', $mensaje, strftime("%d de %B del %Y",$fven));
+              $mensaje = $this->tags->replace_subtag_data('fecha', $mensaje, strftime("%d de %B del %Y",$fven));
               $result .= '<li class="col-xs-9 col-sm-10"><span class="block helvetica-18">'.$mensaje.'</span>';          
 
               $result .= '</li>';
@@ -3869,9 +3788,9 @@ class Webservices
                 $result .= '<img class="img-center" src="{site_url}assets/img/icono-pagos-pendientes.png" alt="">';
                 $result .= '</li>';
               
-                $mensaje = ($diaspasados < 60) ? $this->_get_subtag_data('pendiente_dos_meses', $tagdata): $this->_get_subtag_data('pendiente_tres_meses', $tagdata);
+                $mensaje = ($diaspasados < 60) ? $this->tags->get_subtag_data('pendiente_dos_meses', $tagdata): $this->tags->get_subtag_data('pendiente_tres_meses', $tagdata);
                 setlocale(LC_TIME, "es_ES");
-                $mensaje = $this->_replace_subtag_data('fecha', $mensaje, strftime("%d de %B del %Y",$fven));
+                $mensaje = $this->tags->replace_subtag_data('fecha', $mensaje, strftime("%d de %B del %Y",$fven));
                 $result .= '<li class="col-xs-9 col-sm-10"><span class="block helvetica-18">'.$mensaje.'</span>';          
 
                 $result .= '</li>';
@@ -4408,7 +4327,7 @@ class Webservices
     public function listado_recursos_disponibles()
     {
       $tagdata  = $this->EE->TMPL->tagdata;
-      $header_message_result = $this->_get_subtag_data('header', $tagdata);
+      $header_message_result = $this->tags->get_subtag_data('header', $tagdata);
 
       $tiporecurso = ee()->TMPL->fetch_param('TipoRecurso');
       $CodSede = ee()->TMPL->fetch_param('CodSede');
@@ -4509,16 +4428,16 @@ class Webservices
       }
 
       if($enabled_counter <= 0){
-        $info_result = $this->_get_subtag_data('info', $tagdata);
+        $info_result = $this->tags->get_subtag_data('info', $tagdata);
         $info_message = 'No se encontraron recursos disponibles.';
-        return $this->_replace_subtag_data('info_message',  $info_result, $info_message);
+        return $this->tags->replace_subtag_data('info_message',  $info_result, $info_message);
       }
       //Control de errores
       $error_result = $this->error_eval($error);
       if ($error_result === '1') 
       {
-        $no_problem_result = $this->_get_subtag_data('error', $tagdata);
-        return $this->_replace_subtag_data('error_message',  $no_problem_result, $error_mensaje);
+        $no_problem_result = $this->tags->get_subtag_data('error', $tagdata);
+        return $this->tags->replace_subtag_data('error_message',  $no_problem_result, $error_mensaje);
       }
       elseif ($error_result != '0')
       {

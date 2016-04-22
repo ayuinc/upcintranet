@@ -10,7 +10,7 @@ class UPC_user_data
 {
     var $curl_quicks;
     public function __construct(){
-        $this->curl_quicks = new Webservices_functions;
+        $this->curl_quicks = new ws_helper;
         $this->CI =& get_instance();
         $this->EE =& get_instance();
     }
@@ -60,6 +60,7 @@ class UPC_user_data
     }
 
     /**
+     * @param $field - field to be retrieved
      * @return string
      */
     private function get_user_data_field($field)

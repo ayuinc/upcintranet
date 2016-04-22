@@ -10,9 +10,10 @@
  * @version		1.0
  */
 
+// ws_helper
 
 
-class Webservices_functions {
+class ws_helper {
 
 	protected $_base_url; // Base url for services from EE config 'web_services_url'
 	protected $_site_url; // Base url for site

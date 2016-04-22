@@ -6,7 +6,7 @@
  * Date: 4/17/16
  * Time: 3:06 PM
  */
-class Tag_methods
+class tags_helper
 {
     public function __construct()
     {

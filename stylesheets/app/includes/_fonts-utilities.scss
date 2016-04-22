@@ -118,7 +118,8 @@ $sizes: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28;
 		font-size: rem($fs) !important;
 		@media #{$lg-down} {
 			font-size: ($fs - 2) + px !important;
-			font-size: rem(($fs) - 2) !important;	
+			font-size: rem(($fs) - 2) !important;
+			font-weight: 500;
 		}	
 		@media #{$md-down}{
 			font-size: ($fs) + px !important;
