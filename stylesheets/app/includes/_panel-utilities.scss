@@ -18,41 +18,46 @@
 }
 
 .arrow-icon {
-	height: 30px;
-	width: 30px;
-	min-height: 30px !important;
+	height: 1.2rem;
+	width: 1.2rem;
+	min-height: 0.8rem !important;
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: cover;
+	margin-top: 0.2rem;
+	@media #{$md-down} {
+		margin-top: 0.2rem;
+	}
 	&.tiny {
-			height: 24px;
-			width: 24px;
-			min-height: 24px !important;
+			height: 22px;
+			width: 22px;
+			min-height: 22px !important;
 			margin: 7px;
-			@media #{$xs-only} {
-				margin: 0px;
+			@media #{md-down} {
+				margin-top: 0.2rem;
 			}
 	}
 	&.danger {
-		background-image:url("../assets/img/red_arrow_normal.png");
+		background-image:url("../assets/icons/red-right-round-arrow.png");
 		&.tiny {
-			background-image:url("../assets/img/red_arrow_normal_tiny.png");
+			background-image:url("../assets/icons/red-right-round-arrow.png");
 			&:hover {
-				background-image:url("../assets/img/red_arrow_hover_tiny.png");
+				background-image:url("../assets/icons/light-right-round-arrow.png");
 			}
 		}
 		&:hover {
-			background-image:url("../assets/img/red_arrow_hover.png");
+			background-image:url("../assets/icons/red_arrow_hover.png");
 		}
 	}
 	&.info {
-		background-image:url("../assets/img/info_arrow_normal.png");
+		background-image:url("../assets/icons/blue-right-round-arrow.png");
 		&:hover {
-			background-image:url("../assets/img/info_arrow_hover.png");
+			background-image:url("../assets/icons/cyan-right-round-arrow.png");
 		}
 	}
 	&.black {
 		&.tiny {
-			background-image:url("../assets/img/black_arrow_tiny.png");
+			background-image:url("../assets/icons/black_arrow_tiny.png");
 		}
 	}
 	float: left;

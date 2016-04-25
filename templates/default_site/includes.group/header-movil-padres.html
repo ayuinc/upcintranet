@@ -1,35 +1,40 @@
 {exp:webservices:verificar_usuario tipo_de_vista="PADRE"}
-<div id="mobile-nav" class="hidden-md hidden-lg container-fluid">
-  <img src="{site_url}assets/img/isotipo_upc.png" class="pt-7 pull-left">  
-  <span class="solano-bold-28 pull-left pt-7 pl-7 uppercase">Mi UPC</span>
-  <div class="pull-right pt-3">
-    <div class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseMobile" aria-expanded="false" aria-controls="collapseMobile">
-      <img class="inline-block pr-7" src="{site_url}assets/img/bars.png" alt="">
-      <span>MENU</span>
+<div id="mobile-nav" class="hidden-md hidden-lg container-fluid p-0">
+    <div class="white-header col-xs-12 pt-7">
+        <a href="{site_url}dashboard/padre/hijos/{last_segment}">
+        <img src="{site_url}assets/img/android-icon-192x192.png" class="pt-14 pull-left logo-icon">
+        <span class="solano-bold-28 pull-left pt-7 pl-7 uppercase">Mi UPC</span>
+        </a>
+        <button class="hamburger hamburger--collapse pull-right" type="button" id="menu-mobile">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+            </button>
     </div>
-  </div>
 </div>
-<div class="collapse hidden-md hidden-lg" id="collapseMobile">
- <ul class="list-unstyled mobile-menu">
-   <li class="parent"><a id="lnk_int_InicioMovil" href="{site_url}dashboard/padre/hijos/{last_segment}">Inicio</a></li>
-   {exp:channel:entries channel="sidebar_padre" dynamic="off" orderby="date" sort="asc"}
-   <li class="parent">   
-    {if "{url_title}" == "mis-noticias"}
-       <a href="{url-root-item}" title=""><span>{title}</span></a>
-     {if:else}
-      <span>{title}</span>
-       {embed="includes/subitems-sidebar-movil" category="{id_categoria_subitems}" item="{url_title}"}
-     {/if}
-   </li>
-   {/exp:channel:entries}
-   <li class="parent">
-    <span>Mi Perfil</span>
-    <ul class="list-unstyled child">
-      <li><a id="lnk_int_VerTutorialMovil" data-toggle="modal" data-target="#myModal">Ver tutorial</a></li>
-      <li><a id="lnk_int_CambiarPerfil" href="{site_url}dashboard/elije_tu_hijo">Cambiar de perfil</a></li>
-    </ul>
-   </li>
-   <li class="parent"><a id="lnk_int_BuscarMovil" href="{site_url}buscar-padres/buscar_movil">Buscar</a></li>    
-   <li><a id="lnk_int_CerrarSesionMovil" href="{site_url}login/salir">Cerrar Sesión</a></li> 
- </ul>
+<div class="overlay overlay-slidedown close" id="overlay">
+    <nav>
+         <ul class="list-unstyled mobile-menu">
+           <li class="parent"><a id="lnk_int_InicioMovil" href="{site_url}dashboard/padre/hijos/{last_segment}">Inicio</a></li>
+           {exp:channel:entries channel="sidebar_padre" dynamic="off" orderby="date" sort="asc"}
+           <li class="parent">
+            {if "{url_title}" == "mis-noticias"}
+               <a href="{url-root-item}" title=""><span>{title}</span></a>
+             {if:else}
+              <span>{title}</span>
+               {embed="includes/subitems-sidebar-padres" category="{id_categoria_subitems}" item="{url_title}"}
+             {/if}
+           </li>
+           {/exp:channel:entries}
+           <li class="parent">
+            <span>Mi Perfil</span>
+            <ul class="list-unstyled child">
+              <li><a id="lnk_int_VerTutorialMovil" data-toggle="modal" data-target="#myModal">Ver tutorial</a></li>
+              <li><a id="lnk_int_CambiarPerfil" href="{site_url}dashboard/elije_tu_hijo">Cambiar de perfil</a></li>
+            </ul>
+           </li>
+           <li class="parent"><a id="lnk_int_BuscarMovil" href="{site_url}buscar-padres/buscar_movil">Buscar</a></li>
+           <li><a id="lnk_int_CerrarSesionMovil" href="{site_url}login/salir">Cerrar Sesión</a></li>
+         </ul>
+    </nav>
 </div>

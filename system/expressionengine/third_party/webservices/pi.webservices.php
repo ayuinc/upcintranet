@@ -2239,98 +2239,42 @@ class Webservices
 
 
     //CURSOS QUE LLEVA UN ALUMNO
-    public function curos_que_lleva_un_alumno()
+    /**
+     * Cursos que lleva un alumno
+     * @return string|void
+     */
+    public function cursos_que_lleva_un_alumno()
     {
-      //$codigo = $_SESSION["Codigo"];
-      //$token = $_SESSION["Token"];     
-      
-      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
-      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
-
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
-      }
-
-      $url = 'Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
-
-      $result=$this->services->curl_url($url);
-      $json = json_decode($result, true);
-      
-      $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];
-       $error_result = $this->error_eval($error);
-      if ($error_result != '0' && $error_result != '1') {
-        $site_url = ee()->config->item('site_url');
-        $this->EE->functions->redirect($site_url."general/session-expired");
-        return;
-      }
-      //limpio la variable para reutilizarla
-      $result = '';
-      
-      //genera el tamano del array
-      $tamano = count($json['Inasistencias']);
-      
-      for ($i=0; $i<$tamano; $i++) {
-        $result .= '<ul class="tr table-border hidden-xs hidden-sm">';
-        $result .= '<li class="col-xs-12  col-md-8 helvetica-14 pl-7">';
-        $result .= '<div>';
-        $result .= '<span class="pr-7">'.$json['Inasistencias'][$i]['CursoNombre'].'</span>';
-        $result .= '</div>';
-        $result .= '</li>';
-        $result .= '<li class="col-xs-12 col-md-4 text-center helvetica-bold-14">';
-
-          $codcurso = $json['Inasistencias'][$i]['CodCurso'];
-          
-          //Loop interno para calcular notas segun curso
-          $url = 'Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
-
-          $result_int=$this->services->curl_url($url);
-          $json_int = json_decode($result_int, true);
-        
-          //genera el tamano del array
-          $tamano_int = count($json_int['Notas']);
-          $nota = 0;
-          $porcentaje = 0;
-          
-          for ($b=0; $b<$tamano_int; $b++) {
-            $porcentaje = rtrim($json_int['Notas'][$b]['Peso'],"%");
-            $nota = ($json_int['Notas'][$b]['Valor']*$porcentaje)/100 + $nota; 
-          }
-          
-          //Cambia el formato a 2 decimales
-          $nota = number_format($nota, 2, '.', '');
-        
-        $result .= '<div>';
-        $result .= '<span>'.$nota.'</span>';
-        $result .= '</div>';
-        $result .= '</li>';
-        $result .= '</ul>';
-
-        // Mobile desig mis cursos
-        $result .= '<div class="tr table-border hidden-md hidden-lg p-21 gray-mobile-line-bottom">';
-        $result .= '<span class="helvetica-bold-16">'.$json['Inasistencias'][$i]['CursoNombre'].'</span></br>';
-        $result .= '<span class="helvetica-14">Promedio : '.$nota.'</span>';
-        $result .= '</div>';
-      }     
-      
-      //Control de errores
-      if ($error!='00000') {
+        $tagdata  = $this->EE->TMPL->tagdata;
+        $json = $this->upc_services->courses_by_student();
         $result = '';
-        $result .= '<div class="panel-table">';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="col-xs-12">';
-        $result .= '<div>'.$error_mensaje.'</div>';
-        $result .= '</li>';                
-        $result .= '</ul>';  
-        $result .= '</div>';     
-      }       
-      
-      return $result;           
-    }   
+        if($json) {
+            $error = $json->CodError;
+            $error_result = $this->error_eval($error);
+            if ($error_result != '0' && $error_result != '1') {
+                $site_url = ee()->config->item('site_url');
+                $this->EE->functions->redirect($site_url . "general/session-expired");
+                return;
+            } else if ($error_result == '1') {
+                $base = $this->tags->get_subtag_data('error', $tagdata);
+                $result .= $this->tags->replace_subtag_data('error-message', $base, $json->MsgError);
+            } else {
+                $base = $this->tags->get_subtag_data('cursos', $tagdata);
+                foreach ($json->Inasistencias as $key => $curso) {
+                    $base_course = $this->tags->replace_subtag_data('curso-nombre', $base, $curso->CursoNombre);
+                    $base_course = $this->tags->replace_subtag_data('curso-faltas', $base_course, $curso->Total.'/'.$curso->Maximo);
+
+                    $json_grades = $this->upc_services->student_grades_by_course($curso->CodCurso);
+                    $grade = 0.0;
+                    foreach ($json_grades->Notas as $key => $nota) {
+                        $grade += ($nota->Peso) / 100 * $nota->Valor;
+                    }
+                    $result .= $this->tags->replace_subtag_data('curso-prom', $base_course, number_format($grade, 2, '.', ''));
+                }
+            }
+        }
+      return $result;
+    }
     
     public function padre_curos_que_lleva_un_alumno_padres()
     {
@@ -2519,63 +2463,25 @@ class Webservices
     {
       //$codigo = $_SESSION["Codigo"];
       //$token = $_SESSION["Token"];
-      
-      $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
-      $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
 
-      ee()->db->select('*');
-      ee()->db->where('codigo',$codigo);
-      $query_modelo_result = ee()->db->get('exp_user_upc_data');
+        $json = $this->upc_services->courses_by_student();
+        $tagdata  = $this->EE->TMPL->tagdata;
 
-      foreach($query_modelo_result->result() as $row){
-        $token = $row->token;
-      }
+        $result = "";
+        if($json){
+            if($this->error_eval($json->CodError) == '0'){
+                $base = $this->tags->get_subtag_data('curso', $tagdata);
+                foreach ($json->Inasistencias as $key=>$course){
+                    $base1 = $this->tags->replace_subtag_data('curso-nombre', $base, $json->Inasistencias[$key]->CursoNombre);
+                    $result .= $this->tags->replace_subtag_data('curso-i', $base1, strval($key));
+                }
+            }else if($this->error_eval($json->CodError) == '1'){
+                $base = $this->tags->get_subtag_data('error', $tagdata);
+                $result .= $this->tags->replace_subtag_data('error-message', $base, $json->MsgError);
+            }
+            return $result;
+        }
 
-      $url = 'Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
-
-      $result=$this->services->curl_url($url);
-      $json = json_decode($result, true);
-      
-      $error = $json['CodError'];
-      $error_mensaje = $json['MsgError'];       
-      
-      $tamano = count($json['Inasistencias']);
-      $result = '';
-      
-      $result .= '<ul class="tr">';
-      for ($i=0; $i<$tamano; $i++) {
-        $result .= '<a data-curso-id="'.$i.'" class="curso-link">';
-        $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5">';
-        $result .= '<span class="zizou-16 col-sm-1 pr-0 pl-0">';
-        $result .= '<img  src="{site_url}assets/img/black_arrow_tiny.png">';
-        $result .= '</span>';
-        $result .= '<span class="zizou-16 col-sm-11 pr-0 pl-7">';
-        $result .= $json['Inasistencias'][$i]['CursoNombre'];
-        $result .= '</span>';
-        $result .= '</li>';
-        $result .= '</a>';
-      }
-      $result .= '</ul>'; 
-      
-          
-      //Control de errores
-      $error_result = $this->error_eval($error);
-      //Control de errores
-      if ($error_result === '1') {
-        $result = '';
-        $result .= '<ul class="tr">';
-        $result .= '<li class="bg-muted pl-7 col-sm-12 mb-5 pr-7">';
-        $result .= '<span class="zizou-16">';
-        $result .= $error_mensaje;
-        $result .= '</span>';
-        $result .= '</li>';                
-        $result .= '</ul>';     
-      }
-      elseif ($error_result != 0) 
-      {
-        $result = $error_result;
-      }
-      return $result;
     } 
     
     public function padre_todos_los_curos_que_lleva_un_alumno()
@@ -2911,7 +2817,7 @@ class Webservices
         $result .= '<a class="black-text go-to-top text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
-        $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
+        $result .= '<img class="ml-7 tiny-up" src="{site_url}assets/icons/black-top-round-arrow.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';          
 
@@ -3091,7 +2997,7 @@ class Webservices
         $result .= '<a id="lnk_int_Top" class="black-text go-to-top text-right" href="#top">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
-        $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
+        $result .= '<img class="ml-7 tiny-up" src="{site_url}assets/icons/black-top-round-arrow.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';          
       }     
@@ -5029,7 +4935,7 @@ class Webservices
         $result .= '<a class="black-text curso-link text-right" href="{site_url}mi-docencia/cursos-detallados">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos';
-        $result .= '<img class="ml-7" src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
+        $result .= '<img class="ml-7 tiny-up" src="{site_url}assets/icons/black-top-round-arrow.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';  
         //temp
@@ -5489,7 +5395,7 @@ class Webservices
         $result .= '<a class="black curso-link text-right" href="{site_url}mi-docencia/cursos-detallados">';
         $result .= '<div class="zizou-14 pt-14 mb-35">';
         $result .= 'Regresar a lista de cursos&nbsp;';
-        $result .= '<img src="{site_url}assets/img/black_arrow_tiny_up.png" alt="">';
+        $result .= '<img class="ml-7 tiny-up" src="{site_url}assets/icons/black-top-round-arrow.png" alt="">';
         $result .= '</div>';
         $result .= '</a>';        
 

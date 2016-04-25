@@ -34,7 +34,11 @@
 					font-size: rem(16px) !important;
 				}
 				.caret {
-					background: url(../assets/img/select_black.png) no-repeat right;
+					//background: url('../assets/icons/black-bottom-square-arrow.png') no-repeat right;
+					@include retina-image('../assets/icons/black-bottom-square-arrow',  100% 100% , 'png', null , '@2x');
+					background-repeat: no-repeat;
+					background-position: right;
+					background-size: cover;
 					width: 42px;
 					height: 98%;
 					top: 3px;
@@ -51,7 +55,8 @@
 						height: 33px;
 					}
 					@media #{$md-down}{
-						background: url(../assets/img/select_black_2x.png) no-repeat center;
+						//background: url('../assets/icons/black-bottom-square-arrow.png') no-repeat center;
+						background-position: center;
 						height: 44px;
 					}
 				}
@@ -73,10 +78,14 @@
 					}
 				}
 				&.calendar {
-					background: url(../assets/img/calendario_black.png) no-repeat right;
+					//background: url(../assets/img/calendario_black.png) no-repeat right;
+					@include retina-image('../assets/icons/calendar_icon',  100% 100% , 'png', null , '@2x');
+					background-position: right;
+					background-repeat: no-repeat;
 					cursor: default;
+
 					@media #{$md-down}{
-						background: url(../assets/img/calendario_black_2x.png) no-repeat right;
+						//background: url(../assets/img/calendario_black_2x.png) no-repeat right;
 						background-size: 41px 45px;
 						height: 44px;
 					}

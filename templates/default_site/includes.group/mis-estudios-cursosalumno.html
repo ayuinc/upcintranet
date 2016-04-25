@@ -1,1 +1,30 @@
-{exp:webservices:curos_que_lleva_un_alumno}
+{exp:webservices:cursos_que_lleva_un_alumno}
+{cursos}
+<ul class="tr table-border hidden-xs hidden-sm">
+    <li class="col-xs-12  col-md-8 helvetica-14 pl-7">
+        <div>
+            <span class="pr-7">{curso-nombre}</span>
+            </div>
+    </li>
+    <li class="col-xs-12 col-md-4 text-center helvetica-bold-14">
+        <div>
+            <span>{curso-prom}</span>
+        </div>
+        </li>
+    </ul>
+<div class="tr table-border hidden-md hidden-lg p-21 gray-mobile-line-bottom">
+    <span class="helvetica-bold-16">{curso-nombre}</span></br>
+    <span class="helvetica-14">Promedio : {curso-prom}</span></br>
+    <span class="helvetica-14">Faltas : {curso-faltas}</span>
+</div>
+{/cursos}
+{error}
+<div class="panel-table">
+    <ul class="tr">
+        <li class="col-xs-12">
+            {error-message}
+        </li>
+    </ul>
+</div>
+{/error}
+{/exp:webservices:cursos_que_lleva_un_alumno}

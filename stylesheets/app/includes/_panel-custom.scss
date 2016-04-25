@@ -50,9 +50,12 @@
 				margin: 3px;
 			}
 			&.danger {
-				background-image:url("../assets/img/red_arrow_normal.png");
+				background-image:url("../assets/icons/red-right-round-arrow.png");
+				background-size: 100% 100%;
+				height:22px;
+				width: 22px;
 				@media #{$md-down} {
-					background-image:url("../assets/img/red_arrow_normal_tiny.png");
+					background-image:url("../assets/icons/red-right-round-arrow.png");
 					margin-top: 18px;
 					margin-top: 1rem;
 				}
@@ -61,18 +64,19 @@
 					margin-top: 1.1rem;
 				}
 				&:hover {
-					background-image:url("../assets/img/red_arrow_hover.png");
+					background-image:url("../assets/icons/light-red-right-round-arrow.png");
 					@media #{$md-down} {
-						background-image:url("../assets/img/red_arrow_hover_tiny.png");
+						background-image:url("../assets/icons/light-red-right-round-arrow.png");
 					}
 				}
 			}
 			&.info {
-
-				background-image:url("../assets/img/info_arrow_normal.png");
+				height:22px;
+				width: 22px;
+				background-image:url("../assets/icons/blue-right-round-arrow.png");
+				background-size: cover;
 				@media #{$md-down} {
-					background-image:url("../assets/img/info_arrow_normal_tiny.png");
-					background-size: cover;
+					background-image:url("../assets/icons/blue-right-round-arrow.png");
 					margin-top: 18px;
 					margin-top: 1rem;
 				}
@@ -81,10 +85,9 @@
 					margin-top: 1.1rem;
 				}
 				&:hover {
-					background-image:url("../assets/img/info_arrow_hover.png");
+					background-image:url("../assets/icons/cyan-right-round-arrow.png");
 					@media #{$md-down} {
-						background-image:url("../assets/img/info_arrow_hover_tiny.png");
-						background-size: cover;
+						background-image:url("../assets/icons/cyan-right-round-arrow.png");
 					}
 				}
 			}

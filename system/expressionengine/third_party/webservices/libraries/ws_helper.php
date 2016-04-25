@@ -165,6 +165,54 @@ class ws_helper {
 		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
 		$this->EE->curl->option(CURLOPT_URL, $this->_base_url . $service_url);
 	}
+
+    /**
+     * @param $string
+     * @param bool $as_object
+     * @return bool|mixed
+     */
+    public function parse_json($string , $as_object = true)
+	{
+		$json = json_decode($string, $as_object);
+		if(json_last_error() == JSON_ERROR_NONE) {
+			return $json;
+		}else{
+			log_message('error', 'Error parsing json.'.$this->get_json_error(json_last_error()).' string ('.$string.')');
+			return false;
+		}
+
+	}
+
+    /**
+     * @param $error_code
+     * @return string
+     */
+    private function get_json_error($error_code){
+		switch ($error_code) {
+			case JSON_ERROR_NONE:
+                $msg = ' - No errors';
+				break;
+			case JSON_ERROR_DEPTH:
+                $msg = ' - Maximum stack depth exceeded';
+				break;
+			case JSON_ERROR_STATE_MISMATCH:
+                $msg = ' - Underflow or the modes mismatch';
+				break;
+			case JSON_ERROR_CTRL_CHAR:
+                $msg = ' - Unexpected control character found';
+				break;
+			case JSON_ERROR_SYNTAX:
+                $msg = ' - Syntax error, malformed JSON';
+				break;
+			case JSON_ERROR_UTF8:
+                $msg = ' - Malformed UTF-8 characters, possibly incorrectly encoded';
+				break;
+			default:
+                $msg = ' - Unknown error';
+				break;
+		}
+		return $msg;
+	}
 }
 /* End of file Webservices_functions.php */
 /* Location: ./system/expressionengine/third_party/webservices/libraries/Webservices_functions.php */

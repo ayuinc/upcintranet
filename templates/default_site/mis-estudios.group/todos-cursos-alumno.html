@@ -1,5 +1,28 @@
 <div class="panel-body wobg">
   <div class="panel-table otras-acciones">
+    <ul class="tr">
     {exp:webservices:todos_los_curos_que_lleva_un_alumno}
+
+      {curso}
+         <a data-curso-id="{curso-i}" class="curso-link">
+           <li class="bg-muted pl-7 col-sm-12 mb-5">
+               <img  class="arrow-icon" src="{site_url}assets/icons/black-right-round-arrow.png">
+             </span>
+             <span class="zizou-16 col-sm-11 pr-0 pl-7">
+              {curso-nombre}
+             </span>
+           </li>
+         </a>
+      {/curso}
+      {error}
+      <li class="bg-muted pl-7 col-sm-12 mb-5">
+        <span class="zizou-16 col-sm-1 pr-0 pl-0 arrow-icon">
+          {error-message}
+        </span>
+      </li>
+      {/error}
+
+    {/exp:webservices:todos_los_curos_que_lleva_un_alumno}
+    </ul>
   </div>
 </div>

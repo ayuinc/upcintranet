@@ -15,7 +15,7 @@
 	}
 }
 .otras-acciones-arrow {
-	background-image:url("../assets/img/black_up.png");
+	background-image:url("../assets/icons/top-arrow.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
@@ -216,4 +216,9 @@ img.img-responsive.ad-img.margin-auto{
 		//-webkit-animation-delay: -0.8s;
 		//animation-delay: -0.8s;
 	}
+}
+
+.tiny-up{
+	height: 15px;
+	width: 15px;
 }

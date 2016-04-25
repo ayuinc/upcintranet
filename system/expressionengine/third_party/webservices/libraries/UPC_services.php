@@ -44,6 +44,21 @@ class UPC_services
         }
     }
 
+    public function courses_by_student(){
+        $codigo = $this->user_data->get_user_code();
+        $token = $this->user_data->get_user_token();
+        $url = 'Inasistencia/?CodAlumno='.$codigo.'&Token='.$token;
+        $result=$this->curl_quicks->curl_url($url);
+        return $this->curl_quicks->parse_json($result, false);
+    }
+
+    public function student_grades_by_course($codcurso){
+        $codigo = $this->user_data->get_user_code();
+        $token = $this->user_data->get_user_token();
+        $url = 'Nota/?CodAlumno='.$codigo.'&Token='.$token.'&CodCurso='.$codcurso;
+        $result=$this->curl_quicks->curl_url($url);
+        return $this->curl_quicks->parse_json($result, false);
+    }
 }
 /* End of file UPC_services.php */
 /* Location: ./system/expressionengine/third_party/webservices/libraries/UPC_services.php */
