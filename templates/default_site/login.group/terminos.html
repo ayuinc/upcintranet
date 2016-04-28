@@ -24,7 +24,7 @@
     }
     var cookie = getCookie("onLogin");
     if(cookie !="true"){
-        delCokkies();    
+        delCokkies();
         $(location).attr('href',"/");
     }
 
@@ -42,19 +42,20 @@
       <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-4"><span class="zizou-16"></span></div>
-      </div>  
-      <div class="row pt-49">
-   
       </div>
-    </div>  
+      <div class="row pt-49">
+
+      </div>
+    </div>
                 <a href="{site_url}" id="site_url"></a>
                 {exp:webservices:get_terms_acceptance}
-                   
+
                         {if '{terminos}' == 'no'}
       <div class="row">
-        <div class=" resultados col-sm-12 col-md-6 resultados col-md-offset-3">
+          <div class="col-md-1-5 hidden-xs hidden-sm"></div>
+        <div class=" resultados col-md-9 resultados">
           <div class="resultados-busqueda red-line bg-muted">
-            <div class="panel-body p-14 result_query">
+            <div class="panel-body p-21 result_query">
                            <form action="{site_url}login/usuario" method="post" name="form-terms" class="form-terms" autocomplete="off" id="form-terms">
                               {exp:channel:entries channel="terminos_y_condiciones" limit="1" dynamic="off"}
                                 <div class="terms-content bg-muted">
@@ -64,13 +65,12 @@
                                   </div>
                                 </div>
                                 {/exp:channel:entries}
-                  
-                             <div class="checkbox">
-                                  <label for="checkbox" class="zizou-16">
-                                    <input type="checkbox" id="checkbox" name="checkbox"> Declaro haber leído y aceptado el reglamento y todos sus términos.
-                                    <input type="hidden" id="terminosAccepted" name="terminosAccepted" value='no'>
-                                    <input type="hidden" id="codigo" name="codigo" value='{embed:codigo}'>
-                                  </label>
+
+                             <div class="checkbox p-14">
+                                 <input type="checkbox" id="checkbox" name="checkbox">
+                                 <label for="checkbox" class="zizou-16">Declaro haber leído y aceptado el reglamento y todos sus términos.</label>
+                                 <input type="hidden" id="terminosAccepted" name="terminosAccepted" value='no'>
+                                 <input type="hidden" id="codigo" name="codigo" value='{embed:codigo}'>
                                 </div>
                               <div class="modal-footer bg-muted">
                                 <button type="button" class="btn btn-custom wide blue-btn" disabled id="aceptar">Acepto</button>

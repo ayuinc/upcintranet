@@ -78,12 +78,11 @@
 					}
 				}
 				&.calendar {
-					//background: url(../assets/img/calendario_black.png) no-repeat right;
 					@include retina-image('../assets/icons/calendar_icon',  100% 100% , 'png', null , '@2x');
 					background-position: right;
 					background-repeat: no-repeat;
 					cursor: default;
-
+					background-size: 43px;
 					@media #{$md-down}{
 						//background: url(../assets/img/calendario_black_2x.png) no-repeat right;
 						background-size: 41px 45px;
