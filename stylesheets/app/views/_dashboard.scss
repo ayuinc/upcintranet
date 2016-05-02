@@ -49,3 +49,18 @@
 div[data-toggle="collapse"].collapsed{
 		background-color:#ffffff;
 }
+
+.mis-reservas-widget{
+	.reserva-actions{
+		.activar{
+			span{
+				color: $brand-info;
+			}
+		}
+		.cancelar{
+			span{
+				color: $brand-danger;
+			}
+		}
+	}
+}

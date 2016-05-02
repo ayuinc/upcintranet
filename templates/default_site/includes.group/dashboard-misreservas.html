@@ -1,2 +1,37 @@
 
             {exp:webservices:listado_recursos_reservados_alumno}
+            {reservas}
+             <div class="panel-body mis-reservas-widget">
+                 <div class="panel-table">
+            {reserva}
+                     <div class="tr p-21 gray-line-bottom">
+                         <span class="helvetica-bold-16">{nombre-recurso}</span><br>
+                         <span class="helvetica-14">Código Reserva: {cod-reserva}</span><br>
+                         <span class="helvetica-14">Inicio: {hora-inicio} hrs - Fin: {hora-fin} hrs</span>
+                         ,&nbsp;<span class="helvet ica-14">{locacion}</span>
+                         <div class="reserva-actions">
+                             <div class="pull-left activar {enable-activar}" data-reservaid="{cod-reserva}">
+                                 <span class="pt-3 pb-3">
+                                    Activar
+                                 </span>
+                                 <img src="" alt="">
+                             </div>
+                             <div class="pull-right cancelar">
+                                 <a class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">
+                                     <span class="cancelar-reserva pt-3 pb-3">
+                                        Cancelar
+                                     </span>
+                                       <img src="" alt="">
+                                 </a>
+                            </div>
+
+                         </div>
+                     </div>
+            {/reserva}
+                     </div>
+                 </div>
+            {/reservas}
+            {error}
+            {error_message}
+            {/error}
+            {/exp:webservices:listado_recursos_reservados_alumno}

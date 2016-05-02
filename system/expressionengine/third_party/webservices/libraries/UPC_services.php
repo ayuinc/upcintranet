@@ -59,6 +59,32 @@ class UPC_services
         $result=$this->curl_quicks->curl_url($url);
         return $this->curl_quicks->parse_json($result, false);
     }
+
+    public function activate_reserved_resources($code, $student2=""){
+        $codigo = $this->user_data->get_user_code();
+        $token = $this->user_data->get_user_token();
+        $url = 'ActivarReserva/?CodReserva='.$code.'&CodAlumno='.$codigo.'&CodAlumno2='.$student2.'&Token='.$token;
+        $result=$this->curl_quicks->curl_url($url);
+        return $this->curl_quicks->parse_json($result, false);
+
+    }
+
+    public function verify_reserved_resources($code, $codeResource,  $student2=""){
+        $codigo = $this->user_data->get_user_code();
+        $token = $this->user_data->get_user_token();
+        $url = 'VerificaReserva/?CodReserva='.$code.'&CodRecurso='.$codeResource.'&CodAlumno='.$codigo.'&CodAlumno2='.$student2.'&Token='.$token;
+        $result=$this->curl_quicks->curl_url($url);
+        return $this->curl_quicks->parse_json($result, false);
+
+    }
+
+    public function list_reserved_resources(){
+        $codigo = $this->user_data->get_user_code();
+        $token = $this->user_data->get_user_token();
+        $url = 'ReservaAlumno/?FecIni='.date('dmY').'&FechaFin='.date('dmY',strtotime('+1 week')).'&CodAlumno='.$codigo.'&Token='.$token;
+        $result=$this->curl_quicks->curl_url($url);
+        return $this->curl_quicks->parse_json($result, false);
+    }
 }
 /* End of file UPC_services.php */
 /* Location: ./system/expressionengine/third_party/webservices/libraries/UPC_services.php */
