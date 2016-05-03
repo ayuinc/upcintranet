@@ -4503,12 +4503,13 @@ class Webservices
                   $thisbase = $this->tags->replace_subtag_data('locacion', $thisbase, substr($reserva->DesLocal,7,strlen($reserva->DesLocal)-1));
 
                   $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
-                  $strDate = $date->format('YmdH');
+                  $strDate = $date->format('YmdHis');
 
-                  $class_date =  $reserva->HoraIni;
-                  $class_end_date =  $reserva->HoraFin;
+                  $inicio = new DateTime($reserva->HoraIni);
+                  $interval = $date->diff($inicio, true);
+                
                   $activar = false;
-                  if(intval($strDate) >= intval($class_date) && intval($strDate) < intval($class_end_date)) {
+                  if(intval($interval->format('%i')) <= 15) {
                       $activar = $this->upc_services->verify_reserved_resources($reserva->CodReserva, $reserva->CodRecurso);
                   }
                   $thisbase = (!$activar) ? $this->tags->replace_subtag_data('enable-activar', $thisbase, 'hidden') : $this->tags->replace_subtag_data('enable-activar', $thisbase, '');

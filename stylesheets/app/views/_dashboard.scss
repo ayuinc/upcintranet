@@ -52,6 +52,10 @@ div[data-toggle="collapse"].collapsed{
 
 .mis-reservas-widget{
 	.reserva-actions{
+		.icon {
+			width: 20px;
+			line-height: 1.2rem;
+		}
 		.activar{
 			span{
 				color: $brand-info;
