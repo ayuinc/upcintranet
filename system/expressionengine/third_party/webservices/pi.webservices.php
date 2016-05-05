@@ -4483,9 +4483,7 @@ class Webservices
         $result .= 'Aqui va el mensaje' ;
         $result .= '</div>' ;
         $result .= '</div>' ;
-      }
-
-      else{
+      } else{
 
           $base =  $this->tags->get_subtag_data('reservas', $tagdata);
           $base_reserva = $this->tags->get_subtag_data('reserva', $base);
@@ -4507,7 +4505,7 @@ class Webservices
 
                   $inicio = new DateTime($reserva->HoraIni);
                   $interval = $date->diff($inicio, true);
-                
+
                   $activar = false;
                   if(intval($interval->format('%i')) <= 15) {
                       $activar = $this->upc_services->verify_reserved_resources($reserva->CodReserva, $reserva->CodRecurso);
@@ -4516,19 +4514,13 @@ class Webservices
 
                   $reservastmp .= $thisbase;
 
-                  $counterReservas ++;
+                  $counterReservas = $counterReservas + 1;
               }
-
-
           }
           $result = $this->tags->replace_pair_subtag_data('reserva', $base, $reservastmp);
-
       }
-//      $result .= '<a class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">';
-//      $result .= '<div class="zizou-18 pl-14 pb-14">Ir a Cancelar Reserva</div></a>';
-//      $result .= '</div>';
-//      $result .= '</div>';
-      //Control de errores
+
+
       if ($error!='00000' || $counterReservas == 0) {
         $result = '<div class="panel-body">';
         $result .= '<div class="panel-table">';

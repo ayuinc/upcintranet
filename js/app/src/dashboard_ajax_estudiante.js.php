@@ -36,9 +36,8 @@ $(document).ready(function () {
         $('#cargador-reservas').remove();
         $("#reservas").append(data);
         $(".activar").on('click', function(){
-//            console.log($(this).data('reservaid'));
             $.get(hostname + 'includes/dashboard-activar-reserva', {codreserva: $(this).data('reservaid')}, function(data, status){
-                console.log(data);
+                
             });
         });
     });

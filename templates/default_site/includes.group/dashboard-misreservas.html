@@ -31,6 +31,22 @@
                      </div>
                  </div>
             {/reservas}
+            {no-results}
+            <div class="panel-body mis-reservas-widget">
+                <div class="panel-table">
+                    <ul class="tr table-border">
+                        <li class="col-sm-4">
+                            <img class="img-center" src="{site_url}/assets/img/no_bookings_new.png">
+                        </li>
+                        <li class="col-sm-8 pt-21 pr-21 pl-21">
+                            <p class="helvetica-14">Reserva de <a href="https://mi.upc.edu.pe/mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a>
+                                <a href="https://mi.upc.edu.pe/mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="https://mi.upc.edu.pe/mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {/no-results}
             {error}
             {error_message}
             {/error}
