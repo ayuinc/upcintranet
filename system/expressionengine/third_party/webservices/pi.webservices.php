@@ -4399,7 +4399,7 @@ class Webservices
         $result = '';
 
         //mensaje de exito
-        if (strpos($error_mensaje, 'realizado') !== false || strpos($error_mensaje, 'reservado') !== false) {
+        if ((strpos($error_mensaje, 'realizado') !== false || strpos($error_mensaje, 'reservado') !== false) && $error === "00000" ) {
           $result .= '<div class="resultados-busqueda info-border blue-message bg-muted">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
@@ -4420,7 +4420,11 @@ class Webservices
           $result .= '<div class="panel-body red-line red-error-message>';
           $result .= '<div class="p-28 panel-table">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/excla_red_1.png">';
-          $result .= '<span class="helvetica-16 red">'.$json['MsgError'].'</span>';
+
+            if($error === "00002"){
+                $error_mensaje = "Lo sentimos, el recurso que intentas reservar ya está ocupado, realiza una nueva búsqueda.";
+            }
+          $result .= '<span class="helvetica-16 red">'.$error_mensaje.'</span>';
           $result .= '</div>';
           $result .= "</div>";
         }
