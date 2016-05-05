@@ -4399,7 +4399,7 @@ class Webservices
         $result = '';
 
         //mensaje de exito
-        if ((strpos($error_mensaje, 'realizado') !== false || strpos($error_mensaje, 'reservado') !== false) && $error === "00000" ) {
+        if ($json['CodError'] === "00000"  && (strpos($error_mensaje, 'realizado') !== false || strpos($error_mensaje, 'reservado') !== false)) {
           $result .= '<div class="resultados-busqueda info-border blue-message bg-muted">';
           $result .= '<div class="panel-body p-28">';
           $result .= '<img class="pr-7" src="{site_url}assets/img/check_xl.png">';
