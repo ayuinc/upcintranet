@@ -4504,7 +4504,7 @@ class Webservices
 
                   $activar = false;
 
-                  if(intval($interval->format('%i')) <= 15 && intval($interval->format('%h')) <= 1) {
+                  if(intval($interval->format('%i')) <= 10 && intval($interval->format('%h')) <= 1) {
                       $activar = $this->upc_services->verify_reserved_resources($reserva->CodReserva, $reserva->CodRecurso);
                   }
                   $thisbase = (!$activar) ? $this->tags->replace_subtag_data('enable-activar', $thisbase, 'hidden') : $this->tags->replace_subtag_data('enable-activar', $thisbase, '');
