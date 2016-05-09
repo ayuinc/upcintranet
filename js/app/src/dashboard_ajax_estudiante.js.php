@@ -35,10 +35,27 @@ $(document).ready(function () {
     $.get(hostname + 'includes/dashboard-misreservas', function (data, status) {
         $('#cargador-reservas').remove();
         $("#reservas").append(data);
+        $("#codigo2Activar").validate({
+            rules: {
+                codigo: "required",
+            },
+            messages: {
+                codigo: {
+                    required: "Debes ingresar el código de compañero.",
+                }
+            }
+        });
         $(".activar").on('click', function(){
-            $.get(hostname + 'includes/dashboard-activar-reserva', {codreserva: $(this).data('reservaid')}, function(data, status){
-                
-            });
+            if($("#codigo2Activar #codigo").valid()){
+
+                $.get(hostname + 'includes/dashboard-activar-reserva', {codreserva: $(this).data('reservaid'), codigo2:$("#codigo2Activar #codigo").text()}, function(data, status){
+                    if(!data){
+                        swal("", "Tu Reserva se ha activado con éxito.", "success");
+                    }else{
+                        swal("", data, "error");
+                    }
+                });
+            }
         });
     });
 

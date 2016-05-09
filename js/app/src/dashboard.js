@@ -21,6 +21,7 @@ $(document).ready(function(){
 
 	$('.dashboard-modal').modal('toggle');
 
+
 });
 
 function getCookie(cname) {

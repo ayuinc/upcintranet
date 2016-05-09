@@ -7,7 +7,8 @@
 
   "plugins/flexslider",
   "plugins/hamburgers/hamburgers",
-  "plugins/overlay";
+  "plugins/overlay",
+  "plugins/sweetalert";
 
 // APP Includes
 @import 
@@ -28,11 +29,12 @@
   "includes/panel-utilities",
   "includes/buttons-custom",
   // FORMS
-  "includes/forms-custom";
+  "includes/forms-custom",
   // "includes/forms-multiuser",
   // NAVS
   // "includes/nav-off-canvas",
-
+  // ALERTS
+  "includes/_sweetalert-theme";
 // APP Views
 @import 
   // VIEW NAME

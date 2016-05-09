@@ -4440,10 +4440,7 @@ class Webservices
 
     public function verificar_reserva(){
         $code_reserva = ee()->TMPL->fetch_param('cod_reserva');
-
-//        var_dump($code_reserva);
         $response =  $this->upc_services->activate_reserved_resources($code_reserva);
-//        var_dump($response);
         if($response->CodError == "00000"){
             return $response-MsgError;
         }
@@ -4453,28 +4450,25 @@ class Webservices
     {
         $code_reserva = ee()->TMPL->fetch_param('cod_reserva');
 
-//        var_dump($code_reserva);
         $response =  $this->upc_services->activate_reserved_resources($code_reserva);
-//        var_dump($response);
+
         if($response->CodError !== "00000"){
             return $response->MsgError;
+        }else{
+            return false; // false es activado
         }
-
-        return false;
 
     }
     //LISTADO DE RECURSOS RESERVADOS POR EL ALUMNO
     public function listado_recursos_reservados_alumno()
     {
       $json = $this->upc_services->list_reserved_resources();
-
       $result = '';
         $tagdata = $this->EE->TMPL->tagdata;
       $error = $json->CodError;
       $error_mensaje = $json->MsgError;
         
       $tamano = count($json->Reservas);
-
 
       $counterReservas = 0;
       if($json->Reservas == null){
@@ -4490,15 +4484,17 @@ class Webservices
           $reservastmp = '';
           foreach ($json->Reservas as $index => $reserva){
               if($reserva->CodEstado == 'R'){
+//                  var_dump($reserva);
                   $HoraInicio = substr($reserva->HoraIni, 0, 2);
                   $HoraInicio = ltrim($HoraInicio,'0');
                   $HoraFin = substr($reserva->HoraFin, 0, 2);
                   $HoraFin = ltrim($HoraFin,'0');
-                  $thisbase =$this->tags->replace_subtag_data('nombre-recurso', $base_reserva, $reserva->NomRecurso);
-                  $thisbase =$this->tags->replace_subtag_data('cod-reserva', $thisbase,  strval($reserva->CodReserva));
+                  $thisbase = $this->tags->replace_subtag_data('nombre-recurso', $base_reserva, $reserva->NomRecurso);
+                  $thisbase = $this->tags->replace_subtag_data('cod-reserva', $thisbase,  strval($reserva->CodReserva));
                   $thisbase = $this->tags->replace_subtag_data('hora-inicio', $thisbase, $HoraInicio);
                   $thisbase = $this->tags->replace_subtag_data('hora-fin', $thisbase, $HoraFin);
                   $thisbase = $this->tags->replace_subtag_data('locacion', $thisbase, substr($reserva->DesLocal,7,strlen($reserva->DesLocal)-1));
+                  $thisbase = $this->tags->replace_subtag_data('tipo-recurso', $thisbase, $reserva->CodTipoRecurso);
 
                   $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
                   $strDate = $date->format('YmdHis');
@@ -4507,7 +4503,8 @@ class Webservices
                   $interval = $date->diff($inicio, true);
 
                   $activar = false;
-                  if(intval($interval->format('%i')) <= 15) {
+
+                  if(intval($interval->format('%i')) <= 15 && intval($interval->format('%h')) <= 1) {
                       $activar = $this->upc_services->verify_reserved_resources($reserva->CodReserva, $reserva->CodRecurso);
                   }
                   $thisbase = (!$activar) ? $this->tags->replace_subtag_data('enable-activar', $thisbase, 'hidden') : $this->tags->replace_subtag_data('enable-activar', $thisbase, '');
@@ -4520,30 +4517,22 @@ class Webservices
           $result = $this->tags->replace_pair_subtag_data('reserva', $base, $reservastmp);
       }
 
-
       if ($error!='00000' || $counterReservas == 0) {
-        $result = '<div class="panel-body">';
-        $result .= '<div class="panel-table">';
-        $result .= '<ul class="tr table-border">';
-        $result .= '<li class="col-sm-4">';
-        $result .= '<img class="img-center" src="{site_url}assets/img/no_bookings_new.png">';
-        $result .= '</li>';
+          $no_results = $this->tags->get_subtag_data('no-results', $tagdata);
+          $msg = "";
         if ($error_mensaje == "No se han registrado reservas durante esta semana." || $counterReservas == 0) {
           if ($_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =='ALUMNO') {
-            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a></p></li>';
+             $msg  = 'Reserva de <a href="{site_url}mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a><a href="{site_url}mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="{site_url}mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a>';
           }
           if ($_COOKIE[$this->services->get_fuzzy_name("TipoUser")] =='PROFESOR') {
-            $result .= '<li class="col-sm-8 pt-21 pr-21 pl-21"><p class="helvetica-14">Reserva de <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a></p></li>';
+              $msg = 'Reserva de <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=32" target="_blank" class="danger-link">cubículos, computadoras </a> o <a href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=505" target="_blank" class="danger-link">espacios deportivos</a>';
           }
+            $result = $this->tags->replace_subtag_data('no-results-message', $no_results, $msg);
         } else {
-          $result .= '<li class="col-sm-8 pt-28 pr-21 pl-21"><p class="helvetica-14">'.$error_mensaje.'</p></li>';
+            $error_base = $this->tags->get_subtag_data('error', $tagdata);
+          $result =  $this->tags->replace_subtag_data('error_message', $error_base, $error_mensaje);
         }
-        $result .= '</ul>';
-        $result .= '</div>';
-        $result .= '</div>';
       }
-
-
       return $result;
     }
 

@@ -1,53 +1,72 @@
-
-            {exp:webservices:listado_recursos_reservados_alumno}
-            {reservas}
-             <div class="panel-body mis-reservas-widget">
-                 <div class="panel-table">
-            {reserva}
-                     <div class="tr p-21 gray-line-bottom">
-                         <span class="helvetica-bold-16">{nombre-recurso}</span><br>
-                         <span class="helvetica-14">Código Reserva: {cod-reserva}</span><br>
-                         <span class="helvetica-14">Inicio: {hora-inicio} hrs - Fin: {hora-fin} hrs</span>
-                         ,&nbsp;<span class="helvet ica-14">{locacion}</span>
-                         <div class="reserva-actions">
-                             <div class="pull-left activar {enable-activar}" data-reservaid="{cod-reserva}">
-                                 <span class="pt-3 pb-3">
-                                    Activar
-                                 </span>
-                                 <img src="{site_url}/assets/icons/cyan-checkbox-checked.png" alt="Activar" class="icon">
-                             </div>
-                             <div class="pull-right cancelar">
-                                 <a class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">
-                                     <span class="cancelar-reserva pt-3 pb-3">
-                                        Cancelar
-                                     </span>
-                                       <img src="{site_url}/assets/icons/red-checkbox-checked.png" alt="Cancelar" class="icon">
-                                 </a>
-                            </div>
-
-                         </div>
+{exp:webservices:listado_recursos_reservados_alumno}
+{reservas}
+ <div class="panel-body mis-reservas-widget">
+     <div class="panel-table">
+{reserva}
+         <div class="tr p-21 gray-line-bottom">
+             <span class="helvetica-bold-16">{nombre-recurso}</span><br>
+             <span class="helvetica-14">Código Reserva: {cod-reserva}</span><br>
+             <span class="helvetica-14">Inicio: {hora-inicio} hrs - Fin: {hora-fin} hrs</span>
+             ,&nbsp;<span class="helvetica-14">{locacion}</span>
+             {if "{enable-activar}" == ""}
+                {if "{tipo-recurso}" == "CU"}
+                     <div  data-reservaid="{cod-reserva}">
+                         <form id="codigo2Activar">
+                             <input type="text" placeholder="Ingresa el código de tu compañero de cubículo." class="form-control zizou-12" type="text" name="codigo" id="codigo" value="" maxlength="32" class="input" size="25" autocomplete="off">
+                        </form>
                      </div>
-            {/reserva}
-                     </div>
+                {/if}
+             <div class="reserva-actions"  data-reservaid="{cod-reserva}">
+                 <div class="pull-left activar" data-reservaid="{cod-reserva}">
+                     <span class="pt-3 pb-3">
+                        Activar
+                     </span>
+                     <img src="{site_url}/assets/icons/cyan-checkbox-checked.png" alt="Activar" class="icon">
                  </div>
-            {/reservas}
-            {no-results}
-            <div class="panel-body mis-reservas-widget">
-                <div class="panel-table">
-                    <ul class="tr table-border">
-                        <li class="col-sm-4">
-                            <img class="img-center" src="{site_url}/assets/img/no_bookings_new.png">
-                        </li>
-                        <li class="col-sm-8 pt-21 pr-21 pl-21">
-                            <p class="helvetica-14">Reserva de <a href="https://mi.upc.edu.pe/mis-reservas/reserva-de-cubiculos" class="danger-link">cubículos, </a>
-                                <a href="https://mi.upc.edu.pe/mis-reservas/reserva-de-computadoras" class="danger-link">computadoras</a> o <a href="https://mi.upc.edu.pe/mis-reservas/reserva-espacios-deportivos" class="danger-link">espacios deportivos</a>
-                            </p>
-                        </li>
-                    </ul>
+                 <div class="pull-right cancelar">
+                     <a class="sb-link" href="http://intranet.upc.edu.pe/Loginintermedia/loginupc.aspx?wap=33" target="_blank">
+                         <span class="cancelar-reserva pt-3 pb-3">
+                            Cancelar
+                         </span>
+                           <img src="{site_url}/assets/icons/red-checkbox-checked.png" alt="Cancelar" class="icon">
+                     </a>
                 </div>
-            </div>
-            {/no-results}
-            {error}
-            {error_message}
-            {/error}
-            {/exp:webservices:listado_recursos_reservados_alumno}
+
+             </div>
+             {/if}
+         </div>
+{/reserva}
+         </div>
+     </div>
+{/reservas}
+{no-results}
+<div class="panel-body mis-reservas-widget">
+    <div class="panel-table">
+        <ul class="tr table-border">
+            <li class="col-sm-4">
+                <img class="img-center" src="{site_url}/assets/img/no_bookings_new.png">
+            </li>
+            <li class="col-sm-8 pt-21 pr-21 pl-21">
+                <p class="helvetica-14">
+                    {no-results-message}
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+{/no-results}
+{error}
+<div class="panel-body">
+    <div class="panel-table">
+        <ul class="tr table-border">
+            <li class="col-sm-4">
+                <img class="img-center" src="{site_url}assets/img/no_bookings_new.png">
+            </li>
+            <li class="col-sm-8 pt-28 pr-21 pl-21">
+                <p class="helvetica-14">{error_message}</p>
+            </li>
+        </ul>
+    </div>
+ </div>
+{/error}
+{/exp:webservices:listado_recursos_reservados_alumno}

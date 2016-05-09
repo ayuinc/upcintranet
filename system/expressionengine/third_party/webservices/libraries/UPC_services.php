@@ -40,7 +40,13 @@ class UPC_services
                 return false;
             }
         }else{
-            return true;
+            $token = $this->user_data->get_user_token();
+            if($token !== $_COOKIE[$this->curl_quicks->get_fuzzy_name('Token')]){
+                return false;
+            }else{
+                return true;
+            }
+            
         }
     }
 
@@ -65,7 +71,7 @@ class UPC_services
         $token = $this->user_data->get_user_token();
         $url = 'ActivarReserva/?CodReserva='.$code.'&CodAlumno='.$codigo.'&CodAlumno2='.$student2.'&Token='.$token;
         $result=$this->curl_quicks->curl_url($url);
-        return $this->curl_quicks->parse_json($result, false);
+         return $this->curl_quicks->parse_json($result, false);
 
     }
 
