@@ -349,6 +349,7 @@ class Webservices
 
           // Saving data to $_SESSION and Cookies
           $user_data = array( 'Codigo' =>  $json['Codigo'],
+                              'CodigoAlumno' => $json['CodigoAlumno'],
                               'TipoUser'  =>  $json['TipoUser'],
                               'Nombres' =>  $json['Nombres'],
                               'Apellidos' =>  $json['Apellidos'],
