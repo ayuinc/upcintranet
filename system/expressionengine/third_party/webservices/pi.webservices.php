@@ -1330,7 +1330,7 @@ class Webservices
       $quiz_enabled = false;
       $quiz_horarios = null;
 
-        if($enable_survey){
+        if(strlen($enable_survey) !== 0){
 
             $quiz_json = $this->upc_services->complete_data_from_senthorario();
             if($quiz_json != false) {
