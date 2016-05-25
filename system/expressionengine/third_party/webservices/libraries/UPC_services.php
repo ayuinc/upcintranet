@@ -111,7 +111,7 @@ class UPC_services
 //        var_dump($quiz_services_url);
         $quiz_result = $this->curl_quicks->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
 //        var_dump($quiz_result);
-        return $this->curl_quicks->parse_json($quiz_result, false);
+        return $this->curl_quicks->parse_json($quiz_result, true);
         
     }
 }
