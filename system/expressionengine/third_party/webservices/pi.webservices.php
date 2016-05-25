@@ -1337,15 +1337,15 @@ class Webservices
             $quiz_json = $this->upc_services->complete_data_from_senthorario();
             if($quiz_json !== FALSE) {
 //                var_dump($quiz_json);
-                if($quiz_json->DTOHeader->CodigoRetorno == 'Correcto')
+                if($quiz_json["DTOHeader"]["CodigoRetorno"] == 'Correcto')
                 {
-                    $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json->DTOHeader->CodigoRetorno.$quiz_json->ListaDTOHorarioAlumno.";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
+                    $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json["DTOHeader"]["CodigoRetorno"].$quiz_json["DTOHeader"]["ListaDTOHorarioAlumno"].";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
 
                     $quiz_enabled = true;
                     $carrera = $this->get_carrera_alumno();
                     $quiz_horarios = $quiz_json->ListaDTOHorarioAlumno;
                 }else{
-                    $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json->DTOHeader->CodigoRetorno.$quiz_json->ListaDTOHorarioAlumno.";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
+                    $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json["DTOHeader"]["CodigoRetorno"].$quiz_json["DTOHeader"]["ListaDTOHorarioAlumno"].";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
                 }
             }
         }
