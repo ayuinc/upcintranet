@@ -91,6 +91,31 @@ class UPC_services
         $result=$this->curl_quicks->curl_url($url);
         return $this->curl_quicks->parse_json($result, false);
     }
+
+    public function complete_data_from_senthorario(){
+        $codlinea = $this->user_data->get_user_linea();
+        $codmodal = $this->user_data->get_user_modalidad();
+        $periodo = $this->user_data->get_ciclo();
+        $quiz_service = ee()->config->item('quiz_services_url');
+        $quiz_services_url = $quiz_service;
+        $quiz_services_url .= $codlinea;
+        $quiz_services_url .= '/'.$codmodal;
+        $quiz_services_url .= '/'.$periodo;
+        $quiz_services_url .= '/'.$this->user_data->get_full_user_code();
+        $day = date('w');
+        $week_start = date('Y-m-d', strtotime('-'.$day.' days'));
+        $week_end = date('Y-m-d', strtotime('+'.(6-$day).' days'));
+        $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
+        $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
+
+        $quiz_result = $this->curl_quicks->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
+        if($quiz_result == false){
+
+            
+        }
+        return $this->curl_quicks->parse_json($quiz_result, false);
+        
+    }
 }
 /* End of file UPC_services.php */
 /* Location: ./system/expressionengine/third_party/webservices/libraries/UPC_services.php */

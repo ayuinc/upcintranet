@@ -451,34 +451,6 @@ class Webservices
       }
     }
 
-    /**
-     * Get user codigo
-     *
-     * @access  private
-     * @return
-     */
-    private function get_user_codigo(){
-        return $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
-    }
-
-    /**
-     * Get user codigo
-     *
-     * @access  private
-     * @return
-     */
-    private function get_user_token($codigo){
-        ee()->db->select('*');
-        ee()->db->where('codigo',$codigo);
-        $query_modelo_result = ee()->db->get('exp_user_upc_data');
-        $token = '';
-        foreach($query_modelo_result->result() as $row) {
-          $token = $row->token;
-        }
-        return $token;
-    }
-
-
     ///  Validate Terminos y Condiciones
     public function get_terms_acceptance()
     {
@@ -856,12 +828,12 @@ class Webservices
       // $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
       $codigo_alumno = ee()->TMPL->fetch_param('codigo_alumno');
       // ee()->db->where('codigo',$codigo);
-      $codigo = $this->get_user_codigo();
+      $codigo = $this->upc_user_data->get_user_code();
       // $query_modelo_result = ee()->db->get('exp_user_upc_data');
       // foreach($query_modelo_result->result() as $row){
       //   $token = $row->token;
       // }
-      $token = $this->get_user_token($codigo);
+      $token = $this->upc_user_data->get_user_token();
       $result = '';
 
       $url = 'ListadoHijos/?Codigo='.$codigo.'&Token='.$token.'';
@@ -1297,28 +1269,32 @@ class Webservices
       return $modalidad;
     }
 
+ 
     public function get_carrera_alumno()
     {
       $linea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
       $codigo = $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       if($codigo[0] == 'U' || $codigo[0] =='u'){
         $codigo = substr($codigo,1);
+          if(substr($codigo,3) != "201"){
+            $codigo = "200".$codigo;
+          }
       }
 
       $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
       $matricula_url = ee()->config->item('matricula_services_url');
       $matricula_url .= $linea;
       $matricula_url .= '/'.$codigo;
-      $result = $this->services->curl_full_url($matricula_url, ee()->config->item('matricula_user'), ee()->config->item('matricula_pwd'));
-      $json = json_decode($result, true);
+
+        $json = $this->services->curl_full_url($matricula_url, ee()->config->item('matricula_user'), ee()->config->item('matricula_pwd'));
       foreach ($json['ListaDTOMatricula'] as $matricula) {
         // var_dump($matricula['MatriculaCodPeriodMat']);
         if($periodo == $matricula['MatriculaCodPeriodMat']){
           return $matricula['MatriculaCodProducMat'];
         }
       }
-
-      return 0;
+        $this->services->upc_log("WFSENTMATRICULA;".$codigo.";".$matricula_url.";".$result.";".date('ddmmyyyy - H:i:s')."\n", "logs/WFSENTMATRICULA.log");
+        return 0;
     }
 
     //HORARIO CICLO ACTUAL DEL ALUMNO
@@ -1353,39 +1329,22 @@ class Webservices
       // traer data de encuestas
       $quiz_enabled = false;
       $quiz_horarios = null;
-      $codlinea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
-      $codmodal = $_COOKIE[$this->services->get_fuzzy_name("CodModal")];
-      $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
-      // $periodo = '201600';
-      $quiz_service = ee()->config->item('quiz_services_url');
-      $quiz_services_url = $quiz_service;
-      $quiz_services_url .= $codlinea;
-      $quiz_services_url .= '/'.$codmodal;
 
-      $quiz_services_url .= '/'.$periodo;
-      // $quiz_services_url .= '/'.'201502';
-      if($codigo[0] == 'U' || $codigo[0] =='u'){
-        $quiz_services_url .=   '/'.substr($codigo,1);
-      }else{
-        $quiz_services_url .= '/'.$codigo;
-      }
-      $day = date('w');
-      $week_start = date('Y-m-d', strtotime('-'.$day.' days'));
-      $week_end = date('Y-m-d', strtotime('+'.(6-$day).' days'));
-      $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
-      $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
-      // $quiz_services_url .= '/'.'2015-11-23'.'T00:00:00Z';
-      // $quiz_services_url .= '/'.'2015-11-27'.'T00:00:00Z';
-      $quiz_enabled = false;
-      $carrera = '';
-      $quiz_result = $this->services->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
-      $quiz_json = json_decode($quiz_result, true);
-      if($quiz_json['DTOHeader']['CodigoRetorno'] == 'Correcto')
-      {
-        $quiz_enabled = true;
-        $carrera = $this->get_carrera_alumno();
-        $quiz_horarios = $quiz_json['ListaDTOHorarioAlumno'];
-      }
+        if($enable_survey){
+
+            $quiz_json = $this->upc_services->complete_data_from_senthorario();
+            if($quiz_json != false) {
+                if($quiz_json->DTOHeader->CodigoRetorno == 'Correcto')
+                {
+                    $quiz_enabled = true;
+                    $carrera = $this->get_carrera_alumno();
+                    $quiz_horarios = $quiz_json->ListaDTOHorarioAlumno;
+                }else{
+                    $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json->DTOHeader->CodigoRetorno.$quiz_json->ListaDTOHorarioAlumno.";".date('ddmmyyyy - H:i:s')."\n", "logs/WSENTHORARIO.log");
+                }
+            }
+        }
+
       // END : traer data de encuestas
       //limpio la variable para reutilizarla
       $result = '';
@@ -1489,7 +1448,9 @@ class Webservices
                       $form .= "</form>";
                       $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                   }else{
-                    $form = "<!-- ".$quiz_request." COD ERROR".$qjson['CodError']."--><a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
+                      $this->services->upc_log("ENCUESTAS;".$codigo.";".$quiz_request.";".$result.";".date('ddmmyyyy - H:i:s')."\n", "logs/ENCUESTAS.log");
+
+                      $form = "<!-- ".$quiz_request." COD ERROR".$qjson['CodError']."--><a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"".$site_url.'assets/img/btn-encuesta-no-disponible.jpg'."\" alt=\"Encuesta\"></span></a>";
                     $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                   }
                 }
@@ -1611,6 +1572,8 @@ class Webservices
             $carrera = $this->get_carrera_alumno();
             $quiz_horarios = $quiz_json['ListaDTOHorarioAlumno'];
         }else{
+            $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_services_url.";".$quiz_result.";".date('ddmmyyyy - H:i:s')."\n", "logs/WSENTHORARIO.log");
+    
             $error_result = $this->tags->get_subtag_data('error', $this->EE->TMPL->tagdata);
             $error_result = $this->tags->replace_subtag_data('error_message', $error_result, 'No podemos obtener los datos necesarios.');
             return $error_result;
@@ -2854,7 +2817,7 @@ class Webservices
       $codigo_alumno =  $_GET['codigo_alumno'];
       $codigo =  $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      $token = $this->get_user_token($codigo);
+      $token = $this->upc_user_data->get_user_token();
 
       $url = 'InasistenciaPadre/?Codigo='.$codigo.'&CodAlumno='.$codigo_alumno.'&Token='.$token;
       //var_dump($url);
@@ -3284,9 +3247,9 @@ class Webservices
     **/
     public function companeros_clase_por_curso()
     {
-      $codigo =  $this->get_user_codigo();
+      $codigo =  $this->upc_user_data->get_user_code();
       $this->services->set_cookie("Codigo",$codigo, time() + (1800), "/");
-      $token = $this->get_user_token($codigo);
+      $token = $this->upc_user_data->get_user_token();
       $tagdata  = $this->EE->TMPL->tagdata;
       $codcurso = ee()->TMPL->fetch_param('cod_curso');
 
@@ -5783,6 +5746,12 @@ class Webservices
           }
       }
       return '';
+    }
+
+    public function logging(){
+        $this->services->upc_log("WFSENTHORARIO;".$quiz_result.";".date('ddmmyyyy - H:i:s')."\n", "logs/WSENTHORARIO.log");
+
+
     }
 
 }

@@ -23,6 +23,20 @@ class UPC_user_data
     }
 
     /**
+     * @return mixed
+     */
+    public function get_full_user_code(){
+        $code = $this->get_user_code();
+        if($code[0] == 'U' || $code[0] =='u') {
+            $code = substr($code, 1);
+            if (substr($code, 3) != "201") {
+                $code = "200" . $code;
+            }
+        }
+        return $code;
+    }
+
+    /**
      * @return string
      */
     public function get_user_token(){
@@ -44,6 +58,20 @@ class UPC_user_data
     }
 
     /**
+     * @return string
+     */
+    public function get_user_linea(){
+        return $_COOKIE[$this->curl_quicks->get_fuzzy_name("CodLinea")];
+    }
+
+    public function get_user_modalidad(){
+        
+    }
+
+    public function get_ciclo(){
+        return  $_COOKIE[$this->curl_quicks->get_fuzzy_name("Ciclo")];
+    }
+    /**
      * @param $key
      * @param $code
      * @return string
@@ -52,7 +80,7 @@ class UPC_user_data
         $this->EE->db->select($key);
         $this->EE->db->where('codigo', $code);
         $query_model_result = $this->EE->db->get('exp_user_upc_data');
-        $result;
+        $result = "";
         foreach($query_model_result->result_array() as $row){
             $result = $row[$key];
         }

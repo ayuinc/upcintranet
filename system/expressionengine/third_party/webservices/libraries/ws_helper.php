@@ -213,6 +213,13 @@ class ws_helper {
 		}
 		return $msg;
 	}
+
+	public function upc_log($text, $file){
+		$current = file_get_contents($file);
+		$current .= $text;
+		file_put_contents($file, $current);
+	}
+	
 }
 /* End of file Webservices_functions.php */
 /* Location: ./system/expressionengine/third_party/webservices/libraries/Webservices_functions.php */
