@@ -1273,13 +1273,8 @@ class Webservices
     public function get_carrera_alumno()
     {
       $linea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
-      $codigo = $_COOKIE[$this->services->get_fuzzy_name("Codigo")];
-      if($codigo[0] == 'U' || $codigo[0] =='u'){
-        $codigo = substr($codigo,1);
-          if(substr($codigo,3) != "201"){
-            $codigo = "200".$codigo;
-          }
-      }
+      $codigo = $_COOKIE[$this->services->get_fuzzy_name("CodigoAlumno")];
+
 
       $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
       $matricula_url = ee()->config->item('matricula_services_url');
@@ -1553,16 +1548,14 @@ class Webservices
         $codlinea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
         $codmodal = $_COOKIE[$this->services->get_fuzzy_name("CodModal")];
         $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
+        $codigo_full = $_COOKIE[$this->services->get_fuzzy_name("CodigoAlumno")];
         $quiz_service = ee()->config->item('quiz_services_url');
         $quiz_services_url = $quiz_service;
         $quiz_services_url .= $codlinea;
         $quiz_services_url .= '/' . $codmodal;
         $quiz_services_url .= '/' . $periodo;
-        if ($codigo[0] == 'U' || $codigo[0] == 'u') {
-            $quiz_services_url .= '/' . substr($codigo, 1);
-        } else {
-            $quiz_services_url .= '/' . $codigo;
-        }
+        $quiz_services_url .= '/' . $codigo_full;
+
         $day = date('w');
         $week_start = date('Y-m-d', strtotime('-' . $day . ' days'));
         $week_end = date('Y-m-d', strtotime('+' . (6 - $day) . ' days'));
@@ -1577,7 +1570,7 @@ class Webservices
             $carrera = $this->get_carrera_alumno();
             $quiz_horarios = $quiz_json['ListaDTOHorarioAlumno'];
         }else{
-            $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_services_url.";".$quiz_result.";".date('ddmmyyyy - H:i:s')."\n", "logs/WSENTHORARIO.log");
+            $this->services->upc_log("WFSENTHORARIO;".$codigo_full.";".$quiz_services_url.";".$quiz_result.";".date('ddmmyyyy - H:i:s')."\n", "logs/WSENTHORARIO.log");
     
             $error_result = $this->tags->get_subtag_data('error', $this->EE->TMPL->tagdata);
             $error_result = $this->tags->replace_subtag_data('error_message', $error_result, 'No podemos obtener los datos necesarios.');
