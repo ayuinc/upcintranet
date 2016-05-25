@@ -58,7 +58,7 @@ class UPC_user_data
     }
 
     public function get_user_modalidad(){
-        
+        return $_COOKIE[$this->curl_quicks->get_fuzzy_name("CodModal")];
     }
 
     public function get_ciclo(){
