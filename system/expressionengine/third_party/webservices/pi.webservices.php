@@ -1336,7 +1336,7 @@ class Webservices
 
             $quiz_json = $this->upc_services->complete_data_from_senthorario();
             if($quiz_json !== FALSE) {
-                var_dump($quiz_json);
+//                var_dump($quiz_json);
                 if($quiz_json->DTOHeader->CodigoRetorno == 'Correcto')
                 {
                     $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json->DTOHeader->CodigoRetorno.$quiz_json->ListaDTOHorarioAlumno.";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");

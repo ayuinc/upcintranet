@@ -110,10 +110,7 @@ class UPC_services
         $this->curl_quicks->upc_log("WFSENTHORARIO;".$this->user_data->get_full_user_code().";".$quiz_services_url.";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
 
         $quiz_result = $this->curl_quicks->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
-        if($quiz_result == false){
-
-
-        }
+        var_dump($quiz_result);
         return $this->curl_quicks->parse_json($quiz_result, false);
         
     }
