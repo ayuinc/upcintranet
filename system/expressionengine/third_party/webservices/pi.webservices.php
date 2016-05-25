@@ -1317,7 +1317,9 @@ class Webservices
       foreach($query_modelo_result->result() as $row){
         $token = $row->token;
       }
-
+        $codlinea = $_COOKIE[$this->services->get_fuzzy_name("CodLinea")];
+        $codmodal = $_COOKIE[$this->services->get_fuzzy_name("CodModal")];
+        $periodo = $_COOKIE[$this->services->get_fuzzy_name("Ciclo")];
       $url = 'Horario/?CodAlumno='.$codigo.'&Token='.$token;
       $site_url = ee()->config->item('site_url');
 

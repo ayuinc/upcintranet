@@ -26,14 +26,7 @@ class UPC_user_data
      * @return mixed
      */
     public function get_full_user_code(){
-        $code = $this->get_user_code();
-        if($code[0] == 'U' || $code[0] =='u') {
-            $code = substr($code, 1);
-            if (substr($code, 3) != "201") {
-                $code = "200" . $code;
-            }
-        }
-        return $code;
+        return $_COOKIE[$this->curl_quicks->get_fuzzy_name("CodigoAlumno")];
     }
 
     /**
