@@ -1331,7 +1331,7 @@ class Webservices
       // traer data de encuestas
       $quiz_enabled = false;
       $quiz_horarios = null;
-
+        $quiz_json = "";
         if(strlen($enable_survey) !== 0){
 
             $quiz_json = $this->upc_services->complete_data_from_senthorario();
