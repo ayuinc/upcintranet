@@ -1340,7 +1340,7 @@ class Webservices
                     $carrera = $this->get_carrera_alumno();
                     $quiz_horarios = $quiz_json->ListaDTOHorarioAlumno;
                 }else{
-                    $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json->DTOHeader->CodigoRetorno.$quiz_json->ListaDTOHorarioAlumno.";".date('ddmmyyyy - H:i:s')."\n", "logs/WSENTHORARIO.log");
+                    $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json->DTOHeader->CodigoRetorno.$quiz_json->ListaDTOHorarioAlumno.";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
                 }
             }
         }

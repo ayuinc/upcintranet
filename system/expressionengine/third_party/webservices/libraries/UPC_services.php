@@ -107,11 +107,12 @@ class UPC_services
         $week_end = date('Y-m-d', strtotime('+'.(6-$day).' days'));
         $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
         $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
+        $this->curl_quicks->upc_log("WFSENTHORARIO;".$this->user_data->get_full_user_code().";".$quiz_services_url.";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
 
         $quiz_result = $this->curl_quicks->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
         if($quiz_result == false){
 
-            
+
         }
         return $this->curl_quicks->parse_json($quiz_result, false);
         
