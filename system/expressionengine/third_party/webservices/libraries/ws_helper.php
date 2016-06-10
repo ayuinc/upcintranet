@@ -95,7 +95,7 @@ class ws_helper {
 		$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
 		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
 		$this->EE->curl->option(CURLOPT_URL, $service_url);
-
+		$this->EE->curl->option(CURLOPT_TIMEOUT, 45);
 		$this->EE->curl->http_login($user, $pwd);
 		$return = $this->EE->curl->execute();
 
@@ -107,7 +107,7 @@ class ws_helper {
 		$this->base_request_options($service_url);
 		$this->EE->curl->option(CURLOPT_FORBID_REUSE, 1);
 		$this->EE->curl->option(CURLOPT_FRESH_CONNECT, 1);
-
+		$this->EE->curl->option(CURLOPT_TIMEOUT, 45);
 		$return = $this->EE->curl->execute();
 
 		return $return;
@@ -125,7 +125,7 @@ class ws_helper {
 	{
 		if( $services_url != NULL && $params != NULL)
 		{
-			
+
 			$return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false)); 
 			return $return;
 		}
@@ -163,6 +163,7 @@ class ws_helper {
 		$this->EE->curl->create($this->_base_url . $service_url);
 		$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
 		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
+		$this->EE->curl->option(CURLOPT_TIMEOUT, 45);
 		$this->EE->curl->option(CURLOPT_URL, $this->_base_url . $service_url);
 	}
 
