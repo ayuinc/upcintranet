@@ -123,16 +123,36 @@ class ws_helper
      * @return string
      */
 
-	public function curl_post_full_url( $services_url , $params)
+	public function curl_post_full_url( $services_url ,  $params)
 	{
 		if( $services_url != NULL && $params != NULL)
 		{
-			
-			$return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false)); 
+
+			$return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false));
 			return $return;
 		}
 		return FALSE;
 	}
+
+    /**
+     * Post curl to full service url
+     *
+     * @access  public
+     * @param string $services_url Full Service URL
+     * @param array $params Post body parameters
+     * @return string
+     */
+
+    public function curl_post_full_url_authenticate( $services_url ,  $params, $user, $pwd)
+    {
+        if( $services_url != NULL && $params != NULL)
+        {
+            $this->EE->curl->http_login($user, $pwd);
+            $return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false));
+            return $return;
+        }
+        return FALSE;
+    }
 
 	public function set_cookie ( $name,  $value,  $expire = 0 ,  $path = "/" ,   $domain = ".upc.edu.pe" ,  $prefix = "",  $secure = TRUE )
 	{

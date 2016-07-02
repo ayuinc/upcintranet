@@ -170,7 +170,7 @@ class UPC_services
     /**
      *  Registro de Datos del alumno en el formulario
      */
-    public function set_data_update_registered_user(){
+    public function set_data_update_registered_user($phone, $email, $apNombres, $apApPatern, $apApMatern, $apphone, $apemail, $tipo){
         $codlinea = $this->user_data->get_user_linea();
         $codalumno = $this->user_data->get_full_user_code();
         $codmodal = $this->user_data->get_user_modalidad();
@@ -182,9 +182,20 @@ class UPC_services
         $url .= '&CodAlumno='.$codalumno;
 
         $params = array (
-            'CodPersona' => ''
+            'CodPersona' => $this->user_data->get_codigo_persona(),
+            'ApellidoPatern' => $this->user_data->get_user_apellido_paterno(),
+            'ApellidoMatern' => $this->user_data->get_user_apellido_materno(),
+            'Nombres' => $this->user_data->get_user_nombres(),
+            'TelefonoMovil' => $phone,
+            'DireccionEmail' => $email,
+            'ApodNombres' => $apNombres,
+            'ApodApellidoPatern' => $apApPatern,
+            'ApodApellidoMatern' => $apApMatern,
+            'ApodTelefMovil' => $apphone,
+            'ApodEmail' => $apemail,
+            'TipoApoderado' => $tipo
         );
-        $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
+        $result = $this->curl_quicks->curl_post_full_url_authenticate($url,  $params, ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
 
         return  $this->curl_quicks->parse_json($result, false);
     }
@@ -199,9 +210,7 @@ class UPC_services
         $url .= ee()->config->item('sentAlumno_services_alumno_path');
         $url .= '/'.$codlinea;
         $url .= '/'.$codalumno;
-
         $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('sentAlumno_services_user'),  ee()->config->item('sentAlumno_services_pwd'));
-
         return  $this->curl_quicks->parse_json($result, false);
     }
 }

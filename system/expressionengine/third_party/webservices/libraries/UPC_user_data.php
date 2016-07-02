@@ -57,26 +57,66 @@ class UPC_user_data
         return $_COOKIE[$this->curl_quicks->get_fuzzy_name("CodLinea")];
     }
 
+    /**
+     * @return string
+     */
     public function get_user_modalidad(){
         return $_COOKIE[$this->curl_quicks->get_fuzzy_name("CodModal")];
     }
 
+    /**
+     * @return string
+     */
     public function get_ciclo(){
         return  $_COOKIE[$this->curl_quicks->get_fuzzy_name("Ciclo")];
     }
 
+    /**
+     * @return string
+     */
     public function get_codigo_persona(){
-        if ($this->get_from_db_from_user('codigooersona') != NULL){
-            return $this->get_from_db_from_user('codigooersona');
-        }else {
-            $sentAlumno = $this->upc_services->get_sentAlumno_data();
-            if ($sentAlumno != false && $sentAlumno->DTOHeader->CodigoRetorno == "Correcto"){
-                $this->set_to_db_from_user('codigopersona', $sentAlumno->ListaDTOAlumno->AlumnoCodigoPersona, $this->get_user_code());
-                return  $sentAlumno->ListaDTOAlumno->AlumnoCodigoPersona;
-            }
-        }
-        return "";
+        return $this->get_user_data_field('codigopersona');
     }
+    /**
+     * @return string
+     */
+    public function get_apellido_paterno(){
+        return $this->get_user_data_field('apellidoPaterno');
+    }
+
+    /**
+     * @return string
+     */
+    public function get_apellido_materno(){
+        return $this->get_user_data_field('apellidoMaterno');
+    }
+    /**
+     * @param string
+     */
+    public function set_codigo_persona($codigopersona){
+        if($codigopersona != null){
+            $this->set_to_db_from_user('codigopersona', $codigopersona, $this->get_user_code());
+        }
+    }
+
+    /**
+     * @param string apellido
+     */
+    public function set_apellido_paterno($apellido){
+        if($apellido != null && trim($apellido)!= ""){
+            $this->set_to_db_from_user('apellidoPaterno', $apellido, $this->get_user_code());
+        }
+    }
+
+    /**
+     * @param string apellido
+     */
+    public function set_apellido_materno($apellido){
+        if($apellido != null && trim($apellido) != ""){
+            $this->set_to_db_from_user('apellidoMaterno', $apellido, $this->get_user_code());
+        }
+    }
+
     /**
      * @param $key
      * @param $code

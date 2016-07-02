@@ -100,28 +100,37 @@ $(document).ready(function () {
             rules:{
                 email: {
                     "required" : data.obligatorio,
-                    "email" : true
+                    "email" : true,
+                    maxlength: 50
                 },
                 phone : {
                     "required" : data.obligatorio,
-                    "number": true
+                    "number": true,
+                    maxlength: 15
                  },
                 nombreApoderado : {
-                    "required"  : data.ApodObligatorio
+                    "required"  : data.ApodObligatorio,
+                    maxlength: 80
                 },
                 apellidoPatApoderado : {
-                    "required" : data.ApodObligatorio
+                    "required" : data.ApodObligatorio,
+                    maxlength: 50
                 },
                 apellidoMatApoderado : {
-                    "required" : data.ApodObligatorio
+                    "required" : data.ApodObligatorio,
+                    maxlength: 50
                 },
                 emailApoderado : {
                     "required" : data.ApodEmailOblig,
-                    "email" : true
+                    "email" : true,
+                    maxlength: 50,
+                    minlength: 9
                 },
                 phoneApoderado : {
                     "required" : data.ApodMovilOblig,
-                    "number" : true
+                    "number" : true,
+                    maxlength: 15,
+                    minlength: 6
                 }
 
             }, messages:{
@@ -150,16 +159,33 @@ $(document).ready(function () {
                     "required" : "Ingrese el número de teléfono móvil del Apoderado",
                     "number" : "Sólo ingrese números"
                 }
+            },
+            submitHandler: function(form){
+                $.post(hostname + 'includes/actualizar-datos-post', {
+                    phone : $('#form-actualizar #phone').val(),
+                    email : $('#form-actualizar #email').val(),
+                    nombreApoderado : $('#form-actualizar #nombreApoderado').val(),
+                    apellidoPatApoderado : $('#form-actualizar #apellidoPatApoderado').val(),
+                    apellidoMatApoderado : $('#form-actualizar #apellidoMatApoderado').val(),
+                    phoneApoderado : $('#form-actualizar #phoneApoderado').val(),
+                    emailApoderado : $('#form-actualizar #emailApoderado').val(),
+                    tipo : $('#form-actualizar #tipoApoderado').val()
+                }, function(data, status){
+                    if(!data){
+                        swal("Actualización de datos", "Se guardaron tus datos satisfactoriamente.", "success");
+                    }else{
+                        swal("Uups...", data, "error");
+                    }
+                });
+
             }
         });
         
         $('#tipoApoderado').on( 'change', function(){
             $.post(hostname + 'includes/actualizar-datos-apoderado', {tipo: $('#tipoApoderado').val()} , function (dataApoderado, status) {
-                
-                $('#form-actualizar #nombreApoderado').val(dataApoderado.NombreApoderado);
-                $('#form-actualizar #apellidoPatApoderado').val(dataApoderado.ApellidoPaterApoderado);
-                $('#form-actualizar #apellidoMatApoderado').val(dataApoderado.ApellidoMaterApoderado);
-
+                validateApoderadoFields(dataApoderado.NombreApoderado, $('#form-actualizar #nombreApoderado'));
+                validateApoderadoFields(dataApoderado.ApellidoPaterApoderado, $('#form-actualizar #apellidoPatApoderado'));
+                validateApoderadoFields(dataApoderado.ApellidoMaterApoderado, $('#form-actualizar #apellidoMatApoderado'));
             });
 
         });
@@ -167,5 +193,16 @@ $(document).ready(function () {
     }).fail(function(data){
         swal("", data, "error");
     });
+
+
+    function validateApoderadoFields(data, field){
+        if(data != null && data != undefined){
+            $(field).val(data);
+            $(field).prop('readonly', true);
+        }else {
+            $(field).val("");
+            $(field).prop('readonly', false);
+        }
+    }
 
 });

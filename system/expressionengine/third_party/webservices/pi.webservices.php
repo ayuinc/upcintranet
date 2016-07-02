@@ -5716,7 +5716,33 @@ class Webservices
 
 
     public function set_user_data(){
+        $phone = ee()->TMPL->fetch_param('phone');
+        $email = ee()->TMPL->fetch_param('email');
 
+        $nombreAp = ee()->TMPL->fetch_param('nombreAp');
+        $apePatAp = ee()->TMPL->fetch_param('apePatAp');
+        $apeMatAp = ee()->TMPL->fetch_param('apeMatAp');
+        $phoneAp = ee()->TMPL->fetch_param('phoneAp');
+        $emailAp = ee()->TMPL->fetch_param('emailAp');
+        $tipo = ee()->TMPL->fetch_param('tipoAp');
+        $sentAlumno = $this->upc_services->get_sentAlumno_data();
+        if ($sentAlumno != false && $sentAlumno->DTOHeader->CodigoRetorno == "Correcto"){
+            $this->upc_user_data->set_codigo_persona($sentAlumno->ListaDTOAlumno[0]->AlumnoCodigoPersona);
+            $this->upc_user_data->set_apellido_paterno($sentAlumno->ListaDTOAlumno[0]->PersonaApellidoPatern);
+            $this->upc_user_data->set_apellido_materno($sentAlumno->ListaDTOAlumno[0]->PersonaApellidoMatern);
+        }
+
+
+        $result = $this->upc_services->set_data_update_registered_user($phone, $email, $nombreAp, $apePatAp, $apeMatAp, $phoneAp, $emailAp, $tipo);
+        if($result != false && $result->DTOHeader->CodigoRetorno == "Correcto"){
+            return;
+        }else {
+            return "No se pudo guardar la data";
+        }
+    }
+
+    public function get_alumno_data(){
+        $result = $this->upc_services->get_sentAlumno_data();
     }
 }
 
