@@ -5731,13 +5731,13 @@ class Webservices
             $this->upc_user_data->set_apellido_paterno($sentAlumno->ListaDTOAlumno[0]->PersonaApellidoPatern);
             $this->upc_user_data->set_apellido_materno($sentAlumno->ListaDTOAlumno[0]->PersonaApellidoMatern);
         }
-
-
         $result = $this->upc_services->set_data_update_registered_user($phone, $email, $nombreAp, $apePatAp, $apeMatAp, $phoneAp, $emailAp, $tipo);
-        if($result != false && $result->DTOHeader->CodigoRetorno == "Correcto"){
-            return;
-        }else {
-            return "No se pudo guardar la data";
+        if($result != false){
+            if($result->DTOHeader->CodigoRetorno == "Correcto"){
+                return;
+            }else {
+                return $result->DTOHeader->DescRetorno;
+            }
         }
     }
 

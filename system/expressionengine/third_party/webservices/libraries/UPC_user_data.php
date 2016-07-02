@@ -80,15 +80,22 @@ class UPC_user_data
     /**
      * @return string
      */
-    public function get_apellido_paterno(){
+    public function get_user_apellido_paterno(){
         return $this->get_user_data_field('apellidoPaterno');
     }
 
     /**
      * @return string
      */
-    public function get_apellido_materno(){
+    public function get_user_apellido_materno(){
         return $this->get_user_data_field('apellidoMaterno');
+    }
+
+    /**
+     * @return string
+     */
+    public function get_user_nombres(){
+        return $this->get_user_data_field('nombres');
     }
     /**
      * @param string

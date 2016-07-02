@@ -182,6 +182,9 @@ class UPC_services
         $url .= '&CodAlumno='.$codalumno;
 
         $params = array (
+            'CodLineaNegocio' => $codlinea,
+            'CodModalEst' => $codmodal,
+            'CodAlumno' => $codalumno,
             'CodPersona' => $this->user_data->get_codigo_persona(),
             'ApellidoPatern' => $this->user_data->get_user_apellido_paterno(),
             'ApellidoMatern' => $this->user_data->get_user_apellido_materno(),
@@ -196,7 +199,6 @@ class UPC_services
             'TipoApoderado' => $tipo
         );
         $result = $this->curl_quicks->curl_post_full_url_authenticate($url,  $params, ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
-
         return  $this->curl_quicks->parse_json($result, false);
     }
 
