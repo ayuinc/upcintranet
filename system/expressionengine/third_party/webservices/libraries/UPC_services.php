@@ -114,6 +114,96 @@ class UPC_services
         return $this->curl_quicks->parse_json($quiz_result, true);
         
     }
+
+    /**
+     *  Reglamento de Actualización de datos
+     */
+    public function get_data_update_reglamento(){
+        $codlinea = $this->user_data->get_user_linea();
+        $codmodal = $this->user_data->get_user_modalidad();
+        $url = ee()->config->item('user_update_services_url');
+        $url .= ee()->config->item('user_update_services_reglamento_path');
+        $url .= '?';
+        $url .= 'CodLineaNegocio='.$codlinea;
+        $url .= '&CodModalEst='.$codmodal;
+        $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
+        return  $this->curl_quicks->parse_json($result, false);
+    }
+
+    /**
+     *  Consulta de Parentesco
+     */
+    public function get_data_update_parentesco($tipo){
+//        var_dump($tipo);
+
+        $codlinea = $this->user_data->get_user_linea();
+        $coduser = $this->user_data->get_user_code();
+        $url = ee()->config->item('user_update_services_url');
+        $url .= ee()->config->item('user_update_services_parentesco_path');
+        $url .= '?';
+        $url .= 'CodLineaNegocio='.$codlinea;
+        $url .= '&CodUsuario='.$coduser;
+        $url .= '&CodTipoPariente='.$tipo;
+//        var_dump($url);
+        $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
+//        var_dump($result);
+        return  $this->curl_quicks->parse_json($result, false);
+    }
+
+    /**
+     *  Consulta de Alumno Registrado
+     */
+    public function get_data_update_registered_user(){
+        $codlinea = $this->user_data->get_user_linea();
+        $codalumno = $this->user_data->get_full_user_code();
+        $codmodal = $this->user_data->get_user_modalidad();
+        $url = ee()->config->item('user_update_services_url');
+        $url .= ee()->config->item('user_update_services_alumno_path');
+        $url .= '?';
+        $url .= 'CodLineaNegocio='.$codlinea;
+        $url .= '&CodModalEst='.$codmodal;
+        $url .= '&CodAlumno='.$codalumno;
+        $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
+        return  $this->curl_quicks->parse_json($result, false);
+    }
+
+    /**
+     *  Registro de Datos del alumno en el formulario
+     */
+    public function set_data_update_registered_user(){
+        $codlinea = $this->user_data->get_user_linea();
+        $codalumno = $this->user_data->get_full_user_code();
+        $codmodal = $this->user_data->get_user_modalidad();
+        $url = ee()->config->item('user_update_services_url');
+        $url .= ee()->config->item('user_update_services_alumno_path');
+        $url .= '?';
+        $url .= 'CodLineaNegocio='.$codlinea;
+        $url .= '&CodModalEst='.$codmodal;
+        $url .= '&CodAlumno='.$codalumno;
+
+        $params = array (
+            'CodPersona' => ''
+        );
+        $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
+
+        return  $this->curl_quicks->parse_json($result, false);
+    }
+
+    /**
+     *  Registro de Datos del alumno en el formulario
+     */
+    public function get_sentAlumno_data(){
+        $codlinea = $this->user_data->get_user_linea();
+        $codalumno = $this->user_data->get_full_user_code();
+        $url = ee()->config->item('sentAlumno_services_url');
+        $url .= ee()->config->item('sentAlumno_services_alumno_path');
+        $url .= '/'.$codlinea;
+        $url .= '/'.$codalumno;
+
+        $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('sentAlumno_services_user'),  ee()->config->item('sentAlumno_services_pwd'));
+
+        return  $this->curl_quicks->parse_json($result, false);
+    }
 }
 /* End of file UPC_services.php */
 /* Location: ./system/expressionengine/third_party/webservices/libraries/UPC_services.php */

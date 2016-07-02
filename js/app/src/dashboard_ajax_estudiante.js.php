@@ -90,4 +90,82 @@ $(document).ready(function () {
         $("#encuestas").append(data);
     });
 
+    $.get(hostname + 'includes/actualizar-datos', function(data, status){
+
+        $('#cargador-modal-actualizar').remove();
+        $('#actualizacion').append(data.html);
+        $('#modalactualizar').modal('toggle');
+        $('#form-actualizar').validate({
+
+            rules:{
+                email: {
+                    "required" : data.obligatorio,
+                    "email" : true
+                },
+                phone : {
+                    "required" : data.obligatorio,
+                    "number": true
+                 },
+                nombreApoderado : {
+                    "required"  : data.ApodObligatorio
+                },
+                apellidoPatApoderado : {
+                    "required" : data.ApodObligatorio
+                },
+                apellidoMatApoderado : {
+                    "required" : data.ApodObligatorio
+                },
+                emailApoderado : {
+                    "required" : data.ApodEmailOblig,
+                    "email" : true
+                },
+                phoneApoderado : {
+                    "required" : data.ApodMovilOblig,
+                    "number" : true
+                }
+
+            }, messages:{
+                email: {
+                    "required" : "Ingrese su email personal",
+                    "email" : "El texto ingresado no es un correo válido"
+                },
+                phone : {
+                    "required" : "Ingrese su número de teléfono celular",
+                    "number": "Solo ingrese números"
+                },
+                nombreApoderado : {
+                    "required"  : "Ingrese el nombre del Apoderado"
+                },
+                apellidoPatApoderado : {
+                    "required" : "Ingrese el apellido paterno del Apoderado"
+                },
+                apellidoMatApoderado : {
+                    "required" : "Ingrese el apellido materno del Apoderado"
+                },
+                emailApoderado : {
+                    "required" : "Ingrese el correo electrónico personal del Apoderado",
+                    "email" : "Ingrese un correo válido"
+                },
+                phoneApoderado : {
+                    "required" : "Ingrese el número de teléfono móvil del Apoderado",
+                    "number" : "Sólo ingrese números"
+                }
+            }
+        });
+        
+        $('#tipoApoderado').on( 'change', function(){
+            $.post(hostname + 'includes/actualizar-datos-apoderado', {tipo: $('#tipoApoderado').val()} , function (dataApoderado, status) {
+                
+                $('#form-actualizar #nombreApoderado').val(dataApoderado.NombreApoderado);
+                $('#form-actualizar #apellidoPatApoderado').val(dataApoderado.ApellidoPaterApoderado);
+                $('#form-actualizar #apellidoMatApoderado').val(dataApoderado.ApellidoMaterApoderado);
+
+            });
+
+        });
+
+    }).fail(function(data){
+        swal("", data, "error");
+    });
+
 });

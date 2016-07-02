@@ -64,6 +64,19 @@ class UPC_user_data
     public function get_ciclo(){
         return  $_COOKIE[$this->curl_quicks->get_fuzzy_name("Ciclo")];
     }
+
+    public function get_codigo_persona(){
+        if ($this->get_from_db_from_user('codigooersona') != NULL){
+            return $this->get_from_db_from_user('codigooersona');
+        }else {
+            $sentAlumno = $this->upc_services->get_sentAlumno_data();
+            if ($sentAlumno != false && $sentAlumno->DTOHeader->CodigoRetorno == "Correcto"){
+                $this->set_to_db_from_user('codigopersona', $sentAlumno->ListaDTOAlumno->AlumnoCodigoPersona, $this->get_user_code());
+                return  $sentAlumno->ListaDTOAlumno->AlumnoCodigoPersona;
+            }
+        }
+        return "";
+    }
     /**
      * @param $key
      * @param $code
@@ -89,6 +102,22 @@ class UPC_user_data
         $code = $this->get_user_code();
         $data_field = $this->get_from_db_from_user($field, $code);
         return $data_field;
+    }
+
+    /**
+     * @param $key
+     * @param $code
+     * @param $value
+     * @return string
+     */
+    private function set_to_db_from_user($key, $value,  $code){
+
+        $user_upc_update = array(
+            $key => $value
+        );
+        ee()->db->where('codigo', $code);
+        ee()->db->update('exp_user_upc_data', $user_upc_update);
+
     }
 
 }

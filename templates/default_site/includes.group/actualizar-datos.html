@@ -1,0 +1,88 @@
+{exp:webservices:user_data_update}
+<div class="modal fade" id="modalactualizar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div id="estudent-personal-data">
+                            <div class="zizou-14">
+                                <h2>Hola {exp:webservices:nombre_alumno}.</h2>
+                                <p>Código: {exp:webservices:full_user_code}</p>
+                            </div>
+                            <div class="red-line"></div>
+                            <h4 class="uppercasse solano-bold-22 text-right pt-14">¡Manten tus datos actualizados!</h4>
+                        </div>  <!--datos-personales-alumno end-->
+                        <div class="mb-7"></div>
+                        <form id="form-actualizar">
+
+                            <div id="complete-inputs-alumno">
+                                <div class=" mb-14 pt-14 mb-14 helvetica-12">
+                                    <div class="col-lg-offset-1 col-lg-10 col-xs-12">
+                                        <input type="text-muted" name="phone" id="phone" value="" size="18" maxlength="100" class="form-control" placeholder="Número de celular">
+                                        <div class="mb-7"></div>
+                                        <input type="text-muted" name="email" id="email" value="" size="18" maxlength="100" class="form-control" placeholder="Correo Electrónico">
+                                        <span class="helvetica-11 text-info">Por favor, ingrese un correo electrónico personal diferente a l de UPC.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="complete-inputs-apoderado" class=" mb-14 pt-14 mb-14">
+                                <div class="col-lg-offset-1 col-lg-10 col-xs-12 helvetica-12">
+                                    <h4 class="uppercasse pt-14 red zizou-18">Datos del apoderado</h4>
+                                    <div class="mb-7"></div>
+                                    <select class="selectpicker form-control" id="tipoApoderado">
+                                        <option value="">Selecciona apoderado</option>
+                                        <option value="1">Padre</option>
+                                        <option value="2">Madre</option>
+                                        <option value="3">Otro</option>
+                                    </select>
+                                    <div class="mb-7"></div>
+                                        <input type="text-muted" name="nombreApoderado" id="nombreApoderado" value="" size="18" maxlength="100" class=" form-control" placeholder="Nombres Apoderado">
+
+                                         <div class="mb-7"></div>
+                                        <input type="text-muted" name="apellidoPatApoderado" id="apellidoPatApoderado" value="" size="18" maxlength="100" class="form-control" placeholder="Apellido Paterno Apoderado">
+                                        <div class="mb-7"></div>
+                                        <input type="text-muted" name="apellidoMatApoderado" id="apellidoMatApoderado" value="" size="18" maxlength="100" class="form-control" placeholder="Apellido Materno Apoderado">
+                                        <div class="mb-7"></div>
+                                        <input type="text-muted" name="phoneApoderado" id="phoneApoderado" value="" size="18" maxlength="100" class=" form-control" placeholder="Número de Celular">
+                                        <div class="mb-7"></div>
+                                        <input type="text-muted" name="emailApoderado" id="emailApoderado" value="" size="18" maxlength="100" class=" form-control" placeholder="Correo Electrónico">
+                                    <div class="mb-7"></div>
+                                    <div class="col-xs-12 p-0 text-right">
+                                        <button id="btn_int_IniciarSesion" type="submit" data-toggle="modal"  value="Send" class="btn btn-custom black-btn wide full-width lg p-0 mt-0 mb-14">Continuar</button>
+                                    </div>
+
+                                    <div class="mb-7"></div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div id="final-text" class="text-center">
+                                <div class="red-line"></div>
+                                <span>Si deseas modificar algún dato de tu información personal, recuerda que puedes ingresar a la Intranet, opción "Actualización de Datos" y haz clic en "Ficha de Datos". </span>
+                            </div>
+                        </div><!--col-xs-12 col-sm-12 col-md-10 col-lg-10-->
+                    </form>
+                </div><!--row-->
+            </div><!--container-fluid-->
+            <div class="space30"></div>
+            <div class="container" id="form-login">
+                <div class="modal fade  bs-example-modal-lg" data-toggle="modal" tabindex="2" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content mt-42">
+                            <div class="container-fluid">
+                                <div class="col-sm-12 text-center mt-28 mb-28 pt-28 pb-28">
+                                    <h1>¡Registro exitoso!</h1>
+                                    <p>Pronto nos comunicaremos contigo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--container-->
+        </div><!--modal-body-->
+    </div><!--modal-content-->
+</div></div>
+
+{/exp:webservices:user_data_update}
