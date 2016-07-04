@@ -126,7 +126,9 @@ class UPC_services
         $url .= '?';
         $url .= 'CodLineaNegocio='.$codlinea;
         $url .= '&CodModalEst='.$codmodal;
+        var_dump($url);
         $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
+        var_dump($result);
         return  $this->curl_quicks->parse_json($result, false);
     }
 

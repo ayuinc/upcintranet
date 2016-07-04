@@ -5670,7 +5670,7 @@ class Webservices
                 $date = new DateTime(date('Y-m-d\TH:i:s'), new DateTimeZone('America/Lima'));
 
 
-                
+
                 $array = array(
                     "html" => "Inicio: ".$inicio."Fin".$fin."date".$date);
                 if($date >= $inicio && $date <= $fin){
