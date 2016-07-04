@@ -108,9 +108,7 @@ class UPC_services
         $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
         $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
         $this->curl_quicks->upc_log("WFSENTHORARIO;".$this->user_data->get_full_user_code().";".$quiz_services_url.";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
-//        var_dump($quiz_services_url);
         $quiz_result = $this->curl_quicks->curl_full_url($quiz_services_url,  ee()->config->item('quiz_user'),  ee()->config->item('quiz_pwd'));
-//        var_dump($quiz_result);
         return $this->curl_quicks->parse_json($quiz_result, true);
         
     }
@@ -126,9 +124,7 @@ class UPC_services
         $url .= '?';
         $url .= 'CodLineaNegocio='.$codlinea;
         $url .= '&CodModalEst='.$codmodal;
-        var_dump($url);
         $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
-        var_dump($result);
         return  $this->curl_quicks->parse_json($result, false);
     }
 
@@ -136,7 +132,6 @@ class UPC_services
      *  Consulta de Parentesco
      */
     public function get_data_update_parentesco($tipo){
-//        var_dump($tipo);
 
         $codlinea = $this->user_data->get_user_linea();
         $coduser = $this->user_data->get_user_code();
@@ -146,9 +141,7 @@ class UPC_services
         $url .= 'CodLineaNegocio='.$codlinea;
         $url .= '&CodUsuario='.$coduser;
         $url .= '&CodTipoPariente='.$tipo;
-//        var_dump($url);
         $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
-//        var_dump($result);
         return  $this->curl_quicks->parse_json($result, false);
     }
 
@@ -208,6 +201,7 @@ class UPC_services
      *  Registro de Datos del alumno en el formulario
      */
     public function get_sentAlumno_data(){
+
         $codlinea = $this->user_data->get_user_linea();
         $codalumno = $this->user_data->get_full_user_code();
         $url = ee()->config->item('sentAlumno_services_url');

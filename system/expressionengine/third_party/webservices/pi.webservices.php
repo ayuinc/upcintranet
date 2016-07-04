@@ -5669,16 +5669,12 @@ class Webservices
                 $fin = DateTime::createFromFormat('Y-m-d\TH:i:s', $ficha->FechaFin, $timezone);
                 $date = new DateTime(date('Y-m-d\TH:i:s'), new DateTimeZone('America/Lima'));
 
-
-
-                $array = array(
-                    "html" => "Inicio: ".$inicio."Fin".$fin."date".$date);
                 if($date >= $inicio && $date <= $fin){
                     // enable update
                     $dataAlumno = $this->upc_services->get_data_update_registered_user();
                     if($dataAlumno != false && $dataAlumno != null && $dataAlumno->DTHeader->CodigoRetorno == "Correcto"){
-                        $array = array(
-                            "html" => "ERRROROR");
+                        $array = array( "vigente" =>false,
+                            "html" => "");
                     }else{
                          $array = array("vigente"=>true,
                         'obligatorio'=> ($ficha->Obligatorio == 'SI') ? true : false,
