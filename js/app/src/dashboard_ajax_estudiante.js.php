@@ -5,7 +5,7 @@ jQuery.validator.addMethod("notUPCemail", function(email, element) {
 
 jQuery.validator.addMethod("phoneStart9", function(phone_number, element) {
     phone_number = phone_number.replace(/\s+/g, "");
-    return this.optional(element) || phone_number.match(/^9\d{8,}$/);
+    return this.optional(element) || phone_number.match(/^9/);
 }, "El teléfono móvil debe iniciar con 9.");
 
 $(document).ready(function () {
@@ -164,7 +164,9 @@ $(document).ready(function () {
                 phone : {
                     "required" : "Ingrese su número de teléfono celular",
                     "number": "Solo ingrese números",
-                    "minlegth": "Debe tener al menos 8 dígitos"
+                    "minlength": "Debe tener al menos 8 dígitos",
+                    "maxlength": "Ingrese un número de teléfono móvil válido"
+
                 },
                 nombreApoderado : {
                     "required"  : "Ingrese el nombre del Apoderado"
@@ -182,8 +184,8 @@ $(document).ready(function () {
                 phoneApoderado : {
                     "required" : "Ingrese el número de teléfono móvil del Apoderado",
                     "number" : "Sólo ingrese números",
-                    "minlegth": "Debe tener al menos 8 dígitos",
-                    "maxlegth": "Ingrese un número de teléfono móvil válido"
+                    "minlength": "Debe tener al menos 8 dígitos",
+                    "maxlength": "Ingrese un número de teléfono móvil válido"
 
                 }
             },
