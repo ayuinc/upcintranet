@@ -199,7 +199,7 @@ $(document).ready(function () {
         });
 
     }).fail(function(data){
-        swal("", data, "error");
+        swal("", "No se puedo conectar", "error");
     });
 
 
