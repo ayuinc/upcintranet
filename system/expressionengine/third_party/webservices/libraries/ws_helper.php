@@ -89,6 +89,7 @@ class ws_helper
         return $return;
     }
 
+
     public function curl_full_url($service_url, $user, $pwd)
     {
         $this->EE->curl->create($service_url);
@@ -113,7 +114,6 @@ class ws_helper
         return $return;
     }
 
-
 	/**
      * Post curl to full service url
      *
@@ -129,6 +129,7 @@ class ws_helper
 		{
 
 			$return = $this->EE->curl->simple_post($services_url, $params, array(CURLOPT_SSL_VERIFYPEER => false));
+
 			return $return;
 		}
 		return FALSE;
@@ -185,6 +186,7 @@ class ws_helper
 		$this->EE->curl->create($this->_base_url . $service_url);
 		$this->EE->curl->option(CURLOPT_SSL_VERIFYPEER, false);
 		$this->EE->curl->option(CURLOPT_RETURNTRANSFER, true);
+		$this->EE->curl->option(CURLOPT_TIMEOUT, 45);
 		$this->EE->curl->option(CURLOPT_URL, $this->_base_url . $service_url);
 	}
 

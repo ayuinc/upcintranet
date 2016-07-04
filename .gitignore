@@ -42,3 +42,6 @@ sized/
 thumbs/
 _thumbs/
 */expressionengine/cache/*
+
+#LOGS
+logs/

@@ -3,6 +3,9 @@ $(document).ready(function () {
     var href = window.location.protocol + "://" + window.location.host + window.location.pathname;
     var codigo_alumno = href.substr(href.lastIndexOf('/') + 1);
     var hostname = <?php  echo $_GET['url']; ?>;
+    $.ajaxSetup({
+        timeout:60000 // in milliseconds
+    });
 
     $.get(hostname + 'includes/dashboard-horario', function (data, status) {
         $('#cargador-horario').remove();
@@ -86,8 +89,13 @@ $(document).ready(function () {
     });
 
     $.get(hostname + 'includes/dashboard-misencuestas', function (data, status) {
+
+            $('#cargador-encuestas').remove();
+            $("#encuestas").append(data);
+
+    }).fail(function() {
         $('#cargador-encuestas').remove();
-        $("#encuestas").append(data);
+        $("#encuestas").append('<div class="panel-body" style="height:100px; background-color:#fff"><div class"panel-table"><div class="tr p-21 zizou-14">En estos momentos tenemos una concurrencia alta, por favor recarga esta pestaña desde <a href="#"> aquí</a></div></div></div>');
     });
 
     $.get(hostname + 'includes/actualizar-datos', function(data, status){
