@@ -1,3 +1,13 @@
+jQuery.validator.addMethod("notUPCemail", function(email, element) {
+        var regex = /^([a-zA-Z0-9_.+-])+\@(upc.edu.pe)+$/;
+        return !regex.test(email);
+}, "Ingrese un correo diferente a su correo de UPC.");
+
+jQuery.validator.addMethod("phoneStart9", function(phone_number, element) {
+    phone_number = phone_number.replace(/\s+/g, "");
+    return this.optional(element) || phone_number.match(/^9\d{8,}$/);
+}, "El teléfono móvil debe iniciar con 9.");
+
 $(document).ready(function () {
 
     var href = window.location.protocol + "://" + window.location.host + window.location.pathname;
@@ -109,12 +119,15 @@ $(document).ready(function () {
                 email: {
                     "required" : data.obligatorio,
                     "email" : true,
-                    maxlength: 50
+                    maxlength: 50,
+                    notUPCemail : true
                 },
                 phone : {
                     "required" : data.obligatorio,
                     "number": true,
-                    maxlength: 15
+                    maxlength: 15,
+                    minlength: 8,
+                    phoneStart9: true
                  },
                 nombreApoderado : {
                     "required"  : data.ApodObligatorio,
@@ -132,13 +145,15 @@ $(document).ready(function () {
                     "required" : data.ApodEmailOblig,
                     "email" : true,
                     maxlength: 50,
-                    minlength: 9
+                    minlength: 9,
+                    notUPCemail : true
                 },
                 phoneApoderado : {
                     "required" : data.ApodMovilOblig,
                     "number" : true,
                     maxlength: 15,
-                    minlength: 6
+                    minlength: 8,
+                    phoneStart9: true
                 }
 
             }, messages:{
@@ -149,6 +164,7 @@ $(document).ready(function () {
                 phone : {
                     "required" : "Ingrese su número de teléfono celular",
                     "number": "Solo ingrese números"
+                    "minlegth": "Debe tener al menos 8 dígitos"
                 },
                 nombreApoderado : {
                     "required"  : "Ingrese el nombre del Apoderado"
@@ -166,6 +182,9 @@ $(document).ready(function () {
                 phoneApoderado : {
                     "required" : "Ingrese el número de teléfono móvil del Apoderado",
                     "number" : "Sólo ingrese números"
+                    "minlegth": "Debe tener al menos 8 dígitos"
+                    "maxlegth": "Ingrese un número de teléfono móvil válido"
+
                 }
             },
             submitHandler: function(form){

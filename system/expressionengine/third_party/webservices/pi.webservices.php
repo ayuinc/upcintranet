@@ -5672,16 +5672,18 @@ class Webservices
                 if($date >= $inicio && $date <= $fin){
                     // enable update
                     $dataAlumno = $this->upc_services->get_data_update_registered_user();
-                    if($dataAlumno != false && $dataAlumno != null && $dataAlumno->DTHeader->CodigoRetorno == "Correcto"){
-                        $array = array( "vigente" =>false,
-                            "html" => "");
-                    }else{
-                         $array = array("vigente"=>true,
-                        'obligatorio'=> ($ficha->Obligatorio == 'SI') ? true : false,
-                        'ApodObligatorio' => ($ficha->ApodObligatorio == 'SI') ? true : false,
-                        'ApodEmailOblig' => ($ficha->ApodEmailOblig == 'SI') ? true : false,
-                        'ApodMovilOblig' => ($ficha->ApodMovilOblig == 'SI') ? true : false,
-                        "html" => $tagdata);
+                    if($dataAlumno != false && $dataAlumno != null && $dataAlumno->DTOHeader->CodigoRetorno == "Correcto"){
+                      if(count($dataAlumno->ListaDTOUpdDatosPersona) != 0){
+                            $array = array( "vigente" =>false,
+                                "html" => "");
+                        }else {
+                          $array = array("vigente" => true,
+                              'obligatorio' => ($ficha->Obligatorio == 'SI') ? true : false,
+                              'ApodObligatorio' => ($ficha->ApodObligatorio == 'SI') ? true : false,
+                              'ApodEmailOblig' => ($ficha->ApodEmailOblig == 'SI') ? true : false,
+                              'ApodMovilOblig' => ($ficha->ApodMovilOblig == 'SI') ? true : false,
+                              "html" => $tagdata);
+                      }
                     }
                     
                 }
