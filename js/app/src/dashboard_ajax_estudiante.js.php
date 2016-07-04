@@ -163,7 +163,7 @@ $(document).ready(function () {
                 },
                 phone : {
                     "required" : "Ingrese su número de teléfono celular",
-                    "number": "Solo ingrese números"
+                    "number": "Solo ingrese números",
                     "minlegth": "Debe tener al menos 8 dígitos"
                 },
                 nombreApoderado : {
@@ -181,8 +181,8 @@ $(document).ready(function () {
                 },
                 phoneApoderado : {
                     "required" : "Ingrese el número de teléfono móvil del Apoderado",
-                    "number" : "Sólo ingrese números"
-                    "minlegth": "Debe tener al menos 8 dígitos"
+                    "number" : "Sólo ingrese números",
+                    "minlegth": "Debe tener al menos 8 dígitos",
                     "maxlegth": "Ingrese un número de teléfono móvil válido"
 
                 }
