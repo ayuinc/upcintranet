@@ -58,7 +58,7 @@ class ws_helper
      */
     public function get_fuzzy_name($key)
     {
-        return ($this->cookie_fuzzynames[$key] !== NULL) ? $this->cookie_fuzzynames[$key] : $key;
+        return (array_key_exists($key, $this->cookie_fuzzynames)) ? $this->cookie_fuzzynames[$key] : $key;
     }
 
     /**
