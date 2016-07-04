@@ -112,7 +112,12 @@ $(document).ready(function () {
 
         $('#cargador-modal-actualizar').remove();
         $('#actualizacion').append(data.html);
-        $('#modalactualizar').modal('toggle');
+        if(data.obligatorio){
+            $('#modalactualizar').modal({backdrop: 'static', keyboard: false});
+            $('#modalactualizar .close').remove();
+        }else{
+            $('#modalactualizar').modal('toggle');
+        }
         $('#form-actualizar').validate({
 
             rules:{
@@ -201,7 +206,18 @@ $(document).ready(function () {
                     tipo : $('#form-actualizar #tipoApoderado').val()
                 }, function(data, status){
                     if(!data){
-                        swal("Actualización de datos", "Se guardaron tus datos satisfactoriamente.", "success");
+                        swal({
+                                title: "Actualización de datos",
+                                text: "Se guardaron tus datos satisfactoriamente",
+                                type: "success",
+                                showCancelButton: false,
+                                confirmButtonText: "Aceptar",
+                                closeOnConfirm: true
+                            },
+                            function(isConfirm){
+                                $('#modalactualizar').modal('toggle');
+                                $('#actualización').remove();
+                            });
                     }else{
                         swal("Uups...", data, "error");
                     }
