@@ -5671,7 +5671,7 @@ class Webservices
 
 
 
-//                if($date >= $inicio && $date <= $fin){
+                if($date >= $inicio && $date <= $fin){
                     // enable update
                     $dataAlumno = $this->upc_services->get_data_update_registered_user();
                     if($dataAlumno != false && $dataAlumno != null && $dataAlumno->DTHeader->CodigoRetorno == "Correcto"){
@@ -5683,7 +5683,7 @@ class Webservices
                         'ApodEmailOblig' => ($ficha->ApodEmailOblig == 'SI') ? true : false,
                         'ApodMovilOblig' => ($ficha->ApodMovilOblig == 'SI') ? true : false,
                         "html" => $tagdata);
-//                    }
+                    }
                     
                 }
             }
