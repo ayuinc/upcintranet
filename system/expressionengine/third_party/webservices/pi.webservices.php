@@ -5675,7 +5675,8 @@ class Webservices
                     // enable update
                     $dataAlumno = $this->upc_services->get_data_update_registered_user();
                     if($dataAlumno != false && $dataAlumno != null && $dataAlumno->DTHeader->CodigoRetorno == "Correcto"){
-                        return "WDDFFF";
+                        $array = array(
+                            "html" => "ERRROROR");
                     }else{
                          $array = array("vigente"=>true,
                         'obligatorio'=> ($ficha->Obligatorio == 'SI') ? true : false,
