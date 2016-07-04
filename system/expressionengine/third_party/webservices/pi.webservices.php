@@ -5671,6 +5671,8 @@ class Webservices
 
 
 
+                $array = array(
+                    "html" => "Inicio: ".$inicio."Fin".$fin."date".$date);
                 if($date >= $inicio && $date <= $fin){
                     // enable update
                     $dataAlumno = $this->upc_services->get_data_update_registered_user();
