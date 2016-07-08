@@ -10,12 +10,12 @@
                         <div id="estudent-personal-data">
                             <div class="zizou-14">
                                 <span class="close pull-right zizou-22" data-dismiss="modal">&times;</span>
-                                <h2>Hola {exp:webservices:nombre_alumno}.</h2>
+                                <h2>Hola {exp:webservices:nombre_alumno}</h2>
                                 <p>Código: {exp:webservices:full_user_code}</p>
 
                             </div>
                             <div class="red-line"></div>
-                            <h4 class="uppercasse solano-bold-22 text-right pt-14">¡Manten tus datos actualizados!</h4>
+                            <h4 class="uppercasse solano-bold-22 text-right pt-14">Porque estar comunicados es importante. <strong>¡Actualiza tus datos!</strong>></h4>
                         </div>  <!--datos-personales-alumno end-->
                         <div class="mb-7"></div>
                         <form id="form-actualizar">
@@ -23,16 +23,16 @@
                             <div id="complete-inputs-alumno">
                                 <div class=" mb-14 pt-14 mb-14 helvetica-12">
                                     <div class="col-lg-offset-1 col-lg-10 col-xs-12">
-                                        <input type="text-muted" name="phone" id="phone" value="" size="18" maxlength="15" class="form-control" placeholder="Número de celular">
+                                        <input type="text-muted" name="phone" id="phone" value="" size="18" maxlength="9" class="form-control" placeholder="Número de celular">
                                         <div class="mb-7"></div>
-                                        <input type="text-muted" name="email" id="email" value="" size="18" maxlength="50" class="form-control" placeholder="Correo Electrónico">
-                                        <span class="helvetica-11 text-info">Por favor, ingrese un correo electrónico personal diferente a su correo de UPC.</span>
+                                        <input type="text-muted" name="email" id="email" value="" size="18" maxlength="50" class="form-control" placeholder="Correo Personal">
+                                        <span class="helvetica-11 text-info">Por favor, ingrese un correo electrónico personal diferente al de UPC.</span>
                                     </div>
                                 </div>
                             </div>
                             <div id="complete-inputs-apoderado" class=" mb-14 pt-14 mb-14">
                                 <div class="col-lg-offset-1 col-lg-10 col-xs-12 helvetica-12">
-                                    <h4 class="uppercasse pt-14 red zizou-18">Datos del apoderado</h4>
+                                    <h4 class="uppercasse pt-14 red zizou-18">Datos del Apoderado:</h4>
                                     <div class="mb-7"></div>
                                     <select class="selectpicker form-control" id="tipoApoderado">
                                         <option value="">Selecciona apoderado</option>
@@ -41,16 +41,16 @@
                                         <option value="3">Otro</option>
                                     </select>
                                     <div class="mb-7"></div>
-                                        <input type="text-muted" name="nombreApoderado" id="nombreApoderado" value="" size="18" maxlength="80" class=" form-control" placeholder="Nombres Apoderado">
+                                        <input type="text-muted" name="nombreApoderado" id="nombreApoderado" value="" size="18" maxlength="80" class=" form-control" placeholder="Nombres">
 
                                          <div class="mb-7"></div>
-                                        <input type="text-muted" name="apellidoPatApoderado" id="apellidoPatApoderado" value="" size="18" maxlength="50" class="form-control" placeholder="Apellido Paterno Apoderado">
+                                        <input type="text-muted" name="apellidoPatApoderado" id="apellidoPatApoderado" value="" size="18" maxlength="50" class="form-control" placeholder="Apellido Paterno">
                                         <div class="mb-7"></div>
-                                        <input type="text-muted" name="apellidoMatApoderado" id="apellidoMatApoderado" value="" size="18" maxlength="50" class="form-control" placeholder="Apellido Materno Apoderado">
+                                        <input type="text-muted" name="apellidoMatApoderado" id="apellidoMatApoderado" value="" size="18" maxlength="50" class="form-control" placeholder="Apellido Materno">
                                         <div class="mb-7"></div>
-                                        <input type="text-muted" name="phoneApoderado" id="phoneApoderado" value="" size="18" maxlength="15" class=" form-control" placeholder="Número de celular">
+                                        <input type="text-muted" name="phoneApoderado" id="phoneApoderado" value="" size="18" maxlength="9" class=" form-control" placeholder="Número de celular">
                                         <div class="mb-7"></div>
-                                        <input type="text-muted" name="emailApoderado" id="emailApoderado" value="" size="18" maxlength="50" class=" form-control" placeholder="Correo Electrónico">
+                                        <input type="text-muted" name="emailApoderado" id="emailApoderado" value="" size="18" maxlength="50" class=" form-control" placeholder="Correo Personal">
                                     <div class="mb-7"></div>
                                     <div class="col-xs-12 p-0 text-right">
                                         <button id="btn_int_IniciarSesion" type="submit" data-toggle="modal"  value="Send" class="btn btn-custom black-btn wide full-width lg p-0 mt-0 mb-14">Continuar</button>

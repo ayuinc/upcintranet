@@ -130,8 +130,8 @@ $(document).ready(function () {
                 phone : {
                     "required" : data.obligatorio,
                     "number": true,
-                    maxlength: 15,
-                    minlength: 8,
+                    maxlength: 9,
+                    minlength: 9,
                     phoneStart9: true
                  },
                 nombreApoderado : {
@@ -156,8 +156,8 @@ $(document).ready(function () {
                 phoneApoderado : {
                     "required" : data.ApodMovilOblig,
                     "number" : true,
-                    maxlength: 15,
-                    minlength: 8,
+                    maxlength: 9,
+                    minlength: 9,
                     phoneStart9: true
                 }
 
@@ -169,7 +169,7 @@ $(document).ready(function () {
                 phone : {
                     "required" : "Ingrese su número de teléfono celular",
                     "number": "Solo ingrese números",
-                    "minlength": "Debe tener al menos 8 dígitos",
+                    "minlength": "Debe tener 9 dígitos",
                     "maxlength": "Ingrese un número de teléfono móvil válido"
 
                 },
@@ -189,7 +189,7 @@ $(document).ready(function () {
                 phoneApoderado : {
                     "required" : "Ingrese el número de teléfono móvil del Apoderado",
                     "number" : "Sólo ingrese números",
-                    "minlength": "Debe tener al menos 8 dígitos",
+                    "minlength": "Debe tener 9 dígitos",
                     "maxlength": "Ingrese un número de teléfono móvil válido"
 
                 }
