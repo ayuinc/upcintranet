@@ -183,7 +183,7 @@ class UPC_services
             'CodPersona' => $this->user_data->get_codigo_persona(),
             'ApellidoPatern' => $this->user_data->get_user_apellido_paterno(),
             'ApellidoMatern' => $this->user_data->get_user_apellido_materno(),
-            'Nombres' => $this->user_data->get_user_nombres(),
+            'Nombres' => ucwords(strtolower($this->user_data->get_user_nombres())),
             'TelefonoMovil' => $phone,
             'DireccionEmail' => $email,
             'UsuarioCreacion' => $this->user_data->get_user_code(),
