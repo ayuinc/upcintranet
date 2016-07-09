@@ -4,7 +4,7 @@ jQuery.validator.addMethod("notUPCemail", function(email, element) {
 }, "Ingrese un correo diferente a su correo de UPC.");
 
 jQuery.validator.addMethod("phoneStart9", function(phone_number, element) {
-    phone_number = phone_number.replace(/\s+/9, "");
+    phone_number = phone_number.replace(/\s+/g, "");
     return this.optional(element) || phone_number.match(/^9/);
 }, "El teléfono móvil debe iniciar con 9.");
 
