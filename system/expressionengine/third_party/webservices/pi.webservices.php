@@ -5720,9 +5720,9 @@ class Webservices
         $phone = ee()->TMPL->fetch_param('phone');
         $email = ee()->TMPL->fetch_param('email');
 
-        $nombreAp = ee()->TMPL->fetch_param('nombreAp');
-        $apePatAp = ee()->TMPL->fetch_param('apePatAp');
-        $apeMatAp = ee()->TMPL->fetch_param('apeMatAp');
+        $nombreAp = ucwords(strtolower(ee()->TMPL->fetch_param('nombreAp')));
+        $apePatAp = ucwords(strtolower(ee()->TMPL->fetch_param('apePatAp')));
+        $apeMatAp = ucwords(strtolower(ee()->TMPL->fetch_param('apeMatAp')));
         $phoneAp = ee()->TMPL->fetch_param('phoneAp');
         $emailAp = ee()->TMPL->fetch_param('emailAp');
         $tipo = ee()->TMPL->fetch_param('tipoAp');
