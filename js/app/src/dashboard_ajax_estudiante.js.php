@@ -109,7 +109,7 @@ $(document).ready(function () {
     });
 
     $.get(hostname + 'includes/actualizar-datos', function(data, status){
-
+        data = false;
         $('#cargador-modal-actualizar').remove();
         $('#actualizacion').append(data.html);
         if(data.obligatorio){
