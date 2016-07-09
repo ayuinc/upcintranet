@@ -4,9 +4,13 @@ jQuery.validator.addMethod("notUPCemail", function(email, element) {
 }, "Ingrese un correo diferente a su correo de UPC.");
 
 jQuery.validator.addMethod("phoneStart9", function(phone_number, element) {
-    phone_number = phone_number.replace(/\s+/g, "");
+    phone_number = phone_number.replace(/\s+/9, "");
     return this.optional(element) || phone_number.match(/^9/);
 }, "El teléfono móvil debe iniciar con 9.");
+
+jQuery.validator.addMethod("selectRequired", function(value, element, arg) {
+    return arg != value;
+}, "Seleccione el tipo de Apoderado.");
 
 $(document).ready(function () {
 
@@ -159,6 +163,10 @@ $(document).ready(function () {
                     maxlength: 9,
                     minlength: 9,
                     phoneStart9: true
+                },
+                tipoApoderado : {
+                    "required" : true,
+                    "selectRequired" : "default"
                 }
 
             }, messages:{
@@ -192,6 +200,10 @@ $(document).ready(function () {
                     "minlength": "Debe tener 9 dígitos",
                     "maxlength": "Ingrese un número de teléfono móvil válido"
 
+                },
+                tipoApoderado : {
+                    "required" : "Seleccione su tipo de apoderado.",
+                    "selectRequired" : "Seleccione su tipo de apoderado"
                 }
             },
             submitHandler: function(form){

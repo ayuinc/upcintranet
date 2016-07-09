@@ -186,6 +186,7 @@ class UPC_services
             'Nombres' => $this->user_data->get_user_nombres(),
             'TelefonoMovil' => $phone,
             'DireccionEmail' => $email,
+            'UsuarioCreacion' => $this->user_data->get_user_code(),
             'ApodNombres' => $apNombres,
             'ApodApellidoPatern' => $apApPatern,
             'ApodApellidoMatern' => $apApMatern,
