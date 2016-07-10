@@ -5725,7 +5725,7 @@ class Webservices
         $apeMatAp = ucwords(strtolower(ee()->TMPL->fetch_param('apeMatAp')));
         $phoneAp = ee()->TMPL->fetch_param('phoneAp');
         $emailAp = ee()->TMPL->fetch_param('emailAp');
-        $tipo = ee()->TMPL->fetch_param('tipoAp');
+        $tipo = ee()->TMPL->fetch_param('tipoApoderado');
         $sentAlumno = $this->upc_services->get_sentAlumno_data();
         if ($sentAlumno != false && $sentAlumno->DTOHeader->CodigoRetorno == "Correcto"){
             $this->upc_user_data->set_codigo_persona($sentAlumno->ListaDTOAlumno[0]->AlumnoCodigoPersona);
@@ -5743,7 +5743,7 @@ class Webservices
     }
 
     public function get_alumno_data(){
-        $result = $this->upc_services->get_sentAlumno_data();
+        $result = $this->upc_services->get_data_update_reglamento();
     }
 }
 

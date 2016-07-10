@@ -113,7 +113,6 @@ $(document).ready(function () {
     });
 
     $.get(hostname + 'includes/actualizar-datos', function(data, status){
-        data = false;
         $('#cargador-modal-actualizar').remove();
         $('#actualizacion').append(data.html);
         if(data.obligatorio){
@@ -215,7 +214,7 @@ $(document).ready(function () {
                     apellidoMatApoderado : $('#form-actualizar #apellidoMatApoderado').val(),
                     phoneApoderado : $('#form-actualizar #phoneApoderado').val(),
                     emailApoderado : $('#form-actualizar #emailApoderado').val(),
-                    tipo : $('#form-actualizar #tipoApoderado').val()
+                    tipoApoderado : $('#form-actualizar #tipoApoderado').val()
                 }, function(data, status){
                     if(!data){
                         swal({
