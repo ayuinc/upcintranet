@@ -117,15 +117,21 @@ class UPC_services
      *  Reglamento de Actualización de datos
      */
     public function get_data_update_reglamento(){
-        $codlinea = $this->user_data->get_user_linea();
-        $codmodal = $this->user_data->get_user_modalidad();
-        $url = ee()->config->item('user_update_services_url');
-        $url .= ee()->config->item('user_update_services_reglamento_path');
-        $url .= '?';
-        $url .= 'CodLineaNegocio='.$codlinea;
-        $url .= '&CodModalEst='.$codmodal;
-        $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
-        return  $this->curl_quicks->parse_json($result, false);
+
+        $enabled =  ee()->config->item('user_update_services_enabled');
+
+        if($enabled == TRUE){
+            $codlinea = $this->user_data->get_user_linea();
+            $codmodal = $this->user_data->get_user_modalidad();
+            $url = ee()->config->item('user_update_services_url');
+            $url .= ee()->config->item('user_update_services_reglamento_path');
+            $url .= '?';
+            $url .= 'CodLineaNegocio='.$codlinea;
+            $url .= '&CodModalEst='.$codmodal;
+            $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
+            return  $this->curl_quicks->parse_json($result, false);
+        }
+        return false;
     }
 
     /**

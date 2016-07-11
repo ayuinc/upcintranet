@@ -5655,15 +5655,14 @@ class Webservices
     public function user_data_update()
     {
         $tagdata = $this->EE->TMPL->tagdata;
-        $array = array();
+        $array = array( "vigente" =>false,
+            "html" => "");
         $regsrv = $this->upc_services->get_data_update_reglamento();
         if($regsrv != false && $regsrv->DTOHeader->CodigoRetorno == "Correcto")
         {
             $ficha = $regsrv->ListaDTORegFichaDatos[0]->DTORegFichaDatosDetalle[0];
-//            var_dump($ficha->Vigente);
-            if($ficha->Vigente == "SI" )
+            if( $ficha->Vigente == "SI" )
             {
-
                 $timezone = new DateTimeZone('America/Lima');
                 $inicio = DateTime::createFromFormat('Y-m-d\TH:i:s', $ficha->FechaInicio, $timezone);
                 $fin = DateTime::createFromFormat('Y-m-d\TH:i:s', $ficha->FechaFin, $timezone);
@@ -5673,10 +5672,7 @@ class Webservices
                     // enable update
                     $dataAlumno = $this->upc_services->get_data_update_registered_user();
                     if($dataAlumno != false && $dataAlumno != null && $dataAlumno->DTOHeader->CodigoRetorno == "Correcto"){
-                      if(count($dataAlumno->ListaDTOUpdDatosPersona) != 0){
-                            $array = array( "vigente" =>false,
-                                "html" => "");
-                        }else {
+                      if(count($dataAlumno->ListaDTOUpdDatosPersona) == 0){
                           $array = array("vigente" => true,
                               'obligatorio' => ($ficha->Obligatorio == 'SI') ? true : false,
                               'ApodObligatorio' => ($ficha->ApodObligatorio == 'SI') ? true : false,
@@ -5685,14 +5681,10 @@ class Webservices
                               "html" => $tagdata);
                       }
                     }
-                    
                 }
             }
-
         }
-
         $this->EE->output->send_ajax_response($array);
-
     }
 
 
