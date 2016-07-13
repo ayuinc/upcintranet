@@ -1594,7 +1594,7 @@ class Webservices
                                         $form .= "</form>";
                                         $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                                     } else {
-                                        $form = "<!-- " . $quiz_request . " COD ERROR" . $qjson['CodError'] . "--><a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                                        $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
                                         $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                                     }
                                 }
