@@ -153,7 +153,6 @@ $(document).ready(function () {
                     "required" : data.ApodEmailOblig,
                     "email" : true,
                     maxlength: 50,
-                    minlength: 9,
                     notUPCemail : true
                 },
                 phoneApoderado : {
