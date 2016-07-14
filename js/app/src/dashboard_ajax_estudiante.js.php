@@ -3,6 +3,11 @@ jQuery.validator.addMethod("notUPCemail", function(email, element) {
         return !regex.test(email);
 }, "Ingrese un correo diferente a su correo de UPC.");
 
+jQuery.validator.addMethod("customEmail", function(email, element) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@([a-zA-Z0-9_.+-])+\.([a-zA-Z0-9_.+-])$/;
+    return regex.test(email);
+}, "Ingrese un correo diferente a su correo de UPC.");
+
 jQuery.validator.addMethod("phoneStart9", function(phone_number, element) {
     phone_number = phone_number.replace(/\s+/g, "");
     return this.optional(element) || phone_number.match(/^9/);
@@ -125,46 +130,48 @@ $(document).ready(function () {
 
             rules:{
                 email: {
-                    "required" : data.obligatorio,
-                    email : true,
+                    required : data.obligatorio,
                     maxlength: 50,
-                    notUPCemail : true
+                    notUPCemail : true,
+                    email : true,
+                    customEmail : true
                 },
                 phone : {
-                    "required" : data.obligatorio,
-                    "number": true,
+                    required : data.obligatorio,
+                    number: true,
                     maxlength: 9,
                     minlength: 9,
                     phoneStart9: true
                  },
                 nombreApoderado : {
-                    "required"  : data.ApodObligatorio,
+                    required  : data.ApodObligatorio,
                     maxlength: 80
                 },
                 apellidoPatApoderado : {
-                    "required" : data.ApodObligatorio,
+                    required : data.ApodObligatorio,
                     maxlength: 50
                 },
                 apellidoMatApoderado : {
-                    "required" : data.ApodObligatorio,
+                    required : data.ApodObligatorio,
                     maxlength: 50
                 },
                 emailApoderado : {
-                    "required" : data.ApodEmailOblig,
-                    email : true,
+                    required : data.ApodEmailOblig,
                     maxlength: 50,
-                    notUPCemail : true
+                    notUPCemail : true,
+                    email : true,
+                    customEmail : true
                 },
                 phoneApoderado : {
-                    "required" : data.ApodMovilOblig,
-                    "number" : true,
+                    required : data.ApodMovilOblig,
+                    number : true,
                     maxlength: 9,
                     minlength: 9,
                     phoneStart9: true
                 },
                 tipoApoderado : {
-                    "required" : true,
-                    "selectRequired" : "default"
+                    required : true,
+                    selectRequired : "default"
                 }
 
             }, messages:{
