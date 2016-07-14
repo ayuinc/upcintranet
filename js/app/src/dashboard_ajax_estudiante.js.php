@@ -126,7 +126,7 @@ $(document).ready(function () {
             rules:{
                 email: {
                     "required" : data.obligatorio,
-                    "email" : true,
+                    email : true,
                     maxlength: 50,
                     notUPCemail : true
                 },
@@ -151,7 +151,7 @@ $(document).ready(function () {
                 },
                 emailApoderado : {
                     "required" : data.ApodEmailOblig,
-                    "email" : true,
+                    email : true,
                     maxlength: 50,
                     notUPCemail : true
                 },

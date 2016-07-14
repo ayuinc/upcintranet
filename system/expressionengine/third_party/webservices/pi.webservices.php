@@ -1491,7 +1491,6 @@ class Webservices
         $horario_empty_survey = $this->tags->get_subtag_data('horario_survey', $tagdata);
         if (strlen($enable_survey) !== 0) {
             $horario_empty = $this->tags->get_subtag_data('horario_survey', $tagdata);
-            // $horario_empty = $this->tags->get_subtag_data('horario',$tagdata);
         } else {
             $horario_empty = $this->tags->get_subtag_data('horario', $tagdata);
         }
