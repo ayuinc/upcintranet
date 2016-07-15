@@ -22,6 +22,7 @@ class UPC_services
 
 
     /**
+     * Verificar token
      * @return bool
      */
     public function verify_token(){
@@ -50,6 +51,10 @@ class UPC_services
         }
     }
 
+    /**
+     * Cursos por alumno
+     * @return bool|mixed
+     */
     public function courses_by_student(){
         $codigo = $this->user_data->get_user_code();
         $token = $this->user_data->get_user_token();
@@ -58,6 +63,11 @@ class UPC_services
         return $this->curl_quicks->parse_json($result, false);
     }
 
+    /**
+     * Notas por alumno
+     * @param $codcurso codigo del curso
+     * @return bool|mixed
+     */
     public function student_grades_by_course($codcurso){
         $codigo = $this->user_data->get_user_code();
         $token = $this->user_data->get_user_token();
@@ -66,6 +76,12 @@ class UPC_services
         return $this->curl_quicks->parse_json($result, false);
     }
 
+    /**
+     * Activar recursos reservados
+     * @param $code codigo del alumno
+     * @param string $student2 codigo del segundo alumno
+     * @return bool|mixed
+     */
     public function activate_reserved_resources($code, $student2=""){
         $codigo = $this->user_data->get_user_code();
         $token = $this->user_data->get_user_token();
@@ -75,6 +91,13 @@ class UPC_services
 
     }
 
+    /**
+     * Verificar recursos reservados
+     * @param $code codigo del alumno
+     * @param $codeResource codigo del alumno
+     * @param string $student2 codigo del segundo estudiante
+     * @return bool|mixed
+     */
     public function verify_reserved_resources($code, $codeResource,  $student2=""){
         $codigo = $this->user_data->get_user_code();
         $token = $this->user_data->get_user_token();
@@ -84,6 +107,10 @@ class UPC_services
 
     }
 
+    /**
+     * Listar recursos reservados
+     * @return bool|mixed
+     */
     public function list_reserved_resources(){
         $codigo = $this->user_data->get_user_code();
         $token = $this->user_data->get_user_token();
@@ -92,19 +119,26 @@ class UPC_services
         return $this->curl_quicks->parse_json($result, false);
     }
 
+    /**
+     *  Completar data de usuario desde servicio de horairo
+     */
     public function complete_data_from_senthorario(){
+
         $codlinea = $this->user_data->get_user_linea();
         $codmodal = $this->user_data->get_user_modalidad();
         $periodo = $this->user_data->get_ciclo();
+
         $quiz_service = ee()->config->item('quiz_services_url');
         $quiz_services_url = $quiz_service;
         $quiz_services_url .= $codlinea;
         $quiz_services_url .= '/'.$codmodal;
         $quiz_services_url .= '/'.$periodo;
         $quiz_services_url .= '/'.$this->user_data->get_full_user_code();
+
         $day = date('w');
         $week_start = date('Y-m-d', strtotime('-'.$day.' days'));
         $week_end = date('Y-m-d', strtotime('+'.(6-$day).' days'));
+
         $quiz_services_url .= '/'.$week_start.'T00:00:00Z';
         $quiz_services_url .= '/'.$week_end.'T00:00:00Z';
         $this->curl_quicks->upc_log("WFSENTHORARIO;".$this->user_data->get_full_user_code().";".$quiz_services_url.";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
@@ -141,12 +175,14 @@ class UPC_services
 
         $codlinea = $this->user_data->get_user_linea();
         $coduser = $this->user_data->get_user_code();
+
         $url = ee()->config->item('user_update_services_url');
         $url .= ee()->config->item('user_update_services_parentesco_path');
         $url .= '?';
         $url .= 'CodLineaNegocio='.$codlinea;
         $url .= '&CodUsuario='.$coduser;
         $url .= '&CodTipoPariente='.$tipo;
+
         $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('user_update_services_user'),  ee()->config->item('user_update_services_pwd'));
         return  $this->curl_quicks->parse_json($result, false);
     }
@@ -170,6 +206,14 @@ class UPC_services
 
     /**
      *  Registro de Datos del alumno en el formulario
+     * @param $phone telefono del alumno
+     * @param $email mail del alumno
+     * @param $apApPatern apellido paterno del apoderado
+     * @param $apApMatern apellido materno del apoderado
+     * @param $apphone telefono del apoderado
+     * @param $apemail mail del apoderado
+     * @param $tipo tipo de apoderado
+     * @return response
      */
     public function set_data_update_registered_user($phone, $email, $apNombres, $apApPatern, $apApMatern, $apphone, $apemail, $tipo){
         $codlinea = $this->user_data->get_user_linea();

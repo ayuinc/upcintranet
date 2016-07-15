@@ -1235,12 +1235,11 @@ class Webservices
 
         $json = $this->services->curl_full_url($matricula_url, ee()->config->item('matricula_user'), ee()->config->item('matricula_pwd'));
         foreach ($json['ListaDTOMatricula'] as $matricula) {
-            // var_dump($matricula['MatriculaCodPeriodMat']);
+ 
             if ($periodo == $matricula['MatriculaCodPeriodMat']) {
                 return $matricula['MatriculaCodProducMat'];
             }
         }
-//        $this->services->upc_log("WFSENTMATRICULA;" . $codigo . ";" . $matricula_url . ";" . $result . ";" . date('ddmmyyyy - H:i:s') . "\n", "logs/WFSENTMATRICULA.log");
         return 0;
     }
 
@@ -1303,7 +1302,7 @@ class Webservices
         $result = '';
         $horario_empty;
         $horario_empty_survey = $this->tags->get_subtag_data('horario_survey', $tagdata);
-        if (strlen($enable_survey) !== 0 && $quiz_enabled == true) {
+        if (strlen($enable_survey) !== 0) {
             $horario_empty = $this->tags->get_subtag_data('horario_survey', $tagdata);
             // $horario_empty = $this->tags->get_subtag_data('horario',$tagdata);
         } else {
@@ -1549,7 +1548,6 @@ class Webservices
                                 $carrera = $this->get_carrera_alumno();
                                 $quiz_horarios = $quiz_json['ListaDTOHorarioAlumno'];
                             } else {
-//            $this->services->upc_log("WFSENTHORARIO;" . $codigo_full . ";" . $quiz_services_url . ";" . $quiz_result . ";" . date('ddmmyyyy - H:i:s') . "\n", "logs/WSENTHORARIO.log");
 
                                 $error_result = $this->tags->get_subtag_data('error', $this->EE->TMPL->tagdata);
                                 $error_result = $this->tags->replace_subtag_data('error_message', $error_result, 'No podemos obtener los datos necesarios.');
