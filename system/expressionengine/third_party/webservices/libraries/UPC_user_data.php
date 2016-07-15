@@ -111,7 +111,7 @@ class UPC_user_data
      */
     public function set_apellido_paterno($apellido){
         if($apellido != null && trim($apellido)!= ""){
-            $this->set_to_db_from_user('apellidoPaterno', $apellido, $this->get_user_code());
+            $this->set_to_db_from_user('apellidoPaterno',  ucwords(strtolower($apellido)), $this->get_user_code());
         }
     }
 
@@ -120,7 +120,7 @@ class UPC_user_data
      */
     public function set_apellido_materno($apellido){
         if($apellido != null && trim($apellido) != ""){
-            $this->set_to_db_from_user('apellidoMaterno', $apellido, $this->get_user_code());
+            $this->set_to_db_from_user('apellidoMaterno',  ucwords(strtolower($apellido)), $this->get_user_code());
         }
     }
 

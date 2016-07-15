@@ -3,10 +3,19 @@ jQuery.validator.addMethod("notUPCemail", function(email, element) {
         return !regex.test(email);
 }, "Ingrese un correo diferente a su correo de UPC.");
 
+jQuery.validator.addMethod("customEmail", function(email, element) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@([a-zA-Z0-9_.+-])+\.([a-zA-Z0-9_.+-])$/;
+    return regex.test(email);
+}, "Ingrese un correo diferente a su correo de UPC.");
+
 jQuery.validator.addMethod("phoneStart9", function(phone_number, element) {
     phone_number = phone_number.replace(/\s+/g, "");
     return this.optional(element) || phone_number.match(/^9/);
 }, "El teléfono móvil debe iniciar con 9.");
+
+jQuery.validator.addMethod("selectRequired", function(value, element, arg) {
+    return arg != value;
+}, "Seleccione el tipo de Apoderado.");
 
 $(document).ready(function () {
 
@@ -109,7 +118,6 @@ $(document).ready(function () {
     });
 
     $.get(hostname + 'includes/actualizar-datos', function(data, status){
-
         $('#cargador-modal-actualizar').remove();
         $('#actualizacion').append(data.html);
         if(data.obligatorio){
@@ -122,43 +130,48 @@ $(document).ready(function () {
 
             rules:{
                 email: {
-                    "required" : data.obligatorio,
-                    "email" : true,
+                    required : data.obligatorio,
                     maxlength: 50,
-                    notUPCemail : true
+                    notUPCemail : true,
+                    email : true,
+                    customEmail : true
                 },
                 phone : {
-                    "required" : data.obligatorio,
-                    "number": true,
-                    maxlength: 15,
-                    minlength: 8,
+                    required : data.obligatorio,
+                    number: true,
+                    maxlength: 9,
+                    minlength: 9,
                     phoneStart9: true
                  },
                 nombreApoderado : {
-                    "required"  : data.ApodObligatorio,
+                    required  : data.ApodObligatorio,
                     maxlength: 80
                 },
                 apellidoPatApoderado : {
-                    "required" : data.ApodObligatorio,
+                    required : data.ApodObligatorio,
                     maxlength: 50
                 },
                 apellidoMatApoderado : {
-                    "required" : data.ApodObligatorio,
+                    required : data.ApodObligatorio,
                     maxlength: 50
                 },
                 emailApoderado : {
-                    "required" : data.ApodEmailOblig,
-                    "email" : true,
+                    required : data.ApodEmailOblig,
                     maxlength: 50,
-                    minlength: 9,
-                    notUPCemail : true
+                    notUPCemail : true,
+                    email : true,
+                    customEmail : true
                 },
                 phoneApoderado : {
-                    "required" : data.ApodMovilOblig,
-                    "number" : true,
-                    maxlength: 15,
-                    minlength: 8,
+                    required : data.ApodMovilOblig,
+                    number : true,
+                    maxlength: 9,
+                    minlength: 9,
                     phoneStart9: true
+                },
+                tipoApoderado : {
+                    required : true,
+                    selectRequired : "default"
                 }
 
             }, messages:{
@@ -169,7 +182,7 @@ $(document).ready(function () {
                 phone : {
                     "required" : "Ingrese su número de teléfono celular",
                     "number": "Solo ingrese números",
-                    "minlength": "Debe tener al menos 8 dígitos",
+                    "minlength": "Debe tener 9 dígitos",
                     "maxlength": "Ingrese un número de teléfono móvil válido"
 
                 },
@@ -189,9 +202,13 @@ $(document).ready(function () {
                 phoneApoderado : {
                     "required" : "Ingrese el número de teléfono móvil del Apoderado",
                     "number" : "Sólo ingrese números",
-                    "minlength": "Debe tener al menos 8 dígitos",
+                    "minlength": "Debe tener 9 dígitos",
                     "maxlength": "Ingrese un número de teléfono móvil válido"
 
+                },
+                tipoApoderado : {
+                    "required" : "Seleccione su tipo de apoderado.",
+                    "selectRequired" : "Seleccione su tipo de apoderado"
                 }
             },
             submitHandler: function(form){
@@ -203,7 +220,7 @@ $(document).ready(function () {
                     apellidoMatApoderado : $('#form-actualizar #apellidoMatApoderado').val(),
                     phoneApoderado : $('#form-actualizar #phoneApoderado').val(),
                     emailApoderado : $('#form-actualizar #emailApoderado').val(),
-                    tipo : $('#form-actualizar #tipoApoderado').val()
+                    tipoApoderado : $('#form-actualizar #tipoApoderado').val()
                 }, function(data, status){
                     if(!data){
                         swal({

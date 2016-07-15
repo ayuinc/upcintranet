@@ -1235,12 +1235,11 @@ class Webservices
 
         $json = $this->services->curl_full_url($matricula_url, ee()->config->item('matricula_user'), ee()->config->item('matricula_pwd'));
         foreach ($json['ListaDTOMatricula'] as $matricula) {
-            // var_dump($matricula['MatriculaCodPeriodMat']);
+ 
             if ($periodo == $matricula['MatriculaCodPeriodMat']) {
                 return $matricula['MatriculaCodProducMat'];
             }
         }
-//        $this->services->upc_log("WFSENTMATRICULA;" . $codigo . ";" . $matricula_url . ";" . $result . ";" . date('ddmmyyyy - H:i:s') . "\n", "logs/WFSENTMATRICULA.log");
         return 0;
     }
 
@@ -1285,7 +1284,7 @@ class Webservices
         $result = '';
         $horario_empty;
         $horario_empty_survey = $this->tags->get_subtag_data('horario_survey', $tagdata);
-        if (strlen($enable_survey) !== 0 && $quiz_enabled == true) {
+        if (strlen($enable_survey) !== 0) {
             $horario_empty = $this->tags->get_subtag_data('horario_survey', $tagdata);
         } else {
             $horario_empty = $this->tags->get_subtag_data('horario', $tagdata);
@@ -1352,35 +1351,53 @@ class Webservices
                     for ($q = 0; $q < count($quiz_horarios); $q++) {
 
                         if ($json['HorarioDia'][$i]['CodDia'] == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) && $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] && $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion']) {
-                            
-                            $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
-                            $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
-                            $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
-                            if ($codigo[0] == 'u') {
-                                $codigo_alumno = 'U' . substr($codigo, 1);
-                            } else {
-                                $codigo_alumno = $codigo;
-                            }
-                            $quiz_params = array('c_un' => $codlinea,
-                                "c_modalidad" => $codmodal,
-                                "c_periodo" => $periodo,
-                                "c_curso" => $codcurso,
-                                "seccion" => $quiz_horarios[$q]['SesionSECCION'],
-                                "grupo" => $quiz_horarios[$q]["SesionGRUPO"],
-                                'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
-                                'c_sede' => $quiz_horarios[$q]["AulaCOD_LOCAL"],
-                                'c_alumno' => $codigo_alumno,
-                                'c_carrera' => $carrera
-                            );
-                            $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
-                            $qjson = json_decode($quiz_request, true);
-                            if ($quiz_request !== false && $qjson['CodError'] === 0) {
-                                $horario_dia = $horario_dia_survey_empty;
 
-                                $form = "<form target=\"_blank\"action=\"" . $qjson["Quizlink"] . "\" ";
-                                $form .= "id=\"" . rand(0, 999) . "\" method=\"post\" class=\"survey-form\">";
-                                foreach ($quiz_params as $key => $value) {
-                                    $form .= "<input type=\"hidden\" value=\"" . $value . "\" name=\"" . $key . "\">";
+                            $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
+                            $strDate = $date->format('YmdH');
+
+                            $class_date = $json['HorarioDia'][$i]['Clases'][$b]['Fecha'] . $HoraInicio;
+                            $class_end_date = $json['HorarioDia'][$i]['Clases'][$b]['Fecha'] . $HoraFin;
+                            if (intval($strDate) >= intval($class_date) && intval($strDate) < intval($class_end_date)) // if(true)
+                            {
+
+                                $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
+                                $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
+                                $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
+                                if ($codigo[0] == 'u') {
+                                    $codigo_alumno = 'U' . substr($codigo, 1);
+                                } else {
+                                    $codigo_alumno = $codigo;
+                                }
+                                $quiz_params = array('c_un' => $codlinea,
+                                    "c_modalidad" => $codmodal,
+                                    "c_periodo" => $periodo,
+                                    "c_curso" => $codcurso,
+                                    "seccion" => $quiz_horarios[$q]['SesionSECCION'],
+                                    "grupo" => $quiz_horarios[$q]["SesionGRUPO"],
+                                    'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
+                                    'c_sede' => $quiz_horarios[$q]["AulaCOD_LOCAL"],
+                                    'c_alumno' => $codigo_alumno,
+                                    'c_carrera' => $carrera
+                                );
+                                $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
+                                $qjson = json_decode($quiz_request, true);
+                                if ($quiz_request !== false && $qjson['CodError'] === 0) {
+                                    $horario_dia = $horario_dia_survey_empty;
+
+                                    $form = "<form target=\"_blank\"action=\"" . $qjson["Quizlink"] . "\" ";
+                                    $form .= "id=\"" . rand(0, 999) . "\" method=\"post\" class=\"survey-form\">";
+                                    foreach ($quiz_params as $key => $value) {
+                                        $form .= "<input type=\"hidden\" value=\"" . $value . "\" name=\"" . $key . "\">";
+                                    }
+                                    $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
+                                    $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
+                                    $form .= "</form>";
+                                    $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                                } else {
+//                                    $this->services->upc_log("ENCUESTAS;" . $codigo . ";" . $quiz_request . ";" . $result . ";" . date('ddmmyyyy - H:i:s') . "\n", "logs/ENCUESTAS.log");
+
+                                    $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                                    $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                                 }
                                 $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
                                 $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
@@ -1478,7 +1495,6 @@ class Webservices
         $horario_empty_survey = $this->tags->get_subtag_data('horario_survey', $tagdata);
         if (strlen($enable_survey) !== 0) {
             $horario_empty = $this->tags->get_subtag_data('horario_survey', $tagdata);
-            // $horario_empty = $this->tags->get_subtag_data('horario',$tagdata);
         } else {
             $horario_empty = $this->tags->get_subtag_data('horario', $tagdata);
         }
@@ -1537,7 +1553,6 @@ class Webservices
                                 $carrera = $this->get_carrera_alumno();
                                 $quiz_horarios = $quiz_json['ListaDTOHorarioAlumno'];
                             } else {
-//            $this->services->upc_log("WFSENTHORARIO;" . $codigo_full . ";" . $quiz_services_url . ";" . $quiz_result . ";" . date('ddmmyyyy - H:i:s') . "\n", "logs/WSENTHORARIO.log");
 
                                 $error_result = $this->tags->get_subtag_data('error', $this->EE->TMPL->tagdata);
                                 $error_result = $this->tags->replace_subtag_data('error_message', $error_result, 'No podemos obtener los datos necesarios.');
@@ -1581,7 +1596,7 @@ class Webservices
                                         $form .= "</form>";
                                         $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                                     } else {
-                                        $form = "<!-- " . $quiz_request . " COD ERROR" . $qjson['CodError'] . "--><a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                                        $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
                                         $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                                     }
                                 }
@@ -5642,15 +5657,14 @@ class Webservices
     public function user_data_update()
     {
         $tagdata = $this->EE->TMPL->tagdata;
-        $array = array();
+        $array = array( "vigente" =>false,
+            "html" => "");
         $regsrv = $this->upc_services->get_data_update_reglamento();
         if($regsrv != false && $regsrv->DTOHeader->CodigoRetorno == "Correcto")
         {
             $ficha = $regsrv->ListaDTORegFichaDatos[0]->DTORegFichaDatosDetalle[0];
-//            var_dump($ficha->Vigente);
-            if($ficha->Vigente == "SI" )
+            if( $ficha->Vigente == "SI" )
             {
-
                 $timezone = new DateTimeZone('America/Lima');
                 $inicio = DateTime::createFromFormat('Y-m-d\TH:i:s', $ficha->FechaInicio, $timezone);
                 $fin = DateTime::createFromFormat('Y-m-d\TH:i:s', $ficha->FechaFin, $timezone);
@@ -5660,10 +5674,7 @@ class Webservices
                     // enable update
                     $dataAlumno = $this->upc_services->get_data_update_registered_user();
                     if($dataAlumno != false && $dataAlumno != null && $dataAlumno->DTOHeader->CodigoRetorno == "Correcto"){
-                      if(count($dataAlumno->ListaDTOUpdDatosPersona) != 0){
-                            $array = array( "vigente" =>false,
-                                "html" => "");
-                        }else {
+                      if(count($dataAlumno->ListaDTOUpdDatosPersona) == 0){
                           $array = array("vigente" => true,
                               'obligatorio' => ($ficha->Obligatorio == 'SI') ? true : false,
                               'ApodObligatorio' => ($ficha->ApodObligatorio == 'SI') ? true : false,
@@ -5672,14 +5683,10 @@ class Webservices
                               "html" => $tagdata);
                       }
                     }
-                    
                 }
             }
-
         }
-
         $this->EE->output->send_ajax_response($array);
-
     }
 
 
@@ -5707,12 +5714,12 @@ class Webservices
         $phone = ee()->TMPL->fetch_param('phone');
         $email = ee()->TMPL->fetch_param('email');
 
-        $nombreAp = ee()->TMPL->fetch_param('nombreAp');
-        $apePatAp = ee()->TMPL->fetch_param('apePatAp');
-        $apeMatAp = ee()->TMPL->fetch_param('apeMatAp');
+        $nombreAp = ucwords(strtolower(ee()->TMPL->fetch_param('nombreAp')));
+        $apePatAp = ucwords(strtolower(ee()->TMPL->fetch_param('apePatAp')));
+        $apeMatAp = ucwords(strtolower(ee()->TMPL->fetch_param('apeMatAp')));
         $phoneAp = ee()->TMPL->fetch_param('phoneAp');
         $emailAp = ee()->TMPL->fetch_param('emailAp');
-        $tipo = ee()->TMPL->fetch_param('tipoAp');
+        $tipo = ee()->TMPL->fetch_param('tipoApoderado');
         $sentAlumno = $this->upc_services->get_sentAlumno_data();
         if ($sentAlumno != false && $sentAlumno->DTOHeader->CodigoRetorno == "Correcto"){
             $this->upc_user_data->set_codigo_persona($sentAlumno->ListaDTOAlumno[0]->AlumnoCodigoPersona);
@@ -5730,7 +5737,7 @@ class Webservices
     }
 
     public function get_alumno_data(){
-        $result = $this->upc_services->get_sentAlumno_data();
+        $result = $this->upc_services->get_data_update_reglamento();
     }
 }
 
