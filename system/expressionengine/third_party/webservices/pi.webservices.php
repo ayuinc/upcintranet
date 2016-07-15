@@ -1279,24 +1279,7 @@ class Webservices
         $quiz_enabled = false;
         $quiz_horarios = null;
         $quiz_json = "";
-        if (strlen($enable_survey) !== 0) {
 
-            $quiz_json = $this->upc_services->complete_data_from_senthorario();
-            if ($quiz_json !== FALSE) {
-//                var_dump($quiz_json);
-                if ($quiz_json["DTOHeader"]["CodigoRetorno"] == 'Correcto') {
-//                    $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json["DTOHeader"]["CodigoRetorno"].$quiz_json["DTOHeader"]["ListaDTOHorarioAlumno"].";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
-
-                    $quiz_enabled = true;
-                    $carrera = $this->get_carrera_alumno();
-//                    $quiz_horarios = $quiz_json->ListaDTOHorarioAlumno;
-                    $quiz_horarios = $quiz_json["ListaDTOHorarioOBJAlumno"];
-                } else {
-
-//                    $this->services->upc_log("WFSENTHORARIO;".$codigo.";".$quiz_json["DTOHeader"]["CodigoRetorno"].$quiz_json["DTOHeader"]["ListaDTOHorarioAlumno"].";".date('ddmmyyyy - H:i:s')."\n", "logs.txt");
-                }
-            }
-        }
 
         // END : traer data de encuestas
         //limpio la variable para reutilizarla
@@ -1305,7 +1288,6 @@ class Webservices
         $horario_empty_survey = $this->tags->get_subtag_data('horario_survey', $tagdata);
         if (strlen($enable_survey) !== 0 && $quiz_enabled == true) {
             $horario_empty = $this->tags->get_subtag_data('horario_survey', $tagdata);
-            // $horario_empty = $this->tags->get_subtag_data('horario',$tagdata);
         } else {
             $horario_empty = $this->tags->get_subtag_data('horario', $tagdata);
         }
@@ -1350,6 +1332,18 @@ class Webservices
                 $HoraFin = substr($json['HorarioDia'][$i]['Clases'][$b]['HoraFin'], 0, 2);
                 $HoraFin = ltrim($HoraFin, '0');
                 if (strlen($enable_survey) !== 0 && $quiz_enabled == true) {
+                    if (strlen($enable_survey) !== 0) {
+            
+                        $quiz_json = $this->upc_services->complete_data_from_senthorario();
+                        if ($quiz_json !== FALSE) {
+                            if ($quiz_json["DTOHeader"]["CodigoRetorno"] == 'Correcto') {
+            
+                                $quiz_enabled = true;
+                                $carrera = $this->get_carrera_alumno();
+                                $quiz_horarios = $quiz_json["ListaDTOHorarioOBJAlumno"];
+                            } 
+                        }
+                    }
                     for ($q = 0; $q < count($quiz_horarios); $q++) {
 
                         if ($json['HorarioDia'][$i]['CodDia'] == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) && $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] && $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion']) {
