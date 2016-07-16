@@ -1557,7 +1557,7 @@ class Webservices
                                     );
                                     
                                         $horario_dia = $horario_dia_survey_empty;
-                                        $form = "<form target=\"_blank\"action=\"" . $qjson["Quizlink"] . "\" ";
+                                        $form = "<form target=\"_blank\"action=\"" . 'http://encuesta.upc.edu.pe/load-survey/' . "\" ";
                                         $form .= "id=\"" . rand(0, 999) . "\" method=\"post\" class=\"survey-form\">";
                                         foreach ($quiz_params as $key => $value) {
                                             $form .= "<input type=\"hidden\" value=\"" . $value . "\" name=\"" . $key . "\">";
@@ -1566,6 +1566,7 @@ class Webservices
                                         $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
                                         $form .= "</form>";
                                         $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                        
                                 }
                             }
                             } else {
