@@ -1378,11 +1378,7 @@ class Webservices
                             foreach ($quiz_params as $key => $value) {
                                 $form .= "<input type=\"hidden\" value=\"" . $value . "\" name=\"" . $key . "\">";
                             }
-                            $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
-                            $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
-                            $form .= "</form>";
-                            $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
-                       
+                        
                             $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
                             $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
                             $form .= "</form>";
@@ -1390,11 +1386,14 @@ class Webservices
                      
                         } 
                     }
+                    $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                    $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
 
+                }else{
+                    $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                    $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                 }
-                $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
-                $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
-
+               
                 $horario_dia = $this->tags->replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio . ':00');
                 $horario_dia = $this->tags->replace_subtag_data('hora_fin', $horario_dia, $HoraFin . ':00');
                 $horario_dia = $this->tags->replace_subtag_data('curso_nombre', $horario_dia, $json['HorarioDia'][$i]['Clases'][$b]['CursoNombre']);
@@ -1556,9 +1555,7 @@ class Webservices
                                         'c_alumno' => $codigo_alumno,
                                         'c_carrera' => $carrera
                                     );
-                                    $quiz_request = $this->services->curl_post_full_url(ee()->config->item('quiz_server'), $quiz_params);
-                                    $qjson = json_decode($quiz_request, true);
-                                    if ($quiz_request !== false && $qjson['CodError'] === 0) {
+                                    
                                         $horario_dia = $horario_dia_survey_empty;
                                         $form = "<form target=\"_blank\"action=\"" . $qjson["Quizlink"] . "\" ";
                                         $form .= "id=\"" . rand(0, 999) . "\" method=\"post\" class=\"survey-form\">";
@@ -1569,10 +1566,6 @@ class Webservices
                                         $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
                                         $form .= "</form>";
                                         $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
-                                    } else {
-                                        $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
-                                        $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
-                                    }
                                 }
                             }
                             } else {
