@@ -1534,7 +1534,7 @@ class Webservices
                     // END : traer data de encuestas
 
                     for ($q = 0; $q < count($quiz_horarios); $q++) {
-                        if ($json['HorarioDia'][$i]['CodDia'] == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) && $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] && $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion']) {
+                        if ($json['HorarioDia'][$i]['CodDia'] == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) && $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] && $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion'] && date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) == date('N')) {
 
                             $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
                             $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
