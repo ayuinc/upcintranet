@@ -1480,6 +1480,9 @@ class Webservices
                 break;
             }
         }
+        if($i == 0){
+           return $this->tags->get_subtag_data('no_encuestas', $tagdata);
+        }
         $horario = $horario_empty;
         //genera el tamano del array
         $tamano_int = count($json['HorarioDia'][$i]['Clases']);
