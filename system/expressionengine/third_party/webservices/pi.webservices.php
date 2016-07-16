@@ -1474,8 +1474,10 @@ class Webservices
         }
         $tamano = count($json['HorarioDia']);
         $i = 0;
+        $date = new DateTime(date("now"), new DateTimeZone('America/Lima'));
+        $today = $date->format('N');
         for ($j = 0; $j <= $tamano; $j++) {
-            if ($json['HorarioDia'][$j]['CodDia'] == date('N')) {
+            if ($json['HorarioDia'][$j]['CodDia'] == $today) {
                 $i = $j;
                 break;
             }
