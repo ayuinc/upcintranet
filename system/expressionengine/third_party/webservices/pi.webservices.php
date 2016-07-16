@@ -1250,7 +1250,8 @@ class Webservices
         $this->services->set_cookie("Codigo", $codigo, time() + (1800), "/");
         $tagdata = $this->EE->TMPL->tagdata;
         $modalidad_survey = ee()->TMPL->fetch_param('modalidad_survey');
-        $enable_survey = trim(ee()->TMPL->fetch_param('habilitar_survey'));
+        // $enable_survey = trim(ee()->TMPL->fetch_param('habilitar_survey'));
+        $enable_survey = "";
         $url_base_survey = trim(ee()->TMPL->fetch_param('url_base'));
         $id_survey = trim(ee()->TMPL->fetch_param('id_survey'));
         if ($modalidad_survey !== $this->get_modalidad_alumno()) {
