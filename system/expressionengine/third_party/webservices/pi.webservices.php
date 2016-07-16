@@ -1352,67 +1352,48 @@ class Webservices
 
                         if ($json['HorarioDia'][$i]['CodDia'] == date('N', strtotime($quiz_horarios[$q]['SesionFECHA_SESION'])) && $quiz_horarios[$q]['SesionCOD_CURSO'] == $json['HorarioDia'][$i]['Clases'][$b]['CodCurso'] && $quiz_horarios[$q]['SesionSECCION'] == $json['HorarioDia'][$i]['Clases'][$b]['Seccion']) {
 
-                            $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
-                            $strDate = $date->format('YmdH');
-
-                            $class_date = $json['HorarioDia'][$i]['Clases'][$b]['Fecha'] . $HoraInicio;
-                            $class_end_date = $json['HorarioDia'][$i]['Clases'][$b]['Fecha'] . $HoraFin;
-                            if (intval($strDate) >= intval($class_date) && intval($strDate) < intval($class_end_date)) // if(true)
-                            {
-
-                                $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
-                                $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
-                                $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
-                                if ($codigo[0] == 'u') {
-                                    $codigo_alumno = 'U' . substr($codigo, 1);
-                                } else {
-                                    $codigo_alumno = $codigo;
-                                }
-                                $quiz_params = array('c_un' => $codlinea,
-                                    "c_modalidad" => $codmodal,
-                                    "c_periodo" => $periodo,
-                                    "c_curso" => $codcurso,
-                                    "seccion" => $quiz_horarios[$q]['SesionSECCION'],
-                                    "grupo" => $quiz_horarios[$q]["SesionGRUPO"],
-                                    'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
-                                    'c_sede' => $quiz_horarios[$q]["AulaCOD_LOCAL"],
-                                    'c_alumno' => $codigo_alumno,
-                                    'c_carrera' => $carrera
-                                );
-                      
-                                $quiz_link =  "http://encuesta.upc.edu.pe/load-survey/";
-                                $form = "<form target=\"_blank\"action=\"" . $quiz_link . "\" ";
-                                $form .= "id=\"" . rand(0, 999) . "\" method=\"post\" class=\"survey-form\">";
-                                foreach ($quiz_params as $key => $value) {
-                                    $form .= "<input type=\"hidden\" value=\"" . $value . "\" name=\"" . $key . "\">";
-                                }
-                                $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
-                                $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
-                                $form .= "</form>";
-                                $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
-                           
-                                $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
-                                $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
-                                $form .= "</form>";
-                                $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                            $codclase = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodClase'];
+                            $codcurso = (string)$json['HorarioDia'][$i]['Clases'][$b]['CodCurso'];
+                            $grupo = (string)$quiz_horarios[$q]["SesionGRUPO"];
+                            if ($codigo[0] == 'u') {
+                                $codigo_alumno = 'U' . substr($codigo, 1);
                             } else {
-                                $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                                $codigo_alumno = $codigo;
                             }
-                        } else {
-    
-                            $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                            $quiz_params = array('c_un' => $codlinea,
+                                "c_modalidad" => $codmodal,
+                                "c_periodo" => $periodo,
+                                "c_curso" => $codcurso,
+                                "seccion" => $quiz_horarios[$q]['SesionSECCION'],
+                                "grupo" => $quiz_horarios[$q]["SesionGRUPO"],
+                                'aula' => $quiz_horarios[$q]["SesionCOD_AULA"],
+                                'c_sede' => $quiz_horarios[$q]["AulaCOD_LOCAL"],
+                                'c_alumno' => $codigo_alumno,
+                                'c_carrera' => $carrera
+                            );
+                  
+                            $quiz_link =  "http://encuesta.upc.edu.pe/load-survey/";
+                            $form = "<form target=\"_blank\"action=\"" . $quiz_link . "\" ";
+                            $form .= "id=\"" . rand(0, 999) . "\" method=\"post\" class=\"survey-form\">";
+                            foreach ($quiz_params as $key => $value) {
+                                $form .= "<input type=\"hidden\" value=\"" . $value . "\" name=\"" . $key . "\">";
+                            }
+                            $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
+                            $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
+                            $form .= "</form>";
                             $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
-                        }
-                        
-                        $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
-                        $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                       
+                            $form .= "<input type=\"submit\" value=\"\" class=\"survey-submit\">";
+                            $form .= "<input type=\"hidden\" name=\"CSRF\" value=\"{csrf_token}\">";
+                            $form .= "</form>";
+                            $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
+                     
+                        } 
                     }
 
-                   
-                }else {
-                    $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
-                    $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
                 }
+                $form = "<a class=\"inactive\" href=\"#\"><span class=\"helvetica-14\"><img src=\"" . $site_url . 'assets/img/btn-encuesta-no-disponible.jpg' . "\" alt=\"Encuesta\"></span></a>";
+                $horario_dia = $this->tags->replace_subtag_data('survey_form', $horario_dia, $form);
 
                 $horario_dia = $this->tags->replace_subtag_data('hora_inicio', $horario_dia, $HoraInicio . ':00');
                 $horario_dia = $this->tags->replace_subtag_data('hora_fin', $horario_dia, $HoraFin . ':00');
