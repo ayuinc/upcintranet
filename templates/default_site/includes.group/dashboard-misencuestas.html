@@ -43,10 +43,20 @@
 {/horario_survey}
 {error}
 <div class="panel-body  mb-7 ">
-    <div class="panel-table p-21">
-        <div class="tr"><span class="helvetica-14">{error_message}</span></div>
-
+<div class="panel-body  mb-7">
+    <div class="panel-table red-line">
+        <ul class="tr mis-cursos-row">
+            <li class="col-sm-2 col-xs-12">
+                <img src="{site_url}assets/img/brain.png" class="img-center">
+            </li>
+            <li class="col-sm-10 col-xs-12">
+                <span class="block zizou-bold-18">Tiempo de Innovar</span>
+                <span class="helvetica-16">No tienes ninguna encuesta disponible</span>
+                <!-- {erro_message} -->
+            </li>
+        </ul>
     </div>
+</div>
 </div>
 {/error}
 {no_encuestas}
