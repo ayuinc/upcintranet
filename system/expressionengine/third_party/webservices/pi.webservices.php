@@ -1483,7 +1483,10 @@ class Webservices
             }
         }
         if($i == 0){
-           return $this->tags->get_subtag_data('no_encuestas', $tagdata);
+        //   return $this->tags->get_subtag_data('no_encuestas', $tagdata);
+            $error_result = $this->tags->get_subtag_data('error', $this->EE->TMPL->tagdata);
+            $error_result = $this->tags->replace_subtag_data('error_message', $error_result, $date->format('N'));
+            return $error_result;
         }
         $horario = $horario_empty;
         //genera el tamano del array
