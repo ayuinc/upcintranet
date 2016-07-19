@@ -1475,13 +1475,14 @@ class Webservices
         $tamano = count($json['HorarioDia']);
         $date = new DateTime(date("Y-m-d H:i:s"), new DateTimeZone('America/Lima'));
         $today = $date->format('N');
+        $i;
         for ($j = 0; $j <= $tamano; $j++) {
             if ($json['HorarioDia'][$j]['CodDia'] == $today) {
                 $i = $j;
                 break;
             }
         }
-        if($i != null){
+        if($i === null){
             return $this->tags->get_subtag_data('no_encuestas', $tagdata);
             // $error_result = $this->tags->get_subtag_data('error', $this->EE->TMPL->tagdata);
             // $error_result = $this->tags->replace_subtag_data('error_message', $error_result, $date->format('N'));
