@@ -134,7 +134,6 @@ $(document).ready(function () {
                     maxlength: 50,
                     notUPCemail : true,
                     email : true,
-                    customEmail : true
                 },
                 phone : {
                     required : data.obligatorio,
@@ -160,7 +159,6 @@ $(document).ready(function () {
                     maxlength: 50,
                     notUPCemail : true,
                     email : true,
-                    customEmail : true
                 },
                 phoneApoderado : {
                     required : data.ApodMovilOblig,
