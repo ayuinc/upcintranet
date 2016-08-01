@@ -1,5 +1,5 @@
 jQuery.validator.addMethod("notUPCemail", function(email, element) {
-        var regex = /^([a-zA-Z0-9_.+-])+\@(upc.edu.pe)+$/;
+        var regex = /^([a-zA-Z0-9_.+-])+\@upc.edu.pe/;
         return !regex.test(email);
 }, "Ingrese un correo diferente a su correo de UPC.");
 
