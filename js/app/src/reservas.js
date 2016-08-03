@@ -15,6 +15,11 @@ jQuery.validator.addMethod("require_from_group", function (value, element, optio
   // {0} below is the 0th item in the options field
 }, jQuery.validator.format("Debes seleccionar un espacio"));
 
+$.validator.addMethod("readonly_required", function(value, element, options){
+  console.log("validadion readonly");
+  return (value.length !== 0);
+});
+
 $.validator.addMethod("peruvianDate", function (value, element) {
   return value.match(/^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/);
 }, "Ingrese una fecha válida");
@@ -47,7 +52,9 @@ $(document).ready(function () {
     //Listen for the change even on the input
     .change(dateChanged)
     .on('changeDate', dateChanged);
-
+  $('.datepicker').datepicker({ autoclose: true, });
+  $(".datepicker").datepicker("setDate", new Date());
+ 
   $("#deportivos-form").validate({
     // Ignore not visible fields 
     // ignore:":not(:visible)",
@@ -121,7 +128,6 @@ $(document).ready(function () {
     },
   });
   $("#cubiculos-form").validate({
-  // Specify the validation rules
     rules: {
       CodSede: "required",
       FecIni:  {required : true,
@@ -129,10 +135,10 @@ $(document).ready(function () {
       HoraIni: "required",
       CanHoras: "required",
     },
-    // Specify the validation error messages
     messages: {
       FecIni: {
         required: "Debes seleccionar una fecha",
+        readonly_required : true
       },
       CodSede: {
         required: "Debes seleccionar una sede",
@@ -144,6 +150,19 @@ $(document).ready(function () {
         required: "Debes seleccionar la hora inicial",
       },
     },
+    errorPlacement: function (error, element) {
+      if (element.hasClass('selectpicker')) {
+        var shadowElement = $('[data-id="' + element.attr('id') + '"]').parent();
+        if (shadowElement.is(':visible')) {
+          error.insertAfter(shadowElement);
+        } else {
+          return;
+        }
+      } else if (element.is(':visible')) {
+        error.insertAfter(element);
+      }
+      return;
+    }
   });
 
   //add require from group method
