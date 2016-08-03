@@ -196,9 +196,9 @@ class ws_helper
      * @param bool $as_object
      * @return bool|mixed
      */
-    public function parse_json($string, $as_object = true)
+    public function parse_json($string, $as_dict = true)
     {
-        $json = json_decode($string, $as_object);
+        $json = json_decode($string, $as_dict);
         if (json_last_error() == JSON_ERROR_NONE) {
             return $json;
         } else {
