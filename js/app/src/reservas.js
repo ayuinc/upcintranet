@@ -31,6 +31,7 @@ $(document).ready(function () {
   $('input[name="FechaIni"]').keypress(function (event) {
     event.preventDefault();
   });
+  
   var result = "";
   var max_horas =  parseInt($('input[name=maxHoras]').val(), 10);
   var min_horas =  parseInt($('input[name=minHoras]').val(), 10);
@@ -39,6 +40,19 @@ $(document).ready(function () {
   };
 
   $('#hora-reserva').html(result);
+
+  //ININIA HORA EN ACTUAL MAS UNO
+  var dt = new Date();
+  var time = dt.getHours();
+  $('select[name="HoraIni"] option').each(function(index){
+    $(this).removeAttr('selected');
+    if($(this).val()< time){
+     $(this).prop('disabled', 'true');
+    }
+  });
+  $('select[name="HoraIni"] option[value="'+(time+1)+'"]').prop('selected', 'true');
+  
+
 
   $(".datepicker").datepicker({
     dateFormat : 'dd/mm/yy',
