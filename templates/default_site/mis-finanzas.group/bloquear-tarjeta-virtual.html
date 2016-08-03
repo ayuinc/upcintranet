@@ -1,0 +1,97 @@
+{404-segment-last}
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+{embed="includes/header"}
+{embed="includes/header_movil"}
+{embed="includes/sidebar"}
+
+
+
+    <div class="site-content ciclo-actual">
+      <div class="container-fluid">
+        {exp:channel:entries channel="seccion" limit="1" url_title="{segment_2}"}
+        <div class="internal-header">
+            <div class="row">
+              <div class="col-md-0-5 hidden-sm hidden-xs"></div>
+              <div class="col-md-4 col-sm-12 col-xs-12"><span class="zizou-16">{segment_1_category_name}</span></div>
+            </div>
+            <div class="row">
+              <div class="col-md-0-5 hidden-sm hidden-xs"></div>
+              <div class="col-md-4 col-sm-12 col-xs-12"><span class="uppercase bold xl">{title}</span></div>
+            </div>
+        </div>  
+        <div class="section-content pb-70">
+            <div class="row">
+              <div class="col-md-0-5 hidden-sm hidden-xs"></div>
+              <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="panel">
+                  <div class="panel-head no-bg">
+                    <div class="panel-title left">
+                      
+                      
+                      
+                      
+                      
+                      
+                    </div>
+                  </div>
+                  <div class="panel-body mt-7">
+                    <div class="panel-body-head-table hidden-xs hidden-sm">
+                      
+                      <div class="tr">
+                        <img src="https://67.media.tumblr.com/7186420a33708add54668040c7039912/tumblr_mg6qm0WSDw1ruroo3o1_1280.jpg" alt="CAT" class="img unicorn-cat" />
+                      </div>
+                      
+                      
+                      
+                    </div>
+                    <div class="panel-table no-bg" id="cursos-alumno">
+                        <div class="tr">
+                             
+                     
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                	{embed="includes/otras-acciones" otras_acciones="{otras-actividades-seccion}"}
+             
+                {categories}
+                  <?php $category = '{category_id}'; ?>
+                {/categories}
+                {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
+              </div>
+      {if no_results}
+        Hola
+      {/if}
+      {/exp:channel:entries}        
+              <div class="col-md-8">
+                <div class="panel" id="mi-ciclo-actual">
+                    <div class="panel-head no-bg">
+                      <div class="panel-title left">
+                        <h3>Formulario de Bloqueo de Tarjeta</h3>
+                      </div>
+                    </div>
+                    <div  class="panel-body white">
+                        <div class="panel-table">
+                            <div class="tr p-14" >
+                                               
+                                   <form name="bloquear-tarjeta" id="bloquear-tarjeta">
+                                       <label for="internetpassword">Ingresa tu clave de internet</label>
+                                       <input type="text" name="internetpassword" class="form-control zizou-16" placeholder="clave de internet"/>
+                                       <input type="submit" value="Consultar" class="btn wide-full btn-custom black-btn mt-14"/>
+                                   </form>
+                 
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                 {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+{embed="includes/footer"}
+<script src="{site_url}js/app/src/mis_finanzas_ajax.js.php?url='{site_url}'"></script>

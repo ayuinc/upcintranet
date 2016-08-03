@@ -5734,6 +5734,28 @@ class Webservices
     public function get_alumno_data(){
         $result = $this->upc_services->get_data_update_reglamento();
     }
+    
+    
+    public function bloqueado(){
+        
+        $result = $this->upc_services->get_random_data();
+        $array = array("mensaje" => "Algo está mal",
+                       "catname" => "Purrrr"
+                       );
+        if($result != false){
+            if($result[0] != null){
+                $array = array("mensaje" => "Uy, ya está bloqueado. Tu código de bloqueo es ".$result[0]->phone,
+                       "catname" => "Purrrr"
+                       );
+            }
+            
+        }
+        $this->EE->output->send_ajax_response($array);
+    }
+    
+    
+    
+    
 }
 
 /* End of file pi.webservices.php */

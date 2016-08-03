@@ -1,0 +1,55 @@
+{embed="includes/head"}
+{!-- {exp:webservices:iniciar_session} --}
+  
+{embed="includes/header"}
+{embed="includes/header_movil"}
+ {embed="includes/sidebar"} 
+
+    <div class="site-content">
+     <div class="container-fluid">
+      <div class="internal-header">
+        <div class="row">
+          <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+          <div class="col-sm-3-5"><span class="zizou-16">{segment_1_category_name}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-md-0-5 hidden-xs hidden-sm"></div>
+          <div class="col-md-3-5"><span class="uppercase bold xl">
+          {segment_2_category_name}</span></div>
+        </div>
+      </div> 
+      <div class="section-content pb-70">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-md-3 ">
+              
+            {embed="includes/dashboard-accesos-rapidos" cate="{segment_2_category_id}"}
+          </div>
+          <div class="col-md-8 pr-70">
+              <span class="zizou-26 mb-21">¿Qué deseas hacer?</span>
+       
+             <div class="panel">
+               <div class="panel-body">
+                 <div class="panel-table mr-xs-7 p-14 pt-21 mb-14 text-left red-line col-12">
+                 <p>Aquí puedes consultar tu saldo.</p>
+                 
+                 <form name="consultar-saldo" id="consultar-saldo">
+                     <label for="numeroTarjeta">Ingresa tu número de tarjeta</label>
+                     <input type="text" name="numeroTarjeta" class="form-control zizou-16" />
+                     <input type="submit" value="Consultar" class="btn wide-full btn-custom black-btn mt-14"/>
+                 </form>
+                 
+                 
+                 </div>
+               </div>
+               
+               
+             </div>
+
+          </div>
+        </div>
+      </div>
+      </div>
+     </div>   
+{embed="includes/footer"}
+<script src="{site_url}js/app/src/mis_finanzas_ajax.js.php?url='{site_url}'"></script>

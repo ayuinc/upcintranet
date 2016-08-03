@@ -262,6 +262,17 @@ class UPC_services
         $result = $this->curl_quicks->curl_full_url($url,  ee()->config->item('sentAlumno_services_user'),  ee()->config->item('sentAlumno_services_pwd'));
         return  $this->curl_quicks->parse_json($result, false);
     }
+    
+    
+    public function get_Random_Data() {
+        
+        $result = $this->curl_quicks->curl_full_url("https://jsonplaceholder.typicode.com/users", "", "");
+        
+        return $this->curl_quicks->parse_json($result, false);
+    }
+    
+    
+    
 }
 /* End of file UPC_services.php */
 /* Location: ./system/expressionengine/third_party/webservices/libraries/UPC_services.php */

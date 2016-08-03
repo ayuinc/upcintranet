@@ -1,1 +1,8 @@
-{exp:webservices:get_alumno_data}
+{exp:channel:entries channel="capacitacion" limit="5"}
+{fecha_capacitacion} // {tema_capacitacion}//{capacitacion_enable}
+{/exp:channel:entries}
+
+{exp:webservices:user_data_update}
+
+
+{/exp:webservices:user_data_update}
