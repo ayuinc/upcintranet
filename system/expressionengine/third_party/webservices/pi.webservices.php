@@ -5690,6 +5690,7 @@ class Webservices
         $phone = ee()->TMPL->fetch_param('phone');
         $email = ee()->TMPL->fetch_param('email');
 
+        $codigoAp = ucwords(strtolower(ee()->TMPL->fetch_param('codigoAp')));
         $nombreAp = ucwords(strtolower(ee()->TMPL->fetch_param('nombreAp')));
         $apePatAp = ucwords(strtolower(ee()->TMPL->fetch_param('apePatAp')));
         $apeMatAp = ucwords(strtolower(ee()->TMPL->fetch_param('apeMatAp')));
@@ -5702,7 +5703,7 @@ class Webservices
             $this->upc_user_data->set_apellido_paterno($sentAlumno->ListaDTOAlumno[0]->PersonaApellidoPatern);
             $this->upc_user_data->set_apellido_materno($sentAlumno->ListaDTOAlumno[0]->PersonaApellidoMatern);
         }
-        $result = $this->upc_services->set_data_update_registered_user($phone, $email, $nombreAp, $apePatAp, $apeMatAp, $phoneAp, $emailAp, $tipo);
+        $result = $this->upc_services->set_data_update_registered_user($phone, $email, $codigoAp, $nombreAp, $apePatAp, $apeMatAp, $phoneAp, $emailAp, $tipo);
         if($result != false){
             if($result->DTOHeader->CodigoRetorno == "Correcto"){
                 return;

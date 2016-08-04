@@ -215,7 +215,7 @@ class UPC_services
      * @param $tipo tipo de apoderado
      * @return response
      */
-    public function set_data_update_registered_user($phone, $email, $apNombres, $apApPatern, $apApMatern, $apphone, $apemail, $tipo){
+    public function set_data_update_registered_user($phone, $email, $codigoAp, $apNombres, $apApPatern, $apApMatern, $apphone, $apemail, $tipo){
         $codlinea = $this->user_data->get_user_linea();
         $codalumno = $this->user_data->get_full_user_code();
         $codmodal = $this->user_data->get_user_modalidad();
