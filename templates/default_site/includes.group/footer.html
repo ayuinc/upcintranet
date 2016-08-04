@@ -16,7 +16,7 @@
   {if segment_1 == 'login' || segment_1 == '' }
   <script src="{site_url}js/app/src/login.js?v=1.5.3"></script>
   {/if}
-  {if segment_1 == 'dashboard'}
+  {if segment_1 == 'dashboard' && segment_2 == 'estudiante'}
   <script src="{site_url}js/app/src/session_expired.js.php?url='{site_url}'"></script>
   <script src="https://npsupc.azurewebsites.net/js/crearFormulario.js"></script>
   {/if}
