@@ -1,0 +1,95 @@
+{embed="includes/head"}
+{exp:webservices:iniciar_session}
+{embed="includes/header"}
+{embed="includes/header_movil"}
+{embed="includes/sidebar"}
+ <div class="site-content ciclo-actual">
+      <div class="container-fluid">
+        {exp:channel:entries channel="seccion" limit="1" entry_id="20"}
+        <div class="internal-header">
+            <div class="row">
+              <div class="col-md-0-5 hidden-sm hidden-xs"></div>
+              <div class="col-md-4 col-sm-12 col-xs-12"><span class="zizou-16">Mis Estudios</span></div>
+            </div>
+            <div class="row">
+              <div class="col-md-0-5 hidden-sm hidden-xs"></div>
+              <div class="col-md-4 col-sm-12 col-xs-12"><span class="uppercase bold xl">{title}</span></div>
+            </div>
+        </div>  
+        <div class="section-content pb-70">
+            <div class="row">
+              <div class="col-md-0-5 hidden-sm hidden-xs"></div>
+              <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="panel">
+                  <div class="panel-head no-bg">
+                    <div class="panel-title left">
+                      <h3>Mis Cursos</h3>
+                    </div>
+                  </div>
+                  <div class="panel-body mt-7">
+                    <div class="panel-body-head-table hidden-xs hidden-sm">
+                      <ul class="tr">
+                        <li class=" text-center col-md-8">
+                          <div class=""><span>Curso</span></div>
+                        </li>
+                        <li class="col-md-4 text-center">
+                          <div class=""><span>Promedio</span></div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="panel-table no-bg" id="cursos-alumno">
+                        <div id="cargador-cursos-estudiante" class="tr">
+                        {embed="includes/spinner"}
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                	{embed="includes/otras-acciones" otras_acciones="{otras-actividades-seccion}"}
+             
+                {categories}
+                  <?php $category = '{category_id}'; ?>
+                {/categories}
+                {embed="includes/dashboard-accesos-rapidos" cate="<?php echo($category) ?>"}
+              </div>
+      {/exp:channel:entries}        
+              <div class="col-md-8">
+                <div class="panel" id="mi-ciclo-actual">
+                    <div class="panel-head no-bg">
+                      <div class="panel-title left">
+                        <h3>Mis compañeros</h3>
+                      </div>
+                    </div>
+                    
+                    <div class="panel-body red-line mb-7">
+                      
+                      <div class="panel-body-head-table white hidden-sm hidden-xs">
+                        {exp:webservices:companeros_clase_por_curso cod_curso="{segment_3}"}
+                        <div class="panel-table hidden-sm hidden-xs">
+                            {alumnos}
+                            <ul class="tr mis-cursos-row table-border">
+                                 
+                                <li class="col-sm-8 col-xs-1-5 col-md-8 hidden-xs">
+                                    <div class="text-center">
+                                        <span class="helvetica-14">{nombre}</span>
+                                    </div>
+                                </li>
+                                <li class="col-sm-4 col-xs-1-5 col-md-4 hidden-xs">
+                                    <div class="text-center">
+                                          <img src="{foto_url}" alt="foto-{nombre}" class="img">
+                                    </div>
+                                </li>
+                            </ul>
+                            {/alumnos}
+                        </div>
+                        {/exp:webservices:companeros_clase_por_curso}
+                      </div>
+                    
+                </div>
+                 {embed="includes/dashboard-accesos-rapidos-mobile" cate="<?php echo($category) ?>"}
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+{embed="includes/footer" }

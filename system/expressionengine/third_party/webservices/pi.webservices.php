@@ -1,5 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+use Collective\Html\HtmlServiceProvider;
 /**
  * Memberlist Class
  *
@@ -3308,6 +3309,41 @@ class Webservices
 
         } else {
             $result = '';
+            
+            $fnow = time();
+            $fecha_antigua = null;
+            
+            foreach ($json['PagosPendientes'] as $key => $value) :
+                $fech_vencimiento = substr($value['FecVencimiento'], 0, 4) . '-' . substr($value['FecVencimiento'], 4, 2) . '-' . substr($value['FecVencimiento'], 6, 2);
+                
+                if ($fecha_antigua > strtotime($fech_vencimiento))
+                    $fecha_antigua = strtotime($fech_vencimiento);
+            endforeach;
+            
+            $diaspasados = $this->get_diferencia_en_dias($fecha_antigua, $fnow);
+            if ($diaspasados > 30) {
+                setlocale(LC_TIME, 'es_PE');
+                $result .= '<div class="panel">';
+                $result .= '<div class="panel-body pb-21">';
+                $result .= '<div class="red-line panel-table p-14 pt-0 text-left">';
+                $result .= '<ul class="tr">';
+                $result .= '<li class="col-xs-3 col-sm-2 text-center">';
+                $result .= '<img class="img-center" src="{site_url}assets/img/icono-pagos-pendientes.png" alt=""> ';
+                $result .= '</li>';
+
+                $mensaje = ($diaspasados < 60) ? '““Tienes tres cuotas vencidas desde el 03 de agosto del 2015, consulta nuestros medios de pago (linkeado a la página web UPC), evita inconvenientes”' : '“Tienes dos cuotas vencidas desde el 03 de agosto del 2015, te invitamos a conocer nuestros medios de pago (linkeado a la página web UPC), evita pagar más recargos por moras e intereses.
+Ponte al día!”';
+                setlocale(LC_TIME, "es_ES");
+                $mensaje = $this->tags->replace_subtag_data('fecha', $mensaje, strftime("%d de %B del %Y", $fven));
+                $result .= '<li class="col-xs-9 col-sm-10"><span class="block helvetica-18">' . $mensaje . '</span>';
+
+                $result .= '</li>';
+                $result .= '</ul>';
+                $result .= '</div>';
+                $result .= '</div>';
+                $result .= '</div>';
+            }
+                
             for ($i = 0; $i < count($json['PagosPendientes']); $i++) {
                 $fecha_actual = strtotime(date("d-m-Y H:i:00", time()));
                 $fech_emision_format = substr($json['PagosPendientes'][$i]['FecEmision'], 6, 2) . '-' . substr($json['PagosPendientes'][$i]['FecEmision'], 4, 2) . '-' . substr($json['PagosPendientes'][$i]['FecEmision'], 0, 4);
@@ -3316,32 +3352,15 @@ class Webservices
                 $fecha_vencimiento_format1 = substr($json['PagosPendientes'][$i]['FecVencimiento'], 0, 4) . '-' . substr($json['PagosPendientes'][$i]['FecVencimiento'], 4, 2) . '-' . substr($json['PagosPendientes'][$i]['FecVencimiento'], 6, 2);
 
                 $fech_vencimiento = strtotime($fech_vencimiento_format1 . ' 12:00:00');
+                $descuento = number_format($json['PagosPendientes'][$i]['Descuento'], 2, '.', ' ');
+                $impuest = number_format($json['PagosPendientes'][$i]['Impuesto'], 2, '.', ' ');
+                $cancelado = number_format($json['PagosPendientes'][$i]['Cancelado'], 2, '.', ' ');
+                $saldo = number_format($json['PagosPendientes'][$i]['Saldo'], 2, '.', ' ');
+                $mora = number_format($json['PagosPendientes'][$i]['Mora'], 2, '.', ' ');
+                $total = number_format($json['PagosPendientes'][$i]['Total'], 2, '.', ' ');
 
-                $fnow = time();
-                $fven = strtotime($fech_vencimiento_format);
+                $fven = strtotime($fecha_vencimiento_format1);
                 $diaspasados = $this->get_diferencia_en_dias($fven, $fnow);
-
-                if ($diaspasados > 30) {
-                    setlocale(LC_TIME, 'es_PE');
-                    $result .= '<div class="panel">';
-                    $result .= '<div class="panel-body pb-21">';
-                    $result .= '<div class="red-line panel-table p-14 pt-0 text-left">';
-                    $result .= '<ul class="tr">';
-                    $result .= '<li class="col-xs-3 col-sm-2 text-center">';
-                    $result .= '<img class="img-center" src="{site_url}assets/img/icono-pagos-pendientes.png" alt="">';
-                    $result .= '</li>';
-
-                    $mensaje = ($diaspasados < 60) ? $this->tags->get_subtag_data('pendiente_dos_meses', $tagdata) : $this->tags->get_subtag_data('pendiente_tres_meses', $tagdata);
-                    setlocale(LC_TIME, "es_ES");
-                    $mensaje = $this->tags->replace_subtag_data('fecha', $mensaje, strftime("%d de %B del %Y", $fven));
-                    $result .= '<li class="col-xs-9 col-sm-10"><span class="block helvetica-18">' . $mensaje . '</span>';
-
-                    $result .= '</li>';
-                    $result .= '</ul>';
-                    $result .= '</div>';
-                    $result .= '</div>';
-                    $result .= '</div>';
-                }
 
                 $result .= '<div class="panel-body">';
                 $result .= '<div class="panel-body-head left">';
@@ -3388,12 +3407,6 @@ class Webservices
                 }
                 setlocale(LC_MONETARY, 'en_US');
                 $importe = number_format($json['PagosPendientes'][$i]['Importe'], 2, '.', ' ');
-                $descuento = number_format($json['PagosPendientes'][$i]['Descuento'], 2, '.', ' ');
-                $impuest = number_format($json['PagosPendientes'][$i]['Impuesto'], 2, '.', ' ');
-                $cancelado = number_format($json['PagosPendientes'][$i]['Cancelado'], 2, '.', ' ');
-                $saldo = number_format($json['PagosPendientes'][$i]['Saldo'], 2, '.', ' ');
-                $mora = number_format($json['PagosPendientes'][$i]['Mora'], 2, '.', ' ');
-                $total = number_format($json['PagosPendientes'][$i]['Total'], 2, '.', ' ');
                 $result .= '</ul>';
                 $result .= '</div>';
                 $result .= '<div class="panel-body-head-table gm-border-top">';
@@ -3561,7 +3574,7 @@ class Webservices
                     $result .= '<div class="red-line panel-table p-14 pt-0 text-left">';
                     $result .= '<ul class="tr">';
                     $result .= '<li class="col-xs-3 col-sm-2 text-center">';
-                    $result .= '<img class="img-center" src="{site_url}assets/img/icono-pagos-pendientes.png" alt="">';
+                    $result .= '<img class="img-center" src="{site_url}assets/img/icono-pagos-pendientes.png" alt=""> Hola Mundo 4';
                     $result .= '</li>';
 
                     $mensaje = ($diaspasados < 60) ? $this->tags->get_subtag_data('pendiente_dos_meses', $tagdata) : $this->tags->get_subtag_data('pendiente_tres_meses', $tagdata);
@@ -5690,6 +5703,7 @@ class Webservices
         $phone = ee()->TMPL->fetch_param('phone');
         $email = ee()->TMPL->fetch_param('email');
 
+        $codigoAp = ucwords(strtolower(ee()->TMPL->fetch_param('codigoAp')));
         $nombreAp = ucwords(strtolower(ee()->TMPL->fetch_param('nombreAp')));
         $apePatAp = ucwords(strtolower(ee()->TMPL->fetch_param('apePatAp')));
         $apeMatAp = ucwords(strtolower(ee()->TMPL->fetch_param('apeMatAp')));
@@ -5702,7 +5716,7 @@ class Webservices
             $this->upc_user_data->set_apellido_paterno($sentAlumno->ListaDTOAlumno[0]->PersonaApellidoPatern);
             $this->upc_user_data->set_apellido_materno($sentAlumno->ListaDTOAlumno[0]->PersonaApellidoMatern);
         }
-        $result = $this->upc_services->set_data_update_registered_user($phone, $email, $nombreAp, $apePatAp, $apeMatAp, $phoneAp, $emailAp, $tipo);
+        $result = $this->upc_services->set_data_update_registered_user($phone, $email, $codigoAp, $nombreAp, $apePatAp, $apeMatAp, $phoneAp, $emailAp, $tipo);
         if($result != false){
             if($result->DTOHeader->CodigoRetorno == "Correcto"){
                 return;
