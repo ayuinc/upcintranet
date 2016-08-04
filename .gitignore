@@ -3,6 +3,7 @@
 system/expressionengine/config
 .DS_Store
 .htaccess
+upc.pem
 
 ## Windows
 Thumbs.db
