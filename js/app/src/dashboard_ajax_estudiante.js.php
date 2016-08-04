@@ -127,12 +127,13 @@ $(document).ready(function () {
             $('#modalactualizar').modal('toggle');
         }
         $('#form-actualizar').validate({
+
             rules:{
                 email: {
                     required : data.obligatorio,
                     maxlength: 50,
                     notUPCemail : true,
-                    email : true
+                    email : true,
                 },
                 phone : {
                     required : data.obligatorio,
@@ -157,7 +158,7 @@ $(document).ready(function () {
                     required : data.ApodEmailOblig,
                     maxlength: 50,
                     notUPCemail : true,
-                    email : true
+                    email : true,
                 },
                 phoneApoderado : {
                     required : data.ApodMovilOblig,
@@ -181,6 +182,7 @@ $(document).ready(function () {
                     "number": "Solo ingrese números",
                     "minlength": "Debe tener 9 dígitos",
                     "maxlength": "Ingrese un número de teléfono móvil válido"
+
                 },
                 nombreApoderado : {
                     "required"  : "Ingrese el nombre del Apoderado"
@@ -211,6 +213,7 @@ $(document).ready(function () {
                 $.post(hostname + 'includes/actualizar-datos-post', {
                     phone : $('#form-actualizar #phone').val(),
                     email : $('#form-actualizar #email').val(),
+                    codigoAp : $('#form-actualizar #codigoAp').val(),
                     nombreApoderado : $('#form-actualizar #nombreApoderado').val(),
                     apellidoPatApoderado : $('#form-actualizar #apellidoPatApoderado').val(),
                     apellidoMatApoderado : $('#form-actualizar #apellidoMatApoderado').val(),
