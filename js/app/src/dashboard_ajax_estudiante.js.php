@@ -211,9 +211,6 @@ $(document).ready(function () {
                 $.post(hostname + 'includes/actualizar-datos-post', {
                     phone : $('#form-actualizar #phone').val(),
                     email : $('#form-actualizar #email').val(),
-                    
-                    codigoAp : $('#form-actualizar #codigoAp').val(),
-                    
                     nombreApoderado : $('#form-actualizar #nombreApoderado').val(),
                     apellidoPatApoderado : $('#form-actualizar #apellidoPatApoderado').val(),
                     apellidoMatApoderado : $('#form-actualizar #apellidoMatApoderado').val(),
