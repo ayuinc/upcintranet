@@ -1,13 +1,5 @@
-<ul class="list-unstyled">
+<ul class="list-unstyled {embed:extra-class}">
   {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="{embed:category}"}
-	{if embed:category == 8|| embed:category == 12 || embed:category == 17 || embed:category ==23 || embed:category == 24 || embed:category == 32|| embed:category == 31 || embed:category == 39 || embed:category == 46 || embed:category == 43 || embed:category == 82 || embed:category == 81 || embed:category == 80 || embed:category == 95 || embed:category == 96 || embed:category == 112 || embed:category == 111 || embed:category == 94 || embed:category == 93}
-		{if {entry_id} > 303}
-			<li><a id="lnk_int_{title}" href="{site_url}{embed:item}/{url_title}">{title}</a></li>
-		{if:else}
-			<li><a id="lnk_int_{title}" href="{site_url}{embed:item}/{url_title}">{title}</a></li>
-		{/if}
-	{if:else}
-		<li><a id="lnk_int_{title}" href="{site_url}/{embed:item}/{url_title}">{title}</a></li>
-	{/if}
+	<li><a id="lnk_int_{title}" href="{site_url}{embed:item}/{url_title}">{title}</a></li>
   {/exp:channel:entries}
 </ul>

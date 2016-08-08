@@ -5,7 +5,6 @@
     .nav-main > li.current-menu.{url_title} a div {  background-image: url({icono_sidebar_red});  }
     .nav-main > li.{url_title} a div {  background-image: url({icono_sidebar_grey});  }
     {/exp:channel:entries}
-
 </style>
 <div class="site-menu hidden-sm hidden-xs">
     <ul class="list-unstyled nav-main">
@@ -22,69 +21,6 @@
             {embed="includes/subitems-sidebar" category="{id_categoria_subitems}" item="{url_title}"}
         </li>
         {/exp:channel:entries}
-        <!-- 
-        <li class="mis-estudios menu {if segment_1=='mis-estudios'}current-menu{/if}">
-          <a href="{site_url}mis-estudios/ciclo-actual">
-            <div></div>
-            <span>Mis Estudios</span>
-          </a>
-          <ul class="list-unstyled">
-	          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="8"}
-            	<li><a href="{site_url}mis-estudios/{url_title}">{title}</a></li>
-            {/exp:channel:entries}
-          </ul>
-        </li>
-        <li class="mis-tramites menu {if segment_1=='mis-tramites'}current-menu{/if}">
-          <a href="#">
-            <div></div>
-            <span>Mis Trámites</span>
-          </a>
-          <ul class="list-unstyled">
-	          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="12"}
-            	<li><a href="{site_url}mis-tramites/{url_title}">{title}</a></li>
-            {/exp:channel:entries}	          
-          </ul>
-        </li>
-        <li class="mis-finanzas menu {if segment_1=='mis-finanzas'}current-menu{/if}">
-          <a href="#">
-            <div></div>
-            <span>Mis Finanzas</span>
-          </a>
-          <ul class="list-unstyled">
-	          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="17"}
-            	<li><a href="{site_url}mis-finanzas/{url_title}">{title}</a></li>
-            {/exp:channel:entries}	          
-          </ul>          
-        </li>
-        <li class="mis-reservas menu {if segment_1=='mis-reservas'}current-menu{/if}">
-          <a href="#">
-            <div></div>
-            <span>Mis Reservas</span>
-          </a>
-          <ul class="list-unstyled">
-          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="23"}
-          	<li><a href="{site_url}mis-reservas/{url_title}">{title}</a></li>
-          {/exp:channel:entries}	
-          </ul>             
-        </li>
-        <li class="info-gral menu">
-          <a href="{site_url}mundo-upc/informacion-general">
-            <div></div>
-            <span>Info. Gral.</span>
-          </a>
-        </li>       
-        <li class="ci menu">
-          <a href="#">
-            <div></div>
-            <span>CI</span>
-          </a>
-          <ul class="list-unstyled">
-          {exp:channel:entries channel="seccion" disable="custom_fields|member_data|pagination" dynamic="off" category="24"}
-          	<li><a href="{site_url}centro-de-informacion/{url_title}">{title}</a></li>
-          {/exp:channel:entries}
-          </ul>	          
-        </li>
-        -->
         <li class="ayuda menu sidebar-item">
             <a id="lnk_int_Ayuda" href="{site_url}ayuda">
                 <div></div>
